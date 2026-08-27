@@ -389,7 +389,11 @@ def fetch_aggregations(
                 f"&aggregation_methods={mth}&joined_before_date=")
 
     with sync_playwright() as p:
-        browser = p.chromium.launch(headless=True)
+        _exe = os.environ.get("PLAYWRIGHT_CHROMIUM_EXECUTABLE_PATH", "/opt/pw-browsers/chromium")
+        try:
+            browser = p.chromium.launch(headless=True, executable_path=_exe if os.path.exists(_exe) else None)
+        except Exception:
+            browser = p.chromium.launch(headless=True)
         # No page is ever opened: loading one would mint a cf_clearance cookie
         # that poisons every subsequent request (see module docstring).
         ctx = browser.new_context(user_agent=_UA)
