@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-settings.json",
+  "permissions": {
+    "allow": [
+      "Bash(uv run:*)",
+      "Bash(uv add:*)",
+      "Bash(uv sync:*)",
+      "Bash(python3 scripts/:*)",
+      "Bash(git status:*)",
+      "Bash(git diff:*)",
+      "Bash(git log:*)",
+      "Bash(ls:*)",
+      "Bash(cat:*)",
+      "Bash(sed -n:*)",
+      "Bash(rg:*)",
+      "WebSearch",
+      "WebFetch(domain:www.metaculus.com)",
+      "WebFetch(domain:metaculus.com)",
+      "WebFetch(domain:polymarket.com)",
+      "WebFetch(domain:kalshi.com)",
+      "WebFetch(domain:manifold.markets)",
+      "WebFetch(domain:archive.is)",
+      "Read",
+      "Edit(questions/**)",
+      "Write(questions/**)",
+      "Edit(INDEX.md)"
+    ],
+    "deny": [
+      "Bash(git push:*)",
+      "Bash(rm -rf:*)"
+    ]
+  }
+}

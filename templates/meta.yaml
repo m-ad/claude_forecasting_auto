@@ -1,0 +1,43 @@
+# Question metadata. Machine-read by scripts/status.py and scripts/log_forecast.py.
+slug: "{{SLUG}}"
+title: "{{TITLE}}"
+source: "{{SOURCE}}"          # metaculus | kalshi | polymarket | manifold | other
+url: "{{URL}}"
+post_id: {{POST_ID}}          # null for non-Metaculus
+type: "{{TYPE}}"              # binary | numeric | date | multiple_choice
+unit: null                    # e.g. "USD bn", "°C"; null for binary
+tags: []
+
+dates:
+  created: "{{TODAY}}"
+  opened: null
+  closes: null                # last date forecasts are accepted
+  resolves: null              # date the outcome is known
+
+status: "open"                # open | closed | resolved | dropped
+
+current:
+  version: 0
+  date: null
+  median: null                # probability in [0,1] for binary; native units otherwise
+  iqr: [null, null]
+  community:                  # snapshot at the time of the current version
+    cp: null
+    pro: null
+    gold: null
+    n_forecasters: null
+    as_of: null
+
+next_review: null             # YYYY-MM-DD — see docs/update-protocol.md cadence table
+
+tripwires: []
+# - signal: "IAEA Board resolution referring the file to the UNSC"
+#   by: "2026-11-30"
+#   direction: "up"
+#   magnitude_pp: 15
+#   fired: null
+
+resolution:
+  outcome: null               # 1/0 for binary, value for numeric/date, option for MC
+  date: null
+  source: null

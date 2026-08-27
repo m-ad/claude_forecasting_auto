@@ -1,0 +1,13 @@
+__pycache__/
+*.pyc
+.venv/
+uv.lock
+.DS_Store
+Thumbs.db
+
+# Local agent state, not part of the forecasting record
+.claude/settings.local.json
+.claude/**/node_modules/
+
+# Keep raw snapshots: they are the evidence trail. If a question's raw/ ever gets
+# genuinely huge, add a targeted ignore for that folder rather than a blanket one.
