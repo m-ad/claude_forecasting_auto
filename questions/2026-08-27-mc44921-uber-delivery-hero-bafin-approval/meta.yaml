@@ -1,0 +1,60 @@
+slug: 2026-08-27-mc44921-uber-delivery-hero-bafin-approval
+title: Will Uber's takeover of Delivery Hero be approved by BaFin before September 2026?
+source: metaculus
+url: https://www.metaculus.com/questions/44921/
+post_id: 44921
+type: binary
+unit: null
+tags: []
+dates:
+  created: '2026-08-27'
+  opened: '2026-07-16'
+  closes: '2026-09-01'
+  resolves: '2026-09-01'
+status: open
+current:
+  version: 1
+  date: '2026-08-27'
+  median: 0.45
+  iqr:
+  - 0.32
+  - 0.58
+  community:
+    cp: 0.51
+    pro: 0.61
+    gold: 0.5
+    n_forecasters: 78
+    as_of: '2026-08-27'
+next_review: '2026-08-31'
+tripwires:
+- signal: BaFin published-offer-documents database or an ad-hoc/8-K disclosure lists the Uber/Delivery
+    Hero Offer Document as approved and published
+  by: '2026-08-31'
+  direction: up
+  magnitude_pp: 55
+  fired: null
+- signal: Credible report of a BaFin deficiency/correction letter on the Offer Document
+  by: '2026-08-31'
+  direction: down
+  magnitude_pp: 20
+  fired: null
+- signal: Credible report that Uber submitted the Offer Document materially before the Aug-13 statutory
+    deadline (e.g. late July), with still no approval by 2026-08-27
+  by: '2026-08-31'
+  direction: down
+  magnitude_pp: 10
+  fired: null
+- signal: BCA termination, offer withdrawal/abandonment, or a material adverse financing development
+  by: '2026-09-01'
+  direction: down
+  magnitude_pp: 44
+  fired: null
+- signal: No BaFin action and no relevant news by end of day 2026-08-31
+  by: '2026-08-31'
+  direction: down
+  magnitude_pp: 45
+  fired: null
+resolution:
+  outcome: null
+  date: null
+  source: null
