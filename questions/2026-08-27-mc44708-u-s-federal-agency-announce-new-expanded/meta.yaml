@@ -1,0 +1,60 @@
+slug: 2026-08-27-mc44708-u-s-federal-agency-announce-new-expanded
+title: Will a U.S. federal agency announce new or expanded model evaluation agreements with both OpenAI
+  and Anthropic before September 3, 2026?
+source: metaculus
+url: https://www.metaculus.com/questions/44708/will-the-us-expand-evaluations-of-openaianthropic-models-before-sept-3-2026/
+post_id: 44708
+type: binary
+unit: null
+tags: []
+dates:
+  created: '2026-08-27'
+  opened: '2026-08-12'
+  closes: '2026-09-02'
+  resolves: '2026-09-03'
+status: open
+current:
+  version: 1
+  date: '2026-08-27'
+  median: 0.045
+  iqr:
+  - 0.02
+  - 0.08
+  community:
+    cp: 0.03
+    pro: 0.07
+    gold: 0.03
+    n_forecasters: 73
+    as_of: '2026-08-27'
+next_review: '2026-09-03'
+tripwires:
+- signal: NIST/CAISI publishes a news item naming a new/expanded OpenAI or Anthropic evaluation arrangement
+  by: '2026-09-03'
+  direction: up
+  magnitude_pp: 60
+  fired: null
+- signal: White House, NSA, or CISA issues an official statement confirming the EO 14409 framework's operational
+    status and naming OpenAI/Anthropic
+  by: '2026-09-03'
+  direction: up
+  magnitude_pp: 45
+  fired: null
+- signal: Reuters/Axios/Fortune/Semafor report a reversal of the White House's 'no public release' stance
+  by: '2026-09-03'
+  direction: up
+  magnitude_pp: 15
+  fired: null
+- signal: DOD/Department of War announces a new evaluation-specific (not procurement) agreement with Anthropic
+  by: '2026-09-03'
+  direction: up
+  magnitude_pp: 7
+  fired: null
+- signal: No qualifying announcement found by question close
+  by: '2026-09-02'
+  direction: down
+  magnitude_pp: 100
+  fired: null
+resolution:
+  outcome: null
+  date: null
+  source: null
