@@ -11,7 +11,7 @@ dates:
   opened: '2026-07-16'
   closes: '2026-09-01'
   resolves: '2026-09-01'
-status: open
+status: resolved
 current:
   version: 1
   date: '2026-08-27'
@@ -25,7 +25,7 @@ current:
     gold: 0.5
     n_forecasters: 78
     as_of: '2026-08-27'
-next_review: '2026-08-31'
+next_review: null
 tripwires:
 - signal: BaFin published-offer-documents database or an ad-hoc/8-K disclosure lists the Uber/Delivery
     Hero Offer Document as approved and published
@@ -55,6 +55,8 @@ tripwires:
   magnitude_pp: 45
   fired: null
 resolution:
-  outcome: null
-  date: null
-  source: null
+  outcome: 1.0
+  date: '2026-08-27'
+  source: BaFin published-offer-documents database (bafin.de) + Uber press release (BusinessWire, San
+    Francisco, 2026-08-27) confirming Offer Document published following BaFin approval; corroborated
+    by Metaculus community resolution to Yes

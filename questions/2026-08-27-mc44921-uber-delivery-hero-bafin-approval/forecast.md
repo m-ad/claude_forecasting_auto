@@ -208,3 +208,92 @@ filing) relative to the faster precedent deals.
 > reference-class precedents. It was generated locally but could not be pushed through this
 > API path (binary content); it exists in the session's local git history and was sent
 > directly to the operator as a file attachment.
+
+---
+
+## Resolution — 2026-08-27
+
+**Outcome: YES.** BaFin approved Uber's Offer Document for the Delivery Hero takeover and
+Uber's subsidiary (Uber International Technologies II Corporation) published it on
+2026-08-27, opening the acceptance period (2026-08-27 through 2026-11-05, 24:00 Frankfurt
+time) at an unchanged offer price of €41.50/share. This is 4 days before the 2026-09-01
+cutoff.
+
+**Sources consulted directly** (per rule 1 — the question's own resolution source, not news
+coverage of it):
+- BaFin's own published Offer Document (Angebotsunterlage) PDF —
+  https://www.bafin.de/SharedDocs/Downloads/DE/Angebotsunterlage/Delivery_Hero.pdf — the
+  primary regulatory artifact; existence at this canonical BaFin URL is itself the
+  resolution-defining fact (BaFin approval + WpÜG §14(2) publication).
+- Uber press release, BusinessWire, San Francisco, dateline "August 27, 2026" — "published its
+  takeover offer document for Delivery Hero on August 27, 2026, following regulatory
+  approval" — https://www.businesswire.com/news/home/20260826007432/en/Uber-Publishes-Offer-Document-for-its-Takeover-Offer-for-Delivery-Hero
+  (accessed 2026-08-28).
+- delivering-value.com (the deal's official microsite), now showing the published Offer
+  Document, as flagged by Metaculus user dendron with the earliest confirmed timestamp
+  (9:15 UTC on 2026-08-27, via the BusinessWire article).
+- Corroborating, not primary: Metaculus #44921 itself resolved **Yes** on 2026-08-27 (admin
+  johnnycaffeine: "resolved as Yes, to the time of the press release").
+
+### Score by version
+
+Only one version was ever logged (no updates were made — the question resolved the same day
+v1 was published, before any scheduled review).
+
+| Version | Date | Forecast | Outcome | Brier score |
+|---|---|---|---|---|
+| v1 | 2026-08-27 | 45.0% | YES (1) | **(1 − 0.45)² = 0.3025** |
+
+**Benchmark — Metaculus community/Pro/gold at the same timestamp (2026-08-27, the only
+timestamp we have):**
+
+| Cohort | Value | Brier score |
+|---|---|---|
+| Community Prediction (CP) | 51.0% | (1 − 0.51)² = **0.2401** |
+| Metaculus Pro | 61.0% | (1 − 0.61)² = **0.1521** |
+| Gold medalists | 50.0% | (1 − 0.50)² = **0.2500** |
+| **This forecast (v1)** | **45.0%** | **0.3025** |
+
+**Did we beat the crowd? No.** All three Metaculus cohorts scored better than v1 — Pro by a
+wide margin (0.15 vs 0.30), CP and gold medalists by a moderate margin (~0.24-0.25 vs 0.30).
+We landed *below* CP/gold (45% vs. ~50-51%) specifically because we judged Pro's 61% to be
+unjustified by the hard evidence in hand — that judgment was wrong; Pro was closest to the
+truth of the three cohorts and closest to right of anyone in this record.
+
+### The tripwire that should have existed and did not
+
+The same-day `/review` red-team pass (logged in `research.md`, "Red-team review
+(2026-08-27)") **found the correct answer and discarded it.** A finanznachrichten.de fetch
+during that review reported the Offer Document had already been published *that day*
+(2026-08-27) — which was true, and is exactly what happened. The review triangulated this
+against BaFin's own database, delivering-value.com, and SEC EDGAR, found none of the three
+yet reflected the publication, and concluded the finanznachrichten.de hit was "a
+fetch/summarization artifact, not real news." The forecast was left at 45%.
+
+The missing tripwire: **a rule for handling a single fresh, on-topic report that outpaces the
+"authoritative" sources, in a situation where those authoritative sources are known to lag
+same-day disclosures by hours (BaFin's database is not real-time; company microsites update
+on their own schedule).** None of the five logged tripwires covered this case — they all
+specified *confirmed* multi-source triggers (BaFin database entry, ad-hoc/8-K disclosure,
+correction letter) with no provision for weighting a single unconfirmed but dated, on-topic
+report during the exact window when the statutory clock said resolution was imminent. A
+tripwire reading something like *"any single dated report of Offer Document publication,
+even if not yet corroborated by BaFin's database or the deal microsite → treat as
+strong evidence (~+35-40pp) and attempt urgent re-verification within hours, rather than
+requiring corroboration before moving at all"* would very likely have caught this same-day
+before the forecast was finalized, since the red-team pass ran on the same day and found the
+report hours (at most) before the official BusinessWire announcement.
+
+### Calibration
+
+**Under-confident on this occasion**, and unusually so given the evidence was in hand: the
+final forecast (45%) was 55pp away from the true outcome, worse than CP (49pp away), gold
+(50pp away), and much worse than Pro (39pp away). The proximate cause was not a bad
+statistical model — the statutory-clock reasoning was sound and correctly flagged that
+resolution was imminent — but a evidence-handling failure: correctly surfacing a true signal
+during red-teaming and then over-weighting the absence of corroboration from
+inherently-lagging sources over the presence of a dated, on-topic primary report. On a
+question this procedural and time-sensitive, "not yet confirmed by the slowest source" should
+not have been allowed to override "reported by a source with no evident reason to fabricate,"
+especially inside a window the model itself had already identified as the highest-hazard
+period for exactly this event.
