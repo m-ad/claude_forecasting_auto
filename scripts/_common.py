@@ -9,7 +9,7 @@ from __future__ import annotations
 import datetime as _dt
 import re
 from pathlib import Path
-from typing import Any, Optional
+from typing import Any
 
 import yaml
 
@@ -47,8 +47,28 @@ def slugify(text: str, max_words: int = 7) -> str:
     str
         Lowercase hyphenated fragment, stopwords dropped.
     """
-    stop = {"will", "the", "a", "an", "of", "in", "on", "at", "to", "be", "by",
-            "for", "and", "or", "is", "are", "there", "any", "what", "when"}
+    stop = {
+        "will",
+        "the",
+        "a",
+        "an",
+        "of",
+        "in",
+        "on",
+        "at",
+        "to",
+        "be",
+        "by",
+        "for",
+        "and",
+        "or",
+        "is",
+        "are",
+        "there",
+        "any",
+        "what",
+        "when",
+    }
     words = re.findall(r"[a-z0-9]+", text.lower())
     kept = [w for w in words if w not in stop] or words
     return "-".join(kept[:max_words])[:60].strip("-")
@@ -80,7 +100,7 @@ def all_questions() -> list[tuple[str, dict[str, Any]]]:
     return out
 
 
-def find_slug(needle: str) -> Optional[str]:
+def find_slug(needle: str) -> str | None:
     """Resolve a slug, URL, post id, or title fragment to exactly one slug.
 
     Returns ``None`` when nothing matches or the match is ambiguous (the
@@ -98,8 +118,11 @@ def find_slug(needle: str) -> Optional[str]:
         if len(hits) == 1:
             return hits[0]
     low = needle.lower()
-    hits = [s for s, meta in cands
-            if low in s.lower() or low in str(meta.get("title", "")).lower()]
+    hits = [
+        s
+        for s, meta in cands
+        if low in s.lower() or low in str(meta.get("title", "")).lower()
+    ]
     if len(hits) == 1:
         return hits[0]
     if hits:
@@ -109,7 +132,7 @@ def find_slug(needle: str) -> Optional[str]:
     return None
 
 
-def days_until(date_str: Optional[str]) -> Optional[int]:
+def days_until(date_str: str | None) -> int | None:
     """Whole days from today to ``date_str`` (negative once past)."""
     if not date_str:
         return None

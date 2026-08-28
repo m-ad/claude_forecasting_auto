@@ -21,10 +21,10 @@ import math
 import sys
 from collections import defaultdict
 from pathlib import Path
-from typing import Any, Optional
+from typing import Any
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from _common import LEDGER  # noqa: E402
+from _common import LEDGER
 
 EPS = 1e-6  # keeps the log score finite when a forecast sits at 0 or 1
 
@@ -58,7 +58,7 @@ def log_score(p: float, y: float) -> float:
     return -(y * math.log(p) + (1 - y) * math.log(1 - p))
 
 
-def summarise(pairs: list[tuple[float, float]], label: str) -> Optional[dict[str, Any]]:
+def summarise(pairs: list[tuple[float, float]], label: str) -> dict[str, Any] | None:
     """Aggregate ``(probability, outcome)`` pairs into scores."""
     if not pairs:
         return None
@@ -70,12 +70,21 @@ def summarise(pairs: list[tuple[float, float]], label: str) -> Optional[dict[str
     ref = sum(brier(base, y) for _, y in pairs) / n
     skill = 1 - b / ref if ref > 0 else float("nan")
     mean_p = sum(p for p, _ in pairs) / n
-    return {"label": label, "n": n, "brier": b, "log_score": ls,
-            "base_rate": base, "mean_forecast": mean_p,
-            "skill_vs_base_rate": skill, "bias_pp": (mean_p - base) * 100}
+    return {
+        "label": label,
+        "n": n,
+        "brier": b,
+        "log_score": ls,
+        "base_rate": base,
+        "mean_forecast": mean_p,
+        "skill_vs_base_rate": skill,
+        "bias_pp": (mean_p - base) * 100,
+    }
 
 
-def buckets(pairs: list[tuple[float, float]], width: float = 0.1) -> list[tuple[str, int, float, float]]:
+def buckets(
+    pairs: list[tuple[float, float]], width: float = 0.1
+) -> list[tuple[str, int, float, float]]:
     """Bin forecasts and report mean forecast vs. observed frequency per bin."""
     bins: dict[int, list[tuple[float, float]]] = defaultdict(list)
     for p, y in pairs:
@@ -84,24 +93,35 @@ def buckets(pairs: list[tuple[float, float]], width: float = 0.1) -> list[tuple[
     for k in sorted(bins):
         grp = bins[k]
         lo, hi = k * width, (k + 1) * width
-        out.append((f"{lo:.0%}–{hi:.0%}", len(grp),
-                    sum(p for p, _ in grp) / len(grp),
-                    sum(y for _, y in grp) / len(grp)))
+        out.append(
+            (
+                f"{lo:.0%}–{hi:.0%}",
+                len(grp),
+                sum(p for p, _ in grp) / len(grp),
+                sum(y for _, y in grp) / len(grp),
+            )
+        )
     return out
 
 
 def main() -> None:
-    ap = argparse.ArgumentParser(description=__doc__,
-                                 formatter_class=argparse.RawDescriptionHelpFormatter)
-    ap.add_argument("--latest-only", action="store_true",
-                    help="score only the last version of each question")
+    ap = argparse.ArgumentParser(
+        description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter
+    )
+    ap.add_argument(
+        "--latest-only",
+        action="store_true",
+        help="score only the last version of each question",
+    )
     ap.add_argument("--plot", help="write a calibration plot to this PNG path")
     args = ap.parse_args()
 
     forecasts, resolutions = read_ledger()
     if not resolutions:
         print("No resolved questions in the ledger yet — nothing to score.")
-        print("Resolve one with: uv run scripts/log_forecast.py resolve <slug> --outcome yes")
+        print(
+            "Resolve one with: uv run scripts/log_forecast.py resolve <slug> --outcome yes"
+        )
         return
 
     mine: list[tuple[float, float]] = []
@@ -124,7 +144,7 @@ def main() -> None:
                 if cp is not None:
                     community.append((float(cp), float(outcome)))
             else:
-                lo, hi = (v.get("iqr") or [None, None])
+                lo, hi = v.get("iqr") or [None, None]
                 if lo is not None and hi is not None:
                     coverage.append((slug, float(lo) <= float(outcome) <= float(hi)))
 
@@ -136,16 +156,20 @@ def main() -> None:
         print(f"  Brier score      : {stats['brier']:.4f}   (lower is better)")
         print(f"  log score        : {stats['log_score']:.4f}")
         print(f"  observed base rate: {stats['base_rate']:.1%}")
-        print(f"  mean forecast    : {stats['mean_forecast']:.1%} "
-              f"({stats['bias_pp']:+.1f} pp bias)")
+        print(
+            f"  mean forecast    : {stats['mean_forecast']:.1%} "
+            f"({stats['bias_pp']:+.1f} pp bias)"
+        )
         print(f"  skill vs base rate: {stats['skill_vs_base_rate']:.3f}")
 
-    if mine and community:
-        bm = summarise(mine, "you")["brier"]
-        bc = summarise(community, "cp")["brier"]
+    mine_stats, cp_stats = summarise(mine, "you"), summarise(community, "cp")
+    if mine_stats and cp_stats:
+        bm, bc = mine_stats["brier"], cp_stats["brier"]
         verdict = "beating" if bm < bc else "losing to"
-        print(f"\n  → You are {verdict} the community prediction "
-              f"({bm:.4f} vs {bc:.4f}, Δ {bm - bc:+.4f}).")
+        print(
+            f"\n  → You are {verdict} the community prediction "
+            f"({bm:.4f} vs {bc:.4f}, Δ {bm - bc:+.4f})."
+        )
 
     if mine:
         print("\n== calibration by bucket ==")
@@ -155,13 +179,16 @@ def main() -> None:
 
     if coverage:
         hit = sum(1 for _, ok in coverage if ok)
-        print(f"\n== interquartile coverage (numeric/date) ==")
-        print(f"  {hit}/{len(coverage)} = {hit / len(coverage):.0%} inside the stated IQR "
-              f"(well-calibrated ≈ 50%)")
+        print("\n== interquartile coverage (numeric/date) ==")
+        print(
+            f"  {hit}/{len(coverage)} = {hit / len(coverage):.0%} inside the stated IQR "
+            f"(well-calibrated ≈ 50%)"
+        )
 
     if args.plot and mine:
         try:
             import matplotlib
+
             matplotlib.use("Agg")
             import matplotlib.pyplot as plt
         except ImportError:

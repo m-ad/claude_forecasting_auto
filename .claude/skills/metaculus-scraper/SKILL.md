@@ -61,7 +61,7 @@ from metaculus_scrape import scrape_metaculus_question
 
 result = scrape_metaculus_question(post_id=578, max_comments=5)
 print(result.community_prediction)  # "2%"
-print(result.question_type)         # "binary"
+print(result.question_type)  # "binary"
 for c in result.comments:
     print(f"@{c['author']}: {c['text'][:100]}")
 ```
