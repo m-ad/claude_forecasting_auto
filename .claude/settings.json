@@ -26,7 +26,6 @@
       "Edit(INDEX.md)"
     ],
     "deny": [
-      "Bash(git push:*)",
       "Bash(rm -rf:*)"
     ]
   }
