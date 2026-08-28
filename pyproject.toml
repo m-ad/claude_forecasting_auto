@@ -11,3 +11,32 @@ dependencies = [
 
 [tool.uv]
 package = false
+
+[dependency-groups]
+dev = [
+    "pytest>=9.1.1",
+    "ruff>=0.16.5",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q --strict-markers"
+
+[tool.pyright]
+# `scripts/` is a flat directory of executables, not a package: the scripts add
+# their own directory to sys.path and import each other by bare name, and the
+# tests do the same via tests/conftest.py. Say so, or every such import is a
+# red squiggle in the editor.
+include = ["scripts", "tests"]
+extraPaths = ["scripts", "tests"]
+
+[tool.ruff.lint]
+ignore = [
+    # This workbench reasons in the operator's local calendar date on purpose:
+    # slug prefixes, `next_review`, `dates.closes` and `days_until` are all
+    # calendar-day quantities, not instants, so `date.today()` is the right call
+    # and `datetime.now(tz=...).date()` would only add a spurious timezone.
+    # Ledger timestamps are a different thing and *are* tz-aware UTC
+    # (`datetime.now(timezone.utc)`), which the rest of the DTZ rules still check.
+    "DTZ011",
+]

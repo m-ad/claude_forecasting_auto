@@ -18,19 +18,17 @@ import argparse
 import json
 import os
 import re
-import sys
 import time
-from dataclasses import dataclass, field, asdict
-from typing import Optional
+from dataclasses import asdict, dataclass, field
 
 
 @dataclass
 class MetaculusComment:
     author: str
     text: str
-    author_prediction: Optional[str] = None
-    date: Optional[str] = None
-    votes: Optional[int] = None
+    author_prediction: str | None = None
+    date: str | None = None
+    votes: int | None = None
 
 
 @dataclass
@@ -39,11 +37,11 @@ class MetaculusQuestion:
     title: str
     url: str
     question_type: str  # "binary", "date", "numeric", "multiple_choice", "unknown"
-    community_prediction: Optional[str] = None
-    num_forecasters: Optional[str] = None
-    num_comments: Optional[str] = None
-    resolution_criteria: Optional[str] = None
-    fine_print: Optional[str] = None
+    community_prediction: str | None = None
+    num_forecasters: str | None = None
+    num_comments: str | None = None
+    resolution_criteria: str | None = None
+    fine_print: str | None = None
     comments: list = field(default_factory=list)
 
 
@@ -63,7 +61,7 @@ def _parse_proxy() -> dict:
     }
 
 
-def _detect_question_type(lines: list[str]) -> tuple[str, Optional[str]]:
+def _detect_question_type(lines: list[str]) -> tuple[str, str | None]:
     """
     Detect question type and extract community prediction from the first ~20 lines.
 
@@ -163,11 +161,24 @@ def _parse_comments(lines: list[str], max_comments: int) -> list[MetaculusCommen
         line = lines[i].strip()
 
         # Skip empty lines and navigation elements
-        if not line or line in (
-            "Log in", "Recent", "Load more comments", "Oldest",
-            "Changed my mind", "IMPACT", "STRENGTH", "Increases Likelihood",
-            "Decreases Likelihood", "Earlier", "later",
-        ) or line.startswith("Changed my mind") or line.startswith("hide "):
+        if (
+            not line
+            or line
+            in (
+                "Log in",
+                "Recent",
+                "Load more comments",
+                "Oldest",
+                "Changed my mind",
+                "IMPACT",
+                "STRENGTH",
+                "Increases Likelihood",
+                "Decreases Likelihood",
+                "Earlier",
+                "later",
+            )
+            or line.startswith(("Changed my mind", "hide "))
+        ):
             i += 1
             continue
 
@@ -332,7 +343,9 @@ def scrape_metaculus_question(
         url=url,
         question_type=q_type,
         community_prediction=prediction,
-        num_forecasters=num_forecasters_match.group(1) if num_forecasters_match else None,
+        num_forecasters=num_forecasters_match.group(1)
+        if num_forecasters_match
+        else None,
         num_comments=num_comments_match.group(1) if num_comments_match else None,
         resolution_criteria=res_criteria,
         fine_print=fine_print,
@@ -350,7 +363,10 @@ def main():
         "--json", action="store_true", help="Output as JSON instead of human-readable"
     )
     parser.add_argument(
-        "--wait", type=int, default=10, help="Seconds to wait for JS render (default: 10)"
+        "--wait",
+        type=int,
+        default=10,
+        help="Seconds to wait for JS render (default: 10)",
     )
     args = parser.parse_args()
 
@@ -370,12 +386,14 @@ def main():
         print(f"Forecasters: {result.num_forecasters}")
         print(f"Comments: {result.num_comments}")
         if result.resolution_criteria:
-            print(f"\n--- Resolution Criteria ---")
+            print("\n--- Resolution Criteria ---")
             print(result.resolution_criteria[:500])
         if result.comments:
             print(f"\n--- Top {len(result.comments)} Comments ---")
             for c in result.comments:
-                pred = f" [{c['author_prediction']}]" if c.get("author_prediction") else ""
+                pred = (
+                    f" [{c['author_prediction']}]" if c.get("author_prediction") else ""
+                )
                 print(f"\n  @{c['author']}{pred}:")
                 print(f"  {c['text'][:300]}")
 

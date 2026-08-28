@@ -71,8 +71,8 @@ import datetime as _dt
 import json
 import os
 import time
-from dataclasses import dataclass, field, asdict
-from typing import Any, Optional
+from dataclasses import asdict, dataclass, field
+from typing import Any
 
 # The sandbox ships Chromium here; setting this lets Playwright find it without
 # a separate `playwright install` step.
@@ -82,8 +82,9 @@ if os.path.isdir("/opt/pw-browsers"):
     os.environ.setdefault("PLAYWRIGHT_BROWSERS_PATH", "/opt/pw-browsers")
 
 # Must NOT contain "HeadlessChrome": Cloudflare challenges that token outright.
-_UA = ("Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 "
-       "Chrome/122.0.0.0 Safari/537.36")
+_UA = (
+    "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 Chrome/122.0.0.0 Safari/537.36"
+)
 
 # Presence of these is what defeats the managed challenge; values are arbitrary.
 _SEC_FETCH_HEADERS = {
@@ -125,14 +126,14 @@ class AggregationLatest:
         Human-readable "median IQR[lower, upper]" in the question's units.
     """
 
-    as_of: Optional[str]
-    forecaster_count: Optional[int]
-    center: Optional[float]
-    lower: Optional[float]
-    upper: Optional[float]
-    mean: Optional[float]
+    as_of: str | None
+    forecaster_count: int | None
+    center: float | None
+    lower: float | None
+    upper: float | None
+    mean: float | None
     display: str
-    per_option: Optional[list] = None
+    per_option: list | None = None
 
 
 @dataclass
@@ -142,7 +143,7 @@ class MethodResult:
     method: str
     status: int
     history_points: int
-    latest: Optional[AggregationLatest]
+    latest: AggregationLatest | None
     history: list = field(default_factory=list)
 
 
@@ -151,9 +152,9 @@ class Comment:
     """One Metaculus comment."""
 
     author: str
-    created_at: Optional[str]
+    created_at: str | None
     text: str
-    prediction: Optional[str] = None
+    prediction: str | None = None
 
 
 @dataclass
@@ -161,19 +162,19 @@ class AggregationResult:
     """Everything fetched for one post."""
 
     post_id: int
-    question_id: Optional[int]
-    title: Optional[str]
-    question_type: Optional[str]  # binary | numeric | discrete | date | multiple_choice
-    status: Optional[str]
-    resolution: Optional[str]
-    scheduled_close_time: Optional[str]
-    cp_reveal_time: Optional[str] = None
-    options: Optional[list] = None
-    scaling: Optional[dict] = None
-    resolution_criteria: Optional[str] = None
-    fine_print: Optional[str] = None
-    background: Optional[str] = None
-    nr_forecasters: Optional[int] = None
+    question_id: int | None
+    title: str | None
+    question_type: str | None  # binary | numeric | discrete | date | multiple_choice
+    status: str | None
+    resolution: str | None
+    scheduled_close_time: str | None
+    cp_reveal_time: str | None = None
+    options: list | None = None
+    scaling: dict | None = None
+    resolution_criteria: str | None = None
+    fine_print: str | None = None
+    background: str | None = None
+    nr_forecasters: int | None = None
     methods: dict = field(default_factory=dict)
     comments: list = field(default_factory=list)
 
@@ -215,7 +216,7 @@ def _get_json(ctx: Any, url: str, attempts: int = 4) -> tuple[int, dict]:
                     return r.status, json.loads(body)
                 except json.JSONDecodeError:
                     pass
-        except Exception:
+        except Exception:  # noqa: BLE001, S110 - any transport failure is a retry
             pass
         # Backoff only matters for the rate-triggered variant of the challenge.
         time.sleep(2 * (i + 1))
@@ -225,7 +226,7 @@ def _get_json(ctx: Any, url: str, attempts: int = 4) -> tuple[int, dict]:
 # --------------------------------------------------------------------------- #
 # Scaling helpers
 # --------------------------------------------------------------------------- #
-def _unscale(x: Optional[float], scaling: Optional[dict]) -> Optional[float]:
+def _unscale(x: float | None, scaling: dict | None) -> float | None:
     """Map an internal [0, 1] location to the question's real value range.
 
     Uses the linear transform when ``zero_point`` is None, otherwise the
@@ -242,10 +243,10 @@ def _unscale(x: Optional[float], scaling: Optional[dict]) -> Optional[float]:
     if zero is None:
         return rmin + (rmax - rmin) * x
     r = (rmax - zero) / (rmin - zero)
-    return rmin + (rmax - rmin) * (r ** x - 1) / (r - 1)
+    return rmin + (rmax - rmin) * (r**x - 1) / (r - 1)
 
 
-def _iso(ts: Optional[float]) -> Optional[str]:
+def _iso(ts: float | None) -> str | None:
     """Unix seconds -> UTC ISO 'YYYY-MM-DD HH:MM' string, or None."""
     if ts is None:
         return None
@@ -266,12 +267,16 @@ def _num(v: Any) -> str:
 
 def _fmt_display(qtype: str, center, lower, upper, per_option) -> str:
     """Build a human-readable 'median IQR[lo, hi]' string in natural units."""
+
     def pct(v):
         return f"{v * 100:.1f}%" if isinstance(v, (int, float)) else "n/a"
 
     def dt_str(v):
-        return (_dt.datetime.fromtimestamp(v, _dt.UTC).strftime("%Y-%m-%d")
-                if isinstance(v, (int, float)) else "n/a")
+        return (
+            _dt.datetime.fromtimestamp(v, _dt.UTC).strftime("%Y-%m-%d")
+            if isinstance(v, (int, float))
+            else "n/a"
+        )
 
     if qtype == "multiple_choice" and per_option:
         return "  ".join(f"{o}={pct(c)}" for o, c, _, _ in per_option)
@@ -282,8 +287,9 @@ def _fmt_display(qtype: str, center, lower, upper, per_option) -> str:
     return f"{_num(center)}  IQR[{_num(lower)}, {_num(upper)}]"
 
 
-def _extract_latest(qtype: str, latest: dict, scaling: dict,
-                    options: Optional[list]) -> Optional[AggregationLatest]:
+def _extract_latest(
+    qtype: str, latest: dict, scaling: dict, options: list | None
+) -> AggregationLatest | None:
     """Turn a raw ``latest`` block into an :class:`AggregationLatest`.
 
     Returns None when the block carries no centers, which is the normal state
@@ -296,16 +302,21 @@ def _extract_latest(qtype: str, latest: dict, scaling: dict,
     if not centers:
         return None
 
-    scale = (lambda v: v) if qtype in ("binary", "multiple_choice") \
+    scale = (
+        (lambda v: v)
+        if qtype in ("binary", "multiple_choice")
         else (lambda v: _unscale(v, scaling))
+    )
 
     per_option = None
     if qtype == "multiple_choice" and options:
         per_option = [
-            (options[i] if i < len(options) else f"option{i}",
-             centers[i] if i < len(centers) else None,
-             lows[i] if i < len(lows) else None,
-             highs[i] if i < len(highs) else None)
+            (
+                options[i] if i < len(options) else f"option{i}",
+                centers[i] if i < len(centers) else None,
+                lows[i] if i < len(lows) else None,
+                highs[i] if i < len(highs) else None,
+            )
             for i in range(len(centers))
         ]
 
@@ -317,7 +328,10 @@ def _extract_latest(qtype: str, latest: dict, scaling: dict,
     return AggregationLatest(
         as_of=_iso(latest.get("start_time")),
         forecaster_count=latest.get("forecaster_count"),
-        center=center, lower=lower, upper=upper, mean=mean,
+        center=center,
+        lower=lower,
+        upper=upper,
+        mean=mean,
         display=_fmt_display(qtype, center, lower, upper, per_option),
         per_option=per_option,
     )
@@ -339,7 +353,7 @@ def _extract_history(qtype: str, hist: list, scaling: dict) -> list:
 # --------------------------------------------------------------------------- #
 def fetch_aggregations(
     post_id: int,
-    methods: Optional[list[str]] = None,
+    methods: list[str] | None = None,
     include_bots: bool = False,
     include_history: bool = False,
     n_comments: int = 0,
@@ -380,19 +394,25 @@ def fetch_aggregations(
 
     methods = methods or DEFAULT_METHODS
 
-    def _url(mth: str, qid: Optional[int]) -> str:
+    def _url(mth: str, qid: int | None) -> str:
         # question_id is passed explicitly: the page's own combined
         # `methods=a|b` call was observed to return empty for some cohorts.
         qid_part = f"&question_id={qid}" if qid is not None else ""
-        return (f"{_AGG}?post_id={post_id}{qid_part}"
-                f"&include_bots={str(include_bots).lower()}"
-                f"&aggregation_methods={mth}&joined_before_date=")
+        return (
+            f"{_AGG}?post_id={post_id}{qid_part}"
+            f"&include_bots={str(include_bots).lower()}"
+            f"&aggregation_methods={mth}&joined_before_date="
+        )
 
     with sync_playwright() as p:
-        _exe = os.environ.get("PLAYWRIGHT_CHROMIUM_EXECUTABLE_PATH", "/opt/pw-browsers/chromium")
+        _exe = os.environ.get(
+            "PLAYWRIGHT_CHROMIUM_EXECUTABLE_PATH", "/opt/pw-browsers/chromium"
+        )
         try:
-            browser = p.chromium.launch(headless=True, executable_path=_exe if os.path.exists(_exe) else None)
-        except Exception:
+            browser = p.chromium.launch(
+                headless=True, executable_path=_exe if os.path.exists(_exe) else None
+            )
+        except Exception:  # noqa: BLE001 - fall back to Playwright's own chromium
             browser = p.chromium.launch(headless=True)
         # No page is ever opened: loading one would mint a cf_clearance cookie
         # that poisons every subsequent request (see module docstring).
@@ -412,12 +432,16 @@ def fetch_aggregations(
         options = base.get("options")
 
         result = AggregationResult(
-            post_id=post_id, question_id=qid, title=base.get("title"),
-            question_type=qtype, status=base.get("status"),
+            post_id=post_id,
+            question_id=qid,
+            title=base.get("title"),
+            question_type=qtype,
+            status=base.get("status"),
             resolution=base.get("resolution"),
             scheduled_close_time=base.get("scheduled_close_time"),
             cp_reveal_time=base.get("cp_reveal_time"),
-            options=options, scaling=scaling,
+            options=options,
+            scaling=scaling,
         )
 
         for mth in methods:
@@ -431,10 +455,15 @@ def fetch_aggregations(
             hist_raw = agg.get("history") or []
 
             result.methods[mth] = MethodResult(
-                method=mth, status=st, history_points=len(hist_raw),
+                method=mth,
+                status=st,
+                history_points=len(hist_raw),
                 latest=_extract_latest(qtype, latest_raw, scaling, options),
-                history=(_extract_history(qtype, hist_raw, scaling)
-                         if include_history else []),
+                history=(
+                    _extract_history(qtype, hist_raw, scaling)
+                    if include_history
+                    else []
+                ),
             )
 
         if include_details:
@@ -447,14 +476,18 @@ def fetch_aggregations(
 
         if n_comments > 0:
             _, cj = _get_json(
-                ctx, f"{_BASE}/comments/?post={post_id}&limit={n_comments}"
-                     f"&sort=-created_at&use_root_comments_pagination=true")
+                ctx,
+                f"{_BASE}/comments/?post={post_id}&limit={n_comments}"
+                f"&sort=-created_at&use_root_comments_pagination=true",
+            )
             for c in (cj.get("results") or [])[:n_comments]:
-                result.comments.append(Comment(
-                    author=(c.get("author") or {}).get("username", "?"),
-                    created_at=(c.get("created_at") or "")[:10],
-                    text=(c.get("text") or "").strip(),
-                ))
+                result.comments.append(
+                    Comment(
+                        author=(c.get("author") or {}).get("username", "?"),
+                        created_at=(c.get("created_at") or "")[:10],
+                        text=(c.get("text") or "").strip(),
+                    )
+                )
 
         browser.close()
 
@@ -467,8 +500,10 @@ def fetch_aggregations(
 def _print_human(res: AggregationResult) -> None:
     print(f"POST {res.post_id}  ->  question_id={res.question_id}")
     print(f"TITLE: {res.title}")
-    print(f"type={res.question_type}  status={res.status}  "
-          f"resolution={res.resolution}  close={res.scheduled_close_time}")
+    print(
+        f"type={res.question_type}  status={res.status}  "
+        f"resolution={res.resolution}  close={res.scheduled_close_time}"
+    )
     if res.nr_forecasters is not None:
         print(f"forecasters(total)={res.nr_forecasters}")
     if res.options:
@@ -482,13 +517,18 @@ def _print_human(res: AggregationResult) -> None:
         print(f"  as_of={mr.latest.as_of}  forecasters={mr.latest.forecaster_count}")
         if mr.latest.per_option:
             for o, c, lo, hi in mr.latest.per_option:
-                band = (f"  IQR[{lo * 100:.1f}%, {hi * 100:.1f}%]"
-                        if isinstance(lo, float) and isinstance(hi, float) else "")
+                band = (
+                    f"  IQR[{lo * 100:.1f}%, {hi * 100:.1f}%]"
+                    if isinstance(lo, float) and isinstance(hi, float)
+                    else ""
+                )
                 print(f"    {o:<24s} {c * 100:5.1f}%{band}")
         else:
-            extra = (f"   mean={mr.latest.mean * 100:.1f}%"
-                     if res.question_type == "binary" and mr.latest.mean is not None
-                     else "")
+            extra = (
+                f"   mean={mr.latest.mean * 100:.1f}%"
+                if res.question_type == "binary" and mr.latest.mean is not None
+                else ""
+            )
             print(f"  {mr.latest.display}{extra}")
 
     if res.resolution_criteria:
@@ -505,20 +545,43 @@ def _print_human(res: AggregationResult) -> None:
 
 
 def main() -> None:
-    parser = argparse.ArgumentParser(description="Fetch Metaculus Aggregation Explorer data")
+    parser = argparse.ArgumentParser(
+        description="Fetch Metaculus Aggregation Explorer data"
+    )
     parser.add_argument("post_id", type=int, help="Metaculus post id (from the URL)")
-    parser.add_argument("--methods", type=str, default=",".join(DEFAULT_METHODS),
-                        help="Comma-separated methods (default: CP,pros,gold)")
-    parser.add_argument("--include-bots", action="store_true",
-                        help="Fold bot forecasters into the aggregation")
-    parser.add_argument("--history", action="store_true",
-                        help="Also fetch the centre-vs-time series per method")
-    parser.add_argument("--comments", type=int, default=0,
-                        help="Fetch up to N recent comments (default 0)")
-    parser.add_argument("--no-details", action="store_true",
-                        help="Skip resolution criteria / fine print / background")
-    parser.add_argument("--wait", type=int, default=0,
-                        help="Deprecated no-op; v3 needs no Cloudflare settle wait")
+    parser.add_argument(
+        "--methods",
+        type=str,
+        default=",".join(DEFAULT_METHODS),
+        help="Comma-separated methods (default: CP,pros,gold)",
+    )
+    parser.add_argument(
+        "--include-bots",
+        action="store_true",
+        help="Fold bot forecasters into the aggregation",
+    )
+    parser.add_argument(
+        "--history",
+        action="store_true",
+        help="Also fetch the centre-vs-time series per method",
+    )
+    parser.add_argument(
+        "--comments",
+        type=int,
+        default=0,
+        help="Fetch up to N recent comments (default 0)",
+    )
+    parser.add_argument(
+        "--no-details",
+        action="store_true",
+        help="Skip resolution criteria / fine print / background",
+    )
+    parser.add_argument(
+        "--wait",
+        type=int,
+        default=0,
+        help="Deprecated no-op; v3 needs no Cloudflare settle wait",
+    )
     parser.add_argument("--json", action="store_true", help="Emit JSON")
     args = parser.parse_args()
 

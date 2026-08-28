@@ -22,7 +22,7 @@ from pathlib import Path
 from typing import Any
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from _common import LEDGER, find_slug, load_meta, save_meta, today  # noqa: E402
+from _common import LEDGER, find_slug, load_meta, save_meta, today
 
 
 def _append(record: dict[str, Any]) -> None:
@@ -60,8 +60,12 @@ def cmd_add(args: argparse.Namespace) -> None:
         "type": meta.get("type"),
         "median": args.median,
         "iqr": [args.lower, args.upper],
-        "community": {"cp": args.cp, "pro": args.pro, "gold": args.gold,
-                      "n_forecasters": args.n_forecasters},
+        "community": {
+            "cp": args.cp,
+            "pro": args.pro,
+            "gold": args.gold,
+            "n_forecasters": args.n_forecasters,
+        },
         "thesis": args.thesis,
         "mode": args.mode,
     }
@@ -72,8 +76,13 @@ def cmd_add(args: argparse.Namespace) -> None:
         "date": today(),
         "median": args.median,
         "iqr": [args.lower, args.upper],
-        "community": {"cp": args.cp, "pro": args.pro, "gold": args.gold,
-                      "n_forecasters": args.n_forecasters, "as_of": today()},
+        "community": {
+            "cp": args.cp,
+            "pro": args.pro,
+            "gold": args.gold,
+            "n_forecasters": args.n_forecasters,
+            "as_of": today(),
+        },
     }
     if args.next_review:
         meta["next_review"] = args.next_review
@@ -85,31 +94,41 @@ def cmd_resolve(args: argparse.Namespace) -> None:
     slug = find_slug(args.slug) or sys.exit(f"! no unique question for {args.slug!r}")
     meta = load_meta(slug)
     outcome = _outcome_value(args.outcome)
-    _append({
-        "ts": dt.datetime.now(dt.timezone.utc).isoformat(timespec="seconds"),
-        "event": "resolution",
-        "slug": slug,
-        "type": meta.get("type"),
-        "outcome": outcome,
-        "resolution_source": args.source,
-    })
+    _append(
+        {
+            "ts": dt.datetime.now(dt.timezone.utc).isoformat(timespec="seconds"),
+            "event": "resolution",
+            "slug": slug,
+            "type": meta.get("type"),
+            "outcome": outcome,
+            "resolution_source": args.source,
+        }
+    )
     meta["status"] = "resolved"
-    meta["resolution"] = {"outcome": outcome, "date": args.date or today(),
-                          "source": args.source}
+    meta["resolution"] = {
+        "outcome": outcome,
+        "date": args.date or today(),
+        "source": args.source,
+    }
     meta["next_review"] = None
     save_meta(slug, meta)
     print(f"resolved {slug} -> {outcome}")
 
 
 def main() -> None:
-    ap = argparse.ArgumentParser(description=__doc__,
-                                 formatter_class=argparse.RawDescriptionHelpFormatter)
+    ap = argparse.ArgumentParser(
+        description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter
+    )
     sub = ap.add_subparsers(dest="cmd", required=True)
 
     a = sub.add_parser("add", help="log a new forecast version")
     a.add_argument("slug")
-    a.add_argument("--median", type=float, required=True,
-                   help="probability in [0,1] for binary; native units otherwise")
+    a.add_argument(
+        "--median",
+        type=float,
+        required=True,
+        help="probability in [0,1] for binary; native units otherwise",
+    )
     a.add_argument("--lower", type=float, required=True, help="25th percentile")
     a.add_argument("--upper", type=float, required=True, help="75th percentile")
     a.add_argument("--cp", type=float, help="Metaculus community prediction")
@@ -117,8 +136,9 @@ def main() -> None:
     a.add_argument("--gold", type=float, help="Metaculus gold-medalist aggregation")
     a.add_argument("--n-forecasters", type=int)
     a.add_argument("--thesis", default="")
-    a.add_argument("--mode", default="initial",
-                   choices=["initial", "update", "reanalysis"])
+    a.add_argument(
+        "--mode", default="initial", choices=["initial", "update", "reanalysis"]
+    )
     a.add_argument("--next-review", help="YYYY-MM-DD")
     a.set_defaults(func=cmd_add)
 

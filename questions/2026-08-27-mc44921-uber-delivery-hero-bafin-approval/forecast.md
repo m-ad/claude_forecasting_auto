@@ -5,10 +5,10 @@
 | **Source** | Metaculus #44921 — https://www.metaculus.com/questions/44921/will-ubers-takeover-of-delivery-hero-be-approved-before-september-2026/ |
 | **Type** | binary |
 | **Opened / Closes / Resolves** | — / 2026-09-01 / — |
-| **Status** | open |
+| **Status** | resolved |
 | **Current forecast** | **Median 45.0%, IQR [32.0%, 58.0%]** (v1, 2026-08-27) |
 | **Community (as of 2026-08-27)** | CP 51.0% (n=78) · Pro 61.0% (n=6) · Gold 50.0% (n=32) |
-| **Next review** | 2026-08-31 |
+| **Next review** | — |
 
 <!-- Versions below, newest first. APPEND-ONLY: never edit or delete a past version. -->
 

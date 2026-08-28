@@ -73,14 +73,19 @@ defending the divergence.
 
 ```python
 import sys
+
 sys.path.insert(0, "<skill_dir>/scripts")
 from metaculus_aggregations import fetch_aggregations
 
-res = fetch_aggregations(43505, methods=["recency_weighted", "metaculus_pros", "gold_medalists"],
-                         n_comments=5, include_history=True)
+res = fetch_aggregations(
+    43505,
+    methods=["recency_weighted", "metaculus_pros", "gold_medalists"],
+    n_comments=5,
+    include_history=True,
+)
 
 cp = res.methods["recency_weighted"].latest
-print(cp.display)          # "1.0%  IQR[0.3%, 3.0%]"
+print(cp.display)  # "1.0%  IQR[0.3%, 3.0%]"
 print(cp.center, cp.lower, cp.upper, cp.forecaster_count)
 
 pros = res.methods["metaculus_pros"].latest
@@ -88,7 +93,7 @@ print(pros.display if pros else "no pro forecasters")
 
 # Multiple-choice: per-option (option, center, lower, upper) rows
 mc = fetch_aggregations(44676).methods["recency_weighted"].latest
-for option, center, lo, hi in (mc.per_option or []):
+for option, center, lo, hi in mc.per_option or []:
     print(f"{option}: {center:.1%} IQR[{lo:.1%}, {hi:.1%}]")
 ```
 
