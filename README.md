@@ -104,6 +104,17 @@ and — the number that actually matters — whether you are beating the Metacul
 prediction at the same points in time. A forecasting setup that never checks this is a
 diary, not a discipline.
 
+## Tests
+
+```bash
+uv run pytest
+```
+
+Mostly data tests: the ledger's JSONL shape and timestamp ordering, the `meta.yaml` schema,
+the fixed `forecast.md` format, and agreement between `meta.yaml`, the ledger and `INDEX.md`.
+Every ledger line and every question folder becomes its own test case, so a failure names the
+record to fix. See `tests/README.md`.
+
 ## Metaculus access
 
 `.claude/skills/metaculus-aggregations/` fetches the community prediction, the Metaculus Pro
