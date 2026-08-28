@@ -6,12 +6,70 @@ Playwright/browser install is broken.
 
 from __future__ import annotations
 
+import codecs
 import datetime as _dt
 import re
+import sys
 from pathlib import Path
 from typing import Any
 
 import yaml
+
+# ------------------------------------------------------------------- stdio
+# The scripts print arrows, middots and em dashes. Windows gives a redirected or
+# piped stdout the locale codepage (cp1252), which has none of them, so an
+# unguarded print() dies with UnicodeEncodeError mid-report — and takes the exit
+# code with it. Degrade the characters instead of the run: transliterate the ones
+# we actually emit to ASCII, and fall back to "?" for anything else.
+_ASCII_FALLBACKS = {
+    "→": "->",  # rightwards arrow
+    "←": "<-",
+    "—": "-",  # em dash
+    "–": "-",  # en dash
+    "·": "*",  # middot
+    "•": "*",
+    "≈": "~",  # almost equal
+    "≤": "<=",
+    "≥": ">=",
+    "Δ": "delta",
+    "×": "x",
+    "‘": "'",
+    "’": "'",
+    "“": '"',
+    "”": '"',
+    "…": "...",
+}
+_ERROR_HANDLER = "forecasting_ascii_fallback"
+
+
+def _ascii_fallback(exc: UnicodeError) -> tuple[str, int]:
+    """Codec error handler: replace unencodable characters with ASCII stand-ins."""
+    if not isinstance(exc, UnicodeEncodeError):
+        raise exc
+    bad = exc.object[exc.start : exc.end]
+    return "".join(_ASCII_FALLBACKS.get(ch, "?") for ch in bad), exc.end
+
+
+def make_stdio_lenient() -> None:
+    """Stop a narrow console encoding from crashing a script's own output.
+
+    Idempotent, and a no-op on streams that cannot be reconfigured (a pytest
+    capture buffer, say). Characters the stream *can* encode are untouched, so
+    a UTF-8 terminal still gets the real arrows.
+    """
+    try:
+        codecs.lookup_error(_ERROR_HANDLER)
+    except LookupError:
+        codecs.register_error(_ERROR_HANDLER, _ascii_fallback)
+    for stream in (sys.stdout, sys.stderr):
+        try:
+            stream.reconfigure(errors=_ERROR_HANDLER)  # type: ignore[union-attr]
+        except (AttributeError, ValueError, OSError):
+            pass
+
+
+make_stdio_lenient()
+
 
 REPO = Path(__file__).resolve().parent.parent
 QUESTIONS = REPO / "questions"
