@@ -1,0 +1,70 @@
+slug: 2026-08-28-mc41138-bilateral-ceasefire-russo-ukrainian-conflict-before-2027
+title: Will there be a bilateral ceasefire in the Russo-Ukrainian conflict before 2027?
+source: metaculus
+url: https://www.metaculus.com/questions/41138/will-there-be-a-bilateral-ceasefire-in-the-russo-ukrainian-conflict-before-2027/
+post_id: 41138
+type: binary
+unit: null
+tags:
+- geopolitics
+- russia-ukraine
+- conflict
+- ceasefire
+dates:
+  created: '2026-08-28'
+  opened: '2025-12-19'
+  closes: '2026-12-31'
+  resolves: '2026-12-31'
+status: open
+current:
+  version: 1
+  date: '2026-08-28'
+  median: 0.09
+  iqr:
+  - 0.065
+  - 0.13
+  community:
+    cp: 0.12
+    pro: 0.12
+    gold: 0.12
+    n_forecasters: 299
+    as_of: '2026-08-27'
+next_review: '2026-09-21'
+tripwires:
+- signal: Putin, Lavrov or Peskov accepts a ceasefire-first sequence on the record (drops the 'settlement
+    first / root causes' precondition)
+  by: '2026-11-30'
+  direction: up
+  magnitude_pp: 15
+  fired: null
+- signal: A Putin-Trump or Putin-Zelensky summit is scheduled with a publicly announced date before 2026-12-15
+  by: '2026-12-15'
+  direction: up
+  magnitude_pp: 6
+  fired: null
+- signal: Russia publicly accepts the US/Ukrainian air-ceasefire proposal (partial ceasefire does not
+    itself resolve YES, but signals the sequencing objection has cracked)
+  by: '2026-10-31'
+  direction: up
+  magnitude_pp: 4
+  fired: null
+- signal: Russian mobilisation decree of >=100,000 announced after the 18-20 September State Duma elections
+  by: '2026-10-31'
+  direction: down
+  magnitude_pp: 3
+  fired: null
+- signal: No trilateral US-Russia-Ukraine negotiating round convenes
+  by: '2026-10-31'
+  direction: down
+  magnitude_pp: 2
+  fired: null
+- signal: Metaculus CP moves outside [7%, 20%] - trigger a de-novo re-analysis rather than an incremental
+    update
+  by: '2026-12-31'
+  direction: either
+  magnitude_pp: 0
+  fired: null
+resolution:
+  outcome: null
+  date: null
+  source: null

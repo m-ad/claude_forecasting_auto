@@ -1,0 +1,77 @@
+{
+  "post_id": 10050,
+  "question_id": 10050,
+  "title": "Will there be a bilateral cease-fire or peace agreement in the Russo-Ukraine conflict before 2023?",
+  "question_type": "binary",
+  "status": "resolved",
+  "resolution": "no",
+  "scheduled_close_time": "2023-02-01T00:30:00Z",
+  "cp_reveal_time": "2022-03-02T06:36:44.554391Z",
+  "options": null,
+  "scaling": {
+    "range_min": null,
+    "range_max": null,
+    "nominal_min": null,
+    "nominal_max": null,
+    "zero_point": null,
+    "open_upper_bound": null,
+    "open_lower_bound": null,
+    "inbound_outcome_count": null,
+    "continuous_range": null
+  },
+  "resolution_criteria": "This question will resolve as **Yes** if a bilateral cease-fire has gone into effect and stood for 30 days, beginning at any point between March 1, 2022 to December 31, 2022. A ceasefire is bilateral if it applies to the majorities of combatants on both the Russian and Ukrainian sides, respectively. A cease-fire is deemed to have stood as long as no reliable sources report that the cease-fire has broken down or is no longer effective. This question will resolve as **No** if no cease-fire has gone into effect and been sustained for 30 days by 2023.\n\nThe ceasefire must apply to all military operations in all official and disputed Ukrainian and Russian territory.  In other words, a limited ceasefire (such as granting safety to humanitarian corridors or specific regions) is insufficient to resolve the question as Yes.\n\n*(See the edit history in the fine print below)*",
+  "fine_print": "_Edit March 2, 2022: The resolution criterion regarding negative resolution \"if an announced cease-fire breaks down in 2022 before lasting 30 days\" has been edited to read: \"if all the announced cease-fires in 2022 break down before lasting 30 days.\"_\n\n*Edit July 28, 2022 by casens: I added a clarification that the ceasefire must apply to all military operations, and that limited ceasefires are not sufficient.*",
+  "background": "*Related Questions on Metaculus:*\n\n* [Will Putin and Zelenskyy meet to discuss the peaceful resolution of the Russian-Ukrainian conflict before 2023?](https://www.metaculus.com/questions/10046/ukraine--russia-presidential-peace-talks/)\n\n* [If Putin and Zelenskyy meet to discuss the peaceful resolution of the Russian-Ukrainian conflict in 2022, when will they first meet?](https://www.metaculus.com/questions/10262/ru-ua-peace-talks-with-presidents/)\n\n----\n\nOn Feb 28, 2022 [Ukrainian and Russian officials started cease-fire talks on the Belarusian border](https://thehill.com/policy/international/596081-ceasefire-talks-begin-between-ukraine-russian-officials).",
+  "nr_forecasters": 917,
+  "methods": {
+    "recency_weighted": {
+      "method": "recency_weighted",
+      "status": 200,
+      "history_points": 398,
+      "latest": {
+        "as_of": "2022-12-31 10:17",
+        "forecaster_count": 917,
+        "center": 0.01,
+        "lower": 0.01,
+        "upper": 0.01,
+        "mean": 0.026799019988956063,
+        "display": "1.0%  IQR[1.0%, 1.0%]",
+        "per_option": null
+      },
+      "history": []
+    },
+    "metaculus_pros": {
+      "method": "metaculus_pros",
+      "status": 200,
+      "history_points": 397,
+      "latest": {
+        "as_of": "2022-12-31 10:17",
+        "forecaster_count": 31,
+        "center": 0.01,
+        "lower": 0.01,
+        "upper": 0.013941864455534594,
+        "mean": 0.012819654075716901,
+        "display": "1.0%  IQR[1.0%, 1.4%]",
+        "per_option": null
+      },
+      "history": []
+    },
+    "gold_medalists": {
+      "method": "gold_medalists",
+      "status": 200,
+      "history_points": 397,
+      "latest": {
+        "as_of": "2022-12-31 10:17",
+        "forecaster_count": 30,
+        "center": 0.01,
+        "lower": 0.01,
+        "upper": 0.013941864455534594,
+        "mean": 0.01885626339055872,
+        "display": "1.0%  IQR[1.0%, 1.4%]",
+        "per_option": null
+      },
+      "history": []
+    }
+  },
+  "comments": []
+}
