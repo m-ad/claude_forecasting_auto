@@ -1,0 +1,176 @@
+{
+  "post_id": 35969,
+  "question_id": 35400,
+  "title": "When will a bilateral ceasefire or peace agreement in the Russo-Ukraine conflict first go into effect?",
+  "question_type": "multiple_choice",
+  "status": "resolved",
+  "resolution": "Not before 2026",
+  "scheduled_close_time": "2025-12-31T23:00:00Z",
+  "cp_reveal_time": "2025-03-18T15:00:00Z",
+  "options": [
+    "1 January 2025 - 31 March 2025",
+    "1 April 2025 - 30 June 2025",
+    "1 July 2025 - 30 September 2025",
+    "1 October 2025 - 31 December 2025",
+    "Not before 2026"
+  ],
+  "scaling": {
+    "range_min": null,
+    "range_max": null,
+    "nominal_min": null,
+    "nominal_max": null,
+    "zero_point": null,
+    "open_upper_bound": false,
+    "open_lower_bound": false,
+    "inbound_outcome_count": null,
+    "continuous_range": null
+  },
+  "resolution_criteria": "This question will resolve as the period when a bilateral ceasefire or peace agreement between Russia and Ukraine first officially enters into effect, as declared by both governments. The question resolves based on when the agreement is officially implemented, regardless of whether individual violations occur afterward. An agreement is bilateral if it applies to both Russian and Ukrainian official military forces.\n\nThe question will be resolved using the day the ceasefire first goes into effect. There is no requirement that the ceasefire actually lasts for its intended duration.\n\nThe ceasefire must formally prohibit offensive combat operations (including artillery/missile strikes, ground assaults, aerial bombardment, and naval attacks) across all official and disputed Ukrainian and Russian territory. Continued non-combat military activities (such as resupply, fortification, aerial patrols, or casualty recovery) will not affect resolution. A limited ceasefire (such as granting safety to humanitarian corridors or specific regions) is insufficient to resolve the question.",
+  "fine_print": "* Reaching a ceasefire agreement is not sufficient on its own. This question asks about the date it takes effect and the duration.\n* The date the ceasefire goes into effect will be determined using credible international reporting sources.\n* The question will resolve as “**Not before 2026”** if a bilateral ceasefire does not enter into effect before 00:00 January 1, 2026 Ukraine Time (UTC+2).\n* A qualifying ceasefire must be formally negotiated and mutually agreed upon by both governments under the same terms. Two separate unilateral declarations, even if they occur simultaneously or mirror each other’s actions, do not constitute a bilateral ceasefire for the purpose of this question.",
+  "background": "*This question was created in collaboration with the RAND Forecasting Initiative,* [*<u>Glimt</u>*](https://glimt.nu/glimt/en/welcome.html)*, and Metaculus, and has been posted simultaneously on all three platforms for comparative purposes.*\n\n***\n\nThe Russo-Ukrainian conflict has seen numerous attempts at peace negotiations since its escalation in February 2022. Early talks were held in Belarus and Turkey in February 2022, but these negotiations stalled due to disagreements over key issues like territorial control and NATO membership ([<u>New York Times</u>](https://www.nytimes.com/2022/02/28/world/europe/ukraine-russia-talks-belarus.html), [<u>Al Jazeera</u>](https://www.aljazeera.com/news/2022/3/10/top-russia-ukraine-diplomats-arrive-in-turkey-for-talks)). Recently, U.S. President Donald Trump has been involved in efforts to restart negotiations, following a phone call with Russian President Vladimir Putin ([<u>The Guardian</u>](https://www.theguardian.com/us-news/2025/feb/12/trump-putin-ukraine-ceasefire)). In February 2025, negotiations between the U.S. and Ukraine over access to Ukraine’s critical minerals in exchange for security guarantees fell through after the two countries’ presidents clashed in the Oval Office ([<u>NBC News</u>](https://www.nbcnews.com/politics/white-house/zelenskyy-trump-white-house-russia-peace-talks-rare-earth-minerals-rcna194118)). The two countries met again in Saudi Arabia on 11 March 2025, and Ukraine agreed to support the U.S.’s proposal for a 30-day ceasefire with Russia ([<u>Reuters</u>](https://www.reuters.com/world/us-ukraine-meet-saudi-arabia-after-disastrous-white-house-talks-2025-03-11/)).  In response, Russian President Vladimir Putin has said he supports the idea of the ceasefire proposal, but that there are still outstanding questions to address ([<u>BBC</u>](https://www.bbc.com/news/articles/cp8l00l4rejo)). Russia’s agreement is still required for the ceasefire to take effect.",
+  "nr_forecasters": 63,
+  "methods": {
+    "recency_weighted": {
+      "method": "recency_weighted",
+      "status": 200,
+      "history_points": 232,
+      "latest": {
+        "as_of": "2025-12-30 18:02",
+        "forecaster_count": 34,
+        "center": 0.001,
+        "lower": 0.001,
+        "upper": 0.001,
+        "mean": 0.0011915211017137033,
+        "display": "1 January 2025 - 31 March 2025=0.1%  1 April 2025 - 30 June 2025=0.1%  1 July 2025 - 30 September 2025=0.1%  1 October 2025 - 31 December 2025=0.1%  Not before 2026=99.6%",
+        "per_option": [
+          [
+            "1 January 2025 - 31 March 2025",
+            0.001,
+            0.001,
+            0.001
+          ],
+          [
+            "1 April 2025 - 30 June 2025",
+            0.001,
+            0.001,
+            0.001
+          ],
+          [
+            "1 July 2025 - 30 September 2025",
+            0.001,
+            0.001,
+            0.001
+          ],
+          [
+            "1 October 2025 - 31 December 2025",
+            0.001,
+            0.001,
+            0.005
+          ],
+          [
+            "Not before 2026",
+            0.996,
+            0.992,
+            0.996
+          ]
+        ]
+      },
+      "history": []
+    },
+    "metaculus_pros": {
+      "method": "metaculus_pros",
+      "status": 200,
+      "history_points": 231,
+      "latest": {
+        "as_of": "2025-12-30 18:02",
+        "forecaster_count": 6,
+        "center": 0.001,
+        "lower": 0.001,
+        "upper": 0.001,
+        "mean": 0.0009999999999999998,
+        "display": "1 January 2025 - 31 March 2025=0.1%  1 April 2025 - 30 June 2025=0.1%  1 July 2025 - 30 September 2025=0.1%  1 October 2025 - 31 December 2025=0.5%  Not before 2026=99.2%",
+        "per_option": [
+          [
+            "1 January 2025 - 31 March 2025",
+            0.001,
+            0.001,
+            0.001
+          ],
+          [
+            "1 April 2025 - 30 June 2025",
+            0.001,
+            0.001,
+            0.001
+          ],
+          [
+            "1 July 2025 - 30 September 2025",
+            0.001,
+            0.001,
+            0.001
+          ],
+          [
+            "1 October 2025 - 31 December 2025",
+            0.005,
+            0.001,
+            0.01
+          ],
+          [
+            "Not before 2026",
+            0.992,
+            0.987,
+            0.996
+          ]
+        ]
+      },
+      "history": []
+    },
+    "gold_medalists": {
+      "method": "gold_medalists",
+      "status": 200,
+      "history_points": 231,
+      "latest": {
+        "as_of": "2025-12-30 18:02",
+        "forecaster_count": 17,
+        "center": 0.001,
+        "lower": 0.001,
+        "upper": 0.001,
+        "mean": 0.001365115122675022,
+        "display": "1 January 2025 - 31 March 2025=0.1%  1 April 2025 - 30 June 2025=0.1%  1 July 2025 - 30 September 2025=0.1%  1 October 2025 - 31 December 2025=0.1%  Not before 2026=99.6%",
+        "per_option": [
+          [
+            "1 January 2025 - 31 March 2025",
+            0.001,
+            0.001,
+            0.001
+          ],
+          [
+            "1 April 2025 - 30 June 2025",
+            0.001,
+            0.001,
+            0.001
+          ],
+          [
+            "1 July 2025 - 30 September 2025",
+            0.001,
+            0.001,
+            0.001
+          ],
+          [
+            "1 October 2025 - 31 December 2025",
+            0.001,
+            0.001,
+            0.003
+          ],
+          [
+            "Not before 2026",
+            0.996,
+            0.994,
+            0.996
+          ]
+        ]
+      },
+      "history": []
+    }
+  },
+  "comments": []
+}
