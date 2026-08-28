@@ -1,0 +1,74 @@
+slug: 2026-08-28-mc41141-openai-file-ipo-during-2026
+title: Will OpenAI file for an IPO during 2026?
+source: metaculus
+url: https://www.metaculus.com/questions/41141/will-openai-file-for-an-ipo-during-2026/
+post_id: 41141
+type: binary
+unit: null
+tags:
+- ai
+- corporate-finance
+- ipo
+- openai
+- sec
+dates:
+  created: '2026-08-28'
+  opened: '2025-12-19'
+  closes: '2026-12-31'
+  resolves: '2027-01-01'
+status: open
+current:
+  version: 1
+  date: '2026-08-28'
+  median: 0.2
+  iqr:
+  - 0.15
+  - 0.26
+  community:
+    cp: 0.25
+    pro: 0.2
+    gold: 0.25
+    n_forecasters: 265
+    as_of: '2026-08-28'
+next_review: '2026-09-25'
+tripwires:
+- signal: Anthropic files a public (non-confidential) S-1 on EDGAR
+  by: '2026-09-30'
+  direction: up
+  magnitude_pp: 3
+  fired: null
+- signal: Anthropic prices on Nasdaq and closes its first week above the offer price
+  by: '2026-11-15'
+  direction: up
+  magnitude_pp: 7
+  fired: null
+- signal: Anthropic prices below range or breaks issue in its first week
+  by: '2026-11-15'
+  direction: down
+  magnitude_pp: 6
+  fired: null
+- signal: Wire/major-outlet report naming an OpenAI ticker, exchange, share count or price range, or a
+    syndicate expansion
+  by: '2026-11-15'
+  direction: up
+  magnitude_pp: 15
+  fired: null
+- signal: OpenAI or Altman confirms a 2027 listing on the record (not a leaked all-hands)
+  by: '2026-10-31'
+  direction: down
+  magnitude_pp: 8
+  fired: null
+- signal: SoftBank refinances, extends or repays the $40B bridge maturing 2027-03-25
+  by: '2026-12-31'
+  direction: down
+  magnitude_pp: 4
+  fired: null
+- signal: No public S-1 from OpenAI on EDGAR (leaves only the December-flip path)
+  by: '2026-11-30'
+  direction: down
+  magnitude_pp: 12
+  fired: null
+resolution:
+  outcome: null
+  date: null
+  source: null
