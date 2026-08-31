@@ -14,7 +14,7 @@ dates:
   resolves: '2026-09-03'
 status: open
 current:
-  version: 3
+  version: 2
   date: '2026-08-31'
   median: 0.015
   iqr:
