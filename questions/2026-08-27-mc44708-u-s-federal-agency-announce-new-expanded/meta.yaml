@@ -14,41 +14,41 @@ dates:
   resolves: '2026-09-03'
 status: open
 current:
-  version: 1
-  date: '2026-08-27'
-  median: 0.045
+  version: 2
+  date: '2026-08-31'
+  median: 0.015
   iqr:
-  - 0.02
-  - 0.08
+  - 0.005
+  - 0.03
   community:
-    cp: 0.03
-    pro: 0.07
-    gold: 0.03
-    n_forecasters: 73
-    as_of: '2026-08-27'
-next_review: '2026-09-03'
+    cp: 0.01
+    pro: 0.027
+    gold: 0.01
+    n_forecasters: 83
+    as_of: '2026-08-31'
+next_review: '2026-09-02'
 tripwires:
 - signal: NIST/CAISI publishes a news item naming a new/expanded OpenAI or Anthropic evaluation arrangement
   by: '2026-09-03'
   direction: up
   magnitude_pp: 60
-  fired: null
+  fired: false
 - signal: White House, NSA, or CISA issues an official statement confirming the EO 14409 framework's operational
     status and naming OpenAI/Anthropic
   by: '2026-09-03'
   direction: up
   magnitude_pp: 45
-  fired: null
+  fired: false
 - signal: Reuters/Axios/Fortune/Semafor report a reversal of the White House's 'no public release' stance
   by: '2026-09-03'
   direction: up
   magnitude_pp: 15
-  fired: null
+  fired: false
 - signal: DOD/Department of War announces a new evaluation-specific (not procurement) agreement with Anthropic
   by: '2026-09-03'
   direction: up
   magnitude_pp: 7
-  fired: null
+  fired: false
 - signal: No qualifying announcement found by question close
   by: '2026-09-02'
   direction: down
