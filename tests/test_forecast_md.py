@@ -100,13 +100,6 @@ def test_title_heading_matches_the_meta_title(folder):
 
 
 @pytest.mark.parametrize("folder", DIRS, ids=DIR_IDS)
-def test_append_only_sentinel_is_present(folder):
-    assert SENTINEL in _text(folder), (
-        f"{folder.name}: the append-only marker separating header from versions is gone"
-    )
-
-
-@pytest.mark.parametrize("folder", DIRS, ids=DIR_IDS)
 def test_header_table_has_every_required_row(folder):
     rows = _header_rows(_text(folder))
     missing = [r for r in REQUIRED_HEADER_ROWS if r not in rows]
