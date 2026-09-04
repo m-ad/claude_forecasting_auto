@@ -31,7 +31,9 @@ N = 400_000
 IND_2025 = 516.34  # USD m, GiveWell 2025 metrics report (funds raised excl. Coefficient Giving)
 
 
-def _lognormal(median: float, sigma: float, size: int, z: np.ndarray, load: float) -> np.ndarray:
+def _lognormal(
+    median: float, sigma: float, size: int, z: np.ndarray, load: float
+) -> np.ndarray:
     """Lognormal draw whose log-mean is shifted by a common latent factor.
 
     Parameters
@@ -114,9 +116,16 @@ def _report(name: str, arr: np.ndarray) -> None:
 
 
 print("--- levels, USD m ---")
-for nm, a in [("F2026", f26), ("F2027", f27), ("F2028", f28),
-              ("CG2026", cg26), ("CG2027", cg27), ("IND2026", ind26),
-              ("IND2027", ind27), ("IND2028", ind28)]:
+for nm, a in [
+    ("F2026", f26),
+    ("F2027", f27),
+    ("F2028", f28),
+    ("CG2026", cg26),
+    ("CG2027", cg27),
+    ("IND2026", ind26),
+    ("IND2027", ind27),
+    ("IND2028", ind28),
+]:
     _report(nm, a)
 
 print("\n--- percentage change vs 2026 ---")

@@ -128,6 +128,11 @@ retail trend — the retail buckets ($100–$9,999) barely moved.
   and Playwright, 403 via the fetch tool). The CG post was read through a text-extraction
   proxy and cross-checked against two independent search summaries and the GiveWell blog.
   **Next update: try again, and try `philanthropy.com` (403 here) via archive.**
+- The funds-raised series exists only inside the metrics-report PDFs, not on any HTML
+  page or API. Extract with `uv run --with pypdf python -c "from pypdf import PdfReader;
+  print(chr(10).join((p.extract_text() or '') for p in PdfReader('gw_2025.pdf').pages))"` —
+  the tables come out as one token per line, so pipe through `tr -s '\n' ' '` to read them.
+  `pypdf` is deliberately *not* a project dependency; nothing in the repo imports it.
 - ProPublica / Form 990 revenue ($269.5m FY2024) is *not* the resolution basis. The
   question's own background cites it; it is roughly 65% of the metrics-report figure for
   the same period and must not be used.
