@@ -35,38 +35,45 @@ tripwires:
 - signal: Anthropic files a public (non-confidential) S-1 on EDGAR
   by: '2026-09-30'
   direction: up
-  magnitude_pp: 3
+  magnitude: 3
+  magnitude_unit: pp
   fired: null
 - signal: Anthropic prices on Nasdaq and closes its first week above the offer price
   by: '2026-11-15'
   direction: up
-  magnitude_pp: 7
+  magnitude: 7
+  magnitude_unit: pp
   fired: null
 - signal: Anthropic prices below range or breaks issue in its first week
   by: '2026-11-15'
   direction: down
-  magnitude_pp: 6
+  magnitude: 6
+  magnitude_unit: pp
   fired: null
 - signal: Wire/major-outlet report naming an OpenAI ticker, exchange, share count or price range, or a
     syndicate expansion
   by: '2026-11-15'
   direction: up
-  magnitude_pp: 15
+  magnitude: 15
+  magnitude_unit: pp
   fired: null
 - signal: OpenAI or Altman confirms a 2027 listing on the record (not a leaked all-hands)
   by: '2026-10-31'
   direction: down
-  magnitude_pp: 8
+  magnitude: 8
+  magnitude_unit: pp
   fired: null
 - signal: SoftBank refinances, extends or repays the $40B bridge maturing 2027-03-25
   by: '2026-12-31'
   direction: down
-  magnitude_pp: 4
+  magnitude: 4
+  magnitude_unit: pp
   fired: null
 - signal: No public S-1 from OpenAI on EDGAR (leaves only the December-flip path)
   by: '2026-11-30'
   direction: down
-  magnitude_pp: 12
+  magnitude: 12
+  magnitude_unit: pp
   fired: null
 resolution:
   outcome: null

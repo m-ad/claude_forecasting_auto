@@ -31,28 +31,33 @@ tripwires:
     Hero Offer Document as approved and published
   by: '2026-08-31'
   direction: up
-  magnitude_pp: 55
+  magnitude: 55
+  magnitude_unit: pp
   fired: null
 - signal: Credible report of a BaFin deficiency/correction letter on the Offer Document
   by: '2026-08-31'
   direction: down
-  magnitude_pp: 20
+  magnitude: 20
+  magnitude_unit: pp
   fired: null
 - signal: Credible report that Uber submitted the Offer Document materially before the Aug-13 statutory
     deadline (e.g. late July), with still no approval by 2026-08-27
   by: '2026-08-31'
   direction: down
-  magnitude_pp: 10
+  magnitude: 10
+  magnitude_unit: pp
   fired: null
 - signal: BCA termination, offer withdrawal/abandonment, or a material adverse financing development
   by: '2026-09-01'
   direction: down
-  magnitude_pp: 44
+  magnitude: 44
+  magnitude_unit: pp
   fired: null
 - signal: No BaFin action and no relevant news by end of day 2026-08-31
   by: '2026-08-31'
   direction: down
-  magnitude_pp: 45
+  magnitude: 45
+  magnitude_unit: pp
   fired: null
 resolution:
   outcome: 1.0

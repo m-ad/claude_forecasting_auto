@@ -73,6 +73,9 @@ This is the part most forecasting setups get wrong, so it is mechanised here:
 
 1. Each forecast ends with **tripwires** — dated, observable signals with a direction and a
    magnitude ("IAEA Board resolution referring the file to the UNSC before 2026-11-30 → +15pp").
+   In `meta.yaml` the magnitude is unsigned and carries an explicit `magnitude_unit`:
+   `pp` for probability questions, `days`/`weeks`/`months` for date questions, and the
+   question's own `unit` for numeric ones (`magnitude: 6000`, `magnitude_unit: cases`).
    Vague ones ("further escalation") are not accepted.
 2. Each forecast sets a **`next_review` date** from the time-to-resolution cadence table in
    `docs/update-protocol.md`.

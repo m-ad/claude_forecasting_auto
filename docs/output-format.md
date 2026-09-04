@@ -58,7 +58,7 @@ resolution source and its release schedule. Flag edge cases.>
 |---|---|---|
 
 ### What would change my mind (tripwires)
-- [ ] <dated, observable signal> → <direction, magnitude>
+- [ ] <dated, observable signal> → <direction, magnitude in the units the forecast moves in>
 
 ### Sources
 1. <Title> — <URL> (accessed 2026-08-27)
