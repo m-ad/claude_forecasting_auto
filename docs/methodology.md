@@ -88,6 +88,20 @@ into `meta.yaml` under `tripwires:`.
 Bad: "further escalation". Good: "IAEA Board of Governors resolution referring the file to
 the Security Council before 2026-11-30 → +15pp".
 
+State the magnitude in the units the forecast itself moves in, and record it in `meta.yaml`
+as an unsigned `magnitude` plus an explicit `magnitude_unit` — `direction` carries the sign:
+
+| Question type | `magnitude_unit` | Example |
+|---|---|---|
+| binary, multiple choice | `pp` (percentage points, 0-100) | `magnitude: 15`, `magnitude_unit: pp` |
+| date | `days`, `weeks` or `months` | `magnitude: 6`, `magnitude_unit: weeks` |
+| numeric, discrete | the question's own `unit:` | `magnitude: 6000`, `magnitude_unit: cases` |
+
+Never convert a numeric magnitude into a percentage of your median to make it fit a
+probability scale — the tripwire stops being readable against the forecast it moves.
+A tripwire whose direction you cannot call in advance takes `direction: either` and
+`magnitude: 0`; it is a trigger to re-analyse, not a signed update.
+
 ## Cognitive-bias watchlist
 
 Availability (recent vivid news over-weighted) · narrative fallacy (a coherent story feels

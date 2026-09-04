@@ -18,7 +18,11 @@ from conftest import (
     COMMUNITY_KEYS,
     CURRENT_KEYS,
     DATE_KEYS,
+    DATE_UNITS,
     META_KEYS,
+    NATIVE_UNIT_TYPES,
+    PROBABILITY_TYPES,
+    PROBABILITY_UNIT,
     QUESTION_TYPES,
     QUESTIONS,
     RESOLUTION_KEYS,
@@ -338,9 +342,10 @@ def test_tripwire_entries_are_well_formed(slug, meta):
         assert tw["direction"] in {"up", "down", "either"}, (
             f"{where}: direction {tw['direction']!r} must be up/down/either"
         )
-        mag = tw["magnitude_pp"]
-        assert is_number(mag) and 0 <= mag <= 100, (
-            f"{where}: magnitude_pp {mag!r} must be a number in [0, 100]"
+        mag = tw["magnitude"]
+        assert is_number(mag) and mag >= 0, (
+            f"{where}: magnitude {mag!r} must be a non-negative number. It is "
+            "unsigned - `direction` carries the sign"
         )
         if tw["direction"] == "either":
             assert mag == 0, (
@@ -355,6 +360,65 @@ def test_tripwire_entries_are_well_formed(slug, meta):
             or isinstance(tw["fired"], bool)
             or as_date(tw["fired"]) is not None
         ), f"{where}: fired must be null, a bool, or the date it fired"
+
+
+@pytest.mark.parametrize("slug,meta", METAS, ids=IDS)
+def test_tripwire_magnitude_units_match_the_question_type(slug, meta):
+    """A magnitude is only readable next to the forecast it moves.
+
+    So the unit is not free-form: probability questions move in percentage
+    points, date questions in time, and numeric questions in the question's own
+    native unit. Enforcing the last one against ``meta["unit"]`` is what stops a
+    numeric tripwire from being silently denominated in something else.
+    """
+    qtype = meta.get("type")
+    native = meta.get("unit")
+    for i, tw in enumerate(meta.get("tripwires") or []):
+        where = f"{slug}: tripwire[{i}]"
+        unit = tw.get("magnitude_unit")
+        assert isinstance(unit, str) and unit.strip(), (
+            f"{where}: magnitude_unit {unit!r} must be a non-empty string"
+        )
+        if qtype in PROBABILITY_TYPES:
+            assert unit == PROBABILITY_UNIT, (
+                f"{where}: a {qtype} question moves in {PROBABILITY_UNIT!r}, "
+                f"not {unit!r}"
+            )
+            assert tw["magnitude"] <= 100, (
+                f"{where}: magnitude {tw['magnitude']!r} pp exceeds the "
+                "0-100 probability scale"
+            )
+        elif qtype == "date":
+            assert unit in DATE_UNITS, (
+                f"{where}: a date question moves in {sorted(DATE_UNITS)}, "
+                f"not {unit!r}"
+            )
+        elif qtype in NATIVE_UNIT_TYPES:
+            assert native, (
+                f"{slug}: a {qtype} question with tripwires must set `unit`, so "
+                "magnitudes have something to be denominated in"
+            )
+            assert unit == native, (
+                f"{where}: magnitude_unit {unit!r} must be the question's native "
+                f"unit {native!r}"
+            )
+            # Scale the sanity bound off the median *and* the IQR width: a
+            # question centred near zero (a percent-change one, say) has no
+            # useful |median|, but its band still says how big a real move is.
+            current = meta.get("current") or {}
+            median = current.get("median")
+            lo, hi = (list(current.get("iqr") or [None, None]) + [None, None])[:2]
+            scales = [abs(median)] if is_number(median) else []
+            if is_number(lo) and is_number(hi):
+                scales.append(abs(hi - lo))
+            scale = max(scales, default=0)
+            if scale:
+                assert tw["magnitude"] <= scale, (
+                    f"{where}: magnitude {tw['magnitude']!r} exceeds the whole "
+                    f"forecast scale ({scale}, from median {median!r} and IQR "
+                    f"{[lo, hi]}) - check the unit, this is usually a "
+                    "percent-vs-native mix-up"
+                )
 
 
 @pytest.mark.parametrize("slug,meta", METAS, ids=IDS)
@@ -424,6 +488,38 @@ def test_template_meta_renders_to_the_same_schema():
     assert set(data["current"]["community"]) == COMMUNITY_KEYS
     assert set(data["resolution"]) == RESOLUTION_KEYS
     assert data["current"]["version"] == 0 and data["status"] == "open"
+
+
+def test_template_tripwire_examples_match_the_tripwire_schema():
+    """The commented tripwire examples are what an author copies, so they have to
+    satisfy the same schema the real files are checked against — otherwise the
+    template teaches a shape the test suite rejects."""
+    text = (TEMPLATES / "meta.yaml").read_text(encoding="utf-8")
+    block = text.split("tripwires: []", 1)[1].split("resolution:", 1)[0]
+    # Only the commented YAML itself: "# - signal: ..." and its "#   key: ..."
+    # continuation lines. The surrounding prose comments are not part of it.
+    uncommented = "\n".join(
+        line[2:]
+        for line in block.splitlines()
+        if line.startswith(("# - ", "#   "))
+    )
+    examples = yaml.safe_load(uncommented) or []
+    examples = [e for e in examples if isinstance(e, dict)]
+    assert examples, "templates/meta.yaml has no copyable tripwire example"
+    for i, tw in enumerate(examples):
+        assert set(tw) == TRIPWIRE_KEYS, (
+            f"template tripwire example[{i}] keys {sorted(tw)} != "
+            f"{sorted(TRIPWIRE_KEYS)}"
+        )
+        assert as_date(tw["by"]) is not None
+        assert tw["direction"] in {"up", "down", "either"}
+        assert is_number(tw["magnitude"]) and tw["magnitude"] >= 0
+        assert isinstance(tw["magnitude_unit"], str) and tw["magnitude_unit"].strip()
+    units = {tw["magnitude_unit"] for tw in examples}
+    assert PROBABILITY_UNIT in units and units - {PROBABILITY_UNIT}, (
+        "the template should show both a probability example and a native-unit "
+        f"one, got units {sorted(units)}"
+    )
 
 
 @pytest.mark.parametrize("slug,meta", METAS, ids=IDS)

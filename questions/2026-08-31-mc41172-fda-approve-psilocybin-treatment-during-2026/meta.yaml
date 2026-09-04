@@ -35,38 +35,45 @@ tripwires:
 - signal: Compass Pathways announces completion of the COMP360 rolling NDA submission
   by: '2026-10-31'
   direction: up
-  magnitude_pp: 16
+  magnitude: 16
+  magnitude_unit: pp
   fired: null
 - signal: No rolling-NDA completion announcement, or one dated 2026-11-16 or later
   by: '2026-11-30'
   direction: down
-  magnitude_pp: 8
+  magnitude: 8
+  magnitude_unit: pp
   fired: null
 - signal: FDA filing acceptance confirmed with a stated 2026 goal/PDUFA date for COMP360
   by: '2026-11-30'
   direction: up
-  magnitude_pp: 25
+  magnitude: 25
+  magnitude_unit: pp
   fired: null
 - signal: Psychopharmacologic Drugs Advisory Committee meeting noticed for COMP360 (Federal Register /
     FDA adcomm calendar)
   by: '2026-12-31'
   direction: down
-  magnitude_pp: 8
+  magnitude: 8
+  magnitude_unit: pp
   fired: null
 - signal: Q3 2026 earnings call reiterates Q4 filing without a date, or shifts guidance into 2027
   by: '2026-11-15'
   direction: down
-  magnitude_pp: 5
+  magnitude: 5
+  magnitude_unit: pp
   fired: null
 - signal: FDA or Commissioner Makary publicly names a 2026 decision date for psilocybin
   by: '2026-11-30'
   direction: up
-  magnitude_pp: 10
+  magnitude: 10
+  magnitude_unit: pp
   fired: null
 - signal: Complete Response Letter issued to COMP360
   by: '2026-12-31'
   direction: down
-  magnitude_pp: 10
+  magnitude: 10
+  magnitude_unit: pp
   fired: null
 resolution:
   outcome: null

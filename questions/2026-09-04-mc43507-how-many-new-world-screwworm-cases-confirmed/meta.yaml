@@ -1,0 +1,82 @@
+slug: 2026-09-04-mc43507-how-many-new-world-screwworm-cases-confirmed
+title: How many New World screwworm cases will be confirmed in Mexico in total before July 2027?
+source: metaculus
+url: https://www.metaculus.com/questions/43507/how-many-new-world-screwworm-cases-will-be-confirmed-in-mexico-in-total-before-july-2027/
+post_id: 43507
+type: numeric
+unit: cases
+tags:
+- animal-health
+- epidemiology
+- mexico
+- usda
+- screwworm
+dates:
+  created: '2026-09-04'
+  opened: '2026-06-12'
+  closes: '2027-07-01'
+  resolves: '2027-07-01'
+status: open
+current:
+  version: 1
+  date: '2026-09-04'
+  median: 67000.0
+  iqr:
+  - 61500.0
+  - 74000.0
+  community:
+    cp: 60426.0
+    pro: 59018.0
+    gold: 62410.0
+    n_forecasters: 43
+    as_of: '2026-09-04'
+next_review: '2026-10-06'
+tripwires:
+- signal: SENASICA cumulative cut on/near 2026-10-31 at or below 45,500 (<=85 cases/day since 2026-09-02)
+  by: '2026-10-31'
+  direction: down
+  magnitude: 6000
+  magnitude_unit: cases
+  fired: null
+- signal: SENASICA cumulative cut on/near 2026-10-31 at or above 48,500 (>=135 cases/day since 2026-09-02)
+  by: '2026-10-31'
+  direction: up
+  magnitude: 4000
+  magnitude_unit: cases
+  fired: null
+- signal: National active cases below 1,400 (from ~2,000 on 2026-09-02), ahead of normal winter timing
+  by: '2026-11-30'
+  direction: down
+  magnitude: 6000
+  magnitude_unit: cases
+  fired: null
+- signal: Metapa plant confirmed at >=90 M sterile flies/week AND documented dispersal over Chiapas/Oaxaca/Veracruz,
+    not only the northern corridor
+  by: '2026-12-31'
+  direction: down
+  magnitude: 4000
+  magnitude_unit: cases
+  fired: null
+- signal: Metapa plant still at <=60 M sterile flies/week
+  by: '2026-12-31'
+  direction: up
+  magnitude: 2000
+  magnitude_unit: cases
+  fired: null
+- signal: First SENASICA cumulative cut after 2027-03-01 exceeds 57,000 (shallow winter trough, early
+    spring re-expansion)
+  by: '2027-03-15'
+  direction: up
+  magnitude: 5000
+  magnitude_unit: cases
+  fired: null
+- signal: USDA APHIS stops publishing a Mexico national total, or SENASICA restates/redefines the series
+  by: '2027-06-29'
+  direction: either
+  magnitude: 0
+  magnitude_unit: cases
+  fired: null
+resolution:
+  outcome: null
+  date: null
+  source: null

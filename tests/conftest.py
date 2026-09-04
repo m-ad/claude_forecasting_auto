@@ -66,7 +66,16 @@ DATE_KEYS = {"created", "opened", "closes", "resolves"}
 CURRENT_KEYS = {"version", "date", "median", "iqr", "community"}
 COMMUNITY_KEYS = {"cp", "pro", "gold", "n_forecasters", "as_of"}
 RESOLUTION_KEYS = {"outcome", "date", "source"}
-TRIPWIRE_KEYS = {"signal", "by", "direction", "magnitude_pp", "fired"}
+TRIPWIRE_KEYS = {"signal", "by", "direction", "magnitude", "magnitude_unit", "fired"}
+
+# A tripwire's magnitude only means something next to the forecast it would move,
+# so the unit is not free-form: probability questions move in percentage points,
+# date questions in time, and numeric questions in the question's own native unit
+# (which is why `magnitude_unit` must equal `meta["unit"]` for those).
+PROBABILITY_TYPES = {"binary", "multiple_choice"}
+NATIVE_UNIT_TYPES = {"numeric", "discrete"}
+PROBABILITY_UNIT = "pp"
+DATE_UNITS = {"days", "weeks", "months"}
 
 SLUG_RE = r"^\d{4}-\d{2}-\d{2}-(?:mc|ks|pm|mf|x)\d*-[a-z0-9]+(?:-[a-z0-9]+)*$"
 

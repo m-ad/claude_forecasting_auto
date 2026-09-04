@@ -31,10 +31,23 @@ current:
 next_review: null             # YYYY-MM-DD — see docs/update-protocol.md cadence table
 
 tripwires: []
+# `magnitude` is unsigned — `direction` (up/down/either) carries the sign — and
+# `magnitude_unit` says what it is denominated in: "pp" (percentage points) for
+# binary and multiple-choice questions, "days"/"weeks"/"months" for date
+# questions, and the question's own `unit` above for numeric/discrete ones.
+# An "either" tripwire (re-analyse, direction unknown) carries magnitude 0.
+#
 # - signal: "IAEA Board resolution referring the file to the UNSC"
 #   by: "2026-11-30"
 #   direction: "up"
-#   magnitude_pp: 15
+#   magnitude: 15
+#   magnitude_unit: "pp"          # binary question
+#   fired: null
+# - signal: "Weekly SENASICA cut on 2026-10-31 at or below 45,500"
+#   by: "2026-10-31"
+#   direction: "down"
+#   magnitude: 6000
+#   magnitude_unit: "cases"       # numeric question — must equal `unit:` above
 #   fired: null
 
 resolution:
