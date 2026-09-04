@@ -1,0 +1,32 @@
+{
+ "45575_recency_weighted": {
+  "status": 200,
+  "latest": null,
+  "n_history": 0
+ },
+ "45575_metaculus_pros": {
+  "status": 200,
+  "latest": null,
+  "n_history": 0
+ },
+ "45575_gold_medalists": {
+  "status": 200,
+  "latest": null,
+  "n_history": 0
+ },
+ "45576_recency_weighted": {
+  "status": 200,
+  "latest": null,
+  "n_history": 0
+ },
+ "45576_metaculus_pros": {
+  "status": 200,
+  "latest": null,
+  "n_history": 0
+ },
+ "45576_gold_medalists": {
+  "status": 200,
+  "latest": null,
+  "n_history": 0
+ }
+}

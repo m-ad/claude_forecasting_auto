@@ -1,0 +1,36 @@
+{
+  "retrieved": "2026-09-04",
+  "unit": "USD",
+  "note": "GiveWell metrics years run February-January (metrics year 2025 = Feb 2025 - Jan 2026). Figures for 2020 and earlier are 'money moved' and are not directly comparable.",
+  "sources": {
+    "2021": "GiveWell_Metrics_Report_2021.pdf",
+    "2022": "GiveWell_Metrics_Report_2022.pdf",
+    "2023": "restated in GiveWell_Metrics_Report_2024.pdf",
+    "2024": "GiveWell_Metrics_Report_2024.pdf",
+    "2025": "GiveWell_Metrics_Report_2025.pdf"
+  },
+  "funds_raised": {
+    "2020_money_moved": 293000000,
+    "2021": 595481036,
+    "2022": 602889435,
+    "2023": 355070034,
+    "2024": 414893748,
+    "2025": 616380029
+  },
+  "funds_directed": {"2021": 518111475, "2022": 425224570, "2023": 197474318, "2024": 396969264, "2025": 427260130},
+  "open_phil_coefficient_giving_recognised_as_funds_raised": {
+    "2021": 300000000, "2022": 350000000, "2023": 100000000, "2024": 100000000, "2025": 100039625,
+    "2026_committed": 1000000000
+  },
+  "non_cg_funds_raised": {"2021": 295481036, "2022": 252889435, "2023": 255070034, "2024": 314893748, "2025": 516340404},
+  "donations_through_givewell_by_size_1m_plus": {
+    "2021": 113078465, "2022": 114481046, "2023": 117320066, "2024": 151302702, "2025": 359728215
+  },
+  "donor_count_1m_plus": {"2021": 18, "2022": 22, "2023": 20, "2024": 26, "2025": 39},
+  "donations_by_donor_category_2025": {"new": 37100820, "returning": 443626409, "anonymous": 35613160, "total": 516340389},
+  "funds_raised_by_type_2025": {
+    "all_grants_fund": 153625887, "top_charities_fund": 126164534, "unrestricted": 198655686,
+    "other_funds_raised_for_grantmaking": 110191225, "charity_specific": 27742697, "total": 616380029
+  },
+  "operating_cost": {"2021": 11315469, "2022": 14166724, "2023": 18831517, "2024": 21361760, "2025": 23003028}
+}
