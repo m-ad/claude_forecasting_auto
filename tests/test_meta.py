@@ -402,11 +402,21 @@ def test_tripwire_magnitude_units_match_the_question_type(slug, meta):
                 f"{where}: magnitude_unit {unit!r} must be the question's native "
                 f"unit {native!r}"
             )
-            median = (meta.get("current") or {}).get("median")
-            if is_number(median) and median:
-                assert tw["magnitude"] <= abs(median), (
+            # Scale the sanity bound off the median *and* the IQR width: a
+            # question centred near zero (a percent-change one, say) has no
+            # useful |median|, but its band still says how big a real move is.
+            current = meta.get("current") or {}
+            median = current.get("median")
+            lo, hi = (list(current.get("iqr") or [None, None]) + [None, None])[:2]
+            scales = [abs(median)] if is_number(median) else []
+            if is_number(lo) and is_number(hi):
+                scales.append(abs(hi - lo))
+            scale = max(scales, default=0)
+            if scale:
+                assert tw["magnitude"] <= scale, (
                     f"{where}: magnitude {tw['magnitude']!r} exceeds the whole "
-                    f"median {median!r} - check the unit, this is usually a "
+                    f"forecast scale ({scale}, from median {median!r} and IQR "
+                    f"{[lo, hi]}) - check the unit, this is usually a "
                     "percent-vs-native mix-up"
                 )
 
