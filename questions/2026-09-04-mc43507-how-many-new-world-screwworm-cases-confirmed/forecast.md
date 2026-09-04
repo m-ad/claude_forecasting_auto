@@ -4,7 +4,7 @@
 |---|---|
 | **Source** | Metaculus #43507 — https://www.metaculus.com/questions/43507/how-many-new-world-screwworm-cases-will-be-confirmed-in-mexico-in-total-before-july-2027/ |
 | **Type** | numeric (cumulative animal cases, open both bounds, range 30,000–100,000, rounded to nearest 500) |
-| **Opened / Closes / Resolves** | ~2026-06-12 (CP revealed 2026-06-14) / 2027-07-01 / last USDA report before 2027-07-01 |
+| **Opened / Closes / Resolves** | ~2026-06-12 (CP revealed 2026-06-14) / 2027-07-01 / 2027-07-01, off the last USDA report before that date (~2027-06-29) |
 | **Status** | open |
 | **Current forecast** | **Median 67,000, IQR [61,500, 74,000]** (v1, 2026-09-04) |
 | **Community (as of 2026-09-03)** | CP 60,426 (n=29) · Pro 59,018 (n=5) · Gold 62,410 (n=15) · 43 forecasters total |
@@ -205,6 +205,10 @@ The forecast is robust: **every** variant I can defend keeps the median above th
 prediction. Even loading 70% of the weight onto suppression gives 63,300.
 
 ### What would change my mind (tripwires)
+
+Magnitudes below are in cases. `meta.yaml` carries the same tripwires in the repo's
+fixed schema, where `magnitude_pp` is unsigned and expressed as a percentage of the
+67,000 median (so −6,000 cases → 9).
 
 - [ ] **SENASICA weekly cut through 2026-10-31 shows cumulative ≤ 45,500** (i.e. ≤ ~85 cases/day
       sustained from 2026-09-02) → the deceleration is real; **−5,000 to −7,000** on the median.

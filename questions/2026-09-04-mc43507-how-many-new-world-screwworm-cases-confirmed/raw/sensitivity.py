@@ -1,5 +1,6 @@
 """Sensitivity of the median/IQR to the load-bearing assumptions."""
 import datetime as dt
+
 import numpy as np
 
 RNG = np.random.default_rng(7)
