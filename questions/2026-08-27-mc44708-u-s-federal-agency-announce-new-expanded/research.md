@@ -94,3 +94,19 @@ given this history. Adds at most +0.5-1pp to the total.
 - Watch for Congressional testimony/appropriations hearings in Sept 2026 that might force
   disclosure of participant lists — would only count if framed as an agency "announcement."
 - Watch NIST/CAISI's news page directly (nist.gov/caisi) for anything dated after 2026-08-27.
+
+---
+
+## 2026-09-05 — resolution check
+
+- Re-fetched Metaculus #44708 (`raw/metaculus-2026-09-05-resolved.json`): `status = resolved`,
+  `resolution = no`. Admin comment from `johnnycaffeine`, 2026-09-04: "This question resolves
+  as **No**. We can find no qualifying announcements."
+- Final cohort readings at close (2026-09-01 21:07 UTC): CP 1.0% (n=86), Pro 0.5% (n=9),
+  gold 1.0% (n=35). All three cohorts finished at or below my v2 of 1.5%.
+- The v2 "no qualifying announcement by close" tripwire fired as expected; the four upward
+  tripwires never fired at any point in the question's life.
+- Post-mortem and per-version scoring written into `forecast.md` (`## Resolution — 2026-09-04`).
+  Headline: CP and gold beat me at both timestamps; I beat the Pro cohort at both.
+- Chart of the full cohort trajectory vs. my two versions:
+  `charts/cp-trajectory-vs-mine.png` (generated from the resolved snapshot).

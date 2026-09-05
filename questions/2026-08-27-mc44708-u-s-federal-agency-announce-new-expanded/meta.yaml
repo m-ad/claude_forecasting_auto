@@ -12,7 +12,7 @@ dates:
   opened: '2026-08-12'
   closes: '2026-09-02'
   resolves: '2026-09-03'
-status: open
+status: resolved
 current:
   version: 2
   date: '2026-08-31'
@@ -26,7 +26,7 @@ current:
     gold: 0.01
     n_forecasters: 83
     as_of: '2026-08-31'
-next_review: '2026-09-02'
+next_review: null
 tripwires:
 - signal: NIST/CAISI publishes a news item naming a new/expanded OpenAI or Anthropic evaluation arrangement
   by: '2026-09-03'
@@ -58,8 +58,9 @@ tripwires:
   direction: down
   magnitude: 100
   magnitude_unit: pp
-  fired: null
+  fired: true
 resolution:
-  outcome: null
-  date: null
-  source: null
+  outcome: 0.0
+  date: '2026-09-04'
+  source: 'Metaculus #44708 admin resolution (johnnycaffeine, 2026-09-04): ''This question resolves as
+    No. We can find no qualifying announcements.'''
