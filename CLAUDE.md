@@ -15,6 +15,19 @@
 - Never `git commit` unless asked. Committing forecasts is the operator's call.
   (An explicit instruction to commit and push — e.g. from a harness running you on a
   feature branch — supersedes this.)
+- **Lint and test before every commit.** Any workflow that edits files in the repo
+  (`/forecast`, `/update`, `/resolve`, and anything else that touches `questions/`,
+  `scripts/`, or the ledger) must run both, in this repo's root, right before staging:
+
+  ```bash
+  uv run ruff check .
+  uv run pytest -q
+  ```
+
+  Fix failures — including pre-existing ones your change now touches — before
+  committing. Never commit with either red; this is what CI (`.github/workflows/tests.yml`)
+  checks on every push, and a red commit on a feature branch you push directly is not
+  caught by anything else.
 - **Rebase before every push.** The remote moves under you: other sessions and merged
   PRs land on `main` while a long forecast run is in progress.
 

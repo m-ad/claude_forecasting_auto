@@ -68,6 +68,14 @@ uv run scripts/log_forecast.py add <slug> --median ... --lower ... --upper ... \
 uv run scripts/status.py --index
 ```
 
+**Before committing**, run both and fix any failures — this is a repo-edit workflow, per
+`CLAUDE.md`'s Git section:
+
+```bash
+uv run ruff check .
+uv run pytest -q
+```
+
 ## Resolution and post-mortem
 
 ```bash
@@ -75,7 +83,8 @@ uv run scripts/log_forecast.py resolve <slug> --outcome yes|no|<value>
 uv run scripts/calibration.py
 ```
 
-Append a `## Resolution — <date>` section to `forecast.md`:
+Append a `## Resolution — <date>` section to `forecast.md`, then re-run the lint/test
+gate above before committing.
 
 - What happened, via which resolution source, on which date.
 - Per-version Brier score (binary) or absolute/quantile error (numeric), and the same for the
