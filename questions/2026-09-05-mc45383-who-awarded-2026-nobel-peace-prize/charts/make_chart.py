@@ -1,9 +1,12 @@
 """Horizontal bars comparing this forecast's option vector with the Kalshi board
 (11 Aug 2026) and the OLBG bookmaker board (2 Sep 2026, gross of overround)."""
 import matplotlib
-matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 import numpy as np
+
+# Non-interactive backend: this script only ever writes a PNG. Setting it after
+# the pyplot import is safe because no figure has been created yet.
+matplotlib.use("Agg")
 
 rows = [
     # option, forecast, kalshi (None = not listed), bookmaker gross (None = not listed)

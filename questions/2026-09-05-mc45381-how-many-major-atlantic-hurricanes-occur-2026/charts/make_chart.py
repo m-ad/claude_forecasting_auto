@@ -1,8 +1,11 @@
 """Horizontal bar chart of the forecast distribution over major-hurricane counts,
 with the NOAA August-2026 70% range shaded for comparison."""
 import matplotlib
-matplotlib.use("Agg")
 import matplotlib.pyplot as plt
+
+# Non-interactive backend: this script only ever writes a PNG. Setting it after
+# the pyplot import is safe because no figure has been created yet.
+matplotlib.use("Agg")
 
 options = ["0", "1", "2", "3", "4+"]
 probs = [47.0, 31.0, 15.0, 5.0, 2.0]

@@ -1,8 +1,11 @@
 """Horizontal bars: forecast probability mass for Iotova's first-round share,
 with the historical Bulgarian first-round winner shares marked for context."""
 import matplotlib
-matplotlib.use("Agg")
 import matplotlib.pyplot as plt
+
+# Non-interactive backend: this script only ever writes a PNG. Setting it after
+# the pyplot import is safe because no figure has been created yet.
+matplotlib.use("Agg")
 
 bins = ["< 40%", "40–43%", "43–46%", "46–49%", "49–52%", "> 52%"]
 mass = [13.0, 17.0, 25.0, 21.0, 15.0, 9.0]
