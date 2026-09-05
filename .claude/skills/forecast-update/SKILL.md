@@ -72,7 +72,7 @@ uv run scripts/status.py --index
 `CLAUDE.md`'s Git section:
 
 ```bash
-uv run ruff check .
+uv run ruff check --fix .
 uv run pytest -q
 ```
 
