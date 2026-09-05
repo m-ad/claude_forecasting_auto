@@ -91,7 +91,15 @@ uv run scripts/log_forecast.py add <slug> \
     --thesis "..." --next-review 2026-10-31
 ```
 
-Finally, `uv run scripts/status.py --index` to refresh `INDEX.md`.
+Then `uv run scripts/status.py --index` to refresh `INDEX.md`.
+
+**Before committing**, run both and fix any failures — this is a repo-edit workflow, per
+`CLAUDE.md`'s Git section:
+
+```bash
+uv run ruff check .
+uv run pytest -q
+```
 
 ## Step 10 — Report
 
