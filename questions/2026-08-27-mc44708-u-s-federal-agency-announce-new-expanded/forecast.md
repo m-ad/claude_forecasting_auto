@@ -5,8 +5,9 @@
 | **Source** | Metaculus #44708 — https://www.metaculus.com/questions/44708/will-the-us-expand-evaluations-of-openaianthropic-models-before-sept-3-2026/ |
 | **Type** | binary |
 | **Opened / Closes / Resolves** | 2026-08-12 / 2026-09-02 / 2026-09-03 |
-| **Status** | **resolved — NO (2026-09-04)** |
-| **Final forecast** | **Median 1.5%, IQR [0.5%, 3.0%]** (v2, 2026-08-31) · Brier 0.000225 |
+| **Status** | resolved |
+| **Resolved** | **NO** on 2026-09-04 |
+| **Current forecast** | **Median 1.5%, IQR [0.5%, 3.0%]** (v2, 2026-08-31) · Brier 0.000225 |
 | **Community at close (2026-09-01)** | CP 1.0% (n=86) · Pro 0.5% (n=9) · Gold 1.0% (n=35) |
 | **Score** | mean Brier 0.001125 over 2 versions; CP/gold 0.000500 at the same timestamps — **the crowd beat me** |
 | **Next review** | — |
