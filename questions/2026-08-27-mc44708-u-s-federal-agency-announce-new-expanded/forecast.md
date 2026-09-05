@@ -5,12 +5,126 @@
 | **Source** | Metaculus #44708 — https://www.metaculus.com/questions/44708/will-the-us-expand-evaluations-of-openaianthropic-models-before-sept-3-2026/ |
 | **Type** | binary |
 | **Opened / Closes / Resolves** | 2026-08-12 / 2026-09-02 / 2026-09-03 |
-| **Status** | open |
-| **Current forecast** | **Median 1.5%, IQR [0.5%, 3.0%]** (v2, 2026-08-31) |
-| **Community (as of 2026-08-31)** | CP 1.0% (n=83) · Pro 2.7% (n=8) · Gold 1.0% (n=34) |
-| **Next review** | 2026-09-02 |
+| **Status** | **resolved — NO (2026-09-04)** |
+| **Final forecast** | **Median 1.5%, IQR [0.5%, 3.0%]** (v2, 2026-08-31) · Brier 0.000225 |
+| **Community at close (2026-09-01)** | CP 1.0% (n=86) · Pro 0.5% (n=9) · Gold 1.0% (n=35) |
+| **Score** | mean Brier 0.001125 over 2 versions; CP/gold 0.000500 at the same timestamps — **the crowd beat me** |
+| **Next review** | — |
 
 <!-- Versions below, newest first. APPEND-ONLY: never edit or delete a past version. -->
+
+---
+
+## Resolution — 2026-09-04 — **NO**
+
+### What happened
+
+Metaculus resolved the question **NO** on 2026-09-04. Verified against the question's own
+resolution source (the Metaculus post itself, re-fetched 2026-09-05): the API `status` field
+reads `resolved` and `resolution` reads `no`, and the admin resolution comment from
+`johnnycaffeine` (2026-09-04) states verbatim:
+
+> "This question resolves as **No**. We can find no qualifying announcements."
+
+No U.S. federal agency announced a new or materially expanded model-evaluation agreement
+covering both OpenAI and Anthropic between 2026-08-10 and 2026-09-03. The EO 14409 framework
+reviewed with both companies at the Aug 3–4 White House meeting stayed unpublished, exactly as
+the administration said on Aug 4 that it would. The status-quo scenario (v1 scenario #1,
+weight 95.5%) is what occurred.
+
+Final cohort values at question close (2026-09-01 21:07 UTC, n=86):
+CP **1.0%** IQR [0.3%, 1.2%] · Pro **0.5%** IQR [0.5%, 1.0%] (n=9) · gold **1.0%** IQR [0.5%, 1.0%] (n=35).
+
+![Cohort trajectory vs. my forecasts](charts/cp-trajectory-vs-mine.png)
+
+### Scoring
+
+Outcome coded 0. Brier = (p − 0)² = p². Log score = ln(1 − p), natural log of the probability
+assigned to the realised outcome. Community values are the cohort readings recorded in `raw/`
+at the *same timestamps* as my versions, not the final ones.
+
+| Timestamp | Forecaster | P(YES) | Brier ↓ | Log score ↑ |
+|---|---|---|---|---|
+| 2026-08-27 (v1) | **Me** | 4.5% | **0.002025** | −0.0460 |
+| 2026-08-27 | Metaculus CP | 3.0% | 0.000900 | −0.0305 |
+| 2026-08-27 | Metaculus gold | 3.0% | 0.000900 | −0.0305 |
+| 2026-08-27 | Metaculus Pro | 7.0% | 0.004900 | −0.0726 |
+| 2026-08-31 (v2) | **Me** | 1.5% | **0.000225** | −0.0151 |
+| 2026-08-31 | Metaculus CP | 1.0% | 0.000100 | −0.0101 |
+| 2026-08-31 | Metaculus gold | 1.0% | 0.000100 | −0.0101 |
+| 2026-08-31 | Metaculus Pro | 2.7% | 0.000729 | −0.0274 |
+
+Mean Brier across my two versions: **0.001125**. CP/gold at the same two timestamps: 0.000500.
+Pro: 0.002815.
+
+**Did I beat the crowd? No — I lost to CP and to the gold medalists at both timestamps, and beat
+only the Pro cohort.** The loss is structural, not noisy: I priced YES at exactly **1.5× the
+CP/gold value on both dates** (4.5 vs 3.0; 1.5 vs 1.0). Because Brier ≈ p² in this regime, a
+constant 1.5× multiplier costs a constant **2.25× factor in Brier** — which is precisely what
+happened at both timestamps. That is one decision repeated twice, not two independent errors.
+
+The absolute magnitudes are tiny (0.001125 vs 0.000500; both are ~0.001 away from a perfect
+score) so this question moves the aggregate record almost not at all. The *direction* is what
+generalises, and it should not be over-learned from a single near-certain question: one
+observation of a residual being too fat is weak evidence. See the calibration line below.
+
+IQR coverage is not informative here: for a binary question resolving NO, the outcome (0%) sits
+below the lower bound of any strictly-positive IQR by construction. Both of my IQRs
+([2.0%, 8.0%] and [0.5%, 3.0%]) therefore "missed" in a way that carries no signal. Binary
+quartile bands score as a statement of second-order uncertainty, not as a coverage interval.
+
+### The tripwire that should have existed and did not
+
+**Every one of my five tripwires pointed *up*.** Four were YES-triggers, and the fifth ("no
+qualifying announcement found by close") was a tautology that fires on the resolution itself and
+therefore never informs a forecast made *before* close. I had no tripwire capable of moving me
+*down* faster than the crowd — which is why I sat above a converged CP/gold on both dates and
+lost.
+
+The missing tripwire, concretely:
+
+> **Absence-of-precursor check at T−5 days.** By 2026-08-29, had any of the *observable
+> machinery* that precedes a U.S. federal announcement appeared?
+> — a Federal Register submission or public-inspection entry naming NIST/CAISI, NSA, or CISA
+>   frontier-model evaluation;
+> — an OMB/OIRA regulatory-review entry for the EO 14409 framework;
+> — a NIST or Commerce **media advisory** or press-event listing on the agency calendar;
+> — a `nist.gov/caisi` page revision or new "news-events" stub.
+> **If none of these exist at T−5 → the "an announcement is already in flight but not yet
+> indexed by news search" scenario is dead, and the residual it justified goes to ~0.**
+
+That residual was the *entire* stated reason I held a number above CP/gold — v1 Sensitivity row
+3 and the v2 disagreement note both name it explicitly ("the thin chance of an announcement
+already in flight that has not yet been indexed"). Federal announcements have a paper trail that
+precedes the press release by days to weeks; news-search silence is weak evidence about that
+trail, but Federal Register and agency-calendar silence is strong evidence. I searched for the
+*announcement* and found nothing; I never searched for its *precursors*, so I treated "not yet
+indexed" as live when it was cheaply falsifiable. Checking the precursor at T−5 would have taken
+me to roughly 0.5–1.0%, at or below CP, and would have won the comparison.
+
+Generalisable form: **for any "will an official body publicly announce X by date D" question,
+add a tripwire on the announcement pipeline, not just on the announcement.** Procedural
+precursors (register filings, calendar entries, review dockets, embargo notices) are observable
+earlier and are far more diagnostic than the absence of news coverage.
+
+Second, lower-value gap: I had no tripwire on **the resolution criteria themselves changing**.
+The comment thread contained a live proposal (skmmcj → DaiLothbrook) to broaden "OpenAI *and*
+Anthropic" to "any two qualifying frontier developers," which would have raised P(YES)
+materially. I checked it manually at v2 and confirmed it was not adopted, but by luck of
+diligence rather than by a standing tripwire. Add one on question-metadata edits for any
+question whose criteria are still under active discussion in the comments.
+
+### Calibration line
+
+**Over-forecast, by a factor of ~1.5× on the probability and ~2.25× on the Brier, in the same
+direction on both versions.** Correct side of 50% throughout and directionally right the whole
+way (4.5% → 1.5% → 0%), but persistently above a large, tightly-converged CP/gold cohort with no
+evidence the crowd lacked — the classic "keep a residual for the unknown unknown" error, applied
+to a scenario (announcement already in flight) that was cheaply falsifiable and that I did not
+falsify. **Rule to carry forward: when CP and gold medalists agree tightly at the floor and I
+sit above them, I must be able to name the specific observable my extra probability is buying —
+and then go check that observable.** If I cannot check it, the residual is not a belief, it is a
+hedge, and hedges score badly.
 
 ---
 
