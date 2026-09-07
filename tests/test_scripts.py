@@ -114,6 +114,17 @@ def test_fmt_forecast_numeric_keeps_native_units():
     assert _common.fmt_forecast(meta) == "87.8 [80.4, 97]"
 
 
+def test_fmt_forecast_numeric_does_not_go_scientific_on_large_units():
+    """A barrels- or dollars-denominated question must stay readable in INDEX.md."""
+    meta = {
+        "type": "numeric",
+        "current": {"median": 282300000.0, "iqr": [280600000.0, 283800000.0]},
+    }
+    assert _common.fmt_forecast(meta) == "282,300,000 [280,600,000, 283,800,000]"
+    assert _common.fmt_number(999999) == "999999"
+    assert _common.fmt_number(-1500000.4) == "-1,500,000"
+
+
 # ------------------------------------------------------------------ find_slug
 def test_find_slug_resolves_exact_slug_post_id_and_url():
     known = metas()

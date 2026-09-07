@@ -23,6 +23,7 @@ from _common import (
     days_until,
     find_slug,
     fmt_forecast,
+    fmt_number,
     today,
 )
 
@@ -132,7 +133,7 @@ def write_index() -> None:
         cp_s = (
             f"{cp:.1%}"
             if isinstance(cp, float) and meta.get("type") == "binary"
-            else (f"{cp:g}" if cp is not None else "—")
+            else (fmt_number(cp) if cp is not None else "—")
         )
         title = str(meta.get("title") or slug).replace("|", "\\|")
         lines.append(

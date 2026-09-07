@@ -201,6 +201,19 @@ def days_until(date_str: str | None) -> int | None:
     return (d - _dt.date.today()).days
 
 
+def fmt_number(value: float) -> str:
+    """Render a native-unit number without %g's switch to scientific notation.
+
+    A question denominated in barrels or dollars runs to 1e8, where ``%g`` emits
+    ``2.823e+08`` and the index stops being readable. Group-separate anything
+    that large and leave smaller values on ``%g``, which keeps the existing
+    percentage- and index-scale questions unchanged.
+    """
+    if abs(value) >= 1e6:
+        return f"{value:,.0f}"
+    return f"{value:g}"
+
+
 def fmt_forecast(meta: dict[str, Any]) -> str:
     """Render a question's current forecast as a one-line human string."""
     cur = meta.get("current") or {}
@@ -212,5 +225,9 @@ def fmt_forecast(meta: dict[str, Any]) -> str:
         band = f" [{lo:.1%}, {hi:.1%}]" if lo is not None and hi is not None else ""
         return f"{med:.1%}{band}"
     lo, hi = iqr
-    band = f" [{lo:g}, {hi:g}]" if lo is not None and hi is not None else ""
-    return f"{med:g}{band}"
+    band = (
+        f" [{fmt_number(lo)}, {fmt_number(hi)}]"
+        if lo is not None and hi is not None
+        else ""
+    )
+    return f"{fmt_number(med)}{band}"
