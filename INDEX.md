@@ -1,6 +1,6 @@
 # Question index
 
-_Regenerated 2026-09-05 by `scripts/status.py --index`._
+_Regenerated 2026-09-07 by `scripts/status.py --index`._
 
 | Question | Type | Current | v | Community (CP) | Resolves | Next review | Status |
 |---|---|---|---|---|---|---|---|
@@ -16,5 +16,7 @@ _Regenerated 2026-09-05 by `scripts/status.py --index`._
 | [How many Major Atlantic Hurricanes will occur in the 2026 Atlantic hurricane season?](questions/2026-09-05-mc45381-how-many-major-atlantic-hurricanes-occur-2026/forecast.md) | multiple_choice | 0.47 [0.4, 0.54] | 1 | — | 2026-11-30 | 2026-09-19 | open |
 | [Who will be awarded the 2026 Nobel Peace Prize?](questions/2026-09-05-mc45383-who-awarded-2026-nobel-peace-prize/forecast.md) | multiple_choice | 0.47 [0.4, 0.54] | 1 | — | 2026-10-09 | 2026-09-28 | open |
 | [Will FEWS NET classify any area of Sudan as experiencing Famine before 2027?](questions/2026-09-05-mc45464-fews-net-classify-area-sudan-as-experiencing/forecast.md) | binary | 20.0% [14.0%, 28.0%] | 1 | — | 2026-12-31 | 2026-09-19 | open |
+| [How many barrels of crude oil will the Strategic Petroleum Reserve hold in December 2026?](questions/2026-09-07-mc15240-spr-crude-barrels-december-2026/forecast.md) | numeric | 281,900,000 [278,300,000, 285,200,000] | 1 | 399,811,115 | 2027-02-26 | 2026-09-21 | open |
+| [How many barrels of crude oil will the Strategic Petroleum Reserve hold in September 2026?](questions/2026-09-07-mc15240-spr-crude-barrels-september-2026/forecast.md) | numeric | 282,300,000 [280,600,000, 283,800,000] | 1 | 317,131,973 | 2026-11-30 | 2026-09-11 | open |
 | [Will a U.S. federal agency announce new or expanded model evaluation agreements with both OpenAI and Anthropic before September 3, 2026?](questions/2026-08-27-mc44708-u-s-federal-agency-announce-new-expanded/forecast.md) | binary | 1.5% [0.5%, 3.0%] | 2 | 1.0% | 2026-09-03 | — | resolved |
 | [Will Uber's takeover of Delivery Hero be approved by BaFin before September 2026?](questions/2026-08-27-mc44921-uber-delivery-hero-bafin-approval/forecast.md) | binary | 45.0% [32.0%, 58.0%] | 1 | 51.0% | 2026-09-01 | — | resolved |
