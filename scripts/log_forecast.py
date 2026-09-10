@@ -32,6 +32,34 @@ def _append(record: dict[str, Any]) -> None:
         fh.write(json.dumps(record, ensure_ascii=False) + "\n")
 
 
+def _count_forecasts(slug: str) -> int:
+    """Number of ``forecast`` records already in the ledger for ``slug``.
+
+    Counting rather than taking ``max(version) + 1`` keeps the ledger's
+    versions-are-1..N-without-gaps invariant intact even if some record carries a
+    wrong version number: a stray v3 in a two-record slug would otherwise make the
+    next entry v4 and leave a permanent hole.
+
+    A malformed line is skipped rather than raised on: the ledger is append-only
+    and losing the ability to append because of one bad line elsewhere in the file
+    is the worse failure.
+    """
+    if not LEDGER.exists():
+        return 0
+    n = 0
+    for line in LEDGER.read_text(encoding="utf-8").splitlines():
+        line = line.strip()
+        if not line:
+            continue
+        try:
+            rec = json.loads(line)
+        except json.JSONDecodeError:
+            continue
+        if rec.get("slug") == slug and rec.get("event", "forecast") == "forecast":
+            n += 1
+    return n
+
+
 def _outcome_value(raw: str) -> float | str:
     """Coerce a resolution argument to a number where it is one."""
     low = raw.strip().lower()
@@ -48,7 +76,19 @@ def _outcome_value(raw: str) -> float | str:
 def cmd_add(args: argparse.Namespace) -> None:
     slug = find_slug(args.slug) or sys.exit(f"! no unique question for {args.slug!r}")
     meta = load_meta(slug)
-    version = int((meta.get("current") or {}).get("version") or 0) + 1
+    # Derive the version from the ledger, which is the append-only record this
+    # entry joins. Deriving it from meta.yaml's current.version made the number
+    # depend on whether meta.yaml had already been hand-edited for this version --
+    # a workflow that writes forecast.md and meta.yaml first then logged a phantom
+    # extra version.
+    version = _count_forecasts(slug) + 1
+    meta_version = (meta.get("current") or {}).get("version")
+    if meta_version is not None and int(meta_version) not in (version - 1, version):
+        print(
+            f"! {slug}: meta.yaml says v{meta_version} but the ledger holds "
+            f"{version - 1} forecast(s); logging v{version} from the ledger",
+            file=sys.stderr,
+        )
 
     record = {
         "ts": dt.datetime.now(dt.timezone.utc).isoformat(timespec="seconds"),
