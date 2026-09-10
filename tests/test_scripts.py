@@ -172,6 +172,68 @@ def test_outcome_value_coercion(raw, expected):
     assert log_forecast._outcome_value(raw) == expected
 
 
+# ------------------------------------------------------- ledger-derived version
+def _write_ledger(path, records) -> None:
+    path.write_text(
+        "".join(json.dumps(r, ensure_ascii=False) + "\n" for r in records),
+        encoding="utf-8",
+    )
+
+
+def test_count_forecasts_is_zero_without_a_ledger(monkeypatch, tmp_path):
+    monkeypatch.setattr(log_forecast, "LEDGER", tmp_path / "nope.jsonl")
+    assert log_forecast._count_forecasts("some-slug") == 0
+
+
+def test_count_forecasts_counts_only_this_slugs_forecast_records(
+    monkeypatch, tmp_path
+):
+    """Resolutions and other slugs must not shift a slug's next version number."""
+    path = tmp_path / "forecasts.jsonl"
+    _write_ledger(
+        path,
+        [
+            {"event": "forecast", "slug": "a", "version": 1},
+            {"event": "forecast", "slug": "b", "version": 1},
+            {"event": "forecast", "slug": "a", "version": 2},
+            {"event": "resolution", "slug": "a", "outcome": 1.0},
+            {"slug": "a", "version": 3},  # legacy record with no event key
+        ],
+    )
+    monkeypatch.setattr(log_forecast, "LEDGER", path)
+    assert log_forecast._count_forecasts("a") == 3
+    assert log_forecast._count_forecasts("b") == 1
+    assert log_forecast._count_forecasts("c") == 0
+
+
+def test_count_forecasts_survives_a_malformed_line(monkeypatch, tmp_path):
+    """One unparseable line must not block appending to an append-only ledger."""
+    path = tmp_path / "forecasts.jsonl"
+    path.write_text(
+        json.dumps({"event": "forecast", "slug": "a", "version": 1})
+        + "\n{ this is not json\n\n"
+        + json.dumps({"event": "forecast", "slug": "a", "version": 2})
+        + "\n",
+        encoding="utf-8",
+    )
+    monkeypatch.setattr(log_forecast, "LEDGER", path)
+    assert log_forecast._count_forecasts("a") == 2
+
+
+def test_count_forecasts_ignores_a_wrong_version_number(monkeypatch, tmp_path):
+    """Counting, not max()+1: a stray version must not open a permanent gap."""
+    path = tmp_path / "forecasts.jsonl"
+    _write_ledger(
+        path,
+        [
+            {"event": "forecast", "slug": "a", "version": 1},
+            {"event": "forecast", "slug": "a", "version": 7},
+        ],
+    )
+    monkeypatch.setattr(log_forecast, "LEDGER", path)
+    assert log_forecast._count_forecasts("a") + 1 == 3
+
+
 # ------------------------------------------------------------- scoring rules
 def test_brier_is_squared_error_and_bounded():
     assert calibration.brier(1.0, 1.0) == 0.0
