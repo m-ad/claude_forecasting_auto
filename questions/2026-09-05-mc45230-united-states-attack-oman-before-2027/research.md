@@ -142,3 +142,159 @@ exactly the ones that route to ambiguous rather than YES.
 3. Has Oman formally protested any *US* action, as opposed to Iranian ones?
 4. Is the Iran–Oman corridor agreement formalised, and does the US move to obstruct it?
 5. Does Project Freedom resume at full tempo, and does the escort corridor stay inside Omani waters?
+
+---
+
+# v2 — Re-analysis — 2026-09-10
+
+## Access failure that bounds this version
+
+`metaculus.com` served a Cloudflare **managed challenge** (`HTTP 403`, `cf-mitigated: challenge`,
+`server: cloudflare`, "Just a moment..." interstitial) to every access path tried:
+
+| Path | Attempts | Result |
+|---|---|---|
+| `.claude/skills/metaculus-aggregations/scripts/metaculus_aggregations.py 45230 --comments 12 --history --json` | 5 | `RuntimeError: No aggregation JSON for post 45230 (last status 403)` |
+| `.claude/skills/metaculus-scraper/scripts/metaculus_scrape.py` (fallback) | 2 | venv Playwright pins browser build 1234; only 1194 is installed. With the executable path patched, `page.goto` → `net::ERR_CONNECTION_RESET` when Chromium was given the proxy explicitly |
+| plain `curl` on `/questions/45230/` and `/api/posts/45230/` | 2 | 403, `cf-mitigated: challenge` |
+
+**Not retrieved**: CP (first reveal was due 2026-09-08T17:00Z), Pro, gold medalists, forecaster
+count, and the comment thread — including whether admins answered ChaosCondensate's 2026-09-04
+clarification request. Recorded in `raw/metaculus-2026-09-10-FETCH-FAILED.json`.
+
+Consequence: two of eight v1 tripwires are unverifiable, and v2 stays unanchored to the community.
+`next_review` is one week, not two, so the fetch can be re-attempted early.
+
+Wikipedia was reachable via the MediaWiki `action=parse` API and carried most of the load instead.
+`ukmto.org` also returns 403 to this container; JMIC content came from the search index.
+
+## What changed the number
+
+### 1. The US strike log — the decisive negative finding
+
+Wikipedia's "List of ships attacked by the United States" [2], cross-read against CENTCOM reporting,
+gives locations for every named engagement:
+
+| Vessel | Date | Location |
+|---|---|---|
+| *Touska* | 19 Apr | northern Arabian Sea (USS *Spruance*) |
+| *Deep Sea*, *Sevin* | Apr | off Malaysia |
+| *Dorena*, *Derya* | Apr | off India |
+| two unnamed | Apr | Indian Ocean |
+| unnamed tanker | 24 Apr | Persian Gulf (USS *Rafael Peralta*) |
+| *Sevan* | 25 Apr | Arabian Sea (USS *Pinckney*) |
+| *Lian Star* | 30 May | Gulf of Oman |
+| *Marivex* | 8 Jun | Gulf of Oman |
+| *Jalveer* | 11 Jun | Gulf of Oman (2× Hellfire) |
+| *Belma* | 15 Jul | Persian Gulf |
+| *Lavine* | 24 Jul | (disabled) |
+| *Downy* | 5 Sep | near Kharg Island |
+| *Stark 1* | 5 Sep | near Jask |
+| *Kylo* | 5 Sep | Gulf of Oman |
+
+**Zero inside Omani territorial waters.** Meanwhile the *Iranian* attack log is full of precise
+Omani-water positions: 5 nm north of Khasab, 52 nm off Muscat, 8 nm northeast of Limah, 7.5 nm
+southeast of Dahit, "the Omani side of the Strait" (*Kavomaleas*, *Acheloos*, 20 Jul), 4 nm from the
+Omani coast (*Senegal Prosperity*, 30 Aug, JMIC Update 092) [3,6].
+
+This kills v1's `P(engagement inside the belt) = 0.75`. Replaced by a Jeffreys/Poisson rate on the
+observed record — 0 events in ~5.0 months of US operations in the strait, λ ≈ 0.10/mo,
+P(≥1 in 3.7 mo) ≈ 31%, ×0.65 for the traffic collapse → **≈ 0.21**.
+
+**Trap named**: "Gulf of Oman" ≠ Omani territorial waters. Three of this week's US strikes are
+headlined "in the Gulf of Oman" and none is in the 12-nm belt. This is the mirror image of v1's
+warning (Iranian strikes on Oman misread as American) and it cuts the other way.
+
+### 2. Operation Project Freedom is not what v1 described
+
+Wikipedia's infobox: **date 4–5 May 2026 (1 day), outcome "Temporarily halted"** [4]. Trump paused
+it on 5 May; the NYT read is that Saudi Arabia had denied the US its bases and airspace over it.
+Hegseth said in mid-June "Project Freedom never stopped, and we've run 125 million barrels of oil
+through the straits", so it is not dead — but Lloyd's List reports owners and insurers said it never
+gave "sufficient clarity or credible protection to justify resuming transits".
+
+The JMIC "enhanced security area" is real and *is* inside Omani territorial waters: JMIC Advisory
+Note 004-26 of 4 May placed it south of the Traffic Separation Scheme, advising coordination with
+Omani authorities on VHF 16 [5]. The geometry was right in v1; the event rate it was supposed to
+imply was not.
+
+### 3. Traffic collapse
+
+| Metric | Value | As of | Source |
+|---|---|---|---|
+| PortWatch transits through the strait | **6** (vs 85/day pre-crisis) | 2026-08-30 | Straits Daily Brief [10] |
+| Commodity ships/day, trailing 10 days | ~10, lowest since May | ~2026-09-07 | shipping data via ABC [11] |
+| Large ships since early September | none | 2026-09-08 | Kpler via [2] |
+| Missile strikes in the strait, 6 Jul – early Sep | 27 | 2026-09-07 | Kpler via [2] |
+
+Almost nothing is left in the corridor for a US warship to escort.
+
+### 4. Oman consents to Western naval activity in its waters
+
+- **4 Jul**: the UK and France state Oman has committed to work with them on safe navigation through
+  its territorial waters; Iran warns them off [3].
+- **25 Aug**: US officials confirm the US Navy cleared >100 suspected mines from the Traffic
+  Separation Scheme — "Oman's primary maritime corridor with Iran" — with underwater drones and
+  private contractors detonating them [3].
+
+Explosive US activity inside Omani territorial waters, with consent, that nobody has called an
+attack on Oman. The consent carve-out is already operating in the world, whatever the admins rule.
+
+### 5. The named trigger fired twice more and drew nothing
+
+- 17 Aug: Iran states it reached an agreement with Oman on Hormuz traffic.
+- 26 Aug: IRGC announces Iran–Oman deals on the Hormuz "share and its revenue"; the joint statement
+  asserts sovereignty over territorial waters and sets up a foreign-ministry working group [13].
+- The route: **outbound through a southern lane in Omani waters coordinated with Iran**, inbound
+  through Iranian waters [13].
+- US response through 10 Sep: none. Critical Threats' 7 Sep Iran Update does not mention Oman once [8].
+
+### 6. Escalation — the one upward driver
+
+- 5 Sep: IRGC Aerospace Force fires ballistic missiles at a US carrier and a destroyer (missed); US
+  destroys/disables three Iranian tankers in response [8,9].
+- 6 Sep: Iran's SNSC secretary Rezaei announces a "restricted maritime zone" from the US blockade
+  line through the strait into the Persian Gulf [7,8].
+- Trump: "we will have to hit them very hard" over activity at Pickaxe Mountain [7].
+- 9 Sep: *Hercules Star* (1 dead, 1 missing) and *New Andros* attacked by Iran [2].
+
+Raises the accident hazard — which is why that path was held near its v1 value rather than decayed —
+without creating a path to a deliberate strike on Muscat.
+
+## Search log
+
+| Date | Query / source | Finding | Effect |
+|---|---|---|---|
+| 2026-09-10 | `metaculus_aggregations.py 45230` ×5, `metaculus_scrape.py` ×2, `curl` ×2 | Cloudflare managed challenge, 403 everywhere | **blocks two tripwires** |
+| 2026-09-10 | Wikipedia `action=parse` — "2026 Strait of Hormuz crisis" | Sept timeline; US-attacked-ships table with locations; Kpler traffic numbers | ↓↓ the literal path |
+| 2026-09-10 | Wikipedia `action=parse` — "Operation Project Freedom" | 1-day op, paused 5 May; Saudi denied bases; Lloyd's List on non-resumption; Hegseth "never stopped" | ↓ v1's central mechanism |
+| 2026-09-10 | Wikipedia `action=parse` — "2026 Iranian strikes on Oman" | 4 Jul UK/France navigation commitment; 25 Aug US mine clearance in Oman's corridor; precise Omani-water positions for Iranian attacks | ↓ (consent) / ↑ (locatability) |
+| 2026-09-10 | Search — JMIC/UKMTO "enhanced security area" | Advisory Note 004-26 (4 May): area south of the TSS, **inside Omani territorial waters**, VHF 16 coordination with Oman | confirms v1's geometry |
+| 2026-09-10 | Search — JMIC Update 092 (1 Sep) | Threat level SEVERE; *Senegal Prosperity* attacked 30 Aug "4 nm from the coast of Oman" | ↑ locatability |
+| 2026-09-10 | Critical Threats — Iran Update, 7 Sep | 5 Sep IRGC BMs at US carrier + US strikes on 3 tankers; 6 Sep Iranian "restricted zone"; 7 Sep Jizan refinery. **No mention of Oman** | ↑ intensity, ↓ Oman salience |
+| 2026-09-10 | Straits Daily Brief, 8 Sep | PortWatch: 6 transits on 2026-08-30 vs 85/day baseline | ↓ escort exposure |
+| 2026-09-10 | Al Jazeera 26 Aug + Oman MFA joint statement | Iran–Oman temporary route: outbound southern lane in Omani waters coordinated with Iran; sovereignty language; joint working group | ↓ deliberate path |
+| 2026-09-10 | Search — Duqm/Salalah access agreement Sept 2026 | 2019 agreement still in effect; no restriction. Saudi Arabia and Kuwait restricted US access on 7 May, not Oman | ↓ obstruction path |
+| 2026-09-10 | Search — Polymarket, Kalshi, Manifold, Sentinel, GJOpen, INFER on US–Oman | still no market and no question anywhere | no anchor |
+| 2026-09-10 | Search — Trump on Oman since 17 Aug | Nothing new beyond the 17 Aug threat and "we'd handle them very easily" | ↓ cheap talk |
+
+## Arithmetic
+
+```
+Reading L:  P(engagement inside 12-nm belt) 0.21  ×  P(credibly located) 0.75  =  0.16
+Reading I:  1 − (1−0.025)(1−0.045)(1−0.020)                                    =  0.088
+P(YES)   =  0.12 × 0.16  +  0.88 × 0.088  =  0.019 + 0.077                     =  0.096
+haircut  =  −0.9 pp (accident path routed to the no-consensus clause)
+            −0.3 pp (residual contested-12-nm case)
+→ 8.4%
+```
+
+## Open questions carried into v3
+
+1. **Re-fetch Metaculus.** CP, Pro, gold, forecaster count, and the admin thread. Highest priority.
+   If the CP is outside 4%–18%, re-analyse rather than nudge.
+2. Does Iran enforce its 6 Sep "prohibited zone" against traffic in the southern (Omani) lane, and
+   does the US escort against it? That restores the exposure mechanism v1 assumed.
+3. Does the interim US–Iran–Oman agreement land, and do transits recover above ~40/day?
+4. Any UKMTO/JMIC position inside 12 nm of the Omani coast for a *US* engagement.
+5. Any US munition, errant or otherwise, on Omani soil — still zero after 6.4 months.

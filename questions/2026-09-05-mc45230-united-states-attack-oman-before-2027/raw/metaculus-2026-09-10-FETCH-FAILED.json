@@ -1,0 +1,32 @@
+{
+  "post_id": 45230,
+  "attempted_at": "2026-09-10",
+  "result": "FAILED — no data retrieved",
+  "cause": "metaculus.com served a Cloudflare *managed challenge* to every access path tried from this container. HTTP 403 with response headers `cf-mitigated: challenge`, `server: cloudflare`, body = the 'Just a moment...' JS interstitial.",
+  "paths_tried": [
+    {
+      "path": ".claude/skills/metaculus-aggregations/scripts/metaculus_aggregations.py 45230 --comments 12 --history --json",
+      "attempts": 5,
+      "result": "RuntimeError: No aggregation JSON for post 45230 (last status 403)"
+    },
+    {
+      "path": ".claude/skills/metaculus-scraper/scripts/metaculus_scrape.py (fallback)",
+      "attempts": 2,
+      "result": "venv Playwright pins browser build 1234; only 1194 is installed under /opt/pw-browsers. With the executable path patched, page.goto returned net::ERR_CONNECTION_RESET when Chromium was given the proxy explicitly."
+    },
+    {
+      "path": "curl https://www.metaculus.com/questions/45230/ and .../api/posts/45230/",
+      "attempts": 2,
+      "result": "HTTP 403, cf-mitigated: challenge"
+    }
+  ],
+  "not_retrieved": [
+    "recency_weighted community prediction (CP) — first reveal was scheduled 2026-09-08T17:00Z",
+    "metaculus_pros aggregation",
+    "gold_medalists aggregation",
+    "forecaster count",
+    "comments — in particular whether admins answered the 2026-09-04 ChaosCondensate clarification request on strikes against third parties inside Omani territorial waters"
+  ],
+  "consequence_for_v2": "Two of the eight v1 tripwires (the admin clarification ruling and the CP-on-reveal check) could not be evaluated. v2 is therefore unanchored to the community, exactly as v1 was, and its IQR is not narrowed on that axis.",
+  "last_good_snapshot": "raw/metaculus-2026-09-05.json (status `upcoming`, CP hidden, n=25 forecasters)"
+}
