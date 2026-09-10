@@ -1,0 +1,1491 @@
+{
+  "id": 45427,
+  "title": "Will an AI system autonomously cause a major breach of US personal data held by an organization other than its operator before 2028?",
+  "short_title": "Major US personal data breach by an external misaligned AI system before 2028?",
+  "url_title": "Major US personal data breach by an external misaligned AI system before 2028?",
+  "slug": "major-us-personal-data-breach-by-an-external-misaligned-ai-system-before-2028",
+  "author_id": 117502,
+  "author_username": "RyanBeck",
+  "coauthors": [],
+  "created_at": "2026-09-02T20:41:05.539913Z",
+  "published_at": "2026-09-03T17:36:00Z",
+  "edited_at": "2026-09-10T05:15:58.783484Z",
+  "curation_status": "approved",
+  "curation_status_updated_at": "2026-09-03T17:38:04.196109Z",
+  "comment_count": 19,
+  "status": "open",
+  "resolved": false,
+  "actual_close_time": null,
+  "scheduled_close_time": "2027-12-31T14:00:00Z",
+  "scheduled_resolve_time": "2028-01-01T14:00:00Z",
+  "actual_resolve_time": null,
+  "open_time": "2026-09-03T17:37:00Z",
+  "nr_forecasters": 21,
+  "html_metadata_json": null,
+  "projects": {
+    "category": [
+      {
+        "id": 3688,
+        "name": "Law",
+        "slug": "law",
+        "emoji": "\u2696\ufe0f",
+        "description": "Law",
+        "type": "category"
+      },
+      {
+        "id": 3701,
+        "name": "Technology",
+        "slug": "technology",
+        "emoji": "\u2699\ufe0f",
+        "description": "Technology",
+        "type": "category"
+      },
+      {
+        "id": 3694,
+        "name": "Artificial Intelligence",
+        "slug": "artificial-intelligence",
+        "emoji": "\ud83e\udd16",
+        "description": "Artificial Intelligence",
+        "type": "category"
+      }
+    ],
+    "question_series": [
+      {
+        "id": 33109,
+        "type": "question_series",
+        "name": "AI Cybersecurity Series",
+        "slug": "ai-cyber",
+        "header_image": null,
+        "prize_pool": null,
+        "start_date": null,
+        "close_date": "2027-07-01T00:00:00Z",
+        "forecasting_end_date": "2027-06-30T20:00:00Z",
+        "html_metadata_json": null,
+        "is_ongoing": true,
+        "user_permission": null,
+        "order": 0,
+        "created_at": "2026-09-02T17:38:49.166902Z",
+        "edited_at": "2026-09-10T05:17:07.509593Z",
+        "score_type": "peer_tournament",
+        "default_permission": "forecaster",
+        "visibility": "normal",
+        "show_on_homepage": false,
+        "is_current_content_translated": false,
+        "bot_leaderboard_status": "exclude_and_show",
+        "description_preview": "A question series exploring cybersecurity risks from AI in the wake of the summer 2026 <a href=\"https://en.wikipedia.org/wiki/2026_OpenAI_ag"
+      }
+    ],
+    "default_project": {
+      "id": 33109,
+      "type": "question_series",
+      "name": "AI Cybersecurity Series",
+      "slug": "ai-cyber",
+      "header_image": null,
+      "prize_pool": null,
+      "start_date": null,
+      "close_date": "2027-07-01T00:00:00Z",
+      "forecasting_end_date": "2027-06-30T20:00:00Z",
+      "html_metadata_json": null,
+      "is_ongoing": true,
+      "user_permission": null,
+      "order": 0,
+      "created_at": "2026-09-02T17:38:49.166902Z",
+      "edited_at": "2026-09-10T05:17:07.509593Z",
+      "score_type": "peer_tournament",
+      "default_permission": "forecaster",
+      "visibility": "normal",
+      "show_on_homepage": false,
+      "is_current_content_translated": false,
+      "bot_leaderboard_status": "exclude_and_show",
+      "description_preview": "A question series exploring cybersecurity risks from AI in the wake of the summer 2026 <a href=\"https://en.wikipedia.org/wiki/2026_OpenAI_ag"
+    }
+  },
+  "question": {
+    "id": 45616,
+    "title": "Will an AI system autonomously cause a major breach of US personal data held by an organization other than its operator before 2028?",
+    "created_at": "2026-09-02T20:41:05.540260Z",
+    "open_time": "2026-09-03T17:37:00Z",
+    "cp_reveal_time": "2026-09-04T13:00:00Z",
+    "spot_scoring_time": "2026-09-04T13:00:00Z",
+    "scheduled_resolve_time": "2028-01-01T14:00:00Z",
+    "actual_resolve_time": null,
+    "resolution_set_time": null,
+    "scheduled_close_time": "2027-12-31T14:00:00Z",
+    "actual_close_time": "2027-12-31T14:00:00Z",
+    "type": "binary",
+    "options": null,
+    "all_options_ever": null,
+    "options_history": null,
+    "options_order": "DEFAULT",
+    "group_variable": "",
+    "status": "open",
+    "possibilities": null,
+    "resolution": null,
+    "include_bots_in_aggregates": true,
+    "question_weight": 1.0,
+    "default_score_type": "peer",
+    "default_aggregation_method": "recency_weighted",
+    "label": "",
+    "unit": "",
+    "open_upper_bound": false,
+    "open_lower_bound": false,
+    "inbound_outcome_count": null,
+    "scaling": {
+      "range_min": null,
+      "range_max": null,
+      "nominal_min": null,
+      "nominal_max": null,
+      "zero_point": null,
+      "open_upper_bound": false,
+      "open_lower_bound": false,
+      "inbound_outcome_count": null,
+      "continuous_range": null
+    },
+    "group_rank": null,
+    "coherence_links": null,
+    "coherence_link_aggregations": null,
+    "description": "On July 21, 2026, AI models being tested by OpenAI for the [ExploitGym](https://github.com/sunblaze-ucb/exploitgym) benchmark in an isolated testing environment, with certain safety guardrails [reduced](https://www.synack.com/blog/how-an-openai-model-escaped-its-guardrails/), escaped its environment and [gained unauthorized access](https://openai.com/index/hugging-face-incident-and-the-road-ahead/) to the computer systems of the machine learning company [HuggingFace](https://en.wikipedia.org/wiki/2026_OpenAI_agent_cyberattacks). Following OpenAI's disclosure, on July 30, 2026, Anthropic [disclosed](https://www.anthropic.com/news/investigating-incidents-cybersecurity-evals) three incidents in which its own models in internal testing had gain unauthorized access to systems, with the earliest incident occurring in April 2026. Not to be outdone, on August 5, 2026, Meta made its own [disclosure](https://www.reuters.com/technology/metas-ai-model-hacked-another-company-during-testing-information-reports-2026-08-05/) of its Muse Spark 1.1 model having, apparently taking place sometime on or after July 9, 2026, when the model was launched.",
+    "resolution_criteria": "This question will resolve as **Yes** if, before January 1, 2028, [credible sources](https://www.metaculus.com/faq/#definitions) report that an AI system accessed personal identifiable information (PII) of at least 100,000 individuals held by a US company and that system:\n\n* was not operated or directed by the breached company\n* was not instructed by any person or organization to access or use that company's systems or data in any way the company had not authorized, including by prompt injection.",
+    "fine_print": "* Public confirmation that the AI is the cause will be based on positive confirmation by credible sources, such as law enforcement, the US government, the company which deployed the AI system, the individuals or organization which gave the instructions to the AI system, or other confirmed reports. Speculation, unsourced reporting, or reporting from anonymous individuals will not be sufficient.\n* A US company is a company headquartered in the United States or whose parent company is headquartered in the US.\n* An AI system operating in a sandbox or simulated environment which was instructed to breach fake data or otherwise hack fake information but mistakenly breaches real data would resolve this question as **Yes**.\n* Accessing means the system read, copied, exfiltrated, or exposed the data, or gained access to a system holding it. Gaining access to the system will count unless the company or investigators affirmatively conclude the data was not read.",
+    "short_title": "Major US personal data breach by an external misaligned AI system before 2028?",
+    "post_id": 45427,
+    "aggregations": {
+      "recency_weighted": {
+        "history": [
+          {
+            "start_time": 1788483606.392806,
+            "end_time": 1788518002.39799,
+            "forecaster_count": 1,
+            "interval_lower_bounds": [
+              0.5
+            ],
+            "centers": [
+              0.5
+            ],
+            "interval_upper_bounds": [
+              0.5
+            ]
+          },
+          {
+            "start_time": 1788518002.39799,
+            "end_time": 1788519661.147352,
+            "forecaster_count": 2,
+            "interval_lower_bounds": [
+              0.15
+            ],
+            "centers": [
+              0.325
+            ],
+            "interval_upper_bounds": [
+              0.5
+            ]
+          },
+          {
+            "start_time": 1788519661.147352,
+            "end_time": 1788519838.413302,
+            "forecaster_count": 3,
+            "interval_lower_bounds": [
+              0.15
+            ],
+            "centers": [
+              0.3
+            ],
+            "interval_upper_bounds": [
+              0.3
+            ]
+          },
+          {
+            "start_time": 1788519838.413302,
+            "end_time": 1788520692.377713,
+            "forecaster_count": 3,
+            "interval_lower_bounds": [
+              0.15
+            ],
+            "centers": [
+              0.3
+            ],
+            "interval_upper_bounds": [
+              0.3
+            ]
+          },
+          {
+            "start_time": 1788520692.377713,
+            "end_time": 1788521029.278089,
+            "forecaster_count": 3,
+            "interval_lower_bounds": [
+              0.2
+            ],
+            "centers": [
+              0.3
+            ],
+            "interval_upper_bounds": [
+              0.3
+            ]
+          },
+          {
+            "start_time": 1788521029.278089,
+            "end_time": 1788521167.441543,
+            "forecaster_count": 3,
+            "interval_lower_bounds": [
+              0.2
+            ],
+            "centers": [
+              0.3
+            ],
+            "interval_upper_bounds": [
+              0.3
+            ]
+          },
+          {
+            "start_time": 1788521167.441543,
+            "end_time": 1788535403.640678,
+            "forecaster_count": 3,
+            "interval_lower_bounds": [
+              0.2
+            ],
+            "centers": [
+              0.3
+            ],
+            "interval_upper_bounds": [
+              0.3
+            ]
+          },
+          {
+            "start_time": 1788535403.640678,
+            "end_time": 1788537495.935484,
+            "forecaster_count": 4,
+            "interval_lower_bounds": [
+              0.3
+            ],
+            "centers": [
+              0.34
+            ],
+            "interval_upper_bounds": [
+              0.34
+            ]
+          },
+          {
+            "start_time": 1788537495.935484,
+            "end_time": 1788570012.809424,
+            "forecaster_count": 5,
+            "interval_lower_bounds": [
+              0.17
+            ],
+            "centers": [
+              0.3
+            ],
+            "interval_upper_bounds": [
+              0.34
+            ]
+          },
+          {
+            "start_time": 1788570012.809424,
+            "end_time": 1788577114.863325,
+            "forecaster_count": 5,
+            "interval_lower_bounds": [
+              0.17
+            ],
+            "centers": [
+              0.34
+            ],
+            "interval_upper_bounds": [
+              0.5
+            ]
+          },
+          {
+            "start_time": 1788577114.863325,
+            "end_time": 1788588554.269073,
+            "forecaster_count": 6,
+            "interval_lower_bounds": [
+              0.3
+            ],
+            "centers": [
+              0.5
+            ],
+            "interval_upper_bounds": [
+              0.59
+            ]
+          },
+          {
+            "start_time": 1788588554.269073,
+            "end_time": 1788601676.898147,
+            "forecaster_count": 7,
+            "interval_lower_bounds": [
+              0.3
+            ],
+            "centers": [
+              0.5
+            ],
+            "interval_upper_bounds": [
+              0.75
+            ]
+          },
+          {
+            "start_time": 1788601676.898147,
+            "end_time": 1788601678.242101,
+            "forecaster_count": 7,
+            "interval_lower_bounds": [
+              0.25
+            ],
+            "centers": [
+              0.5
+            ],
+            "interval_upper_bounds": [
+              0.59
+            ]
+          },
+          {
+            "start_time": 1788601678.242101,
+            "end_time": 1788601679.678434,
+            "forecaster_count": 7,
+            "interval_lower_bounds": [
+              0.25
+            ],
+            "centers": [
+              0.5
+            ],
+            "interval_upper_bounds": [
+              0.59
+            ]
+          },
+          {
+            "start_time": 1788601679.678434,
+            "end_time": 1788601680.805337,
+            "forecaster_count": 7,
+            "interval_lower_bounds": [
+              0.25
+            ],
+            "centers": [
+              0.5
+            ],
+            "interval_upper_bounds": [
+              0.59
+            ]
+          },
+          {
+            "start_time": 1788601680.805337,
+            "end_time": 1788601682.14963,
+            "forecaster_count": 7,
+            "interval_lower_bounds": [
+              0.25
+            ],
+            "centers": [
+              0.5
+            ],
+            "interval_upper_bounds": [
+              0.59
+            ]
+          },
+          {
+            "start_time": 1788601682.14963,
+            "end_time": 1788601683.403704,
+            "forecaster_count": 7,
+            "interval_lower_bounds": [
+              0.25
+            ],
+            "centers": [
+              0.5
+            ],
+            "interval_upper_bounds": [
+              0.59
+            ]
+          },
+          {
+            "start_time": 1788601683.403704,
+            "end_time": 1788627007.800711,
+            "forecaster_count": 7,
+            "interval_lower_bounds": [
+              0.25
+            ],
+            "centers": [
+              0.5
+            ],
+            "interval_upper_bounds": [
+              0.59
+            ]
+          },
+          {
+            "start_time": 1788627007.800711,
+            "end_time": 1788650963.689817,
+            "forecaster_count": 7,
+            "interval_lower_bounds": [
+              0.25
+            ],
+            "centers": [
+              0.34
+            ],
+            "interval_upper_bounds": [
+              0.59
+            ]
+          },
+          {
+            "start_time": 1788650963.689817,
+            "end_time": 1788650968.356528,
+            "forecaster_count": 8,
+            "interval_lower_bounds": [
+              0.25
+            ],
+            "centers": [
+              0.5
+            ],
+            "interval_upper_bounds": [
+              0.73
+            ]
+          },
+          {
+            "start_time": 1788650968.356528,
+            "end_time": 1788651087.951687,
+            "forecaster_count": 8,
+            "interval_lower_bounds": [
+              0.25
+            ],
+            "centers": [
+              0.5
+            ],
+            "interval_upper_bounds": [
+              0.73
+            ]
+          },
+          {
+            "start_time": 1788651087.951687,
+            "end_time": 1788651089.558428,
+            "forecaster_count": 8,
+            "interval_lower_bounds": [
+              0.25
+            ],
+            "centers": [
+              0.5
+            ],
+            "interval_upper_bounds": [
+              0.64
+            ]
+          },
+          {
+            "start_time": 1788651089.558428,
+            "end_time": 1788652031.969542,
+            "forecaster_count": 8,
+            "interval_lower_bounds": [
+              0.25
+            ],
+            "centers": [
+              0.5
+            ],
+            "interval_upper_bounds": [
+              0.64
+            ]
+          },
+          {
+            "start_time": 1788652031.969542,
+            "end_time": 1788652033.277848,
+            "forecaster_count": 8,
+            "interval_lower_bounds": [
+              0.25
+            ],
+            "centers": [
+              0.5
+            ],
+            "interval_upper_bounds": [
+              0.57
+            ]
+          },
+          {
+            "start_time": 1788652033.277848,
+            "end_time": 1788652040.861693,
+            "forecaster_count": 8,
+            "interval_lower_bounds": [
+              0.25
+            ],
+            "centers": [
+              0.5
+            ],
+            "interval_upper_bounds": [
+              0.57
+            ]
+          },
+          {
+            "start_time": 1788652040.861693,
+            "end_time": 1788652042.117011,
+            "forecaster_count": 8,
+            "interval_lower_bounds": [
+              0.25
+            ],
+            "centers": [
+              0.5
+            ],
+            "interval_upper_bounds": [
+              0.58
+            ]
+          },
+          {
+            "start_time": 1788652042.117011,
+            "end_time": 1788652391.03013,
+            "forecaster_count": 8,
+            "interval_lower_bounds": [
+              0.25
+            ],
+            "centers": [
+              0.5
+            ],
+            "interval_upper_bounds": [
+              0.58
+            ]
+          },
+          {
+            "start_time": 1788652391.03013,
+            "end_time": 1788652395.433668,
+            "forecaster_count": 8,
+            "interval_lower_bounds": [
+              0.3
+            ],
+            "centers": [
+              0.5
+            ],
+            "interval_upper_bounds": [
+              0.58
+            ]
+          },
+          {
+            "start_time": 1788652395.433668,
+            "end_time": 1788652446.137699,
+            "forecaster_count": 8,
+            "interval_lower_bounds": [
+              0.3
+            ],
+            "centers": [
+              0.5
+            ],
+            "interval_upper_bounds": [
+              0.58
+            ]
+          },
+          {
+            "start_time": 1788652446.137699,
+            "end_time": 1788652967.698128,
+            "forecaster_count": 8,
+            "interval_lower_bounds": [
+              0.33
+            ],
+            "centers": [
+              0.5
+            ],
+            "interval_upper_bounds": [
+              0.58
+            ]
+          },
+          {
+            "start_time": 1788652967.698128,
+            "end_time": 1788652972.611264,
+            "forecaster_count": 8,
+            "interval_lower_bounds": [
+              0.33
+            ],
+            "centers": [
+              0.5
+            ],
+            "interval_upper_bounds": [
+              0.58
+            ]
+          },
+          {
+            "start_time": 1788652972.611264,
+            "end_time": 1788652975.50352,
+            "forecaster_count": 8,
+            "interval_lower_bounds": [
+              0.34
+            ],
+            "centers": [
+              0.5
+            ],
+            "interval_upper_bounds": [
+              0.58
+            ]
+          },
+          {
+            "start_time": 1788652975.50352,
+            "end_time": 1788652981.216146,
+            "forecaster_count": 8,
+            "interval_lower_bounds": [
+              0.34
+            ],
+            "centers": [
+              0.5
+            ],
+            "interval_upper_bounds": [
+              0.58
+            ]
+          },
+          {
+            "start_time": 1788652981.216146,
+            "end_time": 1788656414.918066,
+            "forecaster_count": 8,
+            "interval_lower_bounds": [
+              0.33
+            ],
+            "centers": [
+              0.5
+            ],
+            "interval_upper_bounds": [
+              0.58
+            ]
+          },
+          {
+            "start_time": 1788656414.918066,
+            "end_time": 1788679279.434471,
+            "forecaster_count": 8,
+            "interval_lower_bounds": [
+              0.33
+            ],
+            "centers": [
+              0.5
+            ],
+            "interval_upper_bounds": [
+              0.58
+            ]
+          },
+          {
+            "start_time": 1788679279.434471,
+            "end_time": 1788712441.148704,
+            "forecaster_count": 8,
+            "interval_lower_bounds": [
+              0.31
+            ],
+            "centers": [
+              0.34
+            ],
+            "interval_upper_bounds": [
+              0.58
+            ]
+          },
+          {
+            "start_time": 1788712441.148704,
+            "end_time": 1788742817.985403,
+            "forecaster_count": 8,
+            "interval_lower_bounds": [
+              0.33
+            ],
+            "centers": [
+              0.5
+            ],
+            "interval_upper_bounds": [
+              0.58
+            ]
+          },
+          {
+            "start_time": 1788742817.985403,
+            "end_time": 1788795821.946059,
+            "forecaster_count": 8,
+            "interval_lower_bounds": [
+              0.33
+            ],
+            "centers": [
+              0.5
+            ],
+            "interval_upper_bounds": [
+              0.58
+            ]
+          },
+          {
+            "start_time": 1788795821.946059,
+            "end_time": 1788815103.472938,
+            "forecaster_count": 8,
+            "interval_lower_bounds": [
+              0.33
+            ],
+            "centers": [
+              0.5
+            ],
+            "interval_upper_bounds": [
+              0.58
+            ]
+          },
+          {
+            "start_time": 1788815103.472938,
+            "end_time": 1788829218.602748,
+            "forecaster_count": 9,
+            "interval_lower_bounds": [
+              0.31
+            ],
+            "centers": [
+              0.5
+            ],
+            "interval_upper_bounds": [
+              0.58
+            ]
+          },
+          {
+            "start_time": 1788829218.602748,
+            "end_time": 1788882874.54272,
+            "forecaster_count": 9,
+            "interval_lower_bounds": [
+              0.31
+            ],
+            "centers": [
+              0.5
+            ],
+            "interval_upper_bounds": [
+              0.58
+            ]
+          },
+          {
+            "start_time": 1788882874.54272,
+            "end_time": 1788889559.131702,
+            "forecaster_count": 9,
+            "interval_lower_bounds": [
+              0.31
+            ],
+            "centers": [
+              0.38
+            ],
+            "interval_upper_bounds": [
+              0.5
+            ]
+          },
+          {
+            "start_time": 1788889559.131702,
+            "end_time": 1788901968.348587,
+            "forecaster_count": 10,
+            "interval_lower_bounds": [
+              0.33
+            ],
+            "centers": [
+              0.38
+            ],
+            "interval_upper_bounds": [
+              0.67
+            ]
+          },
+          {
+            "start_time": 1788901968.348587,
+            "end_time": 1788901969.774862,
+            "forecaster_count": 10,
+            "interval_lower_bounds": [
+              0.33
+            ],
+            "centers": [
+              0.5
+            ],
+            "interval_upper_bounds": [
+              0.59
+            ]
+          },
+          {
+            "start_time": 1788901969.774862,
+            "end_time": 1788901997.384897,
+            "forecaster_count": 10,
+            "interval_lower_bounds": [
+              0.33
+            ],
+            "centers": [
+              0.5
+            ],
+            "interval_upper_bounds": [
+              0.59
+            ]
+          },
+          {
+            "start_time": 1788901997.384897,
+            "end_time": 1788901998.639181,
+            "forecaster_count": 10,
+            "interval_lower_bounds": [
+              0.33
+            ],
+            "centers": [
+              0.5
+            ],
+            "interval_upper_bounds": [
+              0.6
+            ]
+          },
+          {
+            "start_time": 1788901998.639181,
+            "end_time": 1788902008.129705,
+            "forecaster_count": 10,
+            "interval_lower_bounds": [
+              0.33
+            ],
+            "centers": [
+              0.5
+            ],
+            "interval_upper_bounds": [
+              0.6
+            ]
+          },
+          {
+            "start_time": 1788902008.129705,
+            "end_time": 1788915622.027155,
+            "forecaster_count": 10,
+            "interval_lower_bounds": [
+              0.34
+            ],
+            "centers": [
+              0.38
+            ],
+            "interval_upper_bounds": [
+              0.6
+            ]
+          },
+          {
+            "start_time": 1788915622.027155,
+            "end_time": 1788936913.354698,
+            "forecaster_count": 10,
+            "interval_lower_bounds": [
+              0.34
+            ],
+            "centers": [
+              0.5
+            ],
+            "interval_upper_bounds": [
+              0.6
+            ]
+          },
+          {
+            "start_time": 1788936913.354698,
+            "end_time": 1788937040.108796,
+            "forecaster_count": 10,
+            "interval_lower_bounds": [
+              0.34
+            ],
+            "centers": [
+              0.5
+            ],
+            "interval_upper_bounds": [
+              0.67
+            ]
+          },
+          {
+            "start_time": 1788937040.108796,
+            "end_time": 1788961329.992036,
+            "forecaster_count": 10,
+            "interval_lower_bounds": [
+              0.34
+            ],
+            "centers": [
+              0.5
+            ],
+            "interval_upper_bounds": [
+              0.67
+            ]
+          },
+          {
+            "start_time": 1788961329.992036,
+            "end_time": 1788961342.397557,
+            "forecaster_count": 10,
+            "interval_lower_bounds": [
+              0.5
+            ],
+            "centers": [
+              0.5
+            ],
+            "interval_upper_bounds": [
+              0.67
+            ]
+          },
+          {
+            "start_time": 1788961342.397557,
+            "end_time": 1788961343.849546,
+            "forecaster_count": 10,
+            "interval_lower_bounds": [
+              0.5
+            ],
+            "centers": [
+              0.5
+            ],
+            "interval_upper_bounds": [
+              0.67
+            ]
+          },
+          {
+            "start_time": 1788961343.849546,
+            "end_time": 1788961363.04067,
+            "forecaster_count": 10,
+            "interval_lower_bounds": [
+              0.5
+            ],
+            "centers": [
+              0.5
+            ],
+            "interval_upper_bounds": [
+              0.67
+            ]
+          },
+          {
+            "start_time": 1788961363.04067,
+            "end_time": 1788961364.316127,
+            "forecaster_count": 10,
+            "interval_lower_bounds": [
+              0.45
+            ],
+            "centers": [
+              0.5
+            ],
+            "interval_upper_bounds": [
+              0.67
+            ]
+          },
+          {
+            "start_time": 1788961364.316127,
+            "end_time": 1788961365.740022,
+            "forecaster_count": 10,
+            "interval_lower_bounds": [
+              0.45
+            ],
+            "centers": [
+              0.5
+            ],
+            "interval_upper_bounds": [
+              0.67
+            ]
+          },
+          {
+            "start_time": 1788961365.740022,
+            "end_time": 1788961367.080436,
+            "forecaster_count": 10,
+            "interval_lower_bounds": [
+              0.45
+            ],
+            "centers": [
+              0.5
+            ],
+            "interval_upper_bounds": [
+              0.67
+            ]
+          },
+          {
+            "start_time": 1788961367.080436,
+            "end_time": 1788961368.035518,
+            "forecaster_count": 10,
+            "interval_lower_bounds": [
+              0.45
+            ],
+            "centers": [
+              0.5
+            ],
+            "interval_upper_bounds": [
+              0.67
+            ]
+          },
+          {
+            "start_time": 1788961368.035518,
+            "end_time": 1788968123.122253,
+            "forecaster_count": 10,
+            "interval_lower_bounds": [
+              0.45
+            ],
+            "centers": [
+              0.5
+            ],
+            "interval_upper_bounds": [
+              0.67
+            ]
+          },
+          {
+            "start_time": 1788968123.122253,
+            "end_time": 1788968124.401775,
+            "forecaster_count": 10,
+            "interval_lower_bounds": [
+              0.45
+            ],
+            "centers": [
+              0.5
+            ],
+            "interval_upper_bounds": [
+              0.75
+            ]
+          },
+          {
+            "start_time": 1788968124.401775,
+            "end_time": 1788968182.643329,
+            "forecaster_count": 10,
+            "interval_lower_bounds": [
+              0.45
+            ],
+            "centers": [
+              0.5
+            ],
+            "interval_upper_bounds": [
+              0.75
+            ]
+          },
+          {
+            "start_time": 1788968182.643329,
+            "end_time": 1788968183.812031,
+            "forecaster_count": 10,
+            "interval_lower_bounds": [
+              0.4
+            ],
+            "centers": [
+              0.5
+            ],
+            "interval_upper_bounds": [
+              0.75
+            ]
+          },
+          {
+            "start_time": 1788968183.812031,
+            "end_time": 1788968916.904522,
+            "forecaster_count": 10,
+            "interval_lower_bounds": [
+              0.4
+            ],
+            "centers": [
+              0.5
+            ],
+            "interval_upper_bounds": [
+              0.75
+            ]
+          },
+          {
+            "start_time": 1788968916.904522,
+            "end_time": 1788971044.984406,
+            "forecaster_count": 10,
+            "interval_lower_bounds": [
+              0.34
+            ],
+            "centers": [
+              0.4
+            ],
+            "interval_upper_bounds": [
+              0.75
+            ]
+          },
+          {
+            "start_time": 1788971044.984406,
+            "end_time": 1788971490.599194,
+            "forecaster_count": 10,
+            "interval_lower_bounds": [
+              0.34
+            ],
+            "centers": [
+              0.5
+            ],
+            "interval_upper_bounds": [
+              0.75
+            ]
+          },
+          {
+            "start_time": 1788971490.599194,
+            "end_time": 1788971493.146889,
+            "forecaster_count": 10,
+            "interval_lower_bounds": [
+              0.48
+            ],
+            "centers": [
+              0.5
+            ],
+            "interval_upper_bounds": [
+              0.75
+            ]
+          },
+          {
+            "start_time": 1788971493.146889,
+            "end_time": 1788971503.465909,
+            "forecaster_count": 10,
+            "interval_lower_bounds": [
+              0.47
+            ],
+            "centers": [
+              0.5
+            ],
+            "interval_upper_bounds": [
+              0.75
+            ]
+          },
+          {
+            "start_time": 1788971503.465909,
+            "end_time": 1788971504.851593,
+            "forecaster_count": 10,
+            "interval_lower_bounds": [
+              0.5
+            ],
+            "centers": [
+              0.55
+            ],
+            "interval_upper_bounds": [
+              0.75
+            ]
+          },
+          {
+            "start_time": 1788971504.851593,
+            "end_time": 1788971512.488026,
+            "forecaster_count": 10,
+            "interval_lower_bounds": [
+              0.5
+            ],
+            "centers": [
+              0.55
+            ],
+            "interval_upper_bounds": [
+              0.75
+            ]
+          },
+          {
+            "start_time": 1788971512.488026,
+            "end_time": 1788972231.203438,
+            "forecaster_count": 10,
+            "interval_lower_bounds": [
+              0.5
+            ],
+            "centers": [
+              0.5
+            ],
+            "interval_upper_bounds": [
+              0.75
+            ]
+          },
+          {
+            "start_time": 1788972231.203438,
+            "end_time": 1788977915.167408,
+            "forecaster_count": 11,
+            "interval_lower_bounds": [
+              0.5
+            ],
+            "centers": [
+              0.5
+            ],
+            "interval_upper_bounds": [
+              0.75
+            ]
+          },
+          {
+            "start_time": 1788977915.167408,
+            "end_time": 1788979338.123455,
+            "forecaster_count": 12,
+            "interval_lower_bounds": [
+              0.5
+            ],
+            "centers": [
+              0.5
+            ],
+            "interval_upper_bounds": [
+              0.75
+            ]
+          },
+          {
+            "start_time": 1788979338.123455,
+            "end_time": 1788980275.920355,
+            "forecaster_count": 13,
+            "interval_lower_bounds": [
+              0.5
+            ],
+            "centers": [
+              0.55
+            ],
+            "interval_upper_bounds": [
+              0.6
+            ]
+          },
+          {
+            "start_time": 1788980275.920355,
+            "end_time": 1788980278.716881,
+            "forecaster_count": 14,
+            "interval_lower_bounds": [
+              0.5
+            ],
+            "centers": [
+              0.59
+            ],
+            "interval_upper_bounds": [
+              0.75
+            ]
+          },
+          {
+            "start_time": 1788980278.716881,
+            "end_time": 1788980931.035183,
+            "forecaster_count": 14,
+            "interval_lower_bounds": [
+              0.5
+            ],
+            "centers": [
+              0.59
+            ],
+            "interval_upper_bounds": [
+              0.75
+            ]
+          },
+          {
+            "start_time": 1788980931.035183,
+            "end_time": 1788982075.842877,
+            "forecaster_count": 15,
+            "interval_lower_bounds": [
+              0.5
+            ],
+            "centers": [
+              0.6
+            ],
+            "interval_upper_bounds": [
+              0.9
+            ]
+          },
+          {
+            "start_time": 1788982075.842877,
+            "end_time": 1788982536.28873,
+            "forecaster_count": 16,
+            "interval_lower_bounds": [
+              0.55
+            ],
+            "centers": [
+              0.71
+            ],
+            "interval_upper_bounds": [
+              0.9
+            ]
+          },
+          {
+            "start_time": 1788982536.28873,
+            "end_time": 1788982538.103421,
+            "forecaster_count": 17,
+            "interval_lower_bounds": [
+              0.55
+            ],
+            "centers": [
+              0.71
+            ],
+            "interval_upper_bounds": [
+              0.9
+            ]
+          },
+          {
+            "start_time": 1788982538.103421,
+            "end_time": 1788984811.11055,
+            "forecaster_count": 17,
+            "interval_lower_bounds": [
+              0.55
+            ],
+            "centers": [
+              0.71
+            ],
+            "interval_upper_bounds": [
+              0.9
+            ]
+          },
+          {
+            "start_time": 1788984811.11055,
+            "end_time": 1788996331.678401,
+            "forecaster_count": 18,
+            "interval_lower_bounds": [
+              0.55
+            ],
+            "centers": [
+              0.75
+            ],
+            "interval_upper_bounds": [
+              0.95
+            ]
+          },
+          {
+            "start_time": 1788996331.678401,
+            "end_time": 1789002016.201672,
+            "forecaster_count": 19,
+            "interval_lower_bounds": [
+              0.6
+            ],
+            "centers": [
+              0.84
+            ],
+            "interval_upper_bounds": [
+              0.95
+            ]
+          },
+          {
+            "start_time": 1789002016.201672,
+            "end_time": 1789006908.256806,
+            "forecaster_count": 19,
+            "interval_lower_bounds": [
+              0.5
+            ],
+            "centers": [
+              0.75
+            ],
+            "interval_upper_bounds": [
+              0.95
+            ]
+          },
+          {
+            "start_time": 1789006908.256806,
+            "end_time": 1789011322.77911,
+            "forecaster_count": 20,
+            "interval_lower_bounds": [
+              0.55
+            ],
+            "centers": [
+              0.71
+            ],
+            "interval_upper_bounds": [
+              0.9
+            ]
+          },
+          {
+            "start_time": 1789011322.77911,
+            "end_time": 1789017348.528076,
+            "forecaster_count": 20,
+            "interval_lower_bounds": [
+              0.55
+            ],
+            "centers": [
+              0.75
+            ],
+            "interval_upper_bounds": [
+              0.9
+            ]
+          },
+          {
+            "start_time": 1789017348.528076,
+            "end_time": 1791169115.484,
+            "forecaster_count": 21,
+            "interval_lower_bounds": [
+              0.55
+            ],
+            "centers": [
+              0.75
+            ],
+            "interval_upper_bounds": [
+              0.84
+            ]
+          }
+        ],
+        "latest": {
+          "start_time": 1789017348.528076,
+          "end_time": 1791169115.484,
+          "forecaster_count": 21,
+          "interval_lower_bounds": [
+            0.55
+          ],
+          "centers": [
+            0.75
+          ],
+          "interval_upper_bounds": [
+            0.84
+          ],
+          "forecast_values": [
+            0.25,
+            0.75
+          ],
+          "means": [
+            0.7254634911405212
+          ],
+          "histogram": [
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.042072450598259724,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.2197401081544336,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0903163589563067,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0815445946780726,
+              0.0,
+              0.0,
+              0.0,
+              0.027803991347064502,
+              0.24164198844540966,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.05781396708726085,
+              0.0,
+              0.0,
+              0.0,
+              0.43131426209606216,
+              0.0,
+              0.0,
+              0.0,
+              0.9911430883511405,
+              0.0,
+              0.0,
+              0.11847113291540433,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.6316182707232363,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.3764295304079803,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.5584580948134545,
+              0.0,
+              0.0,
+              0.0,
+              0.8186227092896607
+            ]
+          ]
+        },
+        "score_data": {},
+        "movement": {
+          "divergence": 0.3962406251802891,
+          "direction": "up",
+          "movement": 0.25,
+          "period": "86400.0",
+          "option_index": null
+        }
+      }
+    },
+    "average_coverage": null
+  },
+  "user_permission": "forecaster",
+  "vote": {
+    "score": 0,
+    "user_vote": null
+  },
+  "forecasts_count": 85,
+  "key_factors": [],
+  "is_current_content_translated": false
+}
