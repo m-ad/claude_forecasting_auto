@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Metaculus Aggregation Explorer fetcher (v3, July 2026).
+Metaculus Aggregation Explorer fetcher (v4, September 2026).
 
 Pulls **structured numeric** aggregations straight from the JSON the Metaculus
 frontend consumes, for any aggregation method the Aggregation Explorer exposes:
@@ -14,43 +14,58 @@ Also fetches question metadata (resolution criteria / fine print / background)
 and comments, both of which the ``/api-proxy/`` surface exposes anonymously.
 
 --------------------------------------------------------------------------
-WHY v2 FAILED WITH CLOUDFLARE 403 (and what actually fixes it)
+WHY v3 FAILED, AND WHAT v4 DOES INSTEAD
 --------------------------------------------------------------------------
-v2 was blocked on essentially every call. The cause was two independent
-Cloudflare bot-detection triggers, both introduced by v2's own workaround.
-Each was verified in isolation over repeated trials (n=5 per cell):
+v3 fetched over ``context.request.get()`` -- Playwright's own HTTP stack, not
+Chromium's -- on the theory that a Cloudflare Managed Challenge on
+``/api-proxy/*`` was purely a header problem, curable by adding ``Sec-Fetch-*``
+headers. That stopped being true. As of 2026-09-11 every such call comes back
+``403`` with ``cf-mitigated: challenge`` and a "Just a moment..." interstitial,
+regardless of headers, because the challenge is now keyed on the *TLS/JA3
+fingerprint* as well. Verified in this session:
 
-1. **Missing ``Sec-Fetch-*`` request headers.**  ``context.request.get()`` uses
-   Playwright's own HTTP stack, not Chromium's, and it emits no ``Sec-Fetch-*``
-   headers. Every real Chromium >= 76 always sends them. Claiming a Chrome
-   User-Agent while omitting them is a header/UA inconsistency, and Cloudflare
-   answers it with a Managed Challenge (``cf-mitigated: challenge``) on the
-   ``/api-proxy/*`` path.
-       without Sec-Fetch headers -> 0/5 success
-       with    Sec-Fetch headers -> 5/5 success
-   The *values* do not matter, only their presence.
+    ctx.request.get(), with Sec-Fetch-* headers         -> 403 challenge
+    ctx.request.get(), replaying browser cookies        -> 403 challenge
+    curl, spoofed Chrome UA + Sec-Fetch-*               -> 403 challenge
+    Chromium page navigation to the same URL            -> 200 JSON
+    same-origin fetch() inside a loaded Metaculus page  -> 200 JSON
 
-2. **The ``cf_clearance`` cookie was actively harmful.**  v2 deliberately loaded
-   the aggregation-explorer page first "so the browser clears the Cloudflare
-   challenge", then reused the resulting cookie. But ``cf_clearance`` is bound
-   to the client fingerprint (IP + UA + TLS/JA3) of the *browser* that earned
-   it. Replaying it from Playwright's separate HTTP stack looks like a stolen
-   clearance token, so Cloudflare challenges the request:
-       page load, cookie kept    -> 0/5 success
-       page load, cookies cleared-> 5/5 success
-       no page load at all       -> 5/5 success
-   The warm-up step v2 relied on was therefore the very thing breaking it.
+So v4 stops trying to imitate a browser and uses one: every request is either a
+page navigation or an in-page ``fetch()``, both of which go through Chromium's
+own network stack and therefore carry a genuine browser fingerprint. The
+challenge does not fire at all on that path -- no cf_clearance handling, no
+warm-up, no settle wait is needed in the normal case.
 
-The fix is to send ``Sec-Fetch-*`` headers and to never let a Metaculus page
-cookie into the request context. No page load is needed at all, which also
-removes v2's 12-30 s settle wait -- v3 answers in about 2 s.
+A second, independent failure lives in the *environment*, not on Metaculus, and
+broke browser access for both Metaculus skills:
 
-A small residual (~5%) rate-related challenge remains; ``_get_json`` retries
-with backoff, which clears it in practice.
+**Chromium's TLS 1.3 ClientHello is reset by the session's egress proxy.**
+Through the agent proxy, Chromium could not reach *any* host -- example.com
+included -- and failed with ``net::ERR_CONNECTION_RESET`` after the ClientHello
+(~1.8 kB sent, 39 B received, tunnel closed). The MITM proxy cannot complete
+Chromium's TLS 1.3 handshake, most likely the post-quantum key share splitting
+the ClientHello across records. Verified (n=1 per cell, deterministic):
 
-Note: browsing Metaculus *pages* still requires the spoofed Chrome UA below.
-With the honest ``HeadlessChrome`` UA, Cloudflare challenges the HTML pages
-themselves (verified: page load returns 403 "Just a moment...").
+    default flags                                       -> ERR_CONNECTION_RESET
+    --disable-features=PostQuantumKyber                 -> ERR_CONNECTION_RESET
+    --disable-features=...,EncryptedClientHello         -> ERR_CONNECTION_RESET
+    --ssl-version-max=tls1.2                            -> 200 OK
+
+v4 therefore retries the launch with ``--ssl-version-max=tls1.2`` the first time
+a navigation dies with a connection-reset-class error, and keeps the downgraded
+browser for the rest of the run. TLS 1.2 to a public read-only endpoint through
+an already-MITM'd proxy costs nothing in practice; set
+``METACULUS_FORCE_TLS12=1`` to skip the failing probe when you already know the
+environment needs it. Note this is *not* a Metaculus property -- it is the local
+proxy -- so on a normal workstation the TLS 1.3 attempt succeeds and the
+fallback never runs.
+
+Chromium also does not read ``HTTPS_PROXY`` reliably, so v4 parses it and passes
+it explicitly via Playwright's ``proxy=`` option, with credentials when the URL
+carries them.
+
+Note: browsing Metaculus still requires the spoofed Chrome UA below. With the
+honest ``HeadlessChrome`` UA, Cloudflare challenges the HTML pages themselves.
 
 Usage
 -----
@@ -73,6 +88,7 @@ import os
 import time
 from dataclasses import asdict, dataclass, field
 from typing import Any
+from urllib.parse import unquote, urlparse
 
 # The sandbox ships Chromium here; setting this lets Playwright find it without
 # a separate `playwright install` step.
@@ -86,13 +102,42 @@ _UA = (
     "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 Chrome/122.0.0.0 Safari/537.36"
 )
 
-# Presence of these is what defeats the managed challenge; values are arbitrary.
-_SEC_FETCH_HEADERS = {
-    "sec-fetch-dest": "document",
-    "sec-fetch-mode": "navigate",
-    "sec-fetch-site": "none",
-    "accept-language": "en-US,en;q=0.9",
-}
+# Chromium supplies its own Sec-Fetch-* headers on every navigation and fetch();
+# only the language header is worth pinning, so responses are not localised.
+_EXTRA_HEADERS = {"accept-language": "en-US,en;q=0.9"}
+
+# Chromium flag that makes the handshake survive a TLS-1.3-intolerant MITM proxy.
+_TLS12_ARG = "--ssl-version-max=tls1.2"
+
+# Error substrings that mean "the handshake or the tunnel died", as opposed to a
+# real HTTP response. These are what the TLS downgrade is a candidate fix for.
+_RESET_MARKERS = (
+    "ERR_CONNECTION_RESET",
+    "ERR_CONNECTION_CLOSED",
+    "ERR_SSL_PROTOCOL_ERROR",
+    "ERR_EMPTY_RESPONSE",
+    "ERR_QUIC_PROTOCOL_ERROR",
+    "ERR_TUNNEL_CONNECTION_FAILED",
+)
+
+# Seconds to wait between retries of a challenged request. Metaculus' IP-level
+# rate limit was measured to clear in ~2 min (403 on everything at +0/+46/+91 s,
+# 200 at +137 s), and it blocks ordinary HTML pages too -- so riding it out is
+# the only option, and short retries are wasted requests that re-arm it.
+# Cumulative wait across the schedule is ~3.5 min.
+_BACKOFF = (5, 30, 60, 75)
+
+# Seconds to leave between two *successful* requests, to stay under the limit
+# rather than recovering from it.
+_PACE = 1.5
+
+# Same-origin XHR used once a real page is loaded; the fallback when a bare
+# navigation to /api-proxy/ is challenged.
+_JS_FETCH = """async (u) => {
+    const r = await fetch(u, {credentials: 'include',
+                              headers: {'accept': 'application/json'}});
+    return {status: r.status, body: await r.text()};
+}"""
 
 _BASE = "https://www.metaculus.com/api-proxy"
 _AGG = f"{_BASE}/aggregation_explorer/"
@@ -182,45 +227,191 @@ class AggregationResult:
 # --------------------------------------------------------------------------- #
 # Transport
 # --------------------------------------------------------------------------- #
-def _get_json(ctx: Any, url: str, attempts: int = 4) -> tuple[int, dict]:
-    """GET ``url`` through a Playwright context, defeating Cloudflare.
+def _proxy_config() -> dict | None:
+    """Playwright ``proxy=`` config from the environment, or None.
 
-    Clears cookies before every attempt so no ``cf_clearance`` token earned by
-    the browser is ever replayed from Playwright's HTTP stack, and sends the
-    ``Sec-Fetch-*`` headers a real Chromium would. See the module docstring for
-    why both are required.
+    Chromium does not pick ``HTTPS_PROXY`` up reliably (it reads desktop proxy
+    settings, not the shell environment), so the value is parsed here and passed
+    explicitly. Credentials are optional: a sandbox egress proxy may be
+    ``http://user:pass@host:port`` or a bare ``http://127.0.0.1:port``.
+    """
+    raw = os.environ.get("HTTPS_PROXY") or os.environ.get("https_proxy") or ""
+    if not raw:
+        return None
+    parsed = urlparse(raw)
+    if not parsed.hostname:
+        return None
+    server = f"{parsed.scheme or 'http'}://{parsed.hostname}"
+    if parsed.port:
+        server += f":{parsed.port}"
+    cfg: dict[str, str] = {"server": server}
+    if parsed.username:
+        cfg["username"] = unquote(parsed.username)
+    if parsed.password:
+        cfg["password"] = unquote(parsed.password)
+    return cfg
+
+
+def _is_transport_reset(exc: Exception) -> bool:
+    """True when an exception is a dead handshake/tunnel rather than an HTTP error."""
+    msg = str(exc)
+    return any(m in msg for m in _RESET_MARKERS)
+
+
+def _is_challenge(body: str) -> bool:
+    """True when a response body is a Cloudflare interstitial rather than data."""
+    head = body[:2000]
+    return "Just a moment" in head or "challenges.cloudflare.com" in head
+
+
+class _Fetcher:
+    """Chromium-backed JSON fetcher for the ``/api-proxy/`` surface.
+
+    Requests go through the browser's own network stack -- as a navigation, or
+    as a same-origin ``fetch()`` from a loaded Metaculus page -- because
+    Cloudflare's managed challenge keys on the TLS fingerprint and rejects every
+    non-browser client. See the module docstring.
 
     Parameters
     ----------
-    ctx : playwright.sync_api.BrowserContext
-        Context used only as an HTTP transport; no page is ever loaded.
-    url : str
-        Absolute ``/api-proxy/`` URL.
-    attempts : int
-        Retries for the residual ~5% rate-related challenge.
-
-    Returns
-    -------
-    (int, dict)
-        HTTP status and decoded JSON. On persistent failure the dict is empty.
+    pw : playwright.sync_api.Playwright
+        An active Playwright driver.
+    post_id : int
+        Used only to pick a real page to warm on if a navigation gets challenged.
     """
-    last_status = 0
-    for i in range(attempts):
-        ctx.clear_cookies()
+
+    def __init__(self, pw: Any, post_id: int) -> None:
+        self._pw = pw
+        self._post_id = post_id
+        self._tls12 = os.environ.get("METACULUS_FORCE_TLS12") == "1"
+        self._warmed = False
+        self._browser = None
+        self._last_request = 0.0
+        self._open()
+
+    # ---------------------------------------------------------------- browser
+    def _open(self) -> None:
+        """Launch Chromium and open the single page used as transport."""
+        exe = os.environ.get(
+            "PLAYWRIGHT_CHROMIUM_EXECUTABLE_PATH", "/opt/pw-browsers/chromium"
+        )
+        kwargs: dict[str, Any] = {
+            "headless": True,
+            "args": [_TLS12_ARG] if self._tls12 else [],
+            "proxy": _proxy_config(),
+        }
+        if os.path.exists(exe):
+            kwargs["executable_path"] = exe
         try:
-            r = ctx.request.get(url, headers=_SEC_FETCH_HEADERS, timeout=45000)
-            last_status = r.status
-            body = r.text()
-            if r.status == 200:
+            self._browser = self._pw.chromium.launch(**kwargs)
+        except Exception:  # noqa: BLE001 - fall back to Playwright's own chromium
+            kwargs.pop("executable_path", None)
+            self._browser = self._pw.chromium.launch(**kwargs)
+        self._ctx = self._browser.new_context(
+            user_agent=_UA, extra_http_headers=_EXTRA_HEADERS
+        )
+        self._page = self._ctx.new_page()
+        self._warmed = False
+
+    def _downgrade_tls(self) -> bool:
+        """Relaunch pinned to TLS 1.2. Returns False if already downgraded."""
+        if self._tls12:
+            return False
+        self._tls12 = True
+        self.close()
+        self._open()
+        return True
+
+    def close(self) -> None:
+        if self._browser is not None:
+            try:
+                self._browser.close()
+            except Exception:  # noqa: BLE001, S110 - teardown must not mask a result
+                pass
+            self._browser = None
+
+    # ---------------------------------------------------------------- fetching
+    def _navigate(self, url: str) -> tuple[int, str]:
+        """Fetch by navigating the page at ``url``; returns (status, body)."""
+        try:
+            resp = self._page.goto(url, wait_until="domcontentloaded", timeout=60000)
+        except Exception as exc:  # noqa: BLE001
+            # A reset here is the local proxy choking on TLS 1.3, not Metaculus.
+            if _is_transport_reset(exc) and self._downgrade_tls():
+                return self._navigate(url)
+            return 0, ""
+        if resp is None:
+            return 0, ""
+        try:
+            return resp.status, resp.text()
+        except Exception:  # noqa: BLE001 - body already gone; status still useful
+            return resp.status, ""
+
+    def _warm(self) -> bool:
+        """Load a real question page so later calls are same-origin XHRs."""
+        url = f"https://www.metaculus.com/questions/{self._post_id}/"
+        try:
+            self._page.goto(url, wait_until="domcontentloaded", timeout=90000)
+        except Exception as exc:  # noqa: BLE001
+            if _is_transport_reset(exc) and self._downgrade_tls():
+                return self._warm()
+            return False
+        # A managed challenge reloads the page itself once solved; wait it out.
+        for _ in range(10):
+            if "just a moment" not in (self._page.title() or "").lower():
+                break
+            time.sleep(2)
+        self._warmed = True
+        return True
+
+    def _page_fetch(self, url: str) -> tuple[int, str]:
+        """Fetch via a same-origin ``fetch()`` from the currently loaded page."""
+        try:
+            out = self._page.evaluate(_JS_FETCH, url)
+        except Exception:  # noqa: BLE001 - navigation raced us; caller retries
+            return 0, ""
+        return int(out.get("status") or 0), out.get("body") or ""
+
+    def get_json(self, url: str) -> tuple[int, dict]:
+        """GET ``url`` and decode it as JSON, riding out a rate-limit block.
+
+        Tries a bare navigation first -- enough in practice, and one round trip.
+        If that is challenged, warms up on a real question page once and retries
+        as a same-origin XHR from there, which is what the site's own frontend
+        does. Retries follow :data:`_BACKOFF`, sized to outlast the measured
+        ~2 min IP block rather than to retry quickly.
+
+        Returns
+        -------
+        (int, dict)
+            HTTP status and decoded JSON; the dict is empty on persistent
+            failure, and the status is 0 when no HTTP response was ever seen.
+        """
+        # Space successive requests out: staying under the limit is much cheaper
+        # than waiting one out.
+        gap = time.monotonic() - self._last_request
+        if gap < _PACE:
+            time.sleep(_PACE - gap)
+
+        last_status = 0
+        for i, wait in enumerate((0, *_BACKOFF)):
+            if wait:
+                time.sleep(wait)
+            status, body = (
+                self._page_fetch(url) if self._warmed else self._navigate(url)
+            )
+            self._last_request = time.monotonic()
+            last_status = status or last_status
+            if status == 200 and body and not _is_challenge(body):
                 try:
-                    return r.status, json.loads(body)
+                    return status, json.loads(body)
                 except json.JSONDecodeError:
                     pass
-        except Exception:  # noqa: BLE001, S110 - any transport failure is a retry
-            pass
-        # Backoff only matters for the rate-triggered variant of the challenge.
-        time.sleep(2 * (i + 1))
-    return last_status, {}
+            # A JS challenge can only be solved by a real document, so switch to
+            # "load a page, then XHR from it" for the remaining attempts.
+            if i == 0 and not self._warmed:
+                self._warm()
+        return last_status, {}
 
 
 # --------------------------------------------------------------------------- #
@@ -394,102 +585,126 @@ def fetch_aggregations(
 
     methods = methods or DEFAULT_METHODS
 
-    def _url(mth: str, qid: int | None) -> str:
-        # question_id is passed explicitly: the page's own combined
-        # `methods=a|b` call was observed to return empty for some cohorts.
+    def _url(mths: list[str], qid: int | None = None) -> str:
+        """Aggregation Explorer URL for one or more cohorts.
+
+        A **comma**-separated ``aggregation_methods`` list returns every cohort
+        in a single response, which matters a lot: Metaculus rate-limits by IP
+        and a tripped limit costs ~2 minutes (see the module docstring), so the
+        request count is the binding constraint, not the payload size. v3 sent
+        one request per cohort because the page's own ``methods=a|b`` form was
+        seen to come back empty for some cohorts -- that is the *pipe*
+        separator; comma works and is verified against all three cohorts.
+        """
         qid_part = f"&question_id={qid}" if qid is not None else ""
         return (
             f"{_AGG}?post_id={post_id}{qid_part}"
             f"&include_bots={str(include_bots).lower()}"
-            f"&aggregation_methods={mth}&joined_before_date="
+            f"&aggregation_methods={','.join(mths)}&joined_before_date="
         )
 
     with sync_playwright() as p:
-        _exe = os.environ.get(
-            "PLAYWRIGHT_CHROMIUM_EXECUTABLE_PATH", "/opt/pw-browsers/chromium"
-        )
+        fetcher = _Fetcher(p, post_id)
         try:
-            browser = p.chromium.launch(
-                headless=True, executable_path=_exe if os.path.exists(_exe) else None
+            result = _collect(
+                fetcher,
+                post_id,
+                _url,
+                methods,
+                include_history,
+                n_comments,
+                include_details,
             )
-        except Exception:  # noqa: BLE001 - fall back to Playwright's own chromium
-            browser = p.chromium.launch(headless=True)
-        # No page is ever opened: loading one would mint a cf_clearance cookie
-        # that poisons every subsequent request (see module docstring).
-        ctx = browser.new_context(user_agent=_UA)
+        finally:
+            fetcher.close()
 
-        status, base = _get_json(ctx, _url("recency_weighted", qid=None))
-        if not base:
-            browser.close()
-            raise RuntimeError(
-                f"No aggregation JSON for post {post_id} (last status {status}). "
-                "Either the post does not exist or Cloudflare challenged every retry."
-            )
+    return result
 
-        qid = base.get("id")
-        qtype = base.get("type")
-        scaling = base.get("scaling") or {}
-        options = base.get("options")
 
-        result = AggregationResult(
-            post_id=post_id,
-            question_id=qid,
-            title=base.get("title"),
-            question_type=qtype,
-            status=base.get("status"),
-            resolution=base.get("resolution"),
-            scheduled_close_time=base.get("scheduled_close_time"),
-            cp_reveal_time=base.get("cp_reveal_time"),
-            options=options,
-            scaling=scaling,
+def _collect(
+    fetcher: Any,
+    post_id: int,
+    _url: Any,
+    methods: list[str],
+    include_history: bool,
+    n_comments: int,
+    include_details: bool,
+) -> AggregationResult:
+    """Run every request for one post through ``fetcher`` and assemble the result.
+
+    Split out of :func:`fetch_aggregations` purely so the browser is torn down by
+    one ``finally`` regardless of where a fetch fails.
+    """
+    status, base = fetcher.get_json(_url(methods))
+    if not base:
+        raise RuntimeError(
+            f"No aggregation JSON for post {post_id} (last status {status}). "
+            "Either the post does not exist, or Cloudflare challenged every "
+            "retry. Status 0 means no HTTP response at all -- check egress "
+            "(the browser needs the proxy and may need METACULUS_FORCE_TLS12=1)."
         )
 
-        for mth in methods:
-            if mth == "recency_weighted":
-                resp_json, st = base, status
-            else:
-                st, resp_json = _get_json(ctx, _url(mth, qid=qid))
+    qid = base.get("id")
+    qtype = base.get("type")
+    scaling = base.get("scaling") or {}
+    options = base.get("options")
 
+    result = AggregationResult(
+        post_id=post_id,
+        question_id=qid,
+        title=base.get("title"),
+        question_type=qtype,
+        status=base.get("status"),
+        resolution=base.get("resolution"),
+        scheduled_close_time=base.get("scheduled_close_time"),
+        cp_reveal_time=base.get("cp_reveal_time"),
+        options=options,
+        scaling=scaling,
+    )
+
+    for mth in methods:
+        agg = (base.get("aggregations") or {}).get(mth) or {}
+        st = status
+        # A cohort absent from the combined response gets one dedicated request
+        # with the question_id pinned, which is the form that always populates.
+        if not agg:
+            st, resp_json = fetcher.get_json(_url([mth], qid=qid))
             agg = (resp_json.get("aggregations") or {}).get(mth) or {}
-            latest_raw = agg.get("latest") or {}
-            hist_raw = agg.get("history") or []
 
-            result.methods[mth] = MethodResult(
-                method=mth,
-                status=st,
-                history_points=len(hist_raw),
-                latest=_extract_latest(qtype, latest_raw, scaling, options),
-                history=(
-                    _extract_history(qtype, hist_raw, scaling)
-                    if include_history
-                    else []
-                ),
-            )
+        latest_raw = agg.get("latest") or {}
+        hist_raw = agg.get("history") or []
 
-        if include_details:
-            _, post = _get_json(ctx, f"{_BASE}/posts/{post_id}/?with_cp=false")
-            q = post.get("question") or {}
-            result.resolution_criteria = q.get("resolution_criteria")
-            result.fine_print = q.get("fine_print")
-            result.background = q.get("description")
-            result.nr_forecasters = post.get("nr_forecasters")
+        result.methods[mth] = MethodResult(
+            method=mth,
+            status=st,
+            history_points=len(hist_raw),
+            latest=_extract_latest(qtype, latest_raw, scaling, options),
+            history=(
+                _extract_history(qtype, hist_raw, scaling) if include_history else []
+            ),
+        )
 
-        if n_comments > 0:
-            _, cj = _get_json(
-                ctx,
-                f"{_BASE}/comments/?post={post_id}&limit={n_comments}"
-                f"&sort=-created_at&use_root_comments_pagination=true",
-            )
-            for c in (cj.get("results") or [])[:n_comments]:
-                result.comments.append(
-                    Comment(
-                        author=(c.get("author") or {}).get("username", "?"),
-                        created_at=(c.get("created_at") or "")[:10],
-                        text=(c.get("text") or "").strip(),
-                    )
+    if include_details:
+        _, post = fetcher.get_json(f"{_BASE}/posts/{post_id}/?with_cp=false")
+        q = post.get("question") or {}
+        result.resolution_criteria = q.get("resolution_criteria")
+        result.fine_print = q.get("fine_print")
+        result.background = q.get("description")
+        result.nr_forecasters = post.get("nr_forecasters")
+
+    if n_comments > 0:
+        _, cj = fetcher.get_json(
+            f"{_BASE}/comments/?post={post_id}&limit={n_comments}"
+            f"&sort=-created_at&use_root_comments_pagination=true",
+        )
+        for c in (cj.get("results") or [])[:n_comments]:
+            result.comments.append(
+                Comment(
+                    author=(c.get("author") or {}).get("username", "?"),
+                    created_at=(c.get("created_at") or "")[:10],
+                    text=(c.get("text") or "").strip(),
                 )
-
-        browser.close()
+            )
 
     return result
 

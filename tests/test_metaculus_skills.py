@@ -1,0 +1,304 @@
+"""Offline regression tests for the two Metaculus access skills.
+
+Every fault that took these scripts down in September 2026 was a *launch or
+transport* fault, not a parsing fault: Playwright could not find a browser, the
+egress proxy was dropped because the URL carried no credentials, Chromium's
+TLS 1.3 handshake was reset, and the Cloudflare challenge page was parsed as if
+it were data. None of those need the network to test -- they are decisions the
+scripts make before or around a request -- so they are pinned here. Anything
+that genuinely needs Metaculus is left to manual verification; a test that hits
+a rate-limited third party is a test that fails for the wrong reason.
+"""
+
+from __future__ import annotations
+
+import importlib.util
+import itertools
+import re
+import sys
+from pathlib import Path
+
+import pytest
+from conftest import REPO
+
+SKILLS = REPO / ".claude" / "skills"
+
+
+def _load(name: str, path: Path):
+    """Import a skill script by absolute path (they are not importable packages)."""
+    spec = importlib.util.spec_from_file_location(name, path)
+    assert spec and spec.loader
+    mod = importlib.util.module_from_spec(spec)
+    sys.modules[name] = mod
+    spec.loader.exec_module(mod)
+    return mod
+
+
+@pytest.fixture(scope="module")
+def agg():
+    return _load(
+        "metaculus_aggregations",
+        SKILLS / "metaculus-aggregations" / "scripts" / "metaculus_aggregations.py",
+    )
+
+
+@pytest.fixture(scope="module")
+def scrape():
+    return _load(
+        "metaculus_scrape",
+        SKILLS / "metaculus-scraper" / "scripts" / "metaculus_scrape.py",
+    )
+
+
+# ------------------------------------------------------------------ proxy wiring
+# The bug: a regex requiring user:pass@host:port silently returned {} for the
+# credential-less agent proxy, so Chromium launched with no egress at all.
+@pytest.mark.parametrize(
+    "raw,expected_server,expected_user",
+    [
+        ("http://127.0.0.1:46351", "http://127.0.0.1:46351", None),
+        ("http://proxy.internal:8080", "http://proxy.internal:8080", None),
+        ("http://user:pw@proxy:3128", "http://proxy:3128", "user"),
+        ("http://u%40corp:p%3Aw@proxy:3128", "http://proxy:3128", "u@corp"),
+        ("https://secure-proxy:443", "https://secure-proxy:443", None),
+    ],
+)
+def test_proxy_is_parsed_without_requiring_credentials(
+    agg, scrape, monkeypatch, raw, expected_server, expected_user
+):
+    monkeypatch.setenv("HTTPS_PROXY", raw)
+    monkeypatch.setenv("https_proxy", raw)
+    for cfg in (agg._proxy_config(), scrape._parse_proxy()):
+        assert cfg, f"{raw} must yield a proxy config, not {cfg!r}"
+        assert cfg["server"] == expected_server
+        if expected_user is None:
+            assert "username" not in cfg
+        else:
+            assert cfg["username"] == expected_user
+
+
+def test_no_proxy_env_means_direct_connection(agg, scrape, monkeypatch):
+    # Outside a sandbox a direct connection is correct; neither script may invent
+    # a proxy, and neither may raise.
+    monkeypatch.delenv("HTTPS_PROXY", raising=False)
+    monkeypatch.delenv("https_proxy", raising=False)
+    assert agg._proxy_config() is None
+    assert scrape._parse_proxy() == {}
+
+
+# --------------------------------------------------------------- TLS 1.3 fallback
+# The bug: Chromium could reach nothing at all through the egress proxy because
+# the proxy resets its TLS 1.3 ClientHello. Recovery depends on classifying the
+# error as transport-dead rather than as an HTTP failure.
+@pytest.mark.parametrize(
+    "msg",
+    [
+        "Page.goto: net::ERR_CONNECTION_RESET at https://www.metaculus.com/",
+        "net::ERR_CONNECTION_CLOSED",
+        "net::ERR_SSL_PROTOCOL_ERROR at https://www.metaculus.com/",
+        "net::ERR_EMPTY_RESPONSE",
+        "net::ERR_TUNNEL_CONNECTION_FAILED",
+    ],
+)
+def test_transport_resets_are_recognised(agg, scrape, msg):
+    assert agg._is_transport_reset(Exception(msg))
+    assert scrape._is_transport_reset(Exception(msg))
+
+
+@pytest.mark.parametrize(
+    "msg",
+    [
+        "Timeout 60000ms exceeded",
+        "Page.goto: net::ERR_NAME_NOT_RESOLVED",
+        "403 Forbidden",
+    ],
+)
+def test_non_transport_errors_do_not_trigger_a_tls_downgrade(agg, scrape, msg):
+    # Downgrading TLS for an unrelated error would hide the real cause and waste
+    # a launch, so the classifier has to stay narrow.
+    assert not agg._is_transport_reset(Exception(msg))
+    assert not scrape._is_transport_reset(Exception(msg))
+
+
+def test_tls12_flag_is_the_exact_chromium_spelling(agg, scrape):
+    # A typo here fails open: Chromium ignores unknown flags, so the handshake
+    # would simply keep being reset with no error naming the flag.
+    assert agg._TLS12_ARG == "--ssl-version-max=tls1.2"
+    assert scrape._TLS12_ARG == agg._TLS12_ARG
+
+
+# ------------------------------------------------------------ challenge handling
+# The bug that matters most for forecast quality: a Cloudflare interstitial is a
+# 403 HTML page. Treated as data it yields "no community prediction" instead of
+# "blocked", which would enter the ledger as a real observation.
+def test_cloudflare_interstitial_is_not_mistaken_for_data(agg):
+    interstitial = (
+        '<!DOCTYPE html><html lang="en-US"><head><title>Just a moment...</title>'
+        '<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">'
+        '<script src="https://challenges.cloudflare.com/turnstile/v0/api.js">'
+    )
+    assert agg._is_challenge(interstitial)
+
+
+def test_real_aggregation_json_is_not_flagged_as_a_challenge(agg):
+    body = '{"id": 40839, "title": "Will there be a ceasefire?", "type": "binary"}'
+    assert not agg._is_challenge(body)
+
+
+# --------------------------------------------------------------- request economy
+# Metaculus rate-limits by IP and a tripped limit costs ~2 minutes, so the number
+# of requests per run is the binding constraint. All cohorts must go out in one
+# comma-separated request, not one request each.
+def test_all_cohorts_are_requested_in_a_single_call(agg):
+    captured: list[str] = []
+
+    class FakeFetcher:
+        def get_json(self, url):
+            captured.append(url)
+            return 200, {
+                "id": 40839,
+                "type": "binary",
+                "scaling": {},
+                "aggregations": {
+                    m: {
+                        "latest": {
+                            "centers": [0.09],
+                            "interval_lower_bounds": [0.05],
+                            "interval_upper_bounds": [0.12],
+                            "means": [0.1],
+                            "forecaster_count": 7,
+                            "start_time": 1_757_000_000,
+                        },
+                        "history": [],
+                    }
+                    for m in agg.DEFAULT_METHODS
+                },
+            }
+
+    def url_for(methods, qid=None):
+        return f"agg?methods={','.join(methods)}" + (f"&qid={qid}" if qid else "")
+
+    res = agg._collect(
+        FakeFetcher(),
+        41138,
+        url_for,
+        agg.DEFAULT_METHODS,
+        include_history=False,
+        n_comments=0,
+        include_details=False,
+    )
+    assert len(captured) == 1, f"one request expected, got {len(captured)}: {captured}"
+    assert captured[0] == "agg?methods=recency_weighted,metaculus_pros,gold_medalists"
+    # And every cohort must actually be parsed out of that single response.
+    for m in agg.DEFAULT_METHODS:
+        assert res.methods[m].latest is not None
+        assert res.methods[m].latest.center == pytest.approx(0.09)
+
+
+def test_a_cohort_missing_from_the_combined_response_gets_its_own_request(agg):
+    # The combined form is an optimisation, not a guarantee: if Metaculus omits a
+    # cohort, it must be re-requested with question_id pinned rather than
+    # silently reported as "no forecasters".
+    captured: list[str] = []
+
+    class PartialFetcher:
+        def get_json(self, url):
+            captured.append(url)
+            latest = {
+                "centers": [0.09],
+                "interval_lower_bounds": [0.05],
+                "interval_upper_bounds": [0.12],
+                "means": [0.1],
+                "forecaster_count": 7,
+                "start_time": 1_757_000_000,
+            }
+            if "qid" in url:  # the dedicated retry
+                return 200, {"aggregations": {"gold_medalists": {"latest": latest}}}
+            return 200, {
+                "id": 40839,
+                "type": "binary",
+                "scaling": {},
+                "aggregations": {"recency_weighted": {"latest": latest}},
+            }
+
+    def url_for(methods, qid=None):
+        return f"agg?methods={','.join(methods)}" + (f"&qid={qid}" if qid else "")
+
+    res = agg._collect(
+        PartialFetcher(),
+        41138,
+        url_for,
+        ["recency_weighted", "gold_medalists"],
+        include_history=False,
+        n_comments=0,
+        include_details=False,
+    )
+    assert len(captured) == 2
+    assert "qid=40839" in captured[1]
+    assert res.methods["gold_medalists"].latest is not None
+
+
+def test_backoff_outlasts_the_measured_rate_limit_block(agg, scrape):
+    # The block was measured at ~2 min (403 at +0/+46/+91 s, 200 at +137 s).
+    # A schedule shorter than that guarantees the failure it is meant to absorb.
+    assert sum(agg._BACKOFF) >= 140, agg._BACKOFF
+    assert sum(scrape._BACKOFF) >= 140, scrape._BACKOFF
+
+
+# ------------------------------------------------------------------ user agent
+def test_user_agent_never_advertises_headless(agg, scrape):
+    # Cloudflare challenges the "HeadlessChrome" token outright, including on
+    # ordinary HTML pages, so neither script may send it.
+    assert "Headless" not in agg._UA
+    # The scraper builds its UA inline, so pull the literal it passes rather than
+    # scanning the file, which names the token in a comment explaining the rule.
+    src = (SKILLS / "metaculus-scraper" / "scripts" / "metaculus_scrape.py").read_text()
+    uas = re.findall(r'"(Mozilla/5\.0[^"]*)"\s*\n?\s*"?([^"]*)"?', src)
+    assert uas, "no User-Agent literal found in the scraper"
+    for parts in uas:
+        assert "Headless" not in "".join(parts)
+
+
+# --------------------------------------------------------- scaling / formatting
+# Unchanged by this fix, but the numbers they produce go straight into forecasts,
+# so they are worth pinning while a regression suite is being written anyway.
+def test_linear_unscale_maps_endpoints_and_midpoint(agg):
+    scaling = {"range_min": 0.0, "range_max": 10.0, "zero_point": None}
+    assert agg._unscale(0.0, scaling) == pytest.approx(0.0)
+    assert agg._unscale(0.5, scaling) == pytest.approx(5.0)
+    assert agg._unscale(1.0, scaling) == pytest.approx(10.0)
+
+
+def test_log_unscale_is_monotonic_and_hits_its_endpoints(agg):
+    scaling = {"range_min": 1.0, "range_max": 1000.0, "zero_point": 0.0}
+    vals = [agg._unscale(x / 10, scaling) for x in range(11)]
+    assert vals[0] == pytest.approx(1.0)
+    assert vals[-1] == pytest.approx(1000.0)
+    assert all(b > a for a, b in itertools.pairwise(vals))
+    # Log scaling must bow below the linear midpoint, or it is not log scaling.
+    assert vals[5] < 500.0
+
+
+def test_binary_and_multiple_choice_are_never_unscaled(agg):
+    assert agg._unscale(0.42, {}) is None
+    assert agg._unscale(0.42, {"range_min": None, "range_max": None}) is None
+
+
+def test_display_strings_use_each_question_type_s_own_units(agg):
+    assert agg._fmt_display("binary", 0.089, 0.05, 0.12, None) == (
+        "8.9%  IQR[5.0%, 12.0%]"
+    )
+    # 1 757 000 000 == 2025-09-04T15:33:20Z
+    assert (
+        agg._fmt_display("date", 1_757_000_000, 1_757_000_000, 1_757_000_000, None)[:10]
+        == "2025-09-04"
+    )
+    assert agg._fmt_display("numeric", 1234.5, 1000.0, 1500.0, None) == (
+        "1,234  IQR[1,000, 1,500]"
+    )
+
+
+def test_latest_block_without_centers_is_reported_as_unrevealed(agg):
+    # An unrevealed CP must come back as None, not as 0%.
+    assert agg._extract_latest("binary", {}, {}, None) is None
+    assert agg._extract_latest("binary", {"centers": []}, {}, None) is None

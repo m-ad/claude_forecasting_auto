@@ -92,8 +92,15 @@ itself signal. If Pros and gold medalists agree with each other and disagree sha
 with you, go looking for the fact you missed *before* defending your number.
 
 For Metaculus-sourced questions, fetch the CP, the forecaster count and the comments
-by default, unless the operator supplied them. `metaculus-scraper` is the fallback and
-returns only the headline number.
+by default, unless the operator supplied them. `metaculus-scraper` is the fallback: it
+renders the page and returns the headline number and the resolution criteria only — no
+cohort split, no IQR, and **no comments**.
+
+Metaculus rate-limits by IP, and a tripped limit blocks *everything* — the API surface
+and ordinary HTML pages alike — for ~2 minutes. The scripts back off across ~3 min on
+their own, so a single slow call is normal and is not a reason to retry it yourself. Do
+fetch each post **once** and cache the JSON to `questions/<slug>/raw/metaculus.json`;
+re-running the fetcher in a loop is what trips the limit in the first place.
 
 ---
 
