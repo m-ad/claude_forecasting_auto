@@ -1,0 +1,75 @@
+slug: 2026-09-12-mc45465-open-weight-ai-model-achieve-mythos-level
+title: Will an open weight AI model achieve Mythos-level cyber capabilities before July 2027?
+source: metaculus
+url: https://www.metaculus.com/questions/45465/will-an-open-weight-ai-model-achieve-mythos-level-cyber-capabilities-before-july-2027/
+post_id: 45465
+type: binary
+unit: null
+tags:
+- ai
+- cyber
+- open-weights
+- benchmarks
+dates:
+  created: '2026-09-12'
+  opened: '2026-09-04'
+  closes: '2027-06-30'
+  resolves: '2027-07-01'
+status: open
+current:
+  version: 1
+  date: '2026-09-12'
+  median: 0.92
+  iqr:
+  - 0.87
+  - 0.95
+  community:
+    cp: 0.91
+    pro: 0.82
+    gold: 0.92
+    n_forecasters: 31
+    as_of: '2026-09-12'
+next_review: '2026-10-12'
+tripwires:
+- signal: Any open-weight model listed at >=17.5% on benchlm.ai/benchmarks/exploitgym
+  by: '2027-05-31'
+  direction: up
+  magnitude: 7
+  magnitude_unit: pp
+  fired: null
+- signal: DeepSeek V4.1 Pro released with open weights and scoring below 17.5% on ExploitGym
+  by: '2027-01-31'
+  direction: down
+  magnitude: 6
+  magnitude_unit: pp
+  fired: null
+- signal: 'No new open-weight row added to the benchlm ExploitGym leaderboard (baseline: ~1 per 2 months)'
+  by: '2027-01-31'
+  direction: down
+  magnitude: 8
+  magnitude_unit: pp
+  fired: null
+- signal: UK AISI publication reporting an open-weight model at >=68.6% on expert-level CTF tasks
+  by: '2027-03-31'
+  direction: up
+  magnitude: 4
+  magnitude_unit: pp
+  fired: null
+- signal: Z.ai, DeepSeek, Alibaba or Moonshot announces it will not release weights for its next flagship
+    on cyber-capability grounds
+  by: '2027-01-31'
+  direction: down
+  magnitude: 6
+  magnitude_unit: pp
+  fired: null
+- signal: Formal US, EU or PRC measure imposing a cyber-capability threshold on open-weight releases (reversing
+    the 2026-08-05 US exemption)
+  by: '2027-03-31'
+  direction: down
+  magnitude: 8
+  magnitude_unit: pp
+  fired: null
+resolution:
+  outcome: null
+  date: null
+  source: null
