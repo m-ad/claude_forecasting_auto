@@ -1,0 +1,77 @@
+slug: 2026-09-11-mc45216-who-win-2026-world-chess-championship
+title: Who will win the 2026 World Chess Championship?
+source: metaculus
+url: https://www.metaculus.com/questions/45216/
+post_id: 45216
+type: multiple_choice
+unit: null
+tags:
+- chess
+- sport
+dates:
+  created: '2026-09-11'
+  opened: null
+  closes: '2026-12-14'
+  resolves: '2026-12-14'
+status: open
+current:
+  version: 1
+  date: '2026-09-12'
+  median: 0.67
+  iqr:
+  - 0.61
+  - 0.73
+  community:
+    cp: null
+    pro: null
+    gold: null
+    n_forecasters: 10
+    as_of: '2026-09-12'
+next_review: '2026-09-28'
+tripwires:
+- signal: Gukesh's performance rating at the Samarkand Olympiad (board 4, India) reaches 2780 or above
+  by: '2026-09-28'
+  direction: down
+  magnitude: 7
+  magnitude_unit: pp
+  fired: null
+- signal: Gukesh's Olympiad performance rating is 2650 or below
+  by: '2026-09-28'
+  direction: up
+  magnitude: 5
+  magnitude_unit: pp
+  fired: null
+- signal: Sindarov's Olympiad performance rating on board 1 for Uzbekistan is 2700 or below
+  by: '2026-09-28'
+  direction: down
+  magnitude: 5
+  magnitude_unit: pp
+  fired: null
+- signal: October or November FIDE list moves the classical rating gap outside the 55-95 Elo band
+  by: '2026-11-24'
+  direction: either
+  magnitude: 0
+  magnitude_unit: pp
+  fired: null
+- signal: Either player withdraws, FIDE moves the match dates again, or no venue and sponsor are announced
+  by: '2026-11-01'
+  direction: either
+  magnitude: 0
+  magnitude_unit: pp
+  fired: null
+- signal: Kalshi Sindarov contract closes outside $0.62-$0.78 on 20k or more contracts of fresh volume
+  by: '2026-11-24'
+  direction: either
+  magnitude: 0
+  magnitude_unit: pp
+  fired: null
+- signal: Gukesh leads the match after Game 4
+  by: '2026-12-01'
+  direction: down
+  magnitude: 25
+  magnitude_unit: pp
+  fired: null
+resolution:
+  outcome: null
+  date: null
+  source: null

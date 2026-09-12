@@ -1,0 +1,55 @@
+{
+  "retrieved": "2026-09-11",
+  "source": "Polymarket gamma-api",
+  "url": "https://polymarket.com/event/usd-x-iranian-rials-end-of-december",
+  "title": "USD x Iranian rials End of December?",
+  "description": "This market will resolve according to the finalized USD exchange rate on Bonbast for December 31, 2026.\n\nIf the recorded data falls exactly between two brackets, this market will resolve to the higher bracket.\n\nThis market will resolve according to the finalized free-market USD exchange rate for the specified date as displayed on Bonbast (https://www.bonbast.com/graph/usd), which publishes prices in Iranian toman, where 1 Iranian toman equals 10 Iranian rials (IRR).\n\nA daily figure will be considered finalized once the following day’s figure is released.\n\nResolution will occur once the specified exchange rate data point is finalized. If the relevant data is not finalized by the end of the 7th calendar day after the specified date (ET), this market will resolve according to the latest data available at that time. Revisions made after the relevant figure has been finalized will not be considered.\n\nIf Iran redenominates the rial, or Bonbast changes the unit in which it displays the USD exchange rate, before the relevant figure has been finalized, the displayed figure will be converted into current Iranian rials at the official conversion ratio between the new unit and the current rial (for example, 1 new rial equals 10,000 current rials), and the converted figure will be used for resolution.\n\nThe resolution source for this market will be Bonbast (https://www.bonbast.com/graph/usd). If the resolution source becomes permanently unavailable, another resolution source will be chosen.",
+  "volume": 9425.449394,
+  "liquidity": 18869.91994,
+  "volume24hr": 128.02,
+  "endDate": "2026-12-31T23:59:00Z",
+  "outcomes": [
+    {
+      "name": "3.0 - 3.5M",
+      "price": 0.305,
+      "bestBid": 0.3,
+      "bestAsk": 0.31,
+      "volume": "1716.7418159999997"
+    },
+    {
+      "name": "2.0 - 2.5M",
+      "price": 0.215,
+      "bestBid": 0.21,
+      "bestAsk": 0.22,
+      "volume": "1569.287046"
+    },
+    {
+      "name": "<2.0M",
+      "price": 0.155,
+      "bestBid": 0.15,
+      "bestAsk": 0.16,
+      "volume": "3452.843169"
+    },
+    {
+      "name": "3.5 - 4.0M",
+      "price": 0.1265,
+      "bestBid": 0.1,
+      "bestAsk": 0.153,
+      "volume": "1351.5"
+    },
+    {
+      "name": "2.5 - 3.0M",
+      "price": 0.095,
+      "bestBid": 0.09,
+      "bestAsk": 0.1,
+      "volume": "1069.5273630000002"
+    },
+    {
+      "name": "4.0M+",
+      "price": 0.0405,
+      "bestBid": 0.011,
+      "bestAsk": 0.07,
+      "volume": "265.55"
+    }
+  ]
+}

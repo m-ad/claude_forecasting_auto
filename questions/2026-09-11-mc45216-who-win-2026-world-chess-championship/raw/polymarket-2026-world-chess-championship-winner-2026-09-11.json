@@ -1,0 +1,27 @@
+{
+  "retrieved": "2026-09-11",
+  "source": "Polymarket gamma-api",
+  "url": "https://polymarket.com/event/2026-world-chess-championship-winner",
+  "title": "2026 World Chess Championship: Winner",
+  "description": "This market will resolve to the player that wins the 2026 World Chess Championship.\n\nIf at any point it becomes impossible for a listed player to win the 2026 World Chess Championship per the rules of FIDE, the corresponding market will resolve to “No”.\n\nIf the 2026 World Chess Championship tournament is cancelled, postponed, or partially completed after June 30, 2027, 11:59 PM ET or there is otherwise no winner declared within that timeframe, this market will resolve to “Other”.\n\nThe primary resolution source will be official information from FIDE; however, a consensus of credible reporting may also be used.",
+  "volume": 67686.834466,
+  "liquidity": 769076.6496,
+  "volume24hr": 101.5,
+  "endDate": "2027-01-01T00:00:00Z",
+  "outcomes": [
+    {
+      "name": "Javokhir Sindarov",
+      "price": 0.7,
+      "bestBid": 0.69,
+      "bestAsk": 0.71,
+      "volume": "26868.435147999997"
+    },
+    {
+      "name": "Gukesh Dommaraju",
+      "price": 0.295,
+      "bestBid": 0.29,
+      "bestAsk": 0.3,
+      "volume": "40818.399317999996"
+    }
+  ]
+}

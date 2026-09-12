@@ -1,0 +1,48 @@
+{
+  "retrieved": "2026-09-11",
+  "source": "Polymarket gamma-api",
+  "url": "https://polymarket.com/event/holborn-and-st-pancras-by-election-winner",
+  "title": "Holborn and St Pancras By-Election Winner",
+  "description": "A by-election for the United Kingdom parliamentary constituency of Holborn and St Pancras is expected to be held in 2026 following the announced resignation of incumbent Sir Keir Starmer.\n\nThis market will resolve according to the candidate who wins the Holborn and St Pancras parliamentary by-election.\n\nIf the election results are not known definitively by June 30, 2027, 11:59 PM ET, this market will resolve to \"Other\".\n\nThe resolution source for this market will be a consensus of credible reporting. In case of ambiguity, this market will resolve solely based on official election results as published by Camden Council (https://www.camden.gov.uk/).",
+  "volume": 39707.878343,
+  "liquidity": 319191.68889,
+  "volume24hr": 14108.443545,
+  "endDate": "2027-07-01T03:59:00Z",
+  "outcomes": [
+    {
+      "name": "Sagal Abdi-Wali",
+      "price": 0.78,
+      "bestBid": 0.77,
+      "bestAsk": 0.79,
+      "volume": "12373.680831000003"
+    },
+    {
+      "name": "Zack Polanski",
+      "price": 0.215,
+      "bestBid": 0.21,
+      "bestAsk": 0.22,
+      "volume": "13914.562167999997"
+    },
+    {
+      "name": "Sarah Hayward",
+      "price": 0.0035,
+      "bestBid": null,
+      "bestAsk": 0.007,
+      "volume": "605.5799999999999"
+    },
+    {
+      "name": "Hamza Chowdhury",
+      "price": 0.003,
+      "bestBid": null,
+      "bestAsk": 0.006,
+      "volume": "812.96"
+    },
+    {
+      "name": "David Roberts",
+      "price": 0.002,
+      "bestBid": null,
+      "bestAsk": 0.004,
+      "volume": "830.92"
+    }
+  ]
+}

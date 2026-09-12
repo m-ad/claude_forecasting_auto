@@ -1,0 +1,62 @@
+{
+  "retrieved": "2026-09-11",
+  "source": "Polymarket gamma-api",
+  "url": "https://polymarket.com/event/usd-x-iranian-rials-end-of-september",
+  "title": "USD x Iranian rials End of September?",
+  "description": "This market will resolve according to the finalized USD exchange rate on Bonbast for September 30, 2026. \n\nIf the recorded data falls exactly between two brackets, this market will resolve to the higher bracket.\n\nThis market will resolve according to the finalized free-market USD exchange rate for the specified date as displayed on Bonbast (https://www.bonbast.com/graph/usd), which publishes prices in Iranian toman, where 1 Iranian toman equals 10 Iranian rials (IRR).\n\nA daily figure will be considered finalized once the following day’s figure is released.\n\nResolution will occur once the specified exchange rate data point is finalized. If the relevant data is not finalized by the end of the 7th calendar day after the specified date (ET), this market will resolve according to the latest data available at that time. Revisions made after the relevant figure has been finalized will not be considered.\n\nThe resolution source for this market will be Bonbast (https://www.bonbast.com/graph/usd). If the resolution source becomes permanently unavailable, another resolution source will be chosen.",
+  "volume": 42952.160164,
+  "liquidity": 25800.99269,
+  "volume24hr": 1132.15,
+  "endDate": "2026-09-30T23:59:00Z",
+  "outcomes": [
+    {
+      "name": "2.2M+",
+      "price": 0.905,
+      "bestBid": 0.9,
+      "bestAsk": 0.91,
+      "volume": "23200.449021"
+    },
+    {
+      "name": "2.1-2.2M",
+      "price": 0.0705,
+      "bestBid": 0.067,
+      "bestAsk": 0.074,
+      "volume": "5484.648484"
+    },
+    {
+      "name": "1.8-1.9M",
+      "price": 0.0115,
+      "bestBid": 0.009,
+      "bestAsk": 0.014,
+      "volume": "2413.8053330000002"
+    },
+    {
+      "name": "<1.7M",
+      "price": 0.01,
+      "bestBid": 0.006,
+      "bestAsk": 0.014,
+      "volume": "1988.948695"
+    },
+    {
+      "name": "2.0-2.1M",
+      "price": 0.01,
+      "bestBid": 0.006,
+      "bestAsk": 0.014,
+      "volume": "4676.808725999999"
+    },
+    {
+      "name": "1.7-1.8M",
+      "price": 0.0065,
+      "bestBid": 0.006,
+      "bestAsk": 0.007,
+      "volume": "1838.57175"
+    },
+    {
+      "name": "1.9-2.0M",
+      "price": 0.0065,
+      "bestBid": 0.005,
+      "bestAsk": 0.008,
+      "volume": "3348.9281549999996"
+    }
+  ]
+}

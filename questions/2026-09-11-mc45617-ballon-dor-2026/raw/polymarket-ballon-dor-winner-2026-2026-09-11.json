@@ -1,0 +1,76 @@
+{
+  "retrieved": "2026-09-11",
+  "source": "Polymarket gamma-api",
+  "url": "https://polymarket.com/event/ballon-dor-winner-2026",
+  "title": "Ballon d'Or Winner 2026",
+  "description": "This market will resolve according to the winner of the 2026 Ballon d’Or.\n\nIf no 2026 Ballon d’Or winner is declared by December 31, 2026, 11:59 PM ET, this market will resolve to \"Other\".\n\nThe primary resolution source for this market is official information from France Football (https://www.francefootball.fr/).",
+  "volume": 34637157.70891,
+  "liquidity": 7654702.69518,
+  "volume24hr": 329912.314298,
+  "endDate": "2026-10-31T00:00:00Z",
+  "outcomes": [
+    {
+      "name": "Harry Kane",
+      "price": 0.6195,
+      "bestBid": 0.619,
+      "bestAsk": 0.62,
+      "volume": "4111788.505267001"
+    },
+    {
+      "name": "Lamine Yamal",
+      "price": 0.1635,
+      "bestBid": 0.163,
+      "bestAsk": 0.164,
+      "volume": "2232612.2773879995"
+    },
+    {
+      "name": "Kylian Mbappé",
+      "price": 0.1005,
+      "bestBid": 0.1,
+      "bestAsk": 0.101,
+      "volume": "2174889.7415349996"
+    },
+    {
+      "name": "Rodri",
+      "price": 0.055,
+      "bestBid": 0.05,
+      "bestAsk": 0.06,
+      "volume": "1667308.1230780007"
+    },
+    {
+      "name": "Lionel Messi",
+      "price": 0.0285,
+      "bestBid": 0.028,
+      "bestAsk": 0.029,
+      "volume": "2497768.746543001"
+    },
+    {
+      "name": "Khvicha Kvaratskhelia",
+      "price": 0.0205,
+      "bestBid": 0.02,
+      "bestAsk": 0.021,
+      "volume": "1546928.6068509999"
+    },
+    {
+      "name": "Fabian Ruiz",
+      "price": 0.0075,
+      "bestBid": 0.007,
+      "bestAsk": 0.008,
+      "volume": "1180747.0326750001"
+    },
+    {
+      "name": "Ousmane Dembélé",
+      "price": 0.0065,
+      "bestBid": 0.006,
+      "bestAsk": 0.007,
+      "volume": "2258007.6193609997"
+    },
+    {
+      "name": "Michael Olise",
+      "price": 0.0035,
+      "bestBid": 0.003,
+      "bestAsk": 0.004,
+      "volume": "1729882.6165959998"
+    }
+  ]
+}

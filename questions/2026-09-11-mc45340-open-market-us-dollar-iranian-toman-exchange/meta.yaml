@@ -1,0 +1,72 @@
+slug: 2026-09-11-mc45340-open-market-us-dollar-iranian-toman-exchange
+title: What will be the open market US Dollar/Iranian Toman exchange rate on December 31, 2026?
+source: metaculus
+url: https://www.metaculus.com/questions/45340/
+post_id: 45340
+type: numeric
+unit: toman per USD
+tags:
+- iran
+- macroeconomics
+- exchange-rates
+dates:
+  created: '2026-09-11'
+  opened: null
+  closes: '2026-11-30'
+  resolves: '2026-12-31'
+status: open
+current:
+  version: 1
+  date: '2026-09-12'
+  median: 272000.0
+  iqr:
+  - 236000.0
+  - 320000.0
+  community:
+    cp: null
+    pro: null
+    gold: null
+    n_forecasters: 6
+    as_of: '2026-09-12'
+next_review: '2026-10-10'
+tripwires:
+- signal: Bonbast's 31 October close comes in at or below 230,000 toman
+  by: '2026-10-31'
+  direction: down
+  magnitude: 25000
+  magnitude_unit: toman per USD
+  fired: null
+- signal: Bonbast's 31 October close comes in at or above 280,000 toman
+  by: '2026-10-31'
+  direction: up
+  magnitude: 35000
+  magnitude_unit: toman per USD
+  fired: null
+- signal: Formal US announcement ending the naval blockade, or a resumed US-Iran negotiating round
+  by: '2026-11-30'
+  direction: down
+  magnitude: 30000
+  magnitude_unit: toman per USD
+  fired: null
+- signal: Hormuz commercial transits recover above 40 per day (PortWatch) for a full week
+  by: '2026-11-30'
+  direction: down
+  magnitude: 40000
+  magnitude_unit: toman per USD
+  fired: null
+- signal: US ground invasion of Iran, or confirmed removal of the Supreme Leader
+  by: '2026-11-30'
+  direction: up
+  magnitude: 60000
+  magnitude_unit: toman per USD
+  fired: null
+- signal: Bonbast dark for more than five consecutive days, or a major source switches to new rials
+  by: '2026-12-31'
+  direction: either
+  magnitude: 0
+  magnitude_unit: toman per USD
+  fired: null
+resolution:
+  outcome: null
+  date: null
+  source: null

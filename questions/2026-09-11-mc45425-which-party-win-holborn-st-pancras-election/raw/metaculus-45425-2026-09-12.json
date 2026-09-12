@@ -1,0 +1,85 @@
+{
+  "post_id": 45425,
+  "question_id": 45614,
+  "title": "Which party will win the Holborn and St Pancras by-election?",
+  "question_type": "multiple_choice",
+  "status": "upcoming",
+  "resolution": null,
+  "scheduled_close_time": "2026-10-07T23:00:00Z",
+  "cp_reveal_time": "2026-09-17T17:00:00Z",
+  "options": [
+    "Other",
+    "Labour Party",
+    "Green Party"
+  ],
+  "scaling": {
+    "range_min": null,
+    "range_max": null,
+    "nominal_min": null,
+    "nominal_max": null,
+    "zero_point": null,
+    "open_upper_bound": false,
+    "open_lower_bound": false,
+    "inbound_outcome_count": null,
+    "continuous_range": null
+  },
+  "resolution_criteria": "This question will resolve as the political party of the candidate officially declared elected as Member of Parliament for the Holborn and St Pancras constituency in the 2026 by-election.",
+  "fine_print": "* If a candidate of a party not listed, or an independent candidate wins, the question will resolve as Other.\n* If a candidate changes party affiliation after nominations close but before taking their seat, the party listed on the official election result will determine resolution.\n* If the by-election is cancelled because of a general election, constituency abolition, or another electoral event that prevents the by-election from taking place, the question will be annulled.",
+  "background": "A by-election is due to take place in [Holborn and St Pancras](https://en.wikipedia.org/wiki/2026_Holborn_and_St_Pancras_by-election) following the resignation of former Prime Minister Keir Starmer from the House of Commons on 1 September 2026.\n\nThe constituency is an inner London seat covering parts of the London Borough of Camden. At the 2024 general election, Labour won the seat with 48.9% of the vote, although its vote share fell substantially compared with the previous election. Independent candidate Andrew Feinstein finished second with 18.9%, while the Green Party finished third on 10.4%.\n\nLabour [has selected](https://www.standard.co.uk/news/politics/sagal-abdiwali-labour-favourite-holborn-byelection-keir-starmer-b1296058.html) councillor Sagal Abdi-Wali to be their candidate.\n\nThe Green Party has attracted particular attention ahead of the by-election. Party members [have backed](https://www.theguardian.com/politics/2026/sep/11/zack-polanski-selected-green-party-holborn-st-pancras-byelection) their leader, Zack Polanski, to seek the party's nomination.&#x20;",
+  "nr_forecasters": 6,
+  "methods": {
+    "recency_weighted": {
+      "method": "recency_weighted",
+      "status": 200,
+      "history_points": 0,
+      "latest": null,
+      "history": []
+    },
+    "metaculus_pros": {
+      "method": "metaculus_pros",
+      "status": 200,
+      "history_points": 0,
+      "latest": null,
+      "history": []
+    },
+    "gold_medalists": {
+      "method": "gold_medalists",
+      "status": 200,
+      "history_points": 0,
+      "latest": null,
+      "history": []
+    }
+  },
+  "comments": [
+    {
+      "author": "alt",
+      "created_at": "2026-09-11",
+      "text": "@(ADQ) Thats great, thanks",
+      "prediction": null
+    },
+    {
+      "author": "ADQ",
+      "created_at": "2026-09-11",
+      "text": "@(alt) Alright. I made some final changes. It'll be added to the list for the cup.",
+      "prediction": null
+    },
+    {
+      "author": "alt",
+      "created_at": "2026-09-10",
+      "text": "@(ADQ)  Date announced 8th of October - [https://labourlist.org/2026/09/holborn-st-pancras-by-election-date/](https://labourlist.org/2026/09/holborn-st-pancras-by-election-date/)",
+      "prediction": null
+    },
+    {
+      "author": "alt",
+      "created_at": "2026-09-03",
+      "text": "@(ADQ) Sounds good, I'll keep an eye out for the date being announced&#x20;",
+      "prediction": null
+    },
+    {
+      "author": "ADQ",
+      "created_at": "2026-09-03",
+      "text": "@(alt) Thanks for the question. We'll wait until the date is known so we know when to close the question. We may also consider it for the next cup.",
+      "prediction": null
+    }
+  ]
+}
