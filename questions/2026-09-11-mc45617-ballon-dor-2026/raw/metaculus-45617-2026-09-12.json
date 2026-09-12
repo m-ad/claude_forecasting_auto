@@ -1,0 +1,65 @@
+{
+  "post_id": 45617,
+  "question_id": 45807,
+  "title": "Who will win the 2026 Ballon d'Or?",
+  "question_type": "multiple_choice",
+  "status": "upcoming",
+  "resolution": null,
+  "scheduled_close_time": "2026-10-26T09:00:00Z",
+  "cp_reveal_time": "2026-09-17T17:00:00Z",
+  "options": [
+    "Ousmane Dembélé",
+    "Harry Kane",
+    "Khvicha Kvaratskhelia",
+    "Kylian Mbappé",
+    "Rodri",
+    "Lamine Yamal",
+    "Other"
+  ],
+  "scaling": {
+    "range_min": null,
+    "range_max": null,
+    "nominal_min": null,
+    "nominal_max": null,
+    "zero_point": null,
+    "open_upper_bound": false,
+    "open_lower_bound": false,
+    "inbound_outcome_count": null,
+    "continuous_range": null
+  },
+  "resolution_criteria": "This question will resolve as the winner of the men's 2026 Ballon d'Or, expected to be awarded on October 26, 2026.",
+  "fine_print": "If the winner is not one of the listed options, the question will resolve as Other. If the Ballon d'Or is not awarded for any reason before January 1, 2027, this question will be annulled.",
+  "background": "Every year, the [Ballon d'Or](https://en.wikipedia.org/wiki/Ballon_d'Or) is awarded to the world's best professional footballer (soccer player), as judged by [*France Football*](https://en.wikipedia.org/wiki/France_Football). Although the criteria have changed over the decades that the award has been given out, the current iteration of the Ballon d'Or is awarded to the player, of any professional league in the world, who gave the best performance over the previous football season.\n\nLionel Messi has won the Ballon d'Or a record eight times, including most recently in 2023. In 2024, it was won by Rodrigo Hernández Cascante (known simply as Rodri), and in 2025 it was won by Ousmane Dembélé.\n\nOn September 8, 2026, the thirty nominees for the 2026 Ballon d'Or were [announced](https://www.nytimes.com/athletic/live-blogs/ballon-dor-2026-live-updates-shortlist-nominees/UtaqXQpPuqLX/WdM249iYCFvt/?source=emp_shared_liveblog\\&smid=url-share-ta). The nominees include, among many others: Dembélé, of Paris Saint-Germain; Harry Kane, of Bayern Munich; Khvicha Kvaratskhelia, also of Paris Saint-Germain; Kylian Mbappé, of Real Madrid; Messi, of Inter Miami; Rodri, of Barcelona; and Lamine Yamal, also of Barcelona.\n\nNotably, Rodri and Yamal also play for the Spanish national team, which won the 2026 FIFA World Cup, at which Rodri was awarded the [Golden Ball](https://en.wikipedia.org/wiki/FIFA_World_Cup_awards#Golden_Ball) (not to be confused with the Ballon d'Or) for best player in the tournament. (Messi and Mbappé were the runners-up.)",
+  "nr_forecasters": 10,
+  "methods": {
+    "recency_weighted": {
+      "method": "recency_weighted",
+      "status": 200,
+      "history_points": 0,
+      "latest": null,
+      "history": []
+    },
+    "metaculus_pros": {
+      "method": "metaculus_pros",
+      "status": 200,
+      "history_points": 0,
+      "latest": null,
+      "history": []
+    },
+    "gold_medalists": {
+      "method": "gold_medalists",
+      "status": 200,
+      "history_points": 0,
+      "latest": null,
+      "history": []
+    }
+  },
+  "comments": [
+    {
+      "author": "Theomachado",
+      "created_at": "2026-09-11",
+      "text": "**Polymarket.** As of Sep 11 (\\$34M traded): Kane 62%, Yamal 16%, Mbappé 10%, Rodri 5%, Messi 3%, Kvaratskhelia 2%. Side market: Kane top-3 at 95%..\n\n**Why the vote structure matters.** 100 jurors, one per top-100 FIFA nation, each rank ten players scored 15-12-10-8-7-5-4-3-2-1. The winner is the highest point total. A player who is 2nd or 3rd on nearly every ballot can beat one who collects more first-place votes but drops off some ballots. Kane is the consensus depth candidate; Yamal is the one with the World Cup medal in a World Cup year. This is a points race, not a popularity contest. Regional composition matters too (\\~43 UEFA, 22 CAF, 14 AFC, 10 CONMEBOL, 10 CONCACAF). In 2025 Africa and Asia mostly placed Dembélé first while Europe split, some favouring Yamal. This year the natural African pick (the UCL winner's star, Kvaratskhelia) has no World Cup, so that bloc fragments.\n\n***\n\n**Outliers: Rodri vs Vinícius, 2024.** Vinícius was the odds-on favorite with the UCL and La Liga; Rodri won 1170–1129, a 41-point margin. 49 countries put Rodri first vs 35 for Vinícius, and Vinícius was missing from three top-10s entirely. Of the 22 African jurors, 12 put Vinícius first, and only 6 put Rodri first, yet Rodri still won on European depth. The favorite lost because his support was intense but shallow. Same mechanism in 2025 from the other side: Yamal scored 1059 points on just 11 first-place votes against Dembélé's 73. A 16% price on Yamal ignores depth.\n\n***\n\n**Journalist opinions.** The one ballot I can observe is Brazil's: Cléber Machado voted Yamal first in 2025, with Raphinha and Vitinha next, and the winner, Dembélé, fifth; in 2024 his top five was Vinícius, Rodri, Bellingham, Mbappé, Kane. He rewards individual brilliance over \"best player on the best team,\" and with no Brazilian contender this year, his first choice is unconstrained. Brazilian press consensus post-shortlist mirrors the market ordering: Trivela ranks Kane 1, Yamal 2, Dembélé 3, Mbappé 4, Rodri 8, noting that a vote split among Spain's world champions is an extra threat to Yamal; the counter-view (Exame) puts Rodri among the favorites because the World Cup tends to be decisive. France Football itself signaled the split: only 57% of winners lifted the World Cup in the same year. And Dembélé is openly predicting the trophy stays at PSG, which only matters if ten PSG nominees consolidate on one name; right now they don't.\n\n***\n\n## **Final personal opinion.**&#x20;\n\nAs a Soccer fan, I feel it's more than fair for this prize to go to Kane, given his accomplishments and major role on the World Cup team. With 73 Goals in 65 games and being the top scorer in the Bundesliga, Kane truly deserves this trophy. That is why I am going over what the market expects, with over a 73% chance on him, hedging on the following best player based on season accomplishments in my analysis.",
+      "prediction": null
+    }
+  ]
+}

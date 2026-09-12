@@ -1,0 +1,60 @@
+{
+  "post_id": 45216,
+  "question_id": 45409,
+  "title": "Who will win the 2026 World Chess Championship?",
+  "question_type": "multiple_choice",
+  "status": "upcoming",
+  "resolution": null,
+  "scheduled_close_time": "2026-12-14T17:30:00Z",
+  "cp_reveal_time": "2026-09-21T17:00:00Z",
+  "options": [
+    "Gukesh Dommaraju",
+    "Javokhir Sindarov"
+  ],
+  "scaling": {
+    "range_min": null,
+    "range_max": null,
+    "nominal_min": null,
+    "nominal_max": null,
+    "zero_point": null,
+    "open_upper_bound": false,
+    "open_lower_bound": false,
+    "inbound_outcome_count": null,
+    "continuous_range": null
+  },
+  "resolution_criteria": "This question will resolve as the winner of the 2026 World Chess Championship, according to official results announced by [FIDE](https://www.fide.com/news).",
+  "fine_print": "If Gukesh Dommaraju forfeits the match, this question will resolve as **Javokhir Sindarov**. If Javokhir Sindarov forfeits the match the question will resolve as **Gukesh Dommaraju**.\n\nIf the match is cancelled or postponed to after December 31, 2026, this question will be **annulled**.",
+  "background": "The [FIDE World Championship Match 2026](https://calendar.fide.com/calendar.php?id=19098) is the the pinnacle of the FIDE World Championship Cycle. The Match will be between reigning World Champion **Gukesh Dommaraju** and Challenger **Javokhir Sindarov** and will take place in Geneva, Switzerland, from November 25 to December 15, 2026.\n\n[The Match](https://www.fide.com/geneva-to-host-fide-world-championship-match-2026/) was determined in April 2026.\n\n> As reigning champion, Gukesh will defend the crown he won in Singapore in December 2024. At the age of 18, he defeated China’s Ding Liren, securing victory in the fourteenth and final classical game to become the 18th World Champion and the youngest player ever to hold the title.\n> &#x20;\n> Sindarov earned his opportunity to challenge for the crown by winning the FIDE Candidates Tournament 2026 in Cyprus. The Uzbek grandmaster secured first place with a round to spare, adding another major achievement to his victory at the 2025 FIDE World Cup.\n\nThe Match will consist of 14 classical games. The first player to score 7½ points will win, with no further games played once that score has been reached. If the score is tied after all 14 classical games, tiebreaks will determine the champion.",
+  "nr_forecasters": 10,
+  "methods": {
+    "recency_weighted": {
+      "method": "recency_weighted",
+      "status": 200,
+      "history_points": 0,
+      "latest": null,
+      "history": []
+    },
+    "metaculus_pros": {
+      "method": "metaculus_pros",
+      "status": 200,
+      "history_points": 0,
+      "latest": null,
+      "history": []
+    },
+    "gold_medalists": {
+      "method": "gold_medalists",
+      "status": 200,
+      "history_points": 0,
+      "latest": null,
+      "history": []
+    }
+  },
+  "comments": [
+    {
+      "author": "Theomachado",
+      "created_at": "2026-09-11",
+      "text": "# **I ran 325,000 chess games and 10,000 simulated matches. The model says 87% Sindarov.**&#x20;\n\nFitted a draw-aware Davidson model on every OTB game from 10 years of TWIC (2016–2026, 69.6k classical games, online/Freestyle/tiebreaks stripped out), then ran the match by exact DP plus a 10k Monte Carlo.\n\n**Three numbers that decide this question:**\n\n1. **Rating gaps compress.** Fitted β says Sindarov's +75 is worth 0.574 expected per game, not the 0.606 Elo implies. Pure Elo → 82.6%.\n2. **Form barely persists.** A player's 12-month residual carries only **k \\= 0.10** into the next 6 months (SE 0.057, 4,095 player-months). On 4 years of data I got 0.28 and a 92% forecast. The long sample killed it. Gukesh's −0.086/game slump is worth about −19 Elo, not −54.\n3. **Title matches don't distort Elo.** Over the 84 classical games of 2013–2024 matches, the model expected the favourite to score 46.2. Actual: 47.0.\n\nFor an outside view: Polymarket has Sindarov at 70% on \\~\\$68k of volume, and the price hasn't moved since May.",
+      "prediction": null
+    }
+  ]
+}
