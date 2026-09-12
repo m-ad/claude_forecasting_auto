@@ -1,9 +1,48 @@
 #!/usr/bin/env python3
 """
-Metaculus question scraper using Playwright.
+Metaculus question scraper using Playwright (HTML fallback).
 
-Extracts community prediction and comments from a Metaculus question page.
-Works in sandboxed/containerised environments by routing through the egress proxy.
+Extracts community prediction and comments by rendering the public question
+page. This is the **fallback** path: prefer the ``metaculus-aggregations`` skill,
+which returns structured numbers for all three cohorts. This script only ever
+sees the single headline figure the page renders.
+
+Works in sandboxed/containerised environments by routing through the egress
+proxy.
+
+--------------------------------------------------------------------------
+WHY THIS WAS BROKEN (fixed September 2026)
+--------------------------------------------------------------------------
+Three independent faults, each fatal on its own:
+
+1. **Playwright could not find a browser.** The script never set
+   ``PLAYWRIGHT_BROWSERS_PATH``, so in a sandbox that ships Chromium at
+   ``/opt/pw-browsers`` it died with "Looks like Playwright was just installed
+   or updated. Please run playwright install" before issuing any request. Even
+   with the path set, Playwright looks for the exact Chromium build *its own
+   version* expects (1.62 wants ``chromium_headless_shell-1234``) while the
+   image ships an older build (1194) behind a stable ``chromium`` symlink. Since
+   ``playwright`` is pinned only as ``>=1.44``, a routine dependency resolution
+   was enough to break the launch. The binary is therefore resolved explicitly
+   and by symlink, never by build number.
+2. **The proxy was silently dropped.** ``_parse_proxy`` matched only an
+   *authenticated* proxy URL (``http://user:pass@host:port``). The agent proxy
+   is a bare ``http://127.0.0.1:<port>`` with no credentials, so the regex
+   failed, the function returned ``{}``, and Chromium was launched with no
+   proxy at all -- which means no egress.
+3. **Chromium's TLS 1.3 handshake is reset by the egress proxy.** Even with the
+   proxy wired up correctly, every navigation died with
+   ``net::ERR_CONNECTION_RESET`` -- for *any* host, example.com included. The
+   MITM proxy cannot complete Chromium's TLS 1.3 ClientHello (~1.8 kB sent,
+   39 B back, tunnel closed), most likely the post-quantum key share splitting
+   it across records. ``--ssl-version-max=tls1.2`` fixes it; that fallback is
+   applied automatically on a reset-class error, and can be forced up front
+   with ``METACULUS_FORCE_TLS12=1``.
+
+Metaculus itself also rate-limits by IP and answers over-quota clients with a
+Cloudflare managed challenge ("Just a moment..."). A shared sandbox egress IP
+trips this easily, so a challenged page is reported as such instead of being
+parsed into a confidently wrong answer.
 
 Usage:
     python metaculus_scrape.py <post_id> [--comments N] [--json]
@@ -20,6 +59,32 @@ import os
 import re
 import time
 from dataclasses import asdict, dataclass, field
+from typing import Any
+from urllib.parse import unquote, urlparse
+
+# The sandbox ships Chromium here; setting this lets Playwright find it without
+# a separate `playwright install` step. Only set it when the store really
+# exists -- on a normal workstation Playwright must keep its own location.
+if os.path.isdir("/opt/pw-browsers"):
+    os.environ.setdefault("PLAYWRIGHT_BROWSERS_PATH", "/opt/pw-browsers")
+
+# Chromium flag that makes the handshake survive a TLS-1.3-intolerant MITM proxy.
+_TLS12_ARG = "--ssl-version-max=tls1.2"
+
+# Seconds to wait between retries of a challenged page load. Metaculus' IP-level
+# rate limit was measured to clear in ~2 min, so short retries are wasted
+# requests that only re-arm it.
+_BACKOFF = (5, 30, 60, 75)
+
+# Substrings meaning the handshake or tunnel died rather than an HTTP error.
+_RESET_MARKERS = (
+    "ERR_CONNECTION_RESET",
+    "ERR_CONNECTION_CLOSED",
+    "ERR_SSL_PROTOCOL_ERROR",
+    "ERR_EMPTY_RESPONSE",
+    "ERR_QUIC_PROTOCOL_ERROR",
+    "ERR_TUNNEL_CONNECTION_FAILED",
+)
 
 
 @dataclass
@@ -46,19 +111,128 @@ class MetaculusQuestion:
 
 
 def _parse_proxy() -> dict:
-    """Parse the container egress proxy from environment."""
-    proxy_url = os.environ.get("https_proxy", os.environ.get("HTTPS_PROXY", ""))
-    m = re.match(r"http://([^:]+):([^@]+)@([^:]+):(\d+)", proxy_url)
-    if not m:
-        # Outside the Claude.ai sandbox there is no authenticated egress proxy;
-        # a direct connection is correct there, so return no proxy config
-        # instead of aborting.
+    """Playwright ``proxy=`` config from the environment, or ``{}``.
+
+    Chromium does not read ``HTTPS_PROXY`` from the shell environment, so the
+    value has to be parsed and passed explicitly. Credentials are *optional*:
+    a sandbox egress proxy may be ``http://user:pass@host:port`` or a bare
+    ``http://127.0.0.1:<port>``. Requiring them is what silently disabled the
+    proxy in this environment -- see the module docstring.
+    """
+    raw = os.environ.get("https_proxy") or os.environ.get("HTTPS_PROXY") or ""
+    if not raw:
+        # Outside a sandbox there is no egress proxy; a direct connection is
+        # correct there, so return no proxy config instead of aborting.
         return {}
-    return {
-        "server": f"http://{m.group(3)}:{m.group(4)}",
-        "username": m.group(1),
-        "password": m.group(2),
-    }
+    parsed = urlparse(raw)
+    if not parsed.hostname:
+        return {}
+    server = f"{parsed.scheme or 'http'}://{parsed.hostname}"
+    if parsed.port:
+        server += f":{parsed.port}"
+    cfg = {"server": server}
+    if parsed.username:
+        cfg["username"] = unquote(parsed.username)
+    if parsed.password:
+        cfg["password"] = unquote(parsed.password)
+    return cfg
+
+
+def _is_transport_reset(exc: Exception) -> bool:
+    """True when an exception is a dead handshake/tunnel, not an HTTP error."""
+    return any(m in str(exc) for m in _RESET_MARKERS)
+
+
+def _open_question_info(page: Any) -> None:
+    """Reveal the resolution criteria by clicking the "Question Info" tab.
+
+    Metaculus moved the resolution criteria, fine print and background behind a
+    tab, so they are no longer in the initially rendered text at all. That is
+    what silently emptied ``resolution_criteria`` here: the section markers the
+    parser looks for are real headings, they were just never on the page. One
+    click brings them back. Best-effort -- the headline community prediction,
+    which is this script's actual contract, does not depend on it.
+    """
+    try:
+        page.get_by_text("Question Info", exact=False).first.click(timeout=8000)
+    except Exception:  # noqa: BLE001 - tab absent or renamed; not fatal
+        return
+    # The panel mounts client-side; the text is not there on the next tick.
+    time.sleep(3)
+
+
+def _render_page(post_id: int, wait_seconds: int) -> tuple[str, str]:
+    """Load a question page in Chromium and return ``(title, body_text)``.
+
+    Retries once pinned to TLS 1.2 when the first attempt dies with a
+    reset-class error, which is what a TLS-1.3-intolerant egress proxy does to
+    Chromium, and rides out a Cloudflare rate-limit block per :data:`_BACKOFF`.
+    See the module docstring.
+
+    Raises
+    ------
+    RuntimeError
+        If the page cannot be loaded, or Cloudflare was still challenging after
+        the whole backoff schedule. Both are reported rather than parsed, so a
+        blocked fetch can never masquerade as a missing community prediction.
+    """
+    from playwright.sync_api import sync_playwright
+
+    url = f"https://www.metaculus.com/questions/{post_id}/"
+    proxy = _parse_proxy() or None
+    force_tls12 = os.environ.get("METACULUS_FORCE_TLS12") == "1"
+    # Pin the binary: Playwright otherwise demands the exact build its own
+    # version expects, which the sandbox image does not ship. See the docstring.
+    exe = os.environ.get(
+        "PLAYWRIGHT_CHROMIUM_EXECUTABLE_PATH", "/opt/pw-browsers/chromium"
+    )
+
+    with sync_playwright() as p:
+        for attempt in range(2):
+            args = [_TLS12_ARG] if (force_tls12 or attempt) else []
+            kwargs = {"headless": True, "proxy": proxy, "args": args}
+            if os.path.exists(exe):
+                kwargs["executable_path"] = exe
+            browser = p.chromium.launch(**kwargs)
+            try:
+                page = browser.new_page(
+                    user_agent=(
+                        # Must NOT say "HeadlessChrome": Cloudflare challenges
+                        # that token outright.
+                        "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 "
+                        "Chrome/122.0.0.0 Safari/537.36"
+                    )
+                )
+                for wait in (0, *_BACKOFF):
+                    if wait:
+                        time.sleep(wait)
+                    try:
+                        page.goto(url, wait_until="domcontentloaded", timeout=60000)
+                    except Exception as exc:
+                        if (
+                            attempt == 0
+                            and not force_tls12
+                            and _is_transport_reset(exc)
+                        ):
+                            break  # relaunch pinned to TLS 1.2
+                        raise RuntimeError(
+                            f"Could not load {url}: {str(exc).splitlines()[0]}"
+                        ) from exc
+                    time.sleep(wait_seconds)
+                    title = page.title()
+                    if "just a moment" not in (title or "").lower():
+                        _open_question_info(page)
+                        return title, page.inner_text("body")
+                else:
+                    raise RuntimeError(
+                        f"Cloudflare was still challenging post {post_id} after "
+                        f"{sum(_BACKOFF)}s of backoff. Metaculus rate-limits by IP "
+                        "and a shared sandbox egress IP trips it easily; wait a few "
+                        "minutes and retry."
+                    )
+            finally:
+                browser.close()
+    raise RuntimeError(f"Could not load {url} (transport reset on both attempts)")
 
 
 def _detect_question_type(lines: list[str]) -> tuple[str, str | None]:
@@ -275,25 +449,8 @@ def scrape_metaculus_question(
     MetaculusQuestion
         Parsed question data.
     """
-    from playwright.sync_api import sync_playwright
-
-    proxy = _parse_proxy() or None
     url = f"https://www.metaculus.com/questions/{post_id}/"
-
-    with sync_playwright() as p:
-        browser = p.chromium.launch(headless=True, proxy=proxy)
-        page = browser.new_page(
-            user_agent=(
-                "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 "
-                "Chrome/122.0.0.0 Safari/537.36"
-            )
-        )
-        page.goto(url, wait_until="domcontentloaded", timeout=45000)
-        time.sleep(wait_seconds)
-
-        title = page.title()
-        body = page.inner_text("body")
-        browser.close()
+    title, body = _render_page(post_id, wait_seconds)
 
     lines = body.split("\n")
 
@@ -388,6 +545,15 @@ def main():
         if result.resolution_criteria:
             print("\n--- Resolution Criteria ---")
             print(result.resolution_criteria[:500])
+        if args.comments and not result.comments:
+            # Comments now live behind a lazy-loaded tab that does not survive a
+            # scripted click, so the HTML path cannot see them at all. Say so,
+            # rather than letting an empty list read as "no discussion".
+            print(
+                f"\n(note: {result.num_comments or '?'} comments exist but are not "
+                "extractable from the rendered page; use the metaculus-aggregations "
+                "skill with --comments N for comment text)"
+            )
         if result.comments:
             print(f"\n--- Top {len(result.comments)} Comments ---")
             for c in result.comments:
