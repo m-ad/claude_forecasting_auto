@@ -1,0 +1,15 @@
+{
+  "source": "EIA Weekly Petroleum Status Report, week ending 2026-09-04, released 2026-09-10",
+  "retrieved": "2026-09-12",
+  "retrieval_method": "WebSearch (direct EIA API/dnav fetch unavailable this session; corroborated across EIA WPSR summary, BOE Report, EnergyNow, Washington Examiner, Baltimore Sun)",
+  "series": "WCSSTUS1 - U.S. Ending Stocks of Crude Oil in the Strategic Petroleum Reserve, weekly, thousand barrels",
+  "observations": [
+    {"week_ending": "2026-08-28", "value_kb": 286604, "source": "v1 snapshot, research.md"},
+    {"week_ending": "2026-09-04", "value_kb": 285400, "note": "down 1.204 Mb (0.4%) from prior week; 40.0% of 714 Mb authorized capacity; lowest since 1982-11-05"}
+  ],
+  "next_release": "2026-09-16 (week ending 2026-09-11)",
+  "notes": [
+    "2026-09-07 was a federal holiday; WPSR release shifted from Wed to Thu (2026-09-10) that week -- possible minor reporting-week effect on the draw size.",
+    "Direct EIA dnav/API fetch via WebFetch returned a stale cached page (Sept 2025 values) this session; numbers here are corroborated via WebSearch across five independent news sources reporting the same 2026-09-10 WPSR release."
+  ]
+}
