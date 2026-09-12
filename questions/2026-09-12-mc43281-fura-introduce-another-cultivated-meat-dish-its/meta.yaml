@@ -1,0 +1,74 @@
+slug: 2026-09-12-mc43281-fura-introduce-another-cultivated-meat-dish-its
+title: Will FURA introduce another cultivated meat dish on its menu before July 2027?
+source: metaculus
+url: https://www.metaculus.com/questions/43281/will-fura-add-a-new-cultivated-meat-dish-before-july-2027/
+post_id: 43281
+type: binary
+unit: null
+tags:
+- food-tech
+- cultivated-meat
+- singapore
+- regulatory
+dates:
+  created: '2026-09-12'
+  opened: '2026-06-12'
+  closes: '2027-06-30'
+  resolves: '2027-07-01'
+status: open
+current:
+  version: 1
+  date: '2026-09-12'
+  median: 0.356
+  iqr:
+  - 0.28
+  - 0.45
+  community:
+    cp: 0.42
+    pro: 0.4
+    gold: 0.42
+    n_forecasters: 43
+    as_of: '2026-09-12'
+next_review: '2026-10-14'
+tripwires:
+- signal: Parima/Gourmey announces a commercial Singapore launch (named distributor, date or venue)
+  by: '2027-02-28'
+  direction: up
+  magnitude: 15
+  magnitude_unit: pp
+  fired: null
+- signal: No Parima Singapore launch announcement at all (15 months after chicken approval)
+  by: '2027-01-31'
+  direction: down
+  magnitude: 10
+  magnitude_unit: pp
+  fired: null
+- signal: Aleph Farms confirms its Cell Agritech Singapore line is operational and names restaurant partners
+  by: '2027-03-31'
+  direction: up
+  magnitude: 6
+  magnitude_unit: pp
+  fired: null
+- signal: FURA publishes Journal of Future Food Volume Three with no non-quail cultivated item
+  by: '2027-04-30'
+  direction: down
+  magnitude: 8
+  magnitude_unit: pp
+  fired: null
+- signal: Hoxton Farms cultivated pork fat receives SFA approval (also re-check whether cultivated fat
+    counts as cultured meat)
+  by: '2027-02-28'
+  direction: up
+  magnitude: 3
+  magnitude_unit: pp
+  fired: null
+- signal: FURA announces closure, sale or a change of concept (annulment risk)
+  by: '2027-07-01'
+  direction: either
+  magnitude: 0
+  magnitude_unit: pp
+  fired: null
+resolution:
+  outcome: null
+  date: null
+  source: null
