@@ -6,13 +6,196 @@
 | **Type** | numeric (barrels) |
 | **Opened / Closes / Resolves** | 2025-01-20 / 2026-09-30 / ~2026-11-30 (EIA *Petroleum Supply Monthly* print) |
 | **Status** | open |
-| **Current forecast** | **Median 282,300,000 barrels, IQR [280,600,000, 283,800,000]** (v1, 2026-09-07) |
-| **Community (as of 2026-09-07)** | CP 317,131,973 (n=6 in window; 33 on the group) · Pro 403,880,899 (n=1) · Gold 379,133,973 (n=5) |
-| **Next review** | 2026-09-11 |
+| **Current forecast** | **Median 283,400,000 barrels, IQR [282,400,000, 284,400,000]** (v2, 2026-09-12) |
+| **Community (as of 2026-09-07, unrefreshed — see v2)** | CP 317,131,973 (n=6 in window; 33 on the group) · Pro 403,880,899 (n=1) · Gold 379,133,973 (n=5) |
+| **Next review** | 2026-09-17 |
 
 <!-- Versions below, newest first. APPEND-ONLY: never edit or delete a past version. -->
 
 ---
+
+## v2 — Update — 2026-09-12
+
+### Revision
+
+| Driver | Direction | Effect |
+|---|---|---|
+| Prior (v1, 2026-09-07) | — | Median 282.3 Mb, IQR [280.6, 283.8] |
+| New WPSR print (2026-09-10, week ending 09-04): 285.400 Mb, a draw of only **1.204 Mb** — well under the ≥3.0 Mb tripwire and under half of what the v1 decay-0.80 taper model implied (~2.5 Mb) for that week | ↑ | +1.1 Mb |
+| Contract-balance residual shrinks to **3.458 Mb** (133.5 awarded − 130.042 delivered through 09-04, down from 4.662 Mb at v1) — small enough that the two previously-conflicting v1 estimators (contract-balance 282.0 vs weekly-taper-extrapolation 278.6) now sit within ~1.5 Mb of each other once the taper model is refit on the new decay rate | ↑ | +0.3 Mb, IQR narrows |
+| DOE petroleum-reserves news feed re-checked through 2026-09-12: still nothing since 2026-07-09 (non-exchange). Tripwire #4 (new RFP/award) not fired; re-offer probability inside the ~2.5 weeks left before close cut from 9% to 4% | ↑ (marginal) | +0.1 Mb |
+| September-2026 STEO released 2026-09-09 as scheduled, but its `COSQPUS` table value could not be independently confirmed this session (PDF not machine-readable via the available fetch tools; HTML page doesn't carry the table). Treated as an unresolved tripwire, not fired-or-not; the 284.8 Mb Aug-vintage anchor is kept but downweighted (25%→20%) since it is now staler than the fresh weekly print | → | ~0 |
+| Metaculus cohorts not refreshed — both the aggregations API (403, Cloudflare-challenged after full retry) and the Playwright scraper fallback (timed out riding out the same block) failed this session. Not treated as informative either way; v1 already established these cohorts are stale/uninformative for this subquestion (see Other forecasters below) | → | 0 |
+| Elapsed time: 5 fewer days to question close (2026-09-30); less runway for a new escalation event to matter for *this* subquestion | → (narrows tails) | 0 |
+| **New forecast** | | **Median 283.4 Mb, IQR [282.4, 284.4]** |
+
+### Tripwire check (against v1)
+
+| Tripwire from v1 | Fired? | Note |
+|---|---|---|
+| WPSR 2026-09-10 (wk. 09-04) draw > 3.0 Mb | **No** | Actual draw 1.204 Mb — the taper is tightening faster than modelled, not slower |
+| Any WoW build in WCSSTUS1 by wk. ending 09-18 | Not yet due | Still a draw through 09-04; next two prints (09-16, 09-23) pending |
+| Cumulative draw from 08-28 exceeds 6.0 Mb by wk. ending 09-18 | Not yet due, trending **against** | Only 1.204 Mb cumulative through 09-04; would need >2.4 Mb/week for two more weeks, against the observed deceleration |
+| DOE issues new SPR exchange RFP/award before close | **No** | DOE news feed silent since 2026-07-09; nothing new through 2026-09-12 |
+| Sept-2026 STEO moves `COSQPUS` off 284.803 | **Unconfirmed** | STEO published 2026-09-09 on schedule; exact SPR table value not extracted this session — carried to the next review as an open item |
+
+### What resolves YES
+
+Unchanged from v1 — resolution source, ambiguity clause, and the weekly→monthly bridge
+calibration (residual SD ≈ 0.6 Mb) all still apply.
+
+### Outside view
+
+Unchanged from v1. The 2026 drawdown remains in the ~29% "active programme" reference
+class (median +4.1 Mb/month, p5 −19.5 Mb), and "announced ≠ delivered" still holds: no new
+evidence this update changes the outside-view framing.
+
+### Inside view
+
+The single new fact this update rests on is the **2026-09-10 WPSR**: SPR stocks at
+285.400 Mb for the week ending 2026-09-04, a draw of just **1.204 Mb** — the smallest
+weekly draw since the programme began, and roughly a third of the ~3.1 Mb draw the week
+before. Fitting a geometric decay across all five observed weekly draws (−6.115, −5.268,
+−3.700, −3.122, **−1.204**) gives a ratio of **0.686/week** (down from the 0.80 used in
+v1, and the single latest week-on-week ratio is even sharper at 0.386).
+
+That single data point resolves the tension that defined v1: the contract-balance
+estimator (~282.0 Mb, assuming the remaining award clears by month end) and the
+weekly-taper estimator (~278.6 Mb under the old 0.80 decay, which over-shot the 4.7 Mb
+contract balance and was flagged as *only right if the award tally was understated*) no
+longer disagree by ~4 Mb. Refit on the new decay rate, the taper estimator projects
+**~2.06 Mb** of further draw by 2026-09-30 (three more weekly prints plus a partial week),
+comfortably inside the **3.458 Mb** residual — so the "understated award tally" branch
+that justified 20% weight on the pessimistic estimator in v1 is no longer needed.
+
+Updated three-way mixture (Monte Carlo, 500k draws,
+`raw/scenario-model-2026-09-12.py`, run on the new 285.400 Mb anchor):
+
+| Estimator | Projected further draw by 09-30 (Mb) | End-Sept level (Mb) | Weight |
+|---|---|---|---|
+| Fitted-taper continuation (decay 0.686, refit on all 5 weeks) | 2.1 | 283.3 | 45% |
+| Full/near-full contract clearance | 3.0 | 282.4 | 30% |
+| Near-stop (last week's deceleration is real and continues sharply, converging on the stale STEO anchor) | 0.6 | 284.8 | 25% (weight cut from v1's 25% on the STEO estimator alone — this is now a scenario within the mixture, not an independent anchor) |
+
+Plus a residual-capped 4% chance of a re-offered tranche starting to lift barrels before
+close (down from 9% — same silence in the DOE feed, but less runway left) and a 4% chance
+of a token refill. Output: **median 283.4, IQR [282.4, 284.4]**, p5 280.9, p95 285.5.
+
+![v1 vs v2 forecast against the weekly trajectory](charts/spr-trajectory-v2.png)
+
+One flag on the new data point itself: 2026-09-07 was a federal holiday (Labor Day fell in
+the prior week, shifting the WPSR release from Wednesday to Thursday), which can compress
+reported pipeline/barge movements for that week. I cannot rule out that some of the sharp
+deceleration is a reporting/logistics artifact rather than a durable trend break — which is
+why the mixture keeps 30% weight on "clears close to the full contract balance" rather than
+collapsing entirely onto the near-stop reading, and why the IQR is not narrower still.
+
+### Evidence
+
+- **The 1.204 Mb draw (LR ≫ 1 toward "programme is nearly done, higher residual stock than
+  v1 assumed").** This is the load-bearing update. It simultaneously (a) shrinks the
+  residual balance to a level small enough that full clearance and taper-extrapolation
+  converge, and (b) pushes the point estimate up relative to v1, because less was drawn in
+  the most recent observed week than any of v1's three estimators implied for it.
+- **Continued absence of a new RFP or award (DOE feed silent since 2026-07-09, now checked
+  through 09-12).** Same conclusion as v1, re-verified; the probability of a late re-offer
+  mattering before the 09-30 close is mechanically lower now than it was five days ago,
+  simply from elapsed time (hazard-rate decay, not new information).
+- **Disconfirming check I went looking for and could not fully resolve.** I tried to
+  confirm whether the September-2026 STEO (released 2026-09-09, on schedule) moved its
+  `COSQPUS` end-September figure off the stale 284.803 Mb August-vintage number. Web search
+  confirms the STEO's release date and headline distillate/gas findings but not the SPR
+  table value; the full STEO PDF could not be parsed by the tools available this session.
+  Flagged as an open item for the next review rather than guessed at.
+
+### Other forecasters
+
+Not independently refreshed this update — both automated Metaculus paths failed:
+
+| Source | Value | As of | Note |
+|---|---|---|---|
+| Metaculus CP (recency-weighted), q31307 | 317,131,973 (IQR 263.7–408.2 Mb) | 2026-09-07 (stale) | aggregations API returned 403 after full internal retry (Cloudflare-challenged); scraper fallback timed out riding out the same IP-level block |
+| Metaculus Pro, q31307 | 403,880,899 | 2026-09-07 (stale) | n = 1, pre-war vintage per v1 |
+| Metaculus gold medalists, q31307 | 379,133,973 | 2026-09-07 (stale) | n = 5, also stale per v1 |
+
+This does not change the read from v1: the CP/Pro/gold cohorts were already established as
+un-updated and physically inconsistent with the observed weekly print (all three sit above
+what DOE's own fill-capability limits allow from an already-below-them anchor). A fresh
+pull would be informative if it had moved toward the physical series; it remains an open
+task for the next review, not a blocker on this one.
+
+### Scenarios
+
+| # | Scenario | Weight | Implies (Mb) |
+|---|---|---|---|
+| 1 | Fitted taper continues at the new (faster) decay rate | 45% | 282–284.5 |
+| 2 | Contract balance (3.458 Mb) clears in full by month end | 30% | 281.9–282.9 |
+| 3 | Deceleration continues sharply / programme effectively over now | 25% | 284–285.5 |
+| 4 | Re-offered tranche starts lifting barrels before 30 Sep | 4% | 278–283 |
+
+### Sensitivity
+
+| Assumption | If instead | Forecast becomes |
+|---|---|---|
+| The 09-04 draw (1.204 Mb) reflects the true new pace | It was a holiday-week reporting artifact and the pace reverts to ~3 Mb/week | median ≈ 282.0, IQR [281.0, 283.0] |
+| 133.5 Mb awarded in total | 140 Mb was actually awarded (award tally understated) | median ≈ 279–280 Mb |
+| No new solicitation before 2026-09-30 | DOE re-offers the residual and it clears in the week of 09-14 | median ≈ 282.0, left tail to ~279 |
+
+### What would change my mind (tripwires)
+
+- [ ] **2026-09-17** WPSR (week ending 09-11) shows a draw **smaller than 0.6 Mb** →
+      the 09-04 deceleration was structural, not a holiday-week artifact → **up ~1,000,000 barrels**
+- [ ] **2026-09-17** WPSR (week ending 09-11) shows a draw **larger than 2.5 Mb** →
+      the deceleration reverses, resuming the pre-09-04 pace → **down ~1,500,000 barrels**
+- [ ] **2026-10-01** any week-on-week **build** in WCSSTUS1 by the week ending 09-25 →
+      the programme is finished and returns have begun → **up ~2,000,000 barrels**
+- [ ] **2026-09-30** cumulative draw from 2026-09-04 exceeds the full **3.458 Mb** residual
+      before question close → the balance cleared faster than the taper model implies →
+      **down ~1,500,000 barrels**
+- [ ] **2026-09-30** DOE issues any new SPR exchange RFP or award →
+      **down ~3,000,000 barrels**
+
+### Sources
+
+Sources 1–18 below carry forward from v1 (still load-bearing for v2's reasoning: the
+weekly/monthly series, the contract award tally, the physical limits, and the DOE news
+feed history against which "still silent" is checked). 19–22 are new or re-verified this
+session.
+
+1. EIA, *Weekly U.S. Ending Stocks of Crude Oil in the SPR* (WCSSTUS1) — https://www.eia.gov/dnav/pet/hist/LeafHandler.ashx?n=PET&s=WCSSTUS1&f=W (via api.eia.gov v2; accessed 2026-09-07; snapshot in `raw/`)
+2. EIA, *U.S. Crude Oil Stocks in the SPR, Monthly* (MCSSTUS1) — https://www.eia.gov/dnav/pet/hist/LeafHandler.ashx?n=PET&s=MCSSTUS1&f=M (accessed 2026-09-07; snapshot in `raw/`)
+3. EIA, *Short-Term Energy Outlook*, series `COSQPUS` and `COSQ_DRAW` (August-2026 vintage) — https://www.eia.gov/outlooks/steo/ (accessed 2026-09-07; snapshot in `raw/`)
+4. EIA, *Weekly Petroleum Status Report* schedule — https://www.eia.gov/petroleum/supply/weekly/ (accessed 2026-09-07)
+5. Metaculus, question group 15240, aggregations for question ids 31307 and 31308 — https://www.metaculus.com/questions/15240/ (accessed 2026-09-07; snapshot in `raw/`; re-fetch attempted 2026-09-12, failed — see Other forecasters)
+6. DOE, *United States to Release 172 Million Barrels of Oil From the Strategic Petroleum Reserve* — https://www.energy.gov/articles/united-states-release-172-million-barrels-oil-strategic-petroleum-reserve (accessed 2026-09-07)
+7. DOE, *Energy Department Initiates Additional SPR Emergency Exchange* (2026-04-01, 10 Mb, Bryan Mound) — https://www.energy.gov/hgeo/articles/energy-department-initiates-additional-strategic-petroleum-reserve-emergency-exchange (accessed 2026-09-07)
+8. DOE, *Energy Department Awards Contracts for 8.5 Million Barrels from SPR in Second Phase of Emergency Exchange* — https://www.energy.gov/hgeo/opr/articles/energy-department-awards-contracts-85-million-barrels-spr-second-phase-emergency (accessed 2026-09-07)
+9. DOE, *Energy Department Continues Initiating SPR Emergency Exchanges* (2026-04-09, 30 Mb, West Hackberry) — https://www.energy.gov/hgeo/opr/articles/energy-department-continues-initiating-strategic-petroleum-reserve-emergency (accessed 2026-09-07)
+10. DOE, *Petroleum Reserves News* listing (checked through 2026-07-09 at v1) — https://www.energy.gov/hgeo/opr/listings/petroleum-reserves-news (accessed 2026-09-07)
+11. DOE, *SPR Quick Facts* (294.1 Mb as of 2026-08-20) — https://www.energy.gov/hgeo/opr/spr-quick-facts (accessed 2026-09-07)
+12. S. A. Perera, *The Forty Million Barrels That Did Not Clear* — https://shanakaanslemperera.substack.com/p/the-forty-million-barrels-that-did (accessed 2026-09-07). Source of the per-tranche take-up rates (53/85/87/58/1.25%).
+13. Hydrocarbon Processing, *Depleted U.S. SPR loses potency as Iran war grinds on* (Aug 2026) — https://www.hydrocarbonprocessing.com/news/2026/08/depleted-us-spr-loses-potency-as-iran-war-grinds-on/ (accessed 2026-09-07)
+14. Fortune, *Less than 300 million barrels left: the engineering limits threatening the American SPR* (2026-08-25) — https://fortune.com/2026/08/25/strategic-petroleum-reserve-oil-energy-gas-hormuz/ (accessed 2026-09-07)
+15. Congressional Research Service, IN12542, *Strategic Petroleum Reserve: Inventory Outlook and Policy Considerations* — https://www.congress.gov/crs-product/IN12542 (accessed 2026-09-07)
+16. GAO-26-106918, *Energy Security: Congress and DOE Need a Unified Plan to Align Priorities and Investments for the SPR* — https://files.gao.gov/reports/GAO-26-106918/index.html (accessed 2026-09-07)
+17. Plainview Energy, *US Strategic Petroleum Reserve Deep Dive* — https://www.plainview-energy.com/p/us-strategic-petroleum-reserve-deep (accessed 2026-09-07). Secondary; "returns from November 2026" not independently verified.
+18. Al Jazeera, *IEA agrees to release 400 million barrels of oil from strategic reserves* (2026-03-11) — https://www.aljazeera.com/news/2026/3/11/iea-proposes-release-of-400m-barrels-of-oil-from-strategic-reserves (accessed 2026-09-07)
+19. EIA, *Weekly Petroleum Status Report*, week ending 2026-09-04 (released 2026-09-10): 285.400 Mb, a 1.204 Mb draw, lowest since 1982-11-05 — https://www.eia.gov/petroleum/supply/weekly/ (accessed 2026-09-12; snapshot `raw/eia-weekly-wcsstus1-2026-09-12.json`)
+20. BOE Report, *Oil Stocks in US Strategic Petroleum Reserve Fall by 1.2 Million Barrels to Lowest Level Since 1982* — https://boereport.com/2026/09/08/oil-stocks-in-us-strategic-petroleum-reserve-fall-by-1-2-million-barrels-to-lowest-level-since-1982/ (accessed 2026-09-12; corroborates 19, cross-checked against EnergyNow, Washington Examiner and Baltimore Sun coverage of the same WPSR release)
+21. EIA, *Short-Term Energy Outlook*, September-2026 edition (released 2026-09-09, on schedule) — https://www.eia.gov/outlooks/steo/ (accessed 2026-09-12; release date confirmed, but the `COSQPUS` table value could not be extracted this session — see Evidence and the open tripwire)
+22. DOE, *Petroleum Reserves News* listing, re-checked through 2026-09-12 (most recent item still 2026-07-09, non-exchange; no new RFP or award) — https://www.energy.gov/hgeo/opr/listings/petroleum-reserves-news (accessed 2026-09-12)
+
+**Date**: 2026-09-12
+**Forecast**: Median 283,400,000 barrels, IQR [282,400,000, 284,400,000]
+**Thesis**: The 2026-09-10 WPSR print (285.400 Mb, a 1.204 Mb draw — the smallest of the
+drawdown) resolves v1's central tension: refit on the new, faster decay rate, the
+weekly-taper estimator (~283.3 Mb) and the contract-balance estimator (~282.4 Mb, only
+3.46 Mb of awarded exchange volume left undelivered) now converge instead of disagreeing
+by ~4 Mb, and DOE's news feed remains silent on any new tranche through 2026-09-12. Median
+moves up ~1.1 Mb from v1 because less was drawn last week than any v1 estimator implied;
+IQR narrows slightly as the estimators converge. Metaculus cohorts could not be refreshed
+this session (403/timeout on both automated paths) but were already flagged in v1 as stale
+and physically inconsistent with the observed print.
 
 ## v1 — Initial forecast — 2026-09-07
 

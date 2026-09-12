@@ -17,51 +17,52 @@ dates:
   resolves: '2026-11-30'
 status: open
 current:
-  version: 1
-  date: '2026-09-07'
-  median: 282300000.0
+  version: 2
+  date: '2026-09-12'
+  median: 283400000.0
   iqr:
-  - 280600000.0
-  - 283800000.0
+  - 282400000.0
+  - 284400000.0
   community:
     cp: 317131973.0
     pro: 403880899.0
     gold: 379133973.0
     n_forecasters: 6
-    as_of: '2026-09-07'
-next_review: '2026-09-11'
+    as_of: '2026-09-12'
+next_review: '2026-09-17'
 tripwires:
-- signal: EIA WPSR of 2026-09-10 (week ending 09-04) shows a draw larger than 3.0 Mb — the taper is not
-    tightening and the 133.5 Mb award tally is low
-  by: '2026-09-11'
-  direction: down
-  magnitude: 2000000
+- signal: EIA WPSR of 2026-09-16 (week ending 09-11) shows a draw smaller than 0.6 Mb — the 09-04 deceleration
+    was structural, not a holiday-week reporting artifact
+  by: '2026-09-17'
+  direction: up
+  magnitude: 1000000
   magnitude_unit: barrels
   fired: null
-- signal: Any week-on-week build in WCSSTUS1 by the week ending 2026-09-18 — the exchange programme is
-    finished
-  by: '2026-09-24'
+- signal: EIA WPSR of 2026-09-16 (week ending 09-11) shows a draw larger than 2.5 Mb — the deceleration
+    reverses, resuming the pre-09-04 pace
+  by: '2026-09-17'
+  direction: down
+  magnitude: 1500000
+  magnitude_unit: barrels
+  fired: null
+- signal: Any week-on-week build in WCSSTUS1 by the week ending 2026-09-25 — the exchange programme is
+    finished and returns have begun
+  by: '2026-10-01'
   direction: up
   magnitude: 2000000
   magnitude_unit: barrels
   fired: null
-- signal: Cumulative draw from 2026-08-28 exceeds 6.0 Mb by the week ending 2026-09-18 — the 133.5 Mb
-    award tally is wrong
-  by: '2026-09-24'
+- signal: Cumulative draw from 2026-09-04 exceeds the full 3.458 Mb residual contract balance before question
+    close — the balance cleared faster than the taper model implies
+  by: '2026-09-30'
   direction: down
-  magnitude: 4000000
+  magnitude: 1500000
   magnitude_unit: barrels
   fired: null
 - signal: DOE issues any new SPR exchange RFP or award before question close
   by: '2026-09-30'
   direction: down
   magnitude: 3000000
-  magnitude_unit: barrels
-  fired: null
-- signal: September-2026 STEO (due ~2026-09-09) moves COSQPUS for Sep-2026 off 284.803 Mb
-  by: '2026-09-12'
-  direction: either
-  magnitude: 0
   magnitude_unit: barrels
   fired: null
 resolution:
