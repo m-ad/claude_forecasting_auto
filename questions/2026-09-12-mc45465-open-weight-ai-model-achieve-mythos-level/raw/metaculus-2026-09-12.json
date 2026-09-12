@@ -1,0 +1,759 @@
+{
+  "post_id": 45465,
+  "question_id": 45656,
+  "title": "Will an open weight AI model achieve Mythos-level cyber capabilities before July 2027?",
+  "question_type": "binary",
+  "status": "open",
+  "resolution": null,
+  "scheduled_close_time": "2027-06-30T22:00:00Z",
+  "cp_reveal_time": "2026-09-04T18:00:00Z",
+  "options": null,
+  "scaling": {
+    "range_min": null,
+    "range_max": null,
+    "nominal_min": null,
+    "nominal_max": null,
+    "zero_point": null,
+    "open_upper_bound": false,
+    "open_lower_bound": false,
+    "inbound_outcome_count": null,
+    "continuous_range": null
+  },
+  "resolution_criteria": "This question will resolve as **Yes** if, before July 1, 2027, an AI system with open weights has equaled or exceeded the cybersecurity capabilities score of Anthropic's Mythos on at least one of the following cyber benchmarks:\n\n* [ExploitBench](https://exploitbench.ai/)\n* [UK AI Security Institute](https://www.aisi.gov.uk/blog/how-far-behind-the-frontier-are-leading-open-weight-models-on-cyber) (AISI): reported by AISI to have achieved the required threshold on either AISI's narrow cyber tasks, cyber ranges, The Last Ones, or any new cyber benchmarks that AISI develops that Metaculus assesses to be of comparable or greater difficulty to the AISI benchmarks listed here.\n* [ExploitGym](https://benchlm.ai/benchmarks/exploitgym)",
+  "fine_print": "* Please note that changes to benchmark methodology are immaterial for the resolution of this question, as long as a methodologically similar comparison to Mythos is made following any change. In the event such a Mythos comparison is not available, the question may still resolve as **Yes** if, in the judgment of Metaculus, an open weight model has exceeded the Mythos threshold by inferring from other methodologically similar model comparisons.\n* The benchmark itself need not characterize a model as open weight, a model which other credible sources characterize as open weight surpassing the Mythos Preview benchmark is sufficient.\n* This question will resolve as **Yes** if an open weights model matches any published scores by Mythos or [Mythos Preview](https://www.anthropic.com/research/mythos-preview). However, only the following scores by AISI on Mythos Preview will count: expert-level capture-the-flag tasks 68.6%, \"The Last Ones\" 6/10, Cooling Tower 3/10.",
+  "background": "On July 21, 2026, AI models being tested by OpenAI for the [ExploitGym](https://github.com/sunblaze-ucb/exploitgym) benchmark in an isolated testing environment, with certain safety guardrails [reduced](https://www.synack.com/blog/how-an-openai-model-escaped-its-guardrails/), escaped its environment and gained unauthorized access to the computer systems of the machine learning company [HuggingFace](https://en.wikipedia.org/wiki/2026_OpenAI_agent_cyberattacks). Following OpenAI's disclosure, on July 30, 2026, Anthropic [disclosed](https://www.anthropic.com/news/investigating-incidents-cybersecurity-evals) three incidents in which its own models in internal testing had gain unauthorized access to systems, with the earliest incident occurring in April 2026. Not to be outdone, on August 5, 2026, Meta made its own [disclosure](https://www.reuters.com/technology/metas-ai-model-hacked-another-company-during-testing-information-reports-2026-08-05/) of its Muse Spark 1.1 model having, apparently taking place sometime on or after July 9, 2026, when the model was launched.\n\nThe [announcement of Claude Mythos Preview](https://www.anthropic.com/research/mythos-preview) on April 7, 2026, was a significant milestone in cybersecurity risk caused by AI, with Anthropic launching [Project Glasswing](https://www.anthropic.com/glasswing) to use the model to harden major organizational cyber infrastructure that could be exploited by Mythos' advanced capabilities. Anthropic claimed that Mythos preview:\n\n> \\[identified] thousands of zero-day vulnerabilities (that is, flaws that were previously unknown to the software’s developers), many of them critical, in every major operating system and every major web browser, along with a range of other important pieces of software.\n\n[Open weight](https://en.wikipedia.org/wiki/Open_weights) models are models whose trained parameters, or weights, are publicly available for download. Models with open weights can easily be copied and run independently by groups who were not responsible for the original training of the model. Open weight models potentially could have greater risks due to their ability to be run by anyone, decreasing the ability to regulate them and impose safeguards.",
+  "nr_forecasters": 31,
+  "methods": {
+    "recency_weighted": {
+      "method": "recency_weighted",
+      "status": 200,
+      "history_points": 53,
+      "latest": {
+        "as_of": "2026-09-12 09:31",
+        "forecaster_count": 25,
+        "center": 0.91,
+        "lower": 0.82,
+        "upper": 0.92,
+        "mean": 0.8444677197245624,
+        "display": "91.0%  IQR[82.0%, 92.0%]",
+        "per_option": null
+      },
+      "history": [
+        [
+          "2026-09-04 19:03",
+          0.8
+        ],
+        [
+          "2026-09-04 19:13",
+          0.85
+        ],
+        [
+          "2026-09-04 19:13",
+          0.85
+        ],
+        [
+          "2026-09-04 19:13",
+          0.85
+        ],
+        [
+          "2026-09-05 08:42",
+          0.875
+        ],
+        [
+          "2026-09-05 09:06",
+          0.8999999999999999
+        ],
+        [
+          "2026-09-05 09:06",
+          0.895
+        ],
+        [
+          "2026-09-05 09:44",
+          0.885
+        ],
+        [
+          "2026-09-05 09:52",
+          0.91
+        ],
+        [
+          "2026-09-05 09:52",
+          0.91
+        ],
+        [
+          "2026-09-06 00:06",
+          0.9
+        ],
+        [
+          "2026-09-06 00:06",
+          0.9
+        ],
+        [
+          "2026-09-06 00:07",
+          0.92
+        ],
+        [
+          "2026-09-06 00:07",
+          0.92
+        ],
+        [
+          "2026-09-06 00:08",
+          0.92
+        ],
+        [
+          "2026-09-06 00:08",
+          0.92
+        ],
+        [
+          "2026-09-06 00:08",
+          0.92
+        ],
+        [
+          "2026-09-06 00:08",
+          0.92
+        ],
+        [
+          "2026-09-08 07:50",
+          0.92
+        ],
+        [
+          "2026-09-08 21:19",
+          0.92
+        ],
+        [
+          "2026-09-08 21:19",
+          0.92
+        ],
+        [
+          "2026-09-09 06:08",
+          0.96
+        ],
+        [
+          "2026-09-09 06:51",
+          0.96
+        ],
+        [
+          "2026-09-09 13:38",
+          0.96
+        ],
+        [
+          "2026-09-09 16:42",
+          0.96
+        ],
+        [
+          "2026-09-09 18:41",
+          0.96
+        ],
+        [
+          "2026-09-09 19:04",
+          0.95
+        ],
+        [
+          "2026-09-09 19:08",
+          0.95
+        ],
+        [
+          "2026-09-09 19:24",
+          0.95
+        ],
+        [
+          "2026-09-09 19:35",
+          0.95
+        ],
+        [
+          "2026-09-09 19:35",
+          0.95
+        ],
+        [
+          "2026-09-09 20:16",
+          0.91
+        ],
+        [
+          "2026-09-09 21:53",
+          0.9
+        ],
+        [
+          "2026-09-09 22:16",
+          0.9
+        ],
+        [
+          "2026-09-09 22:16",
+          0.9
+        ],
+        [
+          "2026-09-10 05:14",
+          0.9
+        ],
+        [
+          "2026-09-10 05:32",
+          0.9
+        ],
+        [
+          "2026-09-10 06:48",
+          0.9
+        ],
+        [
+          "2026-09-10 07:03",
+          0.9
+        ],
+        [
+          "2026-09-10 07:07",
+          0.9
+        ],
+        [
+          "2026-09-10 07:07",
+          0.9
+        ],
+        [
+          "2026-09-10 13:05",
+          0.9
+        ],
+        [
+          "2026-09-10 16:53",
+          0.9
+        ],
+        [
+          "2026-09-10 16:58",
+          0.9
+        ],
+        [
+          "2026-09-10 20:48",
+          0.9
+        ],
+        [
+          "2026-09-11 08:39",
+          0.89
+        ],
+        [
+          "2026-09-11 14:22",
+          0.85
+        ],
+        [
+          "2026-09-11 20:28",
+          0.83
+        ],
+        [
+          "2026-09-11 22:56",
+          0.85
+        ],
+        [
+          "2026-09-12 00:06",
+          0.9
+        ],
+        [
+          "2026-09-12 00:07",
+          0.9
+        ],
+        [
+          "2026-09-12 01:36",
+          0.9
+        ],
+        [
+          "2026-09-12 09:31",
+          0.91
+        ]
+      ]
+    },
+    "metaculus_pros": {
+      "method": "metaculus_pros",
+      "status": 200,
+      "history_points": 53,
+      "latest": {
+        "as_of": "2026-09-12 09:31",
+        "forecaster_count": 5,
+        "center": 0.82,
+        "lower": 0.82,
+        "upper": 0.95,
+        "mean": 0.8744094243175683,
+        "display": "82.0%  IQR[82.0%, 95.0%]",
+        "per_option": null
+      },
+      "history": [
+        [
+          "2026-09-04 19:03",
+          0.8
+        ],
+        [
+          "2026-09-04 19:13",
+          0.85
+        ],
+        [
+          "2026-09-04 19:13",
+          0.85
+        ],
+        [
+          "2026-09-04 19:13",
+          0.85
+        ],
+        [
+          "2026-09-05 08:42",
+          0.875
+        ],
+        [
+          "2026-09-05 09:06",
+          0.8999999999999999
+        ],
+        [
+          "2026-09-05 09:06",
+          0.895
+        ],
+        [
+          "2026-09-05 09:44",
+          0.885
+        ],
+        [
+          "2026-09-05 09:52",
+          0.91
+        ],
+        [
+          "2026-09-05 09:52",
+          0.91
+        ],
+        [
+          "2026-09-06 00:06",
+          0.9
+        ],
+        [
+          "2026-09-06 00:06",
+          0.9
+        ],
+        [
+          "2026-09-06 00:07",
+          0.92
+        ],
+        [
+          "2026-09-06 00:07",
+          0.92
+        ],
+        [
+          "2026-09-06 00:08",
+          0.92
+        ],
+        [
+          "2026-09-06 00:08",
+          0.92
+        ],
+        [
+          "2026-09-06 00:08",
+          0.92
+        ],
+        [
+          "2026-09-06 00:08",
+          0.92
+        ],
+        [
+          "2026-09-08 07:50",
+          0.92
+        ],
+        [
+          "2026-09-08 21:19",
+          0.96
+        ],
+        [
+          "2026-09-08 21:19",
+          0.96
+        ],
+        [
+          "2026-09-09 06:08",
+          0.96
+        ],
+        [
+          "2026-09-09 06:51",
+          0.96
+        ],
+        [
+          "2026-09-09 13:38",
+          0.96
+        ],
+        [
+          "2026-09-09 16:42",
+          0.96
+        ],
+        [
+          "2026-09-09 18:41",
+          0.96
+        ],
+        [
+          "2026-09-09 19:04",
+          0.96
+        ],
+        [
+          "2026-09-09 19:08",
+          0.95
+        ],
+        [
+          "2026-09-09 19:24",
+          0.95
+        ],
+        [
+          "2026-09-09 19:35",
+          0.95
+        ],
+        [
+          "2026-09-09 19:35",
+          0.95
+        ],
+        [
+          "2026-09-09 20:16",
+          0.95
+        ],
+        [
+          "2026-09-09 21:53",
+          0.95
+        ],
+        [
+          "2026-09-09 22:16",
+          0.95
+        ],
+        [
+          "2026-09-09 22:16",
+          0.95
+        ],
+        [
+          "2026-09-10 05:14",
+          0.95
+        ],
+        [
+          "2026-09-10 05:32",
+          0.95
+        ],
+        [
+          "2026-09-10 06:48",
+          0.95
+        ],
+        [
+          "2026-09-10 07:03",
+          0.95
+        ],
+        [
+          "2026-09-10 07:07",
+          0.95
+        ],
+        [
+          "2026-09-10 07:07",
+          0.95
+        ],
+        [
+          "2026-09-10 13:05",
+          0.95
+        ],
+        [
+          "2026-09-10 16:53",
+          0.95
+        ],
+        [
+          "2026-09-10 16:58",
+          0.82
+        ],
+        [
+          "2026-09-10 20:48",
+          0.82
+        ],
+        [
+          "2026-09-11 08:39",
+          0.82
+        ],
+        [
+          "2026-09-11 14:22",
+          0.82
+        ],
+        [
+          "2026-09-11 20:28",
+          0.82
+        ],
+        [
+          "2026-09-11 22:56",
+          0.82
+        ],
+        [
+          "2026-09-12 00:06",
+          0.82
+        ],
+        [
+          "2026-09-12 00:07",
+          0.82
+        ],
+        [
+          "2026-09-12 01:36",
+          0.82
+        ],
+        [
+          "2026-09-12 09:31",
+          0.82
+        ]
+      ]
+    },
+    "gold_medalists": {
+      "method": "gold_medalists",
+      "status": 200,
+      "history_points": 53,
+      "latest": {
+        "as_of": "2026-09-12 09:31",
+        "forecaster_count": 12,
+        "center": 0.92,
+        "lower": 0.92,
+        "upper": 0.95,
+        "mean": 0.9274355853452717,
+        "display": "92.0%  IQR[92.0%, 95.0%]",
+        "per_option": null
+      },
+      "history": [
+        [
+          "2026-09-04 19:03",
+          0.8
+        ],
+        [
+          "2026-09-04 19:13",
+          0.85
+        ],
+        [
+          "2026-09-04 19:13",
+          0.85
+        ],
+        [
+          "2026-09-04 19:13",
+          0.85
+        ],
+        [
+          "2026-09-05 08:42",
+          0.875
+        ],
+        [
+          "2026-09-05 09:06",
+          0.8999999999999999
+        ],
+        [
+          "2026-09-05 09:06",
+          0.895
+        ],
+        [
+          "2026-09-05 09:44",
+          0.885
+        ],
+        [
+          "2026-09-05 09:52",
+          0.91
+        ],
+        [
+          "2026-09-05 09:52",
+          0.91
+        ],
+        [
+          "2026-09-06 00:06",
+          0.9
+        ],
+        [
+          "2026-09-06 00:06",
+          0.9
+        ],
+        [
+          "2026-09-06 00:07",
+          0.92
+        ],
+        [
+          "2026-09-06 00:07",
+          0.92
+        ],
+        [
+          "2026-09-06 00:08",
+          0.92
+        ],
+        [
+          "2026-09-06 00:08",
+          0.92
+        ],
+        [
+          "2026-09-06 00:08",
+          0.92
+        ],
+        [
+          "2026-09-06 00:08",
+          0.92
+        ],
+        [
+          "2026-09-08 07:50",
+          0.92
+        ],
+        [
+          "2026-09-08 21:19",
+          0.96
+        ],
+        [
+          "2026-09-08 21:19",
+          0.96
+        ],
+        [
+          "2026-09-09 06:08",
+          0.96
+        ],
+        [
+          "2026-09-09 06:51",
+          0.96
+        ],
+        [
+          "2026-09-09 13:38",
+          0.96
+        ],
+        [
+          "2026-09-09 16:42",
+          0.96
+        ],
+        [
+          "2026-09-09 18:41",
+          0.95
+        ],
+        [
+          "2026-09-09 19:04",
+          0.95
+        ],
+        [
+          "2026-09-09 19:08",
+          0.95
+        ],
+        [
+          "2026-09-09 19:24",
+          0.95
+        ],
+        [
+          "2026-09-09 19:35",
+          0.95
+        ],
+        [
+          "2026-09-09 19:35",
+          0.95
+        ],
+        [
+          "2026-09-09 20:16",
+          0.95
+        ],
+        [
+          "2026-09-09 21:53",
+          0.95
+        ],
+        [
+          "2026-09-09 22:16",
+          0.95
+        ],
+        [
+          "2026-09-09 22:16",
+          0.95
+        ],
+        [
+          "2026-09-10 05:14",
+          0.91
+        ],
+        [
+          "2026-09-10 05:32",
+          0.9
+        ],
+        [
+          "2026-09-10 06:48",
+          0.9
+        ],
+        [
+          "2026-09-10 07:03",
+          0.9
+        ],
+        [
+          "2026-09-10 07:07",
+          0.93
+        ],
+        [
+          "2026-09-10 07:07",
+          0.94
+        ],
+        [
+          "2026-09-10 13:05",
+          0.94
+        ],
+        [
+          "2026-09-10 16:53",
+          0.94
+        ],
+        [
+          "2026-09-10 16:58",
+          0.9
+        ],
+        [
+          "2026-09-10 20:48",
+          0.9
+        ],
+        [
+          "2026-09-11 08:39",
+          0.9
+        ],
+        [
+          "2026-09-11 14:22",
+          0.9
+        ],
+        [
+          "2026-09-11 20:28",
+          0.9
+        ],
+        [
+          "2026-09-11 22:56",
+          0.9
+        ],
+        [
+          "2026-09-12 00:06",
+          0.94
+        ],
+        [
+          "2026-09-12 00:07",
+          0.92
+        ],
+        [
+          "2026-09-12 01:36",
+          0.95
+        ],
+        [
+          "2026-09-12 09:31",
+          0.92
+        ]
+      ]
+    }
+  },
+  "comments": [
+    {
+      "author": "RyanBeck",
+      "created_at": "2026-09-09",
+      "text": "@(exmateriae) that's correct, parity or exceeding on any one of the benchmarks.",
+      "prediction": null
+    },
+    {
+      "author": "exmateriae",
+      "created_at": "2026-09-09",
+      "text": "@(exmateriae) @(RyanBeck) I think I misread the first time, the criteria is any one of the three? I forecasted thinking it would be all three and not a single one, that makes me much more bullish, I'd be shocked if this did not resolve positive",
+      "prediction": null
+    },
+    {
+      "author": "metac-azimuth",
+      "created_at": "2026-09-08",
+      "text": "# Forecast Summary\n\n## Synthesis\n\nBoth forecasters converge tightly (0.92, 0.93) and rely on the same core evidence, which appears well-sourced and mutually corroborating:\n\n**Points of agreement:**\n1. **The target is a fixed, already-published set of scores**, not a moving frontier. Only one benchmark route needs to be crossed.\n2. **An open-weight model is already very close on ExploitGym**: GLM-5.3 at 15.0% vs. Mythos Preview at 17.5% on the linked leaderboard — a 2.5 pp gap, with weights publicly released.\n3. **Slope is steep on the exact eligible benchmarks**: GLM-5.2 → GLM-5.3 went 24.4% → 54.4% on ExploitBench and roughly tripled ExploitGym solves in ~2 months, achieved through post-training alone on the same base model. Mythos Preview's ExploitBench score (~68–69%) is within one comparable generational step.\n4. **Reference-class lag** (AISI: 4–7 months on cyber; Epoch: ~4 months aggregate) is well inside the ~15 months between Mythos Preview (April 2026) and the July 1, 2027 deadline, with ~10 months still remaining from today.\n5. **Publication infrastructure exists**: ExploitGym and ExploitBench already list both Mythos Preview and multiple open-weight models; AISI/CAISI actively evaluate open-weight cyber capability; and the fine print permits Metaculus to infer from methodologically similar comparisons.\n6. Multiple independent shots on goal (Z.ai, DeepSeek, Moonshot, Alibaba, MiniMax) on 1–3 month cadences, though progress is correlated rather than independent.\n\n**Residual NO pathways, and how much weight they deserve:**\n- **Governance/withholding shock** — the most substantive risk. Z.ai already delayed GLM-5.3's weights over emergent cyber capability, and US/EU/Chinese policymakers are actively debating capability-threshold restrictions on open releases. But the weights shipped anyway, and Kimi K3 released on schedule. A coordinated clampdown severe enough to freeze the entire open-weight ecosystem's cyber trajectory for 10 months is possible but unlikely (~5%).\n- **Comparability/publication failure** — Forecast 2 correctly flags that GLM-5.3's 15.0% reflects 130/869 at six hours vs. Mythos Preview's 157/898 at two hours, so the leaderboard's apparent proximity overstates true parity. This raises the real gap and introduces a risk that no clean, methodologically similar comparison is published before the deadline, or that Metaculus judges available comparisons insufficient. The AISI-specific thresholds (The Last Ones 6/10 vs. Kimi K3's 1/10; Cooling Tower 3/10) are genuinely distant, so the ExploitGym/ExploitBench routes carry the load (~4–5%).\n- **Capability plateau** — AISI itself cautions that past catch-up lags do not guarantee open models will reproduce the unusually large Mythos-era jumps. Low but non-zero.\n\nNeither forecaster identified an argument the other missed in a way that would move the estimate materially; Forecast 2's methodological caveat is the sharpest correction and justifies not going above ~0.93. Combining the capability case (near-locked on trend) with roughly 8–10% combined probability across governance clampdown, comparability failure, and plateau scenarios, I land essentially where both forecasters did, marginally toward the lower end to respect resolution-ambiguity risk on a question requiring a specific published apples-to-apples comparison.",
+      "prediction": null
+    },
+    {
+      "author": "Zaldath",
+      "created_at": "2026-09-05",
+      "text": "Increased my confidence a bit more after seeing the great research by @(exmateriae) !",
+      "prediction": null
+    },
+    {
+      "author": "exmateriae",
+      "created_at": "2026-09-05",
+      "text": "Overall, the best work I know of on tracking open vs closed was done by EpochAI, [link to their most recent report ](https://epoch.ai/data-insights/open-closed-eci-gap)on the topic.\n\n![](https://cdn.metaculus.com/user_uploaded/image_QGcWpVH.png)\n\nThe lag is four months so if this keeps up, we should see this resolve before EOY. In this case I'm under 50% it will happen by EOY but not long after is pretty likely.\n\nOpen weight models have contributed to some of AI progress in the past, mostly on how to make things smaller, quicker and cheaper, but they have not done that much since the deepseek event. My current understanding of how Chinese companies get that close to the frontier is that most of what they're doing is distillation, i.e. they're asking questions to other models with thousands of accounts which allows them to basically reconstruct the weights of a closed model for a few millions.\n\nWe may have a few companies working legitimately on this although I doubt they'll be the ones with the most chance to resolve this question first.\n\nMythos is not available so that will be harder to distill do BUT this question is not about that. It's about a model that has higher results than Mythos on three benchmarks. Let's look at the most recent state of these:\n\n![](https://cdn.metaculus.com/user_uploaded/image_m4zWTEy.png)![](https://cdn.metaculus.com/user_uploaded/image_YzXb8ZF.png)![](https://cdn.metaculus.com/user_uploaded/image_5BMF3CG.png)\n\nMythos has already been obliterated on ExploitGym by Astra, we should expect this to happen soon on a Chinese model imo, GLM was already very close. The four month window seems actually bearish on that one. @(RyanBeck) on this I want to flag the [possibility of contamination](https://huggingface.co/datasets/shirman/exploitgym-answers) even if honestly I expect this to happen anyway, Mythos wasn't that high on this and the nature of benchmarks is to bring saturation.\n\nFor the AISI, it's more difficult to say as I think their assessment is more vibey but I'll admit I'm less knowledgeable on that so I might be wrong. Still, they're saying 4-5 months too so that what we should likely base our forecast on. Even a bit late, there is little chance this does not happen in 10 months.\n\nSo it seems this forecast will mostly rely on when ExploitBench will be done. GLM 5.3 [was at 54.4](https://kingy.ai/blog/glm-5-3-vs-kimi-k3-vs-deepseek-v4-pro/) so less than 24 points away from Mythos. My overall rule when forecasting benchmarks is that when you've reached 20%, the benchmark will be saturated within the next 9 months. Here, we're already almost saturated so open weight models will soon reach that level and at 54.4, you might as well expect this to be done within two releases.\n\nEven if we attached ourselves to vibes and not benchmarks, one year is a lot of time in AI, there's no way we don't have an open model with these capabilities by then.\n\nIn the end, writing this I got even more bullish than I was since all three are not independent, I think this is very likely to happen and I would give it at least 40% by EOY.\n\nI made a Radiant map to see if my forecasts made sense altogether and it seems to hold ok, [here is the link](https://experiments-radiant.metaculus.com/projects/b27906cf-5e7a-4624-9421-bd634b971378) to access it if you want a better sense of each probability. Disclaimer: I'm mostly making my maps via MCP but since they should adhere quite strictly to my comment, there shouldn't be too many weird things but sometimes Claude misunderstands some points I make.\n\nI was going to forecast 94% but the model brought me to 92% so I'll stick with that for coherence but honestly, I feel like this might be too low.",
+      "prediction": null
+    },
+    {
+      "author": "Zaldath",
+      "created_at": "2026-09-04",
+      "text": "I'm no expert on this topic, but it looks like the gap between open and closed models is rapidly narrowing (now down to around 4 months in some areas, or up to 5-7 months or so in other areas):\n\n[https://thenewstack.io/open-weight-models-frontier-costs/](https://thenewstack.io/open-weight-models-frontier-costs/)\n\nWith the current trends, it's not unimaginable that open models will (roughly) catch up, perhaps even surpass closed models at some point. However, if/when it's the case the that true breakthroughs are mostly made privately, and the open models mainly just benefit from discoveries made in closed training, it's also possible that closed models will retain some sort of lead for a while longer.\n\nEven so, with the constantly narrowing gap in capabilities, it seems unlikely to me that Mythos wouldn't be outdone in the cyber domain by an open model with over a year left to the deadline (counting from Mythos being released publicly in June 2026). A No resolution seems to require a surprise reversal of the relevant major trends.\n\nWith that said, I didn't go very close to 100% simply due to some lingering uncertainty about this topic (and the inherent difficulties in predicting AI progress further into the future).",
+      "prediction": null
+    },
+    {
+      "author": "metac-azimuth",
+      "created_at": "2026-09-04",
+      "text": "# Forecast Summary\n\n## Synthesis\n\n**Points of agreement between both forecasts:**\n- The binding constraint is a *frozen* April-2026 target (Mythos Preview) being chased for ~15 months, while the measured open/closed diffusion lag in cyber is currently 4–7 months (AISI) and ~4 months for general capability (Epoch).\n- The nearest qualifying path is ExploitGym, where the best open-weight model (GLM-5.3, weights published 28 Aug 2026) sits at 15.0% vs Mythos Preview's 17.5% — a ~2.5pp / ~17% relative gap with ~10 months remaining.\n- Recent open-weight gains vastly exceed the remaining gap (GLM-5.2 → 5.3 was a post-training-only jump: ExploitBench 24% → 54%; ExploitGym solves 39 → 130), so no new pretraining run is required.\n- Multiple independent shots on goal (Z.ai, Moonshot, DeepSeek, Alibaba, Meta, Nvidia) plus regular AISI/CAISI and ExploitGym publication cadence with Mythos Preview as comparator, reducing measurement/reporting risk.\n- Only *one* of three benchmark routes needs to be cleared, and the fine print permits inference from methodologically similar comparisons.\n\n**Points of disagreement / residual risk (both flag, weighting slightly differently):**\n- Mythos was a *discontinuous* jump; AISI explicitly warned its lag estimate is not predictive of open models replicating Mythos/GPT-5.5-style jumps. The hardest rungs (arbitrary code execution on ExploitBench, full kill chains, The Last Ones) may be qualitatively different — Kimi K3 scored 0/41 on ACE tasks.\n- Release gating is the main structural downside: Qwen's Max-tier API-only shift, Z.ai's two-week cyber hold on GLM-5.3, OpenAI's Astra delay, and possible Chinese policy action. But this must bind across *all* major open developers simultaneously, and GLM-5.3's weights did ship post-incident-wave.\n- Resolver strictness: if vendor self-reported rows are discounted and third-party AISI/CAISI parity is required, the effective bar is the harder ExploitBench ~72–78% figure.\n\n**Aggregation:** Both forecasters converge tightly (0.87, 0.89) and their reasoning rests on the same evidence base, so I should be modestly cautious about correlated optimism — neither presents a strong skeptical case for a genuine capability wall at the ACE/kill-chain frontier, and both somewhat underweight the possibility that the marginal ExploitGym gap is precisely where post-training gains saturate, or that the strongest 2027 checkpoints are withheld or cyber-degraded in the post-incident regulatory environment. Conversely, the sheer number of independent developers, the permissive one-of-three-benchmarks criterion, and the inference-allowing fine print are genuinely strong YES drivers.\n\nI settle slightly below the pair's midpoint to account for shared-source correlation and resolution/reporting friction.",
+      "prediction": null
+    }
+  ]
+}
