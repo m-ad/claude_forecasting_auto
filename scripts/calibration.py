@@ -192,7 +192,10 @@ def main() -> None:
             matplotlib.use("Agg")
             import matplotlib.pyplot as plt
         except ImportError:
-            sys.exit("! matplotlib not installed — run: uv add matplotlib")
+            sys.exit(
+                "! matplotlib not installed — it lives in the optional 'viz' group.\n"
+                "  Re-run as: uv run --group viz scripts/calibration.py --plot ..."
+            )
         b = buckets(mine)
         fig, ax = plt.subplots(figsize=(5, 5))
         ax.plot([0, 1], [0, 1], "--", color="grey", lw=1, label="perfect calibration")

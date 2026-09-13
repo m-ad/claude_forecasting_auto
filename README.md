@@ -24,7 +24,6 @@ operating manual — read it if you want to know what the agent will do.
 /forecast https://www.metaculus.com/questions/43505/...   # new question, full workflow
 /forecast Will the ECB cut rates below 1.5% before July 2027?
 /update 2026-08-27-mc43505-us-recession-2027              # tripwire-driven Bayesian update
-/review <slug>                                            # red-team, changes nothing
 /resolve <slug> yes                                       # score it, write the post-mortem
 /status                                                   # what needs attention today
 ```
@@ -50,7 +49,7 @@ questions/<slug>/
   charts/                 generated figures
 ledger/forecasts.jsonl    append-only scoreable record of every forecast and resolution
 scripts/                  new_question · log_forecast · status · calibration
-.claude/skills/           forecast-workflow · forecast-update · metaculus-aggregations · metaculus-scraper
+.claude/skills/           forecast-workflow · forecast-update · metaculus-aggregations
 .claude/commands/         the slash commands above
 ```
 
@@ -99,8 +98,11 @@ Start without `--act` until you trust it.
 ## Calibration
 
 ```bash
-uv run scripts/calibration.py --plot calibration.png
+uv run scripts/calibration.py                                   # scores only
+uv run --group viz scripts/calibration.py --plot calibration.png  # + the chart
 ```
+
+`matplotlib` lives in the optional `viz` dependency group, so a plain `uv sync` stays small.
 
 Brier score, log score, calibration by bucket, interquartile coverage for numeric questions,
 and — the number that actually matters — whether you are beating the Metaculus community

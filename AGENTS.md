@@ -92,8 +92,9 @@ itself signal. If Pros and gold medalists agree with each other and disagree sha
 with you, go looking for the fact you missed *before* defending your number.
 
 For Metaculus-sourced questions, fetch the CP, the forecaster count and the comments
-by default, unless the operator supplied them. `metaculus-scraper` is the fallback and
-returns only the headline number.
+by default, unless the operator supplied them. There is no fallback path: if the
+aggregation fetch fails, say so in `research.md` and forecast without the crowd anchor
+rather than guessing at a number.
 
 ---
 
