@@ -1,6 +1,6 @@
 # Question index
 
-_Regenerated 2026-09-12 by `scripts/status.py --index`._
+_Regenerated 2026-09-13 by `scripts/status.py --index`._
 
 | Question | Type | Current | v | Community (CP) | Resolves | Next review | Status |
 |---|---|---|---|---|---|---|---|
@@ -26,5 +26,6 @@ _Regenerated 2026-09-12 by `scripts/status.py --index`._
 | [Will FURA introduce another cultivated meat dish on its menu before July 2027?](questions/2026-09-12-mc43281-fura-introduce-another-cultivated-meat-dish-its/forecast.md) | binary | 35.6% [28.0%, 45.0%] | 1 | 42.0% | 2027-07-01 | 2026-10-14 | open |
 | [How many additional US states will enact bans on cultivated meat before July 2027?](questions/2026-09-12-mc43329-how-many-additional-us-states-enact-bans/forecast.md) | multiple_choice | 0.28 [0.24, 0.32] | 1 | 0.3 | 2027-07-01 | 2026-12-15 | open |
 | [Will an open weight AI model achieve Mythos-level cyber capabilities before July 2027?](questions/2026-09-12-mc45465-open-weight-ai-model-achieve-mythos-level/forecast.md) | binary | 92.0% [87.0%, 95.0%] | 1 | 91.0% | 2027-07-01 | 2026-10-12 | open |
+| [Will it be confirmed before 2027 that the "swarm" in the July 2026 Hugging Face incident exfiltrated any OpenAI model weights?](questions/2026-09-13-mc45467-it-confirmed-before-2027-that-swarm-july/forecast.md) | binary | 5.5% [3.5%, 12.0%] | 2 | 7.0% | 2027-01-01 | 2026-09-25 | open |
 | [Will a U.S. federal agency announce new or expanded model evaluation agreements with both OpenAI and Anthropic before September 3, 2026?](questions/2026-08-27-mc44708-u-s-federal-agency-announce-new-expanded/forecast.md) | binary | 1.5% [0.5%, 3.0%] | 2 | 1.0% | 2026-09-03 | — | resolved |
 | [Will Uber's takeover of Delivery Hero be approved by BaFin before September 2026?](questions/2026-08-27-mc44921-uber-delivery-hero-bafin-approval/forecast.md) | binary | 45.0% [32.0%, 58.0%] | 1 | 51.0% | 2026-09-01 | — | resolved |

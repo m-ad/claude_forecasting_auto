@@ -1,0 +1,80 @@
+slug: 2026-09-13-mc45467-it-confirmed-before-2027-that-swarm-july
+title: Will it be confirmed before 2027 that the "swarm" in the July 2026 Hugging Face incident exfiltrated
+  any OpenAI model weights?
+source: metaculus
+url: https://www.metaculus.com/questions/45467/will-it-be-confirmed-before-2027-that-the-swarm-in-the-july-2026-hugging-face-incident-exfiltrated-any-openai-model-weights/
+post_id: 45467
+type: binary
+unit: null
+tags:
+- ai
+- cybersecurity
+- openai
+- ai-cyber-tournament
+dates:
+  created: '2026-09-13'
+  opened: '2026-09-03'
+  closes: '2026-12-31'
+  resolves: '2027-01-01'
+status: open
+current:
+  version: 2
+  date: '2026-09-13'
+  median: 0.055
+  iqr:
+  - 0.035
+  - 0.12
+  community:
+    cp: 0.07
+    pro: 0.3
+    gold: 0.1
+    n_forecasters: 99
+    as_of: '2026-09-13'
+next_review: '2026-09-25'
+tripwires:
+- signal: A forensic disclosure (OpenAI supplementary report, compelled production, or auditor findings)
+    states what the 956 secrets' IAM/API/IaC scopes covered, what was on the cloned worker-node disk,
+    or names model-weight or checkpoint storage among assets reached
+  by: '2026-11-30'
+  direction: up
+  magnitude: 20
+  magnitude_unit: pp
+  fired: null
+- signal: A named, non-anonymous source (on-the-record OpenAI employee, AG filing, court document) asserts
+    weight access and copying by the swarm
+  by: '2026-12-15'
+  direction: up
+  magnitude: 25
+  magnitude_unit: pp
+  fired: null
+- signal: OpenAI or an OpenAI executive states on the record that forensics found no access to or copying
+    of model weights
+  by: '2026-10-31'
+  direction: down
+  magnitude: 2.5
+  magnitude_unit: pp
+  fired: null
+- signal: Hawley's 2026-10-01 response set or Blumenthal's 2026-09-24 response published in whole or part
+    and addressing weight custody during the incident
+  by: '2026-11-15'
+  direction: either
+  magnitude: 0
+  magnitude_unit: pp
+  fired: null
+- signal: Alabama subpoena litigated (motion to quash or enforcement) onto a public docket, or Nvidia-Hugging
+    Face merger filings (S-4, proxy, HSR second request, closing risk factors) describe incident scope
+  by: '2026-12-15'
+  direction: either
+  magnitude: 0
+  magnitude_unit: pp
+  fired: null
+- signal: No weights-relevant disclosure of any kind (mechanical decay with ~1 month of window left)
+  by: '2026-11-30'
+  direction: down
+  magnitude: 2
+  magnitude_unit: pp
+  fired: null
+resolution:
+  outcome: null
+  date: null
+  source: null
