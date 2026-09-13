@@ -75,11 +75,11 @@ def main() -> None:
 
     # --- panel 1: horizontal bars -------------------------------------------------
     rows = [
-        ("This forecast (v1)", 3.5, (2.5, 6.5), MINE),
+        ("This forecast (v2)", 5.5, (3.5, 12.0), MINE),
+        ("v1 (superseded)", 3.5, (2.5, 6.5), GREY),
         ("Community CP (n=19)", 7.0, (3.0, 20.0), COHORT_COLOURS["recency_weighted"]),
         ("Gold medalists (n=12)", 10.0, (3.0, 20.0), COHORT_COLOURS["gold_medalists"]),
         ("Metaculus Pro (n=5)", 30.0, (30.0, 30.0), COHORT_COLOURS["metaculus_pros"]),
-        ("CP before 2026-09-11", 3.0, None, GREY),
     ]
     ypos = list(range(len(rows)))[::-1]
     for y, (label, centre, iqr, colour) in zip(ypos, rows):
@@ -108,7 +108,8 @@ def main() -> None:
         ax_traj.plot(xs, ys, lw=1.8, color=COHORT_COLOURS[method],
                      label=COHORT_LABELS[method])
 
-    ax_traj.axhline(3.5, color=MINE, lw=1.6, ls="--", label="This forecast (3.5%)")
+    ax_traj.axhline(5.5, color=MINE, lw=1.6, ls="--", label="This forecast, v2 (5.5%)")
+    ax_traj.axhline(3.5, color=GREY, lw=1.2, ls=":", label="v1, superseded (3.5%)")
 
     senate = datetime(2026, 9, 10, 16, 55, tzinfo=timezone.utc)
     ax_traj.annotate(
