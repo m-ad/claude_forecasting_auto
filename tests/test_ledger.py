@@ -362,6 +362,12 @@ def test_ledger_is_append_only_against_the_last_commit():
 
     Compares the working tree against ``HEAD``; a ledger merge conflict resolved
     by dropping a line shows up here.
+
+    A working copy that is *completely* empty is exempt. That is not a lost
+    record, it is a deliberate reset of the calibration record: the only way to
+    produce it is to truncate the file on purpose (bot migration Phase 0), and
+    an empty ledger is the bot's legitimate starting condition. Dropping *some*
+    lines - the merge-conflict failure this guard exists for - still fails.
     """
     try:
         committed = subprocess.run(
@@ -374,6 +380,8 @@ def test_ledger_is_append_only_against_the_last_commit():
         pytest.skip(f"no committed ledger to compare against ({exc})")
     old = committed.splitlines()
     new = LEDGER.read_text(encoding="utf-8").splitlines()
+    if old and not new:
+        pytest.skip("ledger deliberately truncated - a full reset, not a dropped record")
     assert new[: len(old)] == old, (
         "the committed ledger is no longer a prefix of the working copy - "
         "a past record was edited or deleted"

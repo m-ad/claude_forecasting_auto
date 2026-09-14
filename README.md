@@ -24,7 +24,6 @@ operating manual — read it if you want to know what the agent will do.
 /forecast https://www.metaculus.com/questions/43505/...   # new question, full workflow
 /forecast Will the ECB cut rates below 1.5% before July 2027?
 /update 2026-08-27-mc43505-us-recession-2027              # tripwire-driven Bayesian update
-/review <slug>                                            # red-team, changes nothing
 /resolve <slug> yes                                       # score it, write the post-mortem
 /status                                                   # what needs attention today
 ```
@@ -42,15 +41,16 @@ docs/
   output-format.md        the fixed deliverable format
   update-protocol.md      when and how to revisit; resolution and post-mortem
   sources.md              where to look, and how much to trust it
+  bot-migration-plan.md   the contract for the rewrite into an autonomous CI bot
+  bot-migration-progress.md  numbered steps and their status — "implement step P1.2"
 questions/<slug>/
   meta.yaml               identifiers, dates, current forecast, tripwires, next review
   forecast.md             the deliverable — newest version on top, append-only history
   research.md             working log: searches, base rates, dead ends
   raw/                    dated snapshots of Metaculus aggregations and market prices
-  charts/                 generated figures
 ledger/forecasts.jsonl    append-only scoreable record of every forecast and resolution
 scripts/                  new_question · log_forecast · status · calibration
-.claude/skills/           forecast-workflow · forecast-update · metaculus-aggregations · metaculus-scraper
+.claude/skills/           forecast-workflow · forecast-update · metaculus-aggregations
 .claude/commands/         the slash commands above
 ```
 
@@ -99,7 +99,7 @@ Start without `--act` until you trust it.
 ## Calibration
 
 ```bash
-uv run scripts/calibration.py --plot calibration.png
+uv run scripts/calibration.py
 ```
 
 Brier score, log score, calibration by bucket, interquartile coverage for numeric questions,

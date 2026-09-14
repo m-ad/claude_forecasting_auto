@@ -10,7 +10,9 @@ Examples
 --------
     uv run scripts/calibration.py
     uv run scripts/calibration.py --latest-only   # score only the final version per question
-    uv run scripts/calibration.py --plot calibration.png
+
+Text output only. The bot has no human watching a plot appear, so there is no
+plotting path and no plotting dependency.
 """
 
 from __future__ import annotations
@@ -113,7 +115,6 @@ def main() -> None:
         action="store_true",
         help="score only the last version of each question",
     )
-    ap.add_argument("--plot", help="write a calibration plot to this PNG path")
     args = ap.parse_args()
 
     forecasts, resolutions = read_ledger()
@@ -184,26 +185,6 @@ def main() -> None:
             f"  {hit}/{len(coverage)} = {hit / len(coverage):.0%} inside the stated IQR "
             f"(well-calibrated ≈ 50%)"
         )
-
-    if args.plot and mine:
-        try:
-            import matplotlib
-
-            matplotlib.use("Agg")
-            import matplotlib.pyplot as plt
-        except ImportError:
-            sys.exit("! matplotlib not installed — run: uv add matplotlib")
-        b = buckets(mine)
-        fig, ax = plt.subplots(figsize=(5, 5))
-        ax.plot([0, 1], [0, 1], "--", color="grey", lw=1, label="perfect calibration")
-        ax.plot([x[2] for x in b], [x[3] for x in b], "o-", label="you")
-        ax.set_xlabel("mean forecast")
-        ax.set_ylabel("observed frequency")
-        ax.set_title(f"Calibration (n={len(mine)})")
-        ax.legend()
-        fig.tight_layout()
-        fig.savefig(args.plot, dpi=150)
-        print(f"\nwrote {args.plot}")
 
 
 if __name__ == "__main__":

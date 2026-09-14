@@ -29,5 +29,4 @@ community prediction at the same points in time.
 ```bash
 uv run scripts/calibration.py                 # all versions
 uv run scripts/calibration.py --latest-only   # final version per question only
-uv run scripts/calibration.py --plot cal.png
 ```

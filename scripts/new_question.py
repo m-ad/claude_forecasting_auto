@@ -101,7 +101,6 @@ def main() -> None:
     if folder.exists():
         sys.exit(f"! {folder} already exists")
     (folder / "raw").mkdir(parents=True)
-    (folder / "charts").mkdir()
 
     mapping = {
         "SLUG": slug,
