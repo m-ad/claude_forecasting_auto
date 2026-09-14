@@ -54,14 +54,11 @@ DIR_IDS = [d.name for d in DIRS]
 PLACEHOLDER_RE = re.compile(r"\{\{[A-Z_]+\}\}")
 
 # `question_id` is required for every Metaculus question, because it - not
-# `post_id` - is what the submit API addresses. One legacy folder predates the
-# field and covers a whole *question group* (post 45386 holds two subquestions,
-# 2027 and 2028), so no single id describes it. The bot scaffolds one folder per
-# subquestion, which is why this is an exemption list and not a schema rule; it
-# empties itself when step P0.1 clears the legacy questions/ tree.
-GROUP_FOLDER_EXEMPTIONS = {
-    "2026-09-04-mc45386-givewell-funds-raised-pct-change-2027-2028",
-}
+# `post_id` - is what the submit API addresses. The one legacy folder that
+# predated the field covered a whole *question group* (post 45386 holds two
+# subquestions, 2027 and 2028) and was carried by a named exemption; step P0.1
+# cleared the legacy questions/ tree, so the exemption is gone and the rule is
+# now unconditional. The bot scaffolds one folder per subquestion.
 
 
 def _is_one_shot(meta) -> bool:
@@ -224,8 +221,6 @@ def test_question_id_is_an_int_for_metaculus_questions(slug, meta):
             f"{slug}: only Metaculus has the post/question split, got question_id {qid!r}"
         )
         return
-    if slug in GROUP_FOLDER_EXEMPTIONS:
-        pytest.skip("legacy folder covering a whole question group")
     assert isinstance(qid, int), (
         f"{slug}: a Metaculus question needs question_id - post_id {meta.get('post_id')!r} "
         "cannot be submitted against"

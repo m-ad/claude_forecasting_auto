@@ -11,6 +11,3 @@ Thumbs.db
 
 # Keep raw snapshots: they are the evidence trail. If a question's raw/ ever gets
 # genuinely huge, add a targeted ignore for that folder rather than a blanket one.
-
-# Scratch drop for files this session could not delete directly
-_to_delete/

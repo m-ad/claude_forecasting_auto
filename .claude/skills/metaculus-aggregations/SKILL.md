@@ -9,9 +9,9 @@ description: >-
   wants per-option probabilities for a multiple-choice question, wants an IQR/quartile band, or
   wants to compare their own forecast against Metaculus. Trigger even when the user only says
   "check Metaculus", "what does Metaculus say", "pull the CP", or gives a bare question ID. This
-  is the PRIMARY Metaculus tool and should be preferred over web_fetch or the older
-  metaculus_scrape_v2.py, which only return the headline number and often break. Handles binary,
-  numeric, discrete, date, and multiple-choice questions.
+  is the PRIMARY Metaculus tool and should be preferred over web_fetch, which only returns the
+  headline number and often breaks. Handles binary, numeric, discrete, date, and multiple-choice
+  questions.
 ---
 
 # Metaculus Aggregations
@@ -21,10 +21,10 @@ endpoint the site's own frontend consumes. Unlike page scraping, this returns ex
 centers and interval bounds for every aggregation cohort, not just the headline community
 prediction.
 
-**Why this beats the alternatives:** `web_fetch` and the older `metaculus_scrape_v2.py` return
-only the top-line community prediction, drop the pro/gold-medalist split entirely, and can't
-retrieve comments. This skill returns all three cohorts, per-option multiple-choice breakdowns,
-full resolution criteria, and comments — in ~3 seconds.
+**Why this beats the alternatives:** `web_fetch` returns only the top-line community prediction,
+drops the pro/gold-medalist split entirely, and can't retrieve comments. This skill returns all
+three cohorts, per-option multiple-choice breakdowns, full resolution criteria, and comments —
+in ~3 seconds.
 
 ## Prerequisites
 
@@ -142,8 +142,10 @@ outright. A residual ~5% rate-triggered challenge is handled by `_get_json`'s re
 | Only community shows, pros/gold `None` | Those cohorts genuinely have no forecasters on this question | Expected for low-traffic questions |
 | Script missing from project dir | A stale session may try to rebuild it from memory | Don't rebuild from memory — use this bundled copy, which is the correct v3 |
 
-## Fallback
+## No fallback
 
-If the api-proxy is ever hard-blocked despite the invariants being intact, fall back to
-`metaculus_scrape_v2.py` (renders the page directly) for the headline community prediction only —
-it cannot retrieve the pro/gold split, per-option multiple-choice data, or comments.
+There is none, by design. The page-scraper skill that used to serve as one was deleted in step
+P0.4 of the bot migration: it returned the headline community prediction and nothing else, which
+is not enough to forecast against. If the api-proxy is hard-blocked despite the invariants above
+being intact, say so in `research.md` and forecast without the crowd anchor rather than guessing
+at a number (`AGENTS.md` §4).
