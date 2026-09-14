@@ -27,7 +27,7 @@ belongs to a later phase than the plan says) · `dropped` (no longer wanted).
 | Phase | Name | Steps | Done |
 |---|---|---|---|
 | **M** | Operator setup (manual — not agent work) | 5 | 0 / 5 |
-| **P0** | Clean the state, delete dead weight | 8 | 5 / 8 |
+| **P0** | Clean the state, delete dead weight | 8 | 7 / 8 |
 | **P1** | Metaculus API layer | 5 | 0 / 5 |
 | **P2** | Schema changes | 3 | **3 / 3** |
 | **P3** | Skills | 5 | 0 / 5 |
@@ -37,7 +37,7 @@ belongs to a later phase than the plan says) · `dropped` (no longer wanted).
 | **P7** | GitHub Actions workflows | 5 | 0 / 5 |
 | **P8** | Docs | 3 | 0 / 3 |
 | **P9** | Soak and go live | 4 | 0 / 4 |
-| | | **54** | **8** |
+| | | **54** | **10** |
 
 Recommended order: P0 → P1.1–P1.2 → P2 → P1.3–P1.5 → P6 → P3 → P4 → P5 → P7 → P8 → P9.
 P6 lands before P3 on purpose: the validator guards every later phase from its first commit.
@@ -67,11 +67,11 @@ Plan §5.
 
 | Step | Task | Plan § | Status | Done | Notes |
 |---|---|---|---|---|---|
-| P0.1 | `git rm -r questions/*/`, add `questions/.gitkeep` | 5.1 | blocked | | Blocked on a Bash permission rule in this session — the operator must run it or grant `Bash(git rm:*)` |
-| P0.2 | Truncate `ledger/forecasts.jsonl`; regenerate `INDEX.md` via `status.py --index` | 5.1 | blocked | | Same permission block |
-| P0.3 | Make the test suite pass on empty state | 5.1 | **done** | 2026-09-13 | `test_ledger_is_append_only_against_the_last_commit` now exempts a *fully* empty working copy; a partial line drop still fails |
-| P0.4 | Delete `.claude/skills/metaculus-scraper/` and its `SKILLS.md` row | 5.2 | blocked | | Docs references removed 2026-09-13; the directory deletion is blocked |
-| P0.5 | Delete `.claude/commands/review.md` (`/review`) and its references | 5.2 | blocked | | Docs references removed 2026-09-13; the file deletion is blocked |
+| P0.1 | `git rm -r questions/*/`, add `questions/.gitkeep` | 5.1 | **done** | 2026-09-14 | All 17 folders and 127 files removed; `questions/.gitkeep` was already tracked. Run by the **operator locally** (commit `c1a8693`) — see *Deviations* D9 |
+| P0.2 | Truncate `ledger/forecasts.jsonl`; regenerate `INDEX.md` via `status.py --index` | 5.1 | **done** | 2026-09-14 | Ledger is 0 bytes; `INDEX.md` regenerated to a bare header. Same commit as P0.1 |
+| P0.3 | Make the test suite pass on empty state | 5.1 | **done** | 2026-09-13 | `test_ledger_is_append_only_against_the_last_commit` now exempts a *fully* empty working copy; a partial line drop still fails. **Verified against the real empty state 2026-09-14**, once P0.1/P0.2 landed: `ruff` clean, `pytest` 0 failures, the rest skipped as designed |
+| P0.4 | Delete `.claude/skills/metaculus-scraper/` and its `SKILLS.md` row | 5.2 | **done** | 2026-09-14 | Directory gone (commit `c1a8693`). Three surviving pointers in `metaculus-aggregations/SKILL.md` — the frontmatter `description`, the "why this beats the alternatives" paragraph, and a whole `## Fallback` section — named a file that no longer exists; rewritten to state there is no fallback, per `AGENTS.md` §4 |
+| P0.5 | Delete `.claude/commands/review.md` (`/review`) and its references | 5.2 | **done** | 2026-09-14 | File gone (commit `c1a8693`). No references survive outside this tracker and the plan, which are historical records |
 | P0.6 | Remove the **whole visualization path**: `matplotlib`, `calibration.py --plot`, `charts/` creation, the "add a chart" instruction | 5.2 | **done** | 2026-09-14 | Widened past the plan on operator instruction — the plan only moved matplotlib to an optional group. See *Deviations* below |
 | P0.7 | Gut the Playwright/Cloudflare path in `metaculus_aggregations.py`; drop the `playwright` dependency | 5.2 | deferred → P1.5 | | Its replacement is `metaculus_api.py`, which is P1.1. Doing it here leaves **no working Metaculus access at all** until P1 lands |
 | P0.8 | Skip `research.md` for tournament questions | 5.2 | **done** | 2026-09-14 | Landed with P2.1, as deferred. `new_question.py --tournament <slug>` with `--tournament-mode one_shot` does not scaffold `research.md`, and `test_scaffolded_files_all_exist` exempts exactly those questions |
@@ -88,7 +88,7 @@ Plan §6. The riskiest code in the migration; build and test it in isolation.
 | P1.2 | `scripts/metaculus_cdf.py` — **port** `Percentile`/`NumericDistribution` from the bot template, do not rewrite. Plus `tests/test_cdf.py`: monotonicity, length 201, endpoints, open/closed bounds, `zero_point`, non-monotone rejection | 6.2 | P1.1 | todo |
 | P1.3 | `scripts/metaculus_submit.py` — deterministic submit + private comment for one slug, `--dry-run`, four one-shot guards, `missed_window` exit 0, comment-failure exit 0 | 6.3 | P1.1, P1.2, P2.1, P2.2 | todo |
 | P1.4 | Verify §16 open questions 2–4: `aggregation_explorer` auth path and params; comment length limit and `included_forecast` ordering; bot-token rate limits | 16.2–16.4 | P1.1 | todo |
-| P1.5 | Rewrite `metaculus_aggregations.py` as a thin wrapper over `metaculus_api.py` (same CLI, same `fetch_aggregations()` signature); strip the Cloudflare essay from SKILL.md; drop `playwright`; delete the scraper skill | 6.4 | P1.1, P0.4 | todo |
+| P1.5 | Rewrite `metaculus_aggregations.py` as a thin wrapper over `metaculus_api.py` (same CLI, same `fetch_aggregations()` signature); strip the Cloudflare essay from SKILL.md; drop `playwright`. (The scraper skill is already deleted — P0.4) | 6.4 | P1.1 | todo |
 
 ---
 
@@ -220,10 +220,11 @@ divergence stays visible.
 | D2 | §5.2 puts the `metaculus_aggregations.py` gutting and the `playwright` removal in Phase 0 | Deferred to **P1.5** | §6.4 defines the replacement as a wrapper over `metaculus_api.py`, which is P1.1, and §19's own ordering agrees. Doing it in P0 leaves the repo with no working Metaculus access for the whole gap |
 | D3 | §5.2 puts skipping `research.md` for tournament questions in Phase 0 | Deferred to **P2.1** | Conditioned on `tournament.mode == one_shot`, which P2.1 introduces. Nothing can identify a tournament question today |
 | D4 | §5.1: `git worktree prune`, delete local `testing` and `claude/us-model-evaluations-forecast-672746` | Not applicable in CI | Those live on the operator's Windows machine, not in the container. Operator to run locally |
-| D5 | §7.1: "`question_id` is an int whenever `source == metaculus`" | Enforced, with **one named exemption** in `test_meta.py` (`GROUP_FOLDER_EXEMPTIONS`) | `questions/2026-09-04-mc45386-givewell-…` is a single folder covering *two* subquestions of one group post, so no single `question_id` describes it. The bot scaffolds one folder per subquestion (the SPR pair is the precedent), so the rule is right going forward and this is legacy debt. The exemption list empties itself when P0.1 clears `questions/` |
+| D5 | §7.1: "`question_id` is an int whenever `source == metaculus`" | Enforced, briefly with **one named exemption** in `test_meta.py` (`GROUP_FOLDER_EXEMPTIONS`). **Closed 2026-09-14**: P0.1 removed the folder, so the exemption and its `pytest.skip` were deleted and the rule is now unconditional | `questions/2026-09-04-mc45386-givewell-…` was a single folder covering *two* subquestions of one group post, so no single `question_id` described it. The bot scaffolds one folder per subquestion (the SPR pair is the precedent), so the rule was right going forward and this was legacy debt. It emptied itself on schedule |
 | D6 | The plan does not say where the legacy `question_id`s come from | Backfilled from each folder's own `raw/*.json` snapshots, not re-fetched | Rule 4 ("fresh data only") governs *forecast* numbers; a Metaculus question id is an immutable identifier, and the repo's own snapshot trail is a better source than a live fetch that Cloudflare 403s today (D2). 16 of 17 resolved this way |
 | D7 | §7.2 defines the `submission` record; §6.3 gives the writer to `metaculus_submit.py` (P1.3) | Added `log_forecast.py submit` now, as the only writer | An event type with no producer is not a schema, it is a comment. Writing the ledger line and `meta.tournament.{submitted, submitted_forecast, comment_posted}` in one place is also what lets `test_consistency.py` assert they agree. P1.3 keeps its job — call the API — and calls this to record the result |
 | D8 | §7.3's example registry has MiniBench `active: true` | Seeded `active: false` | §19/P9 soaks on `bot-testing-area` first and only registers MiniBench at P9.3. An active MiniBench row would let the first working sweep (P4.3) spend real, *scored* forecasts before the soak. P9.3 flips it with `tournament_registry.py set minibench --active` |
+| D9 | §5.1/§5.2 read as agent work | P0.1, P0.2, P0.4 and P0.5 were run by the **operator on their own machine** (commit `c1a8693`), not by an agent session | `git rm` is denied by the Claude Code auto-mode permission classifier as "Irreversible Local Destruction", in this session as in the one before it. It is the right call for a tool that deletes 127 tracked files. Anything in a future phase that must delete tracked files (P1.5 drops `playwright` and rewrites `metaculus_aggregations.py`; P4.2 gitignores rendered agent files) needs either an explicit `Bash(git rm:*)` permission rule or the same operator hand-off — and note that the `mcp__github__push_files` fallback in `CLAUDE.md` **cannot delete files either**, so there is no agent-side workaround today |
 
 **Writers added ahead of their phase**: P2 is a schema phase, but three small writers landed
 with it — `new_question.py --tournament`, `log_forecast.py add --p10/--p90`, and
@@ -231,6 +232,9 @@ with it — `new_question.py --tournament`, `log_forecast.py add --p10/--p90`, a
 test suite can hold two records against each other; none of them talks to Metaculus, which stays
 P1's job.
 
-**Known inconsistency while P0.4 is blocked**: the docs no longer mention a Metaculus fallback,
-but `.claude/skills/metaculus-scraper/` still exists on disk and `metaculus_aggregations.py`
-still carries its Playwright path. This resolves at P1.5.
+**Resolved 2026-09-14** (was: "known inconsistency while P0.4 is blocked"). The scraper skill is
+gone and `metaculus-aggregations/SKILL.md` no longer points at it — its `## Fallback` section now
+says there is none, matching `AGENTS.md` §4. What is left of the old access path is genuinely
+P1.5's: `metaculus_aggregations.py` still carries its Playwright/Cloudflare code and `playwright`
+is still in `[project.dependencies]`, so `README.md`'s `uv run playwright install chromium` line
+stays correct until P1.5 lands.
