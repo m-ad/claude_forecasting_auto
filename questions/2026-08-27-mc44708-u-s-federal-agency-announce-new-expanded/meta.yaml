@@ -4,6 +4,7 @@ title: Will a U.S. federal agency announce new or expanded model evaluation agre
 source: metaculus
 url: https://www.metaculus.com/questions/44708/will-the-us-expand-evaluations-of-openaianthropic-models-before-sept-3-2026/
 post_id: 44708
+question_id: 44859
 type: binary
 unit: null
 tags: []
@@ -13,6 +14,7 @@ dates:
   closes: '2026-09-02'
   resolves: '2026-09-03'
 status: resolved
+tournament: null
 current:
   version: 2
   date: '2026-08-31'
@@ -26,6 +28,7 @@ current:
     gold: 0.01
     n_forecasters: 83
     as_of: '2026-08-31'
+percentiles: null
 next_review: null
 tripwires:
 - signal: NIST/CAISI publishes a news item naming a new/expanded OpenAI or Anthropic evaluation arrangement

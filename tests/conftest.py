@@ -23,6 +23,7 @@ QUESTIONS = REPO / "questions"
 LEDGER = REPO / "ledger" / "forecasts.jsonl"
 TEMPLATES = REPO / "templates"
 SCRIPTS = REPO / "scripts"
+REGISTRY = REPO / "tournaments" / "registry.yaml"
 
 # Importing the scripts under test needs their own directory on the path: they
 # use flat `from _common import ...` imports, not a package.
@@ -44,7 +45,12 @@ QUESTION_TYPES = {"binary", "numeric", "date", "multiple_choice", "discrete"}
 STATUSES = {"open", "closed", "resolved", "dropped"}
 MODES = {"initial", "update", "reanalysis"}
 DIRECTIONS = {"up", "down", "either"}
-EVENTS = {"forecast", "resolution"}
+EVENTS = {"forecast", "resolution", "submission"}
+
+# A tournament question is forecast once inside a short window and never revisited
+# (`one_shot`, the bot tournaments) or stays in the normal tripwire/update loop
+# (`updatable`, e.g. the Metaculus Cup). The distinction gates the submit guard.
+TOURNAMENT_MODES = {"one_shot", "updatable"}
 
 META_KEYS = {
     "slug",
@@ -52,17 +58,53 @@ META_KEYS = {
     "source",
     "url",
     "post_id",
+    "question_id",
     "type",
     "unit",
     "tags",
     "dates",
     "status",
+    "tournament",
     "current",
+    "percentiles",
     "next_review",
     "tripwires",
     "resolution",
 }
 DATE_KEYS = {"created", "opened", "closes", "resolves"}
+TOURNAMENT_KEYS = {
+    "slug",
+    "mode",
+    "registered",
+    "opened",
+    "closes",
+    "submitted",
+    "submitted_forecast",
+    "comment_posted",
+    "official_score",
+    "missed_window",
+}
+# The five-point CDF the Metaculus API wants for a continuous question. Stored as
+# ints so the keys survive the YAML round-trip `log_forecast.py` performs.
+PERCENTILE_KEYS = {10, 25, 50, 75, 90}
+# `percentiles` only means something for a question with a continuous range;
+# binary and multiple-choice questions submit probabilities instead.
+CONTINUOUS_TYPES = {"numeric", "date", "discrete"}
+
+# tournaments/registry.yaml — one entry per tournament the bot competes in.
+REGISTRY_ENTRY_KEYS = {
+    "slug",
+    "url",
+    "name",
+    "added",
+    "active",
+    "mode",
+    "scored",
+    "priority",
+    "last_sync",
+    "last_sweep",
+    "seen_post_ids",
+}
 CURRENT_KEYS = {"version", "date", "median", "iqr", "community"}
 COMMUNITY_KEYS = {"cp", "pro", "gold", "n_forecasters", "as_of"}
 RESOLUTION_KEYS = {"outcome", "date", "source"}
@@ -123,6 +165,10 @@ def resolution_records() -> list[tuple[int, dict[str, Any]]]:
     return [(n, r) for n, r in ledger_records() if r.get("event") == "resolution"]
 
 
+def submission_records() -> list[tuple[int, dict[str, Any]]]:
+    return [(n, r) for n, r in ledger_records() if r.get("event") == "submission"]
+
+
 def question_dirs() -> list[Path]:
     """Every scaffolded question folder, sorted (folder names sort as dates)."""
     if not QUESTIONS.exists():
@@ -147,6 +193,29 @@ def metas() -> list[tuple[str, dict[str, Any]]]:
 
 def meta_of(slug: str) -> dict[str, Any]:
     return dict(metas()).get(slug, {})
+
+
+def registry_entries() -> list[tuple[str, dict[str, Any]]]:
+    """``(slug, entry)`` for every tournament in ``tournaments/registry.yaml``.
+
+    Returns an empty list when the file is missing or unparseable; the tests that
+    care about those two failures assert on them directly, so every other test
+    gets no cases rather than a collection error.
+    """
+    if not REGISTRY.exists():
+        return []
+    try:
+        doc = yaml.safe_load(REGISTRY.read_text(encoding="utf-8"))
+    except yaml.YAMLError:
+        return []
+    if not isinstance(doc, dict):
+        return []
+    entries = doc.get("tournaments")
+    if not isinstance(entries, list):
+        return []
+    return [
+        (str(e.get("slug")), e) for e in entries if isinstance(e, dict)
+    ]
 
 
 # -------------------------------------------------------------------- helpers
@@ -181,6 +250,25 @@ def require_date(value: Any, what: str) -> dt.date:
     if parsed is None:
         pytest.fail(f"{what}: {value!r} is not an ISO YYYY-MM-DD date")
     return parsed
+
+
+def as_utc_datetime(value: Any) -> dt.datetime | None:
+    """Coerce an ISO-8601 instant to a tz-aware UTC ``datetime``, or ``None``.
+
+    Tournament windows and submission stamps are *instants*, not calendar days —
+    a 90-minute window straddles no date boundary worth reasoning about — so they
+    are checked here rather than through ``as_date``. A trailing ``Z`` is accepted
+    because that is what the Metaculus API returns.
+    """
+    if not isinstance(value, str) or not value.strip():
+        return None
+    try:
+        parsed = dt.datetime.fromisoformat(value.strip().replace("Z", "+00:00"))
+    except ValueError:
+        return None
+    if parsed.tzinfo is None:
+        return None
+    return parsed.astimezone(dt.timezone.utc)
 
 
 def is_number(value: Any) -> bool:

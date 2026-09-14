@@ -3,6 +3,7 @@ title: How many New World screwworm cases will be confirmed in Mexico in total b
 source: metaculus
 url: https://www.metaculus.com/questions/43507/how-many-new-world-screwworm-cases-will-be-confirmed-in-mexico-in-total-before-july-2027/
 post_id: 43507
+question_id: 43511
 type: numeric
 unit: cases
 tags:
@@ -17,6 +18,7 @@ dates:
   closes: '2027-07-01'
   resolves: '2027-07-01'
 status: open
+tournament: null
 current:
   version: 1
   date: '2026-09-04'
@@ -30,6 +32,7 @@ current:
     gold: 62410.0
     n_forecasters: 43
     as_of: '2026-09-04'
+percentiles: null
 next_review: '2026-10-06'
 tripwires:
 - signal: SENASICA cumulative cut on/near 2026-10-31 at or below 45,500 (<=85 cases/day since 2026-09-02)

@@ -4,6 +4,7 @@ title: What first round vote share will Iliana Iotova win in the 2026 Bulgarian 
 source: metaculus
 url: https://www.metaculus.com/questions/45262/
 post_id: 45262
+question_id: 45452
 type: numeric
 unit: '%'
 tags: []
@@ -13,6 +14,7 @@ dates:
   closes: '2026-10-24'
   resolves: '2026-10-31'
 status: open
+tournament: null
 current:
   version: 1
   date: '2026-09-05'
@@ -26,6 +28,7 @@ current:
     gold: null
     n_forecasters: 16
     as_of: '2026-09-05'
+percentiles: null
 next_review: '2026-09-24'
 tripwires:
 - signal: GERB announces whether it fields its own presidential candidate — own candidate

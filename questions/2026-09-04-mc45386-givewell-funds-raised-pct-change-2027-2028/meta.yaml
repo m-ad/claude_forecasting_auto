@@ -3,6 +3,7 @@ title: What will be the percentage change in funds raised by GiveWell between 20
 source: metaculus
 url: https://www.metaculus.com/questions/45386/
 post_id: 45386
+question_id: null
 type: numeric
 unit: '%'
 tags:
@@ -17,6 +18,7 @@ dates:
   closes: '2028-07-01'
   resolves: '2029-09-01'
 status: open
+tournament: null
 current:
   version: 1
   date: '2026-09-04'
@@ -33,6 +35,7 @@ current:
     gold: null
     n_forecasters: null       # zero forecasters on either subquestion
     as_of: '2026-09-04'
+percentiles: null
 next_review: '2026-12-15'
 tripwires:
 - signal: Coefficient Giving publishes its 2027 allocation to GiveWell's recommendations (>=$800m)

@@ -3,6 +3,7 @@ title: How many barrels of crude oil will the Strategic Petroleum Reserve hold i
 source: metaculus
 url: https://www.metaculus.com/questions/15240/how-many-barrels-of-crude-oil-will-the-strategic-petroleum-reserve-hold-on-the-following-dates/?sub-question=31307
 post_id: 15240
+question_id: 31307
 type: numeric
 unit: barrels
 tags:
@@ -16,6 +17,7 @@ dates:
   closes: '2026-09-30'
   resolves: '2026-11-30'
 status: open
+tournament: null
 current:
   version: 1
   date: '2026-09-07'
@@ -29,6 +31,7 @@ current:
     gold: 379133973.0
     n_forecasters: 6
     as_of: '2026-09-07'
+percentiles: null
 next_review: '2026-09-11'
 tripwires:
 - signal: EIA WPSR of 2026-09-10 (week ending 09-04) shows a draw larger than 3.0 Mb — the taper is not

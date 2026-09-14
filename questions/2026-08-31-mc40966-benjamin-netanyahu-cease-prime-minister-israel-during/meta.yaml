@@ -3,6 +3,7 @@ title: Will Benjamin Netanyahu cease to be Prime Minister of Israel during 2026?
 source: metaculus
 url: https://www.metaculus.com/questions/40966/will-benjamin-netanyahu-cease-to-be-prime-minister-of-israel-during-2026/
 post_id: 40966
+question_id: 40674
 type: binary
 unit: null
 tags:
@@ -16,6 +17,7 @@ dates:
   closes: '2026-12-31'
   resolves: '2027-01-01'
 status: open
+tournament: null
 current:
   version: 1
   date: '2026-08-31'
@@ -29,6 +31,7 @@ current:
     gold: 0.25
     n_forecasters: 278
     as_of: '2026-08-31'
+percentiles: null
 next_review: '2026-09-14'
 tripwires:
 - signal: Final party lists close; Ra'am confirmed running alone and still polling below the 3.25% threshold in most post-deadline polls

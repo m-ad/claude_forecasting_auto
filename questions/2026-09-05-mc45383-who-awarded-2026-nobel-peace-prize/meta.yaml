@@ -3,6 +3,7 @@ title: Who will be awarded the 2026 Nobel Peace Prize?
 source: metaculus
 url: https://www.metaculus.com/questions/45383/
 post_id: 45383
+question_id: 45572
 type: multiple_choice
 unit: null
 tags: []
@@ -12,6 +13,7 @@ dates:
   closes: '2026-10-08'
   resolves: '2026-10-09'
 status: open
+tournament: null
 current:
   version: 1
   date: '2026-09-05'
@@ -25,6 +27,7 @@ current:
     gold: null
     n_forecasters: 13
     as_of: '2026-09-05'
+percentiles: null
 next_review: '2026-09-28'
 tripwires:
 - signal: Norwegian media (NRK, Aftenposten, VG) report a leak of the laureate's name
