@@ -21,6 +21,11 @@ questions/<YYYY-MM-DD>-<src><id>-<slug>/
 └── raw/            # cached JSON/CSV snapshots (Metaculus aggregations, market prices)
 ```
 
+Tournament questions additionally carry a `tournament` block in `meta.yaml` (which
+tournament, the submission window, what was sent and when) and, when the mode is
+`one_shot`, no `research.md`. The tournaments themselves live in
+`tournaments/registry.yaml` — `scripts/tournament_registry.py` is the only writer.
+
 `<src>` is `mc` for Metaculus, `ks` Kalshi, `pm` Polymarket, `mf` Manifold, `x` for
 anything else. Example: `questions/2026-08-27-mc43505-us-recession-2027/`.
 
@@ -56,6 +61,12 @@ Read `docs/output-format.md` before writing any forecast block — the format is
    explicitly, then adjust. If you cannot name a reference class, say so.
 3. **Actively search for disconfirming evidence.** Every forecast must contain a
    "What would change my mind" section with concrete, dated, observable tripwires.
+   *Carve-out*: a **one-shot tournament question** (`tournament.mode: one_shot` in
+   `meta.yaml`) is forecast once inside a short window and never revisited, so it
+   carries no tripwires and no `next_review` — there is no second visit for one to
+   fire in. The "what would change my mind" reasoning still belongs in `forecast.md`;
+   what is dropped is the machinery for coming back. The test suite enforces both
+   directions.
 4. **Fresh data only.** Never forecast from cached or remembered numbers. Fetch live
    values (Metaculus aggregations, market prices, news) in the current session and
    record the retrieval date next to every number.
@@ -64,6 +75,9 @@ Read `docs/output-format.md` before writing any forecast block — the format is
 6. **Flag speculation explicitly** as speculation. When uncertain, say so.
 7. **Log every forecast to the ledger** (`scripts/log_forecast.py`). An unlogged
    forecast cannot be scored, and unscored forecasts do not improve calibration.
+   The ledger carries three event types — `forecast`, `submission` (a forecast the
+   Metaculus API accepted) and `resolution` — and `log_forecast.py` is the only
+   writer of all three, because it is what keeps `meta.yaml` in step with them.
 8. **Never edit or delete a past forecast version.** Updates are appended. The
    history is the calibration record.
 

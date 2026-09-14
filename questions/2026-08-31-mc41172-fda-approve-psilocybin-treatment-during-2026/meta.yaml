@@ -3,6 +3,7 @@ title: Will the FDA approve a psilocybin treatment during 2026?
 source: metaculus
 url: https://www.metaculus.com/questions/41172/will-the-fda-approve-a-psilocybin-treatment-during-2026/
 post_id: 41172
+question_id: 40900
 type: binary
 unit: null
 tags:
@@ -17,6 +18,7 @@ dates:
   closes: '2026-12-31'
   resolves: '2026-12-31'
 status: open
+tournament: null
 current:
   version: 1
   date: '2026-08-31'
@@ -30,6 +32,7 @@ current:
     gold: 0.12
     n_forecasters: 244
     as_of: '2026-08-31'
+percentiles: null
 next_review: '2026-09-14'
 tripwires:
 - signal: Compass Pathways announces completion of the COMP360 rolling NDA submission

@@ -172,6 +172,192 @@ def test_outcome_value_coercion(raw, expected):
     assert log_forecast._outcome_value(raw) == expected
 
 
+# ----------------------------------------------------------------- percentiles
+def test_percentiles_are_none_until_both_tails_are_given():
+    assert log_forecast._percentiles(None, 9.0, 12.0, 16.0, None) is None
+
+
+def test_percentiles_take_their_middle_from_the_forecast_itself():
+    """25/50/75 are not arguments: they are the IQR and the median, by definition."""
+    assert log_forecast._percentiles(7.5, 9.0, 12.0, 16.0, 21.0) == {
+        10: 7.5,
+        25: 9.0,
+        50: 12.0,
+        75: 16.0,
+        90: 21.0,
+    }
+
+
+@pytest.mark.parametrize(
+    "p10,p90,why",
+    [
+        (7.5, None, "only the lower tail"),
+        (None, 21.0, "only the upper tail"),
+        (20.0, 21.0, "10th percentile above the IQR"),
+        (7.5, 10.0, "90th percentile inside the IQR"),
+    ],
+)
+def test_percentiles_reject_a_half_or_non_monotone_cdf(p10, p90, why):
+    """Metaculus answers a non-monotone CDF with a 400 that names no field."""
+    with pytest.raises(SystemExit):
+        log_forecast._percentiles(p10, 9.0, 12.0, 16.0, p90)
+
+
+# ------------------------------------------------------- the submission writer
+@pytest.fixture
+def sandbox(tmp_path, monkeypatch):
+    """A throwaway questions/ tree and ledger, wired into the scripts.
+
+    The submit path writes to two files at once; testing it against the real repo
+    would either pollute the calibration record or need a cleanup step that rule 8
+    forbids anyone from getting wrong.
+    """
+    import new_question
+
+    questions = tmp_path / "questions"
+    questions.mkdir()
+    monkeypatch.setattr(_common, "QUESTIONS", questions)
+    monkeypatch.setattr(new_question, "QUESTIONS", questions)
+    monkeypatch.setattr(new_question, "REPO", tmp_path)
+    monkeypatch.setattr(log_forecast, "LEDGER", tmp_path / "forecasts.jsonl")
+    # The scaffolder tries Metaculus for the title and close date; the sandbox
+    # supplies both, so stub the call out rather than depend on the network.
+    monkeypatch.setattr(new_question, "fetch_metaculus", lambda post_id: {})
+
+    def scaffold(*argv: str) -> str:
+        monkeypatch.setattr(sys, "argv", ["new_question.py", *argv])
+        new_question.main()
+        return next(d.name for d in questions.iterdir())
+
+    def run(*argv: str) -> None:
+        monkeypatch.setattr(sys, "argv", ["log_forecast.py", *argv])
+        log_forecast.main()
+
+    def ledger() -> list[dict[str, Any]]:
+        path = log_forecast.LEDGER
+        if not path.exists():
+            return []
+        return [json.loads(line) for line in path.read_text().splitlines() if line]
+
+    return scaffold, run, ledger
+
+
+TOURNAMENT_ARGS = (
+    "--post-id",
+    "45501",
+    "--question-id",
+    "45507",
+    "--title",
+    "Will the sandbox question resolve YES?",
+    "--type",
+    "binary",
+    "--tournament",
+    "bot-testing-area",
+    "--opened",
+    "2026-09-14T11:03:00Z",
+    "--closes",
+    "2026-09-14T12:33:00Z",
+)
+THESIS = "A thesis long enough to clear the forty-character floor the ledger enforces."
+
+
+def test_a_one_shot_question_scaffolds_without_a_research_log(sandbox):
+    """Step P0.8: the sweep has no second reader for a working log."""
+    scaffold, _run, _ledger = sandbox
+    slug = scaffold(*TOURNAMENT_ARGS)
+    folder = _common.QUESTIONS / slug
+    assert (folder / "forecast.md").is_file() and (folder / "raw").is_dir()
+    assert not (folder / "research.md").exists()
+    meta = _common.load_meta(slug)
+    assert meta["question_id"] == 45507
+    assert meta["tournament"]["mode"] == "one_shot"
+    assert meta["tournament"]["submitted"] is None
+
+
+def test_submit_writes_the_ledger_and_meta_together(sandbox):
+    scaffold, run, ledger = sandbox
+    slug = scaffold(*TOURNAMENT_ARGS)
+    run("add", slug, "--median", "0.12", "--lower", "0.09", "--upper", "0.16",
+        "--thesis", THESIS)
+    run("submit", slug, "--tournament", "bot-testing-area",
+        "--payload", '{"probability_yes": 0.12}', "--api-status", "201",
+        "--comment-posted")
+
+    rec = ledger()[-1]
+    assert rec["event"] == "submission"
+    assert (rec["post_id"], rec["question_id"]) == (45501, 45507)
+    assert rec["payload"] == {"probability_yes": 0.12}
+    assert rec["comment_posted"] is True and rec["api_status"] == 201
+
+    tour = _common.load_meta(slug)["tournament"]
+    assert tour["submitted"] == rec["ts"]
+    assert tour["submitted_forecast"] == rec["payload"]
+    assert tour["comment_posted"] is True
+
+
+def test_a_one_shot_question_is_never_submitted_twice(sandbox):
+    """The guard that keeps the tournament standings honest."""
+    scaffold, run, ledger = sandbox
+    slug = scaffold(*TOURNAMENT_ARGS)
+    run("add", slug, "--median", "0.12", "--lower", "0.09", "--upper", "0.16",
+        "--thesis", THESIS)
+    run("submit", slug, "--payload", '{"probability_yes": 0.12}', "--api-status", "201")
+    with pytest.raises(SystemExit):
+        run("submit", slug, "--payload", '{"probability_yes": 0.2}', "--api-status",
+            "201")
+    assert sum(r["event"] == "submission" for r in ledger()) == 1
+
+
+@pytest.mark.parametrize(
+    "argv,why",
+    [
+        (("--payload", '{"p": 1}', "--api-status", "400"), "a rejected call"),
+        (("--payload", "not json", "--api-status", "201"), "an unparseable payload"),
+        (("--payload", "{}", "--api-status", "201"), "an empty payload"),
+        (
+            ("--tournament", "minibench", "--payload", '{"p": 1}', "--api-status", "201"),
+            "the wrong tournament",
+        ),
+    ],
+)
+def test_submit_refuses_and_writes_nothing(sandbox, argv, why):
+    scaffold, run, ledger = sandbox
+    slug = scaffold(*TOURNAMENT_ARGS)
+    run("add", slug, "--median", "0.12", "--lower", "0.09", "--upper", "0.16",
+        "--thesis", THESIS)
+    before = len(ledger())
+    with pytest.raises(SystemExit):
+        run("submit", slug, *argv)
+    assert len(ledger()) == before, f"{why} still appended a record"
+    assert _common.load_meta(slug)["tournament"]["submitted"] is None
+
+
+def test_submit_refuses_a_question_with_no_forecast(sandbox):
+    """Rule 7 in submission order: nothing is sent that was not written down first."""
+    scaffold, run, ledger = sandbox
+    slug = scaffold(*TOURNAMENT_ARGS)
+    with pytest.raises(SystemExit):
+        run("submit", slug, "--payload", '{"p": 1}', "--api-status", "201")
+    assert ledger() == []
+
+
+def test_submit_refuses_a_question_with_no_tournament_block(sandbox):
+    scaffold, run, _ledger = sandbox
+    slug = scaffold("--title", "An operator question?", "--type", "binary",
+                    "--source", "other")
+    with pytest.raises(SystemExit):
+        run("submit", slug, "--payload", '{"p": 1}', "--api-status", "201")
+
+
+def test_percentiles_are_refused_on_a_binary_question(sandbox):
+    scaffold, run, ledger = sandbox
+    slug = scaffold(*TOURNAMENT_ARGS)
+    with pytest.raises(SystemExit):
+        run("add", slug, "--median", "0.12", "--lower", "0.09", "--upper", "0.16",
+            "--p10", "0.05", "--p90", "0.3", "--thesis", THESIS)
+    assert ledger() == [], "the forecast record was appended before the check"
+
+
 # ------------------------------------------------------------- scoring rules
 def test_brier_is_squared_error_and_bounded():
     assert calibration.brier(1.0, 1.0) == 0.0

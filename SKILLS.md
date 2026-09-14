@@ -23,8 +23,9 @@ description matches. This file is the human-readable map.
 | Script | Does |
 |---|---|
 | `scripts/new_question.py` | Scaffold a question folder from a Metaculus URL or a title. |
-| `scripts/log_forecast.py` | Append a forecast or a resolution to `ledger/forecasts.jsonl`. |
+| `scripts/log_forecast.py` | Append a forecast, a submission or a resolution to `ledger/forecasts.jsonl`, keeping `meta.yaml` in step. |
 | `scripts/status.py` | List questions by urgency; `--index` regenerates `INDEX.md`. |
 | `scripts/calibration.py` | Brier / log score, calibration buckets, skill vs. the community. |
+| `scripts/tournament_registry.py` | Read and write `tournaments/registry.yaml`: which tournaments are live, in what priority order, and what the sweep has already seen. |
 
 All run under `uv run <path>`.

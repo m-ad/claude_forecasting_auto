@@ -3,8 +3,10 @@ slug: "{{SLUG}}"
 title: "{{TITLE}}"
 source: "{{SOURCE}}"          # metaculus | kalshi | polymarket | manifold | other
 url: "{{URL}}"
-post_id: {{POST_ID}}          # null for non-Metaculus
-type: "{{TYPE}}"              # binary | numeric | date | multiple_choice
+post_id: {{POST_ID}}          # null for non-Metaculus — identifies the *page*
+question_id: {{QUESTION_ID}}  # Metaculus's internal question id — what the API submits
+                              # against, and != post_id. Null for non-Metaculus.
+type: "{{TYPE}}"              # binary | numeric | date | multiple_choice | discrete
 unit: null                    # e.g. "USD bn", "°C"; null for binary
 tags: []
 
@@ -15,6 +17,19 @@ dates:
   resolves: null              # date the outcome is known
 
 status: "open"                # open | closed | resolved | dropped
+
+tournament: null              # null for operator-added questions. Bot-tournament
+                              # questions carry the block below instead:
+#   slug: "minibench"             # must exist in tournaments/registry.yaml
+#   mode: "one_shot"              # one_shot | updatable
+#   registered: "2026-09-14"      # date the bot first saw the question
+#   opened: "2026-09-14T11:03:00Z"
+#   closes: "2026-09-14T12:33:00Z"
+#   submitted: null               # ISO-8601 UTC of a successful submission, or null
+#   submitted_forecast: null      # exactly what was sent — the audit trail
+#   comment_posted: false
+#   official_score: null          # the peer score Metaculus reports after resolution
+#   missed_window: false          # discovered too late, or budget-skipped
 
 current:
   version: 0
@@ -28,7 +43,14 @@ current:
     n_forecasters: null
     as_of: null
 
+percentiles: null             # numeric/date/discrete only: the five-point CDF the
+                              # Metaculus API wants, as {10, 25, 50, 75, 90} -> value.
+                              # 25/50/75 must equal current.iqr[0]/median/iqr[1], so
+                              # only the 10th and 90th carry new information.
+
 next_review: null             # YYYY-MM-DD — see docs/update-protocol.md cadence table
+                              # A one_shot tournament question never gets one: it is
+                              # forecast once and never revisited.
 
 tripwires: []
 # `magnitude` is unsigned — `direction` (up/down/either) carries the sign — and

@@ -17,13 +17,16 @@ from conftest import (
     forecast_records,
     metas,
     question_dirs,
+    registry_entries,
     resolution_records,
+    submission_records,
 )
 
 METAS = metas()
 IDS = [slug for slug, _ in METAS]
 FORECASTS = [r for _, r in forecast_records()]
 RESOLUTIONS = [r for _, r in resolution_records()]
+SUBMISSIONS = [r for _, r in submission_records()]
 
 
 def _ledger_versions(slug):
@@ -105,9 +108,55 @@ def test_resolution_date_is_not_before_the_last_forecast(slug, meta):
     )
 
 
+# ------------------------------------------------- meta.tournament <-> ledger
+@pytest.mark.parametrize("slug,meta", METAS, ids=IDS)
+def test_submission_is_recorded_in_both_places_or_neither(slug, meta):
+    """``meta.yaml`` answers "has this been sent?" for the sweep's guard; the ledger
+    answers it for the scorer. One of them being wrong is how a question gets
+    forecast twice or skipped entirely."""
+    tour = meta.get("tournament") or {}
+    logged = [r for r in SUBMISSIONS if r.get("slug") == slug]
+    submitted = tour.get("submitted") is not None
+    assert submitted == bool(logged), (
+        f"{slug}: meta.tournament.submitted is {tour.get('submitted')!r} but the "
+        f"ledger has {len(logged)} submission record(s)"
+    )
+    if not submitted:
+        return
+    rec = logged[0]
+    assert rec["ts"] == tour["submitted"], (
+        f"{slug}: submitted at {tour['submitted']} in meta.yaml, {rec['ts']} in the ledger"
+    )
+    assert rec["payload"] == tour.get("submitted_forecast"), (
+        f"{slug}: the payload in the ledger is not what meta.yaml says was sent"
+    )
+    assert rec["comment_posted"] == tour.get("comment_posted"), (
+        f"{slug}: comment_posted differs between meta.yaml and the ledger"
+    )
+    for key in ("post_id", "question_id"):
+        assert rec[key] == meta.get(key), (
+            f"{slug}: submission {key} {rec[key]!r} != meta {meta.get(key)!r}"
+        )
+    assert rec["tournament"] == tour.get("slug"), (
+        f"{slug}: submission tournament {rec['tournament']!r} != "
+        f"meta {tour.get('slug')!r}"
+    )
+
+
+def test_every_submitted_tournament_is_registered():
+    """A submission naming a tournament the registry dropped is unscoreable."""
+    known = {s for s, _ in registry_entries()}
+    unknown = sorted(
+        {str(r.get("tournament")) for r in SUBMISSIONS} - known
+    )
+    assert not unknown, (
+        f"the ledger holds submissions to unregistered tournaments: {unknown}"
+    )
+
+
 def test_ledger_has_no_records_for_deleted_questions():
     known = {d.name for d in question_dirs()}
-    logged = {str(r.get("slug")) for r in FORECASTS + RESOLUTIONS}
+    logged = {str(r.get("slug")) for r in FORECASTS + RESOLUTIONS + SUBMISSIONS}
     orphans = sorted(logged - known)
     assert not orphans, (
         f"the ledger scores questions with no folder: {orphans} - "

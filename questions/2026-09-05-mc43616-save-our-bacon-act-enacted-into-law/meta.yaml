@@ -3,6 +3,7 @@ title: Will the Save Our Bacon Act be enacted into law before July 2027?
 source: metaculus
 url: https://www.metaculus.com/questions/43616/will-the-save-our-bacon-act-be-enacted-into-law-before-july-2027/
 post_id: 43616
+question_id: 43613
 type: binary
 unit: null
 tags:
@@ -17,6 +18,7 @@ dates:
   closes: '2027-04-01'
   resolves: '2027-07-01'
 status: open
+tournament: null
 current:
   version: 1
   date: '2026-09-05'
@@ -30,6 +32,7 @@ current:
     gold: 0.03
     n_forecasters: 61
     as_of: '2026-09-04'
+percentiles: null
 next_review: '2026-10-05'
 tripwires:
 - signal: Senate Agriculture Committee reports a Farm Bill out of committee

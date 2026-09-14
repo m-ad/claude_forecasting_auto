@@ -3,6 +3,7 @@ title: Will FEWS NET classify any area of Sudan as experiencing Famine before 20
 source: metaculus
 url: https://www.metaculus.com/questions/45464/
 post_id: 45464
+question_id: 45655
 type: binary
 unit: null
 tags: []
@@ -12,6 +13,7 @@ dates:
   closes: '2026-10-31'
   resolves: '2026-12-31'
 status: open
+tournament: null
 current:
   version: 1
   date: '2026-09-05'
@@ -25,6 +27,7 @@ current:
     gold: null
     n_forecasters: 13
     as_of: '2026-09-05'
+percentiles: null
 next_review: '2026-09-19'
 tripwires:
 - signal: A FEWS NET Sudan map with a Reported date in Sept-Dec 2026 shows any area

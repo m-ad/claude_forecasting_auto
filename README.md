@@ -44,12 +44,16 @@ docs/
   bot-migration-plan.md   the contract for the rewrite into an autonomous CI bot
   bot-migration-progress.md  numbered steps and their status — "implement step P1.2"
 questions/<slug>/
-  meta.yaml               identifiers, dates, current forecast, tripwires, next review
+  meta.yaml               identifiers, dates, current forecast, tripwires, next review,
+                          and — for a bot-tournament question — its tournament block
   forecast.md             the deliverable — newest version on top, append-only history
-  research.md             working log: searches, base rates, dead ends
+  research.md             working log: searches, base rates, dead ends (skipped for
+                          one-shot tournament questions, which are never revisited)
   raw/                    dated snapshots of Metaculus aggregations and market prices
-ledger/forecasts.jsonl    append-only scoreable record of every forecast and resolution
-scripts/                  new_question · log_forecast · status · calibration
+ledger/forecasts.jsonl    append-only scoreable record: forecast · submission · resolution
+tournaments/registry.yaml the tournaments the bot competes in, in priority order
+scripts/                  new_question · log_forecast · status · calibration ·
+                          tournament_registry
 .claude/skills/           forecast-workflow · forecast-update · metaculus-aggregations
 .claude/commands/         the slash commands above
 ```

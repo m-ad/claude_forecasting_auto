@@ -3,6 +3,7 @@ title: Will Uber's takeover of Delivery Hero be approved by BaFin before Septemb
 source: metaculus
 url: https://www.metaculus.com/questions/44921/
 post_id: 44921
+question_id: 45070
 type: binary
 unit: null
 tags: []
@@ -12,6 +13,7 @@ dates:
   closes: '2026-09-01'
   resolves: '2026-09-01'
 status: resolved
+tournament: null
 current:
   version: 1
   date: '2026-08-27'
@@ -25,6 +27,7 @@ current:
     gold: 0.5
     n_forecasters: 78
     as_of: '2026-08-27'
+percentiles: null
 next_review: null
 tripwires:
 - signal: BaFin published-offer-documents database or an ad-hoc/8-K disclosure lists the Uber/Delivery

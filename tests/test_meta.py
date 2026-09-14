@@ -16,11 +16,13 @@ import pytest
 import yaml
 from conftest import (
     COMMUNITY_KEYS,
+    CONTINUOUS_TYPES,
     CURRENT_KEYS,
     DATE_KEYS,
     DATE_UNITS,
     META_KEYS,
     NATIVE_UNIT_TYPES,
+    PERCENTILE_KEYS,
     PROBABILITY_TYPES,
     PROBABILITY_UNIT,
     QUESTION_TYPES,
@@ -31,12 +33,16 @@ from conftest import (
     SRC_ABBREV,
     STATUSES,
     TEMPLATES,
+    TOURNAMENT_KEYS,
+    TOURNAMENT_MODES,
     TRIPWIRE_KEYS,
     as_date,
+    as_utc_datetime,
     is_number,
     is_probability,
     metas,
     question_dirs,
+    registry_entries,
     require_date,
 )
 
@@ -46,6 +52,21 @@ DIRS = question_dirs()
 DIR_IDS = [d.name for d in DIRS]
 
 PLACEHOLDER_RE = re.compile(r"\{\{[A-Z_]+\}\}")
+
+# `question_id` is required for every Metaculus question, because it - not
+# `post_id` - is what the submit API addresses. One legacy folder predates the
+# field and covers a whole *question group* (post 45386 holds two subquestions,
+# 2027 and 2028), so no single id describes it. The bot scaffolds one folder per
+# subquestion, which is why this is an exemption list and not a schema rule; it
+# empties itself when step P0.1 clears the legacy questions/ tree.
+GROUP_FOLDER_EXEMPTIONS = {
+    "2026-09-04-mc45386-givewell-funds-raised-pct-change-2027-2028",
+}
+
+
+def _is_one_shot(meta) -> bool:
+    """True for a bot-tournament question that is forecast once and never revisited."""
+    return ((meta or {}).get("tournament") or {}).get("mode") == "one_shot"
 
 
 # ------------------------------------------------------------- folder layout
@@ -66,7 +87,18 @@ def test_folder_name_follows_the_naming_convention(folder):
 
 @pytest.mark.parametrize("folder", DIRS, ids=DIR_IDS)
 def test_scaffolded_files_all_exist(folder):
-    for name in ("meta.yaml", "forecast.md", "research.md"):
+    """``research.md`` is the one optional file, and only on the sweep path.
+
+    A one-shot tournament question is forecast once inside a ~90-minute window
+    and never revisited, so the working log has no second reader: the sources go
+    straight into ``forecast.md``. Everything else is required everywhere -
+    ``raw/`` in particular, because rule 4's snapshot trail is what makes a
+    submitted forecast auditable after the fact.
+    """
+    required = ["meta.yaml", "forecast.md"]
+    if not _is_one_shot(dict(METAS).get(folder.name, {})):
+        required.append("research.md")
+    for name in required:
         assert (folder / name).is_file(), f"{folder.name}/{name} is missing"
     assert (folder / "raw").is_dir(), (
         f"{folder.name}/raw/ is missing - rule 4 wants the snapshot trail kept"
@@ -82,6 +114,8 @@ def test_meta_parses_as_a_yaml_mapping(folder):
 @pytest.mark.parametrize("folder", DIRS, ids=DIR_IDS)
 def test_no_unrendered_template_placeholders(folder):
     for name in ("meta.yaml", "forecast.md", "research.md"):
+        if not (folder / name).is_file():
+            continue  # research.md is optional; its absence is reported elsewhere
         text = (folder / name).read_text(encoding="utf-8")
         left = PLACEHOLDER_RE.findall(text)
         assert not left, f"{folder.name}/{name} still contains placeholders {left}"
@@ -171,6 +205,199 @@ def test_status_is_known(slug, meta):
     )
 
 
+# ------------------------------------------------- Metaculus question identity
+@pytest.mark.parametrize("slug,meta", METAS, ids=IDS)
+def test_question_id_is_an_int_for_metaculus_questions(slug, meta):
+    """``post_id`` identifies the page; ``question_id`` is what the API submits to.
+
+    They are different numbers, and a group post has one ``post_id`` and several
+    ``question_id``s. Getting this wrong is not a visible error - the submit call
+    returns 404 or, worse, writes a forecast onto the wrong subquestion - so the
+    field is required up front rather than derived at submit time.
+    """
+    qid = meta.get("question_id")
+    assert qid is None or (isinstance(qid, int) and qid > 0), (
+        f"{slug}: question_id must be a positive int or null, got {qid!r}"
+    )
+    if meta.get("source") != "metaculus":
+        assert qid is None, (
+            f"{slug}: only Metaculus has the post/question split, got question_id {qid!r}"
+        )
+        return
+    if slug in GROUP_FOLDER_EXEMPTIONS:
+        pytest.skip("legacy folder covering a whole question group")
+    assert isinstance(qid, int), (
+        f"{slug}: a Metaculus question needs question_id - post_id {meta.get('post_id')!r} "
+        "cannot be submitted against"
+    )
+
+
+# ----------------------------------------------------------------- tournament
+@pytest.mark.parametrize("slug,meta", METAS, ids=IDS)
+def test_tournament_block_shape(slug, meta):
+    tour = meta.get("tournament")
+    if tour is None:
+        return  # operator-added question; the whole block is absent by design
+    assert isinstance(tour, dict), f"{slug}: tournament must be a mapping or null"
+    assert set(tour) == TOURNAMENT_KEYS, (
+        f"{slug}: tournament keys missing={sorted(TOURNAMENT_KEYS - set(tour))} "
+        f"extra={sorted(set(tour) - TOURNAMENT_KEYS)}"
+    )
+    assert isinstance(tour["slug"], str) and tour["slug"].strip(), (
+        f"{slug}: tournament.slug is empty"
+    )
+    assert tour["mode"] in TOURNAMENT_MODES, (
+        f"{slug}: tournament.mode {tour['mode']!r} not in {sorted(TOURNAMENT_MODES)}"
+    )
+    assert as_date(tour["registered"]) is not None, (
+        f"{slug}: tournament.registered {tour['registered']!r} is not a date"
+    )
+    for key in ("opened", "closes", "submitted"):
+        if tour[key] is None:
+            continue
+        assert as_utc_datetime(tour[key]) is not None, (
+            f"{slug}: tournament.{key}={tour[key]!r} is not a tz-aware ISO-8601 instant"
+        )
+    opened, closes = as_utc_datetime(tour["opened"]), as_utc_datetime(tour["closes"])
+    if opened and closes:
+        assert opened < closes, f"{slug}: the tournament window closes before it opens"
+    for key in ("comment_posted", "missed_window"):
+        assert isinstance(tour[key], bool), (
+            f"{slug}: tournament.{key} must be a bool, got {tour[key]!r}"
+        )
+    score = tour["official_score"]
+    assert score is None or is_number(score), (
+        f"{slug}: tournament.official_score must be numeric or null, got {score!r}"
+    )
+
+
+@pytest.mark.parametrize("slug,meta", METAS, ids=IDS)
+def test_tournament_slug_is_registered(slug, meta):
+    """A question may only claim a tournament the registry actually knows about."""
+    tour = meta.get("tournament") or {}
+    if not tour.get("slug"):
+        pytest.skip("not a tournament question")
+    known = {s for s, _ in registry_entries()}
+    assert tour["slug"] in known, (
+        f"{slug}: tournament {tour['slug']!r} is not in tournaments/registry.yaml "
+        f"(known: {sorted(known)})"
+    )
+
+
+@pytest.mark.parametrize("slug,meta", METAS, ids=IDS)
+def test_one_shot_questions_carry_no_tripwires_and_no_next_review(slug, meta):
+    """One shot means one shot: there is no second visit for a tripwire to trigger.
+
+    Rule 3 still holds for every other question - this is the carve-out, and it is
+    the *mode* that earns it, not the tournament.
+    """
+    if not _is_one_shot(meta):
+        return
+    assert meta.get("tripwires") == [], (
+        f"{slug}: a one_shot question is never revisited, so its tripwires "
+        f"{meta.get('tripwires')!r} can never fire"
+    )
+    assert meta.get("next_review") is None, (
+        f"{slug}: a one_shot question schedules no review, got "
+        f"{meta.get('next_review')!r}"
+    )
+
+
+@pytest.mark.parametrize("slug,meta", METAS, ids=IDS)
+def test_a_submitted_one_shot_question_stays_at_version_one(slug, meta):
+    """The append-only half of the one-shot rule, enforced on the question side.
+
+    ``ledger/forecasts.jsonl`` refuses a second ``submission`` record; this refuses
+    the v2 that would have been sent.
+    """
+    tour = meta.get("tournament") or {}
+    if tour.get("submitted") is None or tour.get("mode") != "one_shot":
+        pytest.skip("nothing submitted under a one-shot mode")
+    version = (meta.get("current") or {}).get("version")
+    assert version == 1, (
+        f"{slug}: submitted at {tour['submitted']} but meta is at v{version} - "
+        "a one-shot question is forecast exactly once"
+    )
+    assert tour.get("missed_window") is not True, (
+        f"{slug}: a submitted question cannot also have missed its window"
+    )
+
+
+@pytest.mark.parametrize("slug,meta", METAS, ids=IDS)
+def test_missed_window_questions_are_closed_out_and_never_submitted(slug, meta):
+    """A window the bot missed is a dead question, not an open one.
+
+    Leaving it ``open`` would keep it in triage forever, and every later sweep
+    would re-cost it.
+    """
+    tour = meta.get("tournament") or {}
+    if not tour.get("missed_window"):
+        return
+    assert meta.get("status") in {"dropped", "resolved"}, (
+        f"{slug}: missed_window is true but status is {meta.get('status')!r} - "
+        "expected dropped (never forecast) or resolved (scored anyway)"
+    )
+    assert tour.get("submitted") is None, (
+        f"{slug}: missed_window is true but a submission is recorded at "
+        f"{tour['submitted']!r}"
+    )
+
+
+# ---------------------------------------------------------------- percentiles
+@pytest.mark.parametrize("slug,meta", METAS, ids=IDS)
+def test_percentiles_shape_and_monotonicity(slug, meta):
+    """The five-point CDF the continuous-question submit path sends.
+
+    A non-monotone CDF is rejected by Metaculus with a 400 that names no field, so
+    it is cheaper to catch here. The 25/50/75 points are the IQR and the median by
+    definition: only the 10th and 90th carry information the forecast block does
+    not already hold, and letting them drift apart would mean two disagreeing
+    records of the same belief.
+    """
+    pcts = meta.get("percentiles")
+    if pcts is None:
+        return
+    assert isinstance(pcts, dict), f"{slug}: percentiles must be a mapping or null"
+    assert set(pcts) == PERCENTILE_KEYS, (
+        f"{slug}: percentile keys {sorted(pcts)} != {sorted(PERCENTILE_KEYS)}"
+    )
+    assert meta.get("type") in CONTINUOUS_TYPES, (
+        f"{slug}: percentiles only apply to {sorted(CONTINUOUS_TYPES)} questions, "
+        f"not {meta.get('type')!r}"
+    )
+    values = [pcts[k] for k in sorted(PERCENTILE_KEYS)]
+    assert all(is_number(v) for v in values), (
+        f"{slug}: every percentile must be numeric, got {values!r}"
+    )
+    assert values == sorted(values), (
+        f"{slug}: percentiles are not monotone non-decreasing: {values!r}"
+    )
+    cur = meta.get("current") or {}
+    lo, hi = (list(cur.get("iqr") or [None, None]) + [None, None])[:2]
+    for key, expected, name in (
+        (25, lo, "current.iqr[0]"),
+        (50, cur.get("median"), "current.median"),
+        (75, hi, "current.iqr[1]"),
+    ):
+        if expected is None:
+            continue
+        assert pcts[key] == expected, (
+            f"{slug}: percentiles[{key}]={pcts[key]!r} != {name}={expected!r}"
+        )
+
+
+@pytest.mark.parametrize("slug,meta", METAS, ids=IDS)
+def test_a_submitted_continuous_question_carries_its_percentiles(slug, meta):
+    """Rule 8's audit trail for a numeric submission is the CDF that was sent."""
+    if (meta.get("tournament") or {}).get("submitted") is None:
+        pytest.skip("nothing submitted")
+    if meta.get("type") not in CONTINUOUS_TYPES:
+        pytest.skip("not a continuous question")
+    assert isinstance(meta.get("percentiles"), dict), (
+        f"{slug}: a submitted {meta.get('type')} question must record the five-point "
+        "CDF it sent, got percentiles=None"
+    )
+
 # --------------------------------------------------------------------- dates
 @pytest.mark.parametrize("slug,meta", METAS, ids=IDS)
 def test_dates_block_shape(slug, meta):
@@ -216,6 +443,8 @@ def test_next_review_is_a_date_and_consistent_with_status(slug, meta):
         assert nxt is None, (
             f"{slug}: a resolved question keeps next_review null (log_forecast clears it)"
         )
+    elif _is_one_shot(meta):
+        pass  # asserted the other way round in the one-shot test below
     elif (meta.get("current") or {}).get("version"):
         assert nxt is not None, (
             f"{slug}: an open question with a forecast must schedule its next review"
@@ -472,6 +701,7 @@ def test_template_meta_renders_to_the_same_schema():
         "SOURCE": "other",
         "URL": "https://example.org/",
         "POST_ID": "null",
+        "QUESTION_ID": "null",
         "TYPE": "binary",
         "TODAY": "2026-01-01",
     }.items():
@@ -488,6 +718,16 @@ def test_template_meta_renders_to_the_same_schema():
     assert set(data["current"]["community"]) == COMMUNITY_KEYS
     assert set(data["resolution"]) == RESOLUTION_KEYS
     assert data["current"]["version"] == 0 and data["status"] == "open"
+    # The scaffold is the operator path, which has no tournament and no CDF. Both
+    # blocks are filled in later - by the sweep, or by log_forecast.py - so the
+    # template must render them as explicit nulls rather than leave them out.
+    assert data["tournament"] is None and data["percentiles"] is None, (
+        "templates/meta.yaml must scaffold tournament and percentiles as null"
+    )
+    assert data["question_id"] is None, (
+        "templates/meta.yaml must scaffold question_id as null - it is not knowable "
+        "from the URL the operator pastes"
+    )
 
 
 def test_template_tripwire_examples_match_the_tripwire_schema():

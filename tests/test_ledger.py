@@ -32,12 +32,17 @@ from conftest import (
     ledger_records,
     question_dirs,
     resolution_records,
+    submission_records,
 )
 
 RECORDS = ledger_records()
 FORECASTS = forecast_records()
 RESOLUTIONS = resolution_records()
+SUBMISSIONS = submission_records()
 LINES = ledger_lines()
+# Only these two event kinds name a question type; a submission is a transport
+# record and carries the ids instead.
+TYPED = FORECASTS + RESOLUTIONS
 
 FORECAST_KEYS = {
     "ts",
@@ -54,6 +59,17 @@ FORECAST_KEYS = {
     "mode",
 }
 RESOLUTION_KEYS = {"ts", "event", "slug", "type", "outcome", "resolution_source"}
+SUBMISSION_KEYS = {
+    "ts",
+    "event",
+    "slug",
+    "post_id",
+    "question_id",
+    "tournament",
+    "payload",
+    "comment_posted",
+    "api_status",
+}
 
 
 # ------------------------------------------------------------- file structure
@@ -154,7 +170,7 @@ def test_slug_points_at_an_existing_question_folder(lineno, rec):
     )
 
 
-@pytest.mark.parametrize("lineno,rec", RECORDS, ids=ids_for(RECORDS))
+@pytest.mark.parametrize("lineno,rec", TYPED, ids=ids_for(TYPED))
 def test_type_is_known(lineno, rec):
     assert rec.get("type") in QUESTION_TYPES, (
         f"line {lineno}: unknown question type {rec.get('type')!r}"
@@ -175,6 +191,86 @@ def test_resolution_record_has_exactly_the_expected_keys(lineno, rec):
         f"line {lineno}: key mismatch, missing={sorted(RESOLUTION_KEYS - set(rec))} "
         f"extra={sorted(set(rec) - RESOLUTION_KEYS)}"
     )
+
+
+# -------------------------------------------------------------- submissions
+@pytest.mark.parametrize("lineno,rec", SUBMISSIONS, ids=ids_for(SUBMISSIONS))
+def test_submission_record_has_exactly_the_expected_keys(lineno, rec):
+    assert set(rec) == SUBMISSION_KEYS, (
+        f"line {lineno}: key mismatch, missing={sorted(SUBMISSION_KEYS - set(rec))} "
+        f"extra={sorted(set(rec) - SUBMISSION_KEYS)}"
+    )
+
+
+@pytest.mark.parametrize("lineno,rec", SUBMISSIONS, ids=ids_for(SUBMISSIONS))
+def test_submission_identifies_the_question_it_wrote_to(lineno, rec):
+    """``post_id`` is the page, ``question_id`` is what the API actually wrote to.
+
+    Both are recorded because a group post's subquestions share a ``post_id``: with
+    only that, a submission on the wrong subquestion is indistinguishable from a
+    correct one after the fact.
+    """
+    for key in ("post_id", "question_id"):
+        val = rec.get(key)
+        assert isinstance(val, int) and val > 0, (
+            f"line {lineno}: {key} must be a positive int, got {val!r}"
+        )
+    slug = str(rec.get("slug", ""))
+    m = re.match(r"^\d{4}-\d{2}-\d{2}-([a-z]{1,2})(\d*)-", slug)
+    assert m, f"line {lineno}: slug {slug!r} does not carry a <src><id> fragment"
+    if m.group(2):
+        assert rec["post_id"] == int(m.group(2)), (
+            f"line {lineno}: slug post id {m.group(2)} != record post_id {rec['post_id']}"
+        )
+    tournament = rec.get("tournament")
+    assert isinstance(tournament, str) and tournament.strip(), (
+        f"line {lineno}: tournament must be a non-empty slug, got {tournament!r}"
+    )
+
+
+@pytest.mark.parametrize("lineno,rec", SUBMISSIONS, ids=ids_for(SUBMISSIONS))
+def test_submission_records_what_was_sent_and_that_it_was_accepted(lineno, rec):
+    """The ledger holds accepted submissions only.
+
+    A rejected call is a failure, and failures go to ``ledger/errors.jsonl`` - if a
+    4xx could land here, "did the bot forecast this question?" would stop having a
+    single answer.
+    """
+    payload = rec.get("payload")
+    assert isinstance(payload, dict) and payload, (
+        f"line {lineno}: payload must be the non-empty object that was sent, "
+        f"got {payload!r}"
+    )
+    status = rec.get("api_status")
+    assert isinstance(status, int) and 200 <= status < 300, (
+        f"line {lineno}: api_status {status!r} is not a 2xx"
+    )
+    assert isinstance(rec.get("comment_posted"), bool), (
+        f"line {lineno}: comment_posted must be a bool, got {rec.get('comment_posted')!r}"
+    )
+
+
+@pytest.mark.parametrize("lineno,rec", SUBMISSIONS, ids=ids_for(SUBMISSIONS))
+def test_submission_follows_a_forecast_for_the_same_slug(lineno, rec):
+    """Rule 7 in submission order: nothing is sent that was not first written down."""
+    slug = rec.get("slug")
+    earlier = [n for n, f in FORECASTS if f.get("slug") == slug and n < lineno]
+    assert earlier, (
+        f"line {lineno}: {slug} was submitted with no forecast logged before it"
+    )
+
+
+def test_no_slug_is_submitted_twice():
+    """The append-only enforcement of the one-shot rule.
+
+    A bot tournament accepts one forecast per question. A second submission record
+    means either a re-run that did not check, or a guard that failed open; both
+    are silent in the tournament standings and loud only here.
+    """
+    dupes = [
+        s for s, c in Counter(r.get("slug") for _, r in SUBMISSIONS).items() if c > 1
+    ]
+    assert not dupes, f"more than one submission logged for {dupes}"
 
 
 @pytest.mark.parametrize("lineno,rec", FORECASTS, ids=ids_for(FORECASTS))

@@ -4,6 +4,7 @@ title: How many Major Atlantic Hurricanes will occur in the 2026 Atlantic hurric
 source: metaculus
 url: https://www.metaculus.com/questions/45381/
 post_id: 45381
+question_id: 45571
 type: multiple_choice
 unit: null
 tags: []
@@ -13,6 +14,7 @@ dates:
   closes: '2026-10-16'
   resolves: '2026-11-30'
 status: open
+tournament: null
 current:
   version: 1
   date: '2026-09-05'
@@ -26,6 +28,7 @@ current:
     gold: null
     n_forecasters: 20
     as_of: '2026-09-05'
+percentiles: null
 next_review: '2026-09-19'
 tripwires:
 - signal: First Atlantic hurricane of 2026 forms on or before 2026-09-30 — moves 8pp

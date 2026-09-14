@@ -27,9 +27,9 @@ belongs to a later phase than the plan says) · `dropped` (no longer wanted).
 | Phase | Name | Steps | Done |
 |---|---|---|---|
 | **M** | Operator setup (manual — not agent work) | 5 | 0 / 5 |
-| **P0** | Clean the state, delete dead weight | 8 | 4 / 8 |
+| **P0** | Clean the state, delete dead weight | 8 | 5 / 8 |
 | **P1** | Metaculus API layer | 5 | 0 / 5 |
-| **P2** | Schema changes | 3 | 0 / 3 |
+| **P2** | Schema changes | 3 | **3 / 3** |
 | **P3** | Skills | 5 | 0 / 5 |
 | **P4** | Subagents, models, gate, usage accounting | 6 | 0 / 6 |
 | **P5** | Failure handling and budget guards | 6 | 0 / 6 |
@@ -37,7 +37,7 @@ belongs to a later phase than the plan says) · `dropped` (no longer wanted).
 | **P7** | GitHub Actions workflows | 5 | 0 / 5 |
 | **P8** | Docs | 3 | 0 / 3 |
 | **P9** | Soak and go live | 4 | 0 / 4 |
-| | | **54** | **4** |
+| | | **54** | **8** |
 
 Recommended order: P0 → P1.1–P1.2 → P2 → P1.3–P1.5 → P6 → P3 → P4 → P5 → P7 → P8 → P9.
 P6 lands before P3 on purpose: the validator guards every later phase from its first commit.
@@ -74,7 +74,7 @@ Plan §5.
 | P0.5 | Delete `.claude/commands/review.md` (`/review`) and its references | 5.2 | blocked | | Docs references removed 2026-09-13; the file deletion is blocked |
 | P0.6 | Remove the **whole visualization path**: `matplotlib`, `calibration.py --plot`, `charts/` creation, the "add a chart" instruction | 5.2 | **done** | 2026-09-14 | Widened past the plan on operator instruction — the plan only moved matplotlib to an optional group. See *Deviations* below |
 | P0.7 | Gut the Playwright/Cloudflare path in `metaculus_aggregations.py`; drop the `playwright` dependency | 5.2 | deferred → P1.5 | | Its replacement is `metaculus_api.py`, which is P1.1. Doing it here leaves **no working Metaculus access at all** until P1 lands |
-| P0.8 | Skip `research.md` for tournament questions | 5.2 | deferred → P2.1 | | Conditioned on `tournament.mode == one_shot`, which P2.1 introduces. Nothing can tell a tournament question from any other today |
+| P0.8 | Skip `research.md` for tournament questions | 5.2 | **done** | 2026-09-14 | Landed with P2.1, as deferred. `new_question.py --tournament <slug>` with `--tournament-mode one_shot` does not scaffold `research.md`, and `test_scaffolded_files_all_exist` exempts exactly those questions |
 
 ---
 
@@ -96,11 +96,11 @@ Plan §6. The riskiest code in the migration; build and test it in isolation.
 
 Plan §7.
 
-| Step | Task | Plan § | Blocked by | Status |
-|---|---|---|---|---|
-| P2.1 | `meta.yaml`: add `question_id`, the `tournament` block, `percentiles`. Update `templates/meta.yaml`, `conftest.py`'s `META_KEYS`, and the five new `test_meta.py` cases | 7.1 | — | todo |
-| P2.2 | Ledger: third event type `submission`. Extend `EVENTS`; assert every `submission` has a preceding `forecast` and **no slug has two** | 7.2 | — | todo |
-| P2.3 | `tournaments/registry.yaml` + `scripts/tournament_registry.py` — multi-tournament from day one, with `priority` and `mode` | 7.3 | — | todo |
+| Step | Task | Plan § | Blocked by | Status | Done | Notes |
+|---|---|---|---|---|---|---|
+| P2.1 | `meta.yaml`: add `question_id`, the `tournament` block, `percentiles`. Update `templates/meta.yaml`, `conftest.py`'s `META_KEYS`, and the five new `test_meta.py` cases | 7.1 | — | **done** | 2026-09-14 | All five cases landed, plus a registry cross-check and a percentile/IQR agreement check. Writers added so the fields are not write-only: `new_question.py --tournament/--question-id` and `log_forecast.py add --p10/--p90`. The 17 legacy folders were migrated; see deviations D5–D6 |
+| P2.2 | Ledger: third event type `submission`. Extend `EVENTS`; assert every `submission` has a preceding `forecast` and **no slug has two** | 7.2 | — | **done** | 2026-09-14 | Both invariants landed, plus record shape, 2xx-only, and `meta.tournament` ↔ ledger agreement in `test_consistency.py`. Writer: `log_forecast.py submit`, which P1.3 calls rather than appending itself (deviation D7) |
+| P2.3 | `tournaments/registry.yaml` + `scripts/tournament_registry.py` — multi-tournament from day one, with `priority` and `mode` | 7.3 | — | **done** | 2026-09-14 | CLI `list/get/add/set/touch` + module API (`active_tournaments()`, `mark_seen()`) for the P4.3 gate. Seeded with `bot-testing-area` (active) and `minibench` (**parked**, see D8) |
 
 ---
 
@@ -185,7 +185,14 @@ Plan §15. Do these as the phases land, not in one lump at the end.
 |---|---|---|---|
 | P8.1 | `docs/tournament-protocol.md` (NEW) — 90-minute window, one shot, private comment format, hidden CP, MiniBench vs FutureEval, missed windows | 15 | todo |
 | P8.2 | `docs/runbook.md` (NEW) — the symptom→command table | 10.8 | todo |
-| P8.3 | Amend `AGENTS.md` (operating modes, §4, §5, rule 8 carve-out), `CLAUDE.md`, `methodology.md`, `update-protocol.md`, `output-format.md`, `SKILLS.md`, `README.md` | 15 | todo |
+| P8.3 | Amend `AGENTS.md` (operating modes, §4, §5, rule 8 carve-out), `CLAUDE.md`, `methodology.md`, `update-protocol.md`, `output-format.md`, `SKILLS.md`, `README.md` | 15 | **partly done** — see note |
+
+> **P8.3, partial (2026-09-14).** P2 landed schema rules the docs contradicted, so the
+> contradictions were fixed with it rather than left for later: the one-shot carve-out to rule 3
+> and the ledger's three event types in `AGENTS.md`, the tournament pointer in `update-protocol.md`,
+> the new layout and script rows in `README.md`/`SKILLS.md`, and the new invariants in
+> `tests/README.md`. P8.3 still owns everything else on its list — operating modes, §4 and §5 of
+> `AGENTS.md`, `methodology.md` and `output-format.md` — which depends on P1 and P3 existing.
 
 ---
 
@@ -213,6 +220,16 @@ divergence stays visible.
 | D2 | §5.2 puts the `metaculus_aggregations.py` gutting and the `playwright` removal in Phase 0 | Deferred to **P1.5** | §6.4 defines the replacement as a wrapper over `metaculus_api.py`, which is P1.1, and §19's own ordering agrees. Doing it in P0 leaves the repo with no working Metaculus access for the whole gap |
 | D3 | §5.2 puts skipping `research.md` for tournament questions in Phase 0 | Deferred to **P2.1** | Conditioned on `tournament.mode == one_shot`, which P2.1 introduces. Nothing can identify a tournament question today |
 | D4 | §5.1: `git worktree prune`, delete local `testing` and `claude/us-model-evaluations-forecast-672746` | Not applicable in CI | Those live on the operator's Windows machine, not in the container. Operator to run locally |
+| D5 | §7.1: "`question_id` is an int whenever `source == metaculus`" | Enforced, with **one named exemption** in `test_meta.py` (`GROUP_FOLDER_EXEMPTIONS`) | `questions/2026-09-04-mc45386-givewell-…` is a single folder covering *two* subquestions of one group post, so no single `question_id` describes it. The bot scaffolds one folder per subquestion (the SPR pair is the precedent), so the rule is right going forward and this is legacy debt. The exemption list empties itself when P0.1 clears `questions/` |
+| D6 | The plan does not say where the legacy `question_id`s come from | Backfilled from each folder's own `raw/*.json` snapshots, not re-fetched | Rule 4 ("fresh data only") governs *forecast* numbers; a Metaculus question id is an immutable identifier, and the repo's own snapshot trail is a better source than a live fetch that Cloudflare 403s today (D2). 16 of 17 resolved this way |
+| D7 | §7.2 defines the `submission` record; §6.3 gives the writer to `metaculus_submit.py` (P1.3) | Added `log_forecast.py submit` now, as the only writer | An event type with no producer is not a schema, it is a comment. Writing the ledger line and `meta.tournament.{submitted, submitted_forecast, comment_posted}` in one place is also what lets `test_consistency.py` assert they agree. P1.3 keeps its job — call the API — and calls this to record the result |
+| D8 | §7.3's example registry has MiniBench `active: true` | Seeded `active: false` | §19/P9 soaks on `bot-testing-area` first and only registers MiniBench at P9.3. An active MiniBench row would let the first working sweep (P4.3) spend real, *scored* forecasts before the soak. P9.3 flips it with `tournament_registry.py set minibench --active` |
+
+**Writers added ahead of their phase**: P2 is a schema phase, but three small writers landed
+with it — `new_question.py --tournament`, `log_forecast.py add --p10/--p90`, and
+`log_forecast.py submit`. Each exists so that a schema field has exactly one producer and the
+test suite can hold two records against each other; none of them talks to Metaculus, which stays
+P1's job.
 
 **Known inconsistency while P0.4 is blocked**: the docs no longer mention a Metaculus fallback,
 but `.claude/skills/metaculus-scraper/` still exists on disk and `metaculus_aggregations.py`

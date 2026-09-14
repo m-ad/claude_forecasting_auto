@@ -3,6 +3,7 @@ title: Will there be a bilateral ceasefire in the Russo-Ukrainian conflict befor
 source: metaculus
 url: https://www.metaculus.com/questions/41138/will-there-be-a-bilateral-ceasefire-in-the-russo-ukrainian-conflict-before-2027/
 post_id: 41138
+question_id: 40839
 type: binary
 unit: null
 tags:
@@ -16,6 +17,7 @@ dates:
   closes: '2026-12-31'
   resolves: '2026-12-31'
 status: open
+tournament: null
 current:
   version: 1
   date: '2026-08-28'
@@ -29,6 +31,7 @@ current:
     gold: 0.12
     n_forecasters: 299
     as_of: '2026-08-27'
+percentiles: null
 next_review: '2026-09-21'
 tripwires:
 - signal: Putin, Lavrov or Peskov accepts a ceasefire-first sequence on the record (drops the 'settlement

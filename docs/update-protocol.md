@@ -15,6 +15,12 @@ as a first-class workflow with its own trigger, its own checklist, and its own r
 | Resolution approaching | at T−30d, T−7d, T−1d for questions still live |
 | Operator asks | `/update <slug>` |
 
+**Not in this loop**: a question whose `meta.yaml` carries `tournament.mode: one_shot`. It is
+forecast once inside its submission window and never revisited — it has no tripwires and no
+`next_review` by design, and once `tournament.submitted` is set the forecast that was sent cannot
+be changed. Re-analysing one locally is fine; re-submitting is not, and the ledger refuses a
+second `submission` record for the same slug.
+
 Default `next_review` cadence, set by time-to-resolution at the moment of forecasting:
 
 | Time to resolution | Review every |

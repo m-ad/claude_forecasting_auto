@@ -4,6 +4,7 @@ title: Will an AI system autonomously cause a major breach of US personal data h
 source: metaculus
 url: https://www.metaculus.com/questions/45427/major-us-personal-data-breach-by-an-external-misaligned-ai-system-before-2028/
 post_id: 45427
+question_id: 45616
 type: binary
 unit: null
 tags:
@@ -18,6 +19,7 @@ dates:
   closes: '2027-12-31'
   resolves: '2028-01-01'
 status: open
+tournament: null
 current:
   version: 1
   date: '2026-09-10'
@@ -31,6 +33,7 @@ current:
     gold: 0.71
     n_forecasters: 21
     as_of: '2026-09-10'
+percentiles: null
 next_review: '2026-09-24'
 tripwires:
 - signal: 'Metaculus #45463 subquestion ''Hacked third party'' resolves YES (a new undirected AI intrusion
