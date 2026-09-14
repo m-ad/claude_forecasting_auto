@@ -286,7 +286,10 @@ def test_sources_are_numbered_with_urls_and_access_dates(folder):
 
 @pytest.mark.parametrize("folder", DIRS, ids=DIR_IDS)
 def test_relative_links_and_images_resolve_on_disk(folder):
-    """A chart linked but never written is an invisible hole in the deliverable."""
+    """A file linked but never written is an invisible hole in the deliverable.
+
+    Mostly this guards links into ``raw/``; charts are no longer generated at all.
+    """
     text = _text(folder)
     broken = []
     for target in re.findall(r"!?\[[^\]]*\]\(([^)\s]+)\)", text):

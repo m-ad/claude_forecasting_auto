@@ -16,13 +16,6 @@ dev = [
     "pytest>=9.1.1",
     "ruff>=0.16.5",
 ]
-# Only `calibration.py --plot` draws anything, and the bot's tournament mode
-# generates no charts at all, so matplotlib (plus its numpy/pillow/fonttools
-# tail) is dead weight in every CI install. Plot with:
-#   uv run --group viz scripts/calibration.py --plot calibration.png
-viz = [
-    "matplotlib>=3.8",
-]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]

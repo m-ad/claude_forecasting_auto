@@ -64,9 +64,8 @@ Know the limits before relying on it:
 - `push_files` **cannot delete or rename files** — it only creates and updates. A change
   that removes a file needs a working `git push`; say so rather than pushing a partial
   state.
-- Binary files (chart PNGs under `questions/<slug>/charts/`) cannot be sent as text
-  content. If only the MCP path works, push the text files and tell the operator which
-  charts are still local-only.
+- Binary files cannot be sent as text content. The repo generates none by design
+  (AGENTS.md §7: no charts), so this only bites if something new starts writing them.
 - The commit lands with the GitHub App as committer, not the local git identity.
 - `push_files` commits against the remote tip, so a rebase is not a substitute for
   re-reading files another session may have changed — re-fetch before you build the

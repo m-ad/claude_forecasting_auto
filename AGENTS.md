@@ -158,10 +158,10 @@ give the operator the summary block plus the path.
   the conclusion. Take contrarian and radical hypotheses seriously.
 - Call out misconceptions in the question framing, including the operator's.
 - Prefer hard data and peer-reviewed work over opinion pieces and blog posts.
-- The operator is a visual thinker: add a chart when it genuinely aids understanding
-  (probability trajectory, scenario weights, base-rate distribution) and skip it
-  otherwise. Prefer horizontal bar charts over vertical ones. Save charts to
-  `questions/<slug>/charts/` and link them from `forecast.md`.
+- **No charts.** The deliverable is text. A forecast this bot writes is read by a
+  scoring script and, occasionally, by the operator in a terminal — never by someone
+  who needs a figure. Generating one costs turns, a dependency and a binary file that
+  the GitHub MCP push path cannot even carry. Put the numbers in a markdown table.
 - Python: `uv` is the package manager (`uv add`, `uv run`). Type hints in signatures,
   numpy-style docstrings, comments explain *why*.
 - If a question is genuinely ambiguous, ask before forecasting.

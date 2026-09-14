@@ -27,5 +27,4 @@ description matches. This file is the human-readable map.
 | `scripts/status.py` | List questions by urgency; `--index` regenerates `INDEX.md`. |
 | `scripts/calibration.py` | Brier / log score, calibration buckets, skill vs. the community. |
 
-All run under `uv run <path>`. `calibration.py --plot` additionally needs the optional
-`viz` dependency group: `uv run --group viz scripts/calibration.py --plot calibration.png`.
+All run under `uv run <path>`.

@@ -1,6 +1,9 @@
 # Migration plan: from operator-driven workbench to autonomous CI forecasting bot
 
-**Status**: plan only — nothing in this document has been implemented yet.
+**Status**: in progress — Phase 0 partly landed. **Live progress and the numbered step list live
+in [`bot-migration-progress.md`](bot-migration-progress.md)**, which is also where deviations
+from this document are recorded. This file stays the written contract and is not edited to match
+what was actually built.
 **Written**: 2026-09-13 · **Revised**: 2026-09-13 (rev 2)
 **Target**: a Metaculus bot account competing in **MiniBench** first, then the
 **Fall 2026 FutureEval Bot Tournament**, driven entirely by Claude Code in GitHub Actions.
