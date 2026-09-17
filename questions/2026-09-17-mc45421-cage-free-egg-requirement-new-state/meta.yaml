@@ -1,0 +1,76 @@
+slug: 2026-09-17-mc45421-cage-free-egg-requirement-new-state
+title: Will at least one additional U.S. state enact a cage-free egg requirement before July 2027?
+source: metaculus
+url: https://www.metaculus.com/questions/45421/
+post_id: 45421
+type: binary
+unit: null
+tags:
+- animal-welfare
+- us-state-policy
+- legislation
+- animal-futures-tournament
+dates:
+  created: '2026-09-17'
+  opened: null
+  closes: '2026-12-18'
+  resolves: '2027-07-01'
+status: open
+current:
+  version: 1
+  date: '2026-09-17'
+  median: 0.12
+  iqr:
+  - 0.085
+  - 0.17
+  community:
+    cp: null
+    pro: null
+    gold: null
+    n_forecasters: 4
+    as_of: '2026-09-17'
+next_review: '2026-10-17'
+tripwires:
+- signal: Metaculus CP reveals more than 10 pp away from 12% with n >= 20
+  by: '2026-09-20'
+  direction: either
+  magnitude: 0
+  magnitude_unit: pp
+  fired: null
+- signal: Farm Bill conference report includes the Save Our Bacon Act (H.R. 7567 sec. 12006) preemption
+    language
+  by: '2026-12-31'
+  direction: down
+  magnitude: 6
+  magnitude_unit: pp
+  fired: null
+- signal: A cage-free bill in a state outside the ten excluded is reported favourably out of an agriculture
+    committee
+  by: '2027-02-28'
+  direction: up
+  magnitude: 12
+  magnitude_unit: pp
+  fired: null
+- signal: Such a bill passes one full chamber, or reaches a floor calendar in NY, CT, ME, NJ, MD or NM
+  by: '2027-03-31'
+  direction: up
+  magnitude: 20
+  magnitude_unit: pp
+  fired: null
+- signal: BLS/USDA average retail price of Grade A large eggs reaches $4.00/dozen or higher
+  by: '2027-02-28'
+  direction: down
+  magnitude: 4
+  magnitude_unit: pp
+  fired: null
+- signal: At least 8 of the 11 candidate legislatures adjourn sine die with no cage-free bill having passed
+    a chamber
+  by: '2027-05-31'
+  direction: down
+  magnitude: 8
+  magnitude_unit: pp
+  fired: null
+resolution:
+  outcome: null
+  date: null
+  source: null
