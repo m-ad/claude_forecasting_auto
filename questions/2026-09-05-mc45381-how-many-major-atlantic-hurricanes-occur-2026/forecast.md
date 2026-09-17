@@ -6,11 +6,307 @@
 | **Type** | multiple choice — options `0`, `1`, `2`, `3`, `4+` |
 | **Opened / Closes / Resolves** | 2026-09-07 / 2026-10-16 / 2026-11-30 (NHC data as of 2026-12-01) |
 | **Status** | open |
-| **Current forecast** | **0: 47.0% · 1: 31.0% · 2: 15.0% · 3: 5.0% · 4+: 2.0%** — leading option `0`, IQR [40.0%, 54.0%] (v1, 2026-09-05) |
-| **Community (as of 2026-09-05)** | **not yet revealed** — status `upcoming`, CP reveal 2026-09-10T17:00Z (n=20 forecasters already in) |
-| **Next review** | 2026-09-19 |
+| **Current forecast** | **0: 63.0% · 1: 26.0% · 2: 8.5% · 3: 2.0% · 4+: 0.5%** — leading option `0`, IQR [56.0%, 70.0%] (v2, 2026-09-17) |
+| **Community (as of 2026-09-17)** | CP **0: 52.5%** · Pro **53.1%** (n=9) · gold **52.5%** (n=28) — n=106 forecasters; cohorts agree to within 0.6 pp |
+| **Market (as of 2026-09-17)** | **Kalshi `KXHURCTOTMAJ-26DEC01`: P(0) ≈ 65.5%** (`>0` strike 33/36¢, last trade 33¢ at 02:45Z, 12.1k contracts) |
+| **Next review** | 2026-09-24 |
 
 <!-- Versions below, newest first. APPEND-ONLY: never edit or delete a past version. -->
+
+---
+
+## v2 — Re-analysis — 2026-09-17
+
+**Mode: Re-analysis, not incremental update.** Two of the conditions in
+`docs/update-protocol.md` §6 hold. v1's own tripwire 7 fired — the Metaculus CP on reveal
+(2026-09-10 17:01Z) sat at **27.3%** on option `0`, below the 30% threshold at which v1 wrote
+"trigger a re-analysis rather than a nudge". And a real-money market that v1 recorded as
+non-existent turns out to exist and to disagree with v1 by 18.5 pp. The reference class below is
+rebuilt from scratch (post-17-September majors in super-El-Niño seasons), not adjusted from v1's
+classes A/B/C.
+
+### Revision table
+
+| Driver | Direction | Effect on P(`0`) |
+|---|---|---|
+| **Prior — v1, 2026-09-05** | — | **47.0%** |
+| **Hazard decay.** 12 days elapsed, zero events, including the 10 September climatological peak. The climatological share of major-hurricane activity still ahead falls from ~55% (post-12 Sep) to ~44% (post-17 Sep) — a 0.80× factor on λ with nothing banked against it [25] | ↑ | **+6 pp** |
+| **Record wind shear, now quantified.** Klotzbach: the 30-day mean shear over the Caribbean-to-Africa corridor in early September was the strongest since the 1979 satellite record began, averaging **more than 3 knots above any other year** [26,27]. v1 knew the basin was sheared; it did not know the anomaly was this far outside the historical envelope | ↑ | **+5 pp** |
+| **El Niño upgraded from "super" to "possibly historic".** CPC's 2026-09-10 discussion: Niño 3.4 at **+1.8 °C** in August, **> 90%** chance of a very strong event through fall/winter, and a **75%** chance the Oct–Dec RONI exceeds **every event since 1950** [28]. The forcing peaks *after* the question window closes, so the suppression does not relax inside it | ↑ | **+3 pp** |
+| **Kalshi market discovered.** `KXHURCTOTMAJ-26DEC01` trades this exact quantity; its `>0` strike is at 33–36¢, i.e. **P(0) ≈ 65.5%**, with live two-way flow on 2026-09-17 and 12.1k contracts traded [29]. v1's search log recorded "no market found" — that was a research miss, not an absence | ↑ | **+4 pp** |
+| **Metaculus cohorts revealed and agree.** CP 52.5%, Pro 53.1%, gold 52.5% — no cohort disagreement to mine. The CP has climbed from 27.3% to 52.5% in seven days and is still rising ~2 pp/day, i.e. it is trending *toward* me from below | ↑ | **+1 pp** |
+| **WeatherTiger pulls the other way.** Truchelut's 2026-09-09 model run gives **40%** for zero majors, full-season ACE ≈ 34 and a point forecast of 1 major [30]. A domain specialist with dynamical sub-seasonal guidance I do not have, sitting 25 pp below me, is the main reason not to go higher | ↓ | **−3 pp** |
+| **v2 — 2026-09-17** | — | **63.0%** |
+
+### Tripwire check (v1's list)
+
+| # | Tripwire | Status | What actually happened |
+|---|---|---|---|
+| 1 | First Atlantic hurricane forms by 2026-09-30 | **not fired** | Still **zero** hurricanes on 2026-09-17. The satellite-era record for the latest first hurricane (11 September, 2002 and 2013) **has now been broken** [22,23,31]. The conditional "+12 pp onto `0` if none by 30 Sep" is not yet due |
+| 2 | Any Atlantic system reaches Category 3 | **not fired** | No Atlantic system has reached even Category 1 all season |
+| 3 | NHC TWO flags ≥ 60% 7-day formation chance in the western Caribbean | **not fired** | NHC's 2026-09-17 02:00 EDT outlook carries exactly one area: **AL98**, a small subtropical low a few hundred miles east of Bermuda, 40% / 40% (2-day / 7-day). The Caribbean and the main development region are empty [24] |
+| 4 | CPC ONI shows El Niño peaking or weakening early (ASO/SON below +1.5) | **fired in reverse** | The opposite: +1.8 °C in August, > 90% for a very strong event, 75% for a *historic* OND [28]. This is the tripwire whose failure mode I had not priced — I wrote it as a one-sided check and it moved hard the other way |
+| 5 | 2026-10-15 passes with still zero hurricanes | **not due** | 28 days away |
+| 6 | Further CSU or NOAA downward revision before close | **partially fired** | Neither body issues a seasonal update after August, so the literal signal cannot fire. Its functional equivalent did: CSU's 2026-09-02 two-week forecast "strongly favouring below-normal activity" through 15 September **verified**, and Klotzbach's 10 September statistics (least ACE of any season through 10 September since 1950; record shear) are a downward revision in all but name [26,27] |
+| 7 | Metaculus CP on reveal below 30% or above 62% | **FIRED (low side)** | CP at reveal = **27.3%** on option `0`. Pros were at 49.0% and gold at 41.7% at the same instant — the better-track-record cohorts started far closer to v1's 47% than the raw community did, and the community has since converged up through both |
+
+### What resolves YES (which option)
+
+Unchanged from v1. The number of major hurricanes — Category 3+, sustained winds ≥ 111 mph —
+in the Atlantic basin between 1 June and 30 November 2026, **as reported by the NHC on
+1 December 2026**; later reanalysis upgrades are explicitly excluded, which biases the resolving
+number slightly below the eventual best-track. Buckets `0`/`1`/`2`/`3`/`4+` are exhaustive and
+`4+` includes exactly 4 (admin comment, 2026-09-05).
+
+One clarification worth adding now that a market exists: **Kalshi's window is 1 January –
+1 December 2026 and Metaculus's is 1 June – 30 November 2026.** For the Atlantic these are the
+same question — no Cat 3+ has ever occurred in an Atlantic January–May or on 1 December — so I
+treat the Kalshi price as a direct read on this question rather than adjusting it.
+
+### Outside view — rebuilt
+
+v1's reference classes were built around "seasons with no hurricane by 5 September" and "strong
+El Niño seasons", both scored over the *whole* season. That double-counts the three months
+already in the bag. The question that actually matters on 17 September is narrower:
+
+> **In a strong-El-Niño season, how many major hurricanes form after 17 September?**
+
+The satellite-era super-El-Niño set, defined by three-month maximum RONI (Relative Oceanic Niño
+Index — the Niño 3.4 anomaly measured against the tropical-mean sea-surface temperature, which
+strips out global ocean warming and is the index hurricane forecasters now prefer), is
+**1972, 1982, 1987, 1997, 2002, 2015** [32].
+
+| Year | Majors after 17 Sep | Which |
+|---|---|---|
+| 1972 | 0 | no majors at all that season |
+| 1982 | **1** | Debby — Cat 4 on **18 September**, the season's only major [33] |
+| 1987 | **1** | Emily — Cat 3, peak **22 September**, the season's only major [34] |
+| 1997 | 0 | Erika (Cat 3) peaked 8 September; nothing after |
+| 2002 | **2** | Isidore (Cat 3, ~21 September) and Lili (Cat 4, 2–3 October) [35,36] |
+| 2015 | **1** | Joaquin — Cat 4 on **1 October**, from a non-tropical low near the Bahamas [37] |
+
+**Mean 0.83 majors after 17 September; 4 of 6 seasons produced at least one; empirical
+P(0) = 33%.** This is the honest base rate and it argues *against* a high P(`0`), not for it.
+Two entries deserve naming rather than averaging away:
+
+- **2002 is the closest structural analogue that exists.** It was a super El Niño *and* the
+  previous holder of the latest-first-hurricane record (Gustav, 11 September) — and it still
+  delivered two majors, one of them a Cat 4, entirely after 17 September. A record-late start
+  demonstrably does not imply a dead back half.
+- **1982 was quieter than 2026 looks likely to be** — 5 named storms, 2 hurricanes, ACE 17.4,
+  still the satellite-era floor — and it produced a **Category 4** on 18 September.
+
+A cross-check on the climatological share, from a different direction: roughly **85% of Atlantic
+major-hurricane activity falls in the 20 August – 10 October window**, and 96% of major-hurricane
+days fall in August–October [25]. As of 17 September, 28 of those 51 core days are spent. Summing
+the remainder of the core window plus the thin post-10-October tail gives **~44%** of climatological
+major activity still ahead, or 3.2 × 0.44 ≈ **1.41 majors** on a normal season. Two independent
+routes (reference class 0.83, climatology 1.41 before any suppression) bracket the starting point.
+
+### Inside view — where the season stands on 2026-09-17
+
+| Metric | 2026 to date | Full-season normal | Note |
+|---|---|---|---|
+| Named storms | **5** (Arthur, Bertha, Cristobal, Dolly, Edouard) | 14 | none since Edouard dissipated 3 September |
+| Hurricanes | **0** | 7 | satellite-era record for latest first hurricane, **broken** |
+| Major hurricanes | **0** | 3.2 | — |
+| ACE | **4.4** (through 10 Sep) | ≈ 123 | **lowest of any season through 10 September since 1950** [27] |
+| 30-day mean shear, early Sep | **strongest since 1979**, by > 3 kt | — | the proximate cause [26] |
+| Niño 3.4, August | **+1.8 °C**, strengthening | — | 75% chance OND beats every event since 1950 [28] |
+
+Three things are new since v1 and all of them cut the same way.
+
+**1. The shear anomaly is far outside the historical envelope.** "Strongest since 1979" would be
+unremarkable on its own — some year has to hold the record. **"More than 3 knots above any other
+year"** is not: seasonal shear records normally fall by fractions of a knot. This is the single
+most important new number in this update, because it is a *measurement* of the suppression
+mechanism rather than a forecast of it, and because seasonal shear anomalies driven by ENSO are
+strongly autocorrelated month to month.
+
+**2. The forcing strengthens through the entire remaining window.** v1 assumed a super El Niño
+holding steady. CPC now puts 75% on the Oct–Dec RONI exceeding **every event since 1950** [28].
+The peak arrives after the question closes. There is no relaxation to wait for inside the window.
+
+**3. The peak week was consumed with the basin empty.** Between 5 and 17 September — spanning the
+10 September climatological peak — not one system formed, and NHC currently shows nothing at all
+in the Caribbean or the main development region.
+
+**Rate construction.** Start from the super-El-Niño post-17-September rate, λ₀ ≈ 0.83, and apply
+the conditioning that none of those six seasons shared. Every one of them had already produced a
+hurricane by 17 September; 1982 had a storm spinning that became a Cat 4 the next day; 2002 had
+Isidore already named. 2026 has an empty map. Marginal multipliers, each discounted for overlap
+with the others because they are largely one causal story:
+
+| Factor | Multiplier | Why not lower/higher |
+|---|---|---|
+| Record-low ACE through the peak (4.4, lowest since 1950) | 0.55 | seasons in the bottom decile at the peak finish very low; this is the headline conditioning |
+| Record shear, > 3 kt beyond any prior year | 0.75 | mostly collinear with the above — it *is* the cause — so only a marginal cut |
+| El Niño stronger than all six analogues, still strengthening | 0.85 | again partly collinear; the increment is that no analogue had forcing this strong *in* its late window |
+| Empty basin today; only a 40% subtropical low near Bermuda | 0.90 | removes ~7–10 days of a ~75-day window, not all of it |
+
+Product ≈ 0.32; I use **0.37** deliberately, because multiplying four correlated factors is the
+most likely way for this chain to be wrong, and the error is one-directional. → **λ ≈ 0.31**.
+The climatological route gives 1.41 × ~0.28 ≈ 0.39. **Centre λ ≈ 0.35**, and mix over the
+residual uncertainty rather than pretending to know it:
+
+| Branch | λ | Weight | P(0) |
+|---|---|---|---|
+| Shear stays record-hostile to the end (the 1972 / 1997 path) | 0.20 | 0.30 | 81.9% |
+| Central | 0.35 | 0.40 | 70.5% |
+| One favourable window opens (the 1982 / 1987 / 2015 path) | 0.60 | 0.22 | 54.9% |
+| Basin back-loads hard (the 2002 Isidore/Lili path) | 1.10 | 0.08 | 33.3% |
+
+The mixture yields 0: 67.5% · 1: 25.0% · 2: 6.0% · 3: 1.3% · 4+: 0.3%. I then shade P(`0`) down
+to **63%** and fatten the `2` bucket, for two stated reasons: WeatherTiger's 40% is a specialist
+model run and sits 25 pp below me, and Kalshi prices a visibly fatter upper tail than my mixture
+does (P(2) = 12% against my 6%), which is the overdispersion signature — one favourable
+late-September pattern delivers two majors, as 2002 showed — and the market is expressing it more
+strongly than a Poisson mixture can.
+
+**Final distribution: 0 = 63.0% · 1 = 26.0% · 2 = 8.5% · 3 = 2.0% · 4+ = 0.5%** (mean 0.51).
+
+![Panel A: the four live estimates of the count distribution side by side. Panel B: the Metaculus community prediction on option 0 climbing from 27.3% at reveal to 52.5%, against the Kalshi mid, both of my versions, and WeatherTiger](charts/distribution_v2.png)
+
+### Evidence
+
+**The seasonal-forecast picture has not been refreshed — and cannot be.** Neither CSU nor NOAA
+issues a seasonal update after August, so the "0–2 majors" (NOAA, 2026-08-06) and "1 major" (CSU,
+2026-08-05) numbers still circulating in the Metaculus comment thread are six weeks old and were
+issued when the season had **two** named storms. Three more have formed and failed since. The only
+still-running products are CSU's two-week forecasts — the 2026-09-02 issue "strongly favouring
+below-normal activity" through 15 September, which verified — and Klotzbach's running statistics.
+
+| Forecaster | Issued | Named | Hurricanes | **Majors** | ACE | Live? |
+|---|---|---|---|---|---|---|
+| CSU (final seasonal) | 2026-08-05 | 9 | 4 | **1** | 40–45% of normal | stale |
+| NOAA CPC (Aug update) | 2026-08-06 | 7–13 | 2–6 | **0–2** (70%) | 30–90% of median | stale |
+| CSU two-week | 2026-09-02 | — | — | — | below normal through 15 Sep | **verified** |
+| **WeatherTiger** | **2026-09-09** | **~10** | **2** | **1** (40% chance of none) | **≈ 34** | **current** |
+
+**Three new measurements, all pointing the same way** [26,27,28]: ACE 4.4 through 10 September is
+the lowest of any season through that date since 1950; the early-September 30-day mean shear was
+the strongest since the 1979 satellite record began, by more than 3 knots; and Niño 3.4 reached
++1.8 °C in August with a 75% chance the Oct–Dec RONI exceeds every event since 1950. The first two
+are observations, not forecasts — that is what makes them worth more than another model run.
+
+**Actively looking for the disconfirming case.** Three specific things would argue for `1` or
+more, and I checked each:
+
+1. **The 2023 escape hatch — record Atlantic SSTs overwhelming El Niño shear.** Still absent.
+   NOAA describes 2026 Atlantic SSTs as only slightly above normal. Ruled out again.
+2. **A live system.** The nearest thing to one is AL98, a small subtropical low a few hundred
+   miles east of Bermuda at 40% / 40% [38]. This is not nothing: **both** Joaquin (2015, Cat 4)
+   and Debby (1982, Cat 4) — the two post-17-September majors in the strongest El Niño analogues —
+   formed outside the main development region, Joaquin from a non-tropical low near the Bahamas.
+   The non-MDR route is precisely the one that stays open when shear kills the tropical wave
+   train. But mid-September SSTs near Bermuda are marginal for Cat 3, and NHC does not yet give
+   AL98 even odds of becoming a depression.
+3. **The October western-Caribbean window.** The mechanism that produced Lili (Cat 4, 3 Oct 2002)
+   and kept v1 at 22% on `2`+. It has not closed — but the shear anomaly is centred on exactly the
+   Caribbean-to-Africa corridor where it would have to open [26], and WeatherTiger reports "no
+   sign of an impending shift towards a more conducive environment" [30].
+
+**Absence of expected evidence.** If the basin were about to turn, NHC would be flagging African
+wave activity or a Caribbean gyre by mid-September. Twelve days after v1 made the same
+observation, the map still shows neither. That is the second consecutive draw from a distribution
+that should, on a normal season, have produced something by now (LR ≈ 0.5 against the higher
+counts, roughly repeating v1's).
+
+**The misconception from v1, restated because it still governs.** "Zero hurricanes" and "zero
+*major* hurricanes" are different claims and coverage keeps conflating them. A shear-dominated
+basin's most likely late-season output is weak, short-lived Category 1–2 hurricanes. 2026 could
+produce three of those in October and still resolve `0`. The `0` bucket is fatter than the
+"will there be any hurricane at all?" framing implies — and note that WeatherTiger's own central
+case, 2 hurricanes and 1 major, sits a single intensity category away from resolving this `0`.
+
+### Other forecasters
+
+| Source | P(0 majors) / value | As of | Note |
+|---|---|---|---|
+| **Kalshi `KXHURCTOTMAJ-26DEC01`** | **≈ 65.5%** (`>0` at 33/36¢) | 2026-09-17 02:45Z | real money, live two-way flow today, 12.1k contracts on the `>0` strike, 6.5k open interest; implied buckets 0: 65.5 · 1: 19.5 · 2: 12.0 · 3: 1.5 · 4+: 1.5 [29] |
+| **Metaculus CP** (recency-weighted) | **52.5%** | 2026-09-17 04:03 | n=103; 27.3% → 52.5% in seven days, still rising [1] |
+| **Metaculus Pro** | **53.1%** | 2026-09-17 04:03 | n=9; was 49.0% at reveal — barely moved, i.e. Pros were right early |
+| **Metaculus gold medalists** | **52.5%** | 2026-09-17 04:03 | n=28 |
+| **WeatherTiger** (Truchelut) | **40%** | 2026-09-09 | full-season ACE ≈ 34, ~10 NS / 2 H / **1 major**; 20% chance 2026 finishes below 1982's record-low 17.4 ACE; "no sign of an impending shift towards a more conducive environment" [30] |
+| CSU (Klotzbach et al.) | 1 major; ACE 40–45% of normal | 2026-08-05 | no September seasonal update exists; the two-week product of 2026-09-02 verified below-normal |
+| NOAA CPC | 0–2 majors, 70% conf.; P(below normal) 75% | 2026-08-06 | stale by six weeks and five named storms |
+| Polymarket / Manifold | no market found | 2026-09-17 | re-searched |
+
+**Cohort agreement.** All three Metaculus cohorts sit within 0.6 pp of each other — there is no
+Pro-vs-community gap to mine here. The informative split is between **Metaculus (52.5%) and
+Kalshi (65.5%)**, a 13 pp gap on an identically-resolving question. I read it as a lag rather
+than a disagreement: the CP is recency-weighted but still carries forecasts submitted before
+14 September, it has climbed monotonically for eight days without levelling, and the comment
+thread shows several forecasters anchoring on NOAA's August "0–2 majors" and CSU's "1 major" —
+both issued when only two named storms existed. I sit between the two, nearer Kalshi.
+
+**Where I could be wrong, stated sharply.** The specialist forecaster is the *lowest* of all the
+anchors. WeatherTiger has dynamical sub-seasonal guidance on October shear that I do not, and if
+that guidance shows a relaxation, 40% is the number and 63% is badly overconfident. Against that:
+their run predates eight further dead days, and operational hurricane messaging carries a
+structural reluctance to publish "nothing will happen" — the same column ends on "it only takes
+one". I have weighted them at −3 pp rather than deferring, and flag this as the update's main
+exposure.
+
+### Scenarios
+
+| # | Scenario | Weight | Implies |
+|---|---|---|---|
+| 1 | **Shear never relaxes.** Record shear persists as El Niño strengthens into its historic OND peak; any late storm stays Cat 1–2 or subtropical. | 0.63 | **0** |
+| 2 | **One window, one major.** A single low-shear break — western Caribbean in October, or a Bahamas/subtropical spin-up of the Joaquin type — produces one Cat 3+. | 0.26 | **1** |
+| 3 | **The 2002 shape.** One favourable late-September pattern delivers two, Isidore-and-Lili style. | 0.085 | **2** |
+| 4 | **Genuine back-loading.** MJO delivers a sustained favourable phase and October–November run near normal. | 0.02 | **3** |
+| 5 | **2001/2002 repeat at full strength.** | 0.005 | **4+** |
+
+### Sensitivity
+
+| Assumption | If instead | Forecast becomes |
+|---|---|---|
+| λ ≈ 0.35 over the remaining window | WeatherTiger's implied λ ≈ 0.83 is right (no conditioning credit for the quiet peak) | 0: ~44% · 1: ~36% · 2: ~15% · 3: ~4% |
+| λ ≈ 0.35 | Shear relaxes in October to λ ≈ 0.60 | 0: ~55% · 1: ~33% · 2: ~10% · 3: ~2% |
+| λ ≈ 0.35 | Record shear holds to 30 November, λ ≈ 0.20 | 0: ~82% · 1: ~16% · 2: ~2% |
+| Kalshi is a fair read on this question | Kalshi's `>0` strike is depressed by one-sided "no" carry flow | shift ~4 pp off `0` |
+| No hurricane at all forms before 1 October | (checkable on 2026-10-01) | 0: ~75% · 1: ~21% · 2: ~4% |
+
+### What would change my mind (tripwires)
+
+- [ ] **Any Atlantic system reaches Category 3** — by 2026-11-30 → `0` collapses to ~0%; mass to `1`/`2`
+- [ ] **Still zero hurricanes on 2026-09-30** → up ~6 pp on `0` (smaller than v1's +12 pp: most of that decay is now already priced)
+- [ ] **NHC TWO flags ≥ 50% 7-day formation chance in the western Caribbean or the Bahamas** — by 2026-10-31 → down ~8 pp on `0`. This is now the *only* live route to a major; threshold lowered from v1's 60% because the basin is quiet enough that a 50% flag is itself a regime signal
+- [ ] **AL98, or a successor subtropical low, becomes a named storm and NHC forecasts it to Cat 2 or stronger** — by 2026-09-30 → down ~5 pp on `0`. Joaquin (2015) and Debby (1982) both took this non-MDR route in super-El-Niño years
+- [ ] **2026-10-10 passes with zero majors** — the 20 Aug – 10 Oct window holding ~85% of climatological major activity closes → `0` to ~80%
+- [ ] **CPC ENSO update (due ~2026-10-08) puts OND RONI below +2.0, or shows El Niño peaking early** → down ~5 pp on `0`
+- [ ] **Kalshi `KXHURCTOTMAJ-26DEC01-T0` trades outside 25–45¢** (P(0) outside 55–75%) → re-check; a move to the low end against a static basin would mean I am reading the market wrong
+- [ ] **Metaculus CP on `0` overshoots 63% or falls back below 45%** → re-check. It has risen ~2 pp/day for eight days; a level-off *below* me is the signal that the crowd sees a floor I do not
+- [ ] **WeatherTiger publishes a revised P(no major) below 35% or above 55%** → re-weight the −3 pp specialist discount
+
+### Sources
+
+Sources 1–24 are carried from v1 and were not re-verified except where noted. New and re-fetched
+for v2:
+
+1. Metaculus — question #45381, all three cohort aggregations and 304-point history — https://www.metaculus.com/questions/45381/ ; snapshot in `raw/metaculus-2026-09-17.json` (accessed 2026-09-17; the fetcher needed `METACULUS_FORCE_TLS12=1` — a plain run returned status 0, no HTTP response at all)
+25. NOAA NHC — Tropical Cyclone Climatology (share of major-hurricane activity in the 20 Aug – 10 Oct window; 96% of major-hurricane days in Aug–Oct) — https://www.nhc.noaa.gov/climo/ (accessed 2026-09-17)
+26. weather.com — "Atlantic hurricane season peak: a record hurricane delay" (10 Sep 2026), quoting Klotzbach on shear strongest since 1979 — https://weather.com/2026/09/10/storms/hurricane/atlantic-hurricane-season-quiet-during-peak-september (accessed 2026-09-17)
+27. Klotzbach (CSU) via Yahoo/weather.com syndication — ACE 4.4 through 10 September, lowest of any season through that date since 1950; 30-day shear > 3 kt above any prior year since 1979 — https://www.yahoo.com/news/weather-news/articles/atlantic-hurricane-season-2026-sets-100212628.html (accessed 2026-09-17)
+28. NOAA CPC — ENSO Diagnostic Discussion, issued 2026-09-10: El Niño Advisory, Niño 3.4 +1.8 °C (August), > 90% chance of a very strong event in NH fall/winter 2026-27, 75% chance the OND RONI exceeds +2.5 and every event since 1950 — https://www.cpc.ncep.noaa.gov/products/analysis_monitoring/enso_advisory/ensodisc.shtml (accessed 2026-09-17)
+29. Kalshi — series `KXHURCTOTMAJ`, event `KXHURCTOTMAJ-26DEC01`, all eight strikes with bid/ask/last/volume/open interest, plus the 15 most recent trades on the `>0` strike — https://api.elections.kalshi.com/trade-api/v2/markets?series_ticker=KXHURCTOTMAJ ; snapshot in `raw/kalshi-KXHURCTOTMAJ-2026-09-17.json` (accessed 2026-09-17; the web UI returned HTTP 429, the public API did not)
+30. WeatherTiger (Ryan Truchelut) — "Friends in Low ACEs", 2026-09-09: 40% chance of no major hurricane, full-season ACE ≈ 34, 20% chance of finishing below 1982's record-low 17.4 — https://weathertiger.substack.com/p/friends-in-low-aces-weathertigers (accessed 2026-09-17)
+31. AOL / weather.com — "2026 Atlantic Hurricane Season Sets Record for Latest First Hurricane Formation" — https://www.aol.com/articles/2026-atlantic-hurricane-season-sets-003046000.html (accessed 2026-09-17)
+32. Fox Weather / weather.com — satellite-era super-El-Niño set by three-month maximum RONI in Jun–Nov: 1972, 1982, 1987, 1997, 2002, 2015 (1991 and 2023 El Niño but not super in-season); those seasons averaged 11 named storms / 4 hurricanes / 2 majors — https://weather.com/2026/08/12/storms/hurricane/hurricanes-didnt-care-super-el-nino (accessed 2026-09-17)
+33. Wikipedia — "Hurricane Debby (1982)": only major of the 1982 season, peaked Cat 4 (130 mph) on 18 September; 1982 had 2 hurricanes, a satellite-era record low tied with 2013 — https://en.wikipedia.org/wiki/Hurricane_Debby_(1982) (accessed 2026-09-17)
+34. Wikipedia — "Hurricane Emily (1987)": Cat 3, peak 125 mph / 958 mbar on 22 September, only major of the 1987 season — https://en.wikipedia.org/wiki/Hurricane_Emily_(1987) (accessed 2026-09-17)
+35. Wikipedia — "Hurricane Isidore" (2002): first major of 2002, Cat 3, named 17 September south of Jamaica — https://en.wikipedia.org/wiki/Hurricane_Isidore (accessed 2026-09-17)
+36. Wikipedia — "Hurricane Lili" (2002): second major of 2002, formed 21 September, peaked Cat 4, landfall 3 October — https://en.wikipedia.org/wiki/Hurricane_Lili (accessed 2026-09-17)
+37. Wikipedia / NHC TCR AL112015 — "Hurricane Joaquin": reached hurricane strength 30 September 2015, Cat 4 on 1 October, peak 155 mph, developed from a non-tropical low — https://en.wikipedia.org/wiki/Hurricane_Joaquin and https://www.nhc.noaa.gov/data/tcr/AL112015_Joaquin.pdf (accessed 2026-09-17)
+38. NOAA NHC — Graphical Tropical Weather Outlook, Atlantic, 2026-09-17 02:00 EDT: single area AL98, subtropical low a few hundred miles east of Bermuda, 40% / 40% — https://www.nhc.noaa.gov/gtwo.php?basin=atlc&fdays=7 (accessed 2026-09-17)
+39. Wikipedia — "2026 Atlantic hurricane season", storm-by-storm list and ACE through 12 September — https://en.wikipedia.org/wiki/2026_Atlantic_hurricane_season (accessed 2026-09-17)
+40. Insurance Journal / Bloomberg — "Atlantic Hurricane Season Remains Most Tranquil Since 1941" (4 Sep 2026) — https://www.insurancejournal.com/news/national/2026/09/04/884092.htm (accessed 2026-09-17)
+41. CNN — "El Niño has broken Atlantic hurricanes. Now the season is breaking records" (12 Sep 2026) — https://www.cnn.com/2026/09/12/weather/el-nino-hurricane-storm-atlantic-record-climate (accessed 2026-09-17)
+
+**Date**: 2026-09-17
+**Forecast**: 0: 63.0%, 1: 26.0%, 2: 8.5%, 3: 2.0%, 4+: 0.5% — leading option `0`, IQR [56.0%, 70.0%]
+**Thesis**: Twelve quiet days consumed the 10 September peak and broke the satellite-era record for the latest first hurricane, and the suppression mechanism is now measured rather than forecast — early-September 30-day shear was the strongest since 1979 by more than 3 knots, ACE 4.4 is the lowest through 10 September since 1950, and CPC gives 75% that the Oct–Dec El Niño exceeds every event since 1950, peaking after this question closes [26,27,28]. Rebuilding from the super-El-Niño post-17-September base rate (0.83 majors, 4 of 6 seasons ≥ 1) and conditioning on a basin no analogue matched gives λ ≈ 0.35, so `0` runs at 63% — below Kalshi's 65.5% and above a Metaculus CP that has climbed 27.3% → 52.5% in seven days without levelling [1,29]. The main exposure is WeatherTiger's specialist 40%, discounted but not dismissed [30].
 
 ---
 
