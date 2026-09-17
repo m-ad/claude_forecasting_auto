@@ -1,6 +1,5 @@
 slug: 2026-09-05-mc45381-how-many-major-atlantic-hurricanes-occur-2026
-title: How many Major Atlantic Hurricanes will occur in the 2026 Atlantic hurricane
-  season?
+title: How many Major Atlantic Hurricanes will occur in the 2026 Atlantic hurricane season?
 source: metaculus
 url: https://www.metaculus.com/questions/45381/
 post_id: 45381
@@ -14,63 +13,78 @@ dates:
   resolves: '2026-11-30'
 status: open
 current:
-  version: 1
-  date: '2026-09-05'
-  median: 0.47
+  version: 2
+  date: '2026-09-17'
+  median: 0.63
   iqr:
-  - 0.4
-  - 0.54
+  - 0.56
+  - 0.7
   community:
-    cp: null
-    pro: null
-    gold: null
-    n_forecasters: 20
-    as_of: '2026-09-05'
-next_review: '2026-09-19'
+    cp: 0.525
+    pro: 0.531
+    gold: 0.525
+    n_forecasters: 106
+    as_of: '2026-09-17'
+next_review: '2026-09-24'
 tripwires:
-- signal: First Atlantic hurricane of 2026 forms on or before 2026-09-30 — moves 8pp
-    off option `0` onto `1`/`2`; if no hurricane by 2026-09-30, move 12pp ONTO `0`
+- signal: Any Atlantic system reaches Category 3 — option `0` collapses to ~0
+  by: '2026-11-30'
+  direction: down
+  magnitude: 63
+  magnitude_unit: pp
+  fired: null
+- signal: Still zero Atlantic hurricanes on 2026-09-30 — on option `0` (smaller than v1's +12pp; most
+    of that decay is now priced)
   by: '2026-09-30'
+  direction: up
+  magnitude: 6
+  magnitude_unit: pp
+  fired: null
+- signal: NHC Tropical Weather Outlook flags a 50%+ 7-day formation chance in the western Caribbean or
+    the Bahamas — the only live route to a major
+  by: '2026-10-31'
   direction: down
   magnitude: 8
   magnitude_unit: pp
   fired: null
-- signal: Any Atlantic system reaches Category 3 — option `0` collapses to ~0
-  by: '2026-11-30'
+- signal: AL98 or a successor subtropical low near Bermuda becomes a named storm and NHC forecasts Cat
+    2 or stronger (the Joaquin-1982/Debby-2015 non-MDR route)
+  by: '2026-09-30'
   direction: down
-  magnitude: 47
+  magnitude: 5
   magnitude_unit: pp
   fired: null
-- signal: NHC Tropical Weather Outlook flags a 60%+ 7-day formation chance in the
-    western Caribbean — on option `0`
-  by: '2026-10-31'
-  direction: down
-  magnitude: 6
-  magnitude_unit: pp
-  fired: null
-- signal: CPC ONI update shows El Nino peaking or weakening early (ASO or SON below
-    +1.5) — on option `0`; mass to `2`/`3`
-  by: '2026-10-15'
-  direction: down
-  magnitude: 7
-  magnitude_unit: pp
-  fired: null
-- signal: 2026-10-15 passes with still zero Atlantic hurricanes — on option `0`, to
-    roughly 72%
-  by: '2026-10-15'
+- signal: 2026-10-10 passes with zero majors — the 20 Aug-10 Oct window holding ~85% of climatological
+    major activity closes; option `0` to ~80%
+  by: '2026-10-10'
   direction: up
-  magnitude: 25
+  magnitude: 17
   magnitude_unit: pp
   fired: null
-- signal: CSU or NOAA issue a further downward seasonal revision before question close
-    — on option `0`
+- signal: CPC ENSO update (due ~2026-10-08) puts OND RONI below +2.0 or shows El Nino peaking early —
+    on option `0`
+  by: '2026-10-15'
+  direction: down
+  magnitude: 5
+  magnitude_unit: pp
+  fired: null
+- signal: Kalshi KXHURCTOTMAJ-26DEC01-T0 trades outside 25-45c (implied P(0) outside 55-75%) — re-check,
+    do not nudge
   by: '2026-10-16'
-  direction: up
-  magnitude: 4
+  direction: either
+  magnitude: 0
   magnitude_unit: pp
   fired: null
-- signal: Metaculus CP on reveal (2026-09-10) puts option `0` below 30% or above 62%
-  by: '2026-09-13'
+- signal: Metaculus CP on option `0` overshoots 63% or falls back below 45% — a level-off below me is
+    the signal the crowd sees a floor I do not
+  by: '2026-10-16'
+  direction: either
+  magnitude: 0
+  magnitude_unit: pp
+  fired: null
+- signal: WeatherTiger publishes a revised P(no major) below 35% or above 55% — re-weight the -3pp specialist
+    discount
+  by: '2026-10-16'
   direction: either
   magnitude: 0
   magnitude_unit: pp

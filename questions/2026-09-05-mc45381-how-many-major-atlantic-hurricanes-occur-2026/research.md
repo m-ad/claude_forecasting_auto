@@ -136,3 +136,113 @@ Sanity checks:
 3. Is there a western-Caribbean October signal (MJO phase, low shear window)? That is the last
    realistic route to 2+ majors.
 4. Does NHC's operational count on 1 December differ from live tracking?
+
+---
+
+# v2 — Re-analysis — 2026-09-17
+
+## Tripwire check (v1's list), run before any general search
+
+| # | Tripwire | Status | Evidence |
+|---|---|---|---|
+| 1 | First hurricane by 2026-09-30 | not fired | still 0 hurricanes; the 11 Sep satellite-era record is now broken |
+| 2 | Any system reaches Cat 3 | not fired | nothing has reached Cat 1 all season |
+| 3 | NHC TWO ≥60% 7-day, western Caribbean | not fired | 17 Sep 02:00 EDT outlook: only AL98, subtropical, east of Bermuda, 40%/40% |
+| 4 | ONI ASO/SON below +1.5 | **fired in reverse** | CPC 10 Sep: Niño 3.4 +1.8 °C (Aug), >90% very strong, 75% OND beats every event since 1950 |
+| 5 | 2026-10-15 with zero hurricanes | not due | 28 days out |
+| 6 | Further CSU/NOAA downward revision | partial | neither issues post-August seasonal updates; CSU two-week (2 Sep) verified below-normal; Klotzbach 10 Sep stats are the equivalent |
+| 7 | CP on reveal <30% or >62% | **FIRED (low)** | CP at 2026-09-10 17:01Z = **27.3%**; Pro 49.0%, gold 41.7% at the same instant |
+
+Tripwire 7 firing is what set the mode to **Re-analysis**. Second qualifying condition: a
+real-money market exists (v1 said none did) and disagreed with v1 by 18.5 pp.
+
+## What v1 got wrong
+
+- **"No market found."** `KXHURCTOTMAJ-26DEC01` on Kalshi has traded this exact quantity since
+  2026-04-01. v1's search used natural-language queries against the web UI; the series only
+  surfaced via a differently-phrased search, and the price had to come from the public API
+  (`api.elections.kalshi.com/trade-api/v2/markets?series_ticker=…`) because the UI returns 429.
+  **Lesson: query prediction-market APIs by series ticker, not the site by prose.**
+- **Tripwire 4 was written one-sided.** "ONI below +1.5" had no companion clause for El Niño
+  coming in *stronger* than assumed, which is what happened. Tripwires on a continuous driver
+  need both tails.
+- v1's reference classes A/B/C were scored over whole seasons, which double-counts the three
+  months already spent. v2 scores the remaining window only.
+
+## Reference class, rebuilt: majors after 17 September in super-El-Niño seasons
+
+Set from RONI (Relative Oceanic Niño Index — Niño 3.4 anomaly measured against tropical-mean SST,
+which removes the global warming trend), three-month max in Jun–Nov: 1972, 1982, 1987, 1997,
+2002, 2015.
+
+| Year | Majors after 17 Sep | Which | Verified via |
+|---|---|---|---|
+| 1972 | 0 | none all season | — |
+| 1982 | 1 | Debby, Cat 4 on 18 Sep | Wikipedia (Hurricane Debby 1982) |
+| 1987 | 1 | Emily, Cat 3, 22 Sep | Wikipedia (Hurricane Emily 1987) |
+| 1997 | 0 | Erika peaked 8 Sep | — |
+| 2002 | 2 | Isidore (Cat 3, ~21 Sep), Lili (Cat 4, 2–3 Oct) | Wikipedia (both) |
+| 2015 | 1 | Joaquin, Cat 4, 1 Oct, from a non-tropical low | Wikipedia + NHC TCR AL112015 |
+
+Mean **0.83**; 4/6 seasons ≥ 1; empirical P(0) = **33%**. Every one of these six already had a
+hurricane by 17 September — 2026 has none. That gap is the whole conditioning argument.
+
+Climatological cross-check: ~85% of Atlantic major-hurricane activity falls 20 Aug – 10 Oct, 96%
+of major-hurricane days in Aug–Oct (NHC climatology). 28 of the 51 core days are spent on 17 Sep
+→ ~44% of climatological major activity still ahead → 3.2 × 0.44 ≈ **1.41** on a normal season.
+
+## Rate construction
+
+λ₀ = 0.83 (reference class). Marginal multipliers, each already discounted for collinearity:
+record-low ACE 0.55 · record shear 0.75 · El Niño stronger than all analogues 0.85 · empty basin
+today 0.90 → product 0.32. Used **0.37** instead, because the most likely failure of this chain
+is double-counting four correlated pieces of one causal story, and that error is one-directional.
+λ ≈ 0.31. Climatology route: 1.41 × 0.28 ≈ 0.39. **Centre λ = 0.35.**
+
+Mixture over λ (0.20 / 0.35 / 0.60 / 1.10 at weights 0.30 / 0.40 / 0.22 / 0.08) →
+0: 67.5 · 1: 25.0 · 2: 6.0 · 3: 1.3 · 4+: 0.3.
+
+Shaded to **0: 63.0 · 1: 26.0 · 2: 8.5 · 3: 2.0 · 4+: 0.5** (mean 0.51): −4.5 pp on `0` for
+WeatherTiger's specialist 40%, and `2` fattened toward Kalshi's 12% because the market prices
+overdispersion (one favourable window → two majors, the 2002 shape) more strongly than a Poisson
+mixture can.
+
+## Search log
+
+| Date | Query / source | Finding | Effect |
+|---|---|---|---|
+| 2026-09-17 | Metaculus #45381, all cohorts + 304-pt history (`METACULUS_FORCE_TLS12=1` required; plain run returned status 0) | CP 52.5 / Pro 53.1 / gold 52.5 on `0`, n=106; CP 27.3% at reveal → 52.5% in 7 days, still climbing | ↑ modest; caps how far above I go |
+| 2026-09-17 | Kalshi public API, series `KXHURCTOTMAJ` | `>0` at 33/36¢ → **P(0) ≈ 65.5%**; last trade 02:45Z, 12.1k contracts, 6.5k OI; buckets 0/1/2 = 65.5/19.5/12.0 | ↑↑ new anchor |
+| 2026-09-17 | NHC GTWO, 02:00 EDT | only AL98, subtropical, east of Bermuda, 40%/40%; Caribbean and MDR empty | ↑ |
+| 2026-09-17 | CPC ENSO Diagnostic Discussion, 2026-09-10 | Niño 3.4 +1.8 °C (Aug); >90% very strong through winter; **75% chance OND RONI exceeds every event since 1950** | ↑↑ |
+| 2026-09-17 | Klotzbach via weather.com / Yahoo, 10 Sep | ACE 4.4 = lowest through 10 Sep since 1950; early-Sep 30-day shear strongest since 1979 **by >3 kt** | ↑↑ the key new number |
+| 2026-09-17 | WeatherTiger "Friends in Low ACEs", 9 Sep | **40%** P(no major); full-season ACE ≈ 34, 1 major; 20% chance below 1982's record-low 17.4; "no sign of an impending shift" | ↓ the only downward anchor |
+| 2026-09-17 | weather.com 10 Sep, AOL, CNN 12 Sep, Insurance Journal 4 Sep | record for latest first hurricane broken; "most tranquil since 1941"; past super-El-Niño years averaged one September hurricane | ↑ |
+| 2026-09-17 | Wikipedia 2026 season | still 5 named storms / 0 hurricanes / 0 majors; ACE 4.4 through 12 Sep; no active systems; Fay and Gonzalo unused | ↑ |
+| 2026-09-17 | Wikipedia + NHC TCR: Debby 1982, Emily 1987, Isidore/Lili 2002, Joaquin 2015 | post-17-Sep majors in super-El-Niño years verified individually rather than recalled | ↓ caps P(0) |
+| 2026-09-17 | Fox Weather / weather.com super-El-Niño composite | satellite-era super set = 1972/1982/1987/1997/2002/2015 by 3-month max RONI; those seasons averaged 11/4/2 | frames the class |
+| 2026-09-17 | Search: Polymarket, Manifold | still nothing on Atlantic major-hurricane counts | — |
+
+## Dead ends and ruled-out hypotheses (v2)
+
+- **CSU or NOAA September seasonal update.** Does not exist — CSU's final seasonal forecast is the
+  August one and NOAA's last update was 2026-08-06. Only CSU's two-week product continues. Do not
+  wait for a revision that is not coming; tripwire 6 should have said so.
+- **`tropical.colostate.edu` direct fetch** — 403 again, as in v1. Use the search index or
+  weather.com write-ups.
+- **Kalshi web UI** — HTTP 429. The public API at `api.elections.kalshi.com` is unauthenticated
+  and works; `/markets?series_ticker=…` for quotes, `/markets/trades?ticker=…` for freshness.
+- **Reading the Kalshi/Metaculus 13 pp gap as a mispricing to trade against.** More likely a lag:
+  the CP has climbed monotonically for eight days without levelling, and its comment thread shows
+  forecasters anchoring on NOAA's August "0–2 majors" and CSU's "1 major", both issued when only
+  two named storms existed.
+
+## Open questions to chase next time (2026-09-24)
+
+1. Did anything form? Specifically, did AL98 or a successor Bermuda-area subtropical low develop,
+   and did NHC ever forecast it above Cat 1?
+2. Does any model guidance show an October western-Caribbean low-shear break? That is the only
+   remaining route to a major and the single highest-value thing to check.
+3. Has the Metaculus CP levelled off, and where? A level-off below 63% is evidence against me.
+4. Has WeatherTiger updated its P(no major) from the 9 September 40%?
+5. CPC ENSO update due ~2026-10-08 — does OND RONI still project above +2.5?
