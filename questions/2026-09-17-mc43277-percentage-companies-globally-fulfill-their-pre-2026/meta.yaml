@@ -1,0 +1,77 @@
+slug: 2026-09-17-mc43277-percentage-companies-globally-fulfill-their-pre-2026
+title: What percentage of companies globally will fulfill their pre-2026 cage-free commitments in 2026
+  and 2027?
+source: metaculus
+url: https://www.metaculus.com/questions/43277/
+post_id: 43277
+type: discrete
+unit: '%'
+tags:
+- animal-welfare
+- cage-free
+- corporate-commitments
+- chicken-watch
+dates:
+  created: '2026-09-17'
+  opened: null
+  closes: '2027-06-30'
+  resolves: '2028-01-01'
+status: open
+current:
+  version: 1
+  date: '2026-09-17'
+  median: 11.9
+  iqr:
+  - 9.6
+  - 15.3
+  community:
+    cp: null
+    pro: null
+    gold: null
+    n_forecasters: 2
+    as_of: '2026-09-17'
+next_review: '2026-11-15'
+tripwires:
+- signal: OWA 2026 fulfilment report lands and the Chicken Watch 2025-only cohort (Cage-Free, Victory
+    1990-2025, Timeline=2025) rises above 55% from 33.6%
+  by: '2027-01-31'
+  direction: up
+  magnitude: 8
+  magnitude_unit: '%'
+  fired: null
+- signal: Chicken Watch 2025-only cohort still below 45% — mega-cohort stall is structural
+  by: '2027-01-31'
+  direction: down
+  magnitude: 2.5
+  magnitude_unit: '%'
+  fired: null
+- signal: Chick-fil-A publicly confirms it missed, or formally extends, its 2026 cage-free deadline
+  by: '2027-06-30'
+  direction: down
+  magnitude: 1.5
+  magnitude_unit: '%'
+  fired: null
+- signal: Chicken Watch 2026-deadline cohort reaches >=15% 'Reporting Fulfilled' (from 5.0%)
+  by: '2027-06-30'
+  direction: up
+  magnitude: 4
+  magnitude_unit: '%'
+  fired: null
+- signal: Question denominator (Cage-Free, Victory 1990-2025, Timeline >=2026) exceeds 370 rows — systematic
+    re-dating dilutes the ratio
+  by: '2027-12-31'
+  direction: down
+  magnitude: 2
+  magnitude_unit: '%'
+  fired: null
+- signal: Chicken Watch announces a methodology change, tracker migration, or stops updating — annulment
+    risk, re-analyse
+  by: '2028-01-01'
+  direction: either
+  magnitude: 0
+  magnitude_unit: '%'
+  fired: null
+resolution:
+  outcome: null
+  date: null
+  source: null
