@@ -194,3 +194,53 @@ intensity" factor (σ=0.30 lognormal) that moves all cohorts together and sets m
 width, an idiosyncratic per-cohort factor (σ=0.25), Gamma denominator growth, a 5% re-dating
 dilution shock and a 12% "fast-sweep" regime. Output: median **11.9%**, IQR
 **[9.6%, 15.3%]**, p05 7.1%, p95 28.3%, P(≥30%) ≈ 4%.
+
+## Addendum 2026-09-17 (post-rebase) — reconciliation with the broiler twin, mc43278
+
+While rebasing onto `main` I found that a sibling session had landed
+`questions/2026-09-17-mc43278-…` — **the same question for broiler commitments**, resolving off
+the same Chicken Watch tracker with the same filter shape, at **median 3.8%, IQR [2.3%, 6.6%]**.
+My cage-free forecast moves today's value 3.7% → 11.9% (3.2×); theirs barely moves. That gap
+needs to be either justified or one of us is wrong, so I checked it against the snapshot.
+
+**Our reads of the dataset agree exactly.** Reproducing their reference-class table from
+`raw/chickenwatch-cleaned-2026-09-17.csv.gz` (forward-looking = Timeline > Victory Date;
+deadline passed = Timeline ≤ 2025):
+
+| Cut | Mine | Theirs |
+|---|---|---|
+| Cage-free, forward-looking, deadline passed | **488/1285 = 37.98%** | 488/1285 = 37.98% ✓ |
+| Broiler, forward-looking, deadline passed | **7/226 = 3.10%** | 7/226 = 3.10% ✓ |
+| Broiler, North America, deadline passed | **5/205 = 2.44%** | 5/205 = 2.44% ✓ |
+| Broiler pledges logged as already met | **14/15 = 93.3%** | 15 rows, 93.3% ✓ |
+| Broiler, Europe, deadline passed | 2/19 = 10.5% | 2/21 = 9.5% (multi-continent handling; immaterial) |
+
+**The forecasts are consistent, and the cleanest demonstration is a like-for-like clock
+comparison.** At the *identical* point on the curve — the 2024-deadline cohort, 21 months past
+its deadline:
+
+- **Cage-free: 127/138 = 92.0%**
+- **Broiler: 5/195 = 2.6%**
+
+A **36× gap on the same tracker, same read date, same elapsed time.** The twin's own causal
+story explains it: cage-free is a procurement switch across a supply chain that already exists,
+while ECC/BCC compliance needs a slower-growing breed that is not available at scale. Importing
+either forecast's rate into the other would be the error.
+
+**Does their strongest argument bite on me?** Their Step 3 — that Chicken Watch *structurally
+undercounts* real fulfilment (Norsk Kylling 100% ECC-compliant since Aug 2022, still logged
+`Not Reporting`; Waitrose and REMA 1000 likewise) — is well evidenced and, I think, correct.
+**But it does not transfer to my number, for a structural reason worth stating:** my forecast is
+fit to *logged-status velocity*, never to real-world compliance. The +1pp/month I measured
+(26.8% → 33.6% on the 2025 cohort) and the 78–97% mature-cohort band are both Chicken Watch's
+own logging output, so whatever lag the tracker has is **already inside the data I calibrated
+on**. Deducting for it again would be double-counting. The twin needed the argument because it
+was reasoning from real compliance (ChickenTrack's "3 companies at 100%") down to logged status;
+I never make that step.
+
+Their argument #1 — OWA **retired the blanket 2026 ECC deadline** in favour of case-by-case
+roadmaps, removing the forcing event — is genuinely damaging *and* genuinely broiler-specific.
+The cage-free campaign shows the opposite posture: the Jan-2026 naming-and-shaming release [8]
+and the 2026 Eggsposé ("Some companies kept their word. Others are out of time.") [21] are both
+deadline-enforcing. **No change to the forecast.** If OWA ever softens the cage-free deadline
+the same way, that is worth roughly −4pp and should become a tripwire at the next update.
