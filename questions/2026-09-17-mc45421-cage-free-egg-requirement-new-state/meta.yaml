@@ -17,31 +17,32 @@ dates:
   resolves: '2027-07-01'
 status: open
 current:
-  version: 1
+  version: 2
   date: '2026-09-17'
-  median: 0.12
+  median: 0.14
   iqr:
-  - 0.085
-  - 0.17
+  - 0.1
+  - 0.19
   community:
     cp: null
     pro: null
     gold: null
-    n_forecasters: 4
+    n_forecasters: 5
     as_of: '2026-09-17'
-next_review: '2026-10-17'
+next_review: '2026-09-21'
 tripwires:
-- signal: Metaculus CP reveals more than 10 pp away from 12% with n >= 20
+- signal: Metaculus CP reveals more than 10 pp away from 14% with n >= 20
   by: '2026-09-20'
   direction: either
   magnitude: 0
   magnitude_unit: pp
   fired: null
-- signal: Farm Bill conference report includes the Save Our Bacon Act (H.R. 7567 sec. 12006) preemption
-    language
-  by: '2026-12-31'
-  direction: down
-  magnitude: 6
+- signal: '119th Congress adjourns sine die with no Farm Bill enacted, leaving no vehicle for the Save
+    Our Bacon Act (replaces v1''s conference-report tripwire: P(Farm Bill enacted in the 119th) is about
+    0.22, so no conference is likely to convene)'
+  by: '2027-01-03'
+  direction: up
+  magnitude: 3
   magnitude_unit: pp
   fired: null
 - signal: A cage-free bill in a state outside the ten excluded is reported favourably out of an agriculture

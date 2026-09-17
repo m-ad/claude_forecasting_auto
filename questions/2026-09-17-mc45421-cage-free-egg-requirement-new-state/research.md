@@ -195,3 +195,49 @@ Distinct sources consulted: 20+ (see `forecast.md` §Sources).
    candidate states (and does VA/NJ hold)?
 5. Retail egg price path Nov 2026 – Feb 2027 given the June 2026 HPAI resurgence.
 6. Re-check the Metaculus CP after 2026-09-20 reveal, and again near the 2026-12-18 close.
+
+---
+
+## v2 addendum — 2026-09-17 — cross-question coherence check
+
+Triggered by the operator asking how this question relates to the Save Our Bacon Act. Searching the
+repo surfaced a sibling forecast that v1 should have consulted and did not.
+
+| Repo question | Forecast | Relevance |
+|---|---|---|
+| `2026-09-05-mc43616-save-our-bacon-act-enacted-into-law` | 3.0%, IQR [2.0, 4.5] (CP 5%, Pro 3%, Gold 3%, n=61) | **direct** — the federal preemption threat this question's climate argument rests on |
+| `2026-09-17-mc43277-...pre-2026` (cage-free corporate pledges) | 11.9% fulfilment | corroborates "the wave's engine is gone" |
+| `2026-09-17-mc43278-...pre-2026` (broiler pledges) | 3.8% fulfilment | same |
+| `2026-09-12-mc43329-how-many-additional-us-states-enact-bans` | cultivated meat, not eggs | **not** a companion; shares only the tournament template and the state-calendar structure |
+
+Facts taken from mc43616 that v1 lacked: Senate Farm Bill failed in committee 10–11 on 2026-08-06;
+P(Farm Bill enacted by 2027-01-03) ≈ 0.22; P(any Prop 12 provision in final text) ≈ 0.10; 32
+senators on record against SOB "in any other legislation"; no SOB amendment offered among 48 voted
+at the August markup; federal preemption of state farm-animal law 0-for-6 since 2006 and 0-for-2
+where the House passed language the Senate omitted (2014 stripped in conference, 2018 defeated).
+
+**The v1 error**: an LR of 0.70 for "pendency of federal preemption deters state legislators" was
+applied across the whole window. It should be ~0.92, because the threat is ~62% likely to be
+visibly dead before the Jan–Jun 2027 sessions — the only period that carries meaningful
+probability. Two methods for the correction: LR re-weighting gives 15.2%, scenario reconstruction
+gives 12.4% (but re-imports v1's anchor). Took 14.0%.
+
+**Channel separation** (v1 conflated these): Channel A, "why pass a law Congress will void", scales
+with perceived enactment probability — and the people drafting state cage-free bills are the
+Humane World lobbyists who organised the 32-senator letter, so they are not deterred; weak.
+Channel B, capacity diversion, is outcome-independent and unchanged; this is why the revision is
++2 pp not +6 pp. Channel C, the anti-preemption gesture, runs off the DOJ suits, not the Farm Bill,
+and is unaffected.
+
+**Defect found and fixed**: v1 tripwire 2 ("Farm Bill conference report includes §12006") cannot
+fire if there is no conference, which is the ~78% case. Retired and replaced with "119th adjourns
+sine die with no Farm Bill enacted → up 3 pp".
+
+**Error found in another file, not fixed here** (rule 8 — do not edit another version's record):
+`mc43616` v1 dates the DOJ California suit to 2026-07-09 in two places. The docket it cites is
+2:25-cv-06230 (filed 2025) and the dismissal was 2026-03-18, which cannot precede filing. Correct
+date is July 2025. Flag for that question's next update.
+
+Metaculus re-fetch 2026-09-17 (`raw/metaculus-2026-09-17b.json`): still `upcoming`, n 4 → 5, all
+three cohorts null, no comments. Nothing to anchor on; `next_review` shortened to 2026-09-21 to
+catch the 2026-09-20 CP reveal.

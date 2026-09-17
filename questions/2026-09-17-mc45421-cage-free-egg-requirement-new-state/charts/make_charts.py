@@ -32,11 +32,13 @@ ADOPTIONS: dict[int, list[str]] = {
     2026: [],
 }
 
+# Weights track the current forecast version; the header block's chart is rewritten
+# on every update, so these move with it (v2, 2026-09-17).
 SCENARIOS: list[tuple[str, float, str]] = [
-    ("1. Status quo: bills die in committee", 0.72, "no"),
+    ("1. Status quo: bills die in committee", 0.70, "no"),
     ("2. Defensive year: rollback pressure only", 0.16, "no"),
-    ("3. Blue state passes as anti-preemption move", 0.08, "yes"),
-    ("4. Negotiated deal or agency rulemaking", 0.025, "yes"),
+    ("3. Blue state passes as anti-preemption move", 0.098, "yes"),
+    ("4. Negotiated deal or agency rulemaking", 0.027, "yes"),
     ("5. Resolver counts an edge case", 0.015, "yes"),
 ]
 
@@ -82,7 +84,7 @@ def build(out_path: Path) -> None:
     ax_scen.set_xlabel("weight")
     ax_scen.set_xlim(0, 0.8)
     ax_scen.set_title(
-        "Scenario weights — orange resolves YES (sums to 12.0%)",
+        "Scenario weights — orange resolves YES (sums to 14.0%)",
         loc="left",
         fontsize=11,
         weight="bold",
