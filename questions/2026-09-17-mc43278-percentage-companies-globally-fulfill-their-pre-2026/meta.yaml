@@ -1,0 +1,75 @@
+slug: 2026-09-17-mc43278-percentage-companies-globally-fulfill-their-pre-2026
+title: What percentage of companies globally will fulfill their pre-2026 broiler commitments in 2026 and
+  2027?
+source: metaculus
+url: https://www.metaculus.com/questions/43278/what-percentage-of-companies-globally-will-fulfill-their-pre-2026-broiler-commitments-in-2026-and-2027
+post_id: 43278
+type: discrete
+unit: '% of commitments'
+tags:
+- animal-welfare
+- corporate-commitments
+- animal-futures-tournament
+dates:
+  created: '2026-09-17'
+  opened: null
+  closes: '2026-11-30'
+  resolves: '2028-01-01'
+status: open
+current:
+  version: 1
+  date: '2026-09-17'
+  median: 3.8
+  iqr:
+  - 2.3
+  - 6.6
+  community:
+    cp: null
+    pro: null
+    gold: null
+    n_forecasters: null
+    as_of: '2026-09-17'
+next_review: '2026-11-20'
+tripwires:
+- signal: Fresh Chicken Watch pull (Issue=Broiler, VD 1990-2025, Timeline>=2026) on 2027-01-31 shows 4-6
+    fulfilled
+  by: '2027-01-31'
+  direction: down
+  magnitude: 1.5
+  magnitude_unit: '% of commitments'
+  fired: null
+- signal: Same 2027-01-31 pull shows 15 or more fulfilled -- post-deadline update pass under way
+  by: '2027-01-31'
+  direction: up
+  magnitude: 3
+  magnitude_unit: '% of commitments'
+  fired: null
+- signal: Norsk Kylling, REMA 1000 or Waitrose flips from 'Not Reporting' to 'Reporting Fulfilled'
+  by: '2027-06-30'
+  direction: up
+  magnitude: 2
+  magnitude_unit: '% of commitments'
+  fired: null
+- signal: ChickenTrack 2026 (CIWF, ~March 2027) reports 10 or more of its ~107 signatories at 100% BCC
+    compliance
+  by: '2027-03-31'
+  direction: up
+  magnitude: 2
+  magnitude_unit: '% of commitments'
+  fired: null
+- signal: OWA publishes an ECC/BCC fulfilment report or audit naming a fulfilled count
+  by: '2027-12-31'
+  direction: either
+  magnitude: 0
+  magnitude_unit: '% of commitments'
+  fired: null
+- signal: Denominator of the question filter moves outside 370-420 on any pull (mass purge or mass addition)
+  by: '2027-12-31'
+  direction: either
+  magnitude: 0
+  magnitude_unit: '% of commitments'
+  fired: null
+resolution:
+  outcome: null
+  date: null
+  source: null

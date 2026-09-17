@@ -1,0 +1,47 @@
+{
+  "accessed": "2026-09-17",
+  "source": "https://chickenwatch.org/progress-tracker?filterK=Broiler",
+  "backing_sheet": "docs.google.com/spreadsheets/d/1GcOfjaHy0xTPluZKUkxyNH8u0_qE7T6tdUpeUg7GEyI (sheet 'Cleaned')",
+  "rows_total": 3566,
+  "rows_broiler": 650,
+  "q43278_filter": "Issue=Broiler, VictoryDate 1990-2025, Timeline >= 2026",
+  "denominator": 405,
+  "status_counts": {
+    "Reporting": 193,
+    "Not Reporting": 208,
+    "Reporting Fulfilled": 4
+  },
+  "resolution_value_today_pct": 0.9877,
+  "fulfilled_companies": [
+    "Evermore",
+    "Yorma's",
+    "Franco Manca",
+    "Bastard Burgers"
+  ],
+  "by_timeline": {
+    "2026": {
+      "n": 353,
+      "fulfilled": 4
+    },
+    "2027": {
+      "n": 5,
+      "fulfilled": 0
+    },
+    "2028": {
+      "n": 19,
+      "fulfilled": 0
+    },
+    "2029": {
+      "n": 7,
+      "fulfilled": 0
+    },
+    "2030": {
+      "n": 18,
+      "fulfilled": 0
+    },
+    "2032": {
+      "n": 3,
+      "fulfilled": 0
+    }
+  }
+}
