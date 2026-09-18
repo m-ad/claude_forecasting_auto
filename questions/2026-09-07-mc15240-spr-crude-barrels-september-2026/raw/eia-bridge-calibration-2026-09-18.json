@@ -1,0 +1,141 @@
+{
+ "source": "EIA WCSSTUS1 weekly + MCSSTUS1 monthly, both downloaded 2026-09-18 from eia.gov/dnav/pet/hist_xls/",
+ "retrieved": "2026-09-18",
+ "weekly_tail": {
+  "2026-07-24": 307650,
+  "2026-07-31": 304809,
+  "2026-08-07": 298694,
+  "2026-08-14": 293426,
+  "2026-08-21": 289726,
+  "2026-08-28": 286604,
+  "2026-09-04": 285360,
+  "2026-09-11": 284957
+ },
+ "bridge_calibration": {
+  "note": "monthly PSM minus linear interpolation of the weekly series at month end, thousand barrels",
+  "n36": 36,
+  "mean36": 133.9,
+  "sd36": 234.2,
+  "n12": 12,
+  "mean12": 241.5,
+  "sd12": 338.0
+ },
+ "bridge_rows": [
+  {
+   "month_end": "2025-01-31",
+   "monthly_psm": 395064.0,
+   "weekly_interp": 395064.0,
+   "residual": 0.0
+  },
+  {
+   "month_end": "2025-02-28",
+   "monthly_psm": 395313.0,
+   "weekly_interp": 395313.0,
+   "residual": 0.0
+  },
+  {
+   "month_end": "2025-03-31",
+   "monthly_psm": 396710.0,
+   "weekly_interp": 396552.3,
+   "residual": 157.7
+  },
+  {
+   "month_end": "2025-04-30",
+   "monthly_psm": 399121.0,
+   "weekly_interp": 398956.3,
+   "residual": 164.7
+  },
+  {
+   "month_end": "2025-05-31",
+   "monthly_psm": 402059.0,
+   "weekly_interp": 401855.9,
+   "residual": 203.1
+  },
+  {
+   "month_end": "2025-06-30",
+   "monthly_psm": 403003.0,
+   "weekly_interp": 402867.0,
+   "residual": 136.0
+  },
+  {
+   "month_end": "2025-07-31",
+   "monthly_psm": 402976.0,
+   "weekly_interp": 402942.4,
+   "residual": 33.6
+  },
+  {
+   "month_end": "2025-08-31",
+   "monthly_psm": 404941.0,
+   "weekly_interp": 404856.9,
+   "residual": 84.1
+  },
+  {
+   "month_end": "2025-09-30",
+   "monthly_psm": 406983.0,
+   "weekly_interp": 406862.9,
+   "residual": 120.1
+  },
+  {
+   "month_end": "2025-10-31",
+   "monthly_psm": 409594.0,
+   "weekly_interp": 409595.0,
+   "residual": -1.0
+  },
+  {
+   "month_end": "2025-11-30",
+   "monthly_psm": 411922.0,
+   "weekly_interp": 411744.9,
+   "residual": 177.1
+  },
+  {
+   "month_end": "2025-12-31",
+   "monthly_psm": 413464.0,
+   "weekly_interp": 413394.0,
+   "residual": 70.0
+  },
+  {
+   "month_end": "2026-01-31",
+   "monthly_psm": 415212.0,
+   "weekly_interp": 415212.9,
+   "residual": -0.9
+  },
+  {
+   "month_end": "2026-02-28",
+   "monthly_psm": 415442.0,
+   "weekly_interp": 415441.1,
+   "residual": 0.9
+  },
+  {
+   "month_end": "2026-03-31",
+   "monthly_psm": 414825.0,
+   "weekly_interp": 414070.3,
+   "residual": 754.7
+  },
+  {
+   "month_end": "2026-04-30",
+   "monthly_psm": 394524.0,
+   "weekly_interp": 393446.3,
+   "residual": 1077.7
+  },
+  {
+   "month_end": "2026-05-31",
+   "monthly_psm": 355381.0,
+   "weekly_interp": 354854.1,
+   "residual": 526.9
+  },
+  {
+   "month_end": "2026-06-30",
+   "monthly_psm": 322186.0,
+   "weekly_interp": 322131.6,
+   "residual": 54.4
+  }
+ ],
+ "steo_sep2026_cosqpus": {
+  "202607": 303.935,
+  "202608": 284.152,
+  "202609": 282.052,
+  "202610": 282.052,
+  "modeling_completed": "2026-09-03",
+  "last_historical_month": "202608"
+ }
+}

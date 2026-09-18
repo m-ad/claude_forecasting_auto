@@ -6,11 +6,250 @@
 | **Type** | binary |
 | **Opened / Closes / Resolves** | 2026-09-07 / 2026-11-01 / 2027-01-01 |
 | **Status** | open |
-| **Current forecast** | **Median 8.4%, IQR [5.0%, 13.0%]** (v2, 2026-09-10) |
-| **Community (as of 2026-09-10)** | **unavailable** — metaculus.com served a Cloudflare managed challenge (HTTP 403) to every access path this session, the repo's own `metaculus-aggregations` skill included. Last good snapshot 2026-09-05: CP not yet revealed, n=25 |
-| **Next review** | 2026-09-17 |
+| **Current forecast** | **Median 5.5%, IQR [3.5%, 8.5%]** (v3, 2026-09-18) |
+| **Community (as of 2026-09-18 17:09 UTC)** | CP 4.0% IQR[2.0%, 6.0%] (n=127) · Pro 4.0% IQR[3.5%, 6.7%] (n=11) · Gold 5.0% IQR[3.5%, 6.0%] (n=36) · 129 forecasters total |
+| **Next review** | 2026-10-16 |
 
 <!-- Versions below, newest first. APPEND-ONLY: never edit or delete a past version. -->
+
+---
+
+## v3 — Re-analysis — 2026-09-18
+
+**Why re-analysis and not an incremental update.** v2's own highest-priority tripwire said so:
+*"The Metaculus fetch succeeds and the CP/Pro/gold numbers land outside 4%–18% → re-analysis, not
+a nudge."* The fetch succeeded and the CP is **4.0%**, at the bottom edge of that band, with Pro at
+4.0% and gold at 5.0%. Independently, **the resolution criteria changed on 2026-09-07** — the fine
+print now carries a target-or-harm requirement that did not exist when v1 and v2 were written. A
+changed question structure is itself a re-analysis trigger under `docs/update-protocol.md`. Both
+fire, so the number is rebuilt rather than adjusted.
+
+### Revision
+
+| Driver | Direction | Effect |
+|---|---|---|
+| Prior (v2, 2026-09-10) | — | Median 8.4%, IQR [5.0%, 13.0%] |
+| **The fine print was amended on 2026-09-07 and the literal reading is dead.** The question author added: *"To qualify, the attack will need to target or physically harm Omani buildings, infrastructure, vessels, military forces, or nationals. Cyberattacks, warning shots, and strikes that cause no such harm will not count, **regardless of where they land**."* [1] A US strike on an *Iranian* vessel inside Omani territorial waters no longer qualifies. v2's literal branch (P = 0.12, worth 1.9 pp) goes to zero | ↓ | **−2.0 pp** |
+| **The cohorts are visible for the first time and sit far below both previous versions**: CP 4.0%, Pro 4.0%, gold 5.0%, n=127 — against n=25 and *unrevealed* at v1, and a total Cloudflare/TLS blackout at v2 [1] | ↓ | **−0.6 pp** |
+| **32 more quiet days, 52 since the 17 August threat.** The Wikipedia Oman page's US-reactions log has no entry after 2026-08-25; no Omani protest; no US munition on Omani anything, in what is now ~6.6 months of war [2][3] | ↓ | **−0.3 pp** |
+| Elapsed time: window 113 → **105 days** | ↓ | **−0.2 pp** |
+| **New path opened by the same fine print: Omani *nationals*.** "Physically harm Omani ... nationals" counts wherever it happens. US strikes have disabled or destroyed ~20 vessels and Gulf tanker crews are multinational; an Omani crew member harmed in a US strike on an Iranian tanker is now a literal YES | ↑ | **+0.2 pp** |
+| **New forecast** | | **Median 5.5%, IQR [3.5%, 8.5%]** |
+
+![Metaculus cohorts vs my three versions](charts/cp-trajectory-2026-09-18.png)
+
+### Tripwire check
+
+| Tripwire from v2 | Fired? | Note |
+|---|---|---|
+| Metaculus fetch succeeds and CP/Pro/gold land outside 4%–18% → **re-analysis** (by 2026-09-17) | **FIRED** | CP **4.0%**, Pro **4.0%**, gold **5.0%**. This version is the mandated re-analysis. Root cause of the two failed fetches also found: not Cloudflare but the local egress proxy resetting Chromium's TLS 1.3 handshake — `METACULUS_FORCE_TLS12=1` works first time |
+| Metaculus admins answer the 2026-09-04 clarification request (by 2026-09-30): literal ruling → +8 pp; intent/consent ruling → −2 pp | **FIRED, intent side, and harder than v2 anticipated** | On 2026-09-07 the author (`skmmcj`) wrote: *"The best approach imo is to resolve as Yes if Omani individuals/infrastructure/vessels/etc were hit or targeted and no otherwise. I added a fine print point"* — and explicitly rejected the consent framing on the grounds that states rarely state consent. `darkives` and `ChaosCondensate` accepted it in-thread [1] |
+| UKMTO or JMIC publishes a position inside 12 nm of the Omani coast for a *US* engagement (by 2026-12-31) → +25 pp | **Not fired — and now largely defused** | Under the amended fine print, location alone no longer resolves anything |
+| Oman formally protests a US military action (by 2026-12-31) → +20 pp | **Not fired** | No Omani statement against Washington. The 2026-09-13 *El Gaia* attack north of the Musandam peninsula was attributed by the US to an **Iranian** drone; Oman evacuated the crew [2] |
+| Oman suspends or restricts the 2019 Duqm/Salalah access agreement (by 2026-11-30) → +15 pp | **Not fired** | Agreement in effect; the US Navy is still clearing mines in Oman's corridor [3] |
+| Iran enforces its 6 Sep "prohibited zone" against a US-escorted convoy in the southern Omani lane (by 2026-11-30) → +6 pp | **Not fired** | Iran is enforcing it — 09-09 *Hercules Star* off Dubai (one crew killed), 09-13 *El Gaia* — but against **merchant** traffic, not US escorts [2] |
+| Strait transits recover above 40/day (by 2026-11-30) → +4 pp | **Not fired; moved the other way** | Kpler: **no large ships through the strait since early September**; ~10 ships/day at the 5 Sep reading [2] |
+| US–Iran ceasefire or Hormuz agreement signed and holding ≥ 30 days (by 2026-12-15) → −4 pp | **Not fired** | Fighting resumed 1 September after the June MoU lapsed on 17 August [2][4] |
+| 2026-10-31 passes with no reported US munition impact on Omani territory, waters or forces → −3 pp | **Not due** | 43 days out |
+| Trump publicly walks back the Oman threat, or a US–Oman leaders' meeting is announced (by 2026-12-31) → −2 pp | **Not fired** | No walk-back, but also no repetition since 2026-08-17 |
+
+Score: **two fired — the two that mattered — six not fired (all downward-if-absent), one not due.**
+Both firings were pre-registered in v2 as the highest-leverage observables in the question, and both
+landed on the bearish side.
+
+### What resolves YES
+
+**Materially changed on 2026-09-07 — this is the heart of v3.** Before 2027-01-01, the United
+States carries out a military attack against Oman's territory (incl. territorial waters) or
+military forces, purposefully or accidentally. The new fine-print sentence supplies the operative
+test: the attack must **target or physically harm Omani buildings, infrastructure, vessels,
+military forces, or nationals**, and cyberattacks, warning shots and strikes that cause no such
+harm do not count **regardless of where they land**.
+
+Three consequences, and each one moves the forecast.
+
+1. **Geography stopped being the criterion.** v1 and v2 both spent most of their length on whether
+   a US engagement could be placed inside the 12-nautical-mile Omani belt, and v2 carried a
+   12% weight on the reading under which such a placement alone resolves YES. That reading is
+   now explicitly excluded: a US missile that destroys an Iranian tanker four miles off the
+   Omani coast harms nothing Omani and does not count.
+2. **"Omani nationals" is a new, non-geographic route in.** The clause is about *whose* things
+   and *whose* people are hit, not where. The US has destroyed or disabled roughly twenty vessels
+   in this campaign and Gulf crews are routinely multinational; an Omani seafarer killed or
+   injured on an Iranian-operated tanker struck by CENTCOM would satisfy the words as written.
+   No comment on the question raises this, and I think the crowd is not pricing it.
+3. **The no-consensus escape clause survives and now bites differently.** It still excludes
+   incidents where no credible source agrees the attack occurred in Omani territory *and* neither
+   government claims it did. But since the test is now harm to identified Omani property or
+   people, which Muscat would be the first to announce, the clause catches fewer YES worlds than
+   v2 assumed. The ambiguity haircut shrinks accordingly.
+
+The author also explicitly **rejected the consent carve-out** that user `tejvn` proposed and that
+v2 leaned on as a secondary argument, on the grounds that states rarely state consent or its
+absence for political reasons [1]. v2's conclusion happened to be right; its route to it is not
+the one the criteria took.
+
+### Outside view
+
+| Class | n | Window | Rate | Change from v2 |
+|---|---|---|---|---|
+| **A** — US military attacks on a GCC state, 1971–2026 | 0 | 55 years | ~0 | unchanged |
+| **B** — public US-presidential threats to bomb a *non-adversary* converting to a strike within ~6 months | ~6–8 | 2017–2026 | ~5–10% | unchanged; Trump is now **0 for 2** on Oman specifically (28 May, 17 Aug), with the named trigger having fired twice in between |
+| **C (ceiling)** — 0 US attacks on Oman in **6.6** months of war. Jeffreys/Poisson λ ≈ 0.5/6.6 = 0.076/mo → P(≥1 in 3.45 mo) | — | Mar–Sep 2026 | **23%** | was 25% |
+| **D** — errant US munitions physically harming a partner state during an air campaign | several | 2014–2026 | low, non-zero per campaign-quarter | unchanged |
+| **E** — US kinetic engagements credibly located inside Omani territorial waters | 0 / ~20 | Apr–Sep 2026 | ≈0.10/mo | **now largely irrelevant** — the amended fine print retires the branch this class was built to price |
+
+Class C remains the honest ceiling and the reason this forecast does not go to 2%. Zero events in
+6.6 months of the most intense US–Iran fighting in history does not license a rate of zero; it
+licenses a Jeffreys-style λ that still puts ~23% on at least one event of *any* qualifying kind in
+the remaining window, before any structural discount. The structural discounts — Duqm and Salalah
+access, the mediation channel, Oman's total military asymmetry, and the fact that the US is
+actively *clearing mines in Oman's own corridor* — are what take 23% down to single digits.
+
+### Inside view
+
+The mixture over readings collapses to a single reading. `P(YES)` is now a straight union over
+three disjointish paths in a 105-day window.
+
+| Path | v2 | v3 | Why it moved |
+|---|---|---|---|
+| **Deliberate US strike on Oman as coercion** | 0.025 | **0.015** | Threat-to-execution is 0 for 2 with the named trigger tested twice (Iran–Oman route deal 17 Aug, revenue deal 26 Aug) and nothing following. The stated *rationale* was then removed on 25 Aug when the US Navy cleared the Hormuz mines itself [3]. Oman appears nowhere in September war reporting |
+| **US munition targets or physically harms Omani buildings, infrastructure, vessels, forces or nationals — accidentally or as collateral** | 0.045 | **0.032** | Two offsetting moves. Down: the new fine print requires harm to *Omani* things, not merely an impact on Omani territory, and 32 more days passed with none. Up: the "nationals" clause opens the crew-aboard-a-struck-vessel route, worth perhaps 0.008 of the 0.032 |
+| **Oman obstructs → US strikes Omani assets, or Muscat calls a US action an attack** | 0.020 | **0.012** | Oman keeps doing the opposite: it evacuated the *El Gaia* crew on 13 September after an attack the US itself attributed to an Iranian drone [2] |
+
+`P(YES) = 1 − (0.985 × 0.968 × 0.988) = **0.058**`
+
+**Ambiguity haircut −0.3 pp** (was −1.2). Most of v2's haircut was charged against the literal
+path, which no longer exists; and the remainder shrinks because harm to identified Omani property
+or persons is far more observable than a disputed 12-nm position, so fewer YES worlds route to the
+no-credible-consensus exclusion.
+
+→ **5.5%**.
+
+### Evidence
+
+**The decisive new fact is procedural, not military.** On 2026-09-07 — the day the question opened
+to the public and one day before CP reveal — the author closed the ambiguity that v1 called "worth
+more to this forecast than any plausible news event," and closed it against the reading that
+carried v1's 6.0 pp and v2's 1.9 pp. v1 was right about the ambiguity's importance and wrong about
+which way it would break; v2 halved the exposure for good structural reasons and still carried
+some. The crowd repriced inside four days: CP 11% (09-07) → 10% (09-08, reveal) → 6.5% (09-09) →
+5% (09-11), and has sat at 4.5–5.0% since. My v2, written on 09-10 while blind to all of this,
+was reasoning against a resolution rule that had already been superseded. **LR on the combined
+literal+geographic thesis ≈ 0.1.**
+
+**The war escalated and Oman still is not in it.** Since v2: Iran declared a "prohibited zone"
+from the US blockade line through the strait (05-09); the *Hercules Star* was hit off Dubai killing
+one crew member (09-09); the *El Gaia* was hit north of the Musandam peninsula (09-13), with the
+IRGC claiming a mine and the US saying an Iranian drone, two crew missing and the rest evacuated
+**by Oman**; Kpler reports no large ships through the strait since early September, against an
+85/day pre-crisis baseline [2]. Every one of those is Iranian ordnance or Iranian mines. The
+asymmetry v2 identified — the Omani belt is a place Iran shoots into and the US shoots around —
+held through another 32 days and another round of escalation. The collapse in traffic also keeps
+the escort-exposure mechanism dead: there is nothing in the corridor to escort.
+
+**What the crowd argues, and where I part from it.** The 127 forecasters converge on structural
+grounds, and the arguments are good ones: Duqm's value as the only deep-water port outside the
+strait where US carriers and submarines can dock (`SharpNimbus`); the mediation channel Washington
+cannot replace (`Koboh`, `Bas_`, `sheikah`); Oman's total military asymmetry making a deliberate
+war pointless (`Bas_`); and `Theomachado`'s specific point that Trump is 0-for-2 on Oman threats
+*with the named trigger tested in between*, plus the claim — which I have **not independently
+verified and therefore do not lean on** — that Oman's 5-year CDS sits around 77 bp, below its own
+March war-start level [1]. I accept all of it. I sit 1.5 pp above the CP and 0.5 pp above the gold
+cohort for two reasons only: the Jeffreys/Poisson discipline of Class C, which says 0 events in 6.6
+months does not license 2%; and the Omani-nationals clause, which is new, literal, and unmentioned
+in any of the twelve comments.
+
+**What I looked for and did not find**, third session running: no Omani protest against Washington,
+no suspension of the 2019 access agreement, no US munition reported on Omani territory or property
+at any point in 6.6 months of war, no prediction market anywhere on a US attack on Oman, and
+nothing from Sentinel Team, Good Judgment Open or INFER.
+
+### Other forecasters
+
+| Source | Value | As of | Note |
+|---|---|---|---|
+| Metaculus CP (recency-weighted) | **4.0%** IQR[2.0%, 6.0%] (n=127) | 2026-09-18 17:09Z | first visible reading. 11% on 09-07 → 5% by 09-11 → flat |
+| Metaculus Pro | **4.0%** IQR[3.5%, 6.7%] (n=11) | 2026-09-18 17:09Z | small cohort, noisy (0.15 → 0.06 over eleven days); widest upper tail of the three |
+| Metaculus gold medalists | **5.0%** IQR[3.5%, 6.0%] (n=36) | 2026-09-18 17:09Z | flat at 5.0% since 09-12. The cohort I weight most, and the one closest to me |
+| Polymarket / Kalshi — US attack on Oman | **no such market** | 2026-09-18 | re-searched; still nothing, against heavy Iran-war volume |
+| Manifold | none found | 2026-09-18 | — |
+| Sentinel Team, Good Judgment Open, INFER | nothing on US–Oman | 2026-09-18 | searched |
+
+**Cohort agreement, assessable at last.** CP 4.0%, Pro 4.0%, gold 5.0% — a 1 pp spread across 127
+forecasters, and my two previous versions both sat outside all three IQRs. That is the
+configuration this repo treats as an instruction to find the missed fact before defending the
+number. The missed fact was the 2026-09-07 fine-print amendment, and having found it I have moved
+to the edge of their band rather than into the middle of it, for the two stated reasons.
+
+### Scenarios
+
+| # | Scenario | Weight | Implies |
+|---|---|---|---|
+| 1 | **Attrition continues.** US–Iran exchange fire around the strait and on Iranian soil; Oman keeps mediating, keeps absorbing Iranian ordnance, keeps hosting US access | 0.66 | NO |
+| 2 | **Interim deal / partial reopening.** A US–Iran–Oman arrangement lands and traffic resumes; US escorts return but shooting subsides | 0.13 | NO |
+| 3 | **US engagements occur near or inside Omani waters but harm nothing Omani** — explicitly excluded by the 2026-09-07 fine print | 0.145 | NO |
+| 4 | **Collateral harm.** A US munition damages Omani property or injures Omani forces or nationals, and it is attributed | 0.032 | **YES** |
+| 5 | **Oman obstructs → the US strikes Omani assets**, or Muscat formally calls a US action an attack | 0.012 | **YES** |
+| 6 | **Trump follows through** — deliberate punitive strike on Oman | 0.015 | **YES** |
+| 7 | **Ambiguous.** A contested incident the no-consensus clause excludes | 0.006 | not YES |
+
+YES = 0.032 + 0.012 + 0.015 ≈ **5.8%** gross; **5.5%** after the ambiguity haircut.
+
+### Sensitivity
+
+| Assumption | If instead | Forecast becomes |
+|---|---|---|
+| Collateral path 0.032 | US strike tempo doubles for the rest of the year | **≈ 8.5%** |
+| Collateral path 0.032 | the Omani-nationals sub-path is worth ~0 (crew nationality never reported, or admins read "nationals" narrowly) | **≈ 4.8%** |
+| Deliberate path 0.015 | Oman signs a formal corridor-enforcement understanding with Iran that excludes US escorts | **≈ 14%** |
+| Class C Jeffreys discipline retained | dropped in favour of the structural argument alone, as the CP appears to do | **≈ 3.5%** |
+| All quiet through October | 2026-10-31 passes with nothing | **≈ 3.5%** |
+| Fine print as amended | admins reinterpret "targets" to include any US munition detonating inside Omani waters | **≈ 12%** |
+
+### What would change my mind (tripwires)
+
+- [ ] **An Omani national is reported killed or injured aboard a vessel struck by US forces**, or an
+      Omani-flagged or Omani-owned vessel is damaged by US ordnance — by 2026-12-31 → **+25 pp**.
+      *This is the modal YES path under the amended criteria and the one the crowd is not discussing.*
+- [ ] **Oman formally protests a US military action** (foreign-ministry statement or ambassador
+      summoned) — by 2026-12-31 → **+20 pp**.
+- [ ] **Oman suspends or restricts the 2019 Duqm/Salalah access agreement, or denies US transit or
+      overflight** — by 2026-11-30 → **+15 pp**.
+- [ ] **Trump repeats the Oman threat with an operational referent** (a named target, a deadline, a
+      force movement) rather than an aside — by 2026-12-31 → **+8 pp**.
+- [ ] **The question author narrows or widens the fine print again** — by 2026-12-31 → re-analysis.
+      The 2026-09-07 amendment moved this forecast by more than any military event of the whole war;
+      the criteria thread is the highest-value page to watch, not the news.
+- [ ] **2026-10-31 passes with no US munition harming Omani property, forces or nationals**
+      → **−1.5 pp** (mechanical hazard decay; smaller than v2's −3 pp because the base is smaller).
+- [ ] **A US–Iran ceasefire or Hormuz agreement is signed and holds ≥ 30 days** — by 2026-12-15
+      → **−2 pp**.
+- [ ] **CP, Pro and gold all move outside 2%–9%** — by 2026-10-16 → re-examine, though after v3 a
+      move *down* inside that band is not by itself a reason to follow.
+
+### Sources
+
+Sources from v1 and v2 remain as cited there; the ones still load-bearing for v3 are repeated
+below with their original access dates so this version stands on its own.
+
+1. Metaculus #45230 — https://www.metaculus.com/questions/45230/ — all three cohorts, 268 history points and 12 comments via the `metaculus-aggregations` skill with `METACULUS_FORCE_TLS12=1`; snapshot in `raw/metaculus-2026-09-18.json`. Carries the **amended fine print** and the 2026-09-07 author comment establishing it, plus the `Theomachado` / `SharpNimbus` / `Bas_` / `Koboh` / `sheikah` structural arguments and the (unverified) Oman CDS claim (accessed 2026-09-18)
+2. Wikipedia — "2026 Strait of Hormuz crisis", September timeline: the 05-09 US/Iran standoff and "prohibited zone"; Kpler on 27 missile strikes and no large ships since early September; 09-09 *Hercules Star*; 09-13 *El Gaia* north of Musandam — https://en.wikipedia.org/wiki/2026_Strait_of_Hormuz_crisis (accessed 2026-09-18 via the MediaWiki `action=query&prop=extracts` API)
+3. Wikipedia — "2026 Iranian strikes on Oman", including the full US-reactions log, whose **last entry is 2026-08-25** (US Navy mine clearance in Oman's corridor) — https://en.wikipedia.org/wiki/2026_Iranian_strikes_on_Oman (accessed 2026-09-18, same API)
+4. Wikipedia — "2026 Iran war ceasefire" — the April ceasefire, the June MoU and its 2026-08-17 lapse — https://en.wikipedia.org/wiki/2026_Iran_war_ceasefire (accessed 2026-09-18)
+5. CNBC — "Trump threatens Oman, Hormuz Strait traffic slows, Iran ceasefire ends" (2026-08-17) — https://www.cnbc.com/2026/08/17/us-iran-war-trump-hormuz.html (accessed 2026-09-18)
+6. Al Jazeera — "Iran, Oman, US 'close' to Hormuz deal: What do they all want?" (2026-08-05) — https://www.aljazeera.com/news/2026/8/5/iran-oman-us-close-to-hormuz-deal-what-do-they-all-want (accessed 2026-09-18)
+7. Al Jazeera — "Iran war updates: Tehran, Oman agree on route coordinates in Hormuz Strait" (2026-08-05) — https://www.aljazeera.com/news/liveblog/2026/8/5/iran-war-live-tehran-oman-talks-on-hormuz-positive-ship-hit-in-red-sea (accessed 2026-09-18)
+8. Congressional Research Service, R45281 — "The Strait of Hormuz: Security Developments and Impacts on Oil, Gas, and Other Commodities" — https://www.congress.gov/crs-product/R45281 (accessed 2026-09-18)
+9. Al Jazeera — "Iran, Oman agree on temporary Hormuz route: What we know" (2026-08-26), the joint statement asserting sovereignty over territorial waters — https://www.aljazeera.com/news/2026/8/26/iran-oman-agree-on-temporary-hormuz-route-what-we-know (accessed 2026-09-10, carried forward from v2)
+10. Critical Threats (AEI/ISW) — "Iran Update, September 7, 2026", which **contains no mention of Oman** — https://www.criticalthreats.org/analysis/iran-update-september-7-2026 (accessed 2026-09-10, carried forward from v2)
+11. Wikipedia — "Operation Project Freedom", establishing the 4–5 May one-day duration and the 5 May pause that v2's re-analysis turned on — https://en.wikipedia.org/wiki/Operation_Project_Freedom (accessed 2026-09-10, carried forward from v2)
+12. JMIC Advisory Note 004-26 of 2026-05-04, via UKMTO and secondary reporting — https://www.ukmto.org/-/media/ukmto/products/jmic-advisory-note-004-26.pdf (accessed 2026-09-10, carried forward from v2; ukmto.org returns HTTP 403 to this container, so content came from the search index)
+13. Polymarket and Kalshi — re-searched 2026-09-18 for any US-attacks-Oman contract; **none exists on either venue** — https://polymarket.com/ (accessed 2026-09-18)
+
+**Date**: 2026-09-18
+**Forecast**: Median 5.5%, IQR [3.5%, 8.5%]
+**Thesis**: The question's fine print was amended on 2026-09-07, one day before CP reveal and three days before v2 was written blind: an attack now has to **target or physically harm Omani buildings, infrastructure, vessels, forces or nationals**, and strikes causing no such harm do not count *regardless of where they land* [1]. That kills the geographic reading both previous versions were built around — a US missile destroying an Iranian tanker four miles off the Omani coast harms nothing Omani — and the crowd repriced from 11% to 5% within four days of it. What survives is three narrow paths: deliberate coercion (Trump is 0-for-2 on Oman threats with the named trigger tested twice in between, and the stated rationale was removed when the US Navy cleared Oman's own corridor of mines on 25 August [3]), collateral harm, and Omani obstruction — union ≈5.8%, less a small ambiguity haircut. I sit 1.5 pp above the CP and 0.5 pp above the gold cohort for two reasons: zero events in 6.6 months of the most intense US–Iran fighting on record does not license 2% under any Jeffreys-style prior; and the amended clause's reference to Omani **nationals** opens a route — an Omani seafarer harmed aboard a vessel struck by CENTCOM — that is literal, non-geographic, and mentioned in none of the twelve comments.
 
 ---
 

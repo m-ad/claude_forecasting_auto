@@ -156,3 +156,104 @@ Monte Carlo (500k draws) in `raw/scenario-model-2026-09-07.py`.
 4. Was any part of the ~7 Mb FY26–27 mandated sale executed, or deferred again?
 5. Did the Venezuela heavy-for-light swap (floated by Sec. Wright on 2026-09-03) reach a
    signed contract, and with what delivery dates?
+
+---
+
+# v3 working log — 2026-09-18
+
+## The two data problems v1 and v2 worked around are both solved
+
+**1. Direct EIA downloads work from this container.** v1 used `api.eia.gov`; v2 fell back to
+WebSearch corroboration across five news outlets because "direct EIA API/dnav fetch unavailable
+this session". Plain `curl` on the dnav XLS endpoints succeeds, needs no API key, and returns the
+full history:
+
+```bash
+curl -sSL -o WCSSTUS1w.xls https://www.eia.gov/dnav/pet/hist_xls/WCSSTUS1w.xls   # weekly SPR
+curl -sSL -o MCSSTUS1m.xls https://www.eia.gov/dnav/pet/hist_xls/MCSSTUS1m.xls   # monthly SPR
+curl -sSL -o sep26_base.xlsx https://www.eia.gov/outlooks/steo/archives/sep26_base.xlsx
+```
+
+Parse with `pandas.read_excel(..., sheet_name='Data 1', skiprows=2)` (needs `xlrd` for the old
+`.xls`, `openpyxl` for the STEO `.xlsx`). This is strictly better than news corroboration: it
+carries **revisions** (the 09-04 value is now 285,360, not the 285,400 v2 used) and the whole
+history needed for calibration.
+
+**2. The STEO table value that defeated v2 is in `archives/<mon><yy>_base.xlsx`.** Sheet `4atab`,
+row keyed `COSQPUS`, columns mapped by sheet `Dates` row 10 (`202201`…`202712`).
+
+## The bridge calibration — the most reusable thing in this version
+
+Three versions have forecast a *monthly* series (MCSSTUS1, the resolution source) while reasoning
+about a *weekly* one (WCSSTUS1), with the gap handled by an assumed SD of 0.6 Mb and no bias.
+Regressing the monthly print against a linear interpolation of the weekly series at month end:
+
+| Window | n | Mean residual (kb) | SD (kb) |
+|---|---|---|---|
+| Last 36 months | 36 | **+134** | **234** |
+| Last 12 months | 12 | +242 | 338 |
+
+The monthly sits slightly **above** the weekly interpolation, and it holds through the steepest
+drawdown months of 2026: Apr +1,078, May +527, Jun +54. Using N(+180, 280) instead of N(0, 600)
+raises the median ~0.2 Mb and removes about a third of the IQR width on its own. Saved to
+`raw/eia-bridge-calibration-2026-09-18.json`. **This calibration is reusable for the December-2026
+sibling question** (`2026-09-07-mc15240-spr-crude-barrels-december-2026`), which is still running
+on the v1 assumption.
+
+## The STEO disconfirms itself
+
+September-2026 STEO, modelling completed **2026-09-03**:
+
+| Month | STEO `COSQPUS` | Weekly-implied | Gap |
+|---|---|---|---|
+| 202607 (Jul, "historical") | 303.935 | 304.809 | −0.87 |
+| 202608 (Aug, "historical") | 284.152 | ~286.07 | **−1.92** |
+| 202609 (Sep, forecast) | 282.052 | — | — |
+
+EIA flags July and August as historical, but the *Petroleum Supply Monthly* only publishes through
+June, so those are EIA estimates — and both sit below a weekly series that has run *above* the
+monthly print in every recent month. The STEO's SPR block is a contract-schedule projection, and
+the contract schedule is what the last two weekly prints falsified. Weight cut to 12%, not zero,
+because EIA sees delivery paperwork I do not.
+
+## Metaculus
+
+Re-fetch failed twice with **HTTP 403** — a genuine Cloudflare/rate-limit response, distinct from
+the TLS-handshake failure (`status 0`) that blocked v2 and that `METACULUS_FORCE_TLS12=1` fixes.
+The other three questions updated this session all fetched cleanly with that flag immediately
+before, so this is question-group rate limiting, not the environment. Not a binding limitation
+here: the cohorts sit 32–119 Mb above a level the SPR has already fallen below.
+
+## Open questions to chase next time
+
+1. The 2026-09-23 and 2026-09-30 WPSR prints. Two numbers, then the question is essentially
+   settled ahead of the November resolution.
+2. Any DOE or trade-press word on what happens to the unlifted 3.055 Mb residual balance —
+   rescheduled, deferred, cancelled, or re-offered. Still not findable either way.
+3. The October STEO (due ~2026-10-07), specifically whether `COSQPUS` for September converges to
+   the weekly series or holds near 282.
+4. The *Petroleum Supply Monthly* July and August actuals (~2026-10-31). These are the direct
+   test of the bridge calibration, before it decides the December sibling question too.
+
+## Metaculus: three refusals, and one correction to my own bookkeeping
+
+Post 15240 returned **HTTP 403** on all three aggregation attempts on 2026-09-18, including one
+after a four-minute backoff — while posts 40966, 41172 and 45230 all fetched cleanly with
+`METACULUS_FORCE_TLS12=1` immediately before and after. So this is not the TLS problem and not a
+general rate limit: it is specific to a 30-plus-subquestion group whose aggregation request is
+large enough to draw a challenge on its own.
+
+The `metaculus-scraper` fallback *did* render the page (33 forecasters, 37 comments) but a
+question group carries no headline community prediction and the scraper cannot reach
+per-subquestion aggregations — so it returned no number. It was still worth running: it
+re-verified the resolution rule verbatim ("based on the EIA monthly data — MCSSTUS1 ... 416,393
+thousand barrels ... would resolve as 416,393,000").
+
+I first logged v3 with the 2026-09-07 cohort values in `meta.current.community` and in the ledger
+line. That was wrong: an 11-day-old snapshot is not this version's community anchor, rule 4 says
+fresh data only, and the repo's own `test_community_snapshot_is_not_older_than_the_forecast_it_annotates`
+caught it. Both are now null, meaning **no community snapshot was taken for v3**, which is the
+truth. The stale values stay in `forecast.md`, explicitly dated, where they can be read for what
+they are. Note for future sessions: `log_forecast.py add` stamps `community.as_of` with today's
+date whatever the numbers' real vintage, so passing `--cp/--pro/--gold` from a cached snapshot
+silently mislabels it.

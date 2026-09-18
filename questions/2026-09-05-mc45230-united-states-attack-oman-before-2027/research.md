@@ -298,3 +298,65 @@ haircut  =  −0.9 pp (accident path routed to the no-consensus clause)
 3. Does the interim US–Iran–Oman agreement land, and do transits recover above ~40/day?
 4. Any UKMTO/JMIC position inside 12 nm of the Omani coast for a *US* engagement.
 5. Any US munition, errant or otherwise, on Omani soil — still zero after 6.4 months.
+
+---
+
+# v3 working log — 2026-09-18
+
+## The fetch that failed twice is fixed
+
+v2 recorded the two failed Metaculus pulls (09-10, 09-12) as a "Cloudflare managed challenge".
+That diagnosis was wrong. The script's own module docstring names the real cause: the session's
+egress proxy resets Chromium's TLS 1.3 ClientHello, so the browser gets **no HTTP response at
+all** (the error text is "last status 0", not 403). Setting `METACULUS_FORCE_TLS12=1` makes the
+handshake survive. It worked on the first attempt, in about 40 seconds, for every question
+updated this session. This should be the default in this container.
+
+Cost of the two blind sessions: v2 was written on 2026-09-10 against a resolution rule that had
+been superseded on 2026-09-07, and against a CP of 6% it could not see. The lesson is not
+"re-fetch harder" — it is that **when the primary anchor is unavailable, read the error message
+rather than the last diagnosis of it.**
+
+## What actually decided this version
+
+The 2026-09-07 fine-print amendment, found in the comment thread of the snapshot:
+
+> skmmcj (question author), 2026-09-07: "I think it's probably best to avoid the whole consent
+> approach... The best approach imo is to resolve as Yes if Omani individuals/infrastructure/
+> vessels/etc were hit or targeted and no otherwise. I added a fine print point"
+
+and the resulting clause, now live in the question:
+
+> "To qualify, the attack will need to target or physically harm Omani buildings, infrastructure,
+> vessels, military forces, or nationals. Cyberattacks, warning shots, and strikes that cause no
+> such harm will not count, regardless of where they land."
+
+Both v1 and v2 spent most of their length on *geography* — whether a US engagement could be
+placed inside the 12-nautical-mile belt. "Regardless of where they land" retires that whole
+branch. v1 was right that the ambiguity mattered more than any news event; it broke the other way.
+
+## Sources pulled this session
+
+- Metaculus #45230: 3 cohorts, 268 history points, 12 comments (`raw/metaculus-2026-09-18.json`)
+- Wikipedia via MediaWiki API: "2026 Strait of Hormuz crisis" (September timeline),
+  "2026 Iranian strikes on Oman" (US-reactions log ends 2026-08-25), "2026 Iran war ceasefire"
+- DOE/CNBC/Al Jazeera background on the 17 August threat and the Iran-Oman route framework
+- Polymarket, Kalshi, Manifold, Sentinel, GJOpen, INFER — re-searched, still no market anywhere
+
+## Not verified, and therefore not leaned on
+
+`Theomachado`'s claim (2026-09-11) that Oman 5Y CDS is ~77 bp against Saudi ~54 bp and below
+Oman's own ~89 bp March war-start reading, and that the 17 August threat moved it ~4 bp. It is
+the single most quantitative bear argument on the page and it would be worth ~1 pp if confirmed.
+No free CDS source was reachable this session. **Chase this next time** — a sovereign CDS series
+is the cleanest market read available on a question with no prediction market.
+
+## Open questions to chase next time
+
+1. Oman 5Y CDS (above).
+2. Whether any US strike on a tanker has harmed a crew member of Omani nationality. This is now
+   the modal YES path and nobody on the question is discussing it. UKMTO/JMIC casualty reporting
+   and IMO crew-nationality notes are the places to look.
+3. Whether the author amends the fine print again. It has moved this forecast more than any
+   military event of the whole war.
+4. Whether US escort activity resumes in the southern Omani lane if the strait reopens.

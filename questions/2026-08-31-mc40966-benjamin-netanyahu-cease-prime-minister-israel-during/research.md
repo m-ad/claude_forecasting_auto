@@ -167,3 +167,49 @@ The Metaculus CP of 0.26 implies a timing conditional of ~0.37. That gap **is** 
 6. **Netanyahu's health** — annual medical report timing and any unscheduled hospitalisation.
 7. Re-check the Pro cohort: it has been the most volatile (22–50 IQR). If Pro converges
    *down* to gold, that is evidence against this forecast.
+
+---
+
+# v2 working log — 2026-09-18
+
+## Tooling note (applies to the whole repo)
+
+`metaculus-aggregations` returned "status 0 / no HTTP response" on the first attempt this
+session — the same failure mode that blocked the Oman and SPR updates on 09-10/09-12 and was
+recorded there as a Cloudflare challenge. It is **not** Cloudflare: it is the local egress
+proxy resetting Chromium's TLS 1.3 ClientHello, exactly as the script's own module docstring
+warns. Re-running with `METACULUS_FORCE_TLS12=1` succeeded in ~40 s on the first try, for all
+four questions updated this session. Use that env var by default in this container.
+
+## Searches run
+
+- Metaculus #40966, all three cohorts + 396 history points + 8 comments (`raw/metaculus-2026-09-18.json`)
+- Wikipedia opinion-polling page, 16–17 September entries (Channel 14/Filber, Direct Polls/i24, Kantar)
+- Middle East Forum poll-of-polls tracker (2026-09-17 state)
+- JPost election coverage: articles 908444, 908921, 908282, 907949
+- Haaretz 2026-09-17 poll story; Channel 13 poll via secondary reporting
+- ToI: surplus-vote deals; Eisenkot minority-government/defections liveblog (Channel 12, 09-15);
+  "Netanyahu's anti-Arab campaign has found Eisenkot's Achilles' heel"
+- Polymarket gamma API: `netanyahu-out-before-2027`, next-PM event, largest-party event
+- Netanyahu health / pardon / trial: Truthout, Media Line, Bloomberg, Ynet — nothing new since v1
+
+## What the v1 open-questions list got right and wrong
+
+Item 7 of the v1 list — "if Pro converges *down* to gold, that is evidence against this
+forecast" — is the one that fired, and I honoured it. Items 1–3 all resolved in the *bullish*
+direction (Ra'am clears, Eisenkot moves, surplus-vote deals signed) and the forecast still fell
+7 pp, because none of the seven v1 tripwires was pointed at the quantity that actually moved:
+the bloc-level polling average itself. v1 had a tripwire only for the Netanyahu bloc crossing
+**57**, a threshold far above where the action was. v2 replaces it with a two-sided band
+(≥57 down / <49 up) and adds a recommendation-count tripwire, which is the real decision node.
+
+## Open questions to chase next time
+
+1. **The recommendation tally** published after Herzog's consultations (~2026-11-09 to 11-11).
+   This is now the highest-leverage observable in the question — higher than the seat count.
+2. Whether Ra'am and/or the Joint List say anything explicit about recommending Eisenkot during
+   the campaign. Both are currently silent, and the model puts 0.60/0.35 on them.
+3. Whether the Hendel–Zelekha list (~2.4 seats, below threshold) merges into an existing list
+   before the final lists are locked — worth ~1–2 opposition seats in expectation.
+4. Yashar's late-campaign trajectory (new-party deflation; cf. Yamina 2021).
+5. Whether any named Yashar candidate breaks publicly on the Arab-abstention question.

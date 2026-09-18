@@ -276,3 +276,47 @@ Dead ends and corrections:
 - Searched Sentinel Team and Mantic for psychedelic-approval coverage: nothing matching.
 - No public statement anywhere narrowing "Q4" to a month. This is the single highest-value
   missing fact and the main thing to hunt at the next update.
+
+---
+
+# v2 working log — 2026-09-18
+
+## Tooling note
+
+`metaculus-aggregations` failed on the first call this session with "status 0 / no HTTP
+response". This is the **local egress proxy resetting Chromium's TLS 1.3 ClientHello**, not a
+Cloudflare challenge. `METACULUS_FORCE_TLS12=1` fixes it; it worked first time for all four
+questions updated this session.
+
+## Searches run
+
+- Metaculus #41172, three cohorts + history + 10 comments (`raw/metaculus-2026-09-18.json`).
+  **No new comment since 2026-07-11** — the 1–2 pp cohort drift is unargued anywhere public.
+- "Compass Pathways COMP360 NDA submission September 2026" → Deutsche Bank 2026 Healthcare
+  Summit, 2026-09-17. Investing.com transcript fetched and read.
+- FDA Psychopharmacologic Drugs Advisory Committee page + advisory-committee calendar +
+  Federal Register: **no COMP360 meeting noticed**.
+- Polymarket `fda-approves-a-psychedelic-for-medical-use-in-2026` via gamma API — confirmed
+  closed and resolved YES (the definitional artifact identified in v1). No signal.
+- Manifold search API — ACX mirror **15.8%**, flat against v1's 15.9% despite 18 days of
+  calendar burn.
+- Usona: no filing, no guidance, nothing new.
+
+## The one thing worth carrying forward
+
+The cohorts are decaying **linearly** with the calendar (12 → 11 over 18 days) while the correct
+decay is **convex**: the probability mass sits in an early-October completion, and every quiet
+day destroys that branch while the November/December branches were already worth ~nothing. If
+this reading is right, the gap between me and the CP should *widen* through October and then
+collapse the moment a completion is (or is not) announced. That is a falsifiable prediction about
+the CP's own trajectory, and worth checking at the next review.
+
+## Open questions to chase next time
+
+1. Any statement anywhere narrowing "Q4" to a month. Still the highest-value missing fact.
+2. FDA adcomm calendar — a notice before 2026-10-31 effectively ends the question.
+3. Whether Compass files an 8-K on filing acceptance (they filed one for the CNPV award, so the
+   precedent is that this would be disclosed promptly).
+4. Q3 2026 earnings call date and content (~mid-November).
+5. Whether any published CNPV case ever documents the submission-completion → "filing" gap.
+   That single number carries ~7 of the 9.5 points and is currently pure mechanism-reasoning.

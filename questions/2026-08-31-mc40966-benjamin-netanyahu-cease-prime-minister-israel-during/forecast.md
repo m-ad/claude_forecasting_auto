@@ -6,11 +6,253 @@
 | **Type** | binary |
 | **Opened / Closes / Resolves** | 2025-12-19 / 2026-12-31 / 2027-01-01 |
 | **Status** | open |
-| **Current forecast** | **Median 35.0%, IQR [28.0%, 43.0%]** (v1, 2026-08-31) |
-| **Community (as of 2026-08-31)** | CP 26.0% (n=278) · Pro 34.0% (n=23) · Gold 25.0% (n=91) · 841 forecasters total |
-| **Next review** | 2026-09-14 |
+| **Current forecast** | **Median 28.0%, IQR [22.0%, 35.0%]** (v2, 2026-09-18) |
+| **Community (as of 2026-09-17 15:45 UTC)** | CP 22.0% IQR[17%, 30%] (n=278) · Pro 22.0% IQR[20%, 28%] (n=24) · Gold 24.0% IQR[20%, 30%] (n=90) · 844 forecasters total |
+| **Next review** | 2026-10-05 |
 
 <!-- Versions below, newest first. APPEND-ONLY: never edit or delete a past version. -->
+
+---
+
+## v2 — Update — 2026-09-18
+
+Incremental update, not a re-analysis. The >10 pp gap to the community would normally trigger a
+de-novo rebuild, but the gap has a nameable cause (the statutory-clock argument in v1, which is
+unchanged and still correct) and only 18 of the 122 days since v1 have elapsed. What *did* get
+rebuilt from scratch is the **scenario layer**: v1's four hand-drawn bloc scenarios are replaced
+by an explicit Monte-Carlo over seat outcomes and recommendation counts
+(`raw/scenario-model-2026-09-18.py`), because the mandate assignment — not bloc size — turned out
+to be the binding quantity.
+
+### Revision
+
+| Driver | Direction | Effect |
+|---|---|---|
+| Prior (v1, 2026-08-31) | — | Median 35.0%, IQR [28.0%, 43.0%] |
+| **Bloc polls swung ~4 seats to Netanyahu.** Mainstream average now Netanyahu bloc 53–54 vs anti-Netanyahu Zionist bloc 51–54 (v1: ~48–50 vs 55–59) [1][2][3]. Scenario B ("opposition reaches 61 outright") falls from weight 0.21 to 0.055 | ↓ | **−10.5 pp** |
+| **Ra'am clears the 3.25% threshold in every mid-September poll** (~5 seats), running alone; Hadash–Ta'al–Balad merged as the Joint List at 7–8 [2][4]. v1's single strongest bear point has reversed — no Arab votes are being wasted | ↑ | **+3.0 pp** |
+| **Eisenkot commits to the minority-government route.** Channel 12, 2026-09-15: he told his slate to back a government resting on Arab abstention or resign their seats [5]. v1 priced this tripwire at +5 pp | ↑ | **+3.0 pp** |
+| **Surplus-vote (Bader–Ofer) agreements signed** by the four opposition factions: Yashar–Democrats, Yisrael Beytenu–B'Yachad [6] | ↑ | **+0.5 pp** |
+| **Wasted-vote asymmetry flipped.** Winter's Amcha Yisrael is now *above* threshold at ~4 seats and recommends only Netanyahu; the Hendel–Zelekha list sits at ~2.4 seats *below* it [2][3] | ↓ | **−1.0 pp** |
+| **Defection risk inside Yashar's own slate** over the Arab-abstention route, reported the same day as the commitment [5] | ↓ | **−1.5 pp** |
+| Elapsed time: non-electoral floor (death, ≥14-day incapacity, pardon-for-retirement) over 3.5 months rather than 4 | ↓ | **−0.1 pp** |
+| Shading toward the gold cohort (24.0%, n=90) now that the Pro cohort has converged onto it | ↓ | **−0.4 pp** |
+| **New forecast** | | **Median 28.0%, IQR [22.0%, 35.0%]** |
+
+![Bloc-seat shift, late August vs mid-September](charts/bloc-shift-aug-to-sep.png)
+
+### Tripwire check
+
+| Tripwire from v1 | Fired? | Note |
+|---|---|---|
+| By 2026-09-09: Ra'am running alone **and** still below 3.25% in most post-deadline polls → −5 pp | **Not fired** | Lists were filed 2026-09-08 [6]. Ra'am *is* running alone — but at **5 seats in every mid-September poll**, comfortably clear [2][4]. Only half the conjunction holds, and the half that failed is the half that mattered |
+| By 2026-09-09: Ra'am inside a merged Arab list or a technical bloc with Hadash–Ta'al, clearing comfortably → +5 pp | **Partially fired** | Not the mechanism (Ra'am is separate from the Jabareen–Tibi–Abu Shehadeh Joint List), but the outcome it was proxying for — full Arab representation, nothing wasted — did happen. Credited at +3 pp, not +5 |
+| By 2026-10-20: public pre-election pact naming a single PM candidate, or an Eisenkot–Bennett rotation → +5 pp | **Partially fired** | Surplus-vote agreements only (Yashar–Democrats, Yisrael Beytenu–B'Yachad, 2026-09-10) [6]. Seat-maximising, not a PM pact. Credited at +0.5 pp |
+| By 2026-10-20: Eisenkot softens on negotiating with Arab-majority parties → +5 pp | **Fired** | 2026-09-15, Channel 12: Eisenkot told his slate that if the four-party bloc misses 61 he will form a minority government on Arab abstention, and that candidates who cannot support it should resign [5]. Credited at +3 pp net of the defection report in the same story |
+| By 2026-10-27: Netanyahu-bloc polling average reaches ≥ 57 → −8 pp | **Not fired, but moving toward it** | 53 (MEF poll-of-polls, 2026-09-17), 54 (Channel 13, 2026-09-16), 54.4 (JPost five-poll average, 2026-09-17) [1][2][3]. Charged as the −10.5 pp driver above at its actual magnitude rather than waiting for the 57 threshold |
+| 2026-10-28: anti-Netanyahu Zionist bloc ≥ 61 without Arab parties → +35 pp | **Not due** | 39 days out. Model probability now 5.5%, down from v1's implicit ~21% |
+| 2026-10-28: Netanyahu bloc ≥ 61 → −31 pp | **Not due** | Model probability ~19% |
+| By 2026-11-16: first mandate to Eisenkot → +15 pp / to Netanyahu → −27 pp | **Not due** | This is now the single highest-leverage observable in the question |
+| By 2026-11-20: first mandate assigned after 2026-11-16 → −10 pp | **Not due** | — |
+| By 2026-12-17: Netanyahu health event or pardon-on-retirement terms → +8 pp | **Not fired** | Herzog's pardon decision is still deferred pending plea-deal mediation; no new health disclosure found [7] |
+
+Score: **one fired (up), two partially fired (one up, one up-but-smaller-than-written), one not fired
+in a way that reverses a v1 bear point, one not fired but moving against me, five not due.** The
+tripwire ledger reads *net positive* — and the forecast still falls 7 pp, because the one thing the
+v1 tripwire list under-covered, the bloc-level poll swing, moved further than everything else
+combined. That is the lesson for the next version's tripwire design.
+
+### What resolves YES
+
+Unchanged from v1, and the caretaker mechanic remains the whole question: Netanyahu has been
+caretaker PM since the 2026-07-17 dissolution, a caretaker PM *is* the PM, and only the
+swearing-in of a successor government (or death, or ≥14-day incapacity ending before 2026-12-31)
+resolves YES. Losing the 2026-10-27 election does not. Window for a successor: 2026-10-27 →
+2026-12-31, 65 days; the President's first mandate (28 days + a 14-day extension, assigned
+~9–14 November) expires ~21–26 December, so YES needs **first-mandate success**, not unusual speed.
+
+### Outside view
+
+Unchanged from v1 — 11/15 Israeli elections 1988–2022 produced a government within 65 days (73%),
+falling to 1/5 (20%) in the fragmented 2019–2022 era, and 11 of 13 formed governments came on the
+first mandate. What changed is which branch of that spread the inside view now points at.
+
+### Inside view
+
+**The mandate, not the majority, is the crux — and Arab recommendations decide the mandate.**
+This is the structural correction in v2. Under Basic Law: The Government §7 the President is not
+bound by recommendation counts, but in practice has followed them: Rivlin gave the first mandate
+to Gantz in 2020 on 61 recommendations and to Netanyahu in 2021 on 52 against Lapid's 45, the
+latter precisely because Ra'am recommended nobody. Arab-party recommendations count toward the
+tally **even when those parties would never join the coalition** — the Joint List's 13
+recommendations for Gantz in September 2019 are the precedent.
+
+So with the Zionist blocs now within a seat of each other, the question becomes: do Ra'am (≈5) and
+the Joint List (≈7–8) recommend Eisenkot? If both do, Eisenkot has ≈66 recommendations against
+Netanyahu's ≈54 and takes the first mandate with the December deadline available. If neither does,
+Netanyahu takes it on a plurality and the question is effectively over, because the second mandate
+runs to mid-January 2027.
+
+Monte-Carlo (1,000,000 draws, `raw/scenario-model-2026-09-18.py`):
+
+| Quantity | Value |
+|---|---|
+| P(anti-Netanyahu Zionist bloc ≥ 61 outright) | 5.5% |
+| P(anti-Netanyahu Zionist bloc > Netanyahu bloc) | 36.4% |
+| **P(Eisenkot receives the first mandate)** | **54.7%** |
+| P(YES \| electoral path) | 28.4% |
+| P(YES) incl. 0.96 election-on-schedule gate and 1.1% non-electoral floor | **28.3%** |
+
+Inputs: anti-Netanyahu Zionist bloc ~N(53 − 1.6 right-skew, 6.0); Arab bloc ~N(13, 1.5);
+P(Ra'am recommends Eisenkot) = 0.60; P(Joint List recommends) = 0.35; P(government sworn in by
+12-31 | Eisenkot mandate and ≥61 own seats) = 0.80; P(same | mandate but minority) = 0.45;
+P(YES | Netanyahu holds the first mandate) = 0.04.
+
+Posted at **28.0%** after a 0.3 pp shade toward the gold cohort.
+
+**Cross-check.** Polymarket's next-PM market puts P(Netanyahu is the next PM) at 28.5%, i.e.
+P(someone else eventually) ≈ 71.5% [8]. My 28.0% therefore implies a timing conditional of **0.39**
+— down from v1's 0.50. The Metaculus CP of 22% implies 0.31. The disagreement with the crowd is
+now 6 pp rather than 13 pp and sits entirely in that conditional, which is exactly where the
+statutory-clock argument lives.
+
+### Evidence
+
+**The load-bearing new fact is the poll swing, and it is bad for YES.** Three independent
+mid-September readings agree: Middle East Forum poll-of-polls, 2026-09-17 — Netanyahu bloc 53,
+opposition 54, Arab 13 [1]; Channel 13, 2026-09-16 — Netanyahu 54, Eisenkot bloc 52 [2]; JPost
+five-poll average, 2026-09-17 — Netanyahu 54.4, opposition Zionist 51, Arab 12.2, Hendel–Zelekha
+2.4 [3]. Against v1's ~48–50 vs 55–59 this is a ~4-seat swing in each direction in three weeks.
+Its effect is nonlinear: it does not merely shrink the "opposition wins outright" branch, it moves
+probability mass across the line where Netanyahu, not Eisenkot, receives the first mandate — and
+that line is where almost all of this question's probability is decided. LR ≈ **0.55** on
+"Eisenkot takes the first mandate".
+
+**Two facts cut the other way and are not small.** First, **Ra'am is polling 5 seats in every
+mid-September house** [2][4] — Channel 14, Direct Polls and Kantar all have it there — against v1's
+finding that it sat below the threshold in six of nine late-August polls. That was v1's single
+strongest bear point and it is gone. Second, **Eisenkot has stopped hedging on the Arab question.**
+On 2026-09-15 Channel 12 reported that he told his slate he intends to form a minority government
+on Arab abstention if the four-party bloc misses 61, and that candidates unwilling to back it
+should resign their seats [5]. v1 explicitly listed this as a +5 pp tripwire on the strength of his
+earlier "I won't ask anything of them" line. LR ≈ **1.5** jointly.
+
+**The same story carries the counterweight**, which is why it is credited at +3 pp and not +5:
+Yashar's slate is right-leaning and full of political novices, and the report frames internal
+defection over Arab-supported government as a live risk [5]. A minority government that loses two
+of its own MKs at the investiture vote does not get sworn in. Separately, Netanyahu's campaign has
+been explicitly built around making the Arab-support route toxic for Eisenkot [9] — the mirror
+image of 2021, and this time the target has pre-committed.
+
+**Cohort convergence, and why it is not independent evidence.** The Pro cohort has fallen from
+34.0% to 22.0% since v1, the CP from 26.0% to 22.0%, gold from 25.0% to 24.0%. All three now agree
+within 2 pp — the configuration that, under this repo's own rule, obliges me to go looking for the
+fact I missed before defending my number. I went looking and found it: the bloc polls. Having
+counted that evidence directly at −10.5 pp, counting the cohort move again would be double-counting
+and, worse, herding. Only the residual 0.4 pp shade is charged. Two caveats in the other direction:
+the Pro cohort has n=24 and swung 0.265→0.37→0.265→0.35→0.37→0.22 over the same three weeks, so
+"the Pros moved 12 pp" is mostly a few forecasters, not a consensus; and **no comment has been
+posted on the question since 2026-08-13**, so the drift is not argued anywhere public.
+
+**Absent, as before.** No verdict path (testimony cancelled again on security grounds; a verdict
+remains 2027+) [7][10]. No pardon-for-retirement: Herzog is still deferring pending plea-deal
+mediation [7]. No intra-Likud challenge. No election-postponement move.
+
+### Other forecasters
+
+| Source | Value | As of | Note |
+|---|---|---|---|
+| Metaculus CP (recency-weighted) | **22.0%** IQR[17%, 30%] (n=278) | 2026-09-17 15:45Z | was 26.0% at v1; drifted down steadily from 2026-09-02 |
+| Metaculus Pro | **22.0%** IQR[20%, 28%] (n=24) | 2026-09-17 15:45Z | was 34.0%; highly volatile in between (0.265→0.37→0.22) |
+| Metaculus gold medalists | **24.0%** IQR[20%, 30%] (n=90) | 2026-09-17 15:45Z | was 25.0%; the stable cohort, as in v1 |
+| Polymarket — "Netanyahu out by end of 2026" | **46.5%** | 2026-09-18 | was 48.5%; $2.50M on this leg. Looser criteria (an *announcement* suffices) — the wedge explanation from v1 still applies |
+| Polymarket — next PM after the election | Netanyahu **28.5%**, Eizenkot **51.7%**, Bennett 8.5%, Lieberman 4.6% | 2026-09-18 | $38.0M volume, $2.73M liquidity. Netanyahu ticked *down* from 29.5% while the seat polls improved for him |
+| Polymarket — largest party | Yashar **61.0%**, Likud **39.5%** | 2026-09-18 | was a 49.5/46.5 coin flip at v1 — Yashar strengthened here even as its bloc weakened |
+| Manifold / Kalshi / Sentinel / GJOpen / INFER | not re-pulled this session | — | v1 values stand; none is load-bearing |
+
+**The market tension is worth naming.** Seat polls moved toward Netanyahu; Polymarket's next-PM
+contract moved slightly *against* him and its largest-party contract moved sharply toward Yashar.
+The reconciliation I believe is that largest-party and eventual-PM are not the same question as
+bloc-arithmetic-in-December, and Polymarket's horizon runs to December 2027 — fourteen months of
+extra time in which Netanyahu can still lose office. Metaculus's 22% and Polymarket's 28.5% are
+consistent with each other once the horizons are lined up; my 28.0% on a 2026 horizon is the
+aggressive number, and I hold it on the statutory clock alone.
+
+### Scenarios
+
+Replaced by the Monte-Carlo above. The equivalent scenario cut, read out of the simulation:
+
+| # | Scenario | Weight | P(YES \| scenario) |
+|---|---|---|---|
+| A | Netanyahu bloc reaches 61 | 0.19 | 0.03 |
+| B | Anti-Netanyahu Zionist bloc reaches 61 outright | 0.055 | 0.76 |
+| C | Neither reaches 61; Eisenkot nonetheless takes the first mandate on Arab recommendations | 0.50 | 0.45 |
+| D | Neither reaches 61; Netanyahu takes the first mandate | 0.255 | 0.04 |
+
+### Sensitivity
+
+| Assumption | If instead | Forecast becomes |
+|---|---|---|
+| P(minority government sworn in by 12-31 \| Eisenkot mandate) = 0.45 | 0.30 (defections bite, or the deadline slips) | **21.2%** |
+| same | 0.60 (Arab abstention pre-agreed, discipline holds) | **35.5%** |
+| Right-skew correction −1.6 seats | −4.0 (full 2015/2020/2022 correction) | **21.4%** |
+| same | 0.0 (2021-style, polls over-read the right) | **33.3%** |
+| P(Ra'am recommends Eisenkot) = 0.60 | 0.25 | **26.1%** |
+| P(Joint List recommends Eisenkot) = 0.35 | 0.10 | **25.9%** |
+| Bloc poll error SD 6.0 seats | 8.0 | **30.0%** |
+
+The forecast is now most sensitive to **minority-formation success** and to **polling bias**, and
+markedly less sensitive to the Arab-recommendation probabilities than one would guess — because
+Eisenkot needs only one of the two Arab lists to tip the recommendation count.
+
+### What would change my mind (tripwires)
+
+- [ ] **By 2026-10-15:** Ra'am or the Joint List publicly rules out recommending Eisenkot, or
+      Eisenkot publicly re-commits to "no deals with Arab parties" under campaign pressure
+      → **−6 pp**. Either Arab list publicly commits to recommending him → **+6 pp**.
+- [ ] **By 2026-10-20:** two or more named Yashar candidates publicly refuse to back a minority
+      government resting on Arab abstention → **−4 pp**.
+- [ ] **By 2026-10-26:** the mainstream polling average of the Netanyahu bloc (incl. Amcha
+      Yisrael) reaches ≥ 57 → **−7 pp**; it falls back below 49 → **+6 pp**.
+- [ ] **By 2026-10-26:** Ra'am falls back below the 3.25% threshold in the majority of final-week
+      polls → **−4 pp**.
+- [ ] **2026-10-28 (result known):** anti-Netanyahu Zionist bloc ≥ 61 without Arab parties
+      → **+40 pp (to ~68%)**. Netanyahu bloc ≥ 61 → **−25 pp (to ~3%)**.
+- [ ] **By 2026-11-10 (recommendation tally published):** Eisenkot leads the recommendation count
+      → **+13 pp**; Netanyahu leads it → **−20 pp**. *This is the highest-leverage single
+      observable left in the question.*
+- [ ] **By 2026-11-16:** President Herzog assigns the first mandate to Eisenkot → **+15 pp**;
+      to Netanyahu → **−22 pp (to ~6%)**.
+- [ ] **By 2026-11-20:** the first mandate is assigned later than 2026-11-16, pushing the
+      28+14-day deadline past 31 December → **−9 pp** regardless of who holds it.
+- [ ] **By 2026-12-17:** Netanyahu hospitalised with a transfer of powers lasting > 5 days, a new
+      cancer/cardiac disclosure, or a Herzog pardon on terms requiring exit from political life
+      → **+8 pp**.
+
+### Sources
+
+Sources 1–29 from v1 remain as cited there; the ones still load-bearing for v2 are repeated below
+with their original access dates so this version stands on its own.
+
+1. Metaculus #40966 — https://www.metaculus.com/questions/40966/will-benjamin-netanyahu-cease-to-be-prime-minister-of-israel-during-2026/ — all three cohorts, 396 history points and 8 comments, pulled via the `metaculus-aggregations` skill with `METACULUS_FORCE_TLS12=1`; snapshot in `raw/metaculus-2026-09-18.json` (accessed 2026-09-18)
+2. Middle East Forum — Israel Election 2026 Poll of Polls — https://www.meforum.org/press-releases/middle-east-forum-opens-israel-election-2026-poll-of-polls — poll-of-polls state as of 2026-09-17: Netanyahu bloc 53, opposition 54, Arab parties 13 (accessed 2026-09-18)
+3. The Jerusalem Post — "Netanyahu's Likud, Eisenkot's Yashar trade leads as 2026 election picture stays unclear" — https://www.jpost.com/israel-election-2026/article-908444 (accessed 2026-09-18)
+4. Haaretz — "In Latest Poll, pro-Netanyahu Bloc Edges Ahead of Eisenkot's Opposition as Likud Drops" (2026-09-17) — https://www.haaretz.com/israel-news/elections/2026-09-17/ty-article/israeli-election-poll-sees-pro-netanyahu-bloc-edge-ahead-of-eisenkot/000001a0-ad41-dea8-afe0-eded00220000 (accessed 2026-09-18)
+5. The Jerusalem Post — "Gadi Eisenkot still leads in polls, but Benjamin Netanyahu shortens distance" — five-poll average of 2026-09-17: Netanyahu bloc 54.4, opposition Zionist 51, Arab 12.2, Hendel–Zelekha 2.4 — https://www.jpost.com/israel-election-2026/article-908921 (accessed 2026-09-18)
+6. Wikipedia — "Opinion polling for the 2026 Israeli legislative election", 16–17 September entries (Channel 14/Filber + NEXT DATA, Direct Polls/i24, Kantar/Israel Hayom) — https://en.wikipedia.org/wiki/Opinion_polling_for_the_2026_Israeli_legislative_election (accessed 2026-09-18)
+7. The Times of Israel — "Report: Eisenkot fears defections from party if he forms minority government with Arab support" (Channel 12, 2026-09-15) — https://www.timesofisrael.com/liveblog_entry/report-eisenkot-fears-defections-from-party-if-he-forms-minority-government-with-arab-support/ (accessed 2026-09-18)
+8. The Times of Israel — "Main opposition factions ink surplus-vote deals in bid to maximize Knesset representation"; also the 2026-09-08 candidate-list filing date — https://www.timesofisrael.com/main-opposition-factions-ink-surplus-vote-deals-in-bid-to-maximize-knesset-representation/ (accessed 2026-09-18)
+9. The Times of Israel — "Netanyahu's anti-Arab campaign has found Gadi Eisenkot's Achilles' heel" — https://www.timesofisrael.com/netanyahus-anti-arab-campaign-has-found-gadi-eisenkots-achilles-heel/ (accessed 2026-09-18)
+10. The Media Line — "Herzog Defers Netanyahu Pardon Decision, Calls for Plea Deal First" — https://themedialine.org/headlines/herzog-defers-netanyahu-pardon-decision-calls-for-plea-deal-first/ (accessed 2026-09-18)
+11. Truthout — "Netanyahu's Testimony in Criminal Trial Cancelled Again for 'Security Concerns'" — https://truthout.org/articles/netanyahus-testimony-in-criminal-trial-cancelled-again-for-security-concerns/ (accessed 2026-09-18)
+12. Polymarket — "Prime Minister of Israel after the next election?", "Netanyahu out by...?" and "Israeli Legislative Election Winner" — https://polymarket.com/event/netanyahu-out-before-2027 — prices via `gamma-api.polymarket.com` (accessed 2026-09-18)
+13. Israel Democracy Institute — "Everything You Need to Know About How a Government is Formed Following Elections" — https://en.idi.org.il/articles/63976 (accessed 2026-08-31, carried forward from v1; the statutory 28+14-day mandate clock)
+14. Wikipedia — "Cabinet of Israel", government-formation dates for the 22nd–37th governments — https://en.wikipedia.org/wiki/Cabinet_of_Israel (accessed 2026-08-31, carried forward from v1; the 65-day base rate)
+15. The Times of Israel — "Eisenkot lays groundwork for a minority government, if necessary, to oust Netanyahu" — https://www.timesofisrael.com/eisenkot-lays-groundwork-for-a-minority-government-if-necessary-to-oust-netanyahu/ (accessed 2026-08-31, carried forward from v1)
+
+**Date**: 2026-09-18
+**Forecast**: Median 28.0%, IQR [22.0%, 35.0%]
+**Thesis**: The statutory-clock argument from v1 survives intact — Netanyahu stays caretaker PM until a successor is sworn in, and the President's first mandate expires ~21–26 December, so YES needs first-mandate success rather than unusual speed — but the input it feeds on has deteriorated: three independent mid-September poll averages now put the Netanyahu bloc at 53–54 against an anti-Netanyahu Zionist bloc of 51–54, a ~4-seat swing in three weeks that moves real mass across the line where Netanyahu, not Eisenkot, receives that first mandate [1][2][3]. Partly offsetting, Ra'am is clearing the 3.25% threshold in every current poll (v1's strongest bear point, now reversed) and Eisenkot has publicly committed his slate to a minority government resting on Arab abstention [4][5]. Net −7 pp to 28.0%; the crowd has converged to 22–24% on the same evidence, and the remaining 4–6 pp gap is the timing conditional (0.39 mine vs 0.31 theirs) against Polymarket's unchanged ~71.5% that Netanyahu eventually goes [8].
 
 ---
 
