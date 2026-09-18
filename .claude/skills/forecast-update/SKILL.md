@@ -99,3 +99,9 @@ Set `status: resolved` in `meta.yaml`.
 
 `uv run scripts/status.py` lists open questions by urgency (review overdue, resolution imminent,
 tripwire-heavy, stale). Use it at the start of any "what should I look at" session.
+
+When acting on the triage (`/status --act`) and **more than 2** questions are due, fan out: one
+subagent per question, each running this skill end to end for a single slug, with the Metaculus
+JSON pre-fetched serially by the parent (parallel fetches trip the per-IP rate limit). Never
+split one question across agents — the integration step is where calibration lives. See
+`.claude/commands/status.md` for the full brief.
