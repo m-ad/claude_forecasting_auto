@@ -22,14 +22,35 @@ How you run the due set depends on its size:
 **Due set ≤ 2 — do them yourself.** Run `/update <slug>` sequentially. Fan-out costs more than
 it saves at this size, and two questions in one context let you notice a shared driver.
 
-**Due set > 2 — fan out, one subagent per question.** Each subagent owns exactly one slug from
-first byte to ledger entry.
+**Due set > 2 — fan out.** One subagent per question by default; each owns its slug from first
+byte to ledger entry.
 
-> The boundary that matters: **never split a single question across subagents.** One question,
-> one agent, one probability judgement. Delegating the tripwire check to one agent and the
-> integration to another is the one thing `CLAUDE.md` forbids — calibration lives in the
-> integration step. Delegating a *whole* question is fine, because the agent does its own
-> integration.
+> The boundary that matters: **never split a single question across subagents.** Delegating the
+> tripwire check to one agent and the integration to another is the one thing `CLAUDE.md`
+> forbids — calibration lives in the integration step. Delegating *whole* questions is fine,
+> because the agent does its own integration.
+
+**Exception: send a cluster of closely related questions to one agent.** This is uncommon — in a
+typical due set every question is independent and gets its own agent — but when two or three
+questions share their evidence base, splitting them wastes the research twice and, worse, lets
+the two forecasts drift into mutual inconsistency that no one is positioned to notice. Signs of
+a genuine cluster:
+
+- the same resolution source or data release resolves both (e.g. the cage-free
+  `mc43277` and broiler `mc43278` commitment-fulfilment questions, both keyed to the same
+  Open Wing Alliance reporting round);
+- one question's outcome is a driver, a component or a near-negation of the other's;
+- the tripwire lists overlap substantially.
+
+Topical adjacency is *not* a cluster. Two US-politics questions with disjoint evidence go to
+separate agents. When in doubt, split — the default is the safe direction.
+
+A cluster agent still owes each question its own full treatment: its own prior, its own version
+block in its own `forecast.md`, its own `meta.yaml` and its own ledger entry. What it gains is
+one shared research pass and the standing to say "these two must move together" — and it must
+state the cross-question constraint it applied in its report. Keep clusters to 3 questions at
+most; beyond that the shared context stops being an advantage and the agent starts cutting
+corners on the later questions.
 
 Before spawning, do two things yourself, in the parent:
 
@@ -45,7 +66,8 @@ Before spawning, do two things yourself, in the parent:
 
    These are live numbers fetched in this session, so rule 4 is satisfied; the agent reads the
    file instead of re-fetching.
-2. **Cap concurrency at 4 in flight.** Launch the next batch as slots free up.
+2. **Cap concurrency at 4 agents in flight** (agents, not questions — a cluster agent counts
+   once). Launch the next batch as slots free up.
 
 Give every subagent the same brief, with its own slug substituted:
 
@@ -62,9 +84,11 @@ Give every subagent the same brief, with its own slug substituted:
   `scripts/status.py --index`, and must **not** run `ruff`/`pytest`. Those are yours, once, at
   the end.
 - "No change" is a valid, publishable result — it writes the version anyway.
-- It reports back in this fixed shape, and nothing else:
+- It reports back one line per slug in this fixed shape, and nothing else:
   `<slug> | v<N> | <prior median/IQR> → <new median/IQR> | mode | <one clause: the driver that
   moved it, or why nothing moved> | tripwires fired: <names or none>`
+  A cluster agent adds one final line: `cluster: <the shared driver, and the consistency
+  constraint it enforced across the slugs>`.
 
 Then integrate, yourself:
 

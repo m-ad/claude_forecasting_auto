@@ -103,5 +103,7 @@ tripwire-heavy, stale). Use it at the start of any "what should I look at" sessi
 When acting on the triage (`/status --act`) and **more than 2** questions are due, fan out: one
 subagent per question, each running this skill end to end for a single slug, with the Metaculus
 JSON pre-fetched serially by the parent (parallel fetches trip the per-IP rate limit). Never
-split one question across agents — the integration step is where calibration lives. See
-`.claude/commands/status.md` for the full brief.
+split one question across agents — the integration step is where calibration lives. The one
+exception runs the other way: two or three questions that share a resolution source or evidence
+base (the cage-free/broiler commitment pair, say) go to *one* agent, so the research happens once
+and the forecasts stay mutually consistent. See `.claude/commands/status.md` for the full brief.
