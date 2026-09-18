@@ -1,6 +1,6 @@
 # Question index
 
-_Regenerated 2026-09-17 by `scripts/status.py --index`._
+_Regenerated 2026-09-18 by `scripts/status.py --index`._
 
 | Question | Type | Current | v | Community (CP) | Resolves | Next review | Status |
 |---|---|---|---|---|---|---|---|
@@ -9,17 +9,18 @@ _Regenerated 2026-09-17 by `scripts/status.py --index`._
 | [Will the United States attack Oman before 2027?](questions/2026-09-05-mc45230-united-states-attack-oman-before-2027/forecast.md) | binary | 8.4% [5.0%, 13.0%] | 2 | — | 2027-01-01 | 2026-09-17 | open |
 | [How many barrels of crude oil will the Strategic Petroleum Reserve hold in September 2026?](questions/2026-09-07-mc15240-spr-crude-barrels-september-2026/forecast.md) | numeric | 283,400,000 [282,400,000, 284,400,000] | 2 | 317,131,973 | 2026-11-30 | 2026-09-17 | open |
 | [Which party will win the Holborn and St Pancras by-election?](questions/2026-09-11-mc45425-which-party-win-holborn-st-pancras-election/forecast.md) | multiple_choice | 0.68 [0.61, 0.75] | 1 | — | 2026-10-09 | 2026-09-19 | open |
+| [Will there be a bilateral ceasefire in the Russo-Ukrainian conflict before 2027?](questions/2026-08-28-mc41138-bilateral-ceasefire-russo-ukrainian-conflict-before-2027/forecast.md) | binary | 9.0% [6.5%, 13.0%] | 1 | 12.0% | 2026-12-31 | 2026-09-21 | open |
 | [Who will be awarded the 2026 Nobel Peace Prize?](questions/2026-09-05-mc45383-who-awarded-2026-nobel-peace-prize/forecast.md) | multiple_choice | 0.47 [0.4, 0.54] | 1 | — | 2026-10-09 | 2026-09-28 | open |
 | [Will FEWS NET classify any area of Sudan as experiencing Famine before 2027?](questions/2026-09-05-mc45464-fews-net-classify-area-sudan-as-experiencing/forecast.md) | binary | 20.0% [14.0%, 28.0%] | 1 | — | 2026-12-31 | 2026-09-19 | open |
+| [How many barrels of crude oil will the Strategic Petroleum Reserve hold in December 2026?](questions/2026-09-07-mc15240-spr-crude-barrels-december-2026/forecast.md) | numeric | 281,900,000 [278,300,000, 285,200,000] | 1 | 399,811,115 | 2027-02-26 | 2026-09-21 | open |
+| [Will at least one additional U.S. state enact a cage-free egg requirement before July 2027?](questions/2026-09-17-mc45421-cage-free-egg-requirement-new-state/forecast.md) | binary | 14.0% [10.0%, 19.0%] | 2 | — | 2027-07-01 | 2026-09-21 | open |
 | [Will an AI system autonomously cause a major breach of US personal data held by an organization other than its operator before 2028?](questions/2026-09-10-mc45427-major-us-personal-data-breach-external-misaligned-ai/forecast.md) | binary | 63.0% [54.0%, 72.0%] | 1 | 75.0% | 2028-01-01 | 2026-09-24 | open |
-| [Will there be a bilateral ceasefire in the Russo-Ukrainian conflict before 2027?](questions/2026-08-28-mc41138-bilateral-ceasefire-russo-ukrainian-conflict-before-2027/forecast.md) | binary | 9.0% [6.5%, 13.0%] | 1 | 12.0% | 2026-12-31 | 2026-09-21 | open |
 | [Will OpenAI file for an IPO during 2026?](questions/2026-08-28-mc41141-openai-file-ipo-during-2026/forecast.md) | binary | 20.0% [15.0%, 26.0%] | 1 | 25.0% | 2027-01-01 | 2026-09-25 | open |
 | [How many New World screwworm cases will be confirmed in Mexico in total before July 2027?](questions/2026-09-04-mc43507-how-many-new-world-screwworm-cases-confirmed/forecast.md) | numeric | 67000 [61500, 74000] | 1 | 60426 | 2027-07-01 | 2026-10-06 | open |
 | [What will be the percentage change in funds raised by GiveWell between 2026 and the following years?](questions/2026-09-04-mc45386-givewell-funds-raised-pct-change-2027-2028/forecast.md) | numeric | 0 [-26, 35] | 1 | — | 2029-09-01 | 2026-12-15 | open |
 | [Will the Save Our Bacon Act be enacted into law before July 2027?](questions/2026-09-05-mc43616-save-our-bacon-act-enacted-into-law/forecast.md) | binary | 3.0% [2.0%, 4.5%] | 1 | 5.0% | 2027-07-01 | 2026-10-05 | open |
 | [What first round vote share will Iliana Iotova win in the 2026 Bulgarian Presidential election?](questions/2026-09-05-mc45262-first-round-vote-share-iliana-iotova-win/forecast.md) | numeric | 45.4 [42, 48.9] | 1 | — | 2026-10-31 | 2026-09-24 | open |
 | [How many Major Atlantic Hurricanes will occur in the 2026 Atlantic hurricane season?](questions/2026-09-05-mc45381-how-many-major-atlantic-hurricanes-occur-2026/forecast.md) | multiple_choice | 0.63 [0.56, 0.7] | 2 | 0.525 | 2026-11-30 | 2026-09-24 | open |
-| [How many barrels of crude oil will the Strategic Petroleum Reserve hold in December 2026?](questions/2026-09-07-mc15240-spr-crude-barrels-december-2026/forecast.md) | numeric | 281,900,000 [278,300,000, 285,200,000] | 1 | 399,811,115 | 2027-02-26 | 2026-09-21 | open |
 | [Who will win the 2026 World Chess Championship?](questions/2026-09-11-mc45216-who-win-2026-world-chess-championship/forecast.md) | multiple_choice | 0.67 [0.61, 0.73] | 1 | — | 2026-12-14 | 2026-09-28 | open |
 | [What will be the open market US Dollar/Iranian Toman exchange rate on December 31, 2026?](questions/2026-09-11-mc45340-open-market-us-dollar-iranian-toman-exchange/forecast.md) | numeric | 272000 [236000, 320000] | 1 | — | 2026-12-31 | 2026-10-10 | open |
 | [Who will win the 2026 Ballon d'Or?](questions/2026-09-11-mc45617-ballon-dor-2026/forecast.md) | multiple_choice | 0.56 [0.48, 0.63] | 1 | — | 2026-10-26 | 2026-10-12 | open |
@@ -29,6 +30,6 @@ _Regenerated 2026-09-17 by `scripts/status.py --index`._
 | [Will it be confirmed before 2027 that the "swarm" in the July 2026 Hugging Face incident exfiltrated any OpenAI model weights?](questions/2026-09-13-mc45467-it-confirmed-before-2027-that-swarm-july/forecast.md) | binary | 5.5% [3.5%, 12.0%] | 2 | 7.0% | 2027-01-01 | 2026-09-25 | open |
 | [What percentage of companies globally will fulfill their pre-2026 cage-free commitments in 2026 and 2027?](questions/2026-09-17-mc43277-percentage-companies-globally-fulfill-their-pre-2026/forecast.md) | discrete | 11.9 [9.6, 15.3] | 1 | — | 2028-01-01 | 2026-11-15 | open |
 | [What percentage of companies globally will fulfill their pre-2026 broiler commitments in 2026 and 2027?](questions/2026-09-17-mc43278-percentage-companies-globally-fulfill-their-pre-2026/forecast.md) | discrete | 3.8 [2.3, 6.6] | 1 | — | 2028-01-01 | 2026-11-20 | open |
-| [Will at least one additional U.S. state enact a cage-free egg requirement before July 2027?](questions/2026-09-17-mc45421-cage-free-egg-requirement-new-state/forecast.md) | binary | 14.0% [10.0%, 19.0%] | 2 | — | 2027-07-01 | 2026-09-21 | open |
+| [How many shrimp per year will be covered by SWP's Humane Slaughter Initiative agreements on July 1, 2027?](questions/2026-09-17-mc45706-how-many-shrimp-per-year-covered-swp/forecast.md) | discrete | 8.3 [7.6, 9.3] | 1 | — | 2027-07-01 | 2026-12-17 | open |
 | [Will a U.S. federal agency announce new or expanded model evaluation agreements with both OpenAI and Anthropic before September 3, 2026?](questions/2026-08-27-mc44708-u-s-federal-agency-announce-new-expanded/forecast.md) | binary | 1.5% [0.5%, 3.0%] | 2 | 1.0% | 2026-09-03 | — | resolved |
 | [Will Uber's takeover of Delivery Hero be approved by BaFin before September 2026?](questions/2026-08-27-mc44921-uber-delivery-hero-bafin-approval/forecast.md) | binary | 45.0% [32.0%, 58.0%] | 1 | 51.0% | 2026-09-01 | — | resolved |

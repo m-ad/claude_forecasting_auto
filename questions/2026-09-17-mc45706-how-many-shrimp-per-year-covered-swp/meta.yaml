@@ -1,0 +1,75 @@
+slug: 2026-09-17-mc45706-how-many-shrimp-per-year-covered-swp
+title: How many shrimp per year will be covered by SWP's Humane Slaughter Initiative agreements on July
+  1, 2027?
+source: metaculus
+url: https://www.metaculus.com/questions/45706/
+post_id: 45706
+type: discrete
+unit: bn shrimp/yr
+tags:
+- animal-welfare
+- shrimp
+- effective-altruism
+- ngo-scaling
+dates:
+  created: '2026-09-17'
+  opened: null
+  closes: '2027-06-01'
+  resolves: '2027-07-01'
+status: open
+current:
+  version: 1
+  date: '2026-09-17'
+  median: 8.3
+  iqr:
+  - 7.6
+  - 9.3
+  community:
+    cp: null
+    pro: null
+    gold: null
+    n_forecasters: 3
+    as_of: '2026-09-17'
+next_review: '2026-12-17'
+tripwires:
+- signal: Shrimpact page shows >= 42 agreements or a headline >= 7.3 bn
+  by: '2026-12-31'
+  direction: up
+  magnitude: 0.6
+  magnitude_unit: bn shrimp/yr
+  fired: null
+- signal: Shrimpact page still shows <= 38 agreements or a headline <= 6.7 bn
+  by: '2027-01-31'
+  direction: down
+  magnitude: 0.9
+  magnitude_unit: bn shrimp/yr
+  fired: null
+- signal: SWP announces an 'HSI 2.0' country-scale programme or a single grant >= $3M
+  by: '2027-04-30'
+  direction: up
+  magnitude: 2.5
+  magnitude_unit: bn shrimp/yr
+  fired: null
+- signal: Shrimpact headline re-labelled to installed or verified volume, or the headline box replaced
+    by a range
+  by: '2027-06-30'
+  direction: either
+  magnitude: 0
+  magnitude_unit: bn shrimp/yr
+  fired: null
+- signal: Guesstimate model 22982 grams-per-shrimp cell changes from 14
+  by: '2027-06-30'
+  direction: either
+  magnitude: 0
+  magnitude_unit: bn shrimp/yr
+  fired: null
+- signal: SWP states 2027 funding is short, or ACE / Navigation Fund support is not renewed for 2027
+  by: '2027-03-31'
+  direction: down
+  magnitude: 0.8
+  magnitude_unit: bn shrimp/yr
+  fired: null
+resolution:
+  outcome: null
+  date: null
+  source: null
