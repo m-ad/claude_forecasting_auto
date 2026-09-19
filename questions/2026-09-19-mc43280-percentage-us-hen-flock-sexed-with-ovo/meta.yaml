@@ -1,0 +1,78 @@
+slug: 2026-09-19-mc43280-percentage-us-hen-flock-sexed-with-ovo
+title: What percentage of the US hen flock will be sexed with in-ovo sexing technology in Q1 2027?
+source: metaculus
+url: https://www.metaculus.com/questions/43280/
+post_id: 43280
+type: numeric
+unit: '%'
+tags:
+- animal-welfare
+- in-ovo-sexing
+- egg-industry
+- technology-diffusion
+- innovate-animal-ag
+dates:
+  created: '2026-09-19'
+  opened: '2026-06-12'
+  closes: '2026-12-31'
+  resolves: null
+status: open
+current:
+  version: 1
+  date: '2026-09-19'
+  median: 2.4
+  iqr:
+  - 1.7
+  - 3.2
+  community:
+    cp: 3.23
+    pro: 3.63
+    gold: 3.35
+    n_forecasters: 52
+    as_of: '2026-09-19'
+next_review: '2026-12-15'
+tripwires:
+- signal: A top-10 US egg producer by flock size (Cal-Maine, Rose Acre, Versova, Hillandale, Michael Foods,
+    Daybreak, Opal/Prairie Star, Hickman's, MPS, Weaver) announces a dated flock-wide in-ovo sexing transition
+  by: '2027-03-31'
+  direction: up
+  magnitude: 1.5
+  magnitude_unit: '%'
+  fired: null
+- signal: Walmart converts its in-ovo sexing 'focus area' language into a supplier deadline with a share
+    target
+  by: '2027-03-31'
+  direction: up
+  magnitude: 1
+  magnitude_unit: '%'
+  fired: null
+- signal: Vital Farms discloses in an SEC filing or earnings call what share of its >10 million-hen network
+    is in-ovo sexed
+  by: '2027-06-30'
+  direction: either
+  magnitude: 0
+  magnitude_unit: '%'
+  fired: null
+- signal: MatrixSpec/SANOVO HyperEye or Respeggt announces a white-layer installation at a US commodity
+    hatchery
+  by: '2027-06-30'
+  direction: up
+  magnitude: 0.8
+  magnitude_unit: '%'
+  fired: null
+- signal: Innovate Animal Ag publishes any US penetration figure at or below 1.5% during 2027
+  by: '2027-07-31'
+  direction: down
+  magnitude: 0.8
+  magnitude_unit: '%'
+  fired: null
+- signal: No Q1-2027 US figure exists by 1 July 2027 — the fine print's annulment branch becomes live
+  by: '2027-07-01'
+  direction: either
+  magnitude: 0
+  magnitude_unit: '%'
+  fired: null
+resolution:
+  outcome: null
+  date: null
+  source: null

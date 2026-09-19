@@ -1,13 +1,13 @@
 # Question index
 
-_Regenerated 2026-09-18 by `scripts/status.py --index`._
+_Regenerated 2026-09-19 by `scripts/status.py --index`._
 
 | Question | Type | Current | v | Community (CP) | Resolves | Next review | Status |
 |---|---|---|---|---|---|---|---|
 | [Which party will win the Holborn and St Pancras by-election?](questions/2026-09-11-mc45425-which-party-win-holborn-st-pancras-election/forecast.md) | multiple_choice | 0.68 [0.61, 0.75] | 1 | — | 2026-10-09 | 2026-09-19 | open |
+| [Will FEWS NET classify any area of Sudan as experiencing Famine before 2027?](questions/2026-09-05-mc45464-fews-net-classify-area-sudan-as-experiencing/forecast.md) | binary | 20.0% [14.0%, 28.0%] | 1 | — | 2026-12-31 | 2026-09-19 | open |
 | [Will there be a bilateral ceasefire in the Russo-Ukrainian conflict before 2027?](questions/2026-08-28-mc41138-bilateral-ceasefire-russo-ukrainian-conflict-before-2027/forecast.md) | binary | 9.0% [6.5%, 13.0%] | 1 | 12.0% | 2026-12-31 | 2026-09-21 | open |
 | [Who will be awarded the 2026 Nobel Peace Prize?](questions/2026-09-05-mc45383-who-awarded-2026-nobel-peace-prize/forecast.md) | multiple_choice | 0.47 [0.4, 0.54] | 1 | — | 2026-10-09 | 2026-09-28 | open |
-| [Will FEWS NET classify any area of Sudan as experiencing Famine before 2027?](questions/2026-09-05-mc45464-fews-net-classify-area-sudan-as-experiencing/forecast.md) | binary | 20.0% [14.0%, 28.0%] | 1 | — | 2026-12-31 | 2026-09-19 | open |
 | [How many barrels of crude oil will the Strategic Petroleum Reserve hold in December 2026?](questions/2026-09-07-mc15240-spr-crude-barrels-december-2026/forecast.md) | numeric | 281,900,000 [278,300,000, 285,200,000] | 1 | 399,811,115 | 2027-02-26 | 2026-09-21 | open |
 | [Will at least one additional U.S. state enact a cage-free egg requirement before July 2027?](questions/2026-09-17-mc45421-cage-free-egg-requirement-new-state/forecast.md) | binary | 14.0% [10.0%, 19.0%] | 2 | — | 2027-07-01 | 2026-09-21 | open |
 | [Will an AI system autonomously cause a major breach of US personal data held by an organization other than its operator before 2028?](questions/2026-09-10-mc45427-major-us-personal-data-breach-external-misaligned-ai/forecast.md) | binary | 63.0% [54.0%, 72.0%] | 1 | 75.0% | 2028-01-01 | 2026-09-24 | open |
@@ -32,5 +32,7 @@ _Regenerated 2026-09-18 by `scripts/status.py --index`._
 | [What percentage of companies globally will fulfill their pre-2026 broiler commitments in 2026 and 2027?](questions/2026-09-17-mc43278-percentage-companies-globally-fulfill-their-pre-2026/forecast.md) | discrete | 3.8 [2.3, 6.6] | 1 | — | 2028-01-01 | 2026-11-20 | open |
 | [What will be the total retail sales of plant-based meat and seafood in 2026?](questions/2026-09-17-mc45422-total-retail-sales-plant-based-meat-seafood/forecast.md) | numeric | 6,860,000,000 [6,590,000,000, 7,110,000,000] | 1 | — | 2027-06-30 | 2026-09-24 | open |
 | [How many shrimp per year will be covered by SWP's Humane Slaughter Initiative agreements on July 1, 2027?](questions/2026-09-17-mc45706-how-many-shrimp-per-year-covered-swp/forecast.md) | discrete | 8.3 [7.6, 9.3] | 1 | — | 2027-07-01 | 2026-12-17 | open |
+| [What percentage of the EU hen flock will be sexed with in-ovo sexing technology in Q1 2027?](questions/2026-09-19-mc43279-percentage-eu-hen-flock-sexed-with-ovo/forecast.md) | numeric | 43.3 [41, 45.6] | 1 | 41.69 | — | 2026-12-15 | open |
+| [What percentage of the US hen flock will be sexed with in-ovo sexing technology in Q1 2027?](questions/2026-09-19-mc43280-percentage-us-hen-flock-sexed-with-ovo/forecast.md) | numeric | 2.4 [1.7, 3.2] | 1 | 3.23 | — | 2026-12-15 | open |
 | [Will a U.S. federal agency announce new or expanded model evaluation agreements with both OpenAI and Anthropic before September 3, 2026?](questions/2026-08-27-mc44708-u-s-federal-agency-announce-new-expanded/forecast.md) | binary | 1.5% [0.5%, 3.0%] | 2 | 1.0% | 2026-09-03 | — | resolved |
 | [Will Uber's takeover of Delivery Hero be approved by BaFin before September 2026?](questions/2026-08-27-mc44921-uber-delivery-hero-bafin-approval/forecast.md) | binary | 45.0% [32.0%, 58.0%] | 1 | 51.0% | 2026-09-01 | — | resolved |
