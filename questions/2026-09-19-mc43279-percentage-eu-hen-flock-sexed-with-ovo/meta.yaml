@@ -1,0 +1,79 @@
+slug: 2026-09-19-mc43279-percentage-eu-hen-flock-sexed-with-ovo
+title: What percentage of the EU hen flock will be sexed with in-ovo sexing technology in Q1 2027?
+source: metaculus
+url: https://www.metaculus.com/questions/43279/
+post_id: 43279
+type: numeric
+unit: '%'
+tags:
+- animal-welfare
+- in-ovo-sexing
+- egg-industry
+- technology-diffusion
+- innovate-animal-ag
+dates:
+  created: '2026-09-19'
+  opened: '2026-06-12'
+  closes: '2026-12-31'
+  resolves: null
+status: open
+current:
+  version: 1
+  date: '2026-09-19'
+  median: 43.3
+  iqr:
+  - 41.0
+  - 45.6
+  community:
+    cp: 41.69
+    pro: 41.35
+    gold: 41.36
+    n_forecasters: 47
+    as_of: '2026-09-19'
+next_review: '2026-12-15'
+tripwires:
+- signal: Innovate Animal Ag publishes a 2026 Yearly Recap containing a penetration percentage and the
+    question is NOT resolved on it — a restatement does not count
+  by: '2027-01-31'
+  direction: up
+  magnitude: 1.5
+  magnitude_unit: '%'
+  fired: null
+- signal: The 2026 Yearly Recap appears with a restated 40% figure and the admin signals it counts, or
+    the question resolves on it
+  by: '2027-01-31'
+  direction: down
+  magnitude: 3
+  magnitude_unit: '%'
+  fired: null
+- signal: Admin clarification on 43279 stating whether a restated prior-period figure counts as 'the first
+    such number published in 2027'
+  by: '2027-03-31'
+  direction: either
+  magnitude: 0
+  magnitude_unit: '%'
+  fired: null
+- signal: Italian decree, transition period or documented hatchery non-readiness delaying the 1 January
+    2027 culling ban
+  by: '2027-03-31'
+  direction: down
+  magnitude: 1.5
+  magnitude_unit: '%'
+  fired: null
+- signal: Innovate Animal Ag publishes an interim EU figure at or above 43% (e.g. in a quarterly roundup)
+  by: '2027-06-30'
+  direction: up
+  magnitude: 2
+  magnitude_unit: '%'
+  fired: null
+- signal: Innovate Animal Ag announces a methodology or flock-denominator change for the 2027 report,
+    as it did between the 2025 and 2026 reports
+  by: '2027-06-30'
+  direction: either
+  magnitude: 0
+  magnitude_unit: '%'
+  fired: null
+resolution:
+  outcome: null
+  date: null
+  source: null
