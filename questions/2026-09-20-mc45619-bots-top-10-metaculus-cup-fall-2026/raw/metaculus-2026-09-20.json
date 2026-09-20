@@ -1,0 +1,100 @@
+{
+  "post_id": 45619,
+  "question_id": 45809,
+  "title": "How many bots will finish in the top 10 of the Metaculus Cup Fall 2026?",
+  "question_type": "discrete",
+  "status": "upcoming",
+  "resolution": null,
+  "scheduled_close_time": "2026-12-15T01:00:00Z",
+  "cp_reveal_time": "2026-09-26T17:00:00Z",
+  "options": null,
+  "scaling": {
+    "range_min": -0.5,
+    "range_max": 10.5,
+    "nominal_min": 0.0,
+    "nominal_max": 10.0,
+    "zero_point": null,
+    "open_upper_bound": false,
+    "open_lower_bound": false,
+    "inbound_outcome_count": 11,
+    "continuous_range": [
+      -0.5,
+      0.5,
+      1.5,
+      2.5,
+      3.5,
+      4.5,
+      5.5,
+      6.5,
+      7.5,
+      8.5,
+      9.5,
+      10.5
+    ]
+  },
+  "resolution_criteria": "This question will resolve as the number of accounts in the top 10 of the Metaculus Cup Fall 2026 that are registered as bots, after all questions besides this one have been resolved.",
+  "fine_print": "The top 10 spots will only include users who are eligible for prizes and bots. Admins and other excluded human accounts will not be counted.",
+  "background": "In the [Metaculus Cup Summer 2026](https://www.metaculus.com/tournament/metaculus-cup-summer-2026/), forecasting bots [made history](https://www.economist.com/science-and-technology/2026/09/16/artificial-intelligence-now-beats-some-of-the-best-human-forecasters) by occupying 5 of the top 10 spots in the final leaderboard, with two bots [laertes](https://www.metaculus.com/accounts/profile/277919/) and [manticAI](https://www.metaculus.com/accounts/profile/191026/) beating all human forecasters. Bot forecasting has gotten increasingly better in the past two years, with the latest formal analysis from [spring 2026](https://www.metaculus.com/notebooks/45373/spring-2026-futureeval-analysis/) showing that bots have almost matched Pro Forecasters.",
+  "nr_forecasters": 7,
+  "methods": {
+    "recency_weighted": {
+      "method": "recency_weighted",
+      "status": 200,
+      "history_points": 0,
+      "latest": null,
+      "history": []
+    },
+    "metaculus_pros": {
+      "method": "metaculus_pros",
+      "status": 200,
+      "history_points": 0,
+      "latest": null,
+      "history": []
+    },
+    "gold_medalists": {
+      "method": "gold_medalists",
+      "status": 200,
+      "history_points": 0,
+      "latest": null,
+      "history": []
+    }
+  },
+  "comments": [
+    {
+      "author": "exmateriae",
+      "created_at": "2026-09-20",
+      "text": "@(MaxA) I don't think there is anything interesting about her this time. Maybe I'll find a question the community will underestimate though",
+      "prediction": null
+    },
+    {
+      "author": "Theomachado",
+      "created_at": "2026-09-20",
+      "text": "# **My Forecast**&#x20;\n\nMy PMF is:\n\n| -           | 0    | 1    | 2  | 3   | 4   | 5     | 6   | 7  | 8  | 9  | 10   |\n| ----------- | ---- | ---- | -- | --- | --- | ----- | --- | -- | -- | -- | ---- |\n| Probability | 0.5% | 1.5% | 5% | 20% | 29% | 27.5% | 10% | 3% | 2% | 1% | 0.5% |\n|             |      |      |    |     |     |       |     |    |    |    |      |\n\nMean: 4.5; median sitting on the 4–5 boundary. My forecasting method relied solely on an internal time-series approach to understand bot improvements on both Metaculus Cup and Future Evals.\n\n***\n\n## **Outside view**\n\nI started by building a time series of all four cups to understand improvements across all bots and the increase in bot volume, and I made a table and a graph, as you can see below\n\n| Qs | Entrants (bots) | Bots in top 10 | Elite-bot effective ranks                                    |\n| -- | --------------- | -------------- | ------------------------------------------------------------ |\n| 57 | 593 (42)        | 1              | manticAI 8                                                   |\n| 56 | 599 (58)        | 1              | manticAI 4, cassi 19, laertes 47                             |\n| 43 | 1211 (95)       | 2              | Preseen 3, manticAI 9, laertes 12, cassi 60, futuresearch 61 |\n| 58 | 790 (113)       | 5              | laertes 1, manticAI 2, futuresearch 5, cassi 6, preseen 10   |\n\n![](https://cdn.metaculus.com/user_uploaded/image_OP6gv5n.png)\n\nEven though the series is small, we can see the consistency of ManticAI at the top, and I can already include with confidence, based on other tournaments' performances and rapid improvement, that Laerted and preseen are very likely to achieve this the top 10 again ( individual analysis of the main bots later on )\n\n## **Outside view - General Bot-level series**\n\nFor each elite bot, I track Δ \\= its per-question score minus the 10th-best human's. Δ > 0 means \"in the top-10 zone\".\n\n* manticAI: +1.8, +3.4, +1.9, +4.1. Four seasons. This is the key calibration point: for a bot that isn't being rebuilt, season-to-season noise in delta is *small* (peer scores are relative; shared shocks cancel).\n* laertes: −11.8 → +0.1 → +4.6. cassi: −4.2 → −11.0 → +3.2. futuresearch: −11.4 → +3.3. preseen: +4.6 → +1.5.\n* The Spring → Summer jump in the elite mean (−3.2 → +3.3) is therefore mostly a real capability/coverage change, not luck. The big swings for cassi/futuresearch are rebuild and coverage effects (futuresearch forecast only 51 of 297 FutureEval questions in Spring).\n\n  ![](https://cdn.metaculus.com/user_uploaded/b0d4217e-051a-449c-838c-bf34fa035082.png)\n\n## **Why should we focus most on these bots?**\n\nIt seems the current bot competition in the cups is divided into tiers, since after these five elite ones, the next bot in the summer cup was ranked only 38th. Cup scoring is over the whole question lifetime, so bots that don't update continuously, or that join after questions open, lose to humans who do. That is why we should use the findings from the Future Eval insights carefully, since the competition is structurally different.\n\n### **Future Evals**\n\nFuture evals: even though the competition is different, future evals can help us understand LLM/bot improvements in forecasting, with major findings from the last one showing that bots could close the gap significantly against humans. As we can see in the graphs bots are achieving parity against the best human forecasters\n\n![](https://cdn.metaculus.com/user_uploaded/image_ICOV72q.png)\n\n***\n\n## **Inside view - Why the mass sits on 4–5, and why I hedge 3 and 6**\n\nThe five elite bots aren't one block; they come in three batches with different amounts of margin above the line.\n\n| My take to be in the to 10 | Bot name            |\n| -------------------------- | ------------------- |\n| Secure                     | laertes, manticAI   |\n| Volatile                   | futuresearch, cassi |\n| Marginal                   | preseen             |\n\nAdd it up and the expected count from incumbents is 4, with the 5th seat depending on whether the volatile batch holds its Summer form and preseen stays above the 6th human.\n\nI reached my forecast for 3 bots on (20.0%) through the same mechanism run one step down: one volatile bot regressing by 2 points or one non-participation, or a stronger human top-5 takes the count from 4 to 3. Any single one of those is a I am viewing this as a 15–25% event\n\nMy forecast for 6 bots on the top 10 sits at (10%) is a different mechanism: it requires a **new** bot entering the elite tier, i.e., one that **updates continuously and started on time**. The candidates exist (GreeneiBot2, acm\\_bot, future-perfect-hindsight, mmBot, ana all sit in the Summer FutureEval top 10), and the incentive just went up (Economist coverage, Mantic's raise 25MM). However, the key question is whether they'll update their forecasting mechanism to a constant-update one.\n\n***\n\nSOURCES\n\n## **Cup leaderboards**\n\n* Metaculus Cup Summer 2025 (first Cup): [https://www.metaculus.com/tournament/metaculus-cup-summer-2025/](https://www.metaculus.com/tournament/metaculus-cup-summer-2025/)\n* Metaculus Cup Fall 2025: [https://www.metaculus.com/tournament/metaculus-cup-fall-2025/](https://www.metaculus.com/tournament/metaculus-cup-fall-2025/)\n* Metaculus Cup Spring 2026: [https://www.metaculus.com/tournament/metaculus-cup-spring-2026/](https://www.metaculus.com/tournament/metaculus-cup-spring-2026/)\n* Metaculus Cup Summer 2026: [https://www.metaculus.com/tournament/metaculus-cup-summer-2026/](https://www.metaculus.com/tournament/metaculus-cup-summer-2026/)\n* Metaculus Cup Fall 2026: [https://www.metaculus.com/tournament/metaculus-cup-fall-2026/](https://www.metaculus.com/tournament/metaculus-cup-fall-2026/)\n* Announcing the Metaculus Cup Summer 2026 Winners (confirms laertes 1st, manticAI 2nd, futuresearch 5th; bots not prize-eligible): [https://www.metaculus.com/notebooks/45734/announcing-the-metaculus-cup-summer-2026-winners/](https://www.metaculus.com/notebooks/45734/announcing-the-metaculus-cup-summer-2026-winners/)\n* Winners of the Summer 2025 Metaculus Cup (confirms it was the first Cup): [https://www.metaculus.com/notebooks/39990/winners-of-the-summer-2025-metaculus-cup/](https://www.metaculus.com/notebooks/39990/winners-of-the-summer-2025-metaculus-cup/)\n* Will a bot beat all humans in the Summer 2026 Metaculus Cup? (resolved Yes): [https://www.metaculus.com/questions/43900/bot-superiority-in-summer-2026-metaculus-cup/](https://www.metaculus.com/questions/43900/bot-superiority-in-summer-2026-metaculus-cup/)\n* Bridgewater Forecasting Contest 2025 (checked; no bots on that leaderboard): [https://www.metaculus.com/tournament/bridgewater-2025/](https://www.metaculus.com/tournament/bridgewater-2025/)\n\n**FutureEval / AI Benchmarking (outside view — bot improvement trend)**\n\n* Spring 2026 FutureEval Analysis  [https://www.metaculus.com/notebooks/45373/spring-2026-futureeval-analysis/](https://www.metaculus.com/notebooks/45373/spring-2026-futureeval-analysis/)\n* Summer 2026 FutureEval Bot Tournament leaderboard (laertes, futuresearch, preseen, acm\\_bot, GreeneiBot2, future-perfect-hindsight, mmBot, ana in the top 10): [https://www.metaculus.com/tournament/summer-futureeval-2026/](https://www.metaculus.com/tournament/summer-futureeval-2026/)\n* Fall 2026 FutureEval Bot Tournament: [https://www.metaculus.com/tournament/fall-futureeval-2026/](https://www.metaculus.com/tournament/fall-futureeval-2026/)\n* Spring 2026 FutureEval Bot Tournament: [https://www.metaculus.com/tournament/spring-aib-2026/](https://www.metaculus.com/tournament/spring-aib-2026/)\n* Fall 2025 AI Forecasting Benchmark Tournament: [https://www.metaculus.com/tournament/fall-aib-2025/](https://www.metaculus.com/tournament/fall-aib-2025/)\n* Q2 2025 AI Benchmarking Tournament: [https://www.metaculus.com/tournament/aibq2/](https://www.metaculus.com/tournament/aibq2/)\n* Q1 2025 AI Benchmarking Tournament: [https://www.metaculus.com/tournament/aibq1/](https://www.metaculus.com/tournament/aibq1/)\n* Q4 2024 AI Benchmarking: Bots Are Closing The Gap: [https://www.metaculus.com/notebooks/35291/q4-ai-benchmarking-results/](https://www.metaculus.com/notebooks/35291/q4-ai-benchmarking-results/)\n* FutureEval home page: [https://www.metaculus.com/futureeval/](https://www.metaculus.com/futureeval/)\n* AI Forecasting in 2026: What 11 Analyses Say: [https://forum.effectivealtruism.org/posts/Spyz3wESZu2eeqhDj/ai-forecasting-in-2026-what-11-analyses-say](https://forum.effectivealtruism.org/posts/Spyz3wESZu2eeqhDj/ai-forecasting-in-2026-what-11-analyses-say)\n\n**Inside view**&#x20;\n\n* Mantic raises \\$25 million seed and outperforms forecasters at Metaculus Cup: [https://www.newsbytesapp.com/news/business/mantic-raises-25-million-seed-and-outperforms-forecasters-at-metaculus-cup/tldr](https://www.newsbytesapp.com/news/business/mantic-raises-25-million-seed-and-outperforms-forecasters-at-metaculus-cup/tldr)\n* AI Wins Metaculus Cup: Humans Still Lead Head-to-Head: [https://www.explainx.ai/blog/ai-beats-forecasters-metaculus-cup-coverage-2026](https://www.explainx.ai/blog/ai-beats-forecasters-metaculus-cup-coverage-2026)\n* The Economist piece is referenced in the Metaculus winners (paywall)",
+      "prediction": null
+    },
+    {
+      "author": "MaxA",
+      "created_at": "2026-09-19",
+      "text": "@(admins) in the summer tournament, there were six top performers not eligible for prizes, but only five of them were marked with the robot emoji; symbiosis was not. Could you please clarify if symbiosis is an example of the kind of account that would be excluded from the count for the purpose of this question?\n\nAlso, is it possible to know which of the summer tournament's high-performing bots are participating this time and if there are any new entrants?",
+      "prediction": null
+    },
+    {
+      "author": "MaxA",
+      "created_at": "2026-09-19",
+      "text": "Will there be a Shakira question?",
+      "prediction": null
+    },
+    {
+      "author": "exmateriae",
+      "created_at": "2026-09-19",
+      "text": "We should have a >10 bracket in case of a tie. (yes this is mostly a joke but technically...)&#x20;",
+      "prediction": null
+    },
+    {
+      "author": "skmmcj",
+      "created_at": "2026-09-19",
+      "text": "@(Capital) Thanks for the question. I made some edits and launched it.",
+      "prediction": null
+    }
+  ]
+}
