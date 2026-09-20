@@ -148,3 +148,9 @@ Jan–Feb 2027 unless Treasury runs cash down first.
 5. Whether the November TBAC minutes discuss ceiling-driven issuance management.
 6. Actual October and November Debt to the Penny month-ends versus the central path
    ($40.72T and $40.98T).
+
+**Tooling note (fixed in this branch):** the `METACULUS_FORCE_TLS12=1` workaround the search
+log records is no longer needed. `metaculus_aggregations.py` now relaunches on TLS 1.2
+whenever an attempt returns `status 0`, not only when the exception carries a reset marker,
+so a plain `new_question.py --url` scaffold works first time. Verified live on post 45219
+with the variable unset.
