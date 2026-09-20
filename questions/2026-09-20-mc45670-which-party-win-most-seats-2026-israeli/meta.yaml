@@ -1,0 +1,74 @@
+slug: 2026-09-20-mc45670-which-party-win-most-seats-2026-israeli
+title: Which party will win the most seats in the 2026 Israeli election?
+source: metaculus
+url: https://www.metaculus.com/questions/45670/
+post_id: 45670
+type: multiple_choice
+unit: null
+tags:
+- elections
+- israel
+- geopolitics
+dates:
+  created: '2026-09-20'
+  opened: '2026-09-17'
+  closes: '2026-10-27'
+  resolves: '2026-11-10'
+status: open
+current:
+  version: 1
+  date: '2026-09-20'
+  median: 0.61
+  iqr:
+  - 0.55
+  - 0.67
+  community:
+    cp: null
+    pro: null
+    gold: null
+    n_forecasters: 8
+    as_of: '2026-09-20'
+next_review: '2026-09-25'
+tripwires:
+- signal: Metaculus CP, Pro and gold reveal; Pro AND gold both land >=10pp from Likud 38.1% in the same
+    direction
+  by: '2026-09-24'
+  direction: either
+  magnitude: 0
+  magnitude_unit: pp
+  fired: null
+- signal: Metaculus admins publish a tie-breaker for an exact Likud-Yashar seat tie, or rule it ambiguous
+  by: '2026-09-30'
+  direction: either
+  magnitude: 0
+  magnitude_unit: pp
+  fired: null
+- signal: Mainstream-house poll average (Channel 14 and i24 excluded) has Likud level with or ahead of
+    Yashar
+  by: '2026-10-13'
+  direction: down
+  magnitude: 12
+  magnitude_unit: pp
+  fired: null
+- signal: Mainstream-house poll average gap reaches >=4 seats to Yashar (from -3.0 on 2026-09-17)
+  by: '2026-10-13'
+  direction: up
+  magnitude: 8
+  magnitude_unit: pp
+  fired: null
+- signal: Amcha Yisrael (Ofer Winter) below the 3.25% threshold in a majority of the final week's polls
+  by: '2026-10-23'
+  direction: down
+  magnitude: 4
+  magnitude_unit: pp
+  fired: null
+- signal: Herzog grants Netanyahu a pardon, or the Attorney-General announces a plea deal
+  by: '2026-10-20'
+  direction: either
+  magnitude: 0
+  magnitude_unit: pp
+  fired: null
+resolution:
+  outcome: null
+  date: null
+  source: null

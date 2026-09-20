@@ -1,0 +1,67 @@
+{
+  "post_id": 45670,
+  "question_id": 45859,
+  "title": "Which party will win the most seats in the 2026 Israeli election?",
+  "question_type": "multiple_choice",
+  "status": "upcoming",
+  "resolution": null,
+  "scheduled_close_time": "2026-10-27T06:00:00Z",
+  "cp_reveal_time": "2026-09-24T17:00:00Z",
+  "options": [
+    "Likud",
+    "Yashar",
+    "Other"
+  ],
+  "scaling": {
+    "range_min": null,
+    "range_max": null,
+    "nominal_min": null,
+    "nominal_max": null,
+    "zero_point": null,
+    "open_upper_bound": false,
+    "open_lower_bound": false,
+    "inbound_outcome_count": null,
+    "continuous_range": null
+  },
+  "resolution_criteria": "This question will resolve as the political party that receives more seats than any other in the 2026 Israeli legislative election, scheduled to take place on October 27, 2026.",
+  "fine_print": "If a party other than Likud or Yashar wins a plurality of seats, the question will resolve as **Other.** If the elections are canceled or postponed such that results are unavailable before January 1, 2027, the question will be **annulled**.",
+  "background": "Elections are scheduled for October 27, 2026, to determine the makeup of the 26th Knesset, the legislature of Israel. [Polling](https://en.wikipedia.org/wiki/Opinion_polling_for_the_2026_Israeli_legislative_election) in recent months suggests a close race between the two leading parties, Prime Minister Benjamin Netanyahu's [Likud](https://en.wikipedia.org/wiki/Likud) and [Yashar](https://en.wikipedia.org/wiki/Yashar_\\(political_party\\)), a new centrist party that was formed in 2025 by [Gadi Eisenkot](https://en.wikipedia.org/wiki/Gadi_Eisenkot), a former government minister and Israel Defense Forces (IDF) chief of staff.\n\nAs a newly created party, Yashar currently holds no seats in the Knesset. Likud, by contrast, is a longstanding major player in Israeli politics, having been formed in 1973 and in government for most of Israel's recent history. Likud currently holds 32 seats, more than any other party, and leads the current government.",
+  "nr_forecasters": 8,
+  "methods": {
+    "recency_weighted": {
+      "method": "recency_weighted",
+      "status": 200,
+      "history_points": 0,
+      "latest": null,
+      "history": []
+    },
+    "metaculus_pros": {
+      "method": "metaculus_pros",
+      "status": 200,
+      "history_points": 0,
+      "latest": null,
+      "history": []
+    },
+    "gold_medalists": {
+      "method": "gold_medalists",
+      "status": 200,
+      "history_points": 0,
+      "latest": null,
+      "history": []
+    }
+  },
+  "comments": [
+    {
+      "author": "darkives",
+      "created_at": "2026-09-20",
+      "text": "@(Theomachado) Good point. Unless the admins add some sort of tie-breaker, I would expect in that case it would resolve ambiguous.",
+      "prediction": null
+    },
+    {
+      "author": "Theomachado",
+      "created_at": "2026-09-19",
+      "text": "@admins @(darkives), could you clarify how an **exact tie in seats between Likud and Yashar** resolves? The criteria require a party that \"receives more seats than any other,\" and the fine print only covers a third party winning a plurality or the election being postponed. A tie isn't addressed.",
+      "prediction": null
+    }
+  ]
+}
