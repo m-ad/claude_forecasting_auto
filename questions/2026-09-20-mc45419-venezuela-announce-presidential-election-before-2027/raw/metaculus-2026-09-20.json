@@ -1,0 +1,50 @@
+{
+  "post_id": 45419,
+  "question_id": 45608,
+  "title": "Will Venezuela announce a presidential election before 2027?",
+  "question_type": "binary",
+  "status": "upcoming",
+  "resolution": null,
+  "scheduled_close_time": "2026-12-31T23:59:00Z",
+  "cp_reveal_time": "2026-09-23T17:00:00Z",
+  "options": null,
+  "scaling": {
+    "range_min": null,
+    "range_max": null,
+    "nominal_min": null,
+    "nominal_max": null,
+    "zero_point": null,
+    "open_upper_bound": false,
+    "open_lower_bound": false,
+    "inbound_outcome_count": null,
+    "continuous_range": null
+  },
+  "resolution_criteria": "This question resolves as **Yes** if, before January 1, 2027, Venezuela officially announces a new presidential election. In order to count, the announcement must be made by a person or entity with the legal authority to do so, the announcement must name a specific election date, and voting must be scheduled to take place before January 1, 2028.&#x20;",
+  "fine_print": "",
+  "background": "Since [the US capture of Nicolás Maduro](https://en.wikipedia.org/wiki/2026_United_States_intervention_in_Venezuela) in January 2026 and Delcy Rodríguez's subsequent interim Venezuelean presidency there has been speculation as to when the next presidential election will be held.\n\nOn August 27, 2026, [the Venezuelan National Assembly unanimously approved](https://elpais.com/america/2026-08-27/la-asamblea-venezolana-acelera-la-reforma-del-supremo-promovida-por-estados-unidos.html), in its first reading, a [partial reform of the Supreme Court of Justice (TSJ) Law](https://elpais.com/america/2026-08-13/el-chavismo-y-la-oposicion-venezolana-acuerdan-renovar-a-todos-los-magistrados-del-supremo.html \"https://elpais.com/america/2026-08-13/el-chavismo-y-la-oposicion-venezolana-acuerdan-renovar-a-todos-los-magistrados-del-supremo.html\"). This legislative step is part of the ongoing political dialogue agreements between the Venezuelan government and opposition, under the support and guidance of the US government. This process aims to form a new high court, a step the opposition considers essential for restoring the country's institutions and establishing an electoral roadmap.\n\nIn early September 2026, [Rodríguez stated ](https://www.cubaheadlines.com/articles/339452)her nation would hold elections when \"ready,\" without providing a specific timeline. [US President Trump agreed with this](https://www.turkiyetoday.com/world/trump-says-venezuela-not-ready-yet-for-elections-3227329).\n\nOn September 14, [a new coalition](https://www.reutersconnect.com/item/opposition-group-calls-for-presidential-election-in-venezuela-with-maria-corina-machado-as-candidate/dGFnOnJldXRlcnMuY29tLDIwMjY6bmV3c21sX09XRUZWQzcwMDE2MTI5OTIwMDE), called Alianza por Venezuela, consisting of nine political and social organizations, called for \"free, fair and verifiable\" presidential elections, with Nobel Peace Prize laureate María Corina Machado to serve as its candidate.",
+  "nr_forecasters": 6,
+  "methods": {
+    "recency_weighted": {
+      "method": "recency_weighted",
+      "status": 200,
+      "history_points": 0,
+      "latest": null,
+      "history": []
+    },
+    "metaculus_pros": {
+      "method": "metaculus_pros",
+      "status": 200,
+      "history_points": 0,
+      "latest": null,
+      "history": []
+    },
+    "gold_medalists": {
+      "method": "gold_medalists",
+      "status": 200,
+      "history_points": 0,
+      "latest": null,
+      "history": []
+    }
+  },
+  "comments": []
+}
