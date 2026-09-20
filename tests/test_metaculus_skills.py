@@ -302,3 +302,80 @@ def test_latest_block_without_centers_is_reported_as_unrevealed(agg):
     # An unrevealed CP must come back as None, not as 0%.
     assert agg._extract_latest("binary", {}, {}, None) is None
     assert agg._extract_latest("binary", {"centers": []}, {}, None) is None
+
+
+# The bug this pins: the egress proxy's reset does not always arrive as a
+# classifiable exception -- `goto` can resolve with no response object, or raise
+# a message carrying none of `_RESET_MARKERS`. `_navigate` then returns status 0
+# without downgrading, and the old `get_json` spent its whole ~3 min backoff
+# re-issuing a request that could never be answered. Any status-0 attempt must
+# now buy a TLS 1.2 relaunch instead of a backoff slot.
+class _FakeFetcher:
+    """Stands in for a `_Fetcher` whose transport is dead until TLS is downgraded."""
+
+    def __init__(self, agg, payload):
+        self._agg = agg
+        self._payload = payload
+        self.tls12 = False
+        self.attempts = 0
+        self.downgrades = 0
+        self.warms = 0
+        self._warmed = False
+        self._last_request = 0.0
+
+    def _attempt(self, url):
+        self.attempts += 1
+        if not self.tls12:  # no HTTP response at all while pinned to TLS 1.3
+            return 0, None
+        return 200, self._payload
+
+    def _downgrade_tls(self):
+        if self.tls12:
+            return False
+        self.tls12 = True
+        self.downgrades += 1
+        return True
+
+    def _warm(self):
+        self.warms += 1
+        self._warmed = True
+        return True
+
+
+def test_status_zero_downgrades_tls_instead_of_spending_the_backoff(agg, monkeypatch):
+    monkeypatch.setattr(agg.time, "sleep", lambda _s: None)
+    fake = _FakeFetcher(agg, {"id": 1})
+    status, body = agg._Fetcher.get_json(fake, "https://www.metaculus.com/api-proxy/x")
+
+    assert (status, body) == (200, {"id": 1})
+    assert fake.downgrades == 1
+    # Two attempts: one dead on TLS 1.3, one good on TLS 1.2. Anything more means
+    # the loop fell through to the backoff, which is the regression.
+    assert fake.attempts == 2
+    assert fake.warms == 0
+
+
+def test_status_zero_downgrade_is_tried_only_once(agg, monkeypatch):
+    # _downgrade_tls returning False (already downgraded, or METACULUS_FORCE_TLS12
+    # was set) must not stop the normal backoff from running its course.
+    monkeypatch.setattr(agg.time, "sleep", lambda _s: None)
+    fake = _FakeFetcher(agg, {"id": 1})
+    fake.tls12 = True  # already pinned; the relaunch cannot help
+    fake._attempt = lambda _url: (0, None)
+
+    status, body = agg._Fetcher.get_json(fake, "https://www.metaculus.com/api-proxy/x")
+    assert (status, body) == (0, {})
+    assert fake.downgrades == 0
+
+
+def test_a_challenged_request_still_warms_on_a_real_page(agg, monkeypatch):
+    # The pre-existing recovery path must survive the status-0 branch: a 403 is a
+    # challenge, not a dead transport, so it warms rather than downgrading.
+    monkeypatch.setattr(agg.time, "sleep", lambda _s: None)
+    fake = _FakeFetcher(agg, {"id": 1})
+    fake._attempt = lambda _url: (403, None)
+
+    status, _ = agg._Fetcher.get_json(fake, "https://www.metaculus.com/api-proxy/x")
+    assert status == 403
+    assert fake.downgrades == 0
+    assert fake.warms == 1

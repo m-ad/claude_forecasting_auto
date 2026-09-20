@@ -153,19 +153,37 @@ Three invariants remain. Do not "fix" them out:
 
 Through a MITM egress proxy, Chromium's **TLS 1.3 ClientHello is reset** — it could not reach
 *any* host, example.com included (`net::ERR_CONNECTION_RESET`, ~1.8 kB sent, 39 B back). Disabling
-post-quantum key agreement or ECH did not help; `--ssl-version-max=tls1.2` did. The script retries
-the launch with that flag automatically on a reset-class error. Set `METACULUS_FORCE_TLS12=1` to
-skip the failing probe when you already know the environment needs it.
+post-quantum key agreement or ECH did not help; `--ssl-version-max=tls1.2` did.
+
+The script relaunches with that flag automatically, on **either** of two triggers:
+
+1. a navigation dying with a reset-class error (`_RESET_MARKERS`), or
+2. **any attempt coming back with `status 0`** — no HTTP response at all.
+
+Trigger 2 was added in v4.1 and is the one that matters in practice. The reset does not reliably
+surface as a classifiable exception: `page.goto` can resolve with no response object, or raise a
+message carrying none of the markers. Before v4.1 those runs spent the full ~3 min backoff
+re-issuing a request that could never get an answer, then failed with a message blaming Cloudflare
+and telling the caller to set the environment variable by hand. Measured 2026-09-20: a
+`new_question.py --url` scaffold of post 45219 failed exactly that way, and the identical command
+with `METACULUS_FORCE_TLS12=1` returned in ~40 s.
+
+`METACULUS_FORCE_TLS12=1` still works and still skips the failing probe, which saves one
+relaunch — but it is now an **optimisation, not a requirement**. A plain run recovers on its own.
 
 This is a property of the local proxy, not of Metaculus: on a normal workstation the TLS 1.3
 attempt succeeds and the fallback never runs.
+
+Note the sibling `metaculus-scraper` skill does **not** have trigger 2 — it raises on the first
+unclassified error instead of burning a backoff, so its message is immediate and actionable. If
+you fall back to it in a reset-prone environment, set `METACULUS_FORCE_TLS12=1` up front.
 
 ## Troubleshooting
 
 | Symptom | Cause | Fix |
 |---|---|---|
 | `RuntimeError: No aggregation JSON ... last status 403` after the full backoff | IP-level rate-limit block (it blocks plain HTML pages too, so it is not path-specific) | Wait ~2–3 min and retry. A shared sandbox egress IP trips this easily; batch your questions and don't re-run in a loop |
-| `last status 0` (no HTTP response at all) | Chromium has no egress: `www.metaculus.com` not allowlisted, proxy not reaching the browser, or the TLS 1.3 reset | Check the allowlist; try `METACULUS_FORCE_TLS12=1`; confirm a plain page loads at all |
+| `last status 0` (no HTTP response at all) | Chromium has no egress: `www.metaculus.com` not allowlisted, or the proxy is not reaching the browser. Since v4.1 the TLS 1.3 reset is *not* a cause — it is retried on TLS 1.2 automatically, so reaching this message means TLS 1.2 failed too | Check the allowlist and `HTTPS_PROXY`; confirm a plain page loads at all. Setting `METACULUS_FORCE_TLS12=1` will not help here — it is already being tried |
 | `Executable doesn't exist at .../chromium_headless_shell-<n>` | Playwright was upgraded past the Chromium build the image ships | The script pins `/opt/pw-browsers/chromium`; don't remove that, or override `PLAYWRIGHT_CHROMIUM_EXECUTABLE_PATH` |
 | `Looks like Playwright was just installed... run playwright install` | `PLAYWRIGHT_BROWSERS_PATH` unset | The script sets it when `/opt/pw-browsers` exists; don't remove that |
 | `latest` is `None` for all cohorts | Question is `upcoming` / CP not revealed | Expected — report "no community data yet" |

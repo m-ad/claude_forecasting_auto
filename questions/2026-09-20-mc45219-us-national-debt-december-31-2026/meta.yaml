@@ -1,0 +1,82 @@
+slug: 2026-09-20-mc45219-us-national-debt-december-31-2026
+title: What will be the US national debt on December 31, 2026?
+source: metaculus
+url: https://www.metaculus.com/questions/45219/what-will-be-the-us-national-debt-on-december-31-2026
+post_id: 45219
+type: numeric
+unit: USD
+tags:
+- us-fiscal
+- public-finance
+- treasury
+- debt-limit
+dates:
+  created: '2026-09-20'
+  opened: null
+  closes: '2026-11-30'
+  resolves: '2027-01-04'
+status: open
+current:
+  version: 1
+  date: '2026-09-20'
+  median: 41160000000000.0
+  iqr:
+  - 41070000000000.0
+  - 41220000000000.0
+  community:
+    cp: null
+    pro: null
+    gold: null
+    n_forecasters: 6
+    as_of: '2026-09-20'
+next_review: '2026-10-05'
+tripwires:
+- signal: Treasury's 2026-11-02 quarterly refunding revises Oct-Dec privately-held net marketable borrowing
+    away from $628bn by more than $50bn
+  by: '2026-11-02'
+  direction: either
+  magnitude: 0
+  magnitude_unit: USD
+  fired: null
+- signal: Debt to the Penny month-end 2026-10-31 above $40.82T (central path $40.72T)
+  by: '2026-11-03'
+  direction: up
+  magnitude: 70000000000
+  magnitude_unit: USD
+  fired: null
+- signal: Debt to the Penny month-end 2026-10-31 below $40.62T
+  by: '2026-11-03'
+  direction: down
+  magnitude: 70000000000
+  magnitude_unit: USD
+  fired: null
+- signal: Debt to the Penny month-end 2026-11-30 outside $40.88T-$41.08T (central path $40.98T)
+  by: '2026-12-02'
+  direction: either
+  magnitude: 0
+  magnitude_unit: USD
+  fired: null
+- signal: CR (P.L. 119-103) lapses on 2026-12-11 and a shutdown is still running on 2026-12-20
+  by: '2026-12-20'
+  direction: down
+  magnitude: 30000000000
+  magnitude_unit: USD
+  fired: null
+- signal: DTS Treasury General Account closing balance below $750bn on any day 2026-12-01 to 2026-12-15,
+    or above $950bn on 2026-12-15
+  by: '2026-12-16'
+  direction: either
+  magnitude: 0
+  magnitude_unit: USD
+  fired: null
+- signal: Debt subject to limit comes within $150bn of $41,103,996mn, or Treasury announces bill-issuance
+    cuts citing the limit
+  by: '2026-12-15'
+  direction: down
+  magnitude: 50000000000
+  magnitude_unit: USD
+  fired: null
+resolution:
+  outcome: null
+  date: null
+  source: null

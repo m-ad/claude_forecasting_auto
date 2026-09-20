@@ -51,14 +51,20 @@ the ClientHello across records. Verified (n=1 per cell, deterministic):
     --disable-features=...,EncryptedClientHello         -> ERR_CONNECTION_RESET
     --ssl-version-max=tls1.2                            -> 200 OK
 
-v4 therefore retries the launch with ``--ssl-version-max=tls1.2`` the first time
-a navigation dies with a connection-reset-class error, and keeps the downgraded
-browser for the rest of the run. TLS 1.2 to a public read-only endpoint through
-an already-MITM'd proxy costs nothing in practice; set
-``METACULUS_FORCE_TLS12=1`` to skip the failing probe when you already know the
-environment needs it. Note this is *not* a Metaculus property -- it is the local
-proxy -- so on a normal workstation the TLS 1.3 attempt succeeds and the
-fallback never runs.
+v4 therefore retries the launch with ``--ssl-version-max=tls1.2`` and keeps the
+downgraded browser for the rest of the run. Two things trigger that downgrade:
+a navigation dying with a connection-reset-class error, and -- since v4.1 -- any
+attempt that comes back with **status 0**, i.e. no HTTP response at all. The
+second trigger matters because the reset does not always surface as a
+classifiable exception: ``goto`` can resolve with no response, or raise a
+message carrying none of :data:`_RESET_MARKERS`. Before v4.1 those cases burned
+the whole ~3 min backoff at status 0 and then told the caller to set the
+environment variable by hand. TLS 1.2 to a public read-only endpoint through an
+already-MITM'd proxy costs nothing in practice; ``METACULUS_FORCE_TLS12=1``
+remains available to skip the failing probe up front, but it is now an
+optimisation rather than a requirement. Note this is *not* a Metaculus property
+-- it is the local proxy -- so on a normal workstation the TLS 1.3 attempt
+succeeds and the fallback never runs.
 
 Chromium also does not read ``HTTPS_PROXY`` reliably, so v4 parses it and passes
 it explicitly via Playwright's ``proxy=`` option, with credentials when the URL
@@ -397,21 +403,38 @@ class _Fetcher:
         for i, wait in enumerate((0, *_BACKOFF)):
             if wait:
                 time.sleep(wait)
-            status, body = (
-                self._page_fetch(url) if self._warmed else self._navigate(url)
-            )
-            self._last_request = time.monotonic()
+            status, parsed = self._attempt(url)
             last_status = status or last_status
-            if status == 200 and body and not _is_challenge(body):
-                try:
-                    return status, json.loads(body)
-                except json.JSONDecodeError:
-                    pass
+            if parsed is not None:
+                return status, parsed
+            # Status 0 means no HTTP response was seen at all, which is the
+            # egress proxy killing the handshake rather than Metaculus
+            # rate-limiting us -- and the exception that says so does not always
+            # carry a reset marker, or `goto` resolves with no response and
+            # raises nothing, so _navigate's own downgrade never fires. Spending
+            # a relaunch here costs seconds; spending the backoff instead costs
+            # the full ~3 min and still ends at status 0.
+            if status == 0 and self._downgrade_tls():
+                status, parsed = self._attempt(url)
+                last_status = status or last_status
+                if parsed is not None:
+                    return status, parsed
             # A JS challenge can only be solved by a real document, so switch to
             # "load a page, then XHR from it" for the remaining attempts.
             if i == 0 and not self._warmed:
                 self._warm()
         return last_status, {}
+
+    def _attempt(self, url: str) -> tuple[int, dict | None]:
+        """One transport attempt; the dict is None unless it returned real JSON."""
+        status, body = self._page_fetch(url) if self._warmed else self._navigate(url)
+        self._last_request = time.monotonic()
+        if status == 200 and body and not _is_challenge(body):
+            try:
+                return status, json.loads(body)
+            except json.JSONDecodeError:
+                pass
+        return status, None
 
 
 # --------------------------------------------------------------------------- #
@@ -639,9 +662,10 @@ def _collect(
     if not base:
         raise RuntimeError(
             f"No aggregation JSON for post {post_id} (last status {status}). "
-            "Either the post does not exist, or Cloudflare challenged every "
-            "retry. Status 0 means no HTTP response at all -- check egress "
-            "(the browser needs the proxy and may need METACULUS_FORCE_TLS12=1)."
+            "403 means the post does not exist or Cloudflare challenged every "
+            "retry -- wait ~3 min. Status 0 means no HTTP response at all, on "
+            "TLS 1.2 as well as 1.3 (the downgrade is automatic), so this is "
+            "egress: check HTTPS_PROXY and that www.metaculus.com is allowlisted."
         )
 
     qid = base.get("id")
