@@ -1,6 +1,6 @@
 # Question index
 
-_Regenerated 2026-09-19 by `scripts/status.py --index`._
+_Regenerated 2026-09-20 by `scripts/status.py --index`._
 
 | Question | Type | Current | v | Community (CP) | Resolves | Next review | Status |
 |---|---|---|---|---|---|---|---|
@@ -34,5 +34,6 @@ _Regenerated 2026-09-19 by `scripts/status.py --index`._
 | [How many shrimp per year will be covered by SWP's Humane Slaughter Initiative agreements on July 1, 2027?](questions/2026-09-17-mc45706-how-many-shrimp-per-year-covered-swp/forecast.md) | discrete | 8.3 [7.6, 9.3] | 1 | — | 2027-07-01 | 2026-12-17 | open |
 | [What percentage of the EU hen flock will be sexed with in-ovo sexing technology in Q1 2027?](questions/2026-09-19-mc43279-percentage-eu-hen-flock-sexed-with-ovo/forecast.md) | numeric | 43.3 [41, 45.6] | 1 | 41.69 | — | 2026-12-15 | open |
 | [What percentage of the US hen flock will be sexed with in-ovo sexing technology in Q1 2027?](questions/2026-09-19-mc43280-percentage-us-hen-flock-sexed-with-ovo/forecast.md) | numeric | 2.4 [1.7, 3.2] | 1 | 3.23 | — | 2026-12-15 | open |
+| [Will Venezuela announce a presidential election before 2027?](questions/2026-09-20-mc45419-venezuela-announce-presidential-election-before-2027/forecast.md) | binary | 9.5% [6.5%, 14.0%] | 1 | — | 2027-01-01 | 2026-10-04 | open |
 | [Will a U.S. federal agency announce new or expanded model evaluation agreements with both OpenAI and Anthropic before September 3, 2026?](questions/2026-08-27-mc44708-u-s-federal-agency-announce-new-expanded/forecast.md) | binary | 1.5% [0.5%, 3.0%] | 2 | 1.0% | 2026-09-03 | — | resolved |
 | [Will Uber's takeover of Delivery Hero be approved by BaFin before September 2026?](questions/2026-08-27-mc44921-uber-delivery-hero-bafin-approval/forecast.md) | binary | 45.0% [32.0%, 58.0%] | 1 | 51.0% | 2026-09-01 | — | resolved |
