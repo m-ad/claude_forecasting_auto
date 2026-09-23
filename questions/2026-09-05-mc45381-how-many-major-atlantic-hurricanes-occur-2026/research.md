@@ -246,3 +246,25 @@ mixture can.
 3. Has the Metaculus CP levelled off, and where? A level-off below 63% is evidence against me.
 4. Has WeatherTiger updated its P(no major) from the 9 September 40%?
 5. CPC ENSO update due ~2026-10-08 — does OND RONI still project above +2.5?
+
+## v3 search log (2026-09-23)
+
+| Date | Query / source | Finding | Effect |
+|---|---|---|---|
+| 2026-09-23 | Metaculus #45381, all cohorts (`METACULUS_FORCE_TLS12=1`), `raw/metaculus-2026-09-23.json` | CP 63.0 / Pro 66.0 / gold 62.6 on `0`, n=122; CP levelled 60–63% since 21 Sep, peak 63.4% | converged on v2; Pros above |
+| 2026-09-23 | Kalshi public API, markets + `>0` trades | `>0` 28/33¢, trades 30–37¢ → P(0) ≈ 69.5%; 16.6k vol | ↑ small |
+| 2026-09-23 | NHC GTWO 02:00 EDT | no active systems; Cabo Verde wave 20/40%, shear expected to kill it | ↑ small |
+| 2026-09-23 | Wikipedia 2026 season; Yale Climate Connections; Lowry substack | Fay 19–22 Sep, 70 mph, far NE Atlantic, from a disturbance NHC flagged late (not AL98); ACE ≈ 6.3 | ↓ small |
+| 2026-09-23 | WeatherTiger 18 Sep column | ECMWF ~40% of normal days 1–10, ~70% days 11–17, ~60% days 18–25; less hostile Gulf/W Atlantic late Sep/early Oct | ↓ the main counter-signal |
+| 2026-09-23 | WeatherTiger 15 & 21 Sep | paywalled; season 62.4% complete by storm energy on 21 Sep; no public revised P(no major) | hazard input |
+| 2026-09-23 | CPC Global Tropics Hazards, 22 Sep | no week-3 Atlantic genesis areas; MJO in W Hemisphere, hard to discern | ↑ small |
+| 2026-09-23 | Boston Globe 22 Sep; Klotzbach on X 22 Sep | first season since 1914 without a hurricane this late; no October Gulf systems in super El Niño since 1960; least ACE to date since 1950 | ↑ small |
+| 2026-09-23 | CSU two-week 16 Sep | not found in search; next issue 30 Sep | — |
+| 2026-09-23 | Polymarket / Manifold | only a named-storm market (stale); no majors market | — |
+
+## Open questions to chase next time (2026-09-30)
+
+1. CSU two-week forecast of 30 Sep — does it corroborate the ECMWF pattern change?
+2. Any NHC area in the Gulf/W Caribbean/W Atlantic at ≥ 50% 7-day?
+3. Did the Cabo Verde wave or the Mid-Atlantic frontal low become tropical, and how strong?
+4. Pros cohort level vs. my 67%.
