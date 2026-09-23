@@ -182,3 +182,66 @@ and ~58% on 2026 tracking the recurring base.
 4. Does ACE's **November 2026** recommendation round keep WAI on the list (affects the
    Feb 2027 RCF disbursement, not 2026, but signals donor flow).
 5. Did the ACE/RP sheet's 2026 revenue line get revised after 2026-08-14?
+
+---
+
+## Addendum 2026-09-23 — correcting the "permanently" framing
+
+Prompted by an operator challenge to the phrase "Good Ventures forced Open Philanthropy out
+of wild animal welfare permanently". Went to the primary source, which I had only seen
+second-hand through WAI's summaries [4][5]. **`forecast.md` v1 is left untouched (rule 8);
+this note is the correction of record and the next update should carry it forward.**
+
+Primary source: Alexander Berger & Emily Oehlsen (Open Philanthropy), "[Linkpost] An update
+from Good Ventures", EA Forum, **2024-06-14** —
+https://forum.effectivealtruism.org/posts/foQPogaBeNKdocYvF/linkpost-an-update-from-good-ventures
+(accessed 2026-09-23).
+
+**What was actually said** (verbatim): *"while we generally plan to continue increasing our
+grantmaking in our existing focus areas via our partner Open Philanthropy, we have decided to
+exit a handful of sub-causes (amounting to less than 5% of our annual grantmaking), and we
+are no longer planning to expand into new causes in the near term by default."* The exited
+sub-causes, named in the thread rather than the post: **wild animal welfare (including
+averting human-caused harms), all invertebrate welfare (including farmed shrimp), digital
+minds, gene editing**.
+
+**What holds.** The direction of causation is right. Good Ventures is the funder; Open
+Philanthropy is the advisor that recommends grants. OP cannot make Good Ventures money go
+somewhere Good Ventures declines to send it, so "Good Ventures' decision, OP's consequence"
+is the correct attribution, and WAI's own write-up uses "required". "Forced" is defensible
+shorthand but it overstates: Good Ventures decided where *its own* money goes.
+
+**What does not hold — "permanently" is wrong, and demonstrably so.** On **2025-10-01**
+Berger added to the same thread: *"Good Ventures is now open to supporting work that Open
+Phil recommends on digital minds/AI moral patienthood… Additionally, Good Ventures are now
+open to considering a wider range of recommendations in right-of-center AI policy and a
+couple other smaller areas."* So **one of the four exited sub-causes was reinstated ~16
+months later**. Nobody ever said "permanent". The defensible claim is: *exited indefinitely,
+with no announced route back, and — unlike digital minds — not named in the October 2025
+partial reversal after 28 months.*
+
+**A channel I wrongly wrote off.** My "dead ends" entry says Coefficient Giving re-entering
+is "ruled out for 2026". That is too strong. The same 2024 post says OP *"expect[s] to be
+able to direct funding to the most promising opportunities whether or not they are a fit for
+Good Ventures"*, and invites donors interested in an exited sub-cause to reach out. CG's 2026
+story is a sharp increase in money moved from non-Good-Ventures partners. So there are two
+live routes, not zero: (a) Good Ventures reverses on wild animal welfare, as it did on
+digital minds; (b) CG brokers a **non-GV** donor into the area without any reversal.
+
+**Effect on the forecast: immaterial for 2026, and already mostly priced.** Either route has
+to produce a *signed commitment by 2026-12-31* to touch this question. Route (a) has had 28
+months without happening and WAW was passed over in the one reversal that did occur. Route
+(b), if it happens, arrives as "a new institutional funder signs a multi-year commitment" —
+which is exactly the `L` lump already carrying 42% weight; it changes who brokers the money,
+not the size of the branch. I estimate the two routes together add **< +$0.1M** to the
+median, inside rounding. The median stays **$3.72M**.
+
+**The real lesson, which is Berger's own** (same post): *"such a high degree of reliance on
+one funder… represents a structural risk."* That is the whole question. WAI's 990 line 8 was
+a proxy for one funder's grant calendar from 2021 to 2024; from 2025 it is a proxy for
+whether a *replacement* single funder signs a multi-year letter before 31 December. The
+variance did not go away when Open Philanthropy left — it changed which desk it sits on.
+
+**New tripwire for the next update** (not added to `meta.yaml`, which belongs to v1):
+Coefficient Giving announces *any* wild-animal-welfare grant, from Good Ventures or a
+non-GV partner, with a 2026 signature date, by 2026-12-31 → up, +1.0 USD millions.
