@@ -127,3 +127,29 @@ Haircuts applied to that 26.9%:
 4. El Obeid: does the RSF close the last road, and does WFP's "stocks exhausted by October"
    forecast verify?
 5. Was Sudan added to the State Department's list of suspended FEWS NET country reporting?
+
+---
+
+## 2026-09-24 — v2 re-analysis log
+
+- **Metaculus** (`raw/metaculus-2026-09-24.json`): CP 32% [27,36] n=112; Pro 27% [25,35] n=10; gold 28.7% [27,34.8] n=34.
+  At reveal 2026-09-09 17:03Z: CP 44%, gold 44%, Pro 33%. CP low ~25% on 15 Sep. The comments
+  add no new facts. One commenter had misread "solid only" and corrected it. Another anchors 35–45% on headline language.
+- **FEWS NET Aug 2026 Outlook Update** (published 2026-08-31, data to 31 Aug): Phase 4 widespread. *Households*
+  in Phase 5 in Um Baru, Kernoi, At-Tiné, and among El Obeid, Kadugli and Dilling IDPs. "Credible risk of Famine
+  through January in seven areas". The Famine scenario is conjunctive (escalation + resumed sieges +
+  marginal/no harvest). 26 SMART surveys, 12 > 15% GAM, max 26.6% (Beida). No mortality data. WFP
+  reached 3.2M in July (<20% of need). ~1.5M more expected to lose aid by year-end.
+- **FDW API** (`fdw.fews.net/api/ipcphase/?country_code=SD…`, works without auth; summary in
+  `raw/fewsnet-fdw-phase-counts-2026-09-24.json`): Aug 2026 near-term has 0 Phase 5 units (167×P4).
+  Phase 5 units exist on maps Jun 2024 – Jan 2026 and on none from Feb 2026 on. **The June 2024 map
+  already had 1 Phase 5 unit, i.e. before the Aug 2024 FRC.** This corrects v1's "FRC is the
+  mechanism" framing. Useful tool for future checks: count `value==5.0` by `reporting_date`.
+- The Aug-31 map is "Reported" August, so it does not qualify. Remaining qualifying maps: Sept KMU, Oct FSO, Nov KMU, Dec KMU.
+- **El Obeid**: RSF holds the N/W/S sides, the eastern SAF supply route is open. Heavy drone use (27 events in June). ~15k
+  families displaced in since early Aug. Not fully encircled.
+- **WFP** (The National, 14 Sep): $206M in 2026 vs $645M in 2025, needs $300M, cut-backs "within weeks". Tawila
+  ~950k on half rations. Darfur's driest season since 1984.
+- **Dead ends**: no FRC or new IPC Sudan round announced (searched "IPC Famine Review Committee Sudan
+  September 2026", "IPC Sudan update October 2026"). No State Dept suspension of Sudan found. Could
+  not retrieve the Aug map PNG or geojson links from the fews.net HTML (JS-rendered). Used FDW instead.
