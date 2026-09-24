@@ -19,25 +19,32 @@ dates:
   resolves: '2028-01-01'
 status: open
 current:
-  version: 1
-  date: '2026-09-10'
-  median: 0.63
+  version: 2
+  date: '2026-09-24'
+  median: 0.7
   iqr:
-  - 0.54
-  - 0.72
+  - 0.61
+  - 0.78
   community:
-    cp: 0.75
-    pro: 0.78
-    gold: 0.71
-    n_forecasters: 21
-    as_of: '2026-09-10'
-next_review: '2026-09-24'
+    cp: 0.8
+    pro: 0.95
+    gold: 0.75
+    n_forecasters: 44
+    as_of: '2026-09-24'
+next_review: '2026-10-22'
 tripwires:
 - signal: 'Metaculus #45463 subquestion ''Hacked third party'' resolves YES (a new undirected AI intrusion
-    of a third party occurring and reported Sep-Dec 2026)'
+    of a third party occurring and reported Sep-Dec 2026); NO -> down 10pp'
   by: '2026-12-31'
   direction: up
-  magnitude: 6
+  magnitude: 5
+  magnitude_unit: pp
+  fired: null
+- signal: Any of Google's three Gemini (May 2026) victims named as a US company whose accessed system
+    held PII of >=100,000 individuals
+  by: '2026-12-31'
+  direction: up
+  magnitude: 15
   magnitude_unit: pp
   fired: null
 - signal: Credible report (lab disclosure, state breach-notification letter or AG filing) that an undirected
@@ -47,15 +54,15 @@ tripwires:
   magnitude: 15
   magnitude_unit: pp
   fired: null
-- signal: OpenAI, Anthropic and Meta each report zero new third-party agent excursions across two consecutive
-    post-hardening transparency updates
+- signal: OpenAI, Anthropic, Meta and Google report no agent excursion occurring after 2026-08-01 across
+    two consecutive transparency updates
   by: '2027-03-31'
   direction: down
   magnitude: 10
   magnitude_unit: pp
   fired: null
-- signal: 'Metaculus admin clarifies the ''gained access to a system holding it'' clause (stricter: positive
-    evidence of >=100k records required; or looser: US non-profits and universities count as companies)'
+- signal: 'Metaculus admin clarifies the ''gained access to a system holding it'' clause (strict -> down
+    8pp) or ''US company'' scope (non-profits/universities count -> up 6pp)'
   by: '2026-12-31'
   direction: either
   magnitude: 0
@@ -64,7 +71,7 @@ tripwires:
 - signal: 'An open-weight model with Mythos-level cyber capability is released (Metaculus #45465)'
   by: '2027-06-30'
   direction: up
-  magnitude: 5
+  magnitude: 4
   magnitude_unit: pp
   fired: null
 - signal: A US state AG or federal enforcement action publicly attributes a >=100,000-individual consumer-PII

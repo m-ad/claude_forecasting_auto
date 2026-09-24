@@ -130,3 +130,22 @@ sd 6.6 pp — matched deliberately to reference class B's 6.4 pp.
 4. The **2025 base restatement**: once the 2027 report is out, record what it says 2025 was,
    to extend reference class B to n = 5.
 5. Whether GFI's 2024 operating deficit forces a scope cut to the licensed Euromonitor data.
+
+---
+
+## 2026-09-24 — v2 update log
+
+- **Metaculus** (pre-fetched snapshot `raw/metaculus-2026-09-24.json`): CP revealed 2026-09-20 at
+  $6.80 bn and moved to $6.85 bn [6.54, 7.13] (n=15) by 2026-09-23. Pro $6.78 bn [6.51, 7.08] (n=2), gold
+  $6.77 bn [6.44, 7.16] (n=5), gold stable since reveal. 0 comments. Resolution text is the same as v1.
+- **FX** (Frankfurter/ECB, `raw/ecb-fx-eurusd-cy2026-retrieved-2026-09-24.json`): 187 fixings, YTD
+  EUR/USD mean 1.1618; last 1.1411 (2026-09-23). For FY < 1.13 the remaining ~66 fixings would need to
+  average ≈1.040, so the v1 FX tripwire is dead. It is replaced with a Q4 < 1.10 tripwire. At ~1.14 for Q4 the FY average ≈1.156
+  (+2.3% vs 2025).
+- **Searches run**: "plant-based meat sales 2026 Europe Circana first half"; "plant-based meat sales
+  September 2026"; "Good Food Institute Euromonitor plant-based meat retail 2026 news"; "plant-based
+  meat US sales 2026 year to date decline SPINS Circana"; "Beyond Meat news September 2026". No 2026
+  category data from any provider. Only 2025 figures resurfaced. Beyond Meat had product launches
+  (Steak Filet retail expansion, Phytosphere portfolio) and a small convertible-note exchange, with no revenue news.
+- **Integration**: blended ~20% weight on the gold/Pro cohort, which is independent crowd information that did not
+  exist at v1. It moved the median −$0.02 bn and widened p25 by −$0.03 bn. Result: $6.84 bn [6.56, 7.12].

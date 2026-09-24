@@ -134,3 +134,74 @@ resolves NO. The usable window is materially shorter than 125 days.
    natural consistency check on this binary.
 5. Russian Q3 budget execution: does the deficit trajectory force a 2027 fiscal choice that
    changes the calculus?
+
+---
+
+## Session 2026-09-24 — v2 re-analysis
+
+**Trigger:** review 3 days overdue (due 2026-09-21), and the CP tripwire fired: CP 6.0% on
+2026-09-22, outside [7%, 20%]. Mode: re-analysis.
+
+### Metaculus (raw/metaculus-2026-09-24.json, fetched 2026-09-24 by the parent session)
+
+- CP 6.0% IQR [4, 8], mean 7.4%, n=313 (978 all-time). Pro 6.0% [5.0, 7.5] n=24. Gold 6.0% [5, 8] n=97.
+- CP path: 12% (28 Aug) → 11% (30 Aug) → 10% (31 Aug–9 Sep) → 9% (10 Sep) → 8% (15 Sep) →
+  7% (19 Sep) → 6% (22 Sep). A steady slide with no single step change.
+- Comments: no new comments since v1. The latest is still Jgalt's from 2026-07-24.
+
+### Markets (fetched 2026-09-24)
+
+| Market | Value | Note |
+|---|---|---|
+| Polymarket "ceasefire agreement by Dec 31, 2026" | 23% (bid .22/ask .24), $2.68M vol, 1-month change −3pp | Criteria: any mutually agreed *general* pause; an agreement reached before the date counts even if it takes effect later. Looser than #41138 on duration and effective date |
+| Polymarket ladder Oct 31 / Nov 30 / Jan 31 2027 / Mar 31 2027 | 8% / 14.5% / 29% / 37.5% | The steep Dec–Jan ramp looks like holiday-truce and deal-announcement mass |
+| Polymarket May 31 / Jun 30 / Aug 31 2026 rungs | resolved NO | Odd given that the sibling "ceasefire by end of 2026" market resolved YES on the May truce. This "agreement" event may have been listed after May or read the May truce differently. Not investigated further |
+| Manifold "Russia x Ukraine ceasefire in 2026?" | 13.8%, 82 traders | was 14.8% at v1 |
+
+### Tripwire searches
+
+| Tripwire | Search | Result |
+|---|---|---|
+| Kremlin ceasefire-first | "Peskov ceasefire Ukraine September 2026"; "Kremlin lasting peace not temporary ceasefire" | Opposite. Peskov (22 Sep): "lasting peace… not a ceasefire, which… will achieve nothing" |
+| Summit scheduled | "Trump Putin call summit October 2026" | Trump–Putin call on 8 Sep. Trump: summit only when Putin is ready to sign. Kremlin: Putin–Zelensky meeting before expert talks is a "waste of time" |
+| Air ceasefire accepted | "Russia rejects air ceasefire energy ceasefire proposal September 2026" | Rejected. Trump proposed an energy ceasefire on 14 Sep and Russia declined. Only a reciprocal halt on strikes against the capitals during the 5–6 Sep envoy visit (partial) |
+| Mobilisation decree | "Russia mobilization decree after Duma elections"; "…announced Putin September 2026" | None as of ~22 Sep. Putin called it "nonsense" on 1–2 Sep. Kyiv Independent expects a fragmented call-up; contract signings Jan–Aug 234k vs 260k in 2025 |
+| Trilateral round | "trilateral talks resume October Ushakov Umerov" | Not yet convened. Peskov (13 Sep): October possible. Kyiv preparing for October. Last round Geneva, February |
+
+### General developments since 2026-08-28
+
+- 5 Sep: Witkoff and Kushner met Putin for 3 hours plus dinner. Putin ordered a 3-day halt on
+  strikes against Kyiv; the halt on the capitals was reciprocal.
+- 6 Sep: Witkoff and Kushner made their first visit to Kyiv. Zelensky: "we expect the war will
+  continue". No ceasefire proposal came out of it.
+- 8 Sep: Trump–Putin call. Ushakov says "specific measures" to accelerate an end were discussed.
+- 11–13 Sep: BRICS summit in New Delhi. Xi and Modi offered to help facilitate a settlement.
+- 14 Sep: Trump proposed an energy ceasefire. Russia declined.
+- 18–20 Sep: Duma elections; United Russia ~58%. On 19–20 Sep Ukraine hit Moscow Oblast with its
+  largest strike package of the war (Sobyanin: 1,600 drones downed).
+- ISW: Ukraine is contesting the initiative; at the current rate Russia would not take Donetsk
+  Oblast before ~2032.
+- 22–23 Sep, UNGA: Zelensky met Trump and offered a reciprocal energy ceasefire and a leaders'
+  trilateral. Kremlin answered "peace, not truce" and called a leaders' meeting "a waste of time".
+- Fiscal: full-year deficit forecast of 5.5–6tn ₽. No new decisive data.
+
+### Dead ends this session
+
+- CNBC 2026-09-23 and Ukrainska Pravda 2026-09-03 ("Trump says meeting with Putin will take place
+  as war nears end") returned 403 on fetch. I used search summaries only and did not rely on the
+  UP headline.
+- Wikipedia "2026 Russo-Ukrainian truce" is a disambiguation page, with no new truce after May.
+
+### Integration
+
+Outside view over 98 days: 4.8% (series) and 5.5% (hazard). Scenario table: 5.5% YES. The
+Polymarket 23% after removing short-truce (~10pp) and announce-now-effective-2027 (~4pp) mass
+comes to ~6–9%. Final: 6.0%, IQR [4.0, 9.0].
+
+### Open questions for next time
+
+1. Did the October trilateral convene? Who attended, and did it produce any text?
+2. Mobilisation decree, or a formalised "fragmented" call-up?
+3. Is there any US deadline or sanctions threat (the Graham sanctions bill) with a date attached?
+4. Does a holiday truce proposal emerge for late December, and would its stated duration be
+   ≥30 days?

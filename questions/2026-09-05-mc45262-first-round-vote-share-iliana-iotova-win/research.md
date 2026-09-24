@@ -156,3 +156,30 @@ Start: **44.5%** (PB + BSP–OL vote intention, Global Metrics, late June/early 
    Links, Myara or Global Metrics with a *named-candidate vote-intention* question.
 4. Turnout expectation — the lower it goes, the better for Iotova.
 5. Does DPS (3.6%) endorse anyone?
+
+---
+
+## 2026-09-24 — v2 re-analysis log
+
+Metaculus from pre-fetched `raw/metaculus-2026-09-24.json` (not re-fetched). News snapshot in
+`raw/news-2026-09-24.json`.
+
+| Date | Source | Finding | Effect |
+|---|---|---|---|
+| 2026-09-24 | Metaculus JSON | CP 45.45 [42.24, 49.13] n=110; Pro 45.73 [42.79, 48.75] n=10; Gold 45.52 [42.45, 48.73] n=32; 112 forecasters | cohorts agree; ~at v1 median; set after GERB news |
+| 2026-09-24 | Metaculus comments | Theomachado: party-bloc → presidential share deltas (+0.4 '06, +0.4 '11, +3.3 or −3.0 '21); Russell-viper: right-skew; DaiLothbrook: 45.4 with Market Links personal-capital note | corroborates ~45–46 |
+| 2026-09-24 | BTA 1199851 / Sofia Globe / Novinite | **GERB will not field or back a candidate** (8 Sep) | tripwire fired, +2.0 |
+| 2026-09-24 | BTA 1203254 | Borissov (13 Sep): won't vote Iotova; won't harm Gyurov; no one asked GERB | trims GERB effect |
+| 2026-09-24 | BTA 1209204 | Vazrazhdane: Kostadinov (P) + Volgin (VP), 22 Sep | partial tripwire, −0.3 |
+| 2026-09-24 | en.wikipedia | 27–28 pairs; Iotova backed by PB, BSP-OL, ISBG, VMRO-BND; DPS registered, no candidate; only poll = Global Metrics | fragmentation −0.5, VMRO +0.3 |
+| 2026-09-24 | BTA Media Review 23 Sep | 24 nomination committees; GERB+DPS ~700k voters without candidate | context |
+| 2026-09-24 | dir.bg / dunavmost / epicenter — Raichev | ~1.1m votes Iotova, Gyurov 450k–540k, turnout < 3m; half of GERB abstains | analysis not poll; ≈40–45%, neutral |
+| 2026-09-24 | Investor.bg — Gallup | govt approval 42% after 100 days | approval tripwire not fired |
+| 2026-09-24 | Balkan Insight 14 Sep | some GERB members on Iotova's committee | small ↑ |
+| 2026-09-24 | Petel.bg — Alpha Research's Dimitrova (6 Sep) | "Iotova enters strong, elections not predetermined"; no numbers | none |
+| 2026-09-24 | Octagon / Polymarket | winner market 74% Iotova, **zero volume**; no vote-share market | ignored |
+| 2026-09-24 | Searches for Trend / Gallup / Alpha / Market Links / Myara horse-race polls | **none found** | band stays wide |
+
+Dead ends: no DPS endorsement; no September named-candidate poll; Balkan Insight paywalled.
+
+Next time: first campaign poll (campaign starts 25 Sep); whether GERB tacitly helps Gyurov; DPS.

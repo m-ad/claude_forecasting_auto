@@ -17,24 +17,37 @@ dates:
   resolves: '2027-02-26'
 status: open
 current:
-  version: 1
-  date: '2026-09-07'
-  median: 281900000.0
+  version: 2
+  date: '2026-09-24'
+  median: 283100000.0
   iqr:
-  - 278300000.0
-  - 285200000.0
+  - 281300000.0
+  - 286400000.0
   community:
-    cp: 399811115.0
-    pro: 400242449.0
-    gold: 399811115.0
-    n_forecasters: 4
-    as_of: '2026-09-07'
-next_review: '2026-09-21'
+    cp: null
+    pro: null
+    gold: null
+    n_forecasters: null
+    as_of: '2026-09-24'
+next_review: '2026-10-08'
 tripwires:
+- signal: 'WPSR prints for weeks ending 09-25 to 10-09 still show 0.3-0.5 Mb/week draws - trickle confirmed
+    (two consecutive flat/build weeks instead: up ~600,000)'
+  by: '2026-10-14'
+  direction: down
+  magnitude: 300000
+  magnitude_unit: barrels
+  fired: null
+- signal: October-2026 STEO models COSQPUS rising in Nov-Dec 2026 (exchange returns in 2026)
+  by: '2026-10-14'
+  direction: up
+  magnitude: 2000000
+  magnitude_unit: barrels
+  fired: null
 - signal: DOE issues an RFP for the remaining ~38 Mb of the 172 Mb programme
   by: '2026-11-15'
   direction: down
-  magnitude: 8000000
+  magnitude: 7000000
   magnitude_unit: barrels
   fired: null
 - signal: Such an RFP is awarded at more than 15 Mb
@@ -43,18 +56,18 @@ tripwires:
   magnitude: 15000000
   magnitude_unit: barrels
   fired: null
-- signal: First week-on-week build in WCSSTUS1 on or before the week ending 2026-11-13 — Big Hill exchange
-    returns started on the contractual 1 November date
+- signal: First week-on-week build in WCSSTUS1 on or before the week ending 2026-11-13 - exchange returns
+    started
   by: '2026-11-20'
   direction: up
   magnitude: 4000000
   magnitude_unit: barrels
   fired: null
-- signal: Still no week-on-week build in WCSSTUS1 through the week ending 2026-12-04 — returns have slipped
+- signal: Still no week-on-week build in WCSSTUS1 through the week ending 2026-12-04 - returns slipped
     into 2027
   by: '2026-12-05'
-  direction: up
-  magnitude: 1500000
+  direction: down
+  magnitude: 1000000
   magnitude_unit: barrels
   fired: null
 - signal: Strait of Hormuz re-closed, or a new IEA collective action announced
@@ -67,7 +80,7 @@ tripwires:
     2026 delivery dates
   by: '2026-12-01'
   direction: up
-  magnitude: 3000000
+  magnitude: 2000000
   magnitude_unit: barrels
   fired: null
 resolution:

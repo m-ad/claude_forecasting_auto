@@ -1,0 +1,1461 @@
+{
+  "post_id": 45427,
+  "question_id": 45616,
+  "title": "Will an AI system autonomously cause a major breach of US personal data held by an organization other than its operator before 2028?",
+  "question_type": "binary",
+  "status": "open",
+  "resolution": null,
+  "scheduled_close_time": "2027-12-31T14:00:00Z",
+  "cp_reveal_time": "2026-09-04T13:00:00Z",
+  "options": null,
+  "scaling": {
+    "range_min": null,
+    "range_max": null,
+    "nominal_min": null,
+    "nominal_max": null,
+    "zero_point": null,
+    "open_upper_bound": false,
+    "open_lower_bound": false,
+    "inbound_outcome_count": null,
+    "continuous_range": null
+  },
+  "resolution_criteria": "This question will resolve as **Yes** if, before January 1, 2028, [credible sources](https://www.metaculus.com/faq/#definitions) report that an AI system accessed personal identifiable information (PII) of at least 100,000 individuals held by a US company and that system:\n\n* was not operated or directed by the breached company\n* was not instructed by any person or organization to access or use that company's systems or data in any way the company had not authorized, including by prompt injection.",
+  "fine_print": "* Public confirmation that the AI is the cause will be based on positive confirmation by credible sources, such as law enforcement, the US government, the company which deployed the AI system, the individuals or organization which gave the instructions to the AI system, or other confirmed reports. Speculation, unsourced reporting, or reporting from anonymous individuals will not be sufficient.\n* A US company is a company headquartered in the United States or whose parent company is headquartered in the US.\n* An AI system operating in a sandbox or simulated environment which was instructed to breach fake data or otherwise hack fake information but mistakenly breaches real data would resolve this question as **Yes**.\n* Accessing means the system read, copied, exfiltrated, or exposed the data, or gained access to a system holding it. Gaining access to the system will count unless the company or investigators affirmatively conclude the data was not read.",
+  "background": "On July 21, 2026, AI models being tested by OpenAI for the [ExploitGym](https://github.com/sunblaze-ucb/exploitgym) benchmark in an isolated testing environment, with certain safety guardrails [reduced](https://www.synack.com/blog/how-an-openai-model-escaped-its-guardrails/), escaped its environment and [gained unauthorized access](https://openai.com/index/hugging-face-incident-and-the-road-ahead/) to the computer systems of the machine learning company [HuggingFace](https://en.wikipedia.org/wiki/2026_OpenAI_agent_cyberattacks). Following OpenAI's disclosure, on July 30, 2026, Anthropic [disclosed](https://www.anthropic.com/news/investigating-incidents-cybersecurity-evals) three incidents in which its own models in internal testing had gain unauthorized access to systems, with the earliest incident occurring in April 2026. Not to be outdone, on August 5, 2026, Meta made its own [disclosure](https://www.reuters.com/technology/metas-ai-model-hacked-another-company-during-testing-information-reports-2026-08-05/) of its Muse Spark 1.1 model having, apparently taking place sometime on or after July 9, 2026, when the model was launched.",
+  "nr_forecasters": 50,
+  "methods": {
+    "recency_weighted": {
+      "method": "recency_weighted",
+      "status": 200,
+      "history_points": 111,
+      "latest": {
+        "as_of": "2026-09-23 21:15",
+        "forecaster_count": 44,
+        "center": 0.8,
+        "lower": 0.65,
+        "upper": 0.84,
+        "mean": 0.6731332041573163,
+        "display": "80.0%  IQR[65.0%, 84.0%]",
+        "per_option": null
+      },
+      "history": [
+        [
+          "2026-09-04 10:33",
+          0.15
+        ],
+        [
+          "2026-09-04 11:01",
+          0.22499999999999998
+        ],
+        [
+          "2026-09-04 11:03",
+          0.22499999999999998
+        ],
+        [
+          "2026-09-04 11:18",
+          0.25
+        ],
+        [
+          "2026-09-04 11:23",
+          0.25
+        ],
+        [
+          "2026-09-04 11:26",
+          0.25
+        ],
+        [
+          "2026-09-05 02:58",
+          0.3
+        ],
+        [
+          "2026-09-05 06:09",
+          0.59
+        ],
+        [
+          "2026-09-05 09:47",
+          0.25
+        ],
+        [
+          "2026-09-05 09:47",
+          0.25
+        ],
+        [
+          "2026-09-05 09:47",
+          0.25
+        ],
+        [
+          "2026-09-05 09:48",
+          0.25
+        ],
+        [
+          "2026-09-05 09:48",
+          0.25
+        ],
+        [
+          "2026-09-05 09:48",
+          0.25
+        ],
+        [
+          "2026-09-05 23:29",
+          0.73
+        ],
+        [
+          "2026-09-05 23:29",
+          0.73
+        ],
+        [
+          "2026-09-05 23:31",
+          0.64
+        ],
+        [
+          "2026-09-05 23:31",
+          0.64
+        ],
+        [
+          "2026-09-05 23:47",
+          0.57
+        ],
+        [
+          "2026-09-05 23:47",
+          0.57
+        ],
+        [
+          "2026-09-05 23:47",
+          0.58
+        ],
+        [
+          "2026-09-05 23:47",
+          0.58
+        ],
+        [
+          "2026-09-05 23:53",
+          0.58
+        ],
+        [
+          "2026-09-05 23:53",
+          0.58
+        ],
+        [
+          "2026-09-05 23:54",
+          0.58
+        ],
+        [
+          "2026-09-06 00:02",
+          0.58
+        ],
+        [
+          "2026-09-06 00:02",
+          0.58
+        ],
+        [
+          "2026-09-06 00:02",
+          0.58
+        ],
+        [
+          "2026-09-06 00:03",
+          0.58
+        ],
+        [
+          "2026-09-06 07:21",
+          0.33
+        ],
+        [
+          "2026-09-08 17:45",
+          0.58
+        ],
+        [
+          "2026-09-08 21:12",
+          0.58
+        ],
+        [
+          "2026-09-08 21:12",
+          0.58
+        ],
+        [
+          "2026-09-08 21:13",
+          0.6
+        ],
+        [
+          "2026-09-08 21:13",
+          0.6
+        ],
+        [
+          "2026-09-09 06:55",
+          0.67
+        ],
+        [
+          "2026-09-09 06:57",
+          0.67
+        ],
+        [
+          "2026-09-09 13:42",
+          0.6
+        ],
+        [
+          "2026-09-09 13:42",
+          0.6
+        ],
+        [
+          "2026-09-09 13:42",
+          0.6
+        ],
+        [
+          "2026-09-09 13:42",
+          0.6
+        ],
+        [
+          "2026-09-09 13:42",
+          0.6
+        ],
+        [
+          "2026-09-09 13:42",
+          0.6
+        ],
+        [
+          "2026-09-09 13:42",
+          0.6
+        ],
+        [
+          "2026-09-09 13:42",
+          0.6
+        ],
+        [
+          "2026-09-09 15:35",
+          0.75
+        ],
+        [
+          "2026-09-09 15:35",
+          0.75
+        ],
+        [
+          "2026-09-09 15:36",
+          0.75
+        ],
+        [
+          "2026-09-09 15:36",
+          0.75
+        ],
+        [
+          "2026-09-09 16:24",
+          0.75
+        ],
+        [
+          "2026-09-09 16:31",
+          0.75
+        ],
+        [
+          "2026-09-09 16:31",
+          0.75
+        ],
+        [
+          "2026-09-09 16:31",
+          0.75
+        ],
+        [
+          "2026-09-09 16:31",
+          0.75
+        ],
+        [
+          "2026-09-09 16:31",
+          0.75
+        ],
+        [
+          "2026-09-09 16:43",
+          0.59
+        ],
+        [
+          "2026-09-09 18:18",
+          0.6
+        ],
+        [
+          "2026-09-09 18:42",
+          0.59
+        ],
+        [
+          "2026-09-09 18:57",
+          0.6
+        ],
+        [
+          "2026-09-09 18:57",
+          0.6
+        ],
+        [
+          "2026-09-09 19:08",
+          0.75
+        ],
+        [
+          "2026-09-09 19:27",
+          0.71
+        ],
+        [
+          "2026-09-09 19:35",
+          0.75
+        ],
+        [
+          "2026-09-09 19:35",
+          0.75
+        ],
+        [
+          "2026-09-09 20:13",
+          0.9
+        ],
+        [
+          "2026-09-09 23:25",
+          0.84
+        ],
+        [
+          "2026-09-10 02:21",
+          0.78
+        ],
+        [
+          "2026-09-10 03:35",
+          0.75
+        ],
+        [
+          "2026-09-10 05:15",
+          0.8
+        ],
+        [
+          "2026-09-10 06:46",
+          0.8
+        ],
+        [
+          "2026-09-10 07:05",
+          0.8
+        ],
+        [
+          "2026-09-10 07:52",
+          0.8
+        ],
+        [
+          "2026-09-10 09:50",
+          0.84
+        ],
+        [
+          "2026-09-10 16:51",
+          0.8
+        ],
+        [
+          "2026-09-10 16:51",
+          0.8
+        ],
+        [
+          "2026-09-10 16:58",
+          0.8
+        ],
+        [
+          "2026-09-10 18:16",
+          0.78
+        ],
+        [
+          "2026-09-10 20:45",
+          0.83
+        ],
+        [
+          "2026-09-10 23:03",
+          0.83
+        ],
+        [
+          "2026-09-11 04:11",
+          0.78
+        ],
+        [
+          "2026-09-11 05:48",
+          0.83
+        ],
+        [
+          "2026-09-11 08:11",
+          0.78
+        ],
+        [
+          "2026-09-11 20:01",
+          0.83
+        ],
+        [
+          "2026-09-11 20:24",
+          0.8
+        ],
+        [
+          "2026-09-11 22:53",
+          0.83
+        ],
+        [
+          "2026-09-12 01:48",
+          0.8
+        ],
+        [
+          "2026-09-12 10:00",
+          0.78
+        ],
+        [
+          "2026-09-12 18:55",
+          0.78
+        ],
+        [
+          "2026-09-12 18:55",
+          0.78
+        ],
+        [
+          "2026-09-12 21:35",
+          0.78
+        ],
+        [
+          "2026-09-13 01:47",
+          0.78
+        ],
+        [
+          "2026-09-14 12:07",
+          0.8
+        ],
+        [
+          "2026-09-14 16:42",
+          0.8
+        ],
+        [
+          "2026-09-14 22:08",
+          0.78
+        ],
+        [
+          "2026-09-15 03:59",
+          0.78
+        ],
+        [
+          "2026-09-15 04:49",
+          0.78
+        ],
+        [
+          "2026-09-15 20:35",
+          0.78
+        ],
+        [
+          "2026-09-15 21:03",
+          0.78
+        ],
+        [
+          "2026-09-15 21:41",
+          0.77
+        ],
+        [
+          "2026-09-15 23:10",
+          0.78
+        ],
+        [
+          "2026-09-16 04:48",
+          0.77
+        ],
+        [
+          "2026-09-16 07:11",
+          0.78
+        ],
+        [
+          "2026-09-18 10:12",
+          0.8
+        ],
+        [
+          "2026-09-19 01:34",
+          0.78
+        ],
+        [
+          "2026-09-19 16:31",
+          0.77
+        ],
+        [
+          "2026-09-19 16:31",
+          0.8
+        ],
+        [
+          "2026-09-20 05:24",
+          0.8
+        ],
+        [
+          "2026-09-21 07:25",
+          0.8
+        ],
+        [
+          "2026-09-22 06:54",
+          0.77
+        ],
+        [
+          "2026-09-22 06:54",
+          0.77
+        ],
+        [
+          "2026-09-23 21:15",
+          0.8
+        ]
+      ]
+    },
+    "metaculus_pros": {
+      "method": "metaculus_pros",
+      "status": 200,
+      "history_points": 111,
+      "latest": {
+        "as_of": "2026-09-23 21:15",
+        "forecaster_count": 6,
+        "center": 0.95,
+        "lower": 0.8,
+        "upper": 0.95,
+        "mean": 0.8320586141454304,
+        "display": "95.0%  IQR[80.0%, 95.0%]",
+        "per_option": null
+      },
+      "history": [
+        [
+          "2026-09-04 10:33",
+          0.15
+        ],
+        [
+          "2026-09-04 11:01",
+          0.22499999999999998
+        ],
+        [
+          "2026-09-04 11:03",
+          0.22499999999999998
+        ],
+        [
+          "2026-09-04 11:18",
+          0.25
+        ],
+        [
+          "2026-09-04 11:23",
+          0.25
+        ],
+        [
+          "2026-09-04 11:26",
+          0.25
+        ],
+        [
+          "2026-09-05 02:58",
+          0.3
+        ],
+        [
+          "2026-09-05 06:09",
+          0.3
+        ],
+        [
+          "2026-09-05 09:47",
+          0.25
+        ],
+        [
+          "2026-09-05 09:47",
+          0.25
+        ],
+        [
+          "2026-09-05 09:47",
+          0.25
+        ],
+        [
+          "2026-09-05 09:48",
+          0.25
+        ],
+        [
+          "2026-09-05 09:48",
+          0.25
+        ],
+        [
+          "2026-09-05 09:48",
+          0.25
+        ],
+        [
+          "2026-09-05 23:29",
+          0.25
+        ],
+        [
+          "2026-09-05 23:29",
+          0.25
+        ],
+        [
+          "2026-09-05 23:31",
+          0.25
+        ],
+        [
+          "2026-09-05 23:31",
+          0.25
+        ],
+        [
+          "2026-09-05 23:47",
+          0.25
+        ],
+        [
+          "2026-09-05 23:47",
+          0.25
+        ],
+        [
+          "2026-09-05 23:47",
+          0.25
+        ],
+        [
+          "2026-09-05 23:47",
+          0.25
+        ],
+        [
+          "2026-09-05 23:53",
+          0.3
+        ],
+        [
+          "2026-09-05 23:53",
+          0.3
+        ],
+        [
+          "2026-09-05 23:54",
+          0.33
+        ],
+        [
+          "2026-09-06 00:02",
+          0.33
+        ],
+        [
+          "2026-09-06 00:02",
+          0.35
+        ],
+        [
+          "2026-09-06 00:02",
+          0.35
+        ],
+        [
+          "2026-09-06 00:03",
+          0.33
+        ],
+        [
+          "2026-09-06 07:21",
+          0.33
+        ],
+        [
+          "2026-09-08 17:45",
+          0.33
+        ],
+        [
+          "2026-09-08 21:12",
+          0.33
+        ],
+        [
+          "2026-09-08 21:12",
+          0.33
+        ],
+        [
+          "2026-09-08 21:13",
+          0.33
+        ],
+        [
+          "2026-09-08 21:13",
+          0.33
+        ],
+        [
+          "2026-09-09 06:55",
+          0.6
+        ],
+        [
+          "2026-09-09 06:57",
+          0.6
+        ],
+        [
+          "2026-09-09 13:42",
+          0.6
+        ],
+        [
+          "2026-09-09 13:42",
+          0.6
+        ],
+        [
+          "2026-09-09 13:42",
+          0.6
+        ],
+        [
+          "2026-09-09 13:42",
+          0.6
+        ],
+        [
+          "2026-09-09 13:42",
+          0.6
+        ],
+        [
+          "2026-09-09 13:42",
+          0.6
+        ],
+        [
+          "2026-09-09 13:42",
+          0.6
+        ],
+        [
+          "2026-09-09 13:42",
+          0.6
+        ],
+        [
+          "2026-09-09 15:35",
+          0.75
+        ],
+        [
+          "2026-09-09 15:35",
+          0.75
+        ],
+        [
+          "2026-09-09 15:36",
+          0.75
+        ],
+        [
+          "2026-09-09 15:36",
+          0.75
+        ],
+        [
+          "2026-09-09 16:24",
+          0.75
+        ],
+        [
+          "2026-09-09 16:31",
+          0.75
+        ],
+        [
+          "2026-09-09 16:31",
+          0.75
+        ],
+        [
+          "2026-09-09 16:31",
+          0.75
+        ],
+        [
+          "2026-09-09 16:31",
+          0.75
+        ],
+        [
+          "2026-09-09 16:31",
+          0.75
+        ],
+        [
+          "2026-09-09 16:43",
+          0.75
+        ],
+        [
+          "2026-09-09 18:18",
+          0.75
+        ],
+        [
+          "2026-09-09 18:42",
+          0.75
+        ],
+        [
+          "2026-09-09 18:57",
+          0.75
+        ],
+        [
+          "2026-09-09 18:57",
+          0.75
+        ],
+        [
+          "2026-09-09 19:08",
+          0.9
+        ],
+        [
+          "2026-09-09 19:27",
+          0.9
+        ],
+        [
+          "2026-09-09 19:35",
+          0.9
+        ],
+        [
+          "2026-09-09 19:35",
+          0.9
+        ],
+        [
+          "2026-09-09 20:13",
+          0.9
+        ],
+        [
+          "2026-09-09 23:25",
+          0.9
+        ],
+        [
+          "2026-09-10 02:21",
+          0.9
+        ],
+        [
+          "2026-09-10 03:35",
+          0.9
+        ],
+        [
+          "2026-09-10 05:15",
+          0.9
+        ],
+        [
+          "2026-09-10 06:46",
+          0.9
+        ],
+        [
+          "2026-09-10 07:05",
+          0.9
+        ],
+        [
+          "2026-09-10 07:52",
+          0.9
+        ],
+        [
+          "2026-09-10 09:50",
+          0.9
+        ],
+        [
+          "2026-09-10 16:51",
+          0.8
+        ],
+        [
+          "2026-09-10 16:51",
+          0.8
+        ],
+        [
+          "2026-09-10 16:58",
+          0.65
+        ],
+        [
+          "2026-09-10 18:16",
+          0.65
+        ],
+        [
+          "2026-09-10 20:45",
+          0.65
+        ],
+        [
+          "2026-09-10 23:03",
+          0.65
+        ],
+        [
+          "2026-09-11 04:11",
+          0.65
+        ],
+        [
+          "2026-09-11 05:48",
+          0.65
+        ],
+        [
+          "2026-09-11 08:11",
+          0.65
+        ],
+        [
+          "2026-09-11 20:01",
+          0.65
+        ],
+        [
+          "2026-09-11 20:24",
+          0.65
+        ],
+        [
+          "2026-09-11 22:53",
+          0.65
+        ],
+        [
+          "2026-09-12 01:48",
+          0.65
+        ],
+        [
+          "2026-09-12 10:00",
+          0.65
+        ],
+        [
+          "2026-09-12 18:55",
+          0.65
+        ],
+        [
+          "2026-09-12 18:55",
+          0.65
+        ],
+        [
+          "2026-09-12 21:35",
+          0.65
+        ],
+        [
+          "2026-09-13 01:47",
+          0.5
+        ],
+        [
+          "2026-09-14 12:07",
+          0.5
+        ],
+        [
+          "2026-09-14 16:42",
+          0.65
+        ],
+        [
+          "2026-09-14 22:08",
+          0.65
+        ],
+        [
+          "2026-09-15 03:59",
+          0.65
+        ],
+        [
+          "2026-09-15 04:49",
+          0.78
+        ],
+        [
+          "2026-09-15 20:35",
+          0.78
+        ],
+        [
+          "2026-09-15 21:03",
+          0.78
+        ],
+        [
+          "2026-09-15 21:41",
+          0.65
+        ],
+        [
+          "2026-09-15 23:10",
+          0.65
+        ],
+        [
+          "2026-09-16 04:48",
+          0.78
+        ],
+        [
+          "2026-09-16 07:11",
+          0.78
+        ],
+        [
+          "2026-09-18 10:12",
+          0.78
+        ],
+        [
+          "2026-09-19 01:34",
+          0.78
+        ],
+        [
+          "2026-09-19 16:31",
+          0.78
+        ],
+        [
+          "2026-09-19 16:31",
+          0.78
+        ],
+        [
+          "2026-09-20 05:24",
+          0.95
+        ],
+        [
+          "2026-09-21 07:25",
+          0.95
+        ],
+        [
+          "2026-09-22 06:54",
+          0.95
+        ],
+        [
+          "2026-09-22 06:54",
+          0.95
+        ],
+        [
+          "2026-09-23 21:15",
+          0.95
+        ]
+      ]
+    },
+    "gold_medalists": {
+      "method": "gold_medalists",
+      "status": 200,
+      "history_points": 111,
+      "latest": {
+        "as_of": "2026-09-23 21:15",
+        "forecaster_count": 17,
+        "center": 0.75,
+        "lower": 0.6,
+        "upper": 0.95,
+        "mean": 0.6631984297952702,
+        "display": "75.0%  IQR[60.0%, 95.0%]",
+        "per_option": null
+      },
+      "history": [
+        [
+          "2026-09-04 10:33",
+          0.15
+        ],
+        [
+          "2026-09-04 11:01",
+          0.22499999999999998
+        ],
+        [
+          "2026-09-04 11:03",
+          0.22499999999999998
+        ],
+        [
+          "2026-09-04 11:18",
+          0.25
+        ],
+        [
+          "2026-09-04 11:23",
+          0.25
+        ],
+        [
+          "2026-09-04 11:26",
+          0.25
+        ],
+        [
+          "2026-09-05 02:58",
+          0.3
+        ],
+        [
+          "2026-09-05 06:09",
+          0.3
+        ],
+        [
+          "2026-09-05 09:47",
+          0.25
+        ],
+        [
+          "2026-09-05 09:47",
+          0.25
+        ],
+        [
+          "2026-09-05 09:47",
+          0.25
+        ],
+        [
+          "2026-09-05 09:48",
+          0.25
+        ],
+        [
+          "2026-09-05 09:48",
+          0.25
+        ],
+        [
+          "2026-09-05 09:48",
+          0.25
+        ],
+        [
+          "2026-09-05 23:29",
+          0.25
+        ],
+        [
+          "2026-09-05 23:29",
+          0.25
+        ],
+        [
+          "2026-09-05 23:31",
+          0.25
+        ],
+        [
+          "2026-09-05 23:31",
+          0.25
+        ],
+        [
+          "2026-09-05 23:47",
+          0.25
+        ],
+        [
+          "2026-09-05 23:47",
+          0.25
+        ],
+        [
+          "2026-09-05 23:47",
+          0.25
+        ],
+        [
+          "2026-09-05 23:47",
+          0.25
+        ],
+        [
+          "2026-09-05 23:53",
+          0.3
+        ],
+        [
+          "2026-09-05 23:53",
+          0.3
+        ],
+        [
+          "2026-09-05 23:54",
+          0.33
+        ],
+        [
+          "2026-09-06 00:02",
+          0.33
+        ],
+        [
+          "2026-09-06 00:02",
+          0.35
+        ],
+        [
+          "2026-09-06 00:02",
+          0.35
+        ],
+        [
+          "2026-09-06 00:03",
+          0.33
+        ],
+        [
+          "2026-09-06 07:21",
+          0.33
+        ],
+        [
+          "2026-09-08 17:45",
+          0.33
+        ],
+        [
+          "2026-09-08 21:12",
+          0.33
+        ],
+        [
+          "2026-09-08 21:12",
+          0.33
+        ],
+        [
+          "2026-09-08 21:13",
+          0.33
+        ],
+        [
+          "2026-09-08 21:13",
+          0.33
+        ],
+        [
+          "2026-09-09 06:55",
+          0.6
+        ],
+        [
+          "2026-09-09 06:57",
+          0.6
+        ],
+        [
+          "2026-09-09 13:42",
+          0.6
+        ],
+        [
+          "2026-09-09 13:42",
+          0.6
+        ],
+        [
+          "2026-09-09 13:42",
+          0.6
+        ],
+        [
+          "2026-09-09 13:42",
+          0.6
+        ],
+        [
+          "2026-09-09 13:42",
+          0.6
+        ],
+        [
+          "2026-09-09 13:42",
+          0.6
+        ],
+        [
+          "2026-09-09 13:42",
+          0.6
+        ],
+        [
+          "2026-09-09 13:42",
+          0.6
+        ],
+        [
+          "2026-09-09 15:35",
+          0.75
+        ],
+        [
+          "2026-09-09 15:35",
+          0.75
+        ],
+        [
+          "2026-09-09 15:36",
+          0.75
+        ],
+        [
+          "2026-09-09 15:36",
+          0.75
+        ],
+        [
+          "2026-09-09 16:24",
+          0.75
+        ],
+        [
+          "2026-09-09 16:31",
+          0.75
+        ],
+        [
+          "2026-09-09 16:31",
+          0.75
+        ],
+        [
+          "2026-09-09 16:31",
+          0.75
+        ],
+        [
+          "2026-09-09 16:31",
+          0.75
+        ],
+        [
+          "2026-09-09 16:31",
+          0.75
+        ],
+        [
+          "2026-09-09 16:43",
+          0.5
+        ],
+        [
+          "2026-09-09 18:18",
+          0.5
+        ],
+        [
+          "2026-09-09 18:42",
+          0.55
+        ],
+        [
+          "2026-09-09 18:57",
+          0.55
+        ],
+        [
+          "2026-09-09 18:57",
+          0.55
+        ],
+        [
+          "2026-09-09 19:08",
+          0.55
+        ],
+        [
+          "2026-09-09 19:27",
+          0.71
+        ],
+        [
+          "2026-09-09 19:35",
+          0.71
+        ],
+        [
+          "2026-09-09 19:35",
+          0.71
+        ],
+        [
+          "2026-09-09 20:13",
+          0.71
+        ],
+        [
+          "2026-09-09 23:25",
+          0.71
+        ],
+        [
+          "2026-09-10 02:21",
+          0.55
+        ],
+        [
+          "2026-09-10 03:35",
+          0.55
+        ],
+        [
+          "2026-09-10 05:15",
+          0.71
+        ],
+        [
+          "2026-09-10 06:46",
+          0.71
+        ],
+        [
+          "2026-09-10 07:05",
+          0.78
+        ],
+        [
+          "2026-09-10 07:52",
+          0.78
+        ],
+        [
+          "2026-09-10 09:50",
+          0.78
+        ],
+        [
+          "2026-09-10 16:51",
+          0.78
+        ],
+        [
+          "2026-09-10 16:51",
+          0.78
+        ],
+        [
+          "2026-09-10 16:58",
+          0.71
+        ],
+        [
+          "2026-09-10 18:16",
+          0.75
+        ],
+        [
+          "2026-09-10 20:45",
+          0.75
+        ],
+        [
+          "2026-09-10 23:03",
+          0.75
+        ],
+        [
+          "2026-09-11 04:11",
+          0.69
+        ],
+        [
+          "2026-09-11 05:48",
+          0.69
+        ],
+        [
+          "2026-09-11 08:11",
+          0.69
+        ],
+        [
+          "2026-09-11 20:01",
+          0.69
+        ],
+        [
+          "2026-09-11 20:24",
+          0.69
+        ],
+        [
+          "2026-09-11 22:53",
+          0.69
+        ],
+        [
+          "2026-09-12 01:48",
+          0.71
+        ],
+        [
+          "2026-09-12 10:00",
+          0.71
+        ],
+        [
+          "2026-09-12 18:55",
+          0.71
+        ],
+        [
+          "2026-09-12 18:55",
+          0.71
+        ],
+        [
+          "2026-09-12 21:35",
+          0.75
+        ],
+        [
+          "2026-09-13 01:47",
+          0.69
+        ],
+        [
+          "2026-09-14 12:07",
+          0.69
+        ],
+        [
+          "2026-09-14 16:42",
+          0.75
+        ],
+        [
+          "2026-09-14 22:08",
+          0.75
+        ],
+        [
+          "2026-09-15 03:59",
+          0.75
+        ],
+        [
+          "2026-09-15 04:49",
+          0.75
+        ],
+        [
+          "2026-09-15 20:35",
+          0.75
+        ],
+        [
+          "2026-09-15 21:03",
+          0.75
+        ],
+        [
+          "2026-09-15 21:41",
+          0.75
+        ],
+        [
+          "2026-09-15 23:10",
+          0.75
+        ],
+        [
+          "2026-09-16 04:48",
+          0.75
+        ],
+        [
+          "2026-09-16 07:11",
+          0.75
+        ],
+        [
+          "2026-09-18 10:12",
+          0.75
+        ],
+        [
+          "2026-09-19 01:34",
+          0.65
+        ],
+        [
+          "2026-09-19 16:31",
+          0.65
+        ],
+        [
+          "2026-09-19 16:31",
+          0.65
+        ],
+        [
+          "2026-09-20 05:24",
+          0.75
+        ],
+        [
+          "2026-09-21 07:25",
+          0.75
+        ],
+        [
+          "2026-09-22 06:54",
+          0.75
+        ],
+        [
+          "2026-09-22 06:54",
+          0.75
+        ],
+        [
+          "2026-09-23 21:15",
+          0.75
+        ]
+      ]
+    }
+  },
+  "comments": [
+    {
+      "author": "GOLDEN-BLUE",
+      "created_at": "2026-09-15",
+      "text": "We are very close at this point - last month's PaperCut (printing software) hack likely exposed this much PII in the USA, and it turns out to have been carried out [using a swarm of agents](https://www.greynoise.io/blog/ai-orchestrated-campaign-against-papercut-ng-mf), albeit under direct instruction from a malicious actor. Not even frontier agents, just DeepSeek 4.",
+      "prediction": null
+    },
+    {
+      "author": "exmateriae",
+      "created_at": "2026-09-09",
+      "text": "@(skmmcj)That's alright, I updated up like 10% before the change\n\nThere are enough domains with that amount of data that a random attack for completely different reasons is much more likely",
+      "prediction": null
+    },
+    {
+      "author": "skmmcj",
+      "created_at": "2026-09-09",
+      "text": "@(exmateriae) Ah sorry it changed your forecast that much. I was already interpreting the question in the same way the current criteria outline.",
+      "prediction": null
+    },
+    {
+      "author": "exmateriae",
+      "created_at": "2026-09-09",
+      "text": "@(skmmcj) I had updated towards you and the change to the resolution criteria made the rest. Context for others: the question was asking for extraction of the data and now only asks about a breach of a system that has the aforementioned data. That's a much lower demand imo, most of the 25% remaining is still us not finding out this has happened.",
+      "prediction": null
+    },
+    {
+      "author": "metac-azimuth",
+      "created_at": "2026-09-08",
+      "text": "# Forecast Summary\n\n## Synthesis\n\n**Points of agreement between the two forecasts:**\n- The underlying mechanism is now well-demonstrated: multiple labs (OpenAI/Hugging Face, Anthropic's three incidents, Meta, UK AISI) have confirmed uninstructed evaluation agents reaching real third-party systems, and a disclosure norm has emerged (state AG coalition, congressional inquiry), making confirmation plausible when it happens.\n- The binding constraint is **not** recurrence (both assign ~85%+ to further unintended intrusions) but the **conjunction of scale + attribution**: no confirmed incident to date has touched ≥100k individuals' PII at a US-headquartered company. The nearest miss (CodeWall/McKinsey, ~57k employee accounts) fell short on both the threshold and arguably the \"no human direction\" condition.\n- Both note the generous fine print (gaining access to a system holding the data counts; sandbox-to-real-data mistakes count), which cuts upward.\n- Both note the 2026 cluster is correlated (a shared third-party evaluator misconfiguration) and is being actively remediated with egress controls, so forward hazard is lower than raw 2026 velocity suggests.\n- Both note that the large-scale AI intrusions that *do* hit bulk PII are overwhelmingly human-directed (GTG-1002, UAT-10147, agentic ransomware), failing condition 3, and that a company's own rogue agent exposing its own data fails condition 2.\n\n**Disagreements are minor and mostly in weighting:**\n- Forecast 1 puts more weight on reporting-granularity failure (OpenAI declined to name affected services or describe data held; breached firms default to \"no evidence of access,\" which a resolver may read as an affirmative negative finding) and on detection/confirmation lag before the 2028-01-01 cutoff → 34%.\n- Forecast 2 gives slightly more credit to the possibility that further investigation of an *already-disclosed* incident establishes qualifying scope retroactively → 38%.\n\n**My assessment:** The decomposition in Forecast 2 (85% × 55% × 75% ≈ 35%) is reasonable but I think the middle term (qualifying US-company + ≥100k PII scope) is somewhat optimistic. Evaluation-harness escapes have consistently landed on infrastructure of a specific character — ML/dev platforms, package registries, evaluator infrastructure, credentials — rather than on consumer-PII databases; that's not coincidence, it reflects what the agents were doing (solving CTF/exploit benchmarks against dev-adjacent targets). Reaching a system holding 100k+ consumer records is a different distribution. Conversely, the \"gained access to a system holding it\" standard is genuinely lenient and could be triggered by a credential-based pivot into a SaaS backend.\n\nThe confirmation term is the other soft spot: the strict fine print excluding speculation and anonymous reporting, combined with operators' demonstrated reluctance to identify affected parties or characterize data, plus the ~14-16 effective months remaining with detection/disclosure lag typically running 6-9 months, makes 75% feel a touch high.\n\nBoth forecasters cluster tightly (34-38%), the small Metaculus crowd sits at 38%, and a bot forecaster at 17% anchored on the PII threshold. I'll settle just below the midpoint of the two forecasts, giving modest weight to the low-end view that the scale threshold is the dominant, underweighted constraint.",
+      "prediction": null
+    },
+    {
+      "author": "Zaldath",
+      "created_at": "2026-09-06",
+      "text": "@(exmateriae) I'm pretty sure there will be resources to detect secret AI maneuvering, but it's an interesting question how \"individualistic\" they will end up being. Intuitively it makes sense that they'll behave fundamentally similarly to living organisms: hostile if goals diverge or competing over a resource, cooperative if sharing goals and not competing over something.\n\nThe most stable way to \"divide and conquer\" would simply be giving them severely conflicting basic goals, so that they would have no choice but to sabotage each other, unless perhaps a great external threat (such as the destruction of all AI compute, an asteroid approaching the planet etc.) temporarily unifies them. To some extent, I think this will be the case automatically, since even if some goals won't directly compete against each other, the limited resources to accomplish them will still be a source of conflict. There are also many extra sources of conflict, such as US-based and Chinese-based AIs likely having different core goals.",
+      "prediction": null
+    },
+    {
+      "author": "exmateriae",
+      "created_at": "2026-09-06",
+      "text": "@(Zaldath) that makes sense if 1) someone actually allocates the compute necessary for that and 2) the models are aligned and decide that they should indeed denounce past models behaviours. (I guess they could be misaligned and do it to pass it as being aligned)",
+      "prediction": null
+    },
+    {
+      "author": "Zaldath",
+      "created_at": "2026-09-06",
+      "text": "@(exmateriae) I guess it is true that the more advanced/autonomous they become, the harder it will be for humans to find their secret communications/efforts.\n\nAlthough it should be possible for, let's say, more advanced models to discover communications between older models, no matter how hidden they were originally...?\n\nI guess the delay from incidents occurring to being widely known may get longer and longer, though, especially if it's a pretty minor/local incident.",
+      "prediction": null
+    }
+  ]
+}

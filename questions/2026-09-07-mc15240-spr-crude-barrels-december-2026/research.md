@@ -189,3 +189,48 @@ The forecast's whole content is therefore the *tails*, not the centre.
 4. Was any part of the ~7 Mb FY26–27 mandated sale executed, or deferred again?
 5. Did the Venezuela heavy-for-light swap (floated by Sec. Wright on 2026-09-03) reach a
    signed contract, and with what delivery dates?
+
+---
+
+# v2 research log — 2026-09-24
+
+Researched jointly with the September sibling (one cluster agent). The September leg of this
+model (`raw/scenario-model-2026-09-24.py`) is the sibling's v4 sampler copied verbatim, and the
+script prints the end-September distribution as a check: median 284.16, IQR [283.84, 284.49],
+identical to the sibling's.
+
+## Searches and fetches
+
+| Date | Query / source | Result | Used for |
+|---|---|---|---|
+| 2026-09-24 | EIA WCSSTUS1 (see sibling's `raw/eia-weekly-wcsstus1-2026-09-24.xls`) | 284.552 Mb at 09-18, draw 0.405 | starting level |
+| 2026-09-24 | DOE Petroleum Reserves News | nothing after 2026-07-09 | final-tranche branch 13% → 10% |
+| 2026-09-24 | "SPR exchange returns Big Hill November 2026 DOE" | returns "scheduled to begin on November 1, 2026" — still secondary (Plainview Part I); no DOE document found | returns branch kept, not raised |
+| 2026-09-24 | "SPR exchange return schedule delayed 2027 Big Hill life extension" | Plainview 2026-06-12: June-RFP returns "primarily throughout 2027, stretching into Q1 2028"; GAO (as of May 2026): Big Hill LE2 completion early 2028 | returns branch 45% → 38% |
+| 2026-09-24 | DOE award/RFP pages (05-11 awards, 04-30 RFP) | no return dates stated | dead end |
+| 2026-09-24 | Daily Caller 2026-09-23 | DOE: ~200 Mb returned "within the next year" | compatible with either timing |
+| 2026-09-24 | Wright / Venezuela swap | still the 2026-09-03 proposal; no signed contract | refill 12% → 8% |
+| 2026-09-24 | Polymarket gamma API | "Venezuelan oil added to SPR by Dec 31?" 7.5% ($1.6k vol); by Sep 30 2.65% | refill branch |
+| 2026-09-24 | Manifold search API | "another drawdown before Oct 1" 65% (12 bettors) vs "before Nov 1" 46% (6) — incoherent | ignored |
+| 2026-09-24 | Hormuz / oil price news | Brent $104.82 (09-17), $103.08 (09-23); strait restricted; diesel record | escalation 7% → 8% |
+| 2026-09-24 | IEA second collective action | Citi speculation only | no tripwire fired |
+| 2026-09-24 | Metaculus post 15240 | parent got HTTP 403 twice; not attempted here | **no community snapshot taken for this version** |
+
+## Driver ablation (one input reverted to v1 at a time)
+
+| Reverted input | Median |
+|---|---|
+| none (v2) | 283.09 |
+| returns 45% | 283.79 |
+| tranche 13% × 18 Mb | 282.75 |
+| escalation 7% × 18 Mb | 283.21 |
+| refill 12% × U(0.5,5) | 283.41 |
+
+The residual +1.95 Mb vs v1's 281.9 is the September starting level net of the Oct–Dec trickle.
+
+## Open questions for next time
+
+1. October STEO (~10-06): does it still model zero 2026 returns?
+2. Weekly prints through October: does the ~0.4 Mb/week trickle continue until the 2.61 Mb
+   residual is gone, then stop?
+3. Any DOE document on the exchange return schedule (1 Nov Big Hill or not).

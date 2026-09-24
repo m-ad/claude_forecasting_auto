@@ -4,13 +4,149 @@
 |---|---|
 | **Source** | Metaculus #45422 — https://www.metaculus.com/questions/45422/ |
 | **Type** | numeric (USD, global retail sales; question range 5–9 bn, both bounds open) |
-| **Opened / Closes / Resolves** | not yet open (CP reveal 2026-09-20) / 2026-12-31 / on GFI's 2027 State of the Industry report, expected ~2027-04, booked as 2027-06-30 |
+| **Opened / Closes / Resolves** | open (CP revealed 2026-09-20) / 2026-12-31 / on GFI's 2027 State of the Industry report, expected ~2027-04, booked as 2027-06-30 |
 | **Status** | open |
-| **Current forecast** | **Median $6.86 bn, IQR [$6.59 bn, $7.11 bn]** (v1, 2026-09-17) |
-| **Community (as of 2026-09-17)** | **none — question is `upcoming`, CP hidden until 2026-09-20, n=3, all three cohorts empty** |
-| **Next review** | 2026-09-24 |
+| **Current forecast** | **Median $6.84 bn, IQR [$6.56 bn, $7.12 bn]** (v2, 2026-09-24) |
+| **Community (as of 2026-09-24)** | CP $6.85 bn [6.54, 7.13] (n=15); Pro $6.78 bn (n=2); gold $6.77 bn [6.44, 7.16] (n=5) |
+| **Next review** | 2026-11-15 |
 
 <!-- Versions below, newest first. APPEND-ONLY: never edit or delete a past version. -->
+
+---
+
+## v2 — Update — 2026-09-24
+
+### Revision table
+
+| Driver | Direction | Effect on median | Evidence |
+|---|---|---|---|
+| **Prior (v1, 2026-09-17)** | — | **$6.86 bn, IQR [$6.59, $7.11] bn** | — |
+| Metaculus cohorts now visible (CP revealed 2026-09-20): gold $6.77 bn (n=5), Pro $6.78 bn (n=2), CP $6.85 bn (n=15). Pros and gold agree with each other and sit ~1.2% below me; their IQRs are wider on the downside | down, and slightly wider | −$0.02 bn; p25 −$0.03 bn, p75 +$0.01 bn | [1]; weighted ~20% as an independent crowd signal unavailable at v1 — not new evidence about sales, so kept small. I searched for a fact I missed and found none (no comments on the question) |
+| EUR/USD: 2026 YTD ECB average 1.1618 over 187 fixing days (v1: 1.1620); spot 1.1411 on 2026-09-23. At ~1.14 for Q4 the full-year average lands ≈1.156, +2.3% on 2025 instead of +2.8% | marginally down | ≈ −$0.004 bn (rounds to zero) | [2] |
+| No 2026 European (GFI Europe / Circana), US (SPINS / Circana) or Euromonitor category data published since v1 | none | 0 | [3]–[5] searches 2026-09-24 |
+| Beyond Meat: product launches (Beyond Steak Filet at Erewhon/Wegmans/H-E-B, "Phytosphere" protein portfolio) and a small convertible-note exchange; no revenue news | none | 0 | [6] |
+| **New forecast (v2)** | | **$6.84 bn, IQR [$6.56, $7.12] bn** | |
+
+### Tripwire check
+
+| Tripwire (from v1) | Status | Note |
+|---|---|---|
+| European 2026 meat-alternative growth > +4% (by 2027-03-31) | not fired | no 2026 data published |
+| European 2026 meat-alternative growth < −3% (by 2027-03-31) | not fired | no 2026 data published |
+| EUR/USD 2026 FY average < 1.13 (by 2027-01-15) | not fired; **effectively dead** | would need the remaining ~66 fixings to average ≈1.04 against spot 1.14. Replaced below by a Q4-weakness tripwire |
+| US FY2026 plant-based meat dollars < −12% (by 2027-03-31) | not fired | no 2026 SPINS/Circana read found |
+| GFI provider change / tofu-tempeh folded in (by 2027-04-30) | not fired | |
+| CP settles outside $6.5–7.2 bn with n ≥ 30 (by 2026-11-30) | not fired | CP $6.85 bn, n=15 — inside the band |
+| No GFI 2027 SOTI by 2027-06-30 | not yet testable | |
+
+### What resolves YES
+
+Unchanged from v1. Resolution criteria and fine print re-read in today's snapshot [1]; text identical.
+
+### Outside view
+
+Unchanged from v1 (reference class B, headline-to-headline change, mean +4.3%, sd 6.4 pp).
+
+### Inside view
+
+Unchanged from v1 except the FX line: the EUR tailwind on annual averages is now ≈+2.3% (was
++2.84% YTD at v1), trimming the FX translation term from ≈+1.2 pp to ≈+1.0 pp. Effect on the
+median is below rounding.
+
+### Evidence
+
+Only one piece of information is new: the crowd. That aside, the week added nothing. Every tripwire
+source was searched and nothing had been published. Quiet time does not decay this forecast
+the way it would an event question, because the number is fixed by a single release in ≈April 2027.
+
+### Other forecasters
+
+| Source | Median | IQR | n | As of | Note |
+|---|---|---|---|---|---|
+| Metaculus CP (recency-weighted) | $6.85 bn | [$6.54, $7.13] bn | 15 | 2026-09-23 22:06 | revealed at $6.80 bn on 2026-09-20, drifted up |
+| Metaculus Pro | $6.78 bn | [$6.51, $7.08] bn | 2 | 2026-09-23 | tiny cohort |
+| Metaculus gold medalists | $6.77 bn | [$6.44, $7.16] bn | 5 | 2026-09-23 | stable since reveal ($6.79 → $6.77 bn) |
+| Kalshi / Polymarket / Manifold | — | — | — | 2026-09-24 | still no market |
+
+**Cohort disagreement: small but directional.** Pro and gold sit ~$0.07 bn below the CP and
+~$0.08 bn below my v1 median, with a fatter lower tail (gold p25 $6.44 bn). This fits my own
+view that restatement risk is under-priced by a naive "+6% on $6.6 bn" reading. It is a gap of about
+1 pp of growth on n = 2 and 5, so I give it partial weight and do not adopt it.
+
+### Scenarios
+
+Unchanged from v1. The lower-tail widening comes from the cohort blend, not from re-weighting
+scenario 4.
+
+### Sensitivity
+
+Unchanged from v1.
+
+### What would change my mind (tripwires)
+
+- [ ] **GFI Europe or Circana publishes 2026 European value-weighted meat-alternative growth above +4%
+      (FR/DE/IT/NL/ES/UK)**, by 2027-03-31 → **up, $0.15 bn**
+- [ ] **The same data shows below −3%**, by 2027-03-31 → **down, $0.20 bn**
+- [ ] **EUR/USD Q4 2026 average (ECB, Oct–Dec) below 1.10**, so the full-year average falls to ≈1.145 or
+      lower and the tailwind is under +1.5%, by 2027-01-05 → **down, $0.04 bn** (replaces the dead
+      FY < 1.13 tripwire)
+- [ ] **US FY2026 plant-based meat dollar sales (SPINS or Circana) fall more than 12%**, by 2027-03-31 →
+      **down, $0.06 bn**
+- [ ] **GFI announces a data-provider change away from Euromonitor, or folds tofu/tempeh in**, by
+      2027-04-30 → **re-analyse from scratch**
+- [ ] **Metaculus CP settles outside $6.5–7.2 bn with n ≥ 30, or gold medalists move below $6.6 bn**,
+      by 2026-11-30 → **re-check, do not nudge**
+- [ ] **No GFI 2027 State of the Industry report by 2027-06-30** → **re-assess annulment risk**
+
+### Sources
+
+1. Metaculus post 45422 aggregation snapshot (recency_weighted, metaculus_pros, gold_medalists; 32
+   history points; 0 comments) — https://www.metaculus.com/questions/45422/ (accessed 2026-09-24;
+   cached at `raw/metaculus-2026-09-24.json`)
+2. ECB reference rates via Frankfurter API, 2026-01-01 to 2026-09-23 —
+   https://api.frankfurter.dev/v1/2026-01-01..2026-09-24?base=EUR&symbols=USD,GBP,JPY (accessed
+   2026-09-24; cached at `raw/ecb-fx-eurusd-cy2026-retrieved-2026-09-24.json`)
+3. GFI Europe — European plant-based sales data — https://gfieurope.org/european-plant-based-sales-data/
+   (accessed 2026-09-24; still 2025 data)
+4. FoodNavigator — "What's driving Europe's alternative protein sector in 2026?" (2026-07-16) —
+   https://www.foodnavigator.com/Article/2026/07/16/whats-powering-europes-alternative-protein-sector/
+   (accessed 2026-09-24; search result only, no 2026 category figures surfaced)
+5. GFI — Analyzing plant-based meat & seafood sales (US SPINS series; latest is FY2025 −10%) —
+   https://gfi.org/resource/analyzing-plant-based-meat-and-seafood-sales/ (accessed 2026-09-24)
+6. Beyond Meat press releases via GlobeNewswire, 2026-09-09 and 2026-09-15 —
+   https://www.globenewswire.com/news-release/2026/09/15/3362152/0/en/beyond-meat-announces-availability-of-beyond-steak-filet-at-erewhon.html
+   (accessed 2026-09-24)
+7. Good Food Institute — *2026 State of the Industry report: Plant-based meat, seafood, eggs, dairy,
+   and ingredients* (the 2025 base of $6.6 bn, Euromonitor scope, "data may differ from previous
+   reports") —
+   https://gfi.org/wp-content/uploads/2026/04/GFI_State-of-the-Industry-report-Plant-based-meat-seafood-eggs-dairy-and-ingredients.pdf
+   (accessed 2026-09-17; carried forward from v1)
+8. AgFunderNews — "Plant-based meat by numbers: Grim reading for the US retail market, brighter
+   spots in foodservice and globally" (2024 global $6.1 bn at +4%, which is the restatement evidence behind the lower
+   tail) —
+   https://agfundernews.com/plant-based-meat-by-numbers-grim-reading-for-the-us-retail-market-brighter-spots-in-foodservice-and-globally
+   (accessed 2026-09-17; carried forward from v1)
+9. AgFunderNews — "Plant-based by numbers: USA continued declines for alt-meat, more positive news
+   for alt-dairy" (2023 global $6.4 bn as first printed) —
+   https://agfundernews.com/plant-based-by-numbers-usa-continued-declines-for-alt-meat-more-positive-news-for-alt-dairy-gfi
+   (accessed 2026-09-17; carried forward from v1)
+10. ECB reference rates via Frankfurter API, calendar 2025 (EUR/USD annual average 1.1300, the
+    comparison base for the FX line) —
+    https://api.frankfurter.dev/v1/2025-01-01..2025-12-31?base=EUR&symbols=USD,GBP,JPY (accessed
+    2026-09-17; cached at `raw/ecb-fx-eurusd-cy2025-retrieved-2026-09-17.json`; carried forward)
+11. Circana — "Plant-Based Food & Drink Hits €16.3B in Europe — But Only 2.4% of FMCG" (2025 EU6
+    category context for the Europe block) —
+    https://www.circana.com/post/plant-based-food-and-drink-hits-16-3bn-in-europe-but-still-just-2-4-of-fmcg-sales
+    (accessed 2026-09-24)
+12. Food Business News — "Plant-based sales in the US continue to slide" (SPINS 2025: −10% dollars
+    for plant-based meat) —
+    https://www.foodbusinessnews.net/articles/30327-plant-based-sales-in-the-us-continue-to-slide
+    (accessed 2026-09-24)
+
+**Date**: 2026-09-24
+**Forecast**: Median $6.84 bn, IQR [$6.56 bn, $7.12 bn]
+**Thesis**: No new sales data since v1: no 2026 European, US or Euromonitor read has been published, and the FX tailwind is essentially unchanged (EUR/USD YTD 1.162, ECB). The v1 case holds: about +4% on the $6.6 bn 2025 base, with restatement risk widening the band. The only new input is the revealed Metaculus crowd (gold $6.77 bn n=5, Pro $6.78 bn n=2, CP $6.85 bn n=15). The Pros and gold medalists sit slightly lower and are more worried about the downside, so I trim the median by $0.02 bn and widen the lower quartile.
+
 
 ---
 

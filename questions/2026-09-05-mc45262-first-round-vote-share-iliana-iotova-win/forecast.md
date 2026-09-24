@@ -6,11 +6,162 @@
 | **Type** | numeric (%) — Metaculus range 35–55, **open at both bounds** |
 | **Opened / Closes / Resolves** | 2026-09-07 / 2026-10-24 / 2026-10-31 (election 2026-10-25) |
 | **Status** | open |
-| **Current forecast** | **Median 45.4%, IQR [42.0%, 48.9%]** (v1, 2026-09-05) |
-| **Community (as of 2026-09-05)** | **not yet revealed** — status `upcoming`, CP reveal 2026-09-10T17:00Z (n=16 forecasters already in) |
-| **Next review** | 2026-09-24 |
+| **Current forecast** | **Median 46.5%, IQR [43.3%, 49.7%]** (v2, 2026-09-24) |
+| **Community (as of 2026-09-24)** | CP 45.4 [42.2, 49.1] (n=110) · Pro 45.7 [42.8, 48.8] (n=10) · Gold 45.5 [42.5, 48.7] (n=32) |
+| **Next review** | 2026-10-03 |
 
 <!-- Versions below, newest first. APPEND-ONLY: never edit or delete a past version. -->
+
+---
+
+## v2 — Re-analysis — 2026-09-24
+
+Mode: **Re-analysis** — 19 of the 50 days that remained at v1 have elapsed (> 1/3), and the
+single largest structural variable (GERB's decision) has resolved. The number is re-derived from
+the anchor below, then checked against the v1 prior through the revision table.
+
+### Revision
+| Driver | Direction | Effect |
+|---|---|---|
+| Prior (v1, 2026-09-05) | — | Median 45.4%, IQR [42.0%, 48.9%] |
+| **GERB stands aside** (8 Sep), no endorsement; Borissov will not vote Iotova but "won't harm" Gyurov [1,2,3] — tripwire said +2.5; trimmed because GERB's remaining voters lean Gyurov, not abstention only | ↑ | +2.0 pp |
+| Vazrazhdane ticket = **Kostadinov + Volgin** (22 Sep) [4] — Volgin on the ticket but as running mate; the party leader has a known ~5–7% ceiling, so the Volgin-breakout tail shrinks yet the ticket is stronger than a low-profile one | ↓ | −0.3 pp |
+| **Field of 27–28 tickets** (vs ~9 assumed in v1; 2021 had 23) incl. Siderov [5,6] — more "others" leakage | ↓ | −0.5 pp |
+| VMRO-BND joins Iotova's backers; some GERB members sit on her initiative committee [5,7] | ↑ | +0.3 pp |
+| DPS registered but fields no candidate, no endorsement [5,8] — its voters partly abstain, shrinking the denominator | ↑ | +0.2 pp |
+| Metaculus Pro 45.7 / gold 45.5, set **after** the GERB news, both below me — treated as evidence that the stand-aside is partly offset (LR mild), not as an anchor [9] | ↓ | −0.6 pp |
+| Raichev projection ~1.1m of <3m votes (≈40–45%, "would not be surprised at 50%") [10]; Gallup govt approval 42% [11] | → | none |
+| GERB uncertainty resolved; still no campaign poll | band | IQR 6.9 → 6.4 pp |
+| **New forecast** | | **Median 46.5%, IQR [43.3%, 49.7%]** |
+
+### Tripwire check
+| Tripwire from v1 | Fired? | Note |
+|---|---|---|
+| GERB decision by 2026-09-22 | **Fired — stands aside** | 8 Sep executive-committee decision, no nominee and no endorsement [1,2]; applied +2.0 (not the full +2.5, see revision) |
+| Vazrazhdane ticket by 2026-09-15 | **Partial** (late, 22 Sep) | Kostadinov for president, Volgin for VP [4] — neither "Volgin at the top" (−2.0) nor "low-profile" (+0.5); −0.3 |
+| First named-candidate campaign poll by 2026-10-10 | Not yet | none from Trend, Gallup Int. Balkan, Alpha Research, Market Links, Myara; campaign opens 25 Sep |
+| DPS endorsement by 2026-10-10 | Not fired | DPS registered, no candidate, silent [5,8] |
+| Govt approval < 40% by 2026-10-15 | Not fired | latest Gallup 42% (100 days) [11]; Alpha Research July 42% positive |
+| Turnout expectation > 45% by 2026-10-20 | Not fired | Raichev expects < 3m voters (~45% of ~6.6m registered at most; well under April's 50.7%) [10] |
+| Metaculus CP on reveal outside 41–50 | **Not fired** | CP 45.4 [42.2, 49.1] — inside the band, within 0.1 of v1 median [9] |
+
+### What resolves YES
+unchanged from v1 (share of valid votes incl. "I support no one", first round 25 Oct, CIK; annul if no result by 2026-12-31).
+
+### Outside view
+unchanged from v1 (first-round winners 1992–2021 median 44.1; incumbents seeking a full term mean 48.3; PB April 43.91%).
+
+### Inside view (re-derived)
+
+Start from the Global Metrics vote-intention split (Jun–Jul, the only named-agency horse-race
+data): Iotova's camp 44.5 (PB 39.7 + BSP–OL 4.8), GERB 11.5, PP–DB 13.3. **Remove GERB as a
+candidate.** If roughly half of its 11.5 abstain (Raichev's estimate [10]) and the rest split
+~55/20/25 Gyurov/Iotova/others, the denominator falls to ~94 and Iotova gets ~45.6/94 ≈ **48.4%**
+before campaign effects. Then:
+
+| Adjustment | Δ |
+|---|---|
+| Six months of governing incumbency; July poll predates any campaign attack | −1.5 |
+| 27–28 tickets incl. Kostadinov (party leader) and Siderov | −0.7 |
+| Undecideds (26% in July) break modestly against the establishment candidate | −0.5 |
+| VMRO-BND + GERB-member defections to her committee; DPS abstention | +0.5 |
+| Pro/gold cohorts at 45.5–45.7 post-GERB-news (weight ~25%) | −0.6 |
+
+→ **≈ 45.6–46.6**, centred **46.5** once the April precedent (polls understated PB by ~13 pp)
+is allowed as right-skew. This reconciles with the prior + revision table.
+
+**Distribution:**
+
+| Bin | Mass | Cumulative |
+|---|---|---|
+| < 40% | 9% | 9 |
+| 40–43% | 14% | 23 |
+| 43–46% | 23% | 46 |
+| **46–49%** | **25%** | 71 |
+| 49–52% | 17% | 88 |
+| > 52% | 12% | 100 |
+
+→ median 46.5 · p25 43.3 · p75 49.7.
+
+![v1 vs v2 forecast mass by vote-share bin](charts/iotova_first_round_v2.png)
+
+### Evidence
+
+- **GERB out.** For the first time in its 20-year history GERB neither fields nor backs a
+  presidential candidate [1,2]. Borissov's framing — a GERB candidate would split the pro-European
+  vote and "be the greatest service to Iotova" — implies he expects his voters to drift to Gyurov
+  or stay home; he then said he would not vote Iotova and would not harm Gyurov [3]. Net: her
+  opponents consolidate somewhat, but the electorate shrinks more than Gyurov grows.
+- **Fragmentation is larger than assumed.** 27–28 tickets registered (Wikipedia list [5]; BTA says
+  24 nomination committees plus parties [6]). Most are negligible, but each takes a sliver, and
+  the "I support no one" line stays in the denominator.
+- **No new named-agency horse-race poll.** Searched Trend, Gallup International Balkan, Alpha
+  Research, Market Links, Myara in Bulgarian and English. The only projection is Raichev's
+  analytical estimate (~1.1m votes for Iotova; Gyurov 450k–540k depending on outlet; turnout
+  < 3m) — **not a poll**, and it implies ~40–45% if turnout is 2.5–2.8m valid votes; he adds he
+  would "not be surprised" at 50% [10].
+- **Metaculus commenter note** (Theomachado, 11 Sep): PB April = 44.6% — that is the share of
+  party votes excluding "support no one"; CIK's 43.91% of all valid votes is the like-for-like
+  figure for this question. Minor, but it biases naive anchors up ~0.7 pp.
+- **Disinformation** caveat from v1 still stands; nothing un-attributed was used.
+
+### Other forecasters
+| Source | Value | As of | Note |
+|---|---|---|---|
+| Metaculus CP (recency-weighted) | 45.4, IQR [42.2, 49.1] (n=110) | 2026-09-24 | revealed 10 Sep; ~at v1 median |
+| Metaculus Pro | 45.7, IQR [42.8, 48.8] (n=10) | 2026-09-24 | |
+| Metaculus gold medalists | 45.5, IQR [42.5, 48.7] (n=32) | 2026-09-24 | |
+| Raichev (dir.bg analysis) | ~1.1m votes ≈ 40–45% | 2026-09-23 | analysis, not a poll |
+| Polymarket winner market (via Octagon) | Iotova 74% to win | 2026-09-24 | zero volume; not a vote-share market; ignored |
+| Global Metrics | 39.7% PB candidate (+4.8 BSP) | fieldwork Jun–Jul | still the only horse-race poll |
+
+**Cohort disagreement:** none — the three cohorts sit within 0.3 pp of each other. I am **~0.8–1.1 pp above all three**, entirely on the GERB stand-aside.
+Their IQRs have not shifted up since the decision was known, which is why I shaded the GERB
+effect rather than taking the full tripwire value.
+
+### Scenarios
+| # | Scenario | Weight | Implies |
+|---|---|---|---|
+| 1 | GERB voters mostly stay home; low turnout (~35%) favours Iotova's machine | 0.35 | 47–51% |
+| 2 | GERB voters split meaningfully to Gyurov; clean two-way race | 0.30 | 44–47% |
+| 3 | Campaign erosion / undecideds break against the government; Kostadinov outperforms | 0.20 | 40–44% |
+| 4 | April-style polling miss upward, opposition stays demoralised | 0.15 | 51–56% |
+
+### Sensitivity
+| Assumption | If instead | Forecast becomes |
+|---|---|---|
+| ~Half of GERB voters abstain | GERB informally mobilises for Gyurov | median ~44.5 |
+| First campaign poll consistent with ~46 | Named-agency poll puts Iotova ≥ 50 of decided voters | median ~48.5 |
+| Same | Poll puts her ≤ 40 | median ~43 |
+| DPS silent | DPS openly backs Iotova | +1.0 |
+
+### What would change my mind (tripwires)
+- [ ] **First named-candidate campaign poll** (Trend, Gallup Int. Balkan, Alpha Research, Market Links, Myara, Global Metrics) — by 2026-10-10 → move ~60% of the way to the poll's Iotova share of valid votes (re-analyse; up to ±5 pp)
+- [ ] **GERB or Borissov informally backs Gyurov** (joint event, call to vote) — by 2026-10-18 → −2.0 pp
+- [ ] **DPS endorsement** — by 2026-10-15 → for Iotova +1.0 pp; for Gyurov −1.0 pp
+- [ ] **Radev-government approval published below 40%** — by 2026-10-15 → −1.5 pp
+- [ ] **Polls of record put expected turnout above 45%** — by 2026-10-20 → −1.5 pp
+- [ ] **Metaculus Pro/gold median moves outside 43.5–48.5** — by 2026-10-20 → re-examine for a missed fact, not a nudge
+
+### Sources
+1. BTA — "GERB Decides not to Field Candidate in Presidential Elections" — https://www.bta.bg/en/news/bulgaria/1199851-gerb-decides-not-to-field-candidate-in-presidential-elections (accessed 2026-09-24)
+2. Sofia Globe — "Borissov's GERB will not nominate a candidate in Bulgaria's 2026 presidential elections – official" (8 Sep 2026) — https://sofiaglobe.com/2026/09/08/borissovs-gerb-will-not-nominate-a-candidate-in-bulgarias-2026-presidential-elections-official/ ; Novinite — https://www.novinite.com/articles/240501/GERB+Steps+Out+of+Bulgaria%E2%80%99s+Presidential+Race (accessed 2026-09-24)
+3. BTA — "GERB Leader Borissov Rules Out Voting for Iotova at Presidential Election" (13 Sep 2026) — https://www.bta.bg/en/news/bulgaria/1203254-gerb-leader-borissov-rules-out-voting-for-iotova-at-presidential-election (accessed 2026-09-24)
+4. BTA — "Vazrazhdane Nominates Party Leader Kostadinov for Presidential Candidate" (22 Sep 2026) — https://www.bta.bg/en/news/bulgaria/1209204-vazrazhdane-nominates-party-leader-kostadinov-for-presidential-candidate (accessed 2026-09-24)
+5. Wikipedia — "2026 Bulgarian presidential election" (candidate list, backers, polling) — https://en.wikipedia.org/wiki/2026_Bulgarian_presidential_election (accessed 2026-09-24)
+6. BTA — "Media Review: September 23" — https://www.bta.bg/en/news/bulgaria/1209509-media-review-september-23 (accessed 2026-09-24)
+7. Balkan Insight — "Bulgaria's Presidential Elections Will Test PM Radev's Grip on Power" (14 Sep 2026; partly paywalled) — https://balkaninsight.com/2026/09/14/bulgarias-presidential-elections-will-test-pm-radevs-grip-on-power/bi/ (accessed 2026-09-24)
+8. Segabg — "Само кандидатите за президент на 'Възраждане' и ДПС са неясни" — https://www.segabg.com/hot/category-bulgaria/samo-kandidatite-za-prezident-na-vuzrazhdane-i-dps-sa-neyasni ; Banker.bg — "ДПС се регистрира за участие в президентските избори" (4 Sep) — https://banker.bg/2026/09/04/dps-registracziya-za-prezidentskite-izbori/ (accessed 2026-09-24)
+9. Metaculus #45262 — CP/Pro/gold aggregations and comments — https://www.metaculus.com/questions/45262/ ; snapshot `raw/metaculus-2026-09-24.json` (accessed 2026-09-24)
+10. dir.bg — "Андрей Райчев в анализ за Dir.bg: Йотова - вероятно 1,1 милион гласа, Гюров - 450 000" — https://dnes.dir.bg/na-fokus/andrey-raychev-v-analiz-za-dir-bg-jotova-veroyatno-1-1-milion-glasa-gyurov-450-000 ; Dunavmost (23 Sep, "540k") — https://www.dunavmost.com/novini/andrei-raichev-iotova-vodi-s-nad-polovin-milion-glasa-pred-gyurov (accessed 2026-09-24)
+11. Investor.bg — "Галъп: 42% одобрение за правителството на Радев след първите 100 дни" — https://www.investor.bg/a/516-politika/434707-galap-42-odobrenie-za-pravitelstvoto-na-radev-sled-parvite-100-dni (accessed 2026-09-24)
+12. Octagon AI — Polymarket Bulgaria presidential election odds (no trading volume) — https://www.octagonai.co/markets/politics/world-elections/bulgaria-presidential-election (accessed 2026-09-24)
+13. Petel.bg — Boryana Dimitrova (Alpha Research): "Йотова влиза силна в кампанията, но изборите не са предрешени" (6 Sep) — https://petel.bg/SHefat-na-Alfa-Risarch--Yotova-vliza-silna-v-kampaniyata--no-izborite-ne-sa-predresheni__667869 (accessed 2026-09-24)
+14. Raw news snapshot — `raw/news-2026-09-24.json`
+
+**Date**: 2026-09-24
+**Forecast**: Median 46.5%, IQR [43.3%, 49.7%]
+**Thesis**: GERB's 8 September decision to field and back no one removes an ~11.5% bloc from the ballot; with roughly half of it expected to abstain, Iotova's 44.5% July base (PB 39.7 + BSP 4.8) re-scales to ~48% before campaign erosion and a 27-ticket field pull it back to ~46.5 [1,3,5,10]. I sit ~1 pp above the Metaculus CP/Pro/gold cluster (45.4–45.7), shading the GERB effect toward them; the band stays ~6.4 pp wide because there is still no named-agency horse-race poll, and Bulgarian polls understated this camp by ~13 pp in April [9].
 
 ---
 

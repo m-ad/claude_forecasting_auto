@@ -17,63 +17,56 @@ dates:
   resolves: '2026-11-30'
 status: open
 current:
-  version: 3
-  date: '2026-09-18'
-  median: 284700000.0
+  version: 4
+  date: '2026-09-24'
+  median: 284200000.0
   iqr:
-  - 284000000.0
-  - 285100000.0
+  - 283800000.0
+  - 284500000.0
   community:
     cp: null
     pro: null
     gold: null
     n_forecasters: null
-    as_of: null
-next_review: '2026-09-24'
+    as_of: '2026-09-24'
+next_review: '2026-09-30'
 tripwires:
-- signal: EIA WPSR of 2026-09-23 (week ending 09-18) shows a build, or a draw under 0.15 Mb — the programme
-    is over; also tighten the IQR to +/-0.4 Mb
-  by: '2026-09-23'
-  direction: up
-  magnitude: 250000
-  magnitude_unit: barrels
-  fired: null
-- signal: EIA WPSR of 2026-09-23 (week ending 09-18) shows a draw larger than 1.2 Mb — the taper has reversed
-    and deferred deliveries are landing
-  by: '2026-09-23'
-  direction: down
-  magnitude: 700000
-  magnitude_unit: barrels
-  fired: null
-- signal: EIA WPSR of 2026-09-30 (week ending 09-25) shows a build or a draw under 0.15 Mb. Last weekly
-    print before month end
-  by: '2026-09-30'
-  direction: up
-  magnitude: 125000
-  magnitude_unit: barrels
-  fired: null
-- signal: EIA WPSR of 2026-09-30 (week ending 09-25) shows a draw larger than 1.2 Mb. Last weekly print
-    before month end
+- signal: EIA WPSR of 2026-09-30 (week ending 09-25) shows a draw of 0.25-0.60 Mb - flat trickle confirmed;
+    also tighten the IQR to +/-0.25 Mb
   by: '2026-09-30'
   direction: down
+  magnitude: 100000
+  magnitude_unit: barrels
+  fired: null
+- signal: EIA WPSR of 2026-09-30 (week ending 09-25) shows a build or a draw under 0.15 Mb - programme
+    done
+  by: '2026-09-30'
+  direction: up
   magnitude: 350000
+  magnitude_unit: barrels
+  fired: null
+- signal: EIA WPSR of 2026-09-30 (week ending 09-25) shows a draw larger than 0.9 Mb - residual lifting
+    fast
+  by: '2026-09-30'
+  direction: down
+  magnitude: 600000
   magnitude_unit: barrels
   fired: null
 - signal: DOE issues any new SPR exchange RFP, award or re-offer before question close
   by: '2026-09-30'
   direction: down
-  magnitude: 1500000
+  magnitude: 500000
   magnitude_unit: barrels
   fired: null
 - signal: October-2026 STEO holds COSQPUS for September 2026 near 282 Mb while the weekly series sits
-    near 285 — investigate the delivery-paperwork gap before trusting either
+    near 284 - investigate the delivery-paperwork gap
   by: '2026-10-14'
-  direction: either
-  magnitude: 0
+  direction: down
+  magnitude: 500000
   magnitude_unit: barrels
   fired: null
 - signal: Petroleum Supply Monthly prints the August 2026 actual near the STEO 284.15 Mb rather than the
-    weekly-implied ~286.07 — the bridge calibration is wrong for this regime; widen
+    weekly-implied ~286.07 - the bridge calibration is wrong for this regime; widen
   by: '2026-10-31'
   direction: down
   magnitude: 1500000

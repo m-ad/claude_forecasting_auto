@@ -6,13 +6,193 @@
 | **Type** | binary |
 | **Opened / Closes / Resolves** | — / 2026-12-18 / 2027-07-01 |
 | **Status** | open |
-| **Current forecast** | **Median 14.0%, IQR [10.0%, 19.0%]** (v2, 2026-09-17) |
-| **Community (as of 2026-09-17)** | none — question is `upcoming`, CP reveals 2026-09-20 (n=5) |
-| **Next review** | 2026-09-21 |
+| **Current forecast** | **Median 13.0%, IQR [9.5%, 17.5%]** (v3, 2026-09-24) |
+| **Community (as of 2026-09-23)** | CP 12.0% · Pro 8.0% (n=2) · Gold 12.0% (n=7); n=14 |
+| **Next review** | 2026-11-06 |
 
 ![Adoption history and scenario weights](charts/overview.png)
 
 <!-- Versions below, newest first. APPEND-ONLY: never edit or delete a past version. -->
+
+---
+
+## v3 — Update — 2026-09-24
+
+Scheduled review (3 days overdue), first version after the Metaculus CP reveal on 2026-09-20.
+Mode is **Update**: one week elapsed, no structural change to the question, the market sits 2 pp
+from v2 (inside the 10 pp re-analysis threshold), and v1→v2 was a single coherence correction, not
+a drift.
+
+### Revision
+
+| Driver | Direction | Effect |
+|---|---|---|
+| Prior (v2, 2026-09-17) | — | Median 14.0%, IQR [10.0%, 19.0%] |
+| Metaculus cohorts revealed: CP 12% (n=14), gold medalists 12% (n=7), Pro 8% (n=2) — all below v2; gold IQR [8%, 13%]. Gold medalists are the better-calibrated cohort and n=7 is informative, so partial shrink toward them (Pro n=2 and volatile, 38% → 8% within three days: discounted) | ↓ | **−1.0 pp** |
+| Senate Agriculture Committee reported the Farm Bill **12–11 on 2026-09-16** (after failing 10–11 on 2026-08-06); Save Our Bacon excluded again and Ernst's Prop 12 push failed, but Hoeven pointed it to the floor. P(Farm Bill enacted in 119th) ≈ 0.22 → ~0.30, so the "threat visibly dead by January" world weight falls 0.62 → ~0.56; chill factor 0.92 → ~0.91 | ↓ | **−0.1 pp** |
+| Elapsed quiet week: Sept–Dec is almost no legislative hazard (most candidate legislatures out of session); remaining-window hazard essentially unchanged | ↓ | **−0.1 pp** |
+| No new cage-free bill, committee action, ballot measure or rulemaking found in any of the ~11 candidate states; DOJ v. Michigan still pending on a motion to dismiss; retail eggs $2.27/dozen (Aug 2026 BLS) | → | none |
+| Rounding | | +0.2 pp |
+| **New forecast** | | **Median 13.0%, IQR [9.5%, 17.5%]** |
+
+### Tripwire check
+
+| Tripwire from v2 | Fired? | Note |
+|---|---|---|
+| CP reveals >10 pp from 14% with n ≥ 20, by 2026-09-20 | **no — expired** | revealed at 14% on 2026-09-20; 12% on 2026-09-23 with n=14 (2 pp off, n < 20). Retired; replaced by a cohort tripwire below |
+| 119th Congress adjourns with no Farm Bill enacted, by 2027-01-03 | not yet | *less* likely to fire now: Senate committee reported the bill 2026-09-16. Carried forward |
+| Cage-free bill reported out of an agriculture committee in a non-excluded state, by 2027-02-28 | not fired | no action found; carried forward |
+| Such a bill passes one chamber / reaches a floor calendar in NY, CT, ME, NJ, MD or NM, by 2027-03-31 | not fired | NY S950/A652 still in committee; carried forward |
+| Retail eggs ≥ $4.00/dozen, by 2027-02-28 | not fired | BLS APU0000708111 Aug 2026 = **$2.272** (Jul $2.189); HPAI back in 12 states but prices far from trigger. Carried forward |
+| ≥ 8 of 11 candidate legislatures adjourn with no chamber passage, by 2027-05-31 | not fired | not due; carried forward |
+
+### What resolves YES
+
+unchanged from v1
+
+### Outside view
+
+unchanged from v1
+
+### Inside view
+
+Unchanged from v2 except the federal-threat world weights. The Senate committee vote moves mass
+from "threat visibly dead" (Farm Bill died in the 119th × House flips) to "muddled" and "live in a
+lame-duck package":
+
+| World at Jan 2027 | v2 weight | v3 weight | P(YES \| world) |
+|---|---|---|---|
+| Threat visibly dead | 0.62 | 0.56 | ~0.15–0.18 |
+| Muddled (Farm Bill passed without SOB, or GOP holds House) | 0.25 | 0.29 | ~0.11 |
+| Threat live in a lame-duck package | 0.10 | 0.12 | ~0.06 |
+| Save Our Bacon enacted | 0.03 | 0.03 | ~0.03 |
+
+Chill factor 0.56 + 0.29 × 0.9 + 0.12 × 0.7 + 0.03 × 0.3 ≈ **0.91** (v2: 0.92) — a rounding-level
+move. The Senate text still omits SOB, Ernst could not get a committee vote, and the 32-senator
+letter still blocks a 60-vote floor amendment; the vehicle is likelier, the preemption rider in it
+is not much likelier.
+
+The larger driver is the crowd. v2 was built with no cohort data at all. The gold-medalist cohort
+(n=7) now sits at 12%, IQR [8%, 13%] — tighter and lower than v2. v2's +2 pp came from a
+cross-question argument (the Save Our Bacon forecast) that these forecasters may not have priced,
+so the right move is a partial shrink, not full convergence: 14.0% → 13.0%.
+
+### Evidence
+
+v1 and v2 evidence stands. New this version:
+
+| Finding | Direction | Effect here |
+|---|---|---|
+| Senate Ag Committee reports Farm Bill 12–11, 2026-09-16, with McConnell returning to vote; SOB excluded; Ernst push failed; Hoeven: Prop 12 fight belongs "on the Senate floor" [29][30] | ↓ small | vehicle likelier; preemption rider still blocked |
+| Democrats condition floor support on a two-year SNAP cost-share delay; Hyde-Smith: enactment this year "difficult, but not impossible" [30] | ↑ small | 60-vote floor passage remains uncertain |
+| BLS average retail price, Grade A large, Aug 2026: $2.272/dozen (Jul $2.189) [31] | → | egg-price tripwire far from firing |
+| DOJ v. Michigan (EPIA preemption) still at motion-to-dismiss stage; no ruling found [32] | → | Channel C unchanged |
+| No 2026-27 cage-free bill movement found in NY, NJ, CT, ME, MD, NM or other candidates; NY S950/A652 still in committee [4] | → | confirms status-quo scenario |
+
+### Other forecasters
+
+| Source | Value | As of | Note |
+|---|---|---|---|
+| Metaculus CP (recency-weighted) | **12.0%**, IQR [8.0%, 13.0%] | 2026-09-23 | n=14 (15 total); revealed at 14% 2026-09-20, dipped to 10% on 2026-09-22 |
+| Metaculus Pro | **8.0%**, IQR [8.0%, 8.0%] | 2026-09-23 | n=2; was 38% at reveal — one-forecaster noise, discounted |
+| Metaculus gold medalists | **12.0%**, IQR [8.0%, 13.0%] | 2026-09-23 | n=7; was 38% at reveal (one forecaster), 10% on 2026-09-22 |
+| Polymarket / Kalshi / Manifold | none | 2026-09-24 | no matching market |
+| Metaculus #43616 (Save Our Bacon enacted) | CP 5.0% · Pro 3.0% · Gold 3.0% | 2026-09-04 | cross-question anchor, not re-fetched this version |
+
+Cohorts agree with each other (CP = gold = 12%) and sit 2 pp below v2. Not material disagreement,
+but it is one-directional; v3 closes half the gap.
+
+### Scenarios
+
+| # | Scenario | Weight | Implies |
+|---|---|---|---|
+| 1 | Status quo: 2027 sessions come and go with cage-free bills stuck in agriculture committees | 0.705 | NO |
+| 2 | Defensive year: attention on rollback fights and DOJ litigation in the ten existing states | 0.165 | NO |
+| 3 | A blue state (NY, CT, ME, NJ, MD or NM) passes a cage-free bill, plausibly production-only, partly as an anti-preemption statement | 0.090 | **YES** |
+| 4 | Negotiated industry deal (Utah-2021 model) or state agriculture-department rulemaking | 0.025 | **YES** |
+| 5 | Resolver counts an edge case (partial measure, or a state not on the exclusion list) | 0.015 | **YES** |
+
+YES = 0.090 + 0.025 + 0.015 = **0.130**.
+
+### Sensitivity
+
+unchanged from v2, except the Farm Bill row: weight on "Farm Bill dies in the 119th and the House
+flips" is now ~0.56, not ~0.62.
+
+### What would change my mind (tripwires)
+
+- [ ] **By 2026-12-18** (question close) — Metaculus gold-medalist median moves more than 6 pp away
+      from 13% with ≥ 5 forecasters in the cohort → re-examine for a missed fact (direction unknown).
+- [ ] **By 2027-01-03** — the 119th Congress adjourns sine die with no Farm Bill enacted → **up 3 pp**.
+- [ ] **By 2027-01-03** — the Senate adopts a Prop 12 / Save Our Bacon floor amendment to the Farm
+      Bill, or a lame-duck package carrying Prop 12 preemption passes either chamber → **down 3 pp**.
+- [ ] **By 2027-02-28** — any cage-free bill in a state outside the ten excluded is reported
+      favourably out of an agriculture committee → **up 12 pp**.
+- [ ] **By 2027-03-31** — any such bill passes one full chamber, or is placed on a floor calendar in
+      NY, CT, ME, NJ, MD or NM → **up 20 pp**.
+- [ ] **By 2027-02-28** — BLS/USDA average retail price of Grade A large eggs reaches $4.00/dozen or
+      higher → **down 4 pp**.
+- [ ] **By 2027-05-31** — at least 8 of the 11 candidate legislatures adjourn sine die with no
+      cage-free bill having passed a chamber → **down 8 pp**.
+
+### Sources
+
+Numbering continues from v2. Sources 2, 3, 4, 14, 20, 24 and 27 are carried forward from v1/v2
+because this version rests on them; 2 and 4 were re-checked today, 20 re-surfaced in today's search,
+the others keep their original access date. 29–34 are new.
+
+2. ASPCA, *Farm Animal Confinement Bans by State* —
+   https://www.aspca.org/improving-laws-animals/public-policy/farm-animal-confinement-bans
+   (still lists exactly the ten excluded states; accessed 2026-09-24)
+
+3. Animal Welfare Institute, *Farmed Animal Anti-Confinement Legislation* —
+   https://awionline.org/policy-efforts/farmed-animal-anti-confinement-legislation/ (accessed 2026-09-17)
+
+4. New York State Senate, *Bill S950 (2025–2026)* —
+   https://www.nysenate.gov/legislation/bills/2025/S950 (still in Agriculture Committee, last action
+   2025-01-08; accessed 2026-09-24)
+
+14. Humane World Action Fund, *Animal protection triumphs in the Senate: 'Save Our Bacon Act'
+    abandoned as Farm Bill stalls ahead of summer recess* (2026-08) —
+    https://humaneaction.org/press-release/2026/08/senate-farm-bill-save-our-bacon-act-august-update (accessed 2026-09-17)
+
+20. Tech Times, *Bird Flu Returns to 12 States: Egg Prices That Finally Fell Could Rise Again*
+    (2026-06-30) —
+    https://www.techtimes.com/articles/319400/20260630/bird-flu-returns-12-states-egg-prices-that-finally-fell-could-rise-again.htm (accessed 2026-09-24)
+
+24. This repository, `questions/2026-09-05-mc43616-save-our-bacon-act-enacted-into-law/forecast.md`
+    v1 (2026-09-05) — Save Our Bacon enactment forecast, 3.0%; basis of the world weights (accessed 2026-09-17)
+
+27. Metaculus #43616, *Will the Save Our Bacon Act be enacted into law before July 2027?* —
+    https://www.metaculus.com/questions/43616/ (cohort values as of 2026-09-04; accessed 2026-09-17)
+
+
+29. The New Lede, *Farm Bill advances without controversial "Save Our Bacon Act"* (2026-09) —
+    https://www.thenewlede.org/2026/09/farm-bill-advances-without-controversial-save-our-bacon-act/ (accessed 2026-09-24)
+
+30. DTN Progressive Farmer, *Senate Farm Bill Reported Out of Committee, Ready for Floor Vote*
+    (2026-09-17) — https://www.dtnpf.com/agriculture/web/ag/columns/washington-insider/article/2026/09/17/senate-farm-bill-reported-committee (accessed 2026-09-24)
+
+31. FRED / BLS, *Average Price: Eggs, Grade A, Large (Cost per Dozen) in U.S. City Average*
+    (APU0000708111) — https://fred.stlouisfed.org/series/APU0000708111 (snapshot
+    `raw/fred-eggs-2026-09-24.csv`, accessed 2026-09-24)
+
+32. The Daily Intake, *Michigan Argues for Dismissal of DOJ Lawsuit Challenging Cage-Free Egg Law*
+    (2026-04) — https://www.dailyintakeblog.com/2026/04/michigan-argues-for-dismissal-of-doj-lawsuit-challenging-cage-free-egg-law/ (accessed 2026-09-24)
+
+33. Spectrum News, *Pork producers plead for Prop. 12 'fix' as lawmakers make progress on Farm Bill*
+    (2026-09-21) — https://spectrumlocalnews.com/us/snplus/politics/2026/09/21/pork-producers-plead-for-prop--12--fix--as-lawmakers-make-progress-on-farm-bill (accessed 2026-09-24)
+
+34. Metaculus #45421, cohort aggregations — https://www.metaculus.com/questions/45421/ (snapshot
+    `raw/metaculus-2026-09-24.json`; accessed 2026-09-24)
+
+**Date**: 2026-09-24
+**Forecast**: Median 13.0%, IQR [9.5%, 17.5%]
+**Thesis**: Core unchanged — ten states adopted cage-free requirements in 2016–2021 and none since,
+against a low resolution bar and one full 2027 session for ~11 plausible states, with no bill in any
+of them moving. Trimmed 1 pp toward the newly revealed Metaculus crowd (CP and gold medalists both
+12%) and a hair further because the Senate Ag Committee's 12–11 Farm Bill vote (2026-09-16) makes
+the federal-preemption threat slightly less likely to be visibly dead when the 2027 sessions open.
 
 ---
 

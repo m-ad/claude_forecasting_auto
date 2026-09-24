@@ -1,6 +1,5 @@
 slug: 2026-09-05-mc45262-first-round-vote-share-iliana-iotova-win
-title: What first round vote share will Iliana Iotova win in the 2026 Bulgarian Presidential
-  election?
+title: What first round vote share will Iliana Iotova win in the 2026 Bulgarian Presidential election?
 source: metaculus
 url: https://www.metaculus.com/questions/45262/
 post_id: 45262
@@ -14,45 +13,35 @@ dates:
   resolves: '2026-10-31'
 status: open
 current:
-  version: 1
-  date: '2026-09-05'
-  median: 45.4
+  version: 2
+  date: '2026-09-24'
+  median: 46.5
   iqr:
-  - 42.0
-  - 48.9
+  - 43.3
+  - 49.7
   community:
-    cp: null
-    pro: null
-    gold: null
-    n_forecasters: 16
-    as_of: '2026-09-05'
-next_review: '2026-09-24'
+    cp: 45.45
+    pro: 45.73
+    gold: 45.52
+    n_forecasters: 110
+    as_of: '2026-09-24'
+next_review: '2026-10-03'
 tripwires:
-- signal: GERB announces whether it fields its own presidential candidate — own candidate
-    -> -2.0pp; endorses Gyurov/united right -> -0.5pp; stands aside -> +2.5pp
-  by: '2026-09-22'
-  direction: either
-  magnitude: 0
-  magnitude_unit: '%'
-  fired: null
-- signal: Vazrazhdane names its presidential ticket — Petar Volgin nominated -> -2.0pp;
-    low-profile nominee -> +0.5pp
-  by: '2026-09-15'
-  direction: either
-  magnitude: 0
-  magnitude_unit: '%'
-  fired: null
-- signal: First campaign-period named-candidate vote-intention poll (Trend, Gallup
-    Int. Balkan, Alpha Research, Market Links or Myara) — move ~60% of the way to
-    the poll's Iotova figure (re-analyse; expect up to 6%)
+- signal: First named-candidate campaign poll (Trend, Gallup Int. Balkan, Alpha Research, Market Links,
+    Myara, Global Metrics) — move ~60% of the way to its Iotova share of valid votes (re-analyse; up to 5%)
   by: '2026-10-10'
   direction: either
   magnitude: 0
   magnitude_unit: '%'
   fired: null
-- signal: DPS issues a presidential endorsement — for Iotova +1.5pp; for another candidate
-    -1.0pp (re-analyse; expect up to 1.5%)
-  by: '2026-10-10'
+- signal: GERB or Borissov informally backs Gyurov (joint event or call to vote)
+  by: '2026-10-18'
+  direction: down
+  magnitude: 2.0
+  magnitude_unit: '%'
+  fired: null
+- signal: DPS issues a presidential endorsement — for Iotova +1.0pp; for Gyurov -1.0pp
+  by: '2026-10-15'
   direction: either
   magnitude: 0
   magnitude_unit: '%'
@@ -60,7 +49,7 @@ tripwires:
 - signal: Radev-government approval published below 40 percent
   by: '2026-10-15'
   direction: down
-  magnitude: 2.0
+  magnitude: 1.5
   magnitude_unit: '%'
   fired: null
 - signal: Polls of record put expected turnout above 45 percent
@@ -69,8 +58,8 @@ tripwires:
   magnitude: 1.5
   magnitude_unit: '%'
   fired: null
-- signal: Metaculus CP on reveal (2026-09-10) sits outside 41-50
-  by: '2026-09-13'
+- signal: Metaculus Pro or gold median moves outside 43.5-48.5 — re-examine for a missed fact
+  by: '2026-10-20'
   direction: either
   magnitude: 0
   magnitude_unit: '%'

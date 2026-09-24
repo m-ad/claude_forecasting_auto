@@ -1,0 +1,15 @@
+{
+  "retrieved": "2026-09-24",
+  "items": [
+    {"date": "2026-09-08", "source": "BTA / Sofia Globe / Novinite", "fact": "GERB executive committee decides not to nominate a presidential or vice-presidential candidate, first time in 20 years; no endorsement; will only consider support if asked"},
+    {"date": "2026-09-13", "source": "BTA 1203254", "fact": "Borissov: will not vote for Iotova (ideological opponent); on Gyurov 'I won't do him any harm now'; nobody has asked GERB for backing"},
+    {"date": "2026-09-22", "source": "BTA 1209204", "fact": "Vazrazhdane nominates party leader Kostadin Kostadinov for president, MEP Petar Volgin as running mate"},
+    {"date": "2026-09-23", "source": "BTA Media Review Sep 23", "fact": "24+ nomination committees; GERB and DPS (~700k voters) without candidate; runoff Iotova-Gyurov 'practically certain'"},
+    {"date": "2026-09-23", "source": "dir.bg / Andrey Raichev analysis (not a poll)", "fact": "Iotova ~1.1m votes, Gyurov ~450k (other outlets say 540k), total turnout <3m; ~half of GERB voters abstain; would not be surprised at 50%"},
+    {"date": "2026-09-24", "source": "en.wikipedia 2026 Bulgarian presidential election", "fact": "27-28 candidate pairs registered; Iotova ballot #25 backed by PB, BSP-OL, ISBG, VMRO-BND; Gyurov #4 (PP-DB); Kostadinov #11; Siderov #21; DPS registered but no candidate; only poll listed is Global Metrics Jun-Jul"},
+    {"date": "2026-09-14", "source": "Balkan Insight", "fact": "several GERB members joined Iotova's initiative committee"},
+    {"date": "2026-08 (100 days)", "source": "Investor.bg / Gallup International Balkan", "fact": "Radev government approval 42%"},
+    {"date": "2026-09-24", "source": "Octagon AI on Polymarket winner market", "fact": "Iotova 74% to win, Gyurov 23%; zero contracts traded - no vote-share market"},
+    {"date": "2026-09-24", "source": "search", "fact": "No named-candidate campaign-period vote-intention poll from Trend, Gallup Int. Balkan, Alpha Research, Market Links or Myara found; campaign starts 2026-09-25"}
+  ]
+}
