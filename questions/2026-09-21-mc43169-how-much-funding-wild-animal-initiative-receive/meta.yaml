@@ -1,0 +1,86 @@
+slug: 2026-09-21-mc43169-how-much-funding-wild-animal-initiative-receive
+title: How much funding will Wild Animal Initiative receive in 2026?
+source: metaculus
+url: https://www.metaculus.com/questions/43169/how-much-funding-will-wild-animal-initiative-receive-in-2026/
+post_id: 43169
+type: numeric
+unit: USD millions
+tags:
+- animal-welfare
+- wild-animal-welfare
+- nonprofit-finance
+- effective-altruism
+- form-990
+dates:
+  created: '2026-09-21'
+  opened: null
+  closes: '2026-12-31'
+  resolves: '2027-11-15'
+status: open
+current:
+  version: 1
+  date: '2026-09-21'
+  median: 3.72
+  iqr:
+  - 2.91
+  - 4.68
+  community:
+    cp: 4.245
+    pro: 4.412
+    gold: 4.226
+    n_forecasters: 48
+    as_of: '2026-09-21'
+next_review: '2026-11-20'
+tripwires:
+- signal: WAI's annual funding-priorities / Marginal Funding Week post on the EA Forum states 2026 revenue
+    at or above $5M, or names a secured multi-year commitment
+  by: '2026-12-05'
+  direction: up
+  magnitude: 1.2
+  magnitude_unit: USD millions
+  fired: null
+- signal: That same post instead repeats an unfilled gap against the $4.1-4.28M 2026 budget
+  by: '2026-12-05'
+  direction: down
+  magnitude: 0.6
+  magnitude_unit: USD millions
+  fired: null
+- signal: Public announcement (WAI blog, EA Forum, Navigation Fund, or a foundation release) of a new
+    institutional grant to WAI of >= $1.5M signed on or before 2026-12-31
+  by: '2026-12-31'
+  direction: up
+  magnitude: 1.3
+  magnitude_unit: USD millions
+  fired: null
+- signal: WAI's FY2025 Form 990 is filed and Part I line 8 differs from the draft $2,716,044 by more than
+    10%
+  by: '2026-11-30'
+  direction: either
+  magnitude: 0
+  magnitude_unit: USD millions
+  fired: null
+- signal: The Navigation Fund confirms (or is confirmed to have signed in 2026) a 2027+ wild-animal-welfare
+    commitment to WAI
+  by: '2027-01-31'
+  direction: up
+  magnitude: 1.0
+  magnitude_unit: USD millions
+  fired: null
+- signal: ACE's November 2026 recommendation round drops Wild Animal Initiative from the Recommended Charity
+    list
+  by: '2026-12-01'
+  direction: down
+  magnitude: 0.3
+  magnitude_unit: USD millions
+  fired: null
+- signal: Metaculus community prediction moves outside [3.6, 4.9] with no public news trigger I can identify
+  by: '2026-12-31'
+  direction: either
+  magnitude: 0
+  magnitude_unit: USD millions
+  fired: null
+resolution:
+  outcome: null
+  date: null
+  source: Form 990 FY2026, Part I line 8, Wild Animal Initiative Inc (EIN 82-2281466), via ProPublica
+    Nonprofit Explorer
