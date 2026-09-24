@@ -6,11 +6,182 @@
 | **Type** | binary |
 | **Opened / Closes / Resolves** | 2026-09-07 / 2026-10-31 / 2026-12-31 |
 | **Status** | open |
-| **Current forecast** | **Median 20.0%, IQR [14.0%, 28.0%]** (v1, 2026-09-05) |
-| **Community (as of 2026-09-05)** | **not yet revealed** — question status `upcoming`, CP reveal 2026-09-09T17:00Z (n=13 forecasters already in) |
-| **Next review** | 2026-09-19 |
+| **Current forecast** | **Median 23.0%, IQR [16.0%, 31.0%]** (v2, 2026-09-24) |
+| **Community (as of 2026-09-24)** | CP 32.0% (n=112) · Pro 27.0% · Gold 28.7% |
+| **Next review** | 2026-10-05 |
 
 <!-- Versions below, newest first. APPEND-ONLY: never edit or delete a past version. -->
+
+---
+
+## v2 — Re-analysis — 2026-09-24
+
+Mode: **Re-analysis**, as v1 required. The CP-reveal tripwire fired: at reveal (2026-09-09 17:03Z)
+the CP was 44% and gold medalists 44%, both above the 8%–32% band. The path probabilities below
+are re-derived from scratch rather than nudged.
+
+### Revision
+| Driver | Direction | Effect |
+|---|---|---|
+| Prior (v1, 2026-09-05) | — | Median 20.0%, IQR [14.0%, 28.0%] |
+| FEWS NET's August 2026 Outlook Update (published 2026-08-31, data as of 31 Aug) has **zero** Phase 5 area units in the FEWS NET Data Warehouse (FDW), the 8th straight map without one since Feb 2026. It still calls Famine a "credible risk" rather than the most-likely outcome, has no Alert, and already knew about the rainfall failure and the aid cuts [25,26,28] | ↓ | −2.0 pp |
+| Elapsed time: 19 of ~117 days have passed, but no qualifying map has published yet. The Aug-31 map is "Reported" August, so it falls outside the window. All ~4 shots (Sept KMU, Oct Outlook, Nov and Dec KMU) are still ahead | → | −0.5 pp |
+| WFP pipeline break: 2026 funding is $206M against $645M in 2025, with "significant" cut-backs "within weeks" (14 Sep). FEWS NET expects 1.5M more people to lose aid by year-end. Withdrawing aid is what turns a "4!" area into a 5 [26,29] | ↑ | +1.5 pp |
+| North Kordofan escalation: fighting intensified in August and ~15,000 families were displaced into El Obeid. The city is **not** fully encircled, because the eastern SAF supply route is open [26,30] | ↑ | +0.5 pp |
+| FDW history shows FEWS NET put a Phase 5 unit on its **June 2024** map, before the Aug 2024 FRC. FEWS NET can therefore classify on its own, and my v1 "FRC is the mechanism" framing was too strong [28] | ↑ | +1.0 pp |
+| Metaculus cohorts: Pros 27%, gold 28.7%, CP 32% (n=112), all above me. I weight Pros and gold at ~30% against my inside view of ~21% (see Other forecasters) | ↑ | +2.5 pp |
+| **New forecast** | | **Median 23.0%, IQR [16.0%, 31.0%]** |
+
+### Tripwire check
+| Tripwire from v1 | Fired? | Note |
+|---|---|---|
+| A FEWS NET Sudan map Reported Sept–Dec 2026 shows a current-period Phase 5 area | **Not fired** | No qualifying map yet. The Sept KMU is due ~end Sept |
+| IPC Famine Review Committee convened for Sudan | Not fired | No announcement found. The last FRC was Oct 2025 [9] |
+| Mortality / SMART survey from Um Baru, Kernoi, At-Tine, Dilling, Kadugli or El Obeid with CDR > 2/10,000/day | Not fired | Aug OU cites 26 SMART surveys, max GAM 26.6% (Beida, W. Darfur), none from the six named sites and **no mortality data** [26] |
+| FEWS NET Alert, or Famine projected as most-likely for any period | Not fired | Latest Sudan Alert is 2025-09-05. Famine is still only a "credible risk" in 7 areas [25,26] |
+| El Obeid fully encircled / last supply road closed | Not fired (partial pressure) | RSF holds the N, W and S sides. The eastern route is open but precarious [30] |
+| Sept/Oct map repeats credible-risk language with no Phase 5 and no escalation | **Partial** | The August OU (not a qualifying map) did exactly this. The Sept/Oct maps are not out yet |
+| Sudan added to the State Dept suspended list, or no map by 2026-10-31 | Not fired | Only Somalia, Yemen and Afghanistan are named suspended [21,31] |
+| Metaculus CP on reveal outside 8%–32% | **Fired** | CP 44% → 40% within minutes of reveal, gold 44% → 40%, Pros 33%. Since then it has converged to CP 32 / Pro 27 / gold 28.7 [32] → this re-analysis |
+
+### What resolves YES
+Unchanged from v1, with one clarification. The **"Reported" date must fall after August 2026**, so the
+Aug-2026 Outlook Update (published 2026-08-31) does not qualify even if one reads it generously.
+The qualifying publications are therefore the **Sept KMU, the Oct Food Security Outlook** (the
+full re-analysis with a new current-situation map, due ~early Nov but dated October), **and the
+Nov and Dec KMUs**. KMUs usually carry the previous map forward unless something changes, so
+the October Outlook is the main shot. The others are mostly chances to react to shocks.
+
+Resolution-reading check prompted by the Metaculus comments: the criteria admit **"solid *or
+reasonable*"** evidence. One commenter had misread this as solid-only and raised their number.
+I had it right in v1, so no change.
+
+### Outside view
+Unchanged from v1 (Class A anchor ~12–15%), plus one new data series. FEWS NET's own Data
+Warehouse (FDW) lets me count Phase 5 area units per Sudan map directly [28]:
+
+| Map reporting month | Phase 5 units (near-term / current) |
+|---|---|
+| Jun–Sep 2024 | 1 (Zamzam / El Fasher area) |
+| Oct 2024 | 1 |
+| Nov–Dec 2024 | 10 |
+| (Jan–Sep 2025) | no maps (FEWS NET offline, then resuming) |
+| Oct–Nov 2025 | 2 |
+| Dec 2025 – Jan 2026 | 1 |
+| **Feb – Aug 2026 (8 maps)** | **0** |
+
+This is a regime-switch series. Once in, FEWS NET stayed in for 6–8 months. Once out, it has
+stayed out for 7 months. The switches happened when a siege configuration changed (Zamzam and
+El Fasher in 2024, Kadugli in 2025, the sieges lifted in 2026). No siege has closed yet in 2026.
+El Obeid is the candidate, and it is not closed.
+
+### Inside view
+Paths re-derived. `P(YES) = 1 − Π(1 − p_i)`:
+
+| Path | v1 p | v2 p | Why it moved |
+|---|---|---|---|
+| **A — NW/central North Darfur** (Um Baru, Kernoi, At-Tine) | 0.12 | **0.13** | The Aug OU now states outright that **households** there are in Catastrophe (Phase 5) in the current period. Darfur's driest season since 1984 is confirmed. The October Outlook will be the first map written knowing the harvest has failed. The evidence gap is still open: no mortality data and no new surveys from these sites [26,29] |
+| **B — El Obeid** | 0.08 | **0.07** | Pressure rose (IDP influx, drones), but the eastern corridor is still open. A "siege without full encirclement" has not produced a Famine classification in ~18 months [30] |
+| **C — Kadugli / Dilling** | 0.06 | **0.05** | Named again among the 7 credible-risk areas with Phase-5 IDP populations. No sign of re-encirclement found |
+| **D — Q4 IPC/FRC round** | 0.04 | **0.03** | Three weeks with no signal of a new IPC round or FRC |
+| **E — Aid-withdrawal conversion** (new) | — | **0.02** | The WFP funding cliff removes aid in places FEWS NET may currently hold at 4 *because* of aid. The Tawila half-ration caseload alone is ~950,000 people [29] |
+
+`1 − (0.87 × 0.93 × 0.95 × 0.97 × 0.98) = 26.9%`. I apply the same structural adjustments as in v1: −4 pp for FEWS
+NET's own projection (reaffirmed on 31 Aug), −3 pp for the post-harvest window, +1 pp for the low
+settlement bar. That gives an **inside view of ~21%**.
+
+### Evidence
+**New since v1, up:** The Aug OU names Phase 5 *household* populations in six locations: three in
+North Darfur, plus El Obeid, Kadugli and Dilling IDPs [26]. FEWS NET's map puts an area in
+Phase 5 when ≥ 20% of its population is in Phase 5, so the gap is now one of *share and
+evidence*, not of kind. The WFP funding collapse is the most important new fact. It is a
+known, dated mechanism that removes the assistance keeping areas out of Phase 5 (and "4!" does
+not count). The FDW data correct a v1 claim: FEWS NET does not need an FRC first [28].
+
+**New since v1, down:** The single most informative data point is again the resolver's own
+latest judgement. It was written on 31 August, *after* the rainfall failure, the El Obeid
+escalation and the anticipated aid cuts were all known, and it still has zero Phase 5 units and
+no Famine-most-likely projection. Its scenario language is explicitly conjunctive: Famine
+"*if* conflict escalates **and** severe sieges resume … **in combination with** marginal-to-no
+harvests". A conjunction of three conditions is a low-probability event in a 4-month window.
+
+**Absent:** no Alert, no FRC signal, no new mortality data, no full encirclement. Any of these
+would be the staging I would expect before a Phase 5 classification.
+
+### Other forecasters
+| Source | Value | As of | Note |
+|---|---|---|---|
+| Metaculus CP (recency-weighted) | **32.0%**, IQR [27, 36] (n=112) | 2026-09-23 23:53Z | reveal 44% → 40%. Low of 25% on 15 Sep, drifting back up since |
+| Metaculus Pro | **27.0%**, IQR [25, 35] (n=10) | 2026-09-23 | at reveal 33% |
+| Metaculus gold medalists | **28.7%**, IQR [27, 34.8] (n=34) | 2026-09-23 | at reveal 44% |
+| Kalshi / Polymarket / Manifold | no matching market | 2026-09-24 | unchanged from v1 |
+| FEWS NET (implicit) | Famine not most-likely anywhere through Jan 2027 | 2026-08-31 | reaffirmed |
+
+![Metaculus cohorts vs. my forecasts](charts/cohorts-vs-mine.png)
+
+**Cohort disagreement.** The CP is 4–5 pp above Pros and gold. That is modest, and it follows the
+usual pattern of the crowd running hotter on a headline-heavy question. The substantive gap is
+between me (~21% inside view) and Pros/gold (~28%). **What they might know that I don't:** I
+looked for it. The comments cite the same FEWS NET "credible risk" language, the rainfall failure
+and the WFP cut. One comment explicitly anchors 35–45% on the "credible risk across multiple
+areas" headline. I found no fact in the comments that I lacked. **What I might be
+over-weighting:** the "evidence gap" argument. FEWS NET classified Zamzam in June 2024 on
+reasonable evidence before the FRC [28], so the gap is less binding than I claimed. That is
+already in the revision table. Net: I move ~30% of the way to Pros/gold (+2.5 pp). That is
+weighting a better-calibrated cohort, not herding on the CP.
+
+### Scenarios
+| # | Scenario | Weight | Implies |
+|---|---|---|---|
+| 1 | Status quo holds through the Dec KMU | 0.58 | NO |
+| 2 | Deterioration without current-period classification (Alert or Feb–May 2027 Famine projection) | 0.18 | NO |
+| 3 | Evidence arrives from NW North Darfur (survey, mortality, or an October Outlook that re-reads existing data as ≥ 20% in Phase 5) | 0.12 | YES |
+| 4 | El Obeid collapses: last road closes, rapid classification | 0.07 | YES |
+| 5 | Kadugli/Dilling re-besieged, or aid-cut conversion elsewhere (Tawila etc.) | 0.04 | YES |
+| 6 | Mechanical NO (suspension, no map) | 0.01 | NO |
+
+Weighted YES: 0.12 + 0.07 + 0.04 = **0.23**.
+
+### Sensitivity
+Unchanged from v1, except the "no FRC" row is weaker: an FRC now moves the forecast to ~30%,
+not ~32%, since FEWS NET can act without one. One new row: if the **Oct Outlook** (the main shot)
+publishes with no Phase 5 area, the forecast drops to **~8–10%**. Only the Nov/Dec KMUs would
+remain, and they react only to shocks.
+
+### What would change my mind (tripwires)
+- [ ] **A FEWS NET Sudan map Reported Sept–Dec 2026 shows a current-period Phase 5 area** — by 2026-12-31 → resolves YES
+- [ ] **The Sept 2026 KMU publishes with no Phase 5 area and no escalation** — by 2026-10-10 → down 2 pp
+- [ ] **The Oct 2026 Food Security Outlook publishes with no current-period Phase 5 and no Famine-most-likely projection** — by 2026-11-15 → down 13 pp
+- [ ] **An IPC Famine Review Committee is convened for Sudan** — by 2026-11-30 → up 10 pp
+- [ ] **A mortality (CDR) or SMART survey from Um Baru, Kernoi, At-Tine, Dilling, Kadugli or El Obeid shows CDR > 2/10,000/day** — by 2026-12-15 → up 15 pp
+- [ ] **FEWS NET issues a Sudan Alert, or projects Famine as most-likely for any period** — by 2026-12-15 → up 12 pp
+- [ ] **El Obeid's eastern supply route closes (full encirclement)**, per OCHA, WFP or Yale HRL — by 2026-11-30 → up 8 pp
+- [ ] **WFP announces ration suspension or cuts for North Darfur, Tawila or Kordofan caseloads** — by 2026-10-31 → up 3 pp
+- [ ] **Sudan added to the State Dept suspended-reporting list, or no Sudan map by 2026-10-31** → down 12 pp
+
+### Sources
+Numbering continues from v1. The v1 sources re-cited in this version are repeated here. The rest of 1–24 are as in v1.
+
+2. FEWS NET — Key Message Update, Sudan, July 2026 – January 2027 — https://fews.net/east-africa/sudan/key-message-update/july-2026 (accessed 2026-09-05)
+3. FEWS NET — Food Security Outlook, Sudan, June 2026 – January 2027 — https://fews.net/east-africa/sudan/food-security-outlook/june-2026 (accessed 2026-09-24; the Metaculus comment citing it says Famine is only the conditional alternative scenario)
+4. FEWS NET — Food Security Outlook, Sudan, February 2026, "Famine thresholds no longer met…" — https://fews.net/east-africa/sudan/food-security-outlook/february-2026 (accessed 2026-09-05)
+9. IPC — Famine Review Committee: Sudan, October 2025 — https://www.ipcinfo.org/fileadmin/user_upload/ipcinfo/docs/IPC_Famine_Review_Committee_Report_Sudan_Oct_2025.pdf (accessed 2026-09-24)
+11. IPC — "SUDAN: Famine threshold for acute malnutrition surpassed in two more North Darfur localities…" (issue 143) — https://www.ipcinfo.org/ipcinfo-website/countries-in-focus-archive/issue-143/en/ (accessed 2026-09-24, via search index)
+14. UNICEF / WFP / FAO — "Risk of Famine persists as nearly 19.5 million people face acute food insecurity in Sudan" (May 2026) — https://www.unicef.org/press-releases/risk-famine-persists-nearly-195-million-people-face-acute-food-insecurity-sudan (accessed 2026-09-24)
+17. Al Jazeera — "El-Obeid under siege by RSF: Could this be Sudan's next el-Fasher?" (6 Jul 2026) — https://www.aljazeera.com/news/2026/7/6/el-obeid-under-siege-by-rsf-could-this-be-sudans-next-el-fasher (accessed 2026-09-24)
+21. NPR (via KPCW) — "Whatever happened to the U.S. famine alert system…" (31 Aug 2026) — https://www.kpcw.org/npr-news/2026-08-31/whatever-happened-to-the-u-s-famine-alert-system-that-trump-shut-down-then-reopened (accessed 2026-09-05)
+25. FEWS NET — Sudan country page — https://fews.net/east-africa/sudan (accessed 2026-09-24)
+26. FEWS NET — Sudan Food Security Outlook Update, August 2026 – January 2027, "Conflict and poor rains to drive Emergency and risk of Famine during harvest" — https://fews.net/east-africa/sudan/food-security-outlook-update/august-2026 (accessed 2026-09-24)
+27. FEWS NET — Sudan Acute Food Insecurity Classification, August 2026 – January 2027 — https://fews.net/sudan-acute-food-insecurity-classification-august-2026-january-2027 (accessed 2026-09-24)
+28. FEWS NET Data Warehouse — IPC phase API, Sudan, 2023–2026 — https://fdw.fews.net/api/ipcphase/?format=json&country_code=SD&start_date=2024-01-01&end_date=2026-12-31&fields=simple ; summarised in `raw/fewsnet-fdw-phase-counts-2026-09-24.json` (accessed 2026-09-24)
+29. The National — "WFP warns Sudan food aid could be cut within weeks as 20 million face acute hunger" (14 Sep 2026) — https://www.thenationalnews.com/news/us/2026/09/14/wfp-warns-sudan-food-aid-could-be-cut-within-weeks-as-20-million-face-acute-hunger/ (accessed 2026-09-24)
+30. Wikipedia — "Siege of El Obeid" — https://en.wikipedia.org/wiki/Siege_of_El_Obeid (accessed 2026-09-24; tertiary, used only for encirclement status and corroborated by [26])
+31. NPR — "Whatever happened to the U.S. famine alert system that Trump shut down, then reopened" (1 Sep 2026) — https://www.npr.org/2026/09/01/nx-s1-5944472/famine-usaid-fews-net (accessed 2026-09-24)
+32. Metaculus — question #45464, aggregation snapshot incl. cohort history and comments — https://www.metaculus.com/questions/45464/ ; cached in `raw/metaculus-2026-09-24.json` (accessed 2026-09-24)
+
+**Date**: 2026-09-24
+**Forecast**: Median 23.0%, IQR [16.0%, 31.0%]
+**Thesis**: FEWS NET's 31-Aug Outlook Update still has zero Phase 5 areas (8 straight maps since Feb 2026), though it already knew about the Darfur harvest failure and the aid cuts. Its Famine scenario needs escalation, resumed sieges and failed harvests together [26,28]. I move up modestly for three reasons: the WFP funding cliff removes the aid that keeps areas out of Phase 5 [29], FDW history shows FEWS NET can classify without an FRC [28], and Metaculus Pros/gold sit at 27–29% [32]. The October Outlook is the main qualifying shot.
 
 ---
 

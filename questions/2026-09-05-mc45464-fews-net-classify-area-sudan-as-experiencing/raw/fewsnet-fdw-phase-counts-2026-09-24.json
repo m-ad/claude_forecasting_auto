@@ -1,0 +1,287 @@
+{
+ "source": "https://fdw.fews.net/api/ipcphase/?format=json&country_code=SD&start_date=2024-01-01&end_date=2026-12-31&fields=simple",
+ "accessed": "2026-09-24",
+ "note": "Count of Sudan admin/settlement units by IPC 3.1 area phase, per FEWS NET reporting_date and scenario. 5.0 = Famine.",
+ "counts": {
+  "2023-06-01 | Medium Term Projection": {
+   "3.0": 283,
+   "2.0": 122,
+   "4.0": 12
+  },
+  "2023-07-01 | Medium Term Projection": {
+   "3.0": 283,
+   "2.0": 122,
+   "4.0": 12
+  },
+  "2023-08-01 | Medium Term Projection": {
+   "3.0": 274,
+   "2.0": 131,
+   "4.0": 12
+  },
+  "2023-09-01 | Medium Term Projection": {
+   "3.0": 274,
+   "2.0": 131,
+   "4.0": 12
+  },
+  "2023-10-01 | Medium Term Projection": {
+   "4.0": 107,
+   "3.0": 288,
+   "2.0": 22
+  },
+  "2023-10-01 | Near Term Projection": {
+   "4.0": 45,
+   "3.0": 298,
+   "2.0": 74
+  },
+  "2023-11-01 | Medium Term Projection": {
+   "4.0": 108,
+   "3.0": 287,
+   "2.0": 22
+  },
+  "2023-11-01 | Near Term Projection": {
+   "4.0": 48,
+   "3.0": 295,
+   "2.0": 74
+  },
+  "2023-12-01 | Medium Term Projection": {
+   "4.0": 126,
+   "3.0": 291
+  },
+  "2023-12-01 | Near Term Projection": {
+   "4.0": 62,
+   "3.0": 346,
+   "2.0": 9
+  },
+  "2024-02-01 | Current Situation": {
+   "4.0": 163,
+   "3.0": 254
+  },
+  "2024-02-01 | Medium Term Projection": {
+   "4.0": 257,
+   "3.0": 160
+  },
+  "2024-02-01 | Near Term Projection": {
+   "4.0": 190,
+   "3.0": 227
+  },
+  "2024-03-01 | Medium Term Projection": {
+   "4.0": 257,
+   "3.0": 160
+  },
+  "2024-03-01 | Near Term Projection": {
+   "4.0": 190,
+   "3.0": 227
+  },
+  "2024-04-01 | Medium Term Projection": {
+   "4.0": 257,
+   "3.0": 160
+  },
+  "2024-04-01 | Near Term Projection": {
+   "4.0": 190,
+   "3.0": 227
+  },
+  "2024-05-01 | Medium Term Projection": {
+   "4.0": 257,
+   "3.0": 160
+  },
+  "2024-05-01 | Near Term Projection": {
+   "4.0": 190,
+   "3.0": 227
+  },
+  "2024-06-01 | Current Situation": {
+   "4.0": 169,
+   "3.0": 215,
+   "5.0": 1
+  },
+  "2024-06-01 | Medium Term Projection": {
+   "4.0": 120,
+   "3.0": 265
+  },
+  "2024-06-01 | Near Term Projection": {
+   "4.0": 204,
+   "3.0": 180,
+   "5.0": 1
+  },
+  "2024-07-01 | Medium Term Projection": {
+   "4.0": 120,
+   "3.0": 265
+  },
+  "2024-07-01 | Near Term Projection": {
+   "4.0": 204,
+   "3.0": 180,
+   "5.0": 1
+  },
+  "2024-08-01 | Medium Term Projection": {
+   "4.0": 152,
+   "3.0": 233
+  },
+  "2024-08-01 | Near Term Projection": {
+   "4.0": 221,
+   "3.0": 163,
+   "5.0": 1
+  },
+  "2024-09-01 | Medium Term Projection": {
+   "4.0": 152,
+   "3.0": 233
+  },
+  "2024-09-01 | Near Term Projection": {
+   "4.0": 226,
+   "3.0": 158,
+   "5.0": 1
+  },
+  "2024-10-01 | Current Situation": {
+   "4.0": 181,
+   "3.0": 211,
+   "5.0": 1
+  },
+  "2024-10-01 | Medium Term Projection": {
+   "4.0": 235,
+   "3.0": 157,
+   "5.0": 1
+  },
+  "2024-10-01 | Near Term Projection": {
+   "4.0": 150,
+   "3.0": 242,
+   "5.0": 1
+  },
+  "2024-11-01 | Medium Term Projection": {
+   "5.0": 10,
+   "4.0": 227,
+   "3.0": 156
+  },
+  "2024-11-01 | Near Term Projection": {
+   "5.0": 10,
+   "4.0": 146,
+   "3.0": 237
+  },
+  "2024-12-01 | Medium Term Projection": {
+   "5.0": 10,
+   "4.0": 227,
+   "3.0": 156
+  },
+  "2024-12-01 | Near Term Projection": {
+   "5.0": 10,
+   "4.0": 146,
+   "3.0": 237
+  },
+  "2025-10-01 | Current Situation": {
+   "4.0": 145,
+   "3.0": 242,
+   "2.0": 2,
+   "5.0": 2
+  },
+  "2025-10-01 | Medium Term Projection": {
+   "4.0": 130,
+   "3.0": 250,
+   "2.0": 10,
+   "None": 1
+  },
+  "2025-10-01 | Near Term Projection": {
+   "4.0": 90,
+   "3.0": 289,
+   "2.0": 10,
+   "5.0": 2
+  },
+  "2025-11-01 | Medium Term Projection": {
+   "4.0": 130,
+   "3.0": 250,
+   "2.0": 10,
+   "None": 1
+  },
+  "2025-11-01 | Near Term Projection": {
+   "4.0": 90,
+   "3.0": 289,
+   "2.0": 10,
+   "5.0": 2
+  },
+  "2025-12-01 | Medium Term Projection": {
+   "4.0": 142,
+   "3.0": 238,
+   "2.0": 10,
+   "None": 1
+  },
+  "2025-12-01 | Near Term Projection": {
+   "4.0": 94,
+   "3.0": 285,
+   "2.0": 10,
+   "None": 1,
+   "5.0": 1
+  },
+  "2026-01-01 | Medium Term Projection": {
+   "4.0": 142,
+   "3.0": 238,
+   "2.0": 10,
+   "None": 1
+  },
+  "2026-01-01 | Near Term Projection": {
+   "4.0": 94,
+   "3.0": 285,
+   "2.0": 10,
+   "None": 1,
+   "5.0": 1
+  },
+  "2026-02-01 | Current Situation": {
+   "4.0": 85,
+   "3.0": 278,
+   "2.0": 27
+  },
+  "2026-02-01 | Medium Term Projection": {
+   "4.0": 162,
+   "3.0": 226,
+   "2.0": 2
+  },
+  "2026-02-01 | Near Term Projection": {
+   "4.0": 123,
+   "3.0": 232,
+   "2.0": 35
+  },
+  "2026-03-01 | Medium Term Projection": {
+   "4.0": 162,
+   "3.0": 226,
+   "2.0": 2
+  },
+  "2026-03-01 | Near Term Projection": {
+   "4.0": 124,
+   "3.0": 231,
+   "2.0": 35
+  },
+  "2026-04-01 | Medium Term Projection": {
+   "4.0": 166,
+   "3.0": 224
+  },
+  "2026-04-01 | Near Term Projection": {
+   "4.0": 129,
+   "3.0": 226,
+   "2.0": 35
+  },
+  "2026-05-01 | Medium Term Projection": {
+   "4.0": 166,
+   "3.0": 224
+  },
+  "2026-05-01 | Near Term Projection": {
+   "4.0": 132,
+   "3.0": 223,
+   "2.0": 35
+  },
+  "2026-06-01 | Current Situation": {
+   "4.0": 122,
+   "3.0": 232,
+   "2.0": 36
+  },
+  "2026-06-01 | Near Term Projection": {
+   "4.0": 174,
+   "3.0": 193,
+   "2.0": 23
+  },
+  "2026-07-01 | Near Term Projection": {
+   "4.0": 174,
+   "3.0": 193,
+   "2.0": 23
+  },
+  "2026-08-01 | Near Term Projection": {
+   "4.0": 167,
+   "3.0": 200,
+   "2.0": 23
+  }
+ }
+}
