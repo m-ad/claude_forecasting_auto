@@ -124,3 +124,31 @@ locally-rooted Labour candidate and a Prime Minister still inside his honeymoon.
 - Camden ward by-elections between 9 July and 8 October (PollCheck's tables are JS-rendered and
   could not be extracted; camden.gov.uk is itself Cloudflare-protected).
 - Whether Green national polling stabilises or keeps sliding through late September.
+
+---
+
+## v2 research log — 2026-09-24 (Re-analysis)
+
+| Date | Query / source | Finding | Effect on forecast |
+|---|---|---|---|
+| 2026-09-24 | Metaculus 45425, pre-fetched `raw/metaculus-2026-09-24.json` | CP Lab 79.8 / Grn 19.2 / Oth 1.0 (n=97); Pros 85.0 / 14.0 / 1.0 (n=9, IQR 76–95); gold medalists 80.8 / 18.2 / 1.0 (n=29). CP revealed 09-17 | all cohorts 4–9pp above v1; no material disagreement between cohorts |
+| 2026-09-24 | Metaculus comments | sai_39: PollCheck 41.7/37.8, P 70%; Galloway standing; Green conference clash. matru: seat polls missed by 8–12pp this parliament (Gorton, Makerfield), so ~65% is a fair poll-based starting point | supports staying under the market |
+| 2026-09-24 | Polymarket gamma-api | Abdi-Wali 0.845 (bid 0.84 / ask 0.85, last 0.90); Polanski 0.12 (0.11/0.13); volume $60.1k, liquidity $242k | +6.5pp since 09-11 |
+| 2026-09-24 | Wikipedia by-election page / ITV / Camden SOPN via search | 15 candidates; Galloway (Workers), Newman (Reform), Cameron (Con), Stillman (LD); CPA and James Giles endorse Polanski; no Your Party candidate | tripwire 1 partially fired, +3 |
+| 2026-09-24 | Oddschecker 2026-09-21 | Labour 1/8 best (1/4 a week earlier); Green 7/1 best, 9/2 worst; Workers 125/1; 64% of bets the prior week on the Greens | bookmakers moved *against* the bet count, so the large stakes are on Labour (LR ~1.3) |
+| 2026-09-24 | PollCheck by-election page | new by-election model Lab 41.7 / Grn 37.8 / Ref 7.8; P 70/30; still no constituency poll | the most Green-friendly anchor; keeps me below the market |
+| 2026-09-24 | YouGov 13–14 Sep, 20–21 Sep | Grn 11 → 14; Lab 23 flat; PollCheck 7-poll avg Lab 26.7 (09-23) | small Green rebound, −1; tripwire (15%+ in two polls) not fired |
+| 2026-09-24 | Lord Ashcroft focus groups, 2026-09-21 | 2024 Lab voters: Polanski interest "faded" (hypnotherapy, council tax, NATO); Abdi-Wali seen as vague on housing; most expect Labour | small pro-Labour |
+| 2026-09-24 | Guardian via inkl, 2026-09-18 | Green executive refused Polanski's request to postpone the 2–4 Oct Brighton conference (~3,000 attendees) | small pro-Labour (diverts activists in the final week) |
+| 2026-09-24 | Telegraph via Yahoo, 2026-09-23 | Galloway expected to take "hundreds, if not a few thousands" of votes; he got 0.4% in Glasgow | caps the Galloway effect at about +3 |
+| 2026-09-24 | Middle East Eye | Abdi-Wali skipped the 22 Sep King's Cross hustings; Polanski attended | small pro-Green, netted into the campaign row |
+| 2026-09-24 | Camden Council upcoming elections (search) | no ward by-election before 10-08 | tripwire not fired |
+| 2026-09-24 | Search for constituency polls (Survation / Find Out Now / JL Partners / Ashcroft) | none published; Ashcroft ran focus groups only | the key missing datum persists |
+
+**Dead ends (v2)**: the Betfair betting blog returned 403, so there is no fresh exchange price.
+PollCheck's GB polls table is JS-rendered, so only the 7-poll average was extracted. No non-YouGov
+September poll with Greens at 15% or above was found.
+
+**Open for v3 (2026-10-01, T−7)**: any constituency poll; the Green national share in several
+pollsters; whether Polymarket and the books hold after the Green conference; Galloway's campaign
+traction.

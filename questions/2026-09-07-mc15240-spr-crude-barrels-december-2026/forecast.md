@@ -6,11 +6,161 @@
 | **Type** | numeric (barrels) |
 | **Opened / Closes / Resolves** | 2025-01-20 / 2026-12-30 / ~2027-02-26 (EIA *Petroleum Supply Monthly* print) |
 | **Status** | open |
-| **Current forecast** | **Median 281,900,000 barrels, IQR [278,300,000, 285,200,000]** (v1, 2026-09-07) |
-| **Community (as of 2026-08-27)** | CP 399,811,115 (n=4) · Pro 400,242,449 (n=1) · Gold 399,811,115 (n=4) |
-| **Next review** | 2026-09-21 |
+| **Current forecast** | **Median 283,100,000 barrels, IQR [281,300,000, 286,400,000]** (v2, 2026-09-24) |
+| **Community** | **no snapshot taken for v2** — post 15240 returned HTTP 403 twice on 2026-09-24. Last good values (2026-08-27 vintage): CP 399,811,115 (n=4) · Pro 400,242,449 (n=1) · Gold 399,811,115, physically unreachable |
+| **Next review** | 2026-10-08 |
 
 <!-- Versions below, newest first. APPEND-ONLY: never edit or delete a past version. -->
+
+---
+
+## v2 — Update — 2026-09-24
+
+### Revision
+
+| Driver | Direction | Effect |
+|---|---|---|
+| Prior (v1, 2026-09-07) | — | Median 281.9 Mb, IQR [278.3, 285.2] |
+| **Starting level: the September sibling's path, re-derived.** v1 started from the sibling's v1 end-September of 282.3 Mb with ~4.7 Mb of award balance still to land. Three weekly prints later (1.244, 0.403, 0.405 Mb draws) the sibling's v4 puts end-September at **284.2 Mb, IQR [283.8, 284.5]**, and the residual balance is **2.61 Mb**. This model now reuses the sibling's September sampler verbatim, then drains most of the residual in October–November in the trickle regime [1][2] | ↑ | **+1.95 Mb** (incl. −1.4 Mb mean Oct–Dec residual trickle) |
+| **Exchange returns from 1 Nov: 45% → 38%.** No DOE document yet confirms the 1 Nov Big Hill date; it still traces to secondary sources [9]. Against it: GAO (May 2026) put Big Hill LE2 completion in early 2028; EIA's STEO models no returns before mid-2027; the June-RFP write-up says returns fall "primarily throughout 2027, stretching into Q1 2028" [9][10]. DOE's 2026-09-23 line, returns of ~200 Mb "within the next year", fits either timing [5] | ↓ | **−0.7 Mb** |
+| **Final ~38 Mb tranche before 31 Dec: 13% → 10%, centre 18 → 16 Mb.** Seventeen more days of DOE silence (nothing since 2026-07-09 [4]), *including* Brent at $104.82 on 09-17 and record diesel, i.e. through the kind of price spike that should have triggered it. Less runway: RFP → award → lift now has to fit in ~14 weeks | ↑ | **+0.35 Mb** |
+| **Fresh escalation beyond the programme: 7% → 8%.** Hormuz traffic still restricted, Brent back above $103 on 09-23 after Iran's UN address, diesel $6.53/gal record on 09-22 [6][7][8]. No new IEA collective action; Europe was floated as the lead contributor to any second round, focused on products [11] | ↓ | **−0.1 Mb** |
+| **Refill / Venezuela swap barrels delivered in 2026: 12% → 8%.** Still a proposal (Wright, 2026-09-03); no signed swap contract with delivery dates. Polymarket prices "Venezuelan oil added to SPR by Dec 31" at 7.5% ($1.6k volume) [12] | ↓ | **−0.3 Mb** |
+| **New forecast** | | **Median 283.1 Mb, IQR [281.3, 286.4]** |
+
+The prior-to-new move (+1.2 Mb) is the sum of the rows (+1.95 − 0.7 + 0.35 − 0.1 − 0.3), each
+measured by switching that one input back to its v1 value in `raw/scenario-model-2026-09-24.py`.
+
+### Tripwire check (against v1)
+
+| Tripwire from v1 | Fired? | Note |
+|---|---|---|
+| DOE issues an RFP for the remaining ~38 Mb by 2026-11-15 → down ~8 Mb | **Not fired to date** | DOE listing still ends 2026-07-09 (re-read 2026-09-24) [4] |
+| Such an RFP awarded at > 15 Mb by 2026-11-30 → down ~15 Mb | Not fired to date | No RFP |
+| First WCSSTUS1 build by wk. ending 2026-11-13 → up ~4 Mb | Not yet due | Still drawing (0.405 Mb, wk. ending 09-18) [1] |
+| No build through wk. ending 2026-12-04 → up ~1.5 Mb | Not yet due | |
+| Hormuz re-closed or new IEA collective action by 2026-12-15 → down ~10 Mb | **Not fired** | Strait restricted throughout, not newly re-closed; no new IEA action [7][11]. Pressure is higher than at v1 (Brent $95 → $103), reflected as +1 pp in the escalation branch |
+| Refill appropriations enacted or Venezuela swap signed with 2026 delivery by 2026-12-01 → up ~3 Mb | Not fired to date | Proposal only [12][13] |
+
+Review was due 2026-09-21; done three days late. Nothing in the gap fired.
+
+### What resolves YES
+
+Unchanged from v1: EIA *Petroleum Supply Monthly*, series MCSSTUS1, end-December 2026,
+thousand barrels × 1,000, printing around 2027-02-26. One refinement: the weekly→monthly
+bridge is now the September sibling's calibrated N(+0.18, 0.28) Mb (36 months of data), widened
+to SD 0.38 for the longer horizon, replacing v1's assumed N(0, 0.9).
+
+### Outside view
+
+Unchanged from v1 (unconditional 3-month MCSSTUS1 change median 0, IQR [−2.5, +3.9] Mb;
+"announced ≠ delivered" for the remaining ~38 Mb).
+
+### Inside view
+
+December = end-September level − remaining award trickle − (final tranche) − (escalation) −
+(mandated sale) + (exchange returns) + (refill). Monte Carlo, 1,000,000 draws
+(`raw/scenario-model-2026-09-24.py`), September leg identical to the sibling's v4:
+
+- End-September (monthly basis): median 284.16, IQR [283.84, 284.49], the sibling's number.
+- Oct–Dec residual trickle: mean 1.4 Mb (most of the 2.61 Mb balance lands in the trickle
+  regime, plus U(0, 1.5) Mb of award-tally uncertainty in that regime).
+- Returns 38% × U(2, 10) Mb; final tranche 10% × ~16 Mb; escalation 8% × ~16 Mb;
+  mandated sale 10% × U(1, 4); refill 8% × U(0.5, 4).
+
+Output: **median 283.09**, IQR **[281.25, 286.37]**, p5 263.8, p10 270.1, p90 290.2, p95 291.6.
+P(Dec < 275 Mb) = 13.6%; P(Dec < 252.4 Mb) = 0.7%; P(Dec > Sept) = 38.3%.
+
+Posted as **median 283,100,000, IQR [281,300,000, 286,400,000]**. Still left-skewed
+(mean 282.0 < median).
+
+### Evidence
+
+- **The September leg is now nearly known**, and the December question has become mostly a
+  question about two binary events: do returns start on 1 November, and does DOE re-offer the
+  last ~38 Mb. Everything else is ±1.5 Mb.
+- **The returns date is still the weakest link and got weaker.** I looked for a DOE document
+  confirming the 1 November Big Hill start and did not find one; I did find the June-RFP
+  write-up putting that tranche's returns in 2027–Q1 2028 [10] and a GAO timeline for Big Hill
+  LE2 in early 2028 [9]. Neither directly contradicts earlier tranches' contractual dates, so this
+  is a trim, not a collapse (LR ≈ 0.75).
+- **DOE's silence through a price spike is evidence of absence** for a new tranche (LR ≈ 0.75),
+  but the spike itself raises the chance of an *escalation* response. Those two push opposite
+  ways and roughly cancel on the median; the escalation one fattens the left tail slightly.
+- **Disconfirming evidence I hunted for:** a DOE statement that returns have been deferred to
+  2027 (none — which is why returns stay at 38%, not 20%); a new RFP or loan (none); a signed
+  Venezuela swap (none).
+
+### Other forecasters
+
+| Source | Value | As of | Note |
+|---|---|---|---|
+| Metaculus CP / Pro / gold, q31308 | **no community snapshot taken for this version** | 2026-09-24 | Post 15240 refused with HTTP 403 twice today (default TLS and forced TLS 1.2). Last good values (2026-08-27 vintage, fetched 2026-09-07): CP 399.8 Mb, Pro 400.2 Mb, gold 399.8 Mb, n = 4 — physically unreachable, stale, not used |
+| EIA STEO Sept-2026, `COSQPUS` end-Dec | flat after September (~282.05 Mb) | 2026-09-09 vintage | Carried forward from the sibling's v3 read; the STEO holds the SPR flat and models no 2026 returns |
+| Polymarket — "Venezuelan oil added to SPR by Dec 31?" | 7.5% | 2026-09-24 | $1.6k volume; informs the refill branch [12] |
+| Manifold — "US announces another drawdown of SPR before Oct 1 / Nov 1" | 65% / 46% | 2026-09-24 | 12 / 6 bettors, mutually incoherent (a later deadline cannot be less likely); discounted to zero weight |
+| Kalshi | no SPR-level market | 2026-09-24 | `KXSPR` empty |
+
+### Scenarios
+
+| # | Scenario | Weight | Implies (Mb, p10–p90) |
+|---|---|---|---|
+| 1 | Plateau: residual trickles out, no returns, no new tranche (incl. ~5% small mandated sale, ~4% small refill) | 51% | 280.9–284.8 (median 282.3) |
+| 2 | Exchange returns begin Nov, no big draw | 31% | 284.8–292.4 (median 288.6) |
+| 3 | Final tranche and/or escalation release | 17% | 257.5–278.6 (median 268.4) |
+
+### Sensitivity
+
+| Assumption | If instead | Forecast becomes |
+|---|---|---|
+| Returns start 1 Nov with 38% | 45% (v1) | median ≈ 283.8, IQR [281.3, 287.3] |
+| Returns 38% | certain from 1 Nov | median ≈ 287.8, IQR [284.9, 290.3] |
+| Final tranche 10% | 13% at 18 Mb (v1) | median ≈ 282.8 |
+| End-Sept 284.2 | end-Sept 282.3 (v1's start) | whole distribution ≈ −1.9 Mb |
+| Oct–Dec trickle drains the 2.61 Mb residual | trickle stops at 30 Sept | median ≈ 284.4 (+1.3 Mb) |
+
+### What would change my mind (tripwires)
+
+- [ ] **By 2026-10-14:** WPSR prints for weeks ending 09-25 to 10-09 still show ~0.3–0.5 Mb/week
+      draws → trickle confirmed → **down ~300,000 barrels**; if two consecutive builds or flat
+      weeks → **up ~600,000 barrels**.
+- [ ] **By 2026-10-14:** October STEO (due ~10-06) shows `COSQPUS` rising in Nov–Dec 2026
+      (returns modelled in 2026) → **up ~2,000,000 barrels**; if still flat through mid-2027 →
+      **down ~300,000 barrels**.
+- [ ] **By 2026-11-15:** DOE issues an RFP for the remaining ~38 Mb → **down ~7,000,000 barrels**.
+- [ ] **By 2026-11-30:** such an RFP awarded at > 15 Mb → **down ~15,000,000 barrels**.
+- [ ] **By 2026-11-20:** first week-on-week build in WCSSTUS1 on or before week ending 11-13
+      (returns started) → **up ~4,000,000 barrels**.
+- [ ] **By 2026-12-05:** no build through week ending 12-04 → returns slipped to 2027 →
+      **down ~1,000,000 barrels** (returns branch collapses onto the plateau).
+- [ ] **By 2026-12-15:** Hormuz re-closed or a new IEA collective action announced →
+      **down ~10,000,000 barrels**.
+- [ ] **By 2026-12-01:** refill appropriations enacted, or a Venezuela swap contract signed with
+      2026 delivery dates → **up ~2,000,000 barrels**.
+
+### Sources
+
+Sources 1–24 from v1 carry forward; the ones load-bearing for v2 are listed here with access dates.
+
+1. EIA — *Weekly U.S. Ending Stocks of Crude Oil in the SPR* (WCSSTUS1) — https://www.eia.gov/dnav/pet/hist_xls/WCSSTUS1w.xls — 2026-09-18 = 284,552 thousand barrels. Snapshot in the September sibling's `raw/eia-weekly-wcsstus1-2026-09-24.xls` (accessed 2026-09-24)
+2. September sibling, v4 — `questions/2026-09-07-mc15240-spr-crude-barrels-september-2026/forecast.md` — end-September 284.2 Mb, IQR [283.8, 284.5] (2026-09-24)
+3. EIA — *U.S. Crude Oil Stocks in the SPR, Monthly* (MCSSTUS1) — https://www.eia.gov/dnav/pet/hist_xls/MCSSTUS1m.xls — ends June 2026 (accessed 2026-09-24)
+4. DOE — *Petroleum Reserves News* listing — https://www.energy.gov/hgeo/opr/listings/petroleum-reserves-news — nothing after 2026-07-09 (accessed 2026-09-24)
+5. The Daily Caller — *America's Emergency Oil Stockpile Is Running Low As Winter Nears* (2026-09-23) — https://dailycaller.com/2026/09/23/strategic-petroleum-reserve-drawdown-diesel-heating-oil-winter/ (accessed 2026-09-24)
+6. CNBC — *Oil prices rise, snap five day losing streak as Iran vows it will not surrender* (2026-09-23) — https://www.cnbc.com/2026/09/23/iran-us-talks-crude-oil-un-wti.html — cited from search-result text; page returned 403 (accessed 2026-09-24)
+7. Wikipedia — *2026–2028 world oil market chronology* — https://en.wikipedia.org/wiki/2026%E2%80%932028_world_oil_market_chronology (accessed 2026-09-24)
+8. Scripps News — *Diesel prices hit record $6.51 as White House says no export ban planned* — https://www.scrippsnews.com/us-news/diesel-prices-hit-record-high-as-fuel-costs-continue-to-climb (accessed 2026-09-24)
+9. GAO-26-106918 — https://files.gao.gov/reports/GAO-26-106918/index.html — Big Hill LE2 completion expected early 2028 as of May 2026 (per search summary, accessed 2026-09-24; report itself accessed 2026-09-07); Plainview Energy Part I — https://www.plainview-energy.com/p/us-strategic-petroleum-reserve-deep — source of the 1 Nov 2026 returns claim (accessed 2026-09-24)
+10. Plainview Energy — *SPR Infrastructure: Big Hill, West Hackberry RFP* (2026-06-12) — https://www.plainview-energy.com/p/us-strategic-petroleum-reserve-deep-b24 — June-RFP returns "primarily throughout 2027, stretching into the first quarter of 2028" (accessed 2026-09-24)
+11. Yahoo Finance / Investing.com — *Will IEA/OECD countries release more strategic oil stocks?* — https://finance.yahoo.com/energy/articles/iea-oecd-countries-release-more-015434097.html (accessed 2026-09-24; search-summary level)
+12. Polymarket — *Venezuelan oil added to Strategic Petroleum Reserve by...?* via gamma API — https://gamma-api.polymarket.com/public-search?q=Venezuelan%20oil%20Strategic%20Petroleum%20Reserve — Dec-31 leg 7.5%. Snapshot `raw/polymarket-venezuela-spr-2026-09-24.json` (accessed 2026-09-24)
+13. BOE Report / Reuters — *Venezuela's heavy crude could be swapped for American oil to fill emergency reserve, Wright says* (2026-09-03) — https://boereport.com/2026/09/03/venezuelas-heavy-crude-could-be-swapped-for-american-oil-to-fill-emergency-reserve-wright-says/ (accessed 2026-09-07, re-surfaced 2026-09-24 with no follow-up contract)
+14. Manifold search API — https://api.manifold.markets/v0/search-markets?term=strategic%20petroleum%20reserve — snapshot `raw/manifold-spr-markets-2026-09-24.json` (accessed 2026-09-24)
+15. Metaculus — question group 15240, subquestion 31308 — https://www.metaculus.com/questions/15240/ — attempted 2026-09-24, HTTP 403 (accessed 2026-09-24, no data returned); no snapshot
+
+**Date**: 2026-09-24
+**Forecast**: Median 283,100,000, IQR [281,300,000, 286,400,000]
+**Thesis**: December now starts from the September sibling's re-derived end-September level (284.2 Mb, up from v1's 282.3) with only 2.61 Mb of award balance left, which a ~0.4 Mb/week trickle mostly drains by November [1][2]. That +1.95 Mb is partly offset by trimming the 1 November Big Hill returns branch from 45% to 38% (still no DOE confirmation; GAO and the June-RFP write-up point to 2027) and the refill branch from 12% to 8% (Polymarket 7.5%) [9][10][12]. DOE's continued silence through Brent above $100 cuts the final-tranche branch from 13% to 10%, while the Hormuz pressure behind that price nudges the escalation branch up to 8% [4][7]. Net +1.2 Mb to 283.1, still left-skewed; no Metaculus community snapshot was taken for this version.
 
 ---
 

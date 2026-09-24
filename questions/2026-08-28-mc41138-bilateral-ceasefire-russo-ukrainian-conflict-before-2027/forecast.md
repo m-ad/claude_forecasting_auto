@@ -6,11 +6,194 @@
 | **Type** | binary |
 | **Opened / Closes / Resolves** | 2025-12-19 (first CP point) / 2026-12-31 / 2026-12-31 |
 | **Status** | open |
-| **Current forecast** | **Median 9.0%, IQR [6.5%, 13.0%]** (v1, 2026-08-28) |
-| **Community (as of 2026-08-27)** | CP 12.0% (n=299) · Pro 12.0% (n=23) · Gold 12.0% (n=96) |
-| **Next review** | 2026-09-21 |
+| **Current forecast** | **Median 6.0%, IQR [4.0%, 9.0%]** (v2, 2026-09-24) |
+| **Community (as of 2026-09-23)** | CP 6.0% (n=313) · Pro 6.0% (n=24) · Gold 6.0% (n=97) |
+| **Next review** | 2026-10-08 |
 
 <!-- Versions below, newest first. APPEND-ONLY: never edit or delete a past version. -->
+
+---
+
+## v2 — Re-analysis — 2026-09-24
+
+Mode: **Re-analysis** (de novo), not an incremental update. The v1 tripwire "Metaculus CP
+moves outside [7%, 20%]" fired: the CP reached 6.0% on 2026-09-22. The fall was a steady slide
+(12% → 10% on 31 Aug → 9% on 10 Sep → 8% on 15 Sep → 7% on 19 Sep → 6% on 22 Sep), not a
+single shock. 27 of the 125 days left at v1 have now passed; 98 remain.
+
+### Revision
+
+| Driver | Direction | Effect |
+|---|---|---|
+| Prior (v1, 2026-08-28) | — | Median 9.0%, IQR [6.5%, 13.0%] |
+| 27 of 125 days gone with no qualifying event (hazard decay; v1 already treated Sep–Oct as mostly dead time, so the decay is less than pro rata) | ↓ | −1.0pp |
+| Kremlin restates "settlement first": Peskov on 22 Sep says Russia wants "lasting peace, not a ceasefire" [3]; Russia turned down the energy/air ceasefire, including Trump's 14 Sep energy proposal [4][5]; a leaders' trilateral is "a waste of time" before expert-level talks [6] | ↓ | −2.0pp |
+| Diplomacy restarted: Witkoff and Kushner met Putin (5 Sep) and Zelensky (6 Sep); Trump–Putin call on 8 Sep; both sides say trilateral talks could resume in October [1][2][7][8] | ↑ | +0.5pp |
+| No mobilisation decree after the 18–20 Sep Duma vote; Putin called the reports "complete nonsense" [9][10]. The drawdown I priced at v1 has not happened, though a "fragmented" call-up is still expected | ↑ | +0.5pp |
+| v1 rounded 8% → 9% "to err toward the cohorts"; with the cohorts now at 6%, that reason no longer holds and the rounding goes | ↓ | −1.0pp |
+| Battlefield initiative with Ukraine and Russia's fiscal squeeze (ISW; deficit ~6tn ₽ after five months) [11][12] | → | 0 (already in v1; acts on a 2027 horizon) |
+| **New forecast** | | **Median 6.0%, IQR [4.0%, 9.0%]** |
+
+A cross-check that does not depend on the row sums: the de-novo scenario table below gives
+5.5% YES mass. Outside view scaled to 98 days gives 4.8–5.5%. Markets on a looser definition
+sit above that (see Other forecasters). I settle at **6.0%**.
+
+### Tripwire check
+
+| Tripwire from v1 | Fired? | Note |
+|---|---|---|
+| Putin, Lavrov or Peskov accepts ceasefire-first on the record (by 2026-11-30, +15pp) | **Not fired**. It moved the other way | Peskov on 2026-09-22: "we are in favor of a lasting peace… and not a ceasefire, which, in essence, will achieve nothing" [3] |
+| Putin–Trump or Putin–Zelensky summit scheduled with a public date before 2026-12-15 (+6pp) | Not fired | Trump says he will meet Putin only once Putin is ready to sign [7]; Kremlin calls a Putin–Zelensky meeting premature, "a waste of time" [6] |
+| Russia publicly accepts the US/Ukrainian air-ceasefire proposal (by 2026-10-31, +4pp) | **Not fired** (partial at most) | Russia rejected energy and aerial ceasefires. The only agreement was a reciprocal halt on strikes against the two capitals during the envoys' 5–6 Sep visit [1][13], plus Kyiv's unilateral pause on Moscow strikes through end-September [5]. Both are partial and short, and neither qualifies |
+| Russian mobilisation decree ≥100,000 after the Duma elections (by 2026-10-31, −3pp) | Not fired (still pending) | No decree as of 2026-09-22; Putin denied it on 1–2 Sep [9][10] |
+| No trilateral US–Russia–Ukraine round (by 2026-10-31, −2pp) | Pending | Peskov (13 Sep) says October is possible; Kyiv says it is preparing for an October round [2][8] |
+| Metaculus CP moves outside [7%, 20%], forcing a re-analysis | **FIRED** 2026-09-22 (CP 6.0%) | This version is that re-analysis |
+
+### What resolves YES
+
+Unchanged from v1. The binding constraint is still the ≥30-day or indefinite stated intent,
+taking effect by 2026-12-31. Two points gain weight now that 98 days remain. Branch (a), a 30-day
+hold inside 2026, stops being reachable after 2026-12-01. Every Polymarket and Manifold
+comparable counts an announcement or a truce of any length, which this question does not.
+
+### Outside view
+
+| Class | Base rate | Scaled to the remaining 98 days (0.268 yr) |
+|---|---|---|
+| A. Annual question series, 0/4 YES, Laplace 16.7%/yr | 16.7%/yr | 1 − 0.833^0.268 ≈ **4.8%** |
+| B. Within-war hazard, 0 events in ~55 months, Laplace ≈ 1.75%/month | 1.75%/mo | 1 − 0.9825^3.2 ≈ **5.5%** |
+
+**Outside-view prior: 5%** (was 7% at v1 on a 125-day window). Classes C and D are
+unchanged from v1.
+
+### Inside view
+
+The question still reduces to one decision by Putin. What changed in September is that the
+**diplomatic machinery restarted, and Moscow used it to restate its position rather than
+move off it**:
+
+- **Envoy round.** Witkoff and Kushner spent 3 hours with Putin plus dinner (5 Sep), then made
+  their first visit to Kyiv (6 Sep). Putin said Russia expects to meet its "goals" and have the
+  "root causes" addressed. Moscow again rejected a ceasefire on current lines and demanded
+  Ukraine's withdrawal from Donbas and no NATO membership. Zelensky afterwards: "we expect the war
+  will continue" [1][13].
+- **Trump–Putin call on 8 Sep**, described as "frank". Trump offered trade prospects in return for
+  ending the war [7]. That is a carrot, not a deadline.
+- **Energy ceasefire.** Trump proposed one on 14 Sep and Russia declined. Ukraine hit Moscow
+  Oblast with its largest strike package of the war on 19–20 Sep [4].
+- **UNGA, 22–23 Sep.** Zelensky offered a reciprocal energy ceasefire and a leaders'
+  trilateral "anytime". The Kremlin said a leaders' meeting before expert-level talks is a waste of
+  time, and that it wants "peace, not a truce" [3][5][6].
+- **Trilateral talks.** "Agreed in principle" and possibly in October [2][8]. The last round
+  was in Geneva in February. Going from a first expert round in October to a signed
+  comprehensive ceasefire *in effect* by 31 December is roughly 8–10 weeks. That has not happened
+  once in this war.
+
+Russia's line explicitly rejects the sequence this question needs (ceasefire first). A YES
+therefore now almost certainly needs **path 1 from v1**: a framework settlement whose
+implementation includes the ceasefire. That requires either Ukraine to concede Donbas or Russia
+to drop the demand, and neither has moved. With ISW assessing that Russia will not take Donetsk
+before ~2032 at current rates [11], Moscow's demand is well ahead of what it holds on the
+ground. That gap is what keeps the war going, not what ends it before 2027.
+
+### Evidence
+
+New since v1, with likelihood ratios relative to the v1 state:
+
+- Peskov, "peace not truce", 22 Sep [3]: **LR ≈ 0.75**. This is the load-bearing belief
+  confirmed in the same month it was tested.
+- Energy/air ceasefire rejected despite a direct Trump ask [4][5]: **LR ≈ 0.85**. Moscow will not
+  accept even the partial measure.
+- Envoy round, Trump–Putin call, October trilateral in principle [1][2][7][8]:
+  **LR ≈ 1.15**. Talks are necessary but nowhere near sufficient.
+- No mobilisation decree yet [9][10]: **LR ≈ 1.05**. It is only a weak signal: the Kremlin
+  denied mobilisation in 2022 days before announcing it, and a "fragmented" call-up is still
+  expected.
+- Russian fiscal squeeze [12]: no new LR. Full-year deficit forecasts of 5.5–6tn ₽ are in line
+  with v1.
+
+**Absent evidence:** no summit date, no draft framework text, and no Russian statement that
+accepts a ceasefire of any length beyond a few days.
+
+### Other forecasters
+
+| Source | Value | As of | Note |
+|---|---|---|---|
+| Metaculus CP (recency-weighted) | **6.0%**, IQR [4%, 8%] (n=313; 978 all-time) | 2026-09-23 | down from 12.0% on 2026-08-27; mean 7.4% |
+| Metaculus Pro | **6.0%**, IQR [5.0%, 7.5%] (n=24) | 2026-09-23 | the band narrowed a lot (was [5, 17]) |
+| Metaculus gold medalists | **6.0%**, IQR [5%, 8%] (n=97) | 2026-09-23 | identical to CP |
+| Polymarket, "ceasefire agreement by Dec 31, 2026" | **23%** (bid 22 / ask 24; $2.68M vol; −3pp over the month) | 2026-09-24 | **looser**: a general pause of *any* length counts, and so does an agreement reached before the date even if it takes effect later. A Christmas truce or a December deal effective in January would count there but not here |
+| Polymarket, same ladder, Oct 31 / Nov 30 / Jan 31 2027 | 8% / 14.5% / 29% | 2026-09-24 | the steep ramp across December is Christmas-truce and deal-announcement mass that this question excludes |
+| Manifold, "Russia x Ukraine ceasefire in 2026?" | 13.8% (82 traders, M$14k) | 2026-09-24 | was 14.8% at v1; play money, thin market, discounted |
+
+**Cohorts.** All three are at exactly 6.0% again, so there is no disagreement to mine, and I am
+now level with them rather than 3pp below. The crowd moved about 6pp over the month while I moved
+3pp. Part of that gap is that v1 was already below the crowd because it priced the effective-date
+clause and the September–October dead period. **Markets.** Polymarket's 23% is not a
+contradiction. Take out an estimated ~10pp for a short Christmas/New Year truce (April and May
+2026 both show the parties do agree those) and ~4pp for a deal announced in December but
+effective in 2027. What remains is ~6–9%, depending on how much of the rest is a ≥30-day
+ceasefire rather than some other general pause. That is the only reason I do not go below 6%.
+
+### Scenarios
+
+| # | Scenario | Weight | Implies |
+|---|---|---|---|
+| 1 | **Grinding continuation.** Expert-level trilateral talks resume, or do not, without a framework. A fragmented call-up goes ahead; the war runs into 2027 | 70% | NO |
+| 2 | **Partial measures only.** An energy or air moratorium, a halt on strikes against the capitals, POW exchanges | 15% | NO |
+| 3 | **Short symbolic truce** (Orthodox Christmas falls on 7 Jan, so a New Year / Western Christmas truce of a few days) | 7% | NO |
+| 4 | **Framework deal or ≥30-day ceasefire in effect by 31 Dec** | 4.5% | **YES** |
+| 5 | **Framework agreed in December, effective 2027** | 2.5% | NO |
+| 6 | **Resolution surprise** | 1% | **YES** |
+
+YES mass = **5.5%** → **6.0%** after the market cross-check above.
+
+### Sensitivity
+
+| Assumption | If instead | Forecast becomes |
+|---|---|---|
+| Branch (b): announced ≥30-day intent is enough | The admin in practice requires a 30-day hold | 3.5% |
+| An October trilateral is expert-level only, with no framework | The October round produces a joint framework text naming a ceasefire | 12% |
+| Russia keeps "peace, not truce" | Kremlin publicly accepts ceasefire-first | 18% |
+| Ceasefire must take effect by 31 Dec | Announcement alone sufficed | 8.5% |
+
+### What would change my mind (tripwires)
+
+- [ ] **Kremlin drops "settlement first"**, on the record from Putin, Lavrov, Peskov or Ushakov,
+      by **2026-11-30** → **+12pp**.
+- [ ] **A trilateral round convenes and issues a joint statement naming a ceasefire or
+      territorial framework**, by **2026-11-15** → **+4pp**.
+- [ ] **A Putin–Trump summit is scheduled with a public date** before **2026-12-15** → **+5pp**.
+      Trump has tied the summit to Putin being ready to sign.
+- [ ] **Russia accepts an energy or air ceasefire**, by **2026-10-31** → **+2pp**.
+- [ ] **No trilateral round convenes** by **2026-10-31** → **−1.5pp**.
+- [ ] **Russian mobilisation decree of ≥100,000** by **2026-11-30** → **−1.5pp**.
+- [ ] **Metaculus CP moves outside [3%, 12%]** → de-novo re-analysis.
+
+### Sources
+
+1. US envoys arrive in Kyiv for Ukraine war talks after meeting Putin — Al Jazeera, 2026-09-05 — https://www.aljazeera.com/news/2026/9/5/russias-putin-meets-us-envoys-to-discuss-trump-proposal-to-end-ukraine-war (accessed 2026-09-24); Witkoff confident of 'good resolution' after Kyiv meeting — CNN, 2026-09-06 — https://www.cnn.com/2026/09/06/europe/witkoff-kushner-visit-kyiv-intl (accessed 2026-09-24)
+2. Trilateral Talks on Ukraine Could Resume in October — Kremlin (Sputnik via GlobalSecurity), 2026-09-13 — https://www.globalsecurity.org/wmd/library/news/ukraine/2026/09/ukraine-260913-sputnik03.htm (accessed 2026-09-24)
+3. Ukraine Knows What It Must Do for Sustainable Peace — Kremlin (Sputnik via GlobalSecurity), 2026-09-22 — https://www.globalsecurity.org/wmd/library/news/ukraine/2026/09/ukraine-260922-sputnik05.htm; Peskov: Russia Seeks Lasting Peace, Not Temporary Ceasefire — 112.ua — https://112.ua/en/peskov-pro-poziciu-putina-rosia-vistupae-za-micnij-mir-a-ne-za-peremira-186657 (accessed 2026-09-24)
+4. Russian Offensive Campaign Assessment, September 20, 2026 — ISW / Critical Threats — https://www.criticalthreats.org/analysis/russian-offensive-campaign-assessment-september-20-2026 (accessed 2026-09-24; search-result summary)
+5. Zelenskyy says Ukraine ready for 'energy ceasefire,' calls for trilateral meeting — CNBC, 2026-09-23 — https://www.cnbc.com/2026/09/23/ukraine-war-zelenskyy-putin-trump-russia.html (403 on fetch; search-result summary only); Zelensky After Trump: 7 Takeaways — Kyiv Post, 2026-09-23 — https://www.kyivpost.com/post/85181 (accessed 2026-09-24)
+6. Zelenskyy Urges Trump to Bring Putin to Trilateral Peace Talks… Kremlin calls summit a waste of time — Benzinga, 2026-09 — https://www.benzinga.com/news/politics/26/09/61944056/ (accessed 2026-09-24; search-result summary)
+7. Trump, Putin hold 'frank' phone call as US revives Ukraine peace efforts — Al Jazeera, 2026-09-08 — https://www.aljazeera.com/news/2026/9/8/trump-putin-hold-frank-phone-call-as-us-restarts-ukraine-deal-efforts; Trump Presses Putin for Swift End to Ukraine War — The Moscow Times, 2026-09-08 — https://www.themoscowtimes.com/2026/09/08/trump-presses-putin-for-swift-end-to-ukraine-war-in-confidential-call-a93663 (accessed 2026-09-24)
+8. Kyiv Preparing for Resumption of Trilateral Talks in October — The Epoch Times — https://www.theepochtimes.com/world/kyiv-preparing-for-resumption-of-trilateral-talks-in-october-senior-official-says-6086832 (accessed 2026-09-24; search-result summary)
+9. 'Complete Nonsense': Putin Dismisses Mobilization Rumors — The Moscow Times, 2026-09-02 — https://www.themoscowtimes.com/2026/09/02/complete-nonsense-putin-dismisses-mobilization-rumors-a93621 (accessed 2026-09-24)
+10. As Putin edges towards mobilization, Russian reservists are already panicking — Kyiv Independent, ~2026-09-21 — https://kyivindependent.com/russias-election-is-over-could-mobilization-be-next/ (accessed 2026-09-24)
+11. ISW Russian Offensive Campaign Assessments, 6 and 12 September 2026 — Kyiv Post mirrors — https://www.kyivpost.com/post/83903 ; https://www.kyivpost.com/post/84372 (accessed 2026-09-24; search-result summary)
+12. Russia faces budget deficit as oil revenues and tax collections plunge — New Voice of Ukraine — https://english.nv.ua/business/plunging-energy-revenues-leave-russia-s-federal-budget-deep-in-the-red-50616967.html (accessed 2026-09-24)
+13. 'The war will continue' — US peace push fails to achieve deal after Witkoff, Kushner's first visit to Kyiv — Kyiv Independent, 2026-09-06 — https://kyivindependent.com/us-envoys-witkoff-kushner-arrive-in-ukraine/ (accessed 2026-09-24)
+14. Metaculus #41138 aggregations (CP / Pro / gold) — `raw/metaculus-2026-09-24.json` (fetched 2026-09-24)
+15. Polymarket, "Russia x Ukraine ceasefire agreement by…?" — https://polymarket.com/event/russia-x-ukraine-ceasefire-agreement-by — `raw/polymarket-ceasefire-agreement-by-2026-09-24.json` (accessed 2026-09-24)
+16. Manifold, "Russia x Ukraine ceasefire in 2026?" — https://manifold.markets/HillaryClinton/russia-x-ukraine-ceasefire-in-2026 — `raw/manifold-ceasefire-2026-2026-09-24.json` (accessed 2026-09-24)
+
+v1 sources [1]–[33] remain valid for the unchanged sections.
+
+**Date**: 2026-09-24
+**Forecast**: Median 6.0%, IQR [4.0%, 9.0%]
+**Thesis**: The diplomatic track restarted in September (Witkoff/Kushner in Moscow and Kyiv, a Trump–Putin call, and an October trilateral agreed in principle [1][2][7]). Moscow used it to restate "lasting peace, not a ceasefire" (Peskov, 22 Sep [3]) and to reject even an energy/air ceasefire [4][5]. That leaves only a full framework settlement, in effect within ~14 weeks of talks that have not yet resumed, as a route to YES. Hazard decay and a 5% outside view put me level with a unanimous Metaculus (CP = Pro = gold = 6.0%). Polymarket's 23% prices a looser definition that also counts short truces and announce-now, start-later deals.
 
 ---
 

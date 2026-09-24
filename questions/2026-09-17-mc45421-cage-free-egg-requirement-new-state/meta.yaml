@@ -17,31 +17,38 @@ dates:
   resolves: '2027-07-01'
 status: open
 current:
-  version: 2
-  date: '2026-09-17'
-  median: 0.14
+  version: 3
+  date: '2026-09-24'
+  median: 0.13
   iqr:
-  - 0.1
-  - 0.19
+  - 0.095
+  - 0.175
   community:
-    cp: null
-    pro: null
-    gold: null
-    n_forecasters: 5
-    as_of: '2026-09-17'
-next_review: '2026-09-21'
+    cp: 0.12
+    pro: 0.08
+    gold: 0.12
+    n_forecasters: 14
+    as_of: '2026-09-24'
+next_review: '2026-11-06'
 tripwires:
-- signal: Metaculus CP reveals more than 10 pp away from 14% with n >= 20
-  by: '2026-09-20'
+- signal: 'Metaculus gold-medalist median moves more than 6 pp away from 13% with >= 5 forecasters in
+    the cohort (replaces expired CP-reveal tripwire, not fired: revealed 14%, 12% on 2026-09-23 at n=14)'
+  by: '2026-12-18'
   direction: either
   magnitude: 0
   magnitude_unit: pp
   fired: null
-- signal: '119th Congress adjourns sine die with no Farm Bill enacted, leaving no vehicle for the Save
-    Our Bacon Act (replaces v1''s conference-report tripwire: P(Farm Bill enacted in the 119th) is about
-    0.22, so no conference is likely to convene)'
+- signal: 119th Congress adjourns sine die with no Farm Bill enacted, leaving no vehicle for the Save
+    Our Bacon Act (less likely since Senate Ag reported the bill 12-11 on 2026-09-16)
   by: '2027-01-03'
   direction: up
+  magnitude: 3
+  magnitude_unit: pp
+  fired: null
+- signal: Senate adopts a Prop 12 / Save Our Bacon floor amendment to the Farm Bill, or a lame-duck package
+    carrying Prop 12 preemption passes either chamber
+  by: '2027-01-03'
+  direction: down
   magnitude: 3
   magnitude_unit: pp
   fired: null

@@ -241,3 +241,40 @@ date is July 2025. Flag for that question's next update.
 Metaculus re-fetch 2026-09-17 (`raw/metaculus-2026-09-17b.json`): still `upcoming`, n 4 → 5, all
 three cohorts null, no comments. Nothing to anchor on; `next_review` shortened to 2026-09-21 to
 catch the 2026-09-20 CP reveal.
+
+---
+
+## 2026-09-24 — v3 update
+
+**Metaculus** (`raw/metaculus-2026-09-24.json`, pre-fetched this session): CP revealed 2026-09-20.
+Latest 2026-09-23: CP 12% [8, 13] n=14 (15 total); Pro 8% n=2 (was 38% at reveal — single-forecaster
+noise; Pro mean 11.6%); gold 12% [8, 13] n=7 (38% at reveal → 10% on 09-22 → 12%). No comments.
+CP-reveal tripwire expired unfired (2 pp gap, n < 20).
+
+**Searches run** (2026-09-24): cage-free egg bill state legislature Sept 2026; Farm Bill Sept 2026
+Prop 12 / Save Our Bacon; egg prices Sept 2026 bird flu; cage-free bills in NY/NJ/CT/ME/MD/NM 2026;
+Humane World 2027 state cage-free; DOJ v. Michigan ruling 2026; BLS egg price Aug 2026; cage-free
+news Sept 2026; Senate Ag 12-11 vote.
+
+**Findings**
+- Senate Ag Committee reported the Farm Bill (Agricultural Act of 2026) 12–11 party-line on
+  2026-09-16 (DTN dates it 09-17), after the 10–11 failure on 08-06; McConnell returned to vote.
+  SOB excluded; Ernst's push failed; Hoeven said Prop 12 belongs on the floor. Needs 60 on the floor;
+  Democrats want two-year SNAP cost-share delay vs GOP one-year. Hyde-Smith: "difficult, but not
+  impossible" this year. My read: P(Farm Bill enacted in 119th) 0.22 → ~0.30. Effect on this
+  question via chill factor 0.92 → 0.91: ~−0.1 pp.
+- BLS APU0000708111: Aug 2026 $2.272, Jul $2.189, Jun $2.141 (`raw/fred-eggs-2026-09-24.csv`).
+  Egg-price tripwire ($4.00) far away.
+- DOJ v. Michigan: still on Michigan's motion to dismiss (Apr 2026); no ruling found.
+- No new cage-free bill, committee action, ballot measure or rulemaking found in any candidate state.
+  NY S950/A652 still in committee. Search results again surfaced the unreliable East Coast Egg Farmers
+  page and a search-summary claim that NJ "passed a cage-free requirement" — same error flagged as
+  source 23 in v1; ASPCA/AWI remain authoritative. Ignored.
+- The Humane League 2026 Eggsposé: corporate pledges past due; consistent with v2's pledge-collapse row.
+
+**Integration**: prior 14.0%. Crowd (CP = gold = 12%) one-directional below me; shrink half the gap
+(−1.0). Farm Bill vote −0.1; quiet-week hazard −0.1; round to 13.0%, IQR [9.5, 17.5].
+Dead end: no market on Polymarket/Kalshi/Manifold (not re-searched beyond v1/v2's null).
+
+Next review 2026-11-06 — after the 2026-11-03 midterms, since House control is half of the
+"threat visibly dead" world weight.

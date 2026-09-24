@@ -257,3 +257,49 @@ truth. The stale values stay in `forecast.md`, explicitly dated, where they can 
 they are. Note for future sessions: `log_forecast.py add` stamps `community.as_of` with today's
 date whatever the numbers' real vintage, so passing `--cp/--pro/--gold` from a cached snapshot
 silently mislabels it.
+
+---
+
+# v4 research log — 2026-09-24
+
+Researched jointly with the December sibling (`2026-09-07-mc15240-spr-crude-barrels-december-2026`)
+by one cluster agent so both forecasts share one September path.
+
+## Searches and fetches
+
+| Date | Query / source | Result | Used for |
+|---|---|---|---|
+| 2026-09-24 | EIA `WCSSTUS1w.xls` direct download (HTTP 200) | wk. ending 09-18 = **284,552** kb; 09-11 unrevised 284,957; 09-04 285,360 | anchor, draw 0.405 Mb |
+| 2026-09-24 | EIA `MCSSTUS1m.xls` direct download (HTTP 200) | still ends 2026-06 (322,186) | no new bridge points |
+| 2026-09-24 | DOE Petroleum Reserves News listing | latest item 2026-07-09 (Elk Hills); last SPR items 06-10 RFP, 05-11 awards | tripwire "new RFP" not fired |
+| 2026-09-24 | "Strategic Petroleum Reserve September 2026" | Yahoo/Energy Factbook: 285.0 Mb at 09-11, lowest since Nov 1982 | corroboration |
+| 2026-09-24 | Daily Caller 2026-09-23 | 284.6 Mb; ~405 kb weekly loss; DOE: ~200 Mb returned "within the next year"; DOE spokesperson: ~70 Mb needed to operate safely | corroboration of print |
+| 2026-09-24 | CNBC 2026-09-23 (search text; page 403) | Brent $103.08, WTI $92.16; Iran vows no surrender at UNGA | context |
+| 2026-09-24 | Wikipedia oil-market chronology | Brent $104.82 on 09-17; Saudi exports via Hormuz resumed 09-17 | context |
+| 2026-09-24 | Scripps / diesel record | $6.51–6.53/gal record; White House: no export ban | no SPR action |
+| 2026-09-24 | IEA second collective action | only Citi speculation (Europe, products); nothing announced | December escalation branch |
+| 2026-09-24 | Kalshi `KXSPR`, Manifold search, Polymarket search | no September-level market anywhere | — |
+| 2026-09-24 | Metaculus post 15240 | not attempted by me; parent got HTTP 403 twice (default TLS and forced TLS 1.2) | **no community snapshot taken for this version**; ledger/meta community fields null |
+
+## What the print says
+
+Draws: 3.122 → 1.244 → 0.403 → **0.405**. The ratio jumped from ~0.33 to 1.00. v3's modal regime
+(taper ratio 0.30–0.55, 45%) predicted 0.12–0.22 Mb for this week; the "persistent small rate"
+regime (0.25–0.55 Mb/wk, 25%) predicted it. Likelihood ratio ≈ 4–5 toward the persistent regime.
+Reweighted: trickle 53%, taper 25%, done 10%, fast lift 12%. Model `raw/scenario-model-2026-09-24.py`
+→ median 284.16, IQR [283.84, 284.49].
+
+Residual award balance: 133.5 − (415.442 − 284.552) = **2.61 Mb**. At 0.4 Mb/week it clears
+in ~6.5 weeks (early November), which is what the December sibling now models.
+
+## Tripwire design lesson
+
+v3 put its 09-23 tripwires at < 0.15 and > 1.2 Mb. The print landed at 0.405, between them,
+and still falsified v3's modal regime. Tripwires should bracket the modal expectation, not just
+the tails. v4's 09-30 tripwires include the middle band.
+
+## Open questions for next time
+
+1. 2026-09-30 WPSR (week ending 09-25): the last weekly print before close.
+2. October STEO (~10-06): September `COSQPUS` vs ~284.2.
+3. PSM July/August actuals (~10-31): bridge test.

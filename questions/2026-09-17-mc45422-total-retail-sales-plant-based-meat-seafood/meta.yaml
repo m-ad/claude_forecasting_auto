@@ -18,19 +18,19 @@ dates:
   resolves: '2027-06-30'
 status: open
 current:
-  version: 1
-  date: '2026-09-17'
-  median: 6860000000.0
+  version: 2
+  date: '2026-09-24'
+  median: 6840000000.0
   iqr:
-  - 6590000000.0
-  - 7110000000.0
+  - 6560000000.0
+  - 7120000000.0
   community:
-    cp: null
-    pro: null
-    gold: null
-    n_forecasters: 3
-    as_of: '2026-09-17'
-next_review: '2026-09-24'
+    cp: 6845426284.0
+    pro: 6778904301.0
+    gold: 6774680457.0
+    n_forecasters: 15
+    as_of: '2026-09-24'
+next_review: '2026-11-15'
 tripwires:
 - signal: GFI Europe or Circana 2026 European retail data shows value-weighted meat-alternative growth
     above +4% across FR/DE/IT/NL/ES/UK (Europe is 54.5% of the number)
@@ -45,11 +45,19 @@ tripwires:
   magnitude: 200000000
   magnitude_unit: USD
   fired: null
-- signal: EUR/USD 2026 full-year average from ECB reference rates comes in below 1.13, at or under the
-    2025 average - the FX tailwind vanished
+- signal: 'EUR/USD 2026 full-year average from ECB reference rates comes in below 1.13, at or under the
+    2025 average - the FX tailwind vanished [2026-09-24: effectively dead - needs remaining fixings to
+    average ~1.04 vs spot 1.14; superseded by the Q4 < 1.10 tripwire]'
   by: '2027-01-15'
   direction: down
   magnitude: 80000000
+  magnitude_unit: USD
+  fired: false
+- signal: EUR/USD Q4 2026 average (ECB, Oct-Dec) below 1.10, pushing the FY average to ~1.145 or lower
+    (tailwind < +1.5%)
+  by: '2027-01-05'
+  direction: down
+  magnitude: 40000000
   magnitude_unit: USD
   fired: null
 - signal: US full-year 2026 plant-based meat dollar sales (SPINS or Circana) fall more than 12%, versus
@@ -66,8 +74,8 @@ tripwires:
   magnitude: 0
   magnitude_unit: USD
   fired: null
-- signal: After CP reveal on 2026-09-20 the Metaculus community prediction settles outside 6.5-7.2bn with
-    n >= 30 - re-check, do not nudge; there is no Pro or gold cohort to weigh against it
+- signal: Metaculus CP settles outside 6.5-7.2bn with n >= 30, or gold medalists move below 6.6bn - re-check,
+    do not nudge
   by: '2026-11-30'
   direction: either
   magnitude: 0

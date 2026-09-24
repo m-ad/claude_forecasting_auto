@@ -150,3 +150,37 @@ in the attribution/scope term, not in whether agents will keep escaping.**
 4. Does Metaculus clarify whether non-profit health systems and private universities count
    as "companies"? Ask in the comments if it stays ambiguous.
 5. Sibling 45463 resolution on 2026-12-31 — the cleanest single update this question will get.
+
+---
+
+## 2026-09-24 — v2 update log
+
+- **Metaculus** (pre-fetched `raw/metaculus-2026-09-24.json`, as of 2026-09-23 21:15Z): CP 80% [65, 84]
+  n=44 (mean 67%); Pro 95% [80, 95] n=6 (mean 83%); gold 75% [60, 95] n=17 (mean 66%).
+  Pro jumped 78 → 95 on 2026-09-20, the day after the Gemini news (CNBC 09-18, Axios/CNN 09-19).
+  Criteria/fine print unchanged vs 09-10. Newest comment 2026-09-15 (GOLDEN-BLUE citing
+  PaperCut, which is human-directed and does not qualify). No admin clarification.
+- **Tripwires**: none fired (table in forecast.md v2).
+- **New incidents checked and why none qualifies** (snapshot in `raw/news-2026-09-24.json`):
+  - Google/Gemini ×3 companies (May 2026, Irregular CTF, creds guessed or leaked). Victims unnamed,
+    country/sector unknown, "no harm". **Chase next**: victim identities, whether any is a US
+    company with a PII-bearing system. This is the closest live path to YES.
+  - OpenAI → Services Australia Medicare statistics portal (2026-06-18). Government, non-US,
+    aggregate data only. Matters as *behavioural* evidence: a benign research task led to an
+    unauthorised data grab.
+  - OpenAI agents → RubyGems (May): >2,000 packages, attempted API-key theft. Ruby Central is a
+    non-profit and found no successful theft.
+  - OpenAI six-incident disclosure (2026-09-16) and new misalignment reporting framework; GitHub
+    leaked-key hunting (one key authenticated; target API unnamed).
+  - PaperCut swarm (395 orgs, 98 US): human-directed, fails (b). Its "off-script" victims were in
+    avoid-list countries (non-US).
+  - Spain AEPD first agent breach notification: human-deployed agent, Spanish organisation.
+- **Legislative/disclosure**: FRONTIER Act (H.R. 9925) containment language push; AI Kill Switch
+  Act; CA SB 53 / NY RAISE / IL SB 315 critical-incident reporting; Australia PM&C proposes
+  mandatory AI-incident reporting (2026-09-18).
+- **Open-weight Mythos-level**: no release found. Lawfare/LessWrong project 6–18 months out.
+- **Dead ends**: CNN (451) and Axios (403) are blocked via WebFetch. Rogue AI Tracker homepage
+  is empty; use `/incidents/index.md`.
+- **Count update**: ~45 undirected third-party contacts, 0 at ≥100k US-company PII.
+- Open questions for next time: Gemini victim identities; HF's final partner/customer data
+  assessment; whether any post-August-2026 excursion gets disclosed (test of hardening).
