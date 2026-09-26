@@ -1,0 +1,77 @@
+slug: 2026-09-26-mc45220-total-spending-all-senate-candidates-2026-us
+title: What will be the total spending by all Senate candidates in the 2026 US election cycle?
+source: metaculus
+url: https://www.metaculus.com/questions/45220/what-will-be-the-total-spending-by-senate-candidates-in-2026-us-election-cycle/
+post_id: 45220
+type: numeric
+unit: USD
+tags:
+- us-elections
+- campaign-finance
+- senate-2026
+- metaculus-cup
+dates:
+  created: '2026-09-26'
+  opened: null
+  closes: '2026-12-02'
+  resolves: '2026-12-02'
+status: open
+current:
+  version: 1
+  date: '2026-09-26'
+  median: 1570000000.0
+  iqr:
+  - 1350000000.0
+  - 1800000000.0
+  community:
+    cp: null
+    pro: null
+    gold: null
+    n_forecasters: 8
+    as_of: '2026-09-26'
+next_review: '2026-10-01'
+tripwires:
+- signal: Criteria published at open name a source/date that includes post-general reports (resolution
+    on/after 2026-12-03 or final/complete data)
+  by: '2026-09-29'
+  direction: up
+  magnitude: 150000000
+  magnitude_unit: USD
+  fired: null
+- signal: Criteria fix a snapshot on/before 2026-12-02, or name pre-general / FEC 21-month data
+  by: '2026-09-29'
+  direction: down
+  magnitude: 230000000
+  magnitude_unit: USD
+  fired: null
+- signal: Criteria define the quantity as candidate + outside spending in Senate races (re-analyse; level
+    ~$4B+)
+  by: '2026-09-29'
+  direction: either
+  magnitude: 0
+  magnitude_unit: USD
+  fired: null
+- signal: 'Q3 filings: cycle receipts of 2026 Senate candidates through 2026-09-30 above $1.30B (up) or
+    below $1.15B (down)'
+  by: '2026-10-20'
+  direction: either
+  magnitude: 0
+  magnitude_unit: USD
+  fired: null
+- signal: Cycle-to-date disbursements of 2026 Senate candidates through 2026-09-30 above $1.20B (up ~$80M)
+    or below $1.00B (down ~$80M)
+  by: '2026-10-20'
+  direction: either
+  magnitude: 0
+  magnitude_unit: USD
+  fired: null
+- signal: Georgia 2026-11-03 result forces a 2026-12-01 runoff
+  by: '2026-11-06'
+  direction: up
+  magnitude: 20000000
+  magnitude_unit: USD
+  fired: null
+resolution:
+  outcome: null
+  date: null
+  source: null

@@ -1,0 +1,11 @@
+cycle,scope,n_candidates,receipts_musd,disbursements_musd,coh_end_musd,cand_loans_musd,source_files
+2018,all_S_committees_2yr,543,1150.0,1099.8,244.6,107.7,weball18.zip+cn18.zip
+2018,election_year_eq_cycle_2yr,269,1032.3,1018.4,93.1,107.4,weball18.zip+cn18.zip
+2020,all_S_committees_2yr,587,2231.2,2128.6,411.1,76.1,weball20.zip+cn20.zip
+2020,election_year_eq_cycle_2yr,303,2046.3,1962.0,152.1,59.8,weball20.zip+cn20.zip
+2022,all_S_committees_2yr,663,1908.6,1892.4,351.6,177.1,weball22.zip+cn22.zip
+2022,election_year_eq_cycle_2yr,350,1654.2,1666.4,137.9,171.5,weball22.zip+cn22.zip
+2024,all_S_committees_2yr,609,1724.2,1748.8,345.9,188.6,weball24.zip+cn24.zip
+2024,election_year_eq_cycle_2yr,277,1509.5,1548.4,90.5,186.8,weball24.zip+cn24.zip
+2026,all_S_committees_2yr,634,1156.1,864.1,636.9,88.1,weball26.zip+cn26.zip
+2026,election_year_eq_cycle_2yr,336,880.8,643.9,369.9,50.2,weball26.zip+cn26.zip
