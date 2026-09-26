@@ -29,8 +29,23 @@ def fetch_metaculus(post_id: int) -> dict[str, Any]:
     """
     sys.path.insert(0, str(SKILL_SCRIPTS))
     try:
-        from metaculus_aggregations import fetch_aggregations  # type: ignore
+        from metaculus_aggregations import (  # type: ignore
+            fetch_aggregations,
+            fetch_post_api,
+        )
 
+        # Everything scaffolding needs is post metadata, which METACULUS_API_KEY
+        # reads in one plain HTTPS call; the browser run is only the fallback.
+        post = fetch_post_api(post_id)
+        if post:
+            q = post.get("question") or {}
+            return {
+                "title": post.get("title"),
+                "type": q.get("type"),
+                "closes": (post.get("scheduled_close_time") or "")[:10] or None,
+                "status": post.get("status"),
+                "nr_forecasters": post.get("nr_forecasters"),
+            }
         res = fetch_aggregations(post_id, methods=["recency_weighted"])
     except Exception as exc:  # noqa: BLE001 - any failure degrades to manual entry
         print(f"! Metaculus fetch failed ({exc}); scaffolding with blanks.")

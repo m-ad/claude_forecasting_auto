@@ -72,8 +72,14 @@ Read `docs/output-format.md` before writing any forecast block — the format is
 ## 4. Metaculus access
 
 Use the **`metaculus-aggregations`** skill (`.claude/skills/metaculus-aggregations/`).
-It is the primary tool. The Metaculus REST API needs a token you do not have, and
-`curl`/`wget`/`WebFetch` return 403 — do not attempt them.
+It is the primary tool. Anonymous `curl`/`wget`/`WebFetch` return 403 — do not attempt them.
+
+If `METACULUS_API_KEY` is set, the scripts use it automatically to read question
+metadata (title, type, resolution criteria, fine print, forecaster count) over the
+official API; without it they fall back to the browser. The key is a **bot account**
+and is read-only here: Metaculus hides every aggregation from bot keys and restricts
+comments, so CP / Pro / gold numbers and comments still come from the browser path.
+Never use the key to submit forecasts unless the operator explicitly says so.
 
 ```bash
 uv run .claude/skills/metaculus-aggregations/scripts/metaculus_aggregations.py <POST_ID> \

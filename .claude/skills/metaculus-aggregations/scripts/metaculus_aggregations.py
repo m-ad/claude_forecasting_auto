@@ -73,6 +73,29 @@ carries them.
 Note: browsing Metaculus still requires the spoofed Chrome UA below. With the
 honest ``HeadlessChrome`` UA, Cloudflare challenges the HTML pages themselves.
 
+--------------------------------------------------------------------------
+METACULUS_API_KEY (v4.2)
+--------------------------------------------------------------------------
+When ``METACULUS_API_KEY`` is set, question metadata (resolution criteria, fine
+print, background, forecaster count) is read from the official token-authed
+``/api/posts/<id>/`` endpoint over plain HTTPS instead of through the browser:
+no Cloudflare challenge, no rate-limit exposure, one browser request fewer.
+Without the key, or if that call fails, the browser path is used as before.
+
+The key does **not** replace the browser for the numbers. Verified 2026-09-26
+with the workbench's key, which belongs to a *bot* account:
+
+    /api/posts/<id>/?with_cp=true         -> 200, but every aggregation null
+    /api/aggregation_explorer/            -> 403 "Use of this endpoint is restricted"
+    /api/posts/<id>/download-data/        -> 403, same
+    /api/comments/?post=<id>              -> 403 unless filtered to own/staff authors
+    /api-proxy/... with the token         -> 403 Cloudflare challenge (as without)
+
+Metaculus hides aggregations from bot accounts, so the token is never sent on
+the browser path: CP, Pros, gold medalists and comments stay anonymous-browser
+only. Python's default ``Python-urllib`` User-Agent is banned outright
+(Cloudflare error 1010); any honest custom UA passes.
+
 Usage
 -----
     python metaculus_aggregations.py <post_id> \
@@ -92,6 +115,7 @@ import datetime as _dt
 import json
 import os
 import time
+import urllib.request
 from dataclasses import asdict, dataclass, field
 from typing import Any
 from urllib.parse import unquote, urlparse
@@ -147,6 +171,12 @@ _JS_FETCH = """async (u) => {
 
 _BASE = "https://www.metaculus.com/api-proxy"
 _AGG = f"{_BASE}/aggregation_explorer/"
+
+# Official token-authed API. Reached over plain HTTPS, not the browser; see the
+# METACULUS_API_KEY section of the module docstring for what it can and cannot see.
+_API = "https://www.metaculus.com/api"
+# Cloudflare bans the stdlib default "Python-urllib/x.y" outright (error 1010).
+_API_UA = "claude-forecasting/0.1 (metaculus-aggregations)"
 
 DEFAULT_METHODS = ["recency_weighted", "metaculus_pros", "gold_medalists"]
 
@@ -268,6 +298,43 @@ def _is_challenge(body: str) -> bool:
     """True when a response body is a Cloudflare interstitial rather than data."""
     head = body[:2000]
     return "Just a moment" in head or "challenges.cloudflare.com" in head
+
+
+def _api_get_json(path: str, timeout: float = 30.0) -> dict | None:
+    """GET ``{_API}/{path}`` with ``METACULUS_API_KEY``; None on any failure.
+
+    Returns None immediately when the key is unset, so callers can treat this as
+    an optional fast path and fall back to the browser on None.
+    """
+    key = os.environ.get("METACULUS_API_KEY")
+    if not key:
+        return None
+    req = urllib.request.Request(
+        f"{_API}/{path}",
+        headers={
+            "Authorization": f"Token {key}",
+            "Accept": "application/json",
+            "User-Agent": _API_UA,
+        },
+    )
+    try:
+        with urllib.request.urlopen(req, timeout=timeout) as resp:
+            data = json.loads(resp.read())
+    # URLError/HTTPError/timeouts are OSErrors, bad JSON is a ValueError; any of
+    # them just means "use the browser path instead".
+    except (OSError, ValueError):
+        return None
+    return data if isinstance(data, dict) else None
+
+
+def fetch_post_api(post_id: int) -> dict | None:
+    """Raw ``/api/posts/<id>/`` JSON via the API key, or None.
+
+    Carries title, status, close time, forecaster count, and (under
+    ``question``) type, scaling, options, resolution criteria, fine print and
+    background -- but no aggregations for a bot-account key.
+    """
+    return _api_get_json(f"posts/{post_id}/")
 
 
 class _Fetcher:
@@ -709,7 +776,9 @@ def _collect(
         )
 
     if include_details:
-        _, post = fetcher.get_json(f"{_BASE}/posts/{post_id}/?with_cp=false")
+        post = fetch_post_api(post_id)
+        if not post:
+            _, post = fetcher.get_json(f"{_BASE}/posts/{post_id}/?with_cp=false")
         q = post.get("question") or {}
         result.resolution_criteria = q.get("resolution_criteria")
         result.fine_print = q.get("fine_print")
