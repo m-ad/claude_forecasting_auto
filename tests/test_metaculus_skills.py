@@ -379,3 +379,161 @@ def test_a_challenged_request_still_warms_on_a_real_page(agg, monkeypatch):
     assert status == 403
     assert fake.downgrades == 0
     assert fake.warms == 1
+
+
+# ------------------------------------------------------------ METACULUS_API_KEY
+# The key reads post metadata over plain HTTPS with no Cloudflare challenge, but
+# a bot-account key sees null aggregations, so it may only ever *replace* the
+# browser for details -- and must degrade to the browser when unset or failing.
+class _FakeResponse:
+    def __init__(self, payload: bytes):
+        self._payload = payload
+
+    def read(self) -> bytes:
+        return self._payload
+
+    def __enter__(self):
+        return self
+
+    def __exit__(self, *exc) -> None:
+        return None
+
+
+@pytest.fixture(params=["agg", "scrape"])
+def api_get(request, agg, scrape):
+    """Each script's API helper, called the same way: ``fn(post_id)``."""
+    if request.param == "agg":
+        return agg, agg.fetch_post_api
+    return scrape, scrape._api_post
+
+
+def test_no_api_key_means_no_api_request(api_get, monkeypatch):
+    mod, fn = api_get
+    monkeypatch.delenv("METACULUS_API_KEY", raising=False)
+
+    def boom(*_a, **_k):
+        raise AssertionError("urlopen must not be called without a key")
+
+    monkeypatch.setattr(mod.urllib.request, "urlopen", boom)
+    assert fn(41138) is None
+
+
+def test_api_request_carries_the_token_and_an_unbanned_user_agent(api_get, monkeypatch):
+    mod, fn = api_get
+    monkeypatch.setenv("METACULUS_API_KEY", "k123")
+    seen = {}
+
+    def fake_urlopen(req, timeout=None):
+        seen["url"] = req.full_url
+        seen["auth"] = req.get_header("Authorization")
+        seen["ua"] = req.get_header("User-agent")
+        return _FakeResponse(b'{"id": 41138, "title": "T"}')
+
+    monkeypatch.setattr(mod.urllib.request, "urlopen", fake_urlopen)
+    assert fn(41138) == {"id": 41138, "title": "T"}
+    assert seen["url"] == "https://www.metaculus.com/api/posts/41138/"
+    assert seen["auth"] == "Token k123"
+    # Cloudflare answers the stdlib default UA with error 1010.
+    assert seen["ua"] and "Python-urllib" not in seen["ua"]
+
+
+@pytest.mark.parametrize(
+    "exc", [OSError("reset"), TimeoutError(), ValueError("not json")]
+)
+def test_api_failure_degrades_to_none(api_get, monkeypatch, exc):
+    mod, fn = api_get
+    monkeypatch.setenv("METACULUS_API_KEY", "k123")
+
+    def fail(*_a, **_k):
+        raise exc
+
+    monkeypatch.setattr(mod.urllib.request, "urlopen", fail)
+    assert fn(41138) is None
+
+
+def _details_fetcher(captured: list[str]):
+    class F:
+        def get_json(self, url):
+            captured.append(url)
+            if "/posts/" in url:
+                return 200, {
+                    "nr_forecasters": 1,
+                    "question": {"resolution_criteria": "browser"},
+                }
+            return 200, {"id": 40839, "type": "binary", "scaling": {}}
+
+    return F()
+
+
+def _collect_details(agg, fetcher):
+    return agg._collect(
+        fetcher,
+        41138,
+        lambda methods, qid=None: "agg",
+        ["recency_weighted"],
+        include_history=False,
+        n_comments=0,
+        include_details=True,
+    )
+
+
+def test_details_come_from_the_api_when_it_answers(agg, monkeypatch):
+    monkeypatch.setattr(
+        agg,
+        "fetch_post_api",
+        lambda _pid: {
+            "nr_forecasters": 980,
+            "question": {
+                "resolution_criteria": "api",
+                "fine_print": "fp",
+                "description": "bg",
+            },
+        },
+    )
+    captured: list[str] = []
+    res = _collect_details(agg, _details_fetcher(captured))
+    assert not any("/posts/" in u for u in captured), "browser fetched details anyway"
+    assert (res.resolution_criteria, res.fine_print, res.background) == (
+        "api",
+        "fp",
+        "bg",
+    )
+    assert res.nr_forecasters == 980
+
+
+def test_details_fall_back_to_the_browser_without_the_api(agg, monkeypatch):
+    monkeypatch.setattr(agg, "fetch_post_api", lambda _pid: None)
+    captured: list[str] = []
+    res = _collect_details(agg, _details_fetcher(captured))
+    assert any("/posts/" in u for u in captured)
+    assert res.resolution_criteria == "browser"
+
+
+def test_scraper_prefers_api_text_over_the_page_parse(scrape, monkeypatch):
+    page = "Title\n12 forecasters\nResolution Criteria\npage text\nComments\n"
+    monkeypatch.setattr(scrape, "_render_page", lambda _pid, _w: ("Page T", page))
+    monkeypatch.setattr(
+        scrape,
+        "_api_post",
+        lambda _pid: {
+            "title": "API T",
+            "nr_forecasters": 980,
+            "question": {"resolution_criteria": "api text", "fine_print": "fp"},
+        },
+    )
+    res = scrape.scrape_metaculus_question(41138, max_comments=0)
+    assert (res.title, res.resolution_criteria, res.fine_print) == (
+        "API T",
+        "api text",
+        "fp",
+    )
+    assert res.num_forecasters == "980"
+
+
+def test_scraper_keeps_the_page_parse_without_the_api(scrape, monkeypatch):
+    page = "Title\n12 forecasters\nResolution Criteria\npage text\nComments\n"
+    monkeypatch.setattr(scrape, "_render_page", lambda _pid, _w: ("Page T", page))
+    monkeypatch.setattr(scrape, "_api_post", lambda _pid: None)
+    res = scrape.scrape_metaculus_question(41138, max_comments=0)
+    assert (res.title, res.resolution_criteria) == ("Page T", "page text")
+    assert res.num_forecasters == "12"

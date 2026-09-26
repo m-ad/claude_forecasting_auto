@@ -30,6 +30,9 @@ pages using Playwright browser automation, routed through the container egress p
   remove either, and don't run `playwright install`. Playwright demands the exact Chromium build
   *its own version* expects (1.62 wants build 1234) while the image ships an older one (1194)
   behind that stable symlink, so an unpinned launch fails outright.
+- Optional: `METACULUS_API_KEY`. When set, title, forecaster count, resolution criteria and
+  fine print are taken from the official API (exact source text) instead of the page parse.
+  The headline prediction still comes from the rendered page — bot keys see no aggregations.
 
 ## Quick Usage
 

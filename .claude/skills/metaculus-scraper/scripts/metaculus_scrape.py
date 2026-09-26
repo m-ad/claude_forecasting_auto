@@ -44,6 +44,12 @@ Cloudflare managed challenge ("Just a moment..."). A shared sandbox egress IP
 trips this easily, so a challenged page is reported as such instead of being
 parsed into a confidently wrong answer.
 
+With ``METACULUS_API_KEY`` set, title, forecaster count, resolution criteria and
+fine print are taken from the token-authed ``/api/posts/<id>/`` endpoint (plain
+HTTPS, exact source text) instead of being parsed out of the rendered page. The
+headline prediction still comes from the page: Metaculus returns null
+aggregations to bot-account keys. See the ``metaculus-aggregations`` docstring.
+
 Usage:
     python metaculus_scrape.py <post_id> [--comments N] [--json]
 
@@ -58,6 +64,7 @@ import json
 import os
 import re
 import time
+import urllib.request
 from dataclasses import asdict, dataclass, field
 from typing import Any
 from urllib.parse import unquote, urlparse
@@ -75,6 +82,10 @@ _TLS12_ARG = "--ssl-version-max=tls1.2"
 # rate limit was measured to clear in ~2 min, so short retries are wasted
 # requests that only re-arm it.
 _BACKOFF = (5, 30, 60, 75)
+
+_API = "https://www.metaculus.com/api"
+# Cloudflare bans the stdlib default "Python-urllib/x.y" outright (error 1010).
+_API_UA = "claude-forecasting/0.1 (metaculus-scraper)"
 
 # Substrings meaning the handshake or tunnel died rather than an HTTP error.
 _RESET_MARKERS = (
@@ -136,6 +147,29 @@ def _parse_proxy() -> dict:
     if parsed.password:
         cfg["password"] = unquote(parsed.password)
     return cfg
+
+
+def _api_post(post_id: int, timeout: float = 30.0) -> dict | None:
+    """``/api/posts/<id>/`` JSON via ``METACULUS_API_KEY``; None if unset or failed."""
+    key = os.environ.get("METACULUS_API_KEY")
+    if not key:
+        return None
+    req = urllib.request.Request(
+        f"{_API}/posts/{post_id}/",
+        headers={
+            "Authorization": f"Token {key}",
+            "Accept": "application/json",
+            "User-Agent": _API_UA,
+        },
+    )
+    try:
+        with urllib.request.urlopen(req, timeout=timeout) as resp:
+            data = json.loads(resp.read())
+    # URLError/HTTPError/timeouts are OSErrors, bad JSON is a ValueError; either
+    # way the page-parsed values stand.
+    except (OSError, ValueError):
+        return None
+    return data if isinstance(data, dict) else None
 
 
 def _is_transport_reset(exc: Exception) -> bool:
@@ -494,15 +528,26 @@ def scrape_metaculus_question(
     # Parse comments
     comments = _parse_comments(lines, max_comments)
 
+    num_forecasters = num_forecasters_match.group(1) if num_forecasters_match else None
+
+    # The text parse above depends on section headings in the rendered page and
+    # has silently come back empty before; the API returns the exact source text.
+    post = _api_post(post_id)
+    if post:
+        q = post.get("question") or {}
+        title = post.get("title") or title
+        res_criteria = q.get("resolution_criteria") or res_criteria
+        fine_print = q.get("fine_print") or fine_print
+        if post.get("nr_forecasters") is not None:
+            num_forecasters = str(post["nr_forecasters"])
+
     return MetaculusQuestion(
         post_id=post_id,
         title=title,
         url=url,
         question_type=q_type,
         community_prediction=prediction,
-        num_forecasters=num_forecasters_match.group(1)
-        if num_forecasters_match
-        else None,
+        num_forecasters=num_forecasters,
         num_comments=num_comments_match.group(1) if num_comments_match else None,
         resolution_criteria=res_criteria,
         fine_print=fine_print,

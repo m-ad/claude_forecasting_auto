@@ -34,6 +34,12 @@ resolution criteria, and comments — in ~20 s for a cold run.
   `playwright install` step is needed. Do not remove the explicit `executable_path`: Playwright
   looks for the exact Chromium build *its own version* expects (1.62 wants build 1234) and the
   image ships an older one (1194) behind that stable symlink.
+- Optional: `METACULUS_API_KEY`. When set, resolution criteria / fine print / background /
+  forecaster count come from the official `/api/posts/<id>/` endpoint over plain HTTPS (no
+  Cloudflare, one browser request fewer); when unset or failing, the browser path is used.
+  It does **not** replace the browser for the numbers: the key is a bot account, and
+  Metaculus returns null aggregations to bots, 403s the Aggregation Explorer and restricts
+  comments (verified 2026-09-26). `fetch_post_api(post_id)` exposes the raw post JSON.
 
 ## Finding the post ID
 
