@@ -1,0 +1,1857 @@
+{
+  "post_id": 45216,
+  "question_id": 45409,
+  "title": "Who will win the 2026 World Chess Championship?",
+  "question_type": "multiple_choice",
+  "status": "open",
+  "resolution": null,
+  "scheduled_close_time": "2026-12-14T17:30:00Z",
+  "cp_reveal_time": "2026-09-21T17:00:00Z",
+  "options": [
+    "Gukesh Dommaraju",
+    "Javokhir Sindarov"
+  ],
+  "scaling": {
+    "range_min": null,
+    "range_max": null,
+    "nominal_min": null,
+    "nominal_max": null,
+    "zero_point": null,
+    "open_upper_bound": false,
+    "open_lower_bound": false,
+    "inbound_outcome_count": null,
+    "continuous_range": null
+  },
+  "resolution_criteria": "This question will resolve as the winner of the 2026 World Chess Championship, according to official results announced by [FIDE](https://www.fide.com/news).",
+  "fine_print": "If Gukesh Dommaraju forfeits the match, this question will resolve as **Javokhir Sindarov**. If Javokhir Sindarov forfeits the match the question will resolve as **Gukesh Dommaraju**.\n\nIf the match is cancelled or postponed to after December 31, 2026, this question will be **annulled**.",
+  "background": "The [FIDE World Championship Match 2026](https://calendar.fide.com/calendar.php?id=19098) is the the pinnacle of the FIDE World Championship Cycle. The Match will be between reigning World Champion **Gukesh Dommaraju** and Challenger **Javokhir Sindarov** and will take place in Geneva, Switzerland, from November 25 to December 15, 2026.\n\n[The Match](https://www.fide.com/geneva-to-host-fide-world-championship-match-2026/) was determined in April 2026.\n\n> As reigning champion, Gukesh will defend the crown he won in Singapore in December 2024. At the age of 18, he defeated China’s Ding Liren, securing victory in the fourteenth and final classical game to become the 18th World Champion and the youngest player ever to hold the title.\n> &#x20;\n> Sindarov earned his opportunity to challenge for the crown by winning the FIDE Candidates Tournament 2026 in Cyprus. The Uzbek grandmaster secured first place with a round to spare, adding another major achievement to his victory at the 2025 FIDE World Cup.\n\nThe Match will consist of 14 classical games. The first player to score 7½ points will win, with no further games played once that score has been reached. If the score is tied after all 14 classical games, tiebreaks will determine the champion.",
+  "nr_forecasters": 99,
+  "methods": {
+    "recency_weighted": {
+      "method": "recency_weighted",
+      "status": 200,
+      "history_points": 142,
+      "latest": {
+        "as_of": "2026-09-26 13:38",
+        "forecaster_count": 98,
+        "center": 0.3,
+        "lower": 0.26825,
+        "upper": 0.32,
+        "mean": 0.293575503780087,
+        "display": "Gukesh Dommaraju=30.0%  Javokhir Sindarov=70.0%",
+        "per_option": [
+          [
+            "Gukesh Dommaraju",
+            0.3,
+            0.26825,
+            0.32
+          ],
+          [
+            "Javokhir Sindarov",
+            0.7,
+            0.68,
+            0.7317499999999999
+          ]
+        ]
+      },
+      "history": [
+        [
+          "2026-09-14 17:00",
+          0.3
+        ],
+        [
+          "2026-09-14 17:32",
+          0.3
+        ],
+        [
+          "2026-09-14 18:44",
+          0.3
+        ],
+        [
+          "2026-09-14 20:43",
+          0.3
+        ],
+        [
+          "2026-09-14 21:56",
+          0.29
+        ],
+        [
+          "2026-09-15 00:06",
+          0.3
+        ],
+        [
+          "2026-09-15 00:06",
+          0.3
+        ],
+        [
+          "2026-09-15 00:42",
+          0.3
+        ],
+        [
+          "2026-09-15 02:27",
+          0.3
+        ],
+        [
+          "2026-09-15 03:46",
+          0.3
+        ],
+        [
+          "2026-09-15 06:51",
+          0.31
+        ],
+        [
+          "2026-09-15 07:15",
+          0.3
+        ],
+        [
+          "2026-09-15 07:57",
+          0.31
+        ],
+        [
+          "2026-09-15 10:55",
+          0.31
+        ],
+        [
+          "2026-09-15 11:10",
+          0.37
+        ],
+        [
+          "2026-09-15 12:16",
+          0.31
+        ],
+        [
+          "2026-09-15 12:27",
+          0.37
+        ],
+        [
+          "2026-09-15 13:33",
+          0.39
+        ],
+        [
+          "2026-09-15 13:37",
+          0.39
+        ],
+        [
+          "2026-09-15 13:49",
+          0.39
+        ],
+        [
+          "2026-09-15 18:04",
+          0.34
+        ],
+        [
+          "2026-09-15 18:05",
+          0.33
+        ],
+        [
+          "2026-09-15 18:25",
+          0.34
+        ],
+        [
+          "2026-09-15 22:00",
+          0.33
+        ],
+        [
+          "2026-09-15 23:28",
+          0.35
+        ],
+        [
+          "2026-09-15 23:59",
+          0.35
+        ],
+        [
+          "2026-09-16 01:12",
+          0.35
+        ],
+        [
+          "2026-09-16 02:06",
+          0.35
+        ],
+        [
+          "2026-09-16 02:37",
+          0.36
+        ],
+        [
+          "2026-09-16 02:37",
+          0.36
+        ],
+        [
+          "2026-09-16 05:12",
+          0.35
+        ],
+        [
+          "2026-09-16 09:09",
+          0.35
+        ],
+        [
+          "2026-09-16 23:00",
+          0.35
+        ],
+        [
+          "2026-09-17 08:19",
+          0.35
+        ],
+        [
+          "2026-09-17 10:42",
+          0.36
+        ],
+        [
+          "2026-09-17 11:00",
+          0.36
+        ],
+        [
+          "2026-09-17 11:47",
+          0.36
+        ],
+        [
+          "2026-09-17 13:44",
+          0.39
+        ],
+        [
+          "2026-09-17 14:46",
+          0.4
+        ],
+        [
+          "2026-09-17 16:11",
+          0.36
+        ],
+        [
+          "2026-09-17 20:36",
+          0.39
+        ],
+        [
+          "2026-09-17 23:02",
+          0.36
+        ],
+        [
+          "2026-09-18 00:49",
+          0.37
+        ],
+        [
+          "2026-09-18 02:24",
+          0.36
+        ],
+        [
+          "2026-09-18 03:55",
+          0.39
+        ],
+        [
+          "2026-09-18 08:21",
+          0.36
+        ],
+        [
+          "2026-09-18 14:54",
+          0.36
+        ],
+        [
+          "2026-09-18 16:04",
+          0.35
+        ],
+        [
+          "2026-09-19 01:26",
+          0.36
+        ],
+        [
+          "2026-09-19 03:28",
+          0.35
+        ],
+        [
+          "2026-09-19 08:36",
+          0.35
+        ],
+        [
+          "2026-09-19 11:58",
+          0.35
+        ],
+        [
+          "2026-09-19 13:32",
+          0.36
+        ],
+        [
+          "2026-09-19 20:41",
+          0.35
+        ],
+        [
+          "2026-09-19 20:41",
+          0.35
+        ],
+        [
+          "2026-09-19 20:43",
+          0.35
+        ],
+        [
+          "2026-09-20 00:02",
+          0.327
+        ],
+        [
+          "2026-09-20 06:14",
+          0.35
+        ],
+        [
+          "2026-09-20 11:55",
+          0.327
+        ],
+        [
+          "2026-09-20 13:57",
+          0.31
+        ],
+        [
+          "2026-09-20 21:05",
+          0.327
+        ],
+        [
+          "2026-09-21 00:50",
+          0.31
+        ],
+        [
+          "2026-09-21 04:00",
+          0.32
+        ],
+        [
+          "2026-09-21 08:11",
+          0.33
+        ],
+        [
+          "2026-09-21 11:55",
+          0.31
+        ],
+        [
+          "2026-09-21 14:12",
+          0.35
+        ],
+        [
+          "2026-09-21 14:25",
+          0.38
+        ],
+        [
+          "2026-09-21 16:10",
+          0.35
+        ],
+        [
+          "2026-09-21 17:16",
+          0.38
+        ],
+        [
+          "2026-09-21 17:56",
+          0.35
+        ],
+        [
+          "2026-09-21 20:29",
+          0.32
+        ],
+        [
+          "2026-09-21 20:32",
+          0.32
+        ],
+        [
+          "2026-09-21 20:33",
+          0.31
+        ],
+        [
+          "2026-09-21 21:01",
+          0.3
+        ],
+        [
+          "2026-09-21 21:02",
+          0.3
+        ],
+        [
+          "2026-09-21 22:20",
+          0.3
+        ],
+        [
+          "2026-09-21 23:39",
+          0.3
+        ],
+        [
+          "2026-09-21 23:39",
+          0.3
+        ],
+        [
+          "2026-09-22 00:04",
+          0.3
+        ],
+        [
+          "2026-09-22 00:05",
+          0.3
+        ],
+        [
+          "2026-09-22 00:19",
+          0.3
+        ],
+        [
+          "2026-09-22 00:19",
+          0.3
+        ],
+        [
+          "2026-09-22 00:25",
+          0.3
+        ],
+        [
+          "2026-09-22 00:25",
+          0.3
+        ],
+        [
+          "2026-09-22 00:25",
+          0.3
+        ],
+        [
+          "2026-09-22 02:17",
+          0.3
+        ],
+        [
+          "2026-09-22 03:27",
+          0.3
+        ],
+        [
+          "2026-09-22 03:35",
+          0.3
+        ],
+        [
+          "2026-09-22 03:47",
+          0.3
+        ],
+        [
+          "2026-09-22 09:39",
+          0.3
+        ],
+        [
+          "2026-09-22 09:39",
+          0.3
+        ],
+        [
+          "2026-09-22 10:28",
+          0.3
+        ],
+        [
+          "2026-09-22 11:24",
+          0.3
+        ],
+        [
+          "2026-09-22 13:15",
+          0.3
+        ],
+        [
+          "2026-09-22 13:26",
+          0.3
+        ],
+        [
+          "2026-09-22 13:26",
+          0.3
+        ],
+        [
+          "2026-09-22 13:54",
+          0.3
+        ],
+        [
+          "2026-09-22 14:39",
+          0.3
+        ],
+        [
+          "2026-09-22 15:08",
+          0.3
+        ],
+        [
+          "2026-09-22 15:48",
+          0.3
+        ],
+        [
+          "2026-09-22 15:48",
+          0.3
+        ],
+        [
+          "2026-09-22 17:25",
+          0.3
+        ],
+        [
+          "2026-09-22 19:41",
+          0.3
+        ],
+        [
+          "2026-09-22 20:49",
+          0.3
+        ],
+        [
+          "2026-09-22 20:51",
+          0.3
+        ],
+        [
+          "2026-09-22 21:42",
+          0.3
+        ],
+        [
+          "2026-09-23 02:47",
+          0.3
+        ],
+        [
+          "2026-09-23 14:45",
+          0.3
+        ],
+        [
+          "2026-09-23 18:03",
+          0.3
+        ],
+        [
+          "2026-09-23 19:50",
+          0.3
+        ],
+        [
+          "2026-09-23 20:05",
+          0.3
+        ],
+        [
+          "2026-09-23 20:38",
+          0.3
+        ],
+        [
+          "2026-09-23 21:22",
+          0.3
+        ],
+        [
+          "2026-09-23 23:21",
+          0.3
+        ],
+        [
+          "2026-09-24 02:38",
+          0.3
+        ],
+        [
+          "2026-09-24 08:22",
+          0.31
+        ],
+        [
+          "2026-09-24 10:12",
+          0.3
+        ],
+        [
+          "2026-09-24 10:13",
+          0.31
+        ],
+        [
+          "2026-09-24 12:10",
+          0.31
+        ],
+        [
+          "2026-09-24 12:33",
+          0.31
+        ],
+        [
+          "2026-09-24 13:51",
+          0.31
+        ],
+        [
+          "2026-09-24 19:17",
+          0.31
+        ],
+        [
+          "2026-09-24 20:58",
+          0.31
+        ],
+        [
+          "2026-09-25 00:01",
+          0.31
+        ],
+        [
+          "2026-09-25 00:01",
+          0.31
+        ],
+        [
+          "2026-09-25 02:36",
+          0.31
+        ],
+        [
+          "2026-09-25 02:37",
+          0.31
+        ],
+        [
+          "2026-09-25 04:59",
+          0.31
+        ],
+        [
+          "2026-09-25 06:36",
+          0.31
+        ],
+        [
+          "2026-09-25 09:18",
+          0.31
+        ],
+        [
+          "2026-09-25 12:32",
+          0.31
+        ],
+        [
+          "2026-09-25 14:29",
+          0.3
+        ],
+        [
+          "2026-09-25 15:01",
+          0.31
+        ],
+        [
+          "2026-09-25 17:22",
+          0.3
+        ],
+        [
+          "2026-09-25 18:26",
+          0.3
+        ],
+        [
+          "2026-09-25 20:21",
+          0.3
+        ],
+        [
+          "2026-09-26 03:30",
+          0.3
+        ],
+        [
+          "2026-09-26 05:15",
+          0.29
+        ],
+        [
+          "2026-09-26 05:37",
+          0.29
+        ],
+        [
+          "2026-09-26 06:14",
+          0.29
+        ],
+        [
+          "2026-09-26 10:41",
+          0.3
+        ],
+        [
+          "2026-09-26 13:38",
+          0.3
+        ]
+      ]
+    },
+    "metaculus_pros": {
+      "method": "metaculus_pros",
+      "status": 200,
+      "history_points": 142,
+      "latest": {
+        "as_of": "2026-09-26 13:38",
+        "forecaster_count": 10,
+        "center": 0.26825,
+        "lower": 0.26825,
+        "upper": 0.28,
+        "mean": 0.2776158126515144,
+        "display": "Gukesh Dommaraju=26.8%  Javokhir Sindarov=73.2%",
+        "per_option": [
+          [
+            "Gukesh Dommaraju",
+            0.26825,
+            0.26825,
+            0.28
+          ],
+          [
+            "Javokhir Sindarov",
+            0.73175,
+            0.72,
+            0.73175
+          ]
+        ]
+      },
+      "history": [
+        [
+          "2026-09-14 17:00",
+          0.25
+        ],
+        [
+          "2026-09-14 17:32",
+          0.25
+        ],
+        [
+          "2026-09-14 18:44",
+          0.25
+        ],
+        [
+          "2026-09-14 20:43",
+          0.25
+        ],
+        [
+          "2026-09-14 21:56",
+          0.25
+        ],
+        [
+          "2026-09-15 00:06",
+          0.25
+        ],
+        [
+          "2026-09-15 00:06",
+          0.25
+        ],
+        [
+          "2026-09-15 00:42",
+          0.25
+        ],
+        [
+          "2026-09-15 02:27",
+          0.25
+        ],
+        [
+          "2026-09-15 03:46",
+          0.25
+        ],
+        [
+          "2026-09-15 06:51",
+          0.25
+        ],
+        [
+          "2026-09-15 07:15",
+          0.262
+        ],
+        [
+          "2026-09-15 07:57",
+          0.262
+        ],
+        [
+          "2026-09-15 10:55",
+          0.262
+        ],
+        [
+          "2026-09-15 11:10",
+          0.262
+        ],
+        [
+          "2026-09-15 12:16",
+          0.262
+        ],
+        [
+          "2026-09-15 12:27",
+          0.262
+        ],
+        [
+          "2026-09-15 13:33",
+          0.262
+        ],
+        [
+          "2026-09-15 13:37",
+          0.262
+        ],
+        [
+          "2026-09-15 13:49",
+          0.32
+        ],
+        [
+          "2026-09-15 18:04",
+          0.32
+        ],
+        [
+          "2026-09-15 18:05",
+          0.32
+        ],
+        [
+          "2026-09-15 18:25",
+          0.32
+        ],
+        [
+          "2026-09-15 22:00",
+          0.32
+        ],
+        [
+          "2026-09-15 23:28",
+          0.32
+        ],
+        [
+          "2026-09-15 23:59",
+          0.32
+        ],
+        [
+          "2026-09-16 01:12",
+          0.32
+        ],
+        [
+          "2026-09-16 02:06",
+          0.32
+        ],
+        [
+          "2026-09-16 02:37",
+          0.32
+        ],
+        [
+          "2026-09-16 02:37",
+          0.32
+        ],
+        [
+          "2026-09-16 05:12",
+          0.32
+        ],
+        [
+          "2026-09-16 09:09",
+          0.27
+        ],
+        [
+          "2026-09-16 23:00",
+          0.27
+        ],
+        [
+          "2026-09-17 08:19",
+          0.27
+        ],
+        [
+          "2026-09-17 10:42",
+          0.27
+        ],
+        [
+          "2026-09-17 11:00",
+          0.278
+        ],
+        [
+          "2026-09-17 11:47",
+          0.278
+        ],
+        [
+          "2026-09-17 13:44",
+          0.278
+        ],
+        [
+          "2026-09-17 14:46",
+          0.278
+        ],
+        [
+          "2026-09-17 16:11",
+          0.278
+        ],
+        [
+          "2026-09-17 20:36",
+          0.278
+        ],
+        [
+          "2026-09-17 23:02",
+          0.278
+        ],
+        [
+          "2026-09-18 00:49",
+          0.278
+        ],
+        [
+          "2026-09-18 02:24",
+          0.31
+        ],
+        [
+          "2026-09-18 03:55",
+          0.31
+        ],
+        [
+          "2026-09-18 08:21",
+          0.31
+        ],
+        [
+          "2026-09-18 14:54",
+          0.31
+        ],
+        [
+          "2026-09-18 16:04",
+          0.31
+        ],
+        [
+          "2026-09-19 01:26",
+          0.31
+        ],
+        [
+          "2026-09-19 03:28",
+          0.31
+        ],
+        [
+          "2026-09-19 08:36",
+          0.27037500000000003
+        ],
+        [
+          "2026-09-19 11:58",
+          0.27037500000000003
+        ],
+        [
+          "2026-09-19 13:32",
+          0.27037500000000003
+        ],
+        [
+          "2026-09-19 20:41",
+          0.29
+        ],
+        [
+          "2026-09-19 20:41",
+          0.29
+        ],
+        [
+          "2026-09-19 20:43",
+          0.28
+        ],
+        [
+          "2026-09-20 00:02",
+          0.28
+        ],
+        [
+          "2026-09-20 06:14",
+          0.28
+        ],
+        [
+          "2026-09-20 11:55",
+          0.28
+        ],
+        [
+          "2026-09-20 13:57",
+          0.3
+        ],
+        [
+          "2026-09-20 21:05",
+          0.3
+        ],
+        [
+          "2026-09-21 00:50",
+          0.3
+        ],
+        [
+          "2026-09-21 04:00",
+          0.3
+        ],
+        [
+          "2026-09-21 08:11",
+          0.3
+        ],
+        [
+          "2026-09-21 11:55",
+          0.3
+        ],
+        [
+          "2026-09-21 14:12",
+          0.3
+        ],
+        [
+          "2026-09-21 14:25",
+          0.3
+        ],
+        [
+          "2026-09-21 16:10",
+          0.3
+        ],
+        [
+          "2026-09-21 17:16",
+          0.3
+        ],
+        [
+          "2026-09-21 17:56",
+          0.3
+        ],
+        [
+          "2026-09-21 20:29",
+          0.3
+        ],
+        [
+          "2026-09-21 20:32",
+          0.3
+        ],
+        [
+          "2026-09-21 20:33",
+          0.3
+        ],
+        [
+          "2026-09-21 21:01",
+          0.3
+        ],
+        [
+          "2026-09-21 21:02",
+          0.3
+        ],
+        [
+          "2026-09-21 22:20",
+          0.3
+        ],
+        [
+          "2026-09-21 23:39",
+          0.28
+        ],
+        [
+          "2026-09-21 23:39",
+          0.28
+        ],
+        [
+          "2026-09-22 00:04",
+          0.28
+        ],
+        [
+          "2026-09-22 00:05",
+          0.28
+        ],
+        [
+          "2026-09-22 00:19",
+          0.28
+        ],
+        [
+          "2026-09-22 00:19",
+          0.28
+        ],
+        [
+          "2026-09-22 00:25",
+          0.28
+        ],
+        [
+          "2026-09-22 00:25",
+          0.28
+        ],
+        [
+          "2026-09-22 00:25",
+          0.28
+        ],
+        [
+          "2026-09-22 02:17",
+          0.28
+        ],
+        [
+          "2026-09-22 03:27",
+          0.28
+        ],
+        [
+          "2026-09-22 03:35",
+          0.28
+        ],
+        [
+          "2026-09-22 03:47",
+          0.28
+        ],
+        [
+          "2026-09-22 09:39",
+          0.28
+        ],
+        [
+          "2026-09-22 09:39",
+          0.28
+        ],
+        [
+          "2026-09-22 10:28",
+          0.28
+        ],
+        [
+          "2026-09-22 11:24",
+          0.28
+        ],
+        [
+          "2026-09-22 13:15",
+          0.28
+        ],
+        [
+          "2026-09-22 13:26",
+          0.28
+        ],
+        [
+          "2026-09-22 13:26",
+          0.28
+        ],
+        [
+          "2026-09-22 13:54",
+          0.25
+        ],
+        [
+          "2026-09-22 14:39",
+          0.25
+        ],
+        [
+          "2026-09-22 15:08",
+          0.25
+        ],
+        [
+          "2026-09-22 15:48",
+          0.25
+        ],
+        [
+          "2026-09-22 15:48",
+          0.25
+        ],
+        [
+          "2026-09-22 17:25",
+          0.25
+        ],
+        [
+          "2026-09-22 19:41",
+          0.25
+        ],
+        [
+          "2026-09-22 20:49",
+          0.25
+        ],
+        [
+          "2026-09-22 20:51",
+          0.25
+        ],
+        [
+          "2026-09-22 21:42",
+          0.31
+        ],
+        [
+          "2026-09-23 02:47",
+          0.26
+        ],
+        [
+          "2026-09-23 14:45",
+          0.26
+        ],
+        [
+          "2026-09-23 18:03",
+          0.26
+        ],
+        [
+          "2026-09-23 19:50",
+          0.26
+        ],
+        [
+          "2026-09-23 20:05",
+          0.26
+        ],
+        [
+          "2026-09-23 20:38",
+          0.26
+        ],
+        [
+          "2026-09-23 21:22",
+          0.26
+        ],
+        [
+          "2026-09-23 23:21",
+          0.26
+        ],
+        [
+          "2026-09-24 02:38",
+          0.26
+        ],
+        [
+          "2026-09-24 08:22",
+          0.26
+        ],
+        [
+          "2026-09-24 10:12",
+          0.26
+        ],
+        [
+          "2026-09-24 10:13",
+          0.26
+        ],
+        [
+          "2026-09-24 12:10",
+          0.26
+        ],
+        [
+          "2026-09-24 12:33",
+          0.26
+        ],
+        [
+          "2026-09-24 13:51",
+          0.26
+        ],
+        [
+          "2026-09-24 19:17",
+          0.26
+        ],
+        [
+          "2026-09-24 20:58",
+          0.26
+        ],
+        [
+          "2026-09-25 00:01",
+          0.26
+        ],
+        [
+          "2026-09-25 00:01",
+          0.26
+        ],
+        [
+          "2026-09-25 02:36",
+          0.26
+        ],
+        [
+          "2026-09-25 02:37",
+          0.26
+        ],
+        [
+          "2026-09-25 04:59",
+          0.26
+        ],
+        [
+          "2026-09-25 06:36",
+          0.26
+        ],
+        [
+          "2026-09-25 09:18",
+          0.26825
+        ],
+        [
+          "2026-09-25 12:32",
+          0.26825
+        ],
+        [
+          "2026-09-25 14:29",
+          0.26825
+        ],
+        [
+          "2026-09-25 15:01",
+          0.26825
+        ],
+        [
+          "2026-09-25 17:22",
+          0.26825
+        ],
+        [
+          "2026-09-25 18:26",
+          0.26825
+        ],
+        [
+          "2026-09-25 20:21",
+          0.26825
+        ],
+        [
+          "2026-09-26 03:30",
+          0.26825
+        ],
+        [
+          "2026-09-26 05:15",
+          0.26825
+        ],
+        [
+          "2026-09-26 05:37",
+          0.26825
+        ],
+        [
+          "2026-09-26 06:14",
+          0.26825
+        ],
+        [
+          "2026-09-26 10:41",
+          0.26825
+        ],
+        [
+          "2026-09-26 13:38",
+          0.26825
+        ]
+      ]
+    },
+    "gold_medalists": {
+      "method": "gold_medalists",
+      "status": 200,
+      "history_points": 142,
+      "latest": {
+        "as_of": "2026-09-26 13:38",
+        "forecaster_count": 29,
+        "center": 0.29,
+        "lower": 0.26825,
+        "upper": 0.31,
+        "mean": 0.290901984649618,
+        "display": "Gukesh Dommaraju=29.0%  Javokhir Sindarov=71.0%",
+        "per_option": [
+          [
+            "Gukesh Dommaraju",
+            0.29,
+            0.26825,
+            0.31
+          ],
+          [
+            "Javokhir Sindarov",
+            0.71,
+            0.69,
+            0.73175
+          ]
+        ]
+      },
+      "history": [
+        [
+          "2026-09-14 17:00",
+          0.35
+        ],
+        [
+          "2026-09-14 17:32",
+          0.35
+        ],
+        [
+          "2026-09-14 18:44",
+          0.35
+        ],
+        [
+          "2026-09-14 20:43",
+          0.29
+        ],
+        [
+          "2026-09-14 21:56",
+          0.29
+        ],
+        [
+          "2026-09-15 00:06",
+          0.35
+        ],
+        [
+          "2026-09-15 00:06",
+          0.3
+        ],
+        [
+          "2026-09-15 00:42",
+          0.3
+        ],
+        [
+          "2026-09-15 02:27",
+          0.35
+        ],
+        [
+          "2026-09-15 03:46",
+          0.35
+        ],
+        [
+          "2026-09-15 06:51",
+          0.35
+        ],
+        [
+          "2026-09-15 07:15",
+          0.3
+        ],
+        [
+          "2026-09-15 07:57",
+          0.3
+        ],
+        [
+          "2026-09-15 10:55",
+          0.3
+        ],
+        [
+          "2026-09-15 11:10",
+          0.37
+        ],
+        [
+          "2026-09-15 12:16",
+          0.37
+        ],
+        [
+          "2026-09-15 12:27",
+          0.37
+        ],
+        [
+          "2026-09-15 13:33",
+          0.37
+        ],
+        [
+          "2026-09-15 13:37",
+          0.37
+        ],
+        [
+          "2026-09-15 13:49",
+          0.32
+        ],
+        [
+          "2026-09-15 18:04",
+          0.32
+        ],
+        [
+          "2026-09-15 18:05",
+          0.32
+        ],
+        [
+          "2026-09-15 18:25",
+          0.32
+        ],
+        [
+          "2026-09-15 22:00",
+          0.32
+        ],
+        [
+          "2026-09-15 23:28",
+          0.32
+        ],
+        [
+          "2026-09-15 23:59",
+          0.34
+        ],
+        [
+          "2026-09-16 01:12",
+          0.32
+        ],
+        [
+          "2026-09-16 02:06",
+          0.32
+        ],
+        [
+          "2026-09-16 02:37",
+          0.35
+        ],
+        [
+          "2026-09-16 02:37",
+          0.35
+        ],
+        [
+          "2026-09-16 05:12",
+          0.35
+        ],
+        [
+          "2026-09-16 09:09",
+          0.32
+        ],
+        [
+          "2026-09-16 23:00",
+          0.32
+        ],
+        [
+          "2026-09-17 08:19",
+          0.32
+        ],
+        [
+          "2026-09-17 10:42",
+          0.32
+        ],
+        [
+          "2026-09-17 11:00",
+          0.32
+        ],
+        [
+          "2026-09-17 11:47",
+          0.32
+        ],
+        [
+          "2026-09-17 13:44",
+          0.32
+        ],
+        [
+          "2026-09-17 14:46",
+          0.32
+        ],
+        [
+          "2026-09-17 16:11",
+          0.32
+        ],
+        [
+          "2026-09-17 20:36",
+          0.32
+        ],
+        [
+          "2026-09-17 23:02",
+          0.32
+        ],
+        [
+          "2026-09-18 00:49",
+          0.35
+        ],
+        [
+          "2026-09-18 02:24",
+          0.32
+        ],
+        [
+          "2026-09-18 03:55",
+          0.35
+        ],
+        [
+          "2026-09-18 08:21",
+          0.34
+        ],
+        [
+          "2026-09-18 14:54",
+          0.35
+        ],
+        [
+          "2026-09-18 16:04",
+          0.35
+        ],
+        [
+          "2026-09-19 01:26",
+          0.39
+        ],
+        [
+          "2026-09-19 03:28",
+          0.39
+        ],
+        [
+          "2026-09-19 08:36",
+          0.37
+        ],
+        [
+          "2026-09-19 11:58",
+          0.37
+        ],
+        [
+          "2026-09-19 13:32",
+          0.37
+        ],
+        [
+          "2026-09-19 20:41",
+          0.32
+        ],
+        [
+          "2026-09-19 20:41",
+          0.32
+        ],
+        [
+          "2026-09-19 20:43",
+          0.32
+        ],
+        [
+          "2026-09-20 00:02",
+          0.32
+        ],
+        [
+          "2026-09-20 06:14",
+          0.39
+        ],
+        [
+          "2026-09-20 11:55",
+          0.39
+        ],
+        [
+          "2026-09-20 13:57",
+          0.31
+        ],
+        [
+          "2026-09-20 21:05",
+          0.35
+        ],
+        [
+          "2026-09-21 00:50",
+          0.35
+        ],
+        [
+          "2026-09-21 04:00",
+          0.39
+        ],
+        [
+          "2026-09-21 08:11",
+          0.39
+        ],
+        [
+          "2026-09-21 11:55",
+          0.39
+        ],
+        [
+          "2026-09-21 14:12",
+          0.39
+        ],
+        [
+          "2026-09-21 14:25",
+          0.39
+        ],
+        [
+          "2026-09-21 16:10",
+          0.39
+        ],
+        [
+          "2026-09-21 17:16",
+          0.39
+        ],
+        [
+          "2026-09-21 17:56",
+          0.39
+        ],
+        [
+          "2026-09-21 20:29",
+          0.39
+        ],
+        [
+          "2026-09-21 20:32",
+          0.39
+        ],
+        [
+          "2026-09-21 20:33",
+          0.39
+        ],
+        [
+          "2026-09-21 21:01",
+          0.3
+        ],
+        [
+          "2026-09-21 21:02",
+          0.3
+        ],
+        [
+          "2026-09-21 22:20",
+          0.3
+        ],
+        [
+          "2026-09-21 23:39",
+          0.3
+        ],
+        [
+          "2026-09-21 23:39",
+          0.3
+        ],
+        [
+          "2026-09-22 00:04",
+          0.3
+        ],
+        [
+          "2026-09-22 00:05",
+          0.3
+        ],
+        [
+          "2026-09-22 00:19",
+          0.3
+        ],
+        [
+          "2026-09-22 00:19",
+          0.3
+        ],
+        [
+          "2026-09-22 00:25",
+          0.29
+        ],
+        [
+          "2026-09-22 00:25",
+          0.29
+        ],
+        [
+          "2026-09-22 00:25",
+          0.29
+        ],
+        [
+          "2026-09-22 02:17",
+          0.3
+        ],
+        [
+          "2026-09-22 03:27",
+          0.3
+        ],
+        [
+          "2026-09-22 03:35",
+          0.3
+        ],
+        [
+          "2026-09-22 03:47",
+          0.3
+        ],
+        [
+          "2026-09-22 09:39",
+          0.3
+        ],
+        [
+          "2026-09-22 09:39",
+          0.3
+        ],
+        [
+          "2026-09-22 10:28",
+          0.3
+        ],
+        [
+          "2026-09-22 11:24",
+          0.3
+        ],
+        [
+          "2026-09-22 13:15",
+          0.29
+        ],
+        [
+          "2026-09-22 13:26",
+          0.29
+        ],
+        [
+          "2026-09-22 13:26",
+          0.29
+        ],
+        [
+          "2026-09-22 13:54",
+          0.28
+        ],
+        [
+          "2026-09-22 14:39",
+          0.29
+        ],
+        [
+          "2026-09-22 15:08",
+          0.3
+        ],
+        [
+          "2026-09-22 15:48",
+          0.3
+        ],
+        [
+          "2026-09-22 15:48",
+          0.3
+        ],
+        [
+          "2026-09-22 17:25",
+          0.3
+        ],
+        [
+          "2026-09-22 19:41",
+          0.3
+        ],
+        [
+          "2026-09-22 20:49",
+          0.3
+        ],
+        [
+          "2026-09-22 20:51",
+          0.3
+        ],
+        [
+          "2026-09-22 21:42",
+          0.3
+        ],
+        [
+          "2026-09-23 02:47",
+          0.3
+        ],
+        [
+          "2026-09-23 14:45",
+          0.3
+        ],
+        [
+          "2026-09-23 18:03",
+          0.3
+        ],
+        [
+          "2026-09-23 19:50",
+          0.3
+        ],
+        [
+          "2026-09-23 20:05",
+          0.3
+        ],
+        [
+          "2026-09-23 20:38",
+          0.3
+        ],
+        [
+          "2026-09-23 21:22",
+          0.3
+        ],
+        [
+          "2026-09-23 23:21",
+          0.3
+        ],
+        [
+          "2026-09-24 02:38",
+          0.3
+        ],
+        [
+          "2026-09-24 08:22",
+          0.3
+        ],
+        [
+          "2026-09-24 10:12",
+          0.28
+        ],
+        [
+          "2026-09-24 10:13",
+          0.3
+        ],
+        [
+          "2026-09-24 12:10",
+          0.3
+        ],
+        [
+          "2026-09-24 12:33",
+          0.31
+        ],
+        [
+          "2026-09-24 13:51",
+          0.31
+        ],
+        [
+          "2026-09-24 19:17",
+          0.31
+        ],
+        [
+          "2026-09-24 20:58",
+          0.31
+        ],
+        [
+          "2026-09-25 00:01",
+          0.31
+        ],
+        [
+          "2026-09-25 00:01",
+          0.31
+        ],
+        [
+          "2026-09-25 02:36",
+          0.31
+        ],
+        [
+          "2026-09-25 02:37",
+          0.29
+        ],
+        [
+          "2026-09-25 04:59",
+          0.29
+        ],
+        [
+          "2026-09-25 06:36",
+          0.29
+        ],
+        [
+          "2026-09-25 09:18",
+          0.29
+        ],
+        [
+          "2026-09-25 12:32",
+          0.29
+        ],
+        [
+          "2026-09-25 14:29",
+          0.29
+        ],
+        [
+          "2026-09-25 15:01",
+          0.29
+        ],
+        [
+          "2026-09-25 17:22",
+          0.29
+        ],
+        [
+          "2026-09-25 18:26",
+          0.29
+        ],
+        [
+          "2026-09-25 20:21",
+          0.29
+        ],
+        [
+          "2026-09-26 03:30",
+          0.29
+        ],
+        [
+          "2026-09-26 05:15",
+          0.29
+        ],
+        [
+          "2026-09-26 05:37",
+          0.29
+        ],
+        [
+          "2026-09-26 06:14",
+          0.29
+        ],
+        [
+          "2026-09-26 10:41",
+          0.29
+        ],
+        [
+          "2026-09-26 13:38",
+          0.29
+        ]
+      ]
+    }
+  },
+  "comments": [
+    {
+      "author": "sai_39",
+      "created_at": "2026-09-24",
+      "text": "Hard to disagree with the crowd on this one. \n\nThe [September FIDE list](https://www.fide.com/fide-september-2026-rating-list-published/) is stark: Sindarov 2778, world #4; Gukesh 2703, world #32. That's a 75-point published rating gap. Sindarov's rating isn't just riding on one event. He won the Candidates undefeated, 10/14, +6 \\=8 −0, after already winning the 2025 World Cup. Across his first four major classical events of 2026, World Chess calculates 14 wins, 29 draws and only two losses in 45 games, with an average tournament performance rating of 2837. \n\n[https://www.reuters.com/sports/chess-uzbek-sindarov-wins-candidates-tournament-sets-up-world-title-match-with-2026-04-14/](https://www.reuters.com/sports/chess-uzbek-sindarov-wins-candidates-tournament-sets-up-world-title-match-with-2026-04-14/)\n\nThe classical head-to-head is tiny, but it doesn't help Gukesh either: the available record has Sindarov with one win and two draws, with the most recent classical game at Tata Steel 2026 drawn.\n\n<u>**Views of some top players:**</u>\n\n[Magnus Carlsen's](https://www.chess.com/news/view/carlsen-calls-sindarov-significant-favorite-against-gukesh-rules-out-comeback) view is now quite strong. In September he called Sindarov a **“pretty significant favorite”**, primarily because he sees Sindarov as more well-rounded. But Carlsen also emphasized that a 14-game match can turn very quickly: an early Gukesh lead could materially change the psychological balance. Hikaru Nakamura was more quantitative in August: [75–25 Sindarov based on their form](https://sports.ndtv.com/chess/d-gukesh-is-crumbling-under-pressure-hikaru-nakamuras-blunt-assessment-11905846) at that point. Importantly, he simultaneously said he still expected a relatively close match rather than a blowout. [Fabiano Caruana](https://www.chess.com/news/view/carlsen-caruana-gukesh-sindarov-predictions) was much more cautious immediately after the Candidates: 55–45 Sindarov. His argument was basically that people were extrapolating Gukesh's slump too aggressively, and that Gukesh has already demonstrated an exceptionally high ceiling, has match experience, and gets months to prepare for one opponent.\n\nI am not really convinced to go higher than my current forecast. Gukesh is showing signs of coming out of the slump at the ongoing [Samarkand Olympiad](https://www.chess.com/news/view/2026-samarkand-chess-olympiad-round-7). After seven rounds, his tournament performance is around 2773; Chess.com notes that since his round-two draw, he's produced a nearly 2800-level run, with four wins in five games against GMs. Sindarov is also doing very well. His [Olympiad TPR](https://www.pawnalyze.com/simulations/chess-olympiad-2026/boards?board=3) is even higher at about 2822. So this isn't evidence that Gukesh has suddenly overtaken him. And Gukesh is playing board four, meaning his opposition has generally been weaker than Sindarov's board-two opposition. But it is evidence against the strongest version of the “Gukesh is currently a 2700-strength player in free fall” hypothesis.\n\nI'd probably regard **63–75% Sindarov** as my uncertainty band.",
+      "prediction": null
+    },
+    {
+      "author": "Koboh",
+      "created_at": "2026-09-15",
+      "text": "I would lean Sindarov, but not by a huge margin. The current evidence gives him the edge, while Gukesh has a realistic path to overturning it.\n\nMy probabilities:\n\n• Javokhir Sindarov - 57%\n\n• Gukesh Dommaraju - 43%\n\nSindarov has a strong case to be the slight favourite based on current evidence. He is rated 2778 and ranked No. 4, won the 2025 World Cup, dominated the 2026 Candidates undefeated with 10/14, and has continued to show strong form against elite opposition. But I don’t think this is anywhere close to a one sided matchup. Gukesh is the defending World Champion, has already proven that he can handle the enormous pressure of a title match, and his peak level is still incredibly high. If he finds his 2024 form and gains confidence early, the whole prediction could flip. For me, Sindarov is the safer pick today, but Gukesh is absolutely capable of defending the crown.",
+      "prediction": null
+    },
+    {
+      "author": "Russell-viper",
+      "created_at": "2026-09-12",
+      "text": "I've played 699 Rapid games at chess.com and maybe 200+ games at real physical settings.&#x20;\nwhat I've learned is that at top level competition you can't assign all the probability to one player because at this level both finalist are equally competitive, both are equally hungry for the crown and both share almost similar stats. And apart from this, Chess is a very different game where one bluder can completely eliminate your edge because your opponent is also a top-tier player and they don't miss the chance if they get one.\n\nLet's see the current stats from both players.\n\n|                   | **Javokhir Sindarov**   | **Gukesh D**                |\n| ----------------- | ----------------------- | --------------------------- |\n| FIDE rating       | 2778                    | 2703                        |\n| Ranking           | 4                       | 32                          |\n| Head to head      | 1 win                   | 0 win, 2 draws between them |\n| grandmaster tille | Age 12, years,10 months | Age 12 years, 7 months      |\n\nThere ain't clear advantage here to anyone and I think this is the reason that Polymarket is reluctant to go above 70%.",
+      "prediction": null
+    },
+    {
+      "author": "Russell-viper",
+      "created_at": "2026-09-12",
+      "text": "@(Theomachado) Again 100% LLMish. Though I'll say that puting 87% on Sindarov is way to high, relying solely on models statistics don't make the case as simple. The model can't account for the unique intuition of individual player. There is a reason that polymarket is assigning it 70%&#x20;",
+      "prediction": null
+    },
+    {
+      "author": "Theomachado",
+      "created_at": "2026-09-11",
+      "text": "# **I ran 325,000 chess games and 10,000 simulated matches. The model says 87% Sindarov.**&#x20;\n\nFitted a draw-aware Davidson model on every OTB game from 10 years of TWIC (2016–2026, 69.6k classical games, online/Freestyle/tiebreaks stripped out), then ran the match by exact DP plus a 10k Monte Carlo.\n\n**Three numbers that decide this question:**\n\n1. **Rating gaps compress.** Fitted β says Sindarov's +75 is worth 0.574 expected per game, not the 0.606 Elo implies. Pure Elo → 82.6%.\n2. **Form barely persists.** A player's 12-month residual carries only **k \\= 0.10** into the next 6 months (SE 0.057, 4,095 player-months). On 4 years of data I got 0.28 and a 92% forecast. The long sample killed it. Gukesh's −0.086/game slump is worth about −19 Elo, not −54.\n3. **Title matches don't distort Elo.** Over the 84 classical games of 2013–2024 matches, the model expected the favourite to score 46.2. Actual: 47.0.\n\nFor an outside view: Polymarket has Sindarov at 70% on \\~\\$68k of volume, and the price hasn't moved since May.",
+      "prediction": null
+    }
+  ]
+}

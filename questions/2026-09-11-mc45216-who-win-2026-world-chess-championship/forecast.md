@@ -6,11 +6,198 @@
 | **Type** | multiple choice — 2 options: **Gukesh Dommaraju** · **Javokhir Sindarov** |
 | **Opened / Closes / Resolves** | — / 2026-12-14 17:30 UTC / **2026-12-14** (match ends 12 Dec — Game 14 on the 11th, tiebreaks on the 12th — or earlier if someone reaches 7½) |
 | **Status** | open |
-| **Current forecast** | **Sindarov 67.0%, Gukesh 33.0%** — IQR on Sindarov [61.0%, 73.0%] (v1, 2026-09-12) |
-| **Community (as of 2026-09-12)** | **CP not yet revealed** — n=10 forecasters, question status `upcoming`; no Pro or gold-medalist aggregation exists yet |
-| **Next review** | 2026-09-28 |
+| **Current forecast** | **Sindarov 69.5%, Gukesh 30.5%** — IQR on Sindarov [64.0%, 75.0%] (v2, 2026-09-26) |
+| **Community (as of 2026-09-26)** | **CP 70.0%** (n=98) · **Pro 73.2%** (n=10) · **Gold medalists 71.0%** (n=29) Sindarov |
+| **Next review** | 2026-10-05 |
 
 <!-- Versions below, newest first. APPEND-ONLY: never edit or delete a past version. -->
+
+---
+
+## v2 — Update — 2026-09-26
+
+**Mode: Update** (incremental). Only 14 days since v1, 15% of remaining time to resolution,
+no structural change to the question, and this is the first revision (no drift pattern to
+worry about) — an incremental Bayesian update is the right tool, not a re-analysis.
+
+### Revision table
+
+| | Median (Sindarov) | IQR | Driver |
+|---|---|---|---|
+| v1 (2026-09-12) | 67.0% | [61.0%, 73.0%] | — |
+| Gukesh's Olympiad rebound: 7½/9 unbeaten on board 4 (Samarkand), described by ChessBase India as "back in form" — confirms his regressed trailing-level estimate (~2730–2745) rather than the 2703 "trough," but Olympiad TPR did **not** clearly cross the +7pp tripwire threshold of 2780 | −2.0pp | direction: toward Gukesh |
+| Sindarov's Olympiad over-performance: TPR **2864** through Round 8 (his own board, 2nd not 1st — correction below), above even his career-high 2778 rating; first loss of the event (to Wesley So, Round 9) does not undo eight rounds of evidence that his rating is not an outlier | +3.0pp | direction: toward Sindarov |
+| Metaculus cohorts revealed for the first time since v1: CP 70.0% (n=98), Pro 73.2% (n=10), gold medalists 71.0% (n=29) — all three within 3.2pp of each other (no material disagreement), all above my v1 number, and per policy Pro/gold get extra weight | +1.5pp | direction: toward Sindarov |
+| No withdrawal, no venue/sponsor problem, Kalshi still ≈$0.70 (within the pre-set $0.62–$0.78 band) — confirms status quo | 0pp | — |
+| **v2 (2026-09-26)** | **69.5%** | **[64.0%, 75.0%]** | net **+2.5pp** |
+
+### Tripwire check (against v1's list, by name)
+
+| # | Tripwire | Status | Note |
+|---|---|---|---|
+| 1 | Gukesh's Olympiad TPR ≥ 2780 → −7pp | **Ambiguous / not confirmed fired** | 7½/9 unbeaten (83%) on board 4. No outlet published an exact Olympiad-only TPR for him, and he does not appear in the "top performer" lists (Van Foreest 2877, Wei 2802) that a ≥2780 score would likely put him on. Best estimate ~2740–2800; applied at half-weight, see revision table row 1. |
+| 2 | Gukesh's Olympiad TPR ≤ 2650 → +5pp | **Not fired.** Unbeaten at 83% score, nowhere near this level. |
+| 3 | Sindarov's Olympiad TPR ≤ 2700 → −5pp | **Not fired — opposite occurred.** TPR **2864** through Round 8, then one loss in Round 9. **Correction to v1/meta.yaml**: Sindarov played **board 2** for Uzbekistan, not board 1 — Nodirbek Abdusattorov played board 1. The wording in the tripwire was wrong; the substance (his individual performance) is what matters and it was exceptional. |
+| 4 | October/November FIDE list moves the classical gap outside 55–95 Elo | **Not yet assessable.** October list publishes ~2026-10-01, after this review. Carried forward. |
+| 5 | Either player withdraws, match dates move again, or no venue/sponsor announced by 2026-11-01 | **Not fired.** Geneva remains confirmed, no health/scheduling news for either player found in this search. |
+| 6 | Kalshi Sindarov contract closes outside $0.62–$0.78 on ≥20k contracts fresh volume | **Not fired.** Kalshi quotes Sindarov at decimal 1.43 ≈ $0.70, squarely inside the band. |
+| 7 | Gukesh leads after Game 4 | **N/A.** Match starts 2026-11-24; not yet applicable. |
+
+### What resolves YES
+
+Unchanged from v1. Two options only, no "Other"; the two probabilities sum to 100%. A forfeit by
+either player resolves to the opponent (not a third outcome); a cancellation or postponement past
+2026-12-31 annuls the question rather than resolving it. Nothing in the fine print changed.
+
+### Outside view
+
+Unchanged from v1. The five reference classes (higher-rated player wins 8/11 = 72.7%; no
+55+-Elo favourite has lost 6/6; champion retains 7/9 = 77.8%; champion-as-underdog 0/2; ties to
+tiebreak 2/6) are fixed historical facts — three weeks of news adds no new completed match to
+any of them. They still point the same two directions they did in v1, resolved the same way: the
+champion-as-underdog class (0/2, both losses) is the only one that conditions on the actual
+configuration, so it remains the tiebreaker.
+
+### Inside view
+
+The one genuinely new, high-information event since v1 was the **46th Chess Olympiad**
+(Samarkand, 15–27 September 2026) — exactly the natural experiment the v1 tripwires were
+built around, since it put both finalists on the board against real opposition eight weeks
+before their match.
+
+**Gukesh, board 4 for India:** 7½/9, unbeaten, through Round 9 (two rounds remain). He briefly
+dipped below 2700 in live ratings after a Round 2 draw against a 2384-rated IM, then reeled off
+wins including a dramatic comeback against Alexander Donchenko (Germany) in Round 9 from a
+losing position. World Chess's own headline was "Gukesh hits his stride with back-to-back
+Olympiad wins." This is real evidence against the "motivational slump / trough" framing that
+did a lot of work in v1's inside view — but it is corroborating, not new-information-in-a-
+different-direction: v1's central estimate already used a *regressed* Gukesh level
+(2722–2745, his trailing 12-month range) rather than his in-tournament trough of 2703, precisely
+to avoid over-weighting a temporary dip. An unbeaten, ~2750–2800-performance Olympiad is
+consistent with that regressed estimate, not evidence that it should move further. I could not
+find a sourced exact TPR for his Olympiad games (opponent-by-opponent data was not compiled by
+any outlet I found), so I am not crossing tripwire #1 at full confidence and apply it at half
+weight.
+
+**Sindarov, board 2 for Uzbekistan** (note the board-1/board-2 correction above — Abdusattorov,
+not Sindarov, anchors Uzbekistan's top board): TPR of **2864 through Round 8**, unbeaten until
+Wesley So beat him in a technical rook endgame in Round 9 — Sindarov's first defeat of the
+event. A performance rating 86 points above an already career-high 2778 rating, across eight
+games, is exactly the kind of evidence that argues the nominal 75-Elo gap *understates* the
+true talent gap rather than overstating it — the opposite conclusion the original TPR≤2700
+tripwire was designed to test for, but symmetric information, and it should be treated
+symmetrically. One loss in nine games does not offset eight rounds of this.
+
+**Net effect of the Olympiad**: both players outperformed their already-strong ratings, so the
+two effects substantially — but not entirely — offset. Sindarov's over-performance edge (TPR
+2864 vs. 2778 rating, ≈ +86) is somewhat larger in both magnitude and sample purity (fewer
+lower-rated early-round opponents diluting it) than Gukesh's (TPR ≈ 2750–2800 vs. 2703 rating,
+≈ +50–100 but highly uncertain), so the net Olympiad signal leans very slightly toward Sindarov,
+which is why the two rows above net to +1.0pp rather than cancelling to zero.
+
+**Metaculus cohorts, visible for the first time**: `cp_reveal_time` was 2026-09-21, so this is
+the first update where I can see them. CP 70.0% (n=98), Pro 73.2% (n=10), gold medalists 71.0%
+(n=29) — tight agreement (max spread 3.2pp), no red flag under the "material disagreement"
+rule. Interestingly, the CP history shows the crowd itself reacted to the Olympiad in real time:
+Gukesh's implied probability rose from 30% to a peak of 39% around 2026-09-17–19 (i.e., Sindarov
+dipped to 61%) during Gukesh's good run, then fully reverted to 30/70 by 2026-09-22 as Sindarov's
+even-better form (and his Round 9 loss notwithstanding) reasserted itself. That round-trip is
+itself evidence: the market's first reaction to "Gukesh is playing well" was to discount
+Sindarov by up to 9pp, and it retracted essentially all of that within five days once more data
+came in. I read this as the crowd converging on the same "these roughly offset" conclusion I
+reach above, which is reassuring rather than a reason to herd toward its level.
+
+I am weighting Pro/gold above raw CP per policy, which pulls slightly toward 71–73%, but I stop
+at 69.5% rather than the ~71.6% average of Pro+gold: my own model of the rating gap (Davidson,
+non-Carlsen-calibrated odds ratio) is a structurally different estimate than a forecaster's
+holistic judgement, and the two inputs should be combined, not have one override the other.
+
+### Evidence
+
+| Finding | Direction | Effect |
+|---|---|---|
+| Gukesh 7½/9, unbeaten, board 4, Samarkand Olympiad (through Round 9) — "back in his stride" per ChessBase India | ↓ toward Gukesh | −2.0pp (half-weight; exact TPR unconfirmed, likely 2740–2800, not clearly ≥2780) |
+| Sindarov TPR 2864 through Round 8, board 2 — first loss of the event only in Round 9 (Wesley So) | ↑ toward Sindarov | +3.0pp |
+| Metaculus cohorts revealed for the first time: CP 70.0% (n=98), Pro 73.2% (n=10), gold 71.0% (n=29) — tight 3.2pp spread, all above my v1 number | ↑ toward Sindarov | +1.5pp |
+| No withdrawal; Geneva venue/sponsor still confirmed; no injury/illness news for either player | → | 0pp, confirms status quo |
+| Kalshi Sindarov contract ≈$0.70 (decimal 1.43), inside the pre-set $0.62–$0.78 band | → | 0pp |
+| October/November FIDE rating list not yet published | → | pending, next review |
+
+**Evidence I looked for and did not find**: a sourced, opponent-weighted Olympiad-only TPR for
+Gukesh from any outlet (several outlets compute this for other players, e.g. Van Foreest 2877,
+Wei 2802, but not for Gukesh); any health, visa, or scheduling problem for either player; any
+fresh Polymarket quote (rate-limited this session — Kalshi and the three Metaculus cohorts serve
+as the market cross-check instead).
+
+### Other forecasters
+
+| Where | Value | As of | Note |
+|---|---|---|---|
+| Metaculus CP (recency-weighted) | **Sindarov 70.0%** | 2026-09-26 | n=98, revealed 2026-09-21 |
+| Metaculus Pro | **Sindarov 73.2%** | 2026-09-26 | n=10 |
+| Metaculus gold medalists | **Sindarov 71.0%** | 2026-09-26 | n=29 |
+| Kalshi `KXCHESSWORLDCHAMPION-CHESS26` | Sindarov ≈$0.70 (decimal 1.43) | 2026-09-26 | within pre-set $0.62–$0.78 band; tripwire not fired |
+| Polymarket | not freshly re-quoted this session (proxy/rate-limit) | — | historically stable 0.615–0.70 since May; no evidence of a break from that band |
+| bet365 / OLBG (archival, 2026-07-31 snapshot via Chessdom) | Sindarov 73.3% | 2026-07-31 | stale, kept for context only |
+
+**Cohort disagreement**: Pro (73.2%) − CP (70.0%) = 3.2pp, below the >5pp threshold that would
+demand a defence. All three Metaculus cohorts and Kalshi cluster in a tight 70–73% band; I sit
+2.5–3.7pp under that band, which I read as a reasonable, non-herding gap rather than something
+requiring me to move further — the gap is explained by the same rating-regression argument as
+in v1, only slightly narrowed by this update.
+
+### Scenarios
+
+Unchanged in structure from v1 (Sindarov classical / Gukesh classical / Sindarov tiebreak /
+Gukesh tiebreak). Weights shift only with the +2.5pp median move: roughly 0.585 / 0.225 / 0.110 /
+0.080, still implying a ~19% chance of reaching tiebreaks, consistent with the model's 16% and
+Manifold's 18–27%. Nothing in the Olympiad evidence changes the *shape* of these scenarios, only
+their weights, since neither player's tiebreak-relevant rapid/blitz rating moved this period.
+
+### Sensitivity (unchanged from v1)
+
+The Davidson-vs-expected-score-preserving model choice and the effective-gap assumption remain
+the dominant sources of uncertainty; see v1's sensitivity table. Nothing in the Olympiad data
+changes which family is right — no new title-match evidence.
+
+### What would change my mind (tripwires, v2)
+
+- [ ] **October 2026 FIDE rating list** (publishes ~2026-10-01): if the classical gap moves outside **60–95 Elo** (narrowed slightly from v1's 55–95, since both players' September results are now priced in) → re-run the model. Either direction, by 2026-10-05.
+- [ ] Either player withdraws, FIDE moves the match dates again, or a venue/sponsor problem emerges → re-read the annulment clause. By 2026-11-01.
+- [ ] Kalshi's Sindarov contract closes outside $0.62–$0.78 on ≥20k contracts of fresh volume → re-anchor. By 2026-11-24.
+- [ ] Metaculus Pro or gold-medalist cohort diverges >5pp from the CP (currently 3.2pp) → investigate before defending my number. By 2026-11-24.
+- [ ] Official final Olympiad performance-rating data (once a source publishes exact, opponent-weighted TPRs for both players) shows Gukesh ≥2790 or Sindarov (full 11 rounds) ≤2750 → recompute the effective gap explicitly rather than relying on the qualitative read used here. By 2026-10-05.
+- [ ] Gukesh leads after Game 4 of the match → Carlsen's path-dependence claim; −25pp Sindarov. By 2026-12-01.
+
+### Sources
+
+Sources 1–9 from v1 remain as cited there (FIDE regulations, rating profiles, Candidates
+crosstable, etc.); the ones new or re-verified for v2 are numbered fresh below so this version
+stands on its own.
+
+1. Metaculus question 45216, cohort reveal — recency-weighted, Pro, gold-medalist aggregations — https://www.metaculus.com/questions/45216/ (accessed 2026-09-26; snapshot `raw/metaculus-2026-09-26.json`)
+2. 46th Chess Olympiad, Samarkand — Wikipedia — https://en.wikipedia.org/wiki/46th_Chess_Olympiad (accessed 2026-09-26)
+3. "Gukesh Hits His Stride With Back-To-Back Olympiad Wins" — World Chess — https://worldchess.com/news/gukesh-hits-his-stride-with-back-to-back-olympiad-wins (accessed 2026-09-26)
+4. "46th Chess Olympiad R9: Gukesh Leads India to Victory" — ChessBase India — https://chessbase.in/news/46th-fide-chess-olympiad-round-9-report (accessed 2026-09-26)
+5. "Samarkand R8 (open): Germany stun Uzbekistan, join them in the lead" — ChessBase — https://en.chessbase.com/post/chess-olympiad-2026-8 (accessed 2026-09-26; source for Sindarov's TPR 2864 through Round 8)
+6. "Samarkand R9 (open): Uzbekistan retake sole lead after beating the US" — ChessBase — https://en.chessbase.com/post/chess-olympiad-2026-9 (accessed 2026-09-26; Wesley So d. Sindarov, Round 9)
+7. Kalshi — FIDE World Chess Championship 2026 Winner Odds — https://kalshi.com/markets/kxchessworldchampion/world-chess-champion/kxchessworldchampion-chess26 (accessed 2026-09-26)
+8. "Javokhir Sindarov is a clear favorite ahead of historic World Chess Championship 2026 clash with Gukesh?" — Chessdom (archival 2026-07-31 snapshot, used only for the bookmaker cross-section table) — https://www.chessdom.com/javokhir-sindarov-is-a-clear-favorite-ahead-of-historic-world-chess-championship-2026-clash-with-gukesh/ (accessed 2026-09-26)
+9. "Chess Olympiad 2026: World champion Gukesh to play Board 4 for India" — The Bridge — https://thebridge.in/chess/olympiad-2026-gukesh-board-4-india-explained-57592 (accessed 2026-09-26; confirms India's board order and Gukesh's own account of requesting board 4)
+10. "2026 Chess Olympiad Round 9: Uzbekistan Beats U.S. To Take Sole Lead" — Chess.com — https://www.chess.com/news/view/2026-samarkand-chess-olympiad-round-9 (accessed 2026-09-26; So–Sindarov game summary, standings after Round 9)
+11. "Samarkand Olympiad Round 6: Nihal Blunders Queen As Uzbekistan Takes Sole Lead" — Chess.com — https://www.chess.com/news/view/2026-samarkand-chess-olympiad-round-6 (accessed 2026-09-26; confirms Sindarov plays board 2, Abdusattorov board 1, for Uzbekistan)
+12. "Chess Olympiad: Average start for Indian men, Gukesh dips below 2700 in live ratings" — The Print — https://theprint.in/sport/chess-olympiad-average-start-for-indian-men-gukesh-dips-below-2700-in-live-ratings/3046315/ (accessed 2026-09-26; early live-rating trajectory)
+
+### v2 forecast
+
+**Date**: 2026-09-26
+**Forecast**: Sindarov median 69.5%, IQR [64.0%, 75.0%] (Gukesh 30.5%, IQR [25.0%, 36.0%])
+**Thesis**: The Samarkand Olympiad gave both finalists a real-opposition dress rehearsal eight
+weeks out; Gukesh's unbeaten 7½/9 confirms his regressed (not trough) true strength while
+Sindarov's 2864-TPR run through Round 8 argues his 2778 rating, if anything, understates him —
+the two roughly offset, leaving the rating-gap model close to where it was, with a modest net
+lift from Metaculus's newly-revealed Pro (73.2%) and gold-medalist (71.0%) cohorts, weighted per
+policy above the raw 70.0% CP.
 
 ---
 
