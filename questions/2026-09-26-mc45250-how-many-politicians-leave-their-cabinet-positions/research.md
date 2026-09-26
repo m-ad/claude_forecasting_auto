@@ -1,0 +1,113 @@
+# Research log — How many politicians will leave their cabinet positions in the UK government before 2027?
+
+Working notes. Rough is fine; **completeness beats polish**. The next update reads this to
+learn what was already checked and what was already ruled out.
+
+## Question mechanics
+
+- Resolution source: **unknown** at v1. Metaculus API (bot key, 2026-09-26) returns
+  `resolution_criteria`, `fine_print`, `description` = null; status "upcoming"; open_time
+  2026-09-28 17:00 UTC; cp_reveal_time 2026-09-30 17:00 UTC; close 2026-12-31 23:59 UTC;
+  scheduled resolve 2027-01-01 12:30 UTC. Tournament: Metaculus Cup Fall 2026 (peer scoring).
+  Options: "0", "1", "2", "3 or more". nr_forecasters = 7 pre-open.
+- Page scrape (metaculus-scraper) failed: `net::ERR_CERT_AUTHORITY_INVALID` through the proxy.
+  Not retried — the API is authoritative that the text is not published yet.
+- Likely resolution source once published: GOV.UK ministers page / Wikipedia Burnham ministry.
+- Edge cases and ambiguities:
+  - Window start: almost certainly question open (2026-09-28). From 1 Jan 2026 it would already
+    be 3+ — implausible design.
+  - Exit vs. sideways move (R1 vs R2) — weighted 0.75 / 0.25.
+  - "Attending cabinet" ministers included? (R1b, weight 0.20).
+  - Announcement in Dec effective in Jan.
+  - PM himself leaving counts (he is a cabinet member) and triggers 3+.
+
+## Current cabinet (GOV.UK, 2026-09-26)
+
+Full cabinet (23): Burnham (PM), Haigh (First Sec/CDL), Healey (Chancellor), Miliband (Foreign),
+Mahmood (Home), Streeting (Defence), Cooper (Health), Norris (Justice), Powell (Education),
+McFadden (DWP), J. Reynolds (Business), Rayner (MHCLG), H. Alexander (Transport), Fahnbulleh
+(Energy), Nandy (DCMS), Eagle (Defra), Bryant (NI), D. Alexander (Scotland), Kinnock (Wales),
+Midgley (Chief Whip), Baroness Smith (Lords), Campbell (Commons), Phillipson (Women & Equalities).
+Attending (5): E. Reynolds (CST), E. Reeves (AG), Falconer, Narayan, Pennycook.
+First-time cabinet: Norris, Fahnbulleh, Eagle, Bryant, Kinnock, Midgley.
+
+## Reference classes considered
+
+| Class | n | Window | Base rate | Source | Kept? |
+|---|---|---|---|---|---|
+| A. UK cabinet exits in Oct–Dec windows | 24 yrs | 2002–2025 | 0: 42%, 1: 38%, 2: 8%, 3+: 12%; mean ≈ 0.95 | compiled below (Wikipedia ministry pages + recall of well-documented events) | yes, primary |
+| B. First ~6 months after a new PM's cabinet | 6 | 2007–2024 | 0: 3, 1: 2, 2: 0, 3+: 1 | same | yes, cross-check |
+| A minus planned reshuffles / PM collapses (idiosyncratic) | 24 | 2002–2025 | ≈ 0.6 exits per window | same | yes, λ anchor |
+
+Class A detail (people who ceased to be cabinet members, roughly 28 Sep–31 Dec):
+2002 Estelle Morris (23 Oct) · 2003 none · 2004 Blunkett (15 Dec) · 2005 Blunkett (2 Nov) ·
+2006 none · 2007 none · 2008 reshuffle 3 Oct (Ruth Kelly, Des Browne) · 2009 none · 2010 none ·
+2011 Liam Fox (14 Oct) · 2012 Andrew Mitchell (19 Oct) · 2013 reshuffle 7 Oct (Michael Moore) ·
+2014 none · 2015 none · 2016 none · 2017 Fallon (1 Nov), Patel (8 Nov), Green (20 Dec) ·
+2018 Raab, McVey (15 Nov) · 2019 Alun Cairns (6 Nov) · 2020 none · 2021 Lord Frost (18 Dec) ·
+2022 Kwarteng, Braverman, Truss, Sunak's 25 Oct clear-out, Williamson (8 Nov) → 3+ ·
+2023 Braverman, Coffey, Quin (13 Nov reshuffle) → 3+ · 2024 Louise Haigh (29 Nov) ·
+2025 none found (searched; Rayner resigned 5 Sep 2025, outside window).
+Caveat: compiled partly from memory; the Wikipedia "List of resignations from government"
+UK section ends in 2010 and the IfG resignations data-vis returned 403. A missed minor
+attending-cabinet exit would shift "0" down by ~4pp per year corrected.
+
+## Decomposition
+
+count = Poisson(λ_idio) + regime tail.
+- λ_idio = 0.62 for ~95 days (0.6 base × ~1.05: new-cabinet vetting risk + Budget + open split,
+  offset by honeymoon + Burnham backing Mahmood + Rayner cleared).
+- Regime tail 5%: planned reshuffle ~2%, PM falls / gilt-crisis clear-out ~3% (Polymarket PM-out
+  6.3% thin → ~3%). Tail mass puts 90% on 3+, 10% on 2.
+- Readings: R1 0.55, R1b (λ×1.2) 0.20, R2 cascade 0.25.
+- Mixture: 49.9 / 28.1 / 12.1 / 9.9 → published 50 / 28 / 12 / 10.
+- Model script kept in the session scratchpad only (not committed; numbers reproduced in
+  forecast.md scenario and sensitivity tables).
+
+## Search log
+
+| Date | Query / source | Finding | Effect on forecast |
+|---|---|---|---|
+| 2026-09-26 | Metaculus API post 45250 | criteria null, upcoming, CP hidden to 09-30, n=7 | criteria ambiguity priced in |
+| 2026-09-26 | "UK cabinet reshuffle September 2026" | Starmer→Burnham transition; shadow cabinet reshuffle (Cleverly quit 29 Aug) — opposition, irrelevant | context |
+| 2026-09-26 | Wikipedia 2026 Labour leadership crisis | Local elections 7 May; Streeting quit 14 May; Healey quit 11 Jun; Makerfield by-election 18 Jun; Starmer resigned 22 Jun; Burnham unopposed 16–17 Jul, PM 20 Jul | window starts in a new, fresh cabinet |
+| 2026-09-26 | Wikipedia Burnham ministry + GOV.UK ministers | 23 full + 5 attending; 15 dismissed at formation; no changes since | base cabinet |
+| 2026-09-26 | IfG "Six things…" (29 Jul) | 82 ministers took new roles; 24 new to government | new-team vetting risk |
+| 2026-09-26 | IfG ministers resigning explainer (12 Jun) | Starmer govt had 20 resignations — record for tenure stage | high-turbulence era, but pre-Burnham |
+| 2026-09-26 | Burnham snap election | Ruled out (Bloomberg 2 Jun); petition rejected 24 Aug | no election churn |
+| 2026-09-26 | Labour conference 2026 | Liverpool, starts ~27 Sep; Burnham "undisputed star" (ITV 25 Sep) | honeymoon |
+| 2026-09-26 | Rayner HMRC | Cleared, no penalty, 14 May 2026 | removes tail |
+| 2026-09-26 | Mahmood vs Burnham | ~80 MPs asked to water down reforms; Burnham backed Mahmood (HuffPost); Rayner condemned Mahmood's care-worker settlement rule 26 Sep, Nandy defended | small ↑ |
+| 2026-09-26 | Healey Budget | 28 Oct 2026; gilts 30y 5.89% (1 Sep, highest since 1998), 10y ~5.22–5.25%; headroom £26bn→~£13.8bn (Deutsche est.); borrowing overshoot £3.5bn | ↑ Chancellor/regime risk |
+| 2026-09-26 | Streeting at Defence | Seen as Burnham containing chief rival (Newton Dunn); Dannatt criticism | minor |
+| 2026-09-26 | Fahnbulleh | private-school "hypocrisy" story (LBC) | tiny ↑ |
+| 2026-09-26 | Heidi Alexander | only routine reappointment coverage; NATS air-traffic outage 21 Sep put pressure on the NATS chief, not on her; no reason found for her 9.2% Polymarket price | none |
+| 2026-09-26 | Ministerial code investigations | nothing on a Burnham cabinet minister; FDA letter urging independent process | none |
+| 2026-09-26 | Ipsos 10–15 Sep | Labour +4 over Reform; Burnham favourability 40% (+8) | ↓ |
+| 2026-09-26 | Polymarket gamma API | "First to leave Burnham Cabinet" (to end-2027): Healey 13.5, Fahnbulleh 10.4, H. Alexander 9.2, Cooper 6.2, Miliband 5.9 … Mahmood 2.4, Bryant 2.2; $114k vol. "Burnham out by Dec 31" 6.3% ($8k) | cross-check only |
+| 2026-09-26 | Manifold API | Q4-2026 any cabinet resignation 41%; Burnham cabinet resignation in 2026 40% (5 bettors) | consistent, discounted |
+| 2026-09-26 | "Burnham mini reshuffle expected after budget" | nothing found | ↓ reshuffle tail |
+
+## Submissions to Metaculus
+
+| Date (UTC) | Version | Values submitted | Account | Note |
+|---|---|---|---|---|
+| 2026-09-26 17:35 | v1 | 0: 0.50, 1: 0.28, 2: 0.12, 3+: 0.10 | bot key (author_id 309213) | operator-requested; POST /api/questions/forecast/ q=45442 → HTTP 201, confirmed in `my_forecasts`; placed while question still "upcoming" |
+
+## Dead ends and ruled-out hypotheses
+
+- Metaculus page render: TLS error through proxy (not a Metaculus 403).
+- IfG data-visualisation page: 403.
+- Wikipedia "List of ministerial resignations in the United Kingdom" / "List of resignations
+  from the British Cabinet": 404.
+- Kalshi, GJOpen, INFER, Sentinel, Mantic: no matching question found (Kalshi not queried by
+  API; search only).
+
+## Open questions to chase next time
+
+- Read the published resolution criteria (2026-09-28): exits vs moves; attending cabinet;
+  start date; announcement vs effective date.
+- Metaculus CP / Pro / gold at reveal (2026-09-30).
+- Budget reception 28 Oct: gilt moves, any cabinet dissent.
+- Why is Heidi Alexander priced 9% on Polymarket's first-to-leave? (Possible rumour I missed.)
+- Greater Manchester mayoral by-election — does any minister want the job?

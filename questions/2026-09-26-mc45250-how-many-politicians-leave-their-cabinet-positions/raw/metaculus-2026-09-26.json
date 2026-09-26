@@ -1,0 +1,55 @@
+{
+  "post_id": 45250,
+  "question_id": 45442,
+  "title": "How many politicians will leave their cabinet positions in the UK government before 2027?",
+  "question_type": "multiple_choice",
+  "status": "upcoming",
+  "resolution": null,
+  "scheduled_close_time": "2026-12-31T23:59:00Z",
+  "cp_reveal_time": "2026-09-30T17:00:00Z",
+  "options": [
+    "0",
+    "1",
+    "2",
+    "3 or more"
+  ],
+  "scaling": {
+    "range_min": null,
+    "range_max": null,
+    "nominal_min": null,
+    "nominal_max": null,
+    "zero_point": null,
+    "open_upper_bound": false,
+    "open_lower_bound": false,
+    "inbound_outcome_count": null,
+    "continuous_range": null
+  },
+  "resolution_criteria": null,
+  "fine_print": null,
+  "background": null,
+  "nr_forecasters": 7,
+  "methods": {
+    "recency_weighted": {
+      "method": "recency_weighted",
+      "status": 200,
+      "history_points": 0,
+      "latest": null,
+      "history": []
+    },
+    "metaculus_pros": {
+      "method": "metaculus_pros",
+      "status": 200,
+      "history_points": 0,
+      "latest": null,
+      "history": []
+    },
+    "gold_medalists": {
+      "method": "gold_medalists",
+      "status": 200,
+      "history_points": 0,
+      "latest": null,
+      "history": []
+    }
+  },
+  "comments": []
+}
