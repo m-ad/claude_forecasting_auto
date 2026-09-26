@@ -123,3 +123,28 @@ few pre-primary reports run to Jul–Sep):
    and its definition (6-yr incumbents?).
 5. When was the FEC 21-month summary published in 2024 (the date matters if the resolver
    uses it)?
+
+## 2026-09-26 (v2) — resolution criteria supplied by operator
+
+- **Criteria (pasted by the operator; the API still null on 2026-09-26):** "total spending by
+  all US Senate candidates running in 2026 according to the FEC". Fine print: "may wait until
+  December 31, 2026". The background quotes FEC totals: 2024 $1,687,323,291; 2022
+  $1,708,197,866; 2020 $2,007,613,859. Mid-August 2026 total $666,336,000 (D $393.9M, R
+  $261.0M, other $11.4M).
+- **Series identification:** the FEC API `candidates/totals/aggregates?office=S&election_full=true`
+  gives 2020 $2,016.72M and 2024 $1,698.42M, i.e. ratios 0.995 and 0.993 to the stated values.
+  So the series is the full-election-period "by the numbers" aggregate, not the 2-year
+  statistical summary. 2026 today: disbursements $711.27M, receipts $993.27M (incl. $148.2M
+  transfers from authorized committees), COH $367.0M, debts $34.6M. Snapshots are in `raw/`.
+  - election_full=false calls: rate-limited, not obtained. Worth trying next time, to see
+    whether the ~0.6% gap is a 2-yr/6-yr or active-candidate filter.
+- **FEC 2026 calendar (verified):** Oct Quarterly 09-30/10-15; Pre-General 10-14/10-22;
+  Post-General 11-23/12-03; Year-End 12-31/2027-01-31. So a 12-31 resolution sees data
+  through 11-23 only (~96–97% of final).
+- **v2 MC:** `resolved = ((F2 + U(60,110)) × 0.994) × f + runoff`, with f = 0.80
+  post-general / 0.12 partial processing / 0.05 pre-general / 0.03 diffuse → $1.66B
+  [$1.52B, $1.82B].
+- **Open questions for the next update:**
+  - How fast does the FEC process Senate post-general reports into the aggregate? Check
+    2024: was the aggregate on 2024-12-31 already near final?
+  - After 10-15, re-download weball26 and re-run the multiple check.
