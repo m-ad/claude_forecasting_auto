@@ -1,0 +1,63 @@
+{
+  "post_id": 45810,
+  "question_id": 45991,
+  "title": "Will Trump demolish the Kennedy Center before January 1, 2027?",
+  "question_type": "binary",
+  "status": "upcoming",
+  "resolution": null,
+  "scheduled_close_time": "2026-12-15T22:00:00Z",
+  "cp_reveal_time": "2026-09-29T17:00:00Z",
+  "options": null,
+  "scaling": {
+    "range_min": null,
+    "range_max": null,
+    "nominal_min": null,
+    "nominal_max": null,
+    "zero_point": null,
+    "open_upper_bound": false,
+    "open_lower_bound": false,
+    "inbound_outcome_count": null,
+    "continuous_range": null
+  },
+  "resolution_criteria": "This question will resolve as **Yes** if the Kennedy Center is substantially demolished before January 1, 2027.",
+  "fine_print": "The center will be deemed substantially demolished if more than a *de minimis* portion of the structure is intentionally destroyed.",
+  "background": "The [Kennedy Center](https://en.wikipedia.org/wiki/Kennedy_Center)—formally, the John F. Kennedy Center for the Performing Arts—is a performing-arts complex located in Washington, D.C., first authorized by Congress in 1958 and then rededicated, in 1964, as a \"living memorial\" to President Kennedy. The Kennedy Center opened in 1971, and since that time served as the home to the National Symphony Orchestra and the Washington National Opera.\n\nAt the beginning of his second term, in February 2025, President Donald Trump [dismissed members of the center's board](https://apnews.com/article/trump-kennedy-center-board-chairman-firings-21cd0018c6e9f591d59becea8573d8c0), replacing them with his allies, who then in turn selected Trump as the chairman of the board. The Trump-controlled center then began canceling performances that did not align with Trump's vision for the future of the center, and many artists and producers, in turn, began canceling their own scheduled performances at the center.\n\nIn December 2025, the board voted to [change the name](https://www.cnn.com/2026/09/19/politics/trump-kennedy-center) of the center to \"The Donald J. Trump and The John F. Kennedy Memorial Center for the Performing Arts.\" In response, U.S. Representative Joyce Beatty, of Ohio, an *ex officio* member of the board, filed suit, arguing that the board did not have legal authority to rename the center, and more artists and organizations, including the Washington National Opera, announced that they would no longer perform there.\n\nIn February 2026, Trump [announced](https://www.nytimes.com/2026/09/20/us/politics/trump-kennedy-center.html) that the center would be closed for two years for renovations. In May 2026, U.S. District Judge Christopher Cooper ruled that the board did not have the authority to change the name or to close the center. The administration appealed this decision, and that appeal remains pending.\n\nIn August 2026, the board then voted to [add the words](https://edition.cnn.com/2026/08/19/politics/kennedy-center-trump-name-september) \"Restored and Renovated by President Donald J. Trump\" to the exterior of the center. On September 15, Judge Cooper ruled that the board's latest attempt to add Trump's name to the Kennedy Center was also unlawful. In response, the board once again voted to close the center for repairs. The next day Trump [warned](https://www.npr.org/2026/09/17/nx-s1-5973036/trump-threat-tear-down-kennedy-center) that if he does not receive credit for funding restoration of the center, it will need to be \"ripped down.\" And Trump was then photographed aboard his plane looking at a poster with the words \"Kennedy Center DEMOLISHED\" on it.\n\nOn September 17, Judge Cooper ruled that the government must provide thirty days' written notice before making any changes to the center, [including demolition](https://www.axios.com/2026/09/17/kennedy-center-demolition-30-days-notice-ruling). Nevertheless, there is [intense concern](https://abcnews.com/Politics/protesters-plan-form-human-chain-kennedy-center-amid/story?id=136558872) in some corners that the administration will proceed with demolition without waiting for approval, as occurred with [the East Wing of the White House](https://www.politico.com/news/2026/08/07/appeals-court-ruling-white-house-ballroom-01028755).",
+  "nr_forecasters": 16,
+  "methods": {
+    "recency_weighted": {
+      "method": "recency_weighted",
+      "status": 200,
+      "history_points": 0,
+      "latest": null,
+      "history": []
+    },
+    "metaculus_pros": {
+      "method": "metaculus_pros",
+      "status": 200,
+      "history_points": 0,
+      "latest": null,
+      "history": []
+    },
+    "gold_medalists": {
+      "method": "gold_medalists",
+      "status": 200,
+      "history_points": 0,
+      "latest": null,
+      "history": []
+    }
+  },
+  "comments": [
+    {
+      "author": "darkives",
+      "created_at": "2026-09-26",
+      "text": "@(Theomachado) I think the key word in the fine print is \"structure,\" by which I intended to mean the building itself. Renovation of the interior is not what I would consider demolition.",
+      "prediction": null
+    },
+    {
+      "author": "Theomachado",
+      "created_at": "2026-09-26",
+      "text": "@(admins), @(moderators).\n\nQuick question on the criteria: if the renovation goes ahead and they gut one of the halls (seats, interiors, mechanical systems), does that count as \"substantially demolished\"? Or does it have to be the actual building coming down: walls, roof, facade? can you expand more on the fine print if possible? Thank you for the clarification.",
+      "prediction": null
+    }
+  ]
+}

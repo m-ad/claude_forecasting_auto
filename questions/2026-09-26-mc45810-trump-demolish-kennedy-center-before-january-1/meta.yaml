@@ -1,0 +1,74 @@
+slug: 2026-09-26-mc45810-trump-demolish-kennedy-center-before-january-1
+title: Will Trump demolish the Kennedy Center before January 1, 2027?
+source: metaculus
+url: https://www.metaculus.com/questions/45810/will-trump-demolish-the-kennedy-center-before-january-1-2027
+post_id: 45810
+type: binary
+unit: null
+tags:
+- us-politics
+- trump
+- dc
+- legal
+dates:
+  created: '2026-09-26'
+  opened: null
+  closes: '2026-12-15'
+  resolves: '2027-01-01'
+status: open
+current:
+  version: 1
+  date: '2026-09-26'
+  median: 0.035
+  iqr:
+  - 0.015
+  - 0.06
+  community:
+    cp: null
+    pro: null
+    gold: null
+    n_forecasters: 16
+    as_of: '2026-09-26'
+next_review: '2026-10-03'
+tripwires:
+- signal: Administration files 30-day notice of demolition or scope change in Beatty v. Trump / DC Preservation
+    League case
+  by: '2026-11-30'
+  direction: up
+  magnitude: 12
+  magnitude_unit: pp
+  fired: null
+- signal: Demolition contractor award, demolition permit, or heavy demolition equipment staged on site
+  by: '2026-11-30'
+  direction: up
+  magnitude: 8
+  magnitude_unit: pp
+  fired: null
+- signal: D.C. Circuit merits ruling on the Trump name (either way) - re-analyse
+  by: '2026-12-15'
+  direction: either
+  magnitude: 0
+  magnitude_unit: pp
+  fired: null
+- signal: Merkley-Murkowski demolition ban enacted (standalone, CR or appropriations rider)
+  by: '2026-12-31'
+  direction: down
+  magnitude: 2
+  magnitude_unit: pp
+  fired: null
+- signal: Kennedy Center reopens after safety closure
+  by: '2026-10-31'
+  direction: down
+  magnitude: 1.5
+  magnitude_unit: pp
+  fired: null
+- signal: SCOTUS emergency application on Kennedy Center renovation/demolition filed
+  by: '2026-12-15'
+  direction: up
+  magnitude: 5
+  magnitude_unit: pp
+  fired: null
+resolution:
+  outcome: null
+  date: null
+  source: null
