@@ -8,9 +8,19 @@ asks for a submission; no other workflow (``/forecast``, ``/update``,
 the ledger, ``meta.yaml`` and ``forecast.md`` stay untouched.
 
 What gets submitted is the latest ``forecast`` record in the ledger for each
-target slug. The ledger only carries a median and an IQR, which is the whole
-forecast for a binary question but not for the others, so a JSON *spec* file
-can supply the full distribution::
+target slug:
+
+- binary: the ledger median.
+- multiple_choice: the record's ``distribution.probabilities`` (exact Metaculus
+  option labels).
+- numeric / date / discrete: the record's ``distribution`` (``percentiles``, or
+  ``pmf`` for discrete) when it has one; otherwise the ledger quartiles, with
+  exponential tails matched to the edge densities -- a weaker approximation,
+  flagged in the output.
+
+Records logged before the ledger had a ``distribution`` field carry only the
+median and IQR. For those -- and only those -- a JSON *spec* file supplies the
+distribution in the same shapes, plus the version it was read from::
 
     {
       "<slug>": {"version": 3, "probabilities": {"<option>": 0.67, ...}},
@@ -18,16 +28,11 @@ can supply the full distribution::
       "<slug>": {"version": 1, "pmf": {"0": 0.001, "1": 0.012, ...}}
     }
 
-- binary: the ledger median; no spec needed.
-- multiple_choice: ``probabilities`` keyed by the exact Metaculus option labels
-  is required; the ledger holds only the leading option.
-- numeric / date / discrete: ``percentiles`` (any set of at least two; dates as
-  ISO strings or unix seconds) or, for discrete, ``pmf`` keyed by outcome value.
-  Without a spec the ledger quartiles are used, with exponential tails matched
-  to the edge densities -- a weaker approximation, flagged in the output.
-
 A spec entry's ``version`` must equal the ledger's latest version, so a vector
-extracted from an older ``forecast.md`` block cannot be submitted by mistake.
+extracted from an older ``forecast.md`` block cannot be submitted by mistake,
+and a spec entry for a record that already carries a distribution is refused:
+the ledger is the record, a spec only fills its gaps. Both sources pass the
+same validation as ``log_forecast.py`` (``distribution_problems``).
 
 Examples
 --------
@@ -39,7 +44,6 @@ Examples
 from __future__ import annotations
 
 import argparse
-import datetime as dt
 import json
 import math
 import os
@@ -53,7 +57,7 @@ from pathlib import Path
 from typing import Any
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from _common import all_questions, find_slug
+from _common import all_questions, distribution_problems, find_slug
 from calibration import read_ledger
 
 API = "https://www.metaculus.com/api"
@@ -162,16 +166,6 @@ def project_names(post: dict[str, Any]) -> set[str]:
 
 
 # ------------------------------------------------------------------ geometry
-def _as_number(x: Any) -> float:
-    """Percentile value as a float; ISO dates become unix seconds (UTC)."""
-    if isinstance(x, (int, float)):
-        return float(x)
-    d = dt.datetime.fromisoformat(str(x))
-    if d.tzinfo is None:
-        d = d.replace(tzinfo=dt.timezone.utc)
-    return d.timestamp()
-
-
 def cdf_from_knots(x: float, knots: list[tuple[float, float]]) -> float:
     """CDF at ``x`` through ``(probability, value)`` quantile knots.
 
@@ -335,12 +329,26 @@ def build_payload(
         raise SubmitError(
             f"ledger says {record.get('type')!r}, Metaculus says {qtype!r}"
         )
-    if spec is not None and spec.get("version") != record["version"]:
-        raise SubmitError(
-            f"spec is for v{spec.get('version')}, the ledger's latest is "
-            f"v{record['version']}; re-extract it from forecast.md"
+    dist = record.get("distribution")
+    if spec is not None:
+        if dist is not None:
+            raise SubmitError(
+                f"the ledger already records v{record['version']}'s distribution; "
+                "drop this slug from the spec"
+            )
+        if spec.get("version") != record["version"]:
+            raise SubmitError(
+                f"spec is for v{spec.get('version')}, the ledger's latest is "
+                f"v{record['version']}; re-extract it from forecast.md"
+            )
+        dist = {k: v for k, v in spec.items() if k != "version"}
+    if dist:
+        problems = distribution_problems(
+            qtype, dist, record["median"], record["iqr"], q.get("options")
         )
-    spec = spec or {}
+        if problems:
+            raise SubmitError("distribution rejected: " + "; ".join(problems))
+    dist = dist or {}
     base = {"slug": slug, "post_id": post["id"], "question_id": q["id"], "qtype": qtype}
 
     if qtype == "binary":
@@ -348,48 +356,32 @@ def build_payload(
         return Payload(**base, values={"probability_yes": p})
 
     if qtype == "multiple_choice":
-        if "probabilities" not in spec:
+        if "probabilities" not in dist:
             raise SubmitError(
-                "multiple-choice needs a spec with the full option vector "
-                f"(options: {q['options']})"
+                f"v{record['version']} predates the ledger's distribution field; "
+                f"supply its option vector in a spec (options: {q['options']})"
             )
-        probs = mc_probabilities(spec["probabilities"], q["options"])
-        lead = max(probs.values())
-        # The ledger's median is the leading option's probability; a spec that
-        # disagrees with it was extracted from the wrong block.
-        if abs(lead - float(record["median"])) > 0.011:
-            raise SubmitError(
-                f"spec's leading option is {lead:.3f}, ledger median is {record['median']}"
-            )
+        probs = mc_probabilities(dist["probabilities"], q["options"])
         return Payload(**base, values={"probability_yes_per_category": probs})
 
     if qtype not in {"numeric", "date", "discrete"}:
         raise SubmitError(f"unsupported question type {qtype!r}")
     scaling = q["scaling"]
     note = ""
-    if qtype == "discrete" and "pmf" in spec:
-        cdf = discrete_cdf(spec["pmf"], scaling)
+    if qtype == "discrete" and "pmf" in dist:
+        cdf = discrete_cdf(dist["pmf"], scaling)
     else:
-        if "percentiles" in spec:
-            knots = [
-                (float(k) / 100, _as_number(v)) for k, v in spec["percentiles"].items()
-            ]
+        if "percentiles" in dist:
+            knots = [(float(k) / 100, float(v)) for k, v in dist["percentiles"].items()]
         else:
             lo, hi = record["iqr"]
             knots = [
-                (0.25, _as_number(lo)),
-                (0.5, _as_number(record["median"])),
-                (0.75, _as_number(hi)),
+                (0.25, float(lo)),
+                (0.5, float(record["median"])),
+                (0.75, float(hi)),
             ]
             note = "quartiles only: tails extrapolated"
         cdf = continuous_cdf(knots, scaling)
-        med = next((v for p, v in knots if abs(p - 0.5) < 1e-9), None)
-        if med is not None and abs(med - _as_number(record["median"])) > 1e-6 * max(
-            1.0, abs(med)
-        ):
-            raise SubmitError(
-                f"spec's p50 {med} differs from the ledger median {record['median']}"
-            )
     validate_cdf(cdf, scaling)
     return Payload(**base, values={"continuous_cdf": cdf}, note=note)
 
@@ -482,7 +474,11 @@ def main() -> None:
         help="only posts in this tournament/series (exact name, e.g. "
         "'Metaculus Cup Fall 2026')",
     )
-    ap.add_argument("--spec", type=Path, help="JSON file with full distributions")
+    ap.add_argument(
+        "--spec",
+        type=Path,
+        help="JSON file with distributions for records that predate the ledger field",
+    )
     ap.add_argument(
         "--dry-run", action="store_true", help="build and show, do not POST"
     )

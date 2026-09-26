@@ -9,7 +9,16 @@ Examples
     uv run scripts/log_forecast.py add <slug> --median 0.12 --lower 0.08 --upper 0.18 \
         --cp 0.09 --pro 0.07 --gold 0.08 --n-forecasters 312 \
         --thesis "..." --next-review 2026-10-31
+    uv run scripts/log_forecast.py add <slug> --median 0.61 --lower 0.55 --upper 0.67 \
+        --distribution '{"probabilities": {"Likud": 0.381, "Yashar": 0.61, "Other": 0.009}}' ...
     uv run scripts/log_forecast.py resolve <slug> --outcome yes
+    uv run scripts/log_forecast.py resolve <slug> --outcome "Yashar"   # multiple choice
+
+``--distribution`` records the full forecast next to the median and IQR, which
+alone are the whole forecast only for a binary question. It is **required** for
+multiple choice (the option vector) and optional for numeric/date
+(``percentiles``) and discrete (``pmf`` or ``percentiles``). Pass the JSON inline
+or as ``@path/to/file.json``. See ``DISTRIBUTION_SHAPES`` in ``_common.py``.
 """
 
 from __future__ import annotations
@@ -17,12 +26,21 @@ from __future__ import annotations
 import argparse
 import datetime as dt
 import json
+import re
 import sys
 from pathlib import Path
 from typing import Any
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from _common import LEDGER, find_slug, load_meta, save_meta, today
+from _common import (
+    LEDGER,
+    QUESTIONS,
+    distribution_problems,
+    find_slug,
+    load_meta,
+    save_meta,
+    today,
+)
 
 
 def _append(record: dict[str, Any]) -> None:
@@ -60,6 +78,56 @@ def _count_forecasts(slug: str) -> int:
     return n
 
 
+def cached_options(slug: str, post_id: int | None) -> list[str] | None:
+    """Option labels from the newest cached Metaculus snapshot of *this* post.
+
+    Matched on ``post_id`` inside the JSON, not on the file name: a folder can
+    also cache snapshots of related posts. Newest is by the retrieval date every
+    ``raw/`` file name carries (``test_meta.py`` enforces it). None when no
+    snapshot of this post lists options.
+    """
+    if post_id is None:
+        return None
+    found: list[tuple[str, list[str]]] = []
+    for path in (QUESTIONS / slug / "raw").glob("*.json"):
+        try:
+            data = json.loads(path.read_text(encoding="utf-8"))
+        except (OSError, ValueError):
+            continue
+        if not isinstance(data, dict) or data.get("post_id") != post_id:
+            continue
+        opts = data.get("options")
+        m = re.search(r"\d{4}-\d{2}-\d{2}", path.stem)
+        if isinstance(opts, list) and opts and m:
+            found.append((m.group(0), [str(o) for o in opts]))
+    return max(found)[1] if found else None
+
+
+def _parse_distribution(raw: str) -> Any:
+    """``--distribution`` as JSON, inline or from ``@file`` (labels with quotes)."""
+    try:
+        text = Path(raw[1:]).read_text(encoding="utf-8") if raw.startswith("@") else raw
+        return json.loads(text)
+    except OSError as exc:
+        sys.exit(f"! --distribution file unreadable: {exc}")
+    except json.JSONDecodeError as exc:
+        sys.exit(f"! --distribution is not valid JSON: {exc}")
+
+
+def _last_forecast(slug: str) -> dict[str, Any] | None:
+    """The latest ``forecast`` record for ``slug``, or None."""
+    last = None
+    if LEDGER.exists():
+        for line in LEDGER.read_text(encoding="utf-8").splitlines():
+            try:
+                rec = json.loads(line)
+            except json.JSONDecodeError:
+                continue
+            if rec.get("slug") == slug and rec.get("event", "forecast") == "forecast":
+                last = rec
+    return last
+
+
 def _outcome_value(raw: str) -> float | str:
     """Coerce a resolution argument to a number where it is one."""
     low = raw.strip().lower()
@@ -90,6 +158,28 @@ def cmd_add(args: argparse.Namespace) -> None:
             file=sys.stderr,
         )
 
+    qtype = meta.get("type")
+    dist = _parse_distribution(args.distribution) if args.distribution else None
+    if dist is None and qtype == "multiple_choice":
+        sys.exit(
+            f"! {slug}: multiple-choice forecasts need --distribution "
+            '\'{"probabilities": {"<exact option label>": p, ...}}\' - '
+            "the median alone records only the leading option"
+        )
+    if dist is not None:
+        options = cached_options(slug, meta.get("post_id"))
+        if qtype == "multiple_choice" and options is None:
+            print(
+                f"! {slug}: no cached snapshot lists this question's options; "
+                "labels not checked against Metaculus",
+                file=sys.stderr,
+            )
+        problems = distribution_problems(
+            qtype, dist, args.median, [args.lower, args.upper], options
+        )
+        if problems:
+            sys.exit(f"! {slug}: --distribution rejected:\n  " + "\n  ".join(problems))
+
     record = {
         "ts": dt.datetime.now(dt.timezone.utc).isoformat(timespec="seconds"),
         "event": "forecast",
@@ -100,6 +190,7 @@ def cmd_add(args: argparse.Namespace) -> None:
         "type": meta.get("type"),
         "median": args.median,
         "iqr": [args.lower, args.upper],
+        **({"distribution": dist} if dist is not None else {}),
         "community": {
             "cp": args.cp,
             "pro": args.pro,
@@ -133,7 +224,20 @@ def cmd_add(args: argparse.Namespace) -> None:
 def cmd_resolve(args: argparse.Namespace) -> None:
     slug = find_slug(args.slug) or sys.exit(f"! no unique question for {args.slug!r}")
     meta = load_meta(slug)
-    outcome = _outcome_value(args.outcome)
+    if meta.get("type") == "multiple_choice":
+        # An option label is the outcome, verbatim: coercing would turn a "0" or
+        # "1" option into a number the scorer can no longer match to its label.
+        outcome: float | str = args.outcome
+        last = _last_forecast(slug) or {}
+        labels = list(
+            (last.get("distribution") or {}).get("probabilities")
+            or cached_options(slug, meta.get("post_id"))
+            or []
+        )
+        if labels and outcome not in labels:
+            sys.exit(f"! {slug}: {outcome!r} is not an option; one of {labels}")
+    else:
+        outcome = _outcome_value(args.outcome)
     _append(
         {
             "ts": dt.datetime.now(dt.timezone.utc).isoformat(timespec="seconds"),
@@ -175,6 +279,12 @@ def main() -> None:
     a.add_argument("--pro", type=float, help="Metaculus Pro aggregation")
     a.add_argument("--gold", type=float, help="Metaculus gold-medalist aggregation")
     a.add_argument("--n-forecasters", type=int)
+    a.add_argument(
+        "--distribution",
+        help="full forecast as JSON or @file: required for multiple choice "
+        '({"probabilities": {...}}), optional otherwise ({"percentiles": {...}} '
+        'or, for discrete, {"pmf": {...}})',
+    )
     a.add_argument("--thesis", default="")
     a.add_argument(
         "--mode", default="initial", choices=["initial", "update", "reanalysis"]
@@ -184,7 +294,11 @@ def main() -> None:
 
     r = sub.add_parser("resolve", help="record a resolution")
     r.add_argument("slug")
-    r.add_argument("--outcome", required=True, help="yes|no|<numeric value>|<option>")
+    r.add_argument(
+        "--outcome",
+        required=True,
+        help="yes|no|<numeric value>|<exact option label>",
+    )
     r.add_argument("--date", help="resolution date, defaults to today")
     r.add_argument("--source", help="the resolution source consulted")
     r.set_defaults(func=cmd_resolve)

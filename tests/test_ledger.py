@@ -53,6 +53,17 @@ FORECAST_KEYS = {
     "thesis",
     "mode",
 }
+# Optional: added when the ledger learned to record full forecasts. Records from
+# before carry only median/IQR, and the ledger is append-only, so they stay so.
+OPTIONAL_FORECAST_KEYS = {"distribution"}
+# Re-declared rather than imported from _common.DISTRIBUTION_SHAPES (see
+# tests/README.md): the allowed shape per question type.
+DISTRIBUTION_SHAPES = {
+    "multiple_choice": {"probabilities"},
+    "numeric": {"percentiles"},
+    "date": {"percentiles"},
+    "discrete": {"pmf", "percentiles"},
+}
 RESOLUTION_KEYS = {"ts", "event", "slug", "type", "outcome", "resolution_source"}
 
 
@@ -163,9 +174,10 @@ def test_type_is_known(lineno, rec):
 
 @pytest.mark.parametrize("lineno,rec", FORECASTS, ids=ids_for(FORECASTS))
 def test_forecast_record_has_exactly_the_expected_keys(lineno, rec):
-    assert set(rec) == FORECAST_KEYS, (
+    extra = set(rec) - FORECAST_KEYS - OPTIONAL_FORECAST_KEYS
+    assert FORECAST_KEYS <= set(rec) and not extra, (
         f"line {lineno}: key mismatch, missing={sorted(FORECAST_KEYS - set(rec))} "
-        f"extra={sorted(set(rec) - FORECAST_KEYS)}"
+        f"extra={sorted(extra)}"
     )
 
 
@@ -248,6 +260,91 @@ def test_binary_forecasts_are_probabilities_not_percentages(lineno, rec):
         assert is_probability(val), (
             f"line {lineno}: binary {name} {val!r} is not in [0, 1] - "
             "probabilities are stored as fractions, not percent"
+        )
+
+
+# ------------------------------------------------------------- distributions
+DISTRIBUTIONS = [(n, r) for n, r in FORECASTS if "distribution" in r]
+
+
+def _one_shape(lineno, rec):
+    """The (kind, body) of a record's distribution, asserting its shape."""
+    dist, qtype = rec["distribution"], rec.get("type")
+    allowed = DISTRIBUTION_SHAPES.get(qtype, set())
+    assert allowed, f"line {lineno}: {qtype} records carry no distribution"
+    assert isinstance(dist, dict) and len(dist) == 1 and set(dist) <= allowed, (
+        f"line {lineno}: {qtype} distribution must be one of {sorted(allowed)}"
+    )
+    ((kind, body),) = dist.items()
+    assert isinstance(body, dict) and len(body) >= 2, (
+        f"line {lineno}: {kind} must map at least two keys"
+    )
+    assert all(isinstance(k, str) and is_number(v) for k, v in body.items()), (
+        f"line {lineno}: {kind} must map string keys to numbers"
+    )
+    return kind, body
+
+
+@pytest.mark.parametrize("lineno,rec", DISTRIBUTIONS, ids=ids_for(DISTRIBUTIONS))
+def test_distribution_agrees_with_its_own_median_and_iqr(lineno, rec):
+    """The distribution is the forecast; median/IQR are its summary. They must agree.
+
+    A vector copied from the wrong forecast.md block, or percent stored where a
+    fraction belongs, fails here instead of being submitted or scored.
+    """
+    kind, body = _one_shape(lineno, rec)
+    med, (lo, hi) = rec["median"], rec["iqr"]
+    if kind in ("probabilities", "pmf"):
+        assert all(0 <= v <= 1 for v in body.values()), (
+            f"line {lineno}: {kind} values must be fractions, not percent"
+        )
+        assert abs(sum(body.values()) - 1) <= 0.01, (
+            f"line {lineno}: {kind} sums to {sum(body.values()):.4f}, not 1"
+        )
+    if kind == "probabilities":
+        assert abs(max(body.values()) - med) <= 5e-4, (
+            f"line {lineno}: leading option {max(body.values())} != median {med} "
+            "(for multiple choice the median is the leading option's probability)"
+        )
+    elif kind == "pmf":
+        pts = sorted((float(k), v) for k, v in body.items())
+        below = sum(v for x, v in pts if x < med)
+        upto = sum(v for x, v in pts if x <= med)
+        assert below <= 0.51 and upto >= 0.49, (
+            f"line {lineno}: median {med} is not a median of the pmf"
+        )
+    else:
+        pts = sorted((float(k), v) for k, v in body.items())
+        assert all(0 < k < 100 for k, _ in pts), f"line {lineno}: bad percentile key"
+        vals = [v for _, v in pts]
+        assert vals == sorted(vals), f"line {lineno}: percentiles decrease"
+        by = dict(pts)
+        assert 50.0 in by, f"line {lineno}: percentiles must include '50'"
+        for key, want in ((50.0, med), (25.0, lo), (75.0, hi)):
+            if key in by:
+                assert by[key] == pytest.approx(want, rel=1e-9), (
+                    f"line {lineno}: p{key:g} {by[key]} != {want}"
+                )
+
+
+@pytest.mark.parametrize("lineno,rec", RESOLUTIONS, ids=ids_for(RESOLUTIONS))
+def test_multiple_choice_resolution_names_one_of_the_options(lineno, rec):
+    """The scorer matches the outcome to an option label; a coerced 0.0 cannot."""
+    if rec.get("type") != "multiple_choice":
+        pytest.skip("not a multiple-choice resolution")
+    outcome = rec.get("outcome")
+    assert isinstance(outcome, str), (
+        f"line {lineno}: multiple-choice outcome must be the option label, got {outcome!r}"
+    )
+    labels = {
+        k
+        for _, r in FORECASTS
+        if r.get("slug") == rec.get("slug")
+        for k in (r.get("distribution") or {}).get("probabilities", {})
+    }
+    if labels:
+        assert outcome in labels, (
+            f"line {lineno}: {outcome!r} is not one of {sorted(labels)}"
         )
 
 

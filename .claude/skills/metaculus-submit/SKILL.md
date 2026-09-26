@@ -20,8 +20,9 @@ account. It is a publishing step, and only the operator triggers it:
   chain it onto one ("the update is done, shall I also submit?" is fine to *ask*; submitting
   unasked is not). `tests/test_submit_metaculus.py` fails if another workflow file mentions
   the script.
-- **Submit, don't forecast.** The numbers come from the ledger and the newest version block of
-  `forecast.md`. Do no research and change no forecast. If a forecast looks stale, say so in
+- **Submit, don't forecast.** The numbers come from the ledger. Each record's `distribution`
+  field holds the full forecast. Only older records that predate that field fall back to the
+  newest version block of `forecast.md`. Do no research and change no forecast. If a forecast looks stale, say so in
   the report and leave it; revising it is `/update`.
 - **Nothing is written to the repo.** The script never touches the ledger, `meta.yaml` or
   `forecast.md`. Keep the spec file in your scratchpad, so there is nothing to commit.
@@ -38,7 +39,7 @@ account. It is a publishing step, and only the operator triggers it:
 
 ## Steps
 
-### 1. Dry run without a spec
+### 1. Dry run from the ledger alone
 
 ```bash
 uv run scripts/submit_metaculus.py <targets> --dry-run
@@ -47,18 +48,24 @@ uv run scripts/submit_metaculus.py <targets> --dry-run
 This fetches each post once (a ~4 s pause between calls keeps Metaculus' IP rate limit
 quiet; do not re-run it in a loop) and prints what it would submit:
 
-- **binary**: the ledger median. Complete; no spec needed.
-- **multiple_choice**: fails with `needs a spec with the full option vector (options: [...])`.
-  The list is Metaculus' exact option labels.
-- **numeric / date / discrete**: falls back to the ledger quartiles with extrapolated tails
-  and tags the line `[quartiles only: tails extrapolated]`.
+- **binary**: the ledger median. Complete.
+- **multiple_choice**: the record's option vector. A record logged before the ledger had a
+  `distribution` field fails with `v<N> predates the ledger's distribution field; supply its
+  option vector in a spec (options: [...])`. The list gives Metaculus' exact option labels.
+- **numeric / date / discrete**: the record's `percentiles` or `pmf` when it has them. If not,
+  the script falls back to the ledger quartiles with extrapolated tails and tags the line
+  `[quartiles only: tails extrapolated]`.
 - `= already live`: the bot's current forecast already equals this one and will be skipped.
 
-### 2. Build the spec for everything that needs one
+If nothing failed and nothing is tagged, skip to step 4.
 
-For each multiple-choice question (required), and for each numeric/discrete question whose
-`forecast.md` records more than the quartiles (preferred), read the **newest version block**
-of `questions/<slug>/forecast.md`. Take the values from the `| **Current forecast** |` header
+### 2. Legacy records only: build a spec
+
+A spec fills gaps in **older records that predate the `distribution` field**, and nothing
+else. The script refuses a spec entry for a record that already has a distribution: the
+ledger is the record. Build one entry for each legacy multiple-choice question (required),
+and for each legacy numeric/discrete question whose `forecast.md` records more than the
+quartiles (preferred). Read the **newest version block** of `questions/<slug>/forecast.md`. Take the values from the `| **Current forecast** |` header
 row, and from the version's own percentile, PMF or option table when one exists. Then write
 `<scratchpad>/submit-spec.json`:
 
@@ -78,9 +85,12 @@ row, and from the version's own percentile, PMF or option table when one exists.
 - Copy the numbers exactly as written. Do not re-derive, smooth or "fix" them. If they don't
   sum to ~1, or `forecast.md` records no full vector for a multiple-choice question, leave
   that question out and report it instead of inventing a split.
-- Percentile keys are percent (`"5"`, `"50"`); `"50"` must equal the ledger median. Date
-  values may be ISO strings. For discrete questions, `pmf` keyed by outcome value beats
-  percentiles.
+- Percentile keys are percent (`"5"`, `"50"`). `"50"` must equal the ledger median, and
+  `"25"`/`"75"` must equal the IQR bounds, in the ledger's units. For discrete questions,
+  `pmf` keyed by outcome value beats percentiles. The spec passes the same checks as
+  `log_forecast.py --distribution`.
+- This gap closes by itself: once a question is next updated, its new record carries the
+  distribution and needs no spec.
 
 ### 3. Dry run with the spec, then check it
 
@@ -101,7 +111,7 @@ Same command without `--dry-run`. Each line reports `→ submitted`, `= already 
 
 Give the operator one table: slug, version submitted, what was submitted (P(yes), the
 option vector, or median/IQR), and the outcome. List separately what was **not** submitted
-and why: unchanged, closed, group post, no spec, or rejected. Also flag questions whose latest
+and why: unchanged, closed, group post, legacy record without a spec, or rejected. Also flag questions whose latest
 version is old, or which close soon, as candidates for `/update`. **Do not** offer to log the
 submission to the ledger; the ledger records forecasts, not submissions.
 
@@ -110,6 +120,7 @@ submission to the ledger; the ledger records forecasts, not submissions.
 - **Group-of-questions posts** (one post, several sub-questions, e.g. the SPR `mc15240`
   pair) are refused; the ledger does not map slugs to sub-question ids.
 - **Quartile-only CDFs** are an approximation: the tails are exponential beyond the quartiles,
-  heavier than a normal distribution. A spec with p5/p95 or a PMF is always better.
+  heavier than a normal distribution. A recorded `percentiles` distribution with p5/p95, or a
+  PMF, is always better.
 - The script mixes ~2% uniform mass into every CDF so that each bin clears Metaculus' minimum
   step. This moves quartiles by well under one grid step.

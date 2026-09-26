@@ -34,8 +34,13 @@ def _post(qtype: str, **question) -> dict:
     return {"id": 1, "status": "open", "question": {"id": 2, "type": qtype, **question}}
 
 
-def _record(qtype: str, median: float, iqr=(0.0, 0.0), version: int = 1) -> dict:
-    return {"type": qtype, "median": median, "iqr": list(iqr), "version": version}
+def _record(
+    qtype: str, median: float, iqr=(0.0, 0.0), version: int = 1, distribution=None
+) -> dict:
+    rec = {"type": qtype, "median": median, "iqr": list(iqr), "version": version}
+    if distribution is not None:
+        rec["distribution"] = distribution
+    return rec
 
 
 # ------------------------------------------------------------------ binary
@@ -50,14 +55,31 @@ def test_binary_submits_the_ledger_median_clipped_to_metaculus_bounds():
 MC_POST = _post("multiple_choice", options=["Likud", "Yashar", "Other"])
 
 
-def test_multiple_choice_requires_a_spec():
-    with pytest.raises(sm.SubmitError, match="full option vector"):
+MC_VECTOR = {"Likud": 0.381, "Yashar": 0.61, "Other": 0.009}
+
+
+def test_multiple_choice_submits_the_ledgers_option_vector():
+    rec = _record("multiple_choice", 0.61, distribution={"probabilities": MC_VECTOR})
+    p = sm.build_payload("s", rec, MC_POST, None)
+    assert p.values["probability_yes_per_category"] == pytest.approx(MC_VECTOR)
+
+
+def test_legacy_multiple_choice_without_a_distribution_needs_a_spec():
+    with pytest.raises(sm.SubmitError, match="predates the ledger's distribution"):
         sm.build_payload("s", _record("multiple_choice", 0.61), MC_POST, None)
+
+
+def test_spec_for_a_record_that_has_a_distribution_is_refused():
+    """The ledger is the record; a spec may only fill gaps, never override it."""
+    rec = _record("multiple_choice", 0.61, distribution={"probabilities": MC_VECTOR})
+    spec = {"version": 1, "probabilities": MC_VECTOR}
+    with pytest.raises(sm.SubmitError, match="already records"):
+        sm.build_payload("s", rec, MC_POST, spec)
 
 
 def test_multiple_choice_rejects_labels_that_do_not_match_metaculus():
     spec = {"version": 1, "probabilities": {"Likud": 0.39, "Yesh": 0.61}}
-    with pytest.raises(sm.SubmitError, match="match Metaculus exactly"):
+    with pytest.raises(sm.SubmitError, match="options exactly"):
         sm.build_payload("s", _record("multiple_choice", 0.61), MC_POST, spec)
 
 
@@ -119,8 +141,17 @@ def test_numeric_forecast_mostly_above_an_open_upper_bound_is_representable():
 def test_numeric_spec_whose_median_disagrees_with_the_ledger_is_refused():
     spec = {"version": 1, "percentiles": {"25": 40, "50": 45, "75": 50}}
     rec = _record("numeric", 46.5, (43.3, 49.7))
-    with pytest.raises(sm.SubmitError, match="ledger median"):
+    with pytest.raises(sm.SubmitError, match="differs from the median"):
         sm.build_payload("s", rec, _post("numeric", scaling=NUMERIC_SCALING), spec)
+
+
+def test_numeric_submits_the_ledgers_percentiles_without_the_quartile_note():
+    pct = {"5": 38.0, "25": 43.3, "50": 46.5, "75": 49.7, "95": 54.0}
+    rec = _record("numeric", 46.5, (43.3, 49.7), distribution={"percentiles": pct})
+    p = sm.build_payload("s", rec, _post("numeric", scaling=NUMERIC_SCALING), None)
+    assert not p.note
+    cdf = p.values["continuous_cdf"]
+    assert sm.quantile(cdf, NUMERIC_SCALING, 0.05) == pytest.approx(38.0, abs=0.3)
 
 
 def test_log_scaled_grid_matches_metaculus_unscaling():

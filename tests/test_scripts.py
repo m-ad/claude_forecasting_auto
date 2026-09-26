@@ -8,6 +8,7 @@ re-derives the numbers.
 
 from __future__ import annotations
 
+import argparse
 import datetime as dt
 import json
 import math
@@ -374,6 +375,199 @@ def test_new_question_offers_exactly_the_known_sources_and_types():
 
 def test_abbreviations_are_unique():
     assert len(set(_common.SRC_ABBREV.values())) == len(_common.SRC_ABBREV)
+
+
+# ------------------------------------------------------- full distributions
+MC = {"probabilities": {"Likud": 0.381, "Yashar": 0.61, "Other": 0.009}}
+
+
+@pytest.mark.parametrize(
+    "qtype,dist,median,iqr,options,fragment",
+    [
+        ("binary", {"probabilities": {"a": 1.0, "b": 0.0}}, 0.5, [0.4, 0.6], None,
+         "take no distribution"),
+        ("multiple_choice", {"percentiles": {"25": 1, "50": 2}}, 0.6, [0.5, 0.7], None,
+         "exactly one of"),
+        ("multiple_choice", {"probabilities": {"A": 62.0, "B": 38.0}}, 62.0, [50, 70],
+         None, "not percent"),
+        ("multiple_choice", {"probabilities": {"A": 0.6, "B": 0.3}}, 0.6, [0.5, 0.7],
+         None, "sum to"),
+        ("multiple_choice", MC, 0.5, [0.4, 0.6], None, "leading option"),
+        ("multiple_choice", MC, 0.61, [0.55, 0.67], ["Likud", "Yesh Atid", "Other"],
+         "options exactly"),
+        ("numeric", {"percentiles": {"25": 1.0, "75": 3.0}}, 2.0, [1.0, 3.0], None,
+         "include '50'"),
+        ("numeric", {"percentiles": {"25": 1.0, "50": 2.5, "75": 3.0}}, 2.0, [1.0, 3.0],
+         None, "differs from the median"),
+        ("numeric", {"percentiles": {"10": 5.0, "50": 2.0}}, 2.0, [1.0, 3.0], None,
+         "must not decrease"),
+        ("discrete", {"pmf": {"3": 0.2, "4": 0.5, "5": 0.3}}, 5.0, [4.0, 5.0], None,
+         "not a median"),
+    ],
+)
+def test_distribution_problems_catches_each_kind_of_mismatch(
+    qtype, dist, median, iqr, options, fragment
+):
+    problems = _common.distribution_problems(qtype, dist, median, iqr, options)
+    assert any(fragment in p for p in problems), problems
+
+
+@pytest.mark.parametrize(
+    "qtype,dist,median,iqr",
+    [
+        ("multiple_choice", MC, 0.61, [0.55, 0.67]),
+        ("numeric", {"percentiles": {"5": 38, "25": 43.3, "50": 46.5, "75": 49.7}},
+         46.5, [43.3, 49.7]),
+        ("discrete", {"pmf": {"3": 0.2, "4": 0.5, "5": 0.3}}, 4.0, [3.0, 5.0]),
+        ("discrete", {"percentiles": {"25": 3.0, "50": 4.0, "75": 5.0}}, 4.0, [3, 5]),
+    ],
+)
+def test_distribution_problems_accepts_consistent_distributions(qtype, dist, median, iqr):
+    options = list(dist.get("probabilities", {})) or None
+    assert _common.distribution_problems(qtype, dist, median, iqr, options) == []
+
+
+def _snapshot(folder, name, post_id, options):
+    (folder / "raw").mkdir(parents=True, exist_ok=True)
+    (folder / "raw" / name).write_text(
+        json.dumps({"post_id": post_id, "options": options}), encoding="utf-8"
+    )
+
+
+def test_cached_options_takes_the_newest_snapshot_of_this_post(tmp_path, monkeypatch):
+    monkeypatch.setattr(log_forecast, "QUESTIONS", tmp_path)
+    q = tmp_path / "s"
+    _snapshot(q, "metaculus-2026-09-01.json", 7, ["A", "B"])
+    _snapshot(q, "metaculus-2026-09-20.json", 7, ["A", "B", "C"])
+    # A related post cached in the same folder must not be mistaken for this one.
+    _snapshot(q, "metaculus-99-2026-09-25.json", 99, ["X", "Y"])
+    assert log_forecast.cached_options("s", 7) == ["A", "B", "C"]
+    assert log_forecast.cached_options("s", 8) is None
+    assert log_forecast.cached_options("s", None) is None
+
+
+def _add_args(**over) -> argparse.Namespace:
+    base = {
+        "slug": "s", "median": 0.61, "lower": 0.55, "upper": 0.67, "cp": None,
+        "pro": None, "gold": None, "n_forecasters": None, "distribution": None,
+        "thesis": "t", "mode": "initial", "next_review": None,
+    }
+    return argparse.Namespace(**{**base, **over})
+
+
+@pytest.fixture
+def mc_question(tmp_path, monkeypatch):
+    """A throwaway multiple-choice question wired into log_forecast."""
+    meta = {"type": "multiple_choice", "source": "metaculus", "post_id": 7, "current": {}}
+    ledger = tmp_path / "forecasts.jsonl"
+    monkeypatch.setattr(log_forecast, "LEDGER", ledger)
+    monkeypatch.setattr(log_forecast, "QUESTIONS", tmp_path)
+    monkeypatch.setattr(log_forecast, "find_slug", lambda s: s)
+    monkeypatch.setattr(log_forecast, "load_meta", lambda s: meta)
+    monkeypatch.setattr(log_forecast, "save_meta", lambda s, m: None)
+    _snapshot(tmp_path / "s", "metaculus-2026-09-20.json", 7, ["Likud", "Yashar", "Other"])
+    return ledger
+
+
+def _records(ledger) -> list[dict]:
+    return [json.loads(x) for x in ledger.read_text(encoding="utf-8").splitlines()]
+
+
+def test_log_add_refuses_multiple_choice_without_a_distribution(mc_question):
+    with pytest.raises(SystemExit, match="need --distribution"):
+        log_forecast.cmd_add(_add_args())
+    assert not mc_question.exists(), "a refused forecast must not reach the ledger"
+
+
+def test_log_add_refuses_labels_that_differ_from_the_cached_options(mc_question):
+    bad = {"probabilities": {"Likud": 0.381, "Yesh": 0.61, "Other": 0.009}}
+    with pytest.raises(SystemExit, match="options exactly"):
+        log_forecast.cmd_add(_add_args(distribution=json.dumps(bad)))
+    assert not mc_question.exists()
+
+
+def test_log_add_records_the_distribution_inline_or_from_a_file(mc_question, tmp_path):
+    log_forecast.cmd_add(_add_args(distribution=json.dumps(MC)))
+    spec = tmp_path / "d.json"
+    spec.write_text(json.dumps(MC), encoding="utf-8")
+    log_forecast.cmd_add(_add_args(distribution=f"@{spec}", mode="update"))
+    recs = _records(mc_question)
+    assert [r["distribution"] for r in recs] == [MC, MC]
+    assert [r["version"] for r in recs] == [1, 2]
+
+
+def test_log_add_leaves_the_key_out_when_no_distribution_is_given(tmp_path, monkeypatch):
+    """Binary records keep the pre-existing shape exactly."""
+    meta = {"type": "binary", "source": "metaculus", "post_id": 7, "current": {}}
+    ledger = tmp_path / "forecasts.jsonl"
+    monkeypatch.setattr(log_forecast, "LEDGER", ledger)
+    monkeypatch.setattr(log_forecast, "find_slug", lambda s: s)
+    monkeypatch.setattr(log_forecast, "load_meta", lambda s: meta)
+    monkeypatch.setattr(log_forecast, "save_meta", lambda s, m: None)
+    log_forecast.cmd_add(_add_args(median=0.2, lower=0.1, upper=0.3))
+    assert "distribution" not in _records(ledger)[0]
+
+
+def test_log_resolve_keeps_a_multiple_choice_label_verbatim(mc_question):
+    """An option called "0" must stay "0", not become the number 0.0."""
+    ns = argparse.Namespace(slug="s", outcome="Yashar", date=None, source="x")
+    log_forecast.cmd_resolve(ns)
+    assert _records(mc_question)[-1]["outcome"] == "Yashar"
+    with pytest.raises(SystemExit, match="not an option"):
+        log_forecast.cmd_resolve(argparse.Namespace(**{**vars(ns), "outcome": "Kadima"}))
+
+
+# ------------------------------------------------------ multiple-choice scoring
+def test_mc_brier_and_log_score():
+    probs = MC["probabilities"]
+    assert calibration.mc_brier(probs, "Yashar") == pytest.approx(
+        0.381**2 + 0.39**2 + 0.009**2
+    )
+    assert calibration.mc_brier({"a": 1.0, "b": 0.0}, "a") == 0.0
+    assert calibration.mc_brier({"a": 1.0, "b": 0.0}, "b") == pytest.approx(2.0)
+    assert calibration.mc_log_score(probs, "Yashar") == pytest.approx(-math.log(0.61))
+    assert math.isfinite(calibration.mc_log_score({"a": 1.0, "b": 0.0}, "b"))
+
+
+def test_mc_label_recovers_a_legacy_numeric_coding():
+    assert calibration.mc_label("1", ["0", "1", "2"]) == "1"
+    assert calibration.mc_label(1.0, ["0", "1", "2"]) == "1"
+    assert calibration.mc_label("Kadima", ["Likud", "Yashar"]) is None
+
+
+def test_summarise_mc_skill_is_zero_for_a_uniform_forecaster():
+    uniform = {"a": 1 / 3, "b": 1 / 3, "c": 1 / 3}
+    stats = calibration.summarise_mc([(uniform, "a"), (uniform, "c")])
+    assert stats["skill_vs_uniform"] == pytest.approx(0.0, abs=1e-12)
+
+
+def test_calibration_scores_multiple_choice_instead_of_crashing(
+    tmp_path, monkeypatch, capsys
+):
+    """Regression: a label outcome used to hit float("Yashar") and kill the run."""
+    base = {"source": "metaculus", "post_id": 1, "iqr": [0.55, 0.67], "median": 0.61}
+    _write_ledger(
+        tmp_path / "l.jsonl",
+        [
+            {**base, "event": "forecast", "slug": "a", "version": 1,
+             "type": "multiple_choice"},
+            {**base, "event": "forecast", "slug": "a", "version": 2,
+             "type": "multiple_choice", "distribution": MC},
+            {"event": "resolution", "slug": "a", "type": "multiple_choice",
+             "outcome": "Yashar"},
+            {"event": "forecast", "slug": "n", "version": 1, "type": "numeric",
+             "median": 5.0, "iqr": [4.0, 6.0]},
+            {"event": "resolution", "slug": "n", "type": "numeric",
+             "outcome": "above upper bound"},
+        ],
+    )
+    monkeypatch.setattr(calibration, "LEDGER", tmp_path / "l.jsonl")
+    monkeypatch.setattr(sys, "argv", ["calibration.py"])
+    calibration.main()
+    out = capsys.readouterr().out
+    assert "== multiple choice ==" in out and "forecasts scored : 1" in out
+    assert "multiple choice (no option vector)" in out
+    assert "non-numeric outcome" in out
 
 
 # ------------------------------------------------------------- smoke: the CLIs

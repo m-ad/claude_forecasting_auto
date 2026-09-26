@@ -66,7 +66,12 @@ When a question resolves:
 ```bash
 uv run scripts/log_forecast.py resolve <slug> --outcome yes        # binary
 uv run scripts/log_forecast.py resolve <slug> --outcome 87.4       # numeric/date
+uv run scripts/log_forecast.py resolve <slug> --outcome "Labour Party"  # multiple choice
 ```
+
+A multiple-choice outcome is the **exact option label**, stored verbatim (an option named `"0"`
+stays the string `"0"`). `log_forecast.py` refuses a label that is not among the question's
+options.
 
 Then append a short **post-mortem** section to `forecast.md`:
 
@@ -78,7 +83,9 @@ Then append a short **post-mortem** section to `forecast.md`:
 
 `uv run scripts/calibration.py` then recomputes the calibration record across all resolved
 questions: Brier score, log score, calibration-by-bucket, and skill relative to the Metaculus
-community prediction at the same timestamps.
+community prediction at the same timestamps. Multiple-choice versions are scored with the
+multi-class Brier score and the log score from their recorded option vector; versions logged
+without one (before the ledger had a `distribution` field) are listed as not scored.
 
 ## Automating the cadence
 
