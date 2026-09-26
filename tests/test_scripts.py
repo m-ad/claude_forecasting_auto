@@ -384,6 +384,7 @@ CLI_INVOCATIONS = [
     ["calibration.py", "--latest-only"],
     ["log_forecast.py", "--help"],
     ["new_question.py", "--help"],
+    ["submit_metaculus.py", "--help"],
 ]
 
 
