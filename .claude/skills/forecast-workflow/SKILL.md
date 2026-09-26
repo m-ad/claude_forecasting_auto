@@ -91,6 +91,21 @@ uv run scripts/log_forecast.py add <slug> \
     --thesis "..." --next-review 2026-10-31
 ```
 
+**Record the full distribution with `--distribution`** whenever the median and IQR are not the
+whole forecast. The ledger is the only machine-readable record, and a summary can't be scored
+against an outcome it doesn't describe:
+
+- **multiple choice — required** (`log_forecast.py` refuses without it). The option vector,
+  keyed by the **exact Metaculus option labels** (from the cached `raw/metaculus-*.json`, not
+  the shortened names in `forecast.md`), as fractions summing to 1. `--median` is the leading
+  option's probability and must equal its entry. Put the vector in a JSON file and pass it as
+  `@file` when a label contains quotes:
+  `--distribution '{"probabilities": {"Likud": 0.381, "Yashar": 0.61, "Other": 0.009}}'`
+- **numeric / date — recommended** when you have more than quartiles:
+  `--distribution '{"percentiles": {"5": 186000, "25": 236000, "50": 272000, "75": 320000, "95": 461000}}'`
+  (`"50"` required and equal to `--median`; `"25"`/`"75"` equal to `--lower`/`--upper`).
+- **discrete — recommended**: `{"pmf": {"0": 0.001, "1": 0.012, ...}}` (outcome value → probability).
+
 Then `uv run scripts/status.py --index` to refresh `INDEX.md`.
 
 **Before committing**, run both and fix any failures — this is a repo-edit workflow, per

@@ -64,9 +64,16 @@ Update `meta.yaml`: `current`, `next_review`, revised `tripwires`.
 
 ```bash
 uv run scripts/log_forecast.py add <slug> --median ... --lower ... --upper ... \
-    --cp ... --pro ... --gold ... --thesis "..." --next-review YYYY-MM-DD
+    --cp ... --pro ... --gold ... --thesis "..." --next-review YYYY-MM-DD \
+    --distribution '...'   # required for multiple choice; see below
 uv run scripts/status.py --index
 ```
+
+`--distribution` records this version's full forecast, in the same form as
+`forecast-workflow` step 9: the option vector for multiple choice (**required**, exact Metaculus
+labels); `percentiles` or `pmf` for numeric/date/discrete when you have more than quartiles.
+Write the **new** version's values, never the prior's. Versions logged before the field existed
+lack it, and that is fine: the ledger is append-only and they stay as they are.
 
 **Before committing**, run both and fix any failures — this is a repo-edit workflow, per
 `CLAUDE.md`'s Git section:
@@ -79,7 +86,7 @@ uv run pytest -q
 ## Resolution and post-mortem
 
 ```bash
-uv run scripts/log_forecast.py resolve <slug> --outcome yes|no|<value>
+uv run scripts/log_forecast.py resolve <slug> --outcome yes|no|<value>|"<exact option label>"
 uv run scripts/calibration.py
 ```
 
@@ -87,7 +94,8 @@ Append a `## Resolution — <date>` section to `forecast.md`, then re-run the li
 gate above before committing.
 
 - What happened, via which resolution source, on which date.
-- Per-version Brier score (binary) or absolute/quantile error (numeric), and the same for the
+- Per-version Brier score (binary), multi-class Brier + log score (multiple choice), or
+  absolute/quantile error (numeric), and the same for the
   community prediction at the same timestamps — did you beat the crowd?
 - **The tripwire that should have existed and did not.** Mandatory. This is the only part of a
   post-mortem that improves future forecasts.
