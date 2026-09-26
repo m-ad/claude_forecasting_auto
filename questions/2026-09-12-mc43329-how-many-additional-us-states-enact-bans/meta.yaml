@@ -17,18 +17,18 @@ dates:
   resolves: '2027-07-01'
 status: open
 current:
-  version: 1
-  date: '2026-09-12'
+  version: 2
+  date: '2026-09-26'
   median: 0.28
   iqr:
   - 0.24
   - 0.32
   community:
-    cp: 0.3
-    pro: 0.283
-    gold: 0.288
-    n_forecasters: 31
-    as_of: '2026-09-12'
+    cp: 0.265
+    pro: 0.271
+    gold: 0.277
+    n_forecasters: 34
+    as_of: '2026-09-26'
 next_review: '2026-12-15'
 tripwires:
 - signal: Fewer than 3 states have introduced a full cultivated-meat sale ban for their 2027 session

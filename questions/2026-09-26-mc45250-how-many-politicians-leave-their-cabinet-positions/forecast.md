@@ -6,11 +6,145 @@
 | **Type** | multiple choice — 4 options: **0** · **1** · **2** · **3 or more** |
 | **Opened / Closes / Resolves** | — (Metaculus "upcoming"; opens 2026-09-28 17:00 UTC) / 2026-12-31 23:59 UTC / 2027-01-01 12:30 UTC (scheduled) |
 | **Status** | open |
-| **Current forecast** | **0: 50.0%, 1: 28.0%, 2: 12.0%, 3+: 10.0%** — IQR on "0" [44.0%, 56.0%] (v1, 2026-09-26) |
-| **Community (as of 2026-09-26)** | CP / Pro / gold hidden until 2026-09-30 17:00 UTC (n=7 pre-open forecasters) |
+| **Current forecast** | **0: 56.5%, 1: 22.0%, 2: 10.0%, 3+: 11.5%** — IQR on "0" [49.5%, 63.5%] (v2, 2026-09-26) |
+| **Community (as of 2026-09-26)** | CP / Pro / gold hidden until 2026-09-30 17:00 UTC (n=10 pre-open forecasters) |
 | **Next review** | 2026-10-01 |
 
 <!-- Versions below, newest first. APPEND-ONLY: never edit or delete a past version. -->
+
+---
+
+## v2 — Re-analysis — 2026-09-26
+
+**Why re-analysis:** the question's structure changed. v1 was built this morning against
+unpublished criteria (the API returned them as null), with three weighted readings. Tripwire #1
+("published resolution criteria…") has fired: the criteria, fine print and background are now
+live (Metaculus API, 20:05 UTC) [1]. So the count model is re-derived against the actual text.
+The operator also asked for the full option vector in the ledger's new `distribution` field.
+This version supplies it.
+
+### What resolves YES (replaces v1's section)
+
+> "the total number of Members of Parliament acting as one of the **top 18 ranked cabinet
+> members (as of July 20, 2026)** who leave their positions **after September 1, 2026 and before
+> January 1, 2027**. **Any reason for leaving cabinet positions will count.** … If the Prime
+> Minister changes during this period the question will resolve to **the number as of that
+> date**." Resolution source: the Parliament "His Majesty's Government: The Cabinet" page [1].
+
+The fine print names the 18 people, in ministerial rank order: Haigh (First Secretary / CDL),
+**Healey (Chancellor)**, Miliband (Foreign), **Mahmood (Home)**, Streeting (Defence), Cooper
+(Health), Norris (Justice), Powell (Education), McFadden (DWP), Reynolds (Business), **Rayner
+(Housing)**, H. Alexander (Transport), **Fahnbulleh (Energy)**, Nandy (DCMS), Eagle (Defra),
+Bryant (NI), D. Alexander (Scotland), Kinnock (Wales).
+
+What this settles, against v1's three readings:
+
+1. **Scope is narrower than v1's R1/R1b.** Only these 18 count. The PM is not on the list. Nor
+   are the Chief Whip, the Leader of the House, the Lords leader, the Chief Secretary, the
+   Attorney General or any "also attending" minister. Exposure falls from v1's ~22 full
+   members (R1) or ~27 (R1b) to 18. The 18 are, however, the most senior and most exposed
+   posts.
+2. **Sideways moves count.** "Leave their positions" plus "any reason" means a minister moved
+   from one of these posts to another has left their position. That is v1's R2 reading, which
+   I now weight ~85%, up from 25%. A reshuffle, even a mini-reshuffle to fill one vacancy,
+   now adds to the count.
+3. **A PM change truncates the count** at the date of the change. v1's regime-shock branch,
+   in which Burnham falls and a new PM brings a wave of exits resolving 3+, largely goes. Only
+   departures before the handover count.
+4. **The window starts 1 Sep, not ~28 Sep.** Nobody on the list left between 1 and 26 Sep
+   (v1's searches, re-checked 26 Sep) [2], so this changes nothing.
+
+### Revision table
+
+| Driver | Direction | Effect on P(`0`) |
+|---|---|---|
+| **Prior (v1, 2026-09-26 morning)** | — | **50.0%** (1: 28.0 · 2: 12.0 · 3+: 10.0) |
+| **Scope: 18 named posts, PM excluded, attending ministers excluded.** Idiosyncratic rate λ scales from v1's 0.62 by ~0.87. That is less than the 18/22 headcount ratio because these are the posts that attract budget fights and scandal coverage. λ ≈ **0.54**, Poisson P(0) ≈ 58% | ↑ | **+5.0** |
+| **A PM change truncates the count.** v1 put ~3% on Burnham falling, resolving ~90% 3+. Under the published text that branch now splits about 0: 40 / 1: 30 / 2: 15 / 3+: 15 | ↑ | **+1.5** |
+| **Sideways moves count (R2 now ~85%).** A single resignation now triggers a counted cascade ~30% of the time, as Rayner's September 2025 exit did. Haigh's 2024 exit did not. This moves mass from 1 into 2 and 3+, not out of 0 | — | **0** (1: −6, 2: −2, 3+: +1.5 relative to the other rows) |
+| **Window from 1 Sep** — no listed minister has left since then [2] | — | 0 |
+| **New forecast (v2)** | | **56.5%** (1: 22.0 · 2: 10.0 · 3+: 11.5), IQR on `0` [49.5%, 63.5%] |
+
+**Construction.** Idiosyncratic departures ~ Poisson(0.54): 0: 58.3 · 1: 31.5 · 2: 8.5 · 3+: 1.7.
+Each departure triggers a counted sideways cascade with probability 0.30. The cascade adds one
+more (40%) or two or more (60%). Result: 0: 58.3 · 1: 22.1 · 2: 9.7 · 3+: 9.9. That gets 95%
+of the weight. The remaining 5% is a regime event: a 2% planned reshuffle, which resolves 3+
+under the sideways rule, and a 3% PM change, truncated as in row 3. Total: **0: 56.5 · 1: 22.0
+· 2: 10.0 · 3+: 11.5**.
+
+### Tripwire check (v1 list)
+
+| # | Tripwire | Status | Evidence |
+|---|---|---|---|
+| 1 | Published criteria count sideways moves or attending ministers (→ 2/3+), or only full-cabinet exits (→ 1) | **Fired, mixed.** Sideways moves count (→ 2/3+). Attending ministers and the PM are excluded, and the PM-change count stops at the handover date (→ 0) | Criteria text [1]; handled by this re-analysis |
+| 2 | Metaculus Pro + gold agree on `0` above 65% or below 35% at CP reveal | Not due | Still `upcoming`, CP reveal 2026-09-30 17:00 UTC, n=10 [1] |
+| 3 | A cabinet minister referred to the Independent Adviser, or publicly threatening to resign | Not fired | nothing found since this morning [2] |
+| 4 | 30-year gilt > 6.25% for 3 sessions, or 28 Oct Budget postponed / partly withdrawn | Not fired | not observed since v1, hours ago |
+| 5 | Polymarket "Burnham out by Dec 31" ≥ 15% for 48h | Not fired | 6.3% at v1 (this morning's snapshot) |
+| 6 | No cabinet departure announced by 30 Nov | Not due | — |
+
+### Outside view
+
+Unchanged from v1. The reference-class counts (Oct–Dec windows 2002–2025: 0 in 42%) are for
+full-cabinet exits. The scope and truncation adjustments above map them onto the published
+definition.
+
+### Inside view
+
+Unchanged from v1.
+
+### Evidence
+
+Unchanged from v1.
+
+### Other forecasters
+
+Unchanged from v1.
+
+### Scenarios
+
+| # | Scenario | Weight | Implies |
+|---|---|---|---|
+| 1 | Honeymoon holds; the Budget passes without a cabinet casualty | 0.565 | `0` |
+| 2 | One resignation or sacking (Budget row, immigration split, a scandal), filled from below | 0.22 | `1` |
+| 3 | One departure plus one sideways move to fill it, or two unrelated exits | 0.10 | `2` |
+| 4 | A mini-reshuffle after a senior exit, a planned winter reshuffle, or a pre-handover wave | 0.115 | `3 or more` |
+
+### Sensitivity
+
+| Assumption | If instead | Forecast becomes |
+|---|---|---|
+| Sideways moves count (~85%) | an admin rules they do not | 0: ~56.5 · 1: ~31 · 2: ~8.5 · 3+: ~4 |
+| λ ≈ 0.54 (18 senior posts) | v1's 0.62 (no scope discount) | 0: ~52% |
+| — | 0.45 (strict 18/22 headcount scaling) | 0: ~62% |
+| 3% chance of a PM change before 2027 | 10% (a Budget-driven gilt crisis) | 0: ~55%, 3+: ~12% |
+
+### What would change my mind (tripwires)
+
+- [ ] **Metaculus Pro + gold agree on `0` above 68% or below 42% at CP reveal** (2026-09-30) → re-derive before defending (either direction).
+- [ ] **A listed minister is referred to the Independent Adviser on Ministerial Standards, or publicly threatens to resign**, by 2026-11-30 → `0` down ~10pp.
+- [ ] **The 30-year gilt closes above 6.25% for 3 consecutive sessions, or the 28 Oct Budget is postponed or partly withdrawn**, by 2026-11-15 → `0` down ~8pp.
+- [ ] **Polymarket "Burnham out as PM by Dec 31" at or above 15% for 48h**, by 2026-12-15 → `0` down ~5pp. The count truncates at a PM change, so this matters less than it did in v1.
+- [ ] **No listed minister leaves by 30 Nov** → `0` up ~15pp.
+- [ ] **An admin clarifies that sideways moves do not count** → shift ~4pp from 2/3+ back to 1.
+
+### Sources
+
+1. Metaculus question 45250: resolution criteria, fine print (the 18 listed posts) and background, via the API with the bot key — https://www.metaculus.com/questions/45250/ (accessed 2026-09-26 20:05 UTC; `raw/metaculus-2026-09-26-evening.json`)
+2. Burnham ministry — Wikipedia — https://en.wikipedia.org/wiki/Burnham_ministry (accessed 2026-09-26, via search summary; no departures of listed ministers since formation)
+3. Ministers — GOV.UK — https://www.gov.uk/government/ministers (accessed 2026-09-26) — carried forward from v1 [2], still relied on
+4. Institute for Government, "Six things we learned from Andy Burnham's government formation" (29 Jul 2026) — https://www.instituteforgovernment.org.uk/comment/six-things-learned-andy-burnhams-government-formation (accessed 2026-09-26) — carried forward from v1 [4], still relied on
+5. Options Trading Report, "UK Gilts Near 6%: The Bond Market Is Writing the Budget" (8 Sep 2026) — https://www.optionstradingreport.com/2026/09/uk-gilts-near-6-the-bond-market-is-writing-the-budget/ (accessed 2026-09-26) — carried forward from v1 [5], still relied on
+6. Professional Pensions, "Government confirms date for Autumn Budget 2026" — https://www.professionalpensions.com/news/4533779/government-confirms-date-autumn-budget-2026 ; LBC — https://www.lbc.co.uk/article/when-budget-date-2026-john-healey-5HjdfPp_2/ (search snippets, accessed 2026-09-26) — carried forward from v1 [7], still relied on
+7. Ipsos, "Burnham bounce continues…" (fieldwork 10–15 Sep 2026) — https://www.ipsos.com/en-uk/burnham-bounce-continues-public-more-favourable-towards-pm-other-leading-uk-politicians (search snippet, accessed 2026-09-26) — carried forward from v1 [8], still relied on
+8. HuffPost UK, "Cabinet Splits Erupt As Angela Rayner Condemns Shabana Mahmood's Immigration Crackdown" (26 Sep 2026) — https://www.huffingtonpost.co.uk/entry/cabinet-split-angela-rayner-shabana-mahmood_uk_6ab77bbde4b07795582c58c5 (accessed 2026-09-26) — carried forward from v1 [11], still relied on
+9. HuffPost UK, "Andy Burnham Backs Shabana Mahmood's Immigration Crackdown Despite Labour Backlash" — https://www.huffingtonpost.co.uk/entry/andy-burnham-backs-shabana-mahmoods-immigration-crackdown-despite-labour-backlash_uk_6a548a87e4b09843d52bb9f8 (search snippet, accessed 2026-09-26) — carried forward from v1 [14], still relied on
+10. ITV News, "Angela Rayner has been cleared by HMRC after stamp duty row" (14 May 2026) — https://www.itv.com/news/2026-05-14/angela-rayner-says-she-has-been-cleared-by-hmrc-after-stamp-duty-row (search snippet, accessed 2026-09-26) — carried forward from v1 [15], still relied on
+11. Institute for Government, "Ministers resigning from government" (updated 12 Jun 2026) — https://www.instituteforgovernment.org.uk/explainer/ministers-resigning-government (accessed 2026-09-26) — carried forward from v1 [18], still relied on
+
+**Date**: 2026-09-26
+**Forecast**: 0: 56.5%, 1: 22.0%, 2: 10.0%, 3 or more: 11.5% — IQR on "0" [49.5%, 63.5%]
+**Thesis**: The published criteria count only 18 named cabinet MPs, excluding the PM and attending ministers, and stop counting at any change of PM. That cuts the exposure behind v1's λ = 0.62 to about 0.54 and removes most of the Burnham-falls path to 3+, so `0` rises 6.5pp [1]. "Any reason for leaving" makes sideways moves count, so a single resignation that triggers a mini-reshuffle now reaches 2 or 3+. That keeps the upper tail fat even as `1` shrinks.
 
 ---
 

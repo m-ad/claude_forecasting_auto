@@ -16,37 +16,30 @@ dates:
   resolves: '2026-10-09'
 status: open
 current:
-  version: 2
-  date: '2026-09-24'
-  median: 0.76
+  version: 3
+  date: '2026-09-26'
+  median: 0.78
   iqr:
-  - 0.69
-  - 0.82
+  - 0.71
+  - 0.84
   community:
-    cp: 0.798
-    pro: 0.85
-    gold: 0.808
-    n_forecasters: 97
-    as_of: '2026-09-24'
+    cp: 0.79
+    pro: 0.815
+    gold: 0.81
+    n_forecasters: 107
+    as_of: '2026-09-26'
 next_review: '2026-10-01'
 tripwires:
-- signal: Statement of Persons Nominated shows a Your Party, Camden People's Alliance or other left-of-Labour
-    candidate
-  by: '2026-09-16'
-  direction: up
-  magnitude: 6
-  magnitude_unit: pp
-  fired: true
-- signal: First published constituency poll shows the Greens within 3pp of Labour or ahead
+- signal: Constituency poll shows the Greens within 3pp of Labour or ahead
   by: '2026-10-08'
   direction: down
   magnitude: 15
   magnitude_unit: pp
   fired: null
-- signal: First published constituency poll shows Labour ahead by 10pp or more
+- signal: Constituency poll shows Labour ahead by 10pp or more
   by: '2026-10-08'
   direction: up
-  magnitude: 6
+  magnitude: 5
   magnitude_unit: pp
   fired: null
 - signal: UK-wide Green voting intention above 15% in two or more polls
@@ -55,13 +48,13 @@ tripwires:
   magnitude: 4
   magnitude_unit: pp
   fired: null
-- signal: Polymarket Abdi-Wali below 70% or best bookmaker Green price 3/1 or shorter, sustained 24h
+- signal: Polymarket Abdi-Wali below 75% or best bookmaker Green price 3/1 or shorter, sustained 24h
   by: '2026-10-07'
   direction: down
   magnitude: 5
   magnitude_unit: pp
   fired: null
-- signal: Galloway stands down or endorses Polanski
+- signal: Galloway endorses Polanski
   by: '2026-10-08'
   direction: down
   magnitude: 3

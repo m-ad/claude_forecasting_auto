@@ -15,7 +15,7 @@ dates:
   resolves: '2026-12-14'
 status: open
 current:
-  version: 2
+  version: 3
   date: '2026-09-26'
   median: 0.695
   iqr:
@@ -23,8 +23,8 @@ current:
   - 0.75
   community:
     cp: 0.7
-    pro: 0.7318
-    gold: 0.71
+    pro: 0.696
+    gold: 0.7
     n_forecasters: 98
     as_of: '2026-09-26'
 next_review: '2026-10-05'

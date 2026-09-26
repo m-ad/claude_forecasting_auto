@@ -6,12 +6,131 @@
 | **Type** | multiple choice — options `0`, `1`, `2`, `3`, `4+` |
 | **Opened / Closes / Resolves** | 2026-09-07 / 2026-10-16 / 2026-11-30 (NHC data as of 2026-12-01) |
 | **Status** | open |
-| **Current forecast** | **0: 67.0% · 1: 24.0% · 2: 6.5% · 3: 2.0% · 4+: 0.5%** — leading option `0`, IQR [60.0%, 73.0%] (v3, 2026-09-23) |
-| **Community (as of 2026-09-23)** | CP **0: 63.0%** · Pro **66.0%** (n=10) · gold **62.6%** (n=33) — n=122 forecasters; cohorts within 3.4 pp, Pros highest |
-| **Market (as of 2026-09-23)** | **Kalshi `KXHURCTOTMAJ-26DEC01`: P(0) ≈ 69.5%** (`>0` strike 28/33¢, trades 30–37¢ at 04:53Z, 16.6k contracts) |
+| **Current forecast** | **0: 70.0% · 1: 22.5% · 2: 5.5% · 3: 1.5% · 4+: 0.5%** — leading option `0`, IQR [63.5%, 76.0%] (v4, 2026-09-26) |
+| **Community (as of 2026-09-26)** | CP **0: 70.7%** · Pro **71.2%** (n=10) · gold **70.1%** (n=33) — n=132 forecasters; cohorts within 1.1 pp |
+| **Market (as of 2026-09-26)** | **Kalshi `KXHURCTOTMAJ-26DEC01`: P(0) ≈ 62.5%** (`>0` strike 36/39¢, last 39¢, 17.5k contracts; thin fresh volume) |
 | **Next review** | 2026-09-30 |
 
 <!-- Versions below, newest first. APPEND-ONLY: never edit or delete a past version. -->
+
+---
+
+## v4 — Update — 2026-09-26
+
+**Mode: Update** (incremental). Three days since v3. No market or cohort contradicts me by more
+than 10pp. The question's structure has not changed. My last two versions did move the same way
+(47 → 63 → 67), which is one of the protocol's re-analysis triggers. The movement is driven by
+the calendar: each week without a major hurricane removes season that could have produced one.
+It is not an argument I keep leaning on, so I re-derived the rate from scratch below rather than
+nudging it. The operator also asked for the full option vector in the ledger's new
+`distribution` field. This version supplies it.
+
+### Revision table
+
+| Driver | Direction | Effect on P(`0`) |
+|---|---|---|
+| **Prior (v3, 2026-09-23)** | — | **67.0%** (1: 24.0 · 2: 6.5 · 3: 2.0 · 4+: 0.5) |
+| **Hazard decay, and the next week is already spoken for.** Still zero hurricanes on 26 Sep [1][2]. NHC's 26 Sep outlook: **Tropical Storm Gonzalo** (35 kt, forecast to become a remnant low within 12h and dissipate by 30 Sep) [3]; **Tropical Depression Fay** regenerated WSW of the Azores (30 kt, peak forecast 30 kt, dissipating ~1 Oct) [4]; and one subtropical trough SE of Bermuda at 10% / 20% (2-day / 7-day formation) [1]. None can reach Cat 3. So through ~3 Oct the basin is effectively closed to majors. The climatological share of major-hurricane activity left falls from ~33% (v3) to ~24% after 3 Oct. λ goes 0.30 → **0.25**. v2's four-branch mixture moves 71.2% → ~75%; with v3's shade kept, that is +3.5 on my number | ↑ | **+3.5 pp** |
+| **Kalshi moved the other way, P(0) ≈ 69.5% → ≈ 62.5%.** The `>0` strike is at 36/39¢ (last 39¢), against 28/33¢ at v3. But T0 volume grew only from 16.6k to 17.5k contracts, so ~900 contracts moved it. The upper strikes are incoherent: `>1` at 17/21¢ implies P(exactly 1) ≈ 18% but P(≥2) ≈ 19%. That points to a thin book, not information. Still, it is a real-money anchor that disagrees with the cohorts | ↓ | **−1.0 pp** |
+| **Metaculus cohorts rose into agreement at ~71%**: CP 63.0 → **70.7**, Pros 66.0 → **71.2**, gold 62.6 → **70.1**. Largely the same calendar evidence I am using, so it gets a small weight | ↑ | **+0.5 pp** |
+| **New forecast (v4)** | | **0: 70.0%** · 1: 22.5 · 2: 5.5 · 3: 1.5 · 4+: 0.5, IQR on `0` [63.5%, 76.0%] |
+
+**Rate construction.** At λ ≈ 0.25, v2's four-branch mixture gives 0 ≈ 75%. I keep v3's
+deliberate shade of ~4pp toward the higher counts, which gives ~70.5%. The shade has two
+reasons: (a) the ECMWF early-October relaxation signal (v3 row 3) is not yet refuted, only
+pushed later; (b) a single favourable window can make two majors (2002). The Kalshi (−1) and
+cohort (+0.5) rows then land it at 70.0%. The shade leaves 1 at 22.5 and 2+ at 7.5, above what the pure Poisson tail
+(0.25) would give (2+ ≈ 2.6%). The overdispersion is deliberate: one good window can produce
+more than one storm.
+
+### Tripwire check (v3 list)
+
+| # | Tripwire | Status | Evidence |
+|---|---|---|---|
+| 1 | Any Atlantic system reaches Cat 3 | **Not fired** | No hurricanes at all. Gonzalo peaked at 35 kt; Fay regenerated as a 30 kt depression [3][4] |
+| 2 | Still zero hurricanes on 2026-09-30 → +4pp | **Not due, all but certain to fire** | Nothing on the map can reach 64 kt before 30 Sep [1][3][4]. Its effect is already in row 2 above, so it will not be added again on 30 Sep |
+| 3 | CSU two-week forecast of 2026-09-30 is near/above normal → −5pp; below normal → +2pp | Not due | Issue date 2026-09-30 |
+| 4 | NHC ≥ 50% 7-day in the Gulf, western Caribbean or Bahamas/western Atlantic → −6pp | **Not fired** | The only area is a subtropical trough SE of Bermuda at 20% 7-day, moving north then east [1] |
+| 5 | 2026-10-10 passes with zero majors → `0` to ~80% | Not due | 14 days away |
+| 6 | CPC ENSO update (~10-08) puts OND RONI below +2.0 → −5pp | Not due | — |
+| 7 | Kalshi `>0` outside 22–42¢ → re-check, do not nudge | **Not fired (near the upper edge)** | 36/39¢, last 39¢ [5] |
+| 8 | Metaculus Pros below 58% or above 75% | **Not fired** | Pros 71.2% (n=10) [6] |
+
+### What resolves YES
+
+Unchanged from v3.
+
+### Outside view
+
+Unchanged from v3.
+
+### Scenarios
+
+Unchanged from v3, except the scenario weights, which follow the new vector: shear never
+relaxes enough 0.70 · one window, one major 0.225 · the 2002 shape 0.055 · genuine
+back-loading 0.015 · full repeat 0.005. The option labels used in the ledger are Metaculus's
+exact strings `0`, `1`, `2`, `3`, `4+`.
+
+### Inside view
+
+Unchanged from v3.
+
+### Evidence
+
+Unchanged from v3.
+
+### Other forecasters (2026-09-26)
+
+| Source | P(0 majors) | As of | Note |
+|---|---|---|---|
+| **Kalshi `KXHURCTOTMAJ-26DEC01`** | **≈ 62.5%** (`>0` 36/39¢) | 2026-09-26 | T0 17.5k contracts (was 16.6k); implied 1: ~18.5 · 2: ~12 · 3+: ~6.5 on a thin, inconsistent upper book [5] |
+| **Metaculus CP** | **70.7%** | 2026-09-26 19:29 | n=132 |
+| **Metaculus Pros** | **71.2%** | 2026-09-26 | n=10 |
+| **Metaculus gold medalists** | **70.1%** | 2026-09-26 | n=33 |
+| WeatherTiger | paywalled | 2026-09-25 | The public teaser says "no tropical threats to Florida or the continental U.S. for the next week or more". A search snippet puts the chance of beating 1983's record-low activity at 30–35% [7] |
+
+**Cohort agreement**: all three Metaculus cohorts are within 1.1pp of each other. I am 0.1–1.2pp
+below them. Kalshi sits 7.5pp below me on thin fresh volume.
+
+### Sensitivity
+
+| Assumption | If instead | Forecast becomes |
+|---|---|---|
+| λ ≈ 0.25 for 26 Sep – 30 Nov | 0.30: the ECMWF early-October window at v3's half face value, not pushed later | 0: ~67% |
+| — | 0.20: pure decay, no relaxation window at all | 0: ~75% |
+| — | 0.40: the ECMWF window at full face value | 0: ~60%, near Kalshi's 62.5% |
+| No major by 10 Oct | (checkable 2026-10-10) | 0: ~79% |
+
+### What would change my mind (tripwires)
+
+- [ ] **Any Atlantic system reaches Category 3**, by 2026-11-30 → `0` collapses to ~0%.
+- [ ] **CSU two-week forecast of 2026-09-30 favours near- or above-normal activity** → down ~5pp; "below normal" again → up ~2pp.
+- [ ] **NHC TWO flags ≥ 50% 7-day formation in the Gulf, western Caribbean or Bahamas/western Atlantic**, by 2026-10-31 → down ~6pp; if NHC forecasts such a system to Cat 2+ → down a further ~10pp.
+- [ ] **2026-10-10 passes with zero majors** → `0` to ~79%.
+- [ ] **CPC ENSO update (~2026-10-08) puts OND RONI below +2.0 or shows El Niño peaking early** → down ~5pp.
+- [ ] **Kalshi `>0` trades outside 25–45¢** (P(0) outside 55–75%) on more than 3k fresh contracts → re-check, do not nudge.
+- [ ] **Metaculus Pros fall below 62% or rise above 80%**.
+
+### Sources
+
+1. NHC Atlantic Tropical Weather Outlook, 2:00 PM EDT Sat 26 Sep 2026 — https://www.nhc.noaa.gov/gtwo.php?basin=atlc&fdays=7 (accessed 2026-09-26)
+2. First Atlantic hurricane season without a hurricane by Sept. 21 in 112 years — WCAX, 2026-09-21 — https://www.wcax.com/2026/09/21/first-atlantic-hurricane-season-without-hurricane-by-sept-21-112-years/ (accessed 2026-09-26, via search summary)
+3. NHC Tropical Storm Gonzalo Discussion, 26 Sep 2026 15Z — https://www.nhc.noaa.gov/text/refresh/MIATCDAT2+shtml/ (accessed 2026-09-26)
+4. NHC Tropical Depression Fay Discussion, 26 Sep 2026 15Z — https://www.nhc.noaa.gov/text/refresh/MIATCDAT1+shtml/ (accessed 2026-09-26)
+5. Kalshi `KXHURCTOTMAJ` series, trade API — https://kalshi.com/markets/kxhurctotmaj (accessed 2026-09-26; `raw/kalshi-KXHURCTOTMAJ-2026-09-26.json`)
+6. Metaculus question 45381, three-cohort aggregations and comments — https://www.metaculus.com/questions/45381/ (accessed 2026-09-26; `raw/metaculus-2026-09-26.json`)
+7. Don't Call it a Comeback: The Hurricane Watch for Sept. 25th — WeatherTiger — https://weathertiger.substack.com/p/dont-call-it-a-comeback-the-hurricane-4ad (accessed 2026-09-26; public teaser only)
+8. Wikipedia — "2026 Atlantic hurricane season": Fay 19–22 Sep, 70 mph; 6 NS / 0 H / 0 MH; ACE ≈ 6.3 as of 22 Sep — https://en.wikipedia.org/wiki/2026_Atlantic_hurricane_season (accessed 2026-09-23) — carried forward from v3 [43], still relied on
+9. Michael Lowry — "Fast-Forming Fay Nearly Ends Record Atlantic Hurricane Drought, Now Quickly Fading" — https://michaelrlowry.substack.com/p/fast-forming-fay-nearly-ends-record (accessed 2026-09-23) — carried forward from v3 [44], still relied on
+10. WeatherTiger — "THE Miami Hurricane: WeatherTiger's Weekly Hurricane Column for September 18th" (ECMWF 40% / 70% / 60% of normal activity by window) — https://weathertiger.substack.com/p/the-miami-hurricane-weathertigers (accessed 2026-09-23) — carried forward from v3 [45], still relied on
+11. WeatherTiger — "There Was An Attempt: The Hurricane Watch for Sept. 21th" (season 62.4% complete by storm energy) — https://weathertiger.substack.com/p/there-was-an-attempt-the-hurricane (accessed 2026-09-23) — carried forward from v3 [47], still relied on
+12. NOAA CPC — Global Tropics Hazards Outlook, issued 2026-09-22 — https://www.cpc.ncep.noaa.gov/products/precip/CWlink/ghazards/index.php (accessed 2026-09-23) — carried forward from v3 [48], still relied on
+13. Boston Globe — "Atlantic hurricane activity remains quiet while Pacific roars" (21–22 Sep 2026) — https://www.bostonglobe.com/2026/09/22/metro/record-quiet-2026-atlantic-hurricane-season/ (accessed 2026-09-23) — carried forward from v3 [49], still relied on
+14. Philip Klotzbach on X (22 Sep 2026): least ACE to date since 1950 — https://x.com/philklotzbach/status/2102423003397288003 (accessed 2026-09-23 via search index; direct fetch not attempted) — carried forward from v3 [51], still relied on
+
+**Date**: 2026-09-26
+**Forecast**: 0: 70.0%, 1: 22.5%, 2: 5.5%, 3: 1.5%, 4+: 0.5% — IQR on `0` [63.5%, 76.0%]
+**Thesis**: Up 3pp. Still no hurricane of any strength on 26 Sep. The only systems on the map, Gonzalo, Fay and a 20% trough, cannot reach Category 3, which effectively closes the basin to majors until ~3 Oct and cuts the remaining rate from ~0.30 to ~0.25 [1][3][4]. All three Metaculus cohorts converged at 70–71% [6]. Kalshi slipped to ~62.5% [5], but on ~900 contracts and an internally inconsistent upper book, so I keep v3's shade toward one late major rather than follow it.
 
 ---
 

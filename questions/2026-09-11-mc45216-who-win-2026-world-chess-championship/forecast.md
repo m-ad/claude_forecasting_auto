@@ -6,11 +6,94 @@
 | **Type** | multiple choice — 2 options: **Gukesh Dommaraju** · **Javokhir Sindarov** |
 | **Opened / Closes / Resolves** | — / 2026-12-14 17:30 UTC / **2026-12-14** (match ends 12 Dec — Game 14 on the 11th, tiebreaks on the 12th — or earlier if someone reaches 7½) |
 | **Status** | open |
-| **Current forecast** | **Sindarov 69.5%, Gukesh 30.5%** — IQR on Sindarov [64.0%, 75.0%] (v2, 2026-09-26) |
-| **Community (as of 2026-09-26)** | **CP 70.0%** (n=98) · **Pro 73.2%** (n=10) · **Gold medalists 71.0%** (n=29) Sindarov |
+| **Current forecast** | **Sindarov 69.5%, Gukesh 30.5%** — IQR on Sindarov [64.0%, 75.0%] (v3, 2026-09-26) |
+| **Community (as of 2026-09-26)** | **CP 70.0%** (n=98) · **Pro 69.6%** (n=10) · **Gold medalists 70.0%** (n=29) Sindarov; Polymarket 71.5%, Kalshi 68/70¢ |
 | **Next review** | 2026-10-05 |
 
 <!-- Versions below, newest first. APPEND-ONLY: never edit or delete a past version. -->
+
+---
+
+## v3 — Update (no change) — 2026-09-26
+
+**Mode: Update** (incremental, same day as v2). This version exists to record v2's forecast as
+a full option vector in the ledger's new `distribution` field. v2 was logged ~5 hours earlier,
+before that field existed. The live numbers were re-fetched anyway, and every v2 tripwire was
+re-checked. **No change** is the right result: nothing that bears on the match has happened
+since v2, and the anchors that did move now bracket my number.
+
+### Revision table
+
+| | Median (Sindarov) | IQR | Driver |
+|---|---|---|---|
+| v2 (2026-09-26, 15:24 UTC) | 69.5% | [64.0%, 75.0%] | — |
+| **Metaculus Pros eased, 73.2 → 69.6** (n=10). CP unchanged at 70.0 (n=98), gold 71.0 → 70.0 (n=29) [1]. The gap v2 defended (me 2.5–3.7pp under the cohorts) has closed without my moving | 0pp | — |
+| **Polymarket re-quoted** (v2 could not): Sindarov **71.5%** (bid 0.71 / ask 0.72), $85k event volume [2]. **Kalshi** Sindarov 68/70¢, last 68¢; Gukesh 30/33¢ [3]. The anchors now straddle 69.5 from 68 to 71.5 | 0pp | — |
+| No news on withdrawal, venue or dates. The match is still set for Geneva from 2026-11-24 | 0pp | — |
+| **v3 (2026-09-26)** | **69.5%** | **[64.0%, 75.0%]** | net **0pp** |
+
+### Tripwire check (v2 list)
+
+| # | Tripwire | Status | Note |
+|---|---|---|---|
+| 1 | October FIDE list moves the classical gap outside 60–95 Elo (by 10-05) | Not due | List publishes ~2026-10-01 |
+| 2 | Either player withdraws, dates move, or no venue/sponsor by 11-01 | Not fired | nothing new since v2 |
+| 3 | Kalshi Sindarov outside $0.62–$0.78 on ≥ 20k fresh contracts | Not fired | 68/70¢ [3] |
+| 4 | Metaculus Pro or gold diverges > 5pp from the CP | Not fired | Pro 69.6, gold 70.0, CP 70.0 [1] |
+| 5 | Official final Olympiad TPR: Gukesh ≥ 2790 or Sindarov (11 rounds) ≤ 2750 (by 10-05) | Not yet checked against official FIDE data | carried forward |
+| 6 | Gukesh leads after Game 4 | Not due | match starts 2026-11-24 |
+
+All other sections are unchanged from v2. The ledger vector uses Metaculus's exact labels,
+`Gukesh Dommaraju` and `Javokhir Sindarov`.
+
+### What resolves YES
+
+Unchanged from v2.
+
+### Outside view
+
+Unchanged from v2.
+
+### Inside view
+
+Unchanged from v2.
+
+### Evidence
+
+Unchanged from v2.
+
+### Other forecasters
+
+Unchanged from v2.
+
+### Scenarios
+
+Unchanged from v2.
+
+### Sensitivity
+
+Unchanged from v2.
+
+### What would change my mind
+
+Unchanged from v2.
+
+### Sources
+
+1. Metaculus question 45216, three-cohort aggregations — https://www.metaculus.com/questions/45216/ (accessed 2026-09-26 19:29 UTC; `raw/metaculus-2026-09-26-evening.json`)
+2. Polymarket, "2026 World Chess Championship Winner" (gamma API) — https://polymarket.com/event/2026-world-chess-championship-winner (accessed 2026-09-26; `raw/polymarket-2026-world-chess-championship-winner-2026-09-26.json`)
+3. Kalshi `KXCHESSWORLDCHAMPION-CHESS26`, trade API — https://kalshi.com/markets/kxchessworldchampion (accessed 2026-09-26; `raw/kalshi-KXCHESSWORLDCHAMPION-2026-09-26.json`)
+4. 46th Chess Olympiad, Samarkand — Wikipedia — https://en.wikipedia.org/wiki/46th_Chess_Olympiad (accessed 2026-09-26) — carried forward from v2 [2], still relied on
+5. "Gukesh Hits His Stride With Back-To-Back Olympiad Wins" — World Chess — https://worldchess.com/news/gukesh-hits-his-stride-with-back-to-back-olympiad-wins (accessed 2026-09-26) — carried forward from v2 [3], still relied on
+6. "46th Chess Olympiad R9: Gukesh Leads India to Victory" — ChessBase India — https://chessbase.in/news/46th-fide-chess-olympiad-round-9-report (accessed 2026-09-26) — carried forward from v2 [4], still relied on
+7. "Samarkand R8 (open): Germany stun Uzbekistan, join them in the lead" — ChessBase — https://en.chessbase.com/post/chess-olympiad-2026-8 (accessed 2026-09-26; source for Sindarov's TPR 2864 through Round 8) — carried forward from v2 [5], still relied on
+8. "Samarkand R9 (open): Uzbekistan retake sole lead after beating the US" — ChessBase — https://en.chessbase.com/post/chess-olympiad-2026-9 (accessed 2026-09-26; Wesley So d. Sindarov, Round 9) — carried forward from v2 [6], still relied on
+9. "Chess Olympiad 2026: World champion Gukesh to play Board 4 for India" — The Bridge — https://thebridge.in/chess/olympiad-2026-gukesh-board-4-india-explained-57592 (accessed 2026-09-26; confirms India's board order and Gukesh's own account of requesting board 4) — carried forward from v2 [9], still relied on
+10. "2026 Chess Olympiad Round 9: Uzbekistan Beats U.S. To Take Sole Lead" — Chess.com — https://www.chess.com/news/view/2026-samarkand-chess-olympiad-round-9 (accessed 2026-09-26; So–Sindarov game summary, standings after Round 9) — carried forward from v2 [10], still relied on
+
+**Date**: 2026-09-26
+**Forecast**: Sindarov median 69.5%, IQR [64.0%, 75.0%] (Gukesh 30.5%, IQR [25.0%, 36.0%])
+**Thesis**: No change from v2, which was logged hours earlier. This version records the full vector in the ledger. Since then the Metaculus Pros have eased from 73.2% to 69.6% [1], and Polymarket (71.5%) and Kalshi (68–70¢) bracket my 69.5% [2][3]. So v2's case stands: Sindarov's 75-Elo lead and his 2864 Olympiad performance, against Gukesh's 7½/9 rebound and the champion's match experience.
 
 ---
 
