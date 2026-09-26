@@ -6,11 +6,159 @@
 | **Type** | numeric (USD, global retail sales; question range 5–9 bn, both bounds open) |
 | **Opened / Closes / Resolves** | open (CP revealed 2026-09-20) / 2026-12-31 / on GFI's 2027 State of the Industry report, expected ~2027-04, booked as 2027-06-30 |
 | **Status** | open |
-| **Current forecast** | **Median $6.84 bn, IQR [$6.56 bn, $7.12 bn]** (v2, 2026-09-24) |
-| **Community (as of 2026-09-24)** | CP $6.85 bn [6.54, 7.13] (n=15); Pro $6.78 bn (n=2); gold $6.77 bn [6.44, 7.16] (n=5) |
+| **Current forecast** | **Median $6.84 bn, IQR [$6.56 bn, $7.12 bn]** (v3, 2026-09-26 — unchanged from v2) |
+| **Community (as of 2026-09-26)** | CP $6.81 bn [6.51, 7.12] (n=17); Pro $6.78 bn [6.51, 7.08] (n=2); gold $6.77 bn [6.44, 7.16] (n=5) |
 | **Next review** | 2026-11-15 |
 
 <!-- Versions below, newest first. APPEND-ONLY: never edit or delete a past version. -->
+
+---
+
+## v3 — Update — 2026-09-26
+
+Operator-requested check-in, 2 days after v2. `next_review` was 2026-11-15 — this update runs
+well ahead of schedule, so a large move would be suspicious on its own; the honest expectation
+going in was "nothing happened yet."
+
+### Revision table
+
+| Driver | Direction | Effect on median | Evidence |
+|---|---|---|---|
+| **Prior (v2, 2026-09-24)** | — | **$6.84 bn, IQR [$6.56, $7.12] bn** | — |
+| Metaculus CP drifted from $6.85 bn (n=15) to $6.81 bn (n=17); two new forecasters pulled the recency-weighted center toward Pro/gold. Pro $6.78 bn (n=2) and gold $6.77 bn (n=5) are unchanged to the dollar | down, but within the CP's own noise band (Δ ≈ 0.5% on 2 new forecasters) | 0 (flagged, not acted on — see below) | [1] |
+| EUR/USD: 189 ECB fixings, YTD mean 1.1615 (v2: 1.1618 over 187); spot 1.1403 (v2: 1.1411). Bank Q4 2026 consensus still 1.13–1.20, well above the 1.10 tripwire | none | 0 | [2], [3] |
+| No 2026 European (GFI Europe/Circana), US (SPINS/Circana) or Euromonitor category data published since v2; GFI's next scheduled release is the 2027 SOTI (~April 2027), not before | none | 0 | [4]–[6] searches 2026-09-26 |
+| Metaculus resolution criteria, fine print, background, close date unchanged (byte-for-byte diff against the 2026-09-24 snapshot); 0 comments both times | none | 0 | [1] |
+| Beyond Meat: Phytosphere launch (2026-09-09) and Beyond Steak Filet retail expansion (2026-09-15) already priced into v2; a debt-for-equity exchange this week moved the stock, not category sales | none | 0 | [7] |
+| **New forecast (v3)** | | **$6.84 bn, IQR [$6.56, $7.12] bn — unchanged** | |
+
+I am deliberately **not** chasing the CP's $0.04 bn dip. Per the anti-pattern rule ("excessive
+volatility: moving on a single data point"), a 0.5% shift produced by two new forecasters
+joining a recency-weighted pool over 48 hours, with the Pro and gold cohorts — the ones this
+repo is instructed to weight most — completely unchanged, is noise, not a new fact. The v2
+rationale for trimming toward Pro/gold already stands; there is nothing new to trim further
+toward. If the CP keeps drifting down at the next review and Pro/gold move with it, that is a
+real signal and I will act on it then.
+
+### Tripwire check (against the v2 list, by name)
+
+| Tripwire | Status | Note |
+|---|---|---|
+| European 2026 meat-alternative growth > +4% (by 2027-03-31) | not fired | no 2026 data published |
+| European 2026 meat-alternative growth < −3% (by 2027-03-31) | not fired | no 2026 data published |
+| EUR/USD FY2026 avg < 1.13 (by 2027-01-15) | not fired; still effectively dead | YTD 1.1615 |
+| EUR/USD Q4 2026 avg < 1.10 (by 2027-01-05) | not fired | bank consensus for Q4 is 1.13–1.20 [3]; would need a sharp reversal |
+| US FY2026 plant-based meat dollars < −12% (by 2027-03-31) | not fired | no 2026 SPINS/Circana read found |
+| GFI provider change / tofu-tempeh folded in (by 2027-04-30) | not fired | resolution criteria byte-identical to v2 |
+| CP settles outside $6.5–7.2 bn with n ≥ 30 (by 2026-11-30) | not fired | CP $6.81 bn, n=17 — inside the band, n still well under 30 |
+| No GFI 2027 SOTI by 2027-06-30 | not yet testable | GFI's most recent SOTI (covering 2025, printed $6.6 bn) shipped April 2026 as expected; no schedule change announced |
+
+### What resolves YES
+
+Unchanged from v1/v2.
+
+### Outside view
+
+Unchanged from v2.
+
+### Inside view
+
+Unchanged from v2.
+
+### Evidence
+
+Genuinely nothing new. Every source category from the tripwire list was re-searched
+(2026-09-26) and returned only material already cited in v1/v2. This is the "no evidence is
+itself informative" case from the update protocol — but it points to *no update*, not to decay,
+because (as noted in v2) this is a single-release numeric question, not an event question: 2
+quiet days do not shrink the probability of anything.
+
+### Other forecasters
+
+| Source | Median | IQR | n | As of | Note |
+|---|---|---|---|---|---|
+| Metaculus CP (recency-weighted) | $6.81 bn | [$6.51, $7.12] bn | 17 | 2026-09-26 10:36 | down from $6.85 bn (n=15) on 2026-09-24 |
+| Metaculus Pro | $6.78 bn | [$6.51, $7.08] bn | 2 | 2026-09-26 10:36 | identical to 2026-09-24 |
+| Metaculus gold medalists | $6.77 bn | [$6.44, $7.16] bn | 5 | 2026-09-26 10:36 | identical to 2026-09-24 |
+| Kalshi / Polymarket / Manifold | — | — | — | 2026-09-26 | still no market |
+
+**Cohort disagreement is narrowing, not widening.** The CP moved $0.04 bn toward Pro/gold; it
+did not move away from them. That is mild corroboration of the v2 lean (trim toward the
+informed cohorts), already reflected in the v2 median — it is not a reason to trim further
+today, since Pro and gold themselves did not move.
+
+### Scenarios
+
+Unchanged from v2.
+
+### Sensitivity
+
+Unchanged from v2.
+
+### What would change my mind (tripwires)
+
+Unchanged from v2 — see table above for status. Carried forward verbatim into `meta.yaml`.
+
+### Sources
+
+1. Metaculus post 45422 aggregation snapshot (recency_weighted, metaculus_pros, gold_medalists; 36
+   history points; 0 comments) — https://www.metaculus.com/questions/45422/ (accessed 2026-09-26;
+   cached at `raw/metaculus-2026-09-26.json`; resolution criteria/fine print/background diffed
+   byte-for-byte against the 2026-09-24 snapshot, no change)
+2. ECB reference rates via Frankfurter API, 2026-01-01 to 2026-09-26 —
+   https://api.frankfurter.dev/v1/2026-01-01..2026-09-26?base=EUR&symbols=USD (accessed
+   2026-09-26; cached at `raw/ecb-fx-eurusd-cy2026-retrieved-2026-09-26.json`)
+3. Aggregated Q4 2026 EUR/USD sell-side forecasts (Goldman Sachs, Scotiabank, J.P. Morgan, ING;
+   median ≈1.23 pre-June, revised down toward a 1.13–1.20 consensus range after the ECB's 2026-06-11
+   25 bp hike to a 2.25% deposit rate widened the Fed–ECB differential) — search-aggregated via
+   Cambridge Currencies "EUR/USD Forecast 2026" and BitMEX "EUR/USD Forecast 2026" (accessed
+   2026-09-26; no single primary source, treated as directional context only, not a point estimate)
+4. GFI Europe — European plant-based sales data — https://gfieurope.org/european-plant-based-sales-data/
+   (accessed 2026-09-26; still 2025 data)
+5. Vegconomist / Green Queen coverage of GFI's 2026 State of the Industry reports (the report
+   covering calendar-2025 data, published April 2026 — same report already cited as source 7 in
+   v1/v2, resurfaced by this search, not a new release) —
+   https://vegconomist.com/studies-numbers/gfis-2026-state-of-industry-reports-detail-mixed-year-alternative-proteins-across-three-sectors/
+   ; https://www.greenqueen.com.hk/gfi-state-of-the-industry-report-2025-2026-plant-based-sales/
+   (accessed 2026-09-26)
+6. GFI — Analyzing plant-based meat & seafood sales (US SPINS series; latest is still FY2025 −10%) —
+   https://gfi.org/resource/analyzing-plant-based-meat-and-seafood-sales/ (accessed 2026-09-26; no
+   change)
+7. Beyond Meat press coverage, week of 2026-09-21 to 2026-09-26 (debt-for-equity exchange sold off
+   the stock; Phytosphere and Steak Filet launches already known at v2) — Yahoo Finance / Robinhood
+   BYND quote pages (accessed 2026-09-26; stock-price move, no category sales data)
+8. Good Food Institute — *2026 State of the Industry report: Plant-based meat, seafood, eggs, dairy,
+   and ingredients* (the 2025 base of $6.6 bn, Euromonitor scope, "data may differ from previous
+   reports") —
+   https://gfi.org/wp-content/uploads/2026/04/GFI_State-of-the-Industry-report-Plant-based-meat-seafood-eggs-dairy-and-ingredients.pdf
+   (accessed 2026-09-17; carried forward from v1/v2, still the current release)
+9. Circana — "Plant-Based Food & Drink Hits €16.3B in Europe — But Only 2.4% of FMCG" (2025 EU6
+   category context for the Europe block; the same source also reports EU6 meat-alternative value
+   sales −7%, the assumption behind the US/Europe tripwires) —
+   https://www.circana.com/post/plant-based-food-and-drink-hits-16-3bn-in-europe-but-still-just-2-4-of-fmcg-sales
+   (accessed 2026-09-24; carried forward from v2, no newer edition found)
+10. Food Business News — "Plant-based sales in the US continue to slide" (SPINS 2025: −10% dollars
+    for plant-based meat) —
+    https://www.foodbusinessnews.net/articles/30327-plant-based-sales-in-the-us-continue-to-slide
+    (accessed 2026-09-24; carried forward from v2, no 2026 update published)
+11. ECB reference rates via Frankfurter API, calendar 2025 (EUR/USD annual average 1.1300, the
+    comparison base for the FX line) —
+    https://api.frankfurter.dev/v1/2025-01-01..2025-12-31?base=EUR&symbols=USD,GBP,JPY (accessed
+    2026-09-17; carried forward, unchanged — 2025 is a closed year)
+12. AgFunderNews — "Plant-based meat by numbers: Grim reading for the US retail market, brighter
+    spots in foodservice and globally" (2024 global $6.1 bn at +4%, the restatement evidence behind
+    the lower tail) —
+    https://agfundernews.com/plant-based-meat-by-numbers-grim-reading-for-the-us-retail-market-brighter-spots-in-foodservice-and-globally
+    (accessed 2026-09-17; carried forward from v1/v2)
+
+**Date**: 2026-09-26
+**Forecast**: Median $6.84 bn, IQR [$6.56 bn, $7.12 bn]
+**Thesis**: No material change in two days. Every v2 tripwire re-checked by name: none fired.
+FX is flat (EUR/USD YTD 1.1615, essentially identical to 1.1618 two days ago) and Q4 bank
+consensus (1.13–1.20) stays well clear of the 1.10 tripwire. No new 2026 European or US category
+data exists. The Metaculus CP drifted $0.04 bn toward the Pro/gold cohorts on two new
+forecasters, which corroborates last week's trim but is too small and too Pro/gold-independent
+to justify moving further — Pro and gold themselves did not move at all. Median held at $6.84 bn.
 
 ---
 

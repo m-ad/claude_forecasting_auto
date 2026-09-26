@@ -1,15 +1,17 @@
 # Question index
 
-_Regenerated 2026-09-24 by `scripts/status.py --index`._
+_Regenerated 2026-09-26 by `scripts/status.py --index`._
 
 | Question | Type | Current | v | Community (CP) | Resolves | Next review | Status |
 |---|---|---|---|---|---|---|---|
 | [Will OpenAI file for an IPO during 2026?](questions/2026-08-28-mc41141-openai-file-ipo-during-2026/forecast.md) | binary | 20.0% [15.0%, 26.0%] | 1 | 25.0% | 2027-01-01 | 2026-09-25 | open |
-| [Who will be awarded the 2026 Nobel Peace Prize?](questions/2026-09-05-mc45383-who-awarded-2026-nobel-peace-prize/forecast.md) | multiple_choice | 0.47 [0.4, 0.54] | 1 | — | 2026-10-09 | 2026-09-28 | open |
-| [Which party will win the Holborn and St Pancras by-election?](questions/2026-09-11-mc45425-which-party-win-holborn-st-pancras-election/forecast.md) | multiple_choice | 0.76 [0.69, 0.82] | 2 | 0.798 | 2026-10-09 | 2026-10-01 | open |
 | [Will it be confirmed before 2027 that the "swarm" in the July 2026 Hugging Face incident exfiltrated any OpenAI model weights?](questions/2026-09-13-mc45467-it-confirmed-before-2027-that-swarm-july/forecast.md) | binary | 5.5% [3.5%, 12.0%] | 2 | 7.0% | 2027-01-01 | 2026-09-25 | open |
-| [How many bots will finish in the top 10 of the Metaculus Cup Fall 2026?](questions/2026-09-20-mc45619-bots-top-10-metaculus-cup-fall-2026/forecast.md) | discrete | 4 [3, 5] | 1 | — | 2027-01-05 | 2026-09-27 | open |
 | [Which party will win the most seats in the 2026 Israeli election?](questions/2026-09-20-mc45670-which-party-win-most-seats-2026-israeli/forecast.md) | multiple_choice | 0.61 [0.55, 0.67] | 1 | — | 2026-11-10 | 2026-09-25 | open |
+| [Who will be awarded the 2026 Nobel Peace Prize?](questions/2026-09-05-mc45383-who-awarded-2026-nobel-peace-prize/forecast.md) | multiple_choice | 0.47 [0.4, 0.54] | 1 | — | 2026-10-09 | 2026-09-28 | open |
+| [Who will win the 2026 World Chess Championship?](questions/2026-09-11-mc45216-who-win-2026-world-chess-championship/forecast.md) | multiple_choice | 0.67 [0.61, 0.73] | 1 | — | 2026-12-14 | 2026-09-28 | open |
+| [Which party will win the Holborn and St Pancras by-election?](questions/2026-09-11-mc45425-which-party-win-holborn-st-pancras-election/forecast.md) | multiple_choice | 0.76 [0.69, 0.82] | 2 | 0.798 | 2026-10-09 | 2026-10-01 | open |
+| [Who will win the 2026 Ballon d'Or?](questions/2026-09-11-mc45617-ballon-dor-2026/forecast.md) | multiple_choice | 0.56 [0.48, 0.63] | 1 | — | 2026-10-26 | 2026-10-12 | open |
+| [How many bots will finish in the top 10 of the Metaculus Cup Fall 2026?](questions/2026-09-20-mc45619-bots-top-10-metaculus-cup-fall-2026/forecast.md) | discrete | 4 [3, 5] | 1 | — | 2027-01-05 | 2026-09-27 | open |
 | [Will an AI system autonomously cause a major breach of US personal data held by an organization other than its operator before 2028?](questions/2026-09-10-mc45427-major-us-personal-data-breach-external-misaligned-ai/forecast.md) | binary | 70.0% [61.0%, 78.0%] | 2 | 80.0% | 2028-01-01 | 2026-10-22 | open |
 | [Will there be a bilateral ceasefire in the Russo-Ukrainian conflict before 2027?](questions/2026-08-28-mc41138-bilateral-ceasefire-russo-ukrainian-conflict-before-2027/forecast.md) | binary | 6.0% [4.0%, 9.0%] | 2 | 6.0% | 2026-12-31 | 2026-10-08 | open |
 | [Will Benjamin Netanyahu cease to be Prime Minister of Israel during 2026?](questions/2026-08-31-mc40966-benjamin-netanyahu-cease-prime-minister-israel-during/forecast.md) | binary | 28.0% [22.0%, 35.0%] | 2 | 22.0% | 2027-01-01 | 2026-10-05 | open |
@@ -23,16 +25,14 @@ _Regenerated 2026-09-24 by `scripts/status.py --index`._
 | [Will FEWS NET classify any area of Sudan as experiencing Famine before 2027?](questions/2026-09-05-mc45464-fews-net-classify-area-sudan-as-experiencing/forecast.md) | binary | 23.0% [16.0%, 31.0%] | 2 | 32.0% | 2026-12-31 | 2026-10-05 | open |
 | [How many barrels of crude oil will the Strategic Petroleum Reserve hold in December 2026?](questions/2026-09-07-mc15240-spr-crude-barrels-december-2026/forecast.md) | numeric | 283,100,000 [281,300,000, 286,400,000] | 2 | — | 2027-02-26 | 2026-10-08 | open |
 | [How many barrels of crude oil will the Strategic Petroleum Reserve hold in September 2026?](questions/2026-09-07-mc15240-spr-crude-barrels-september-2026/forecast.md) | numeric | 284,200,000 [283,800,000, 284,500,000] | 4 | — | 2026-11-30 | 2026-09-30 | open |
-| [Who will win the 2026 World Chess Championship?](questions/2026-09-11-mc45216-who-win-2026-world-chess-championship/forecast.md) | multiple_choice | 0.67 [0.61, 0.73] | 1 | — | 2026-12-14 | 2026-09-28 | open |
 | [What will be the open market US Dollar/Iranian Toman exchange rate on December 31, 2026?](questions/2026-09-11-mc45340-open-market-us-dollar-iranian-toman-exchange/forecast.md) | numeric | 272000 [236000, 320000] | 1 | — | 2026-12-31 | 2026-10-10 | open |
-| [Who will win the 2026 Ballon d'Or?](questions/2026-09-11-mc45617-ballon-dor-2026/forecast.md) | multiple_choice | 0.56 [0.48, 0.63] | 1 | — | 2026-10-26 | 2026-10-12 | open |
 | [Will FURA introduce another cultivated meat dish on its menu before July 2027?](questions/2026-09-12-mc43281-fura-introduce-another-cultivated-meat-dish-its/forecast.md) | binary | 35.6% [28.0%, 45.0%] | 1 | 42.0% | 2027-07-01 | 2026-10-14 | open |
 | [How many additional US states will enact bans on cultivated meat before July 2027?](questions/2026-09-12-mc43329-how-many-additional-us-states-enact-bans/forecast.md) | multiple_choice | 0.28 [0.24, 0.32] | 1 | 0.3 | 2027-07-01 | 2026-12-15 | open |
 | [Will an open weight AI model achieve Mythos-level cyber capabilities before July 2027?](questions/2026-09-12-mc45465-open-weight-ai-model-achieve-mythos-level/forecast.md) | binary | 92.0% [87.0%, 95.0%] | 1 | 91.0% | 2027-07-01 | 2026-10-12 | open |
 | [What percentage of companies globally will fulfill their pre-2026 cage-free commitments in 2026 and 2027?](questions/2026-09-17-mc43277-percentage-companies-globally-fulfill-their-pre-2026/forecast.md) | discrete | 11.9 [9.6, 15.3] | 1 | — | 2028-01-01 | 2026-11-15 | open |
 | [What percentage of companies globally will fulfill their pre-2026 broiler commitments in 2026 and 2027?](questions/2026-09-17-mc43278-percentage-companies-globally-fulfill-their-pre-2026/forecast.md) | discrete | 3.8 [2.3, 6.6] | 1 | — | 2028-01-01 | 2026-11-20 | open |
 | [Will at least one additional U.S. state enact a cage-free egg requirement before July 2027?](questions/2026-09-17-mc45421-cage-free-egg-requirement-new-state/forecast.md) | binary | 13.0% [9.5%, 17.5%] | 3 | 12.0% | 2027-07-01 | 2026-11-06 | open |
-| [What will be the total retail sales of plant-based meat and seafood in 2026?](questions/2026-09-17-mc45422-total-retail-sales-plant-based-meat-seafood/forecast.md) | numeric | 6,840,000,000 [6,560,000,000, 7,120,000,000] | 2 | 6,845,426,284 | 2027-06-30 | 2026-11-15 | open |
+| [What will be the total retail sales of plant-based meat and seafood in 2026?](questions/2026-09-17-mc45422-total-retail-sales-plant-based-meat-seafood/forecast.md) | numeric | 6,840,000,000 [6,560,000,000, 7,120,000,000] | 3 | 6,807,805,219 | 2027-06-30 | 2026-11-15 | open |
 | [How many shrimp per year will be covered by SWP's Humane Slaughter Initiative agreements on July 1, 2027?](questions/2026-09-17-mc45706-how-many-shrimp-per-year-covered-swp/forecast.md) | discrete | 8.3 [7.6, 9.3] | 1 | — | 2027-07-01 | 2026-12-17 | open |
 | [What percentage of the EU hen flock will be sexed with in-ovo sexing technology in Q1 2027?](questions/2026-09-19-mc43279-percentage-eu-hen-flock-sexed-with-ovo/forecast.md) | numeric | 43.3 [41, 45.6] | 1 | 41.69 | — | 2026-12-15 | open |
 | [What percentage of the US hen flock will be sexed with in-ovo sexing technology in Q1 2027?](questions/2026-09-19-mc43280-percentage-us-hen-flock-sexed-with-ovo/forecast.md) | numeric | 2.4 [1.7, 3.2] | 1 | 3.23 | — | 2026-12-15 | open |
