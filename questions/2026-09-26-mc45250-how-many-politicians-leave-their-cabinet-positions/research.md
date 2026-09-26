@@ -88,6 +88,12 @@ count = Poisson(λ_idio) + regime tail.
 | 2026-09-26 | Manifold API | Q4-2026 any cabinet resignation 41%; Burnham cabinet resignation in 2026 40% (5 bettors) | consistent, discounted |
 | 2026-09-26 | "Burnham mini reshuffle expected after budget" | nothing found | ↓ reshuffle tail |
 
+## Submissions to Metaculus
+
+| Date (UTC) | Version | Values submitted | Account | Note |
+|---|---|---|---|---|
+| 2026-09-26 17:35 | v1 | 0: 0.50, 1: 0.28, 2: 0.12, 3+: 0.10 | bot key (author_id 309213) | operator-requested; POST /api/questions/forecast/ q=45442 → HTTP 201, confirmed in `my_forecasts`; placed while question still "upcoming" |
+
 ## Dead ends and ruled-out hypotheses
 
 - Metaculus page render: TLS error through proxy (not a Metaculus 403).
