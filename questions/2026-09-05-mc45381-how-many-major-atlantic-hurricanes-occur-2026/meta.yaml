@@ -13,34 +13,28 @@ dates:
   resolves: '2026-11-30'
 status: open
 current:
-  version: 3
-  date: '2026-09-23'
-  median: 0.67
+  version: 4
+  date: '2026-09-26'
+  median: 0.7
   iqr:
-  - 0.6
-  - 0.73
+  - 0.635
+  - 0.76
   community:
-    cp: 0.63
-    pro: 0.66
-    gold: 0.626
-    n_forecasters: 122
-    as_of: '2026-09-23'
+    cp: 0.707
+    pro: 0.712
+    gold: 0.701
+    n_forecasters: 132
+    as_of: '2026-09-26'
 next_review: '2026-09-30'
 tripwires:
-- signal: Any Atlantic system reaches Category 3 — option `0` collapses to ~0
+- signal: Any Atlantic system reaches Category 3 - option `0` collapses to ~0
   by: '2026-11-30'
   direction: down
-  magnitude: 67
+  magnitude: 70
   magnitude_unit: pp
   fired: null
-- signal: Still zero Atlantic hurricanes on 2026-09-30 — on option `0`
-  by: '2026-09-30'
-  direction: up
-  magnitude: 4
-  magnitude_unit: pp
-  fired: null
-- signal: CSU two-week forecast of 2026-09-30 favours near- or above-normal activity (corroborating the
-    ECMWF early-October pattern change); below-normal again is +2pp
+- signal: CSU two-week forecast of 2026-09-30 favours near- or above-normal activity; below-normal again
+    is +2pp
   by: '2026-09-30'
   direction: down
   magnitude: 5
@@ -53,27 +47,27 @@ tripwires:
   magnitude: 6
   magnitude_unit: pp
   fired: null
-- signal: 2026-10-10 passes with zero majors — option `0` to ~80%
+- signal: 2026-10-10 passes with zero majors - option `0` to ~79%
   by: '2026-10-10'
   direction: up
-  magnitude: 13
+  magnitude: 9
   magnitude_unit: pp
   fired: null
-- signal: CPC ENSO update (due ~2026-10-08) puts OND RONI below +2.0 or shows El Nino peaking early —
+- signal: CPC ENSO update (due ~2026-10-08) puts OND RONI below +2.0 or shows El Nino peaking early -
     on option `0`
   by: '2026-10-15'
   direction: down
   magnitude: 5
   magnitude_unit: pp
   fired: null
-- signal: Kalshi KXHURCTOTMAJ-26DEC01-T0 trades outside 22-42c (implied P(0) outside 58-78%) — re-check,
+- signal: Kalshi KXHURCTOTMAJ-26DEC01-T0 trades outside 25-45c on more than 3k fresh contracts - re-check,
     do not nudge
   by: '2026-10-16'
   direction: either
   magnitude: 0
   magnitude_unit: pp
   fired: null
-- signal: Metaculus Pros on option `0` fall below 58% or rise above 75%
+- signal: Metaculus Pros on option `0` fall below 62% or rise above 80%
   by: '2026-10-16'
   direction: either
   magnitude: 0

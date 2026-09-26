@@ -1,0 +1,55 @@
+{
+  "post_id": 45250,
+  "question_id": 45442,
+  "title": "How many politicians will leave their cabinet positions in the UK government before 2027?",
+  "question_type": "multiple_choice",
+  "status": "upcoming",
+  "resolution": null,
+  "scheduled_close_time": "2026-12-31T23:59:00Z",
+  "cp_reveal_time": "2026-09-30T17:00:00Z",
+  "options": [
+    "0",
+    "1",
+    "2",
+    "3 or more"
+  ],
+  "scaling": {
+    "range_min": null,
+    "range_max": null,
+    "nominal_min": null,
+    "nominal_max": null,
+    "zero_point": null,
+    "open_upper_bound": false,
+    "open_lower_bound": false,
+    "inbound_outcome_count": null,
+    "continuous_range": null
+  },
+  "resolution_criteria": "This question will resolve as the total number of Members of Parliament acting as one of the top 18 ranked cabinet members (as of July 20, 2026) who leave their positions after September 1, 2026 and before January 1, 2027. Any reason for leaving cabinet positions will count. If three or more cabinet members leave their positions, this question will resolve to **3 or more**.\n\nIf the Prime Minister changes during this period the question will resolve to the number as of that date.\n\n[His Majesty's Government: The Cabinet](https://members.parliament.uk/government/cabinet) webpage will be used for resolution.",
+  "fine_print": "The 18 cabinet positions of the administration of the Andy Burnham premiership that will be considered for the purposes of this question (ordered by Ministerial ranking):\n\n| **Cabinet Position**                                                                                | **Incumbent**     |   |\n| --------------------------------------------------------------------------------------------------- | ----------------- | - |\n| First Secretary of State, Chancellor of the Duchy of Lancaster, and Minister for the Cabinet Office | Louise Haigh      |   |\n| Chancellor of the Exchequer                                                                         | John Healey       |   |\n| Foreign Secretary                                                                                   | Ed Miliband       |   |\n| Home Secretary                                                                                      | Shabana Mahmood   |   |\n| Secretary of State for Defence                                                                      | Wes Streeting     |   |\n| Secretary of State for Health and Social Care                                                       | Yvette Cooper     |   |\n| Lord Chancellor and Secretary of State for Justice                                                  | Alex Norris       |   |\n| Secretary of State for Education                                                                    | Lucy Powell       |   |\n| Secretary of State for Work and Pensions                                                            | Pat McFadden      |   |\n| Secretary of State for Business, Innovation, Science and Trade                                      | Jonathan Reynolds |   |\n| Secretary of State for Housing, Communities and Local Government                                    | Angela Rayner     |   |\n| Secretary of State for Transport                                                                    | Heidi Alexander   |   |\n| Secretary of State for Energy Security and Net Zero                                                 | Miatta Fahnbulleh |   |\n| Secretary of State for Digital, Culture, Media and Sport                                            | Lisa Nandy        |   |\n| Secretary of State for Environment, Food and Rural Affairs                                          | Angela Eagle      |   |\n| Secretary of State for Northern Ireland                                                             | Chris Bryant      |   |\n| Secretary of State for Scotland                                                                     | Douglas Alexander |   |\n| Secretary of State for Wales                                                                        | Stephen Kinnock   |   |",
+  "background": "On July 17, 2026, Andy Burnham became the [Leader of the UK Labour Party](https://en.wikipedia.org/wiki/Leader_of_the_Labour_Party_\\(UK\\) \"Leader of the Labour Party (UK)\"), and he assumed the role of [Prime Minister](https://en.wikipedia.org/wiki/Prime_Minister_of_the_United_Kingdom \"Prime Minister of the United Kingdom\") three days later. In doing so he became the sixth person in the last ten years to govern the UK, [the seventh Prime Minister since 2016](https://www.gov.uk/government/speeches/andy-burnhams-first-speech-as-prime-minister-20-july-2026).\n\nAs a result [many of the cabinet positions changed](https://en.wikipedia.org/wiki/Burnham_ministry) hands, though some in Burnham's cabinet also held positions [in Starmer's previous cabinet](https://en.wikipedia.org/wiki/Starmer_ministry). The following cabinet members retained their positions:\n\n* Home Secretary\n* Secretary of State for Work and Pensions\n* Secretary of State for Transport\n* Secretary of State for Digital, Culture, Media and Sport\n* Secretary of State for Scotland",
+  "nr_forecasters": 10,
+  "methods": {
+    "recency_weighted": {
+      "method": "recency_weighted",
+      "status": 200,
+      "history_points": 0,
+      "latest": null,
+      "history": []
+    },
+    "metaculus_pros": {
+      "method": "metaculus_pros",
+      "status": 200,
+      "history_points": 0,
+      "latest": null,
+      "history": []
+    },
+    "gold_medalists": {
+      "method": "gold_medalists",
+      "status": 200,
+      "history_points": 0,
+      "latest": null,
+      "history": []
+    }
+  },
+  "comments": []
+}

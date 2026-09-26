@@ -16,33 +16,20 @@ dates:
   resolves: '2026-11-10'
 status: open
 current:
-  version: 1
-  date: '2026-09-20'
-  median: 0.61
+  version: 2
+  date: '2026-09-26'
+  median: 0.615
   iqr:
-  - 0.55
-  - 0.67
+  - 0.555
+  - 0.675
   community:
-    cp: null
-    pro: null
-    gold: null
-    n_forecasters: 8
-    as_of: '2026-09-20'
-next_review: '2026-09-25'
+    cp: 0.57
+    pro: 0.579
+    gold: 0.579
+    n_forecasters: 80
+    as_of: '2026-09-26'
+next_review: '2026-10-03'
 tripwires:
-- signal: Metaculus CP, Pro and gold reveal; Pro AND gold both land >=10pp from Likud 38.1% in the same
-    direction
-  by: '2026-09-24'
-  direction: either
-  magnitude: 0
-  magnitude_unit: pp
-  fired: null
-- signal: Metaculus admins publish a tie-breaker for an exact Likud-Yashar seat tie, or rule it ambiguous
-  by: '2026-09-30'
-  direction: either
-  magnitude: 0
-  magnitude_unit: pp
-  fired: null
 - signal: Mainstream-house poll average (Channel 14 and i24 excluded) has Likud level with or ahead of
     Yashar
   by: '2026-10-13'
@@ -50,10 +37,10 @@ tripwires:
   magnitude: 12
   magnitude_unit: pp
   fired: null
-- signal: Mainstream-house poll average gap reaches >=4 seats to Yashar (from -3.0 on 2026-09-17)
+- signal: Mainstream-house poll average gap reaches >=4.5 seats to Yashar (from -3.4 on 2026-09-24)
   by: '2026-10-13'
   direction: up
-  magnitude: 8
+  magnitude: 6
   magnitude_unit: pp
   fired: null
 - signal: Amcha Yisrael (Ofer Winter) below the 3.25% threshold in a majority of the final week's polls
@@ -63,6 +50,12 @@ tripwires:
   magnitude_unit: pp
   fired: null
 - signal: Herzog grants Netanyahu a pardon, or the Attorney-General announces a plea deal
+  by: '2026-10-20'
+  direction: either
+  magnitude: 0
+  magnitude_unit: pp
+  fired: null
+- signal: Metaculus Pros and gold both move >=8pp from this Yashar number in the same direction
   by: '2026-10-20'
   direction: either
   magnitude: 0

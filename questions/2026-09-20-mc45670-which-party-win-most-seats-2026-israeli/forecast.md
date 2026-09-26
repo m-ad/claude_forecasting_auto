@@ -6,11 +6,131 @@
 | **Type** | multiple_choice (Likud / Yashar / Other) |
 | **Opened / Closes / Resolves** | ~2026-09-17 / 2026-10-27 / by 2027-01-01 (annulled if later) |
 | **Status** | open |
-| **Current forecast** | **Likud 38.1%, Yashar 61.0%, Other 0.9%** — IQR on Yashar [55.0%, 67.0%] (v1, 2026-09-20) |
-| **Community (as of 2026-09-20)** | **none — CP hidden until 2026-09-24 17:00 UTC**, n=8 forecasters. No Pro, no gold aggregation |
-| **Next review** | 2026-09-25 |
+| **Current forecast** | **Yashar 61.5%, Likud 37.6%, Other 0.9%** — IQR on Yashar [55.5%, 67.5%] (v2, 2026-09-26) |
+| **Community (as of 2026-09-26)** | Yashar: CP **57.0%** (n=80) · Pros **57.9%** (n=9) · gold **57.9%** (n=27); Polymarket 59.0% |
+| **Next review** | 2026-10-03 |
 
 <!-- Versions below, newest first. APPEND-ONLY: never edit or delete a past version. -->
+
+---
+
+## v2 — Update — 2026-09-26
+
+**Mode: Update** (incremental). Six days since v1, 16% of the time to the 27 Oct election.
+Polymarket and all three Metaculus cohorts are within 4.5pp of me. This is the first revision.
+One structural change fired as a v1 tripwire: Metaculus published a tie-breaker. It is handled
+here as a re-mapping of v1's tie branch rather than as a new model. The operator also asked for
+the full option vector in the ledger's new `distribution` field. This version supplies it.
+
+### Revision table
+
+| Driver | Direction | Effect on P(Yashar) |
+|---|---|---|
+| **Prior (v1, 2026-09-20)** | — | **61.0%**, IQR [55.0%, 67.0%] (Likud 38.1, Other 0.9), conditional on the question resolving |
+| **Tie-breaker published** (admin johnnycaffeine, 2026-09-21): an exact seat tie goes to **the party of the next prime minister**; failing that, to the sole tied party with at least one other minister in the government; failing that, to the party with the most votes [1]. v1's 11.1% tie branch now resolves rather than annuls. In a tie world the Netanyahu bloc still sits well short of 61 in the mainstream polls (45–49 seats) [2]. The next PM would then come from the opposition: Eisenkot, or Bennett with Yashar in government, both of which resolve Yashar. That holds unless Likud builds a coalition anyway. I put **P(Yashar \| tie) ≈ 0.55**, a little below Yashar's share elsewhere, because a tie means Likud has out-performed. Re-normalising v1's branches: Yashar 60.3, Likud 38.9, Other 0.8 | ↓ | **−0.7** |
+| **The mainstream-house gap widened slightly, −3.0 → −3.4 seats.** Latest poll per house, 22–24 Sep: Midgam 20–23, Channel 13 18–22, Maariv 18–22, Zman Yisrael 21–23, Maagar Mochot 19–23. Kantar (20–22, 17 Sep) has not polled since [2]. The right-leaning houses eased too: Channel 14 +11 → +10 (32–22), i24 +6 → +5 (27–22). Neither the level-pegging tripwire nor the ≥ 4-seat tripwire fired. The move is smaller than one house's sampling noise, so it gets partial weight | ↑ | **+1.5** |
+| **Six fewer days for a structural shift.** v1's drift term is concentrated in the unmeasured final 72 hours and is unchanged. The pre-blackout variance shrinks slightly, which helps the side that is ahead | ↑ | **+0.2** |
+| **Cohorts and market sit a little lower.** Metaculus CP Yashar 57.0 / Likud 42.0; Pros and gold both 57.9 / 40.9 [1]. Polymarket Yashar 61 → 59, Likud 39 → 40.5, on ~$87k of fresh volume [3]. Polymarket tie-breaks on votes, not on the next PM. Pros and gold are 3.1pp from me, well inside the 10pp re-analysis band. I weight them, but they carry no reason I have not already priced | ↓ | **−0.5** |
+| **New forecast (v2)** | | **61.5%**, IQR [55.5%, 67.5%] (Likud 37.6, Other 0.9) |
+
+The vector is now **unconditional except for the ~1.5% "no result before 2027-01-01" branch**,
+since ties no longer annul.
+
+### Tripwire check (v1 list)
+
+| # | Tripwire | Status | Evidence |
+|---|---|---|---|
+| 1 | Metaculus reveal (09-24): Pro and gold both ≥ 10pp from Likud 38.1 in the same direction → re-analyse | **Not fired** | Pros and gold both at Likud 40.9 (+2.8). CP 42.0 (n=80) [1] |
+| 2 | Admins publish a tie-breaker, or rule a tie ambiguous (by 09-30) | **Fired** (2026-09-21) | Next PM's party → sole tied party in government → most votes [1]. Priced in row 2 |
+| 3 | Mainstream average has Likud level with or ahead of Yashar (by 10-13) → −12pp | Not fired | Gap −3.4 [2] |
+| 4 | Mainstream gap ≥ 4 seats to Yashar (by 10-13) → +8pp | Not fired | Gap −3.4 [2] |
+| 5 | Amcha Yisrael below 3.25% in a majority of final-week polls (by 10-23) → −4pp | Not due | — |
+| 6 | Herzog pardons Netanyahu or the AG announces a plea deal (by 10-20) → re-analyse | Not fired | On the eve of Yom Kippur Herzog pardoned the soldier **Elor Azaria**, not Netanyahu. Netanyahu's own request is still deferred in favour of plea-deal mediation [4][5] |
+
+### What resolves YES
+
+Unchanged from v1, except the tie rule (above). Options in Metaculus order: `Likud`, `Yashar`,
+`Other`.
+
+### Outside view
+
+Unchanged from v1.
+
+### Inside view
+
+Unchanged from v1.
+
+### Scenarios
+
+Unchanged from v1. Scenario C (exact tie, 0.111) now resolves ~55/45 Yashar/Likud instead of
+annulling. The rest of the branch weights stand.
+
+### Evidence
+
+Unchanged from v1.
+
+### Other forecasters (2026-09-26)
+
+| Source | Yashar | Likud | Other | As of | Note |
+|---|---|---|---|---|---|
+| **This (v2)** | **61.5** | **37.6** | **0.9** | 2026-09-26 | |
+| Metaculus CP | 57.0 | 42.0 | 1.0 | 2026-09-26 19:39 | n=80 [1] |
+| Metaculus Pros | 57.9 | 40.9 | 1.2 | 2026-09-26 | n=9 |
+| Metaculus gold | 57.9 | 40.9 | 1.2 | 2026-09-26 | n=27 |
+| Polymarket | 59.0 (0.58/0.60) | 40.5 (0.40/0.41) | 0.5 (Together) | 2026-09-26 | $401k volume (was $314k); tie-break on votes [3] |
+
+**Cohort disagreement**: none; Pros and gold are identical. **Disagreement with me: 3–4.5pp**,
+Likud-ward. The Metaculus comment thread's most detailed forecast (Theomachado, 21 Sep:
+Yashar 55 / Likud 44) splits the polls into two camps. It weights the right-leaning houses more
+than my 10% Filber-house weight does. That is exactly v1's second load-bearing sensitivity, and
+it is where the gap comes from.
+
+### Sensitivity
+
+Unchanged from v1 for the two load-bearing assumptions: the drift term (+0.0 → Yashar ~74%,
++2.4 → Yashar ~46%) and the Filber-house weight (0% → Yashar ~73%, 25% → Yashar ~40%). v1's
+last row (tie → annulled vs. a popular-vote tie-break) is now moot. The published tie-break
+(the next PM's party) is priced in the revision table and moves the vector by less than 1pp.
+
+### What would change my mind (tripwires)
+
+- [ ] **By 2026-10-13 — mainstream-house average (Channel 14 and i24 excluded) has Likud level with or ahead of Yashar** → **down 12pp on P(Yashar)**.
+- [ ] **By 2026-10-13 — mainstream-house average gap reaches ≥ 4.5 seats to Yashar** (from −3.4 on 2026-09-24) → **up 6pp**.
+- [ ] **By 2026-10-23 — Amcha Yisrael (Ofer Winter) below 3.25% in a majority of the final week's polls** → **down 4pp**.
+- [ ] **By 2026-10-20 — Herzog grants Netanyahu a pardon, or the Attorney-General announces a plea deal** → re-analyse (direction either).
+- [ ] **By 2026-10-20 — Metaculus Pros and gold both move ≥ 8pp from my Yashar number in the same direction** → re-derive before defending.
+
+### Sources
+
+1. Metaculus question 45670, three-cohort aggregations and comments (admin tie-breaker comment by johnnycaffeine, 2026-09-21) — https://www.metaculus.com/questions/45670/ (accessed 2026-09-26; `raw/metaculus-2026-09-26.json`)
+2. Opinion polling for the 2026 Israeli legislative election — Wikipedia (raw wikitext) — https://en.wikipedia.org/wiki/Opinion_polling_for_the_2026_Israeli_legislative_election (accessed 2026-09-26; `raw/wikipedia-polling-wikitext-2026-09-26.txt`, parsed with v1's `raw/parse_polls.py` pointed at the new file)
+3. Polymarket, "Israeli Legislative Election Winner" (gamma API) — https://polymarket.com/event/israeli-legislative-election-winner (accessed 2026-09-26; `raw/polymarket-largest-party-2026-09-26.json`)
+4. Herzog's Yom Kippur pardon of soldier crystallizes choice for Israeli voters — The Forward — https://forward.com/opinion/851495/herzogs-yom-kippur-pardon-of-soldier-crystallizes-eisenkot-netanyahu-choice (accessed 2026-09-26, via search summary)
+5. Rebuffing Netanyahu's pardon request, at least for now, Herzog calls for new plea deal talks — The Times of Israel — https://www.timesofisrael.com/herzog-pushes-for-new-plea-deal-talks-says-he-wont-consider-netanyahu-pardon-request-yet/ (accessed 2026-09-26, via search summary)
+6. "Gadi Eisenkot still leads in polls, but Benjamin Netanyahu shortens distance" —
+   The Jerusalem Post, 2026-09-17 — https://www.jpost.com/israel-election-2026/article-908921
+   (accessed 2026-09-20) — carried forward from v1 [3], still relied on
+7. "Netanyahu's anti-Arab campaign has found Gadi Eisenkot's Achilles' heel" —
+   The Times of Israel, 2026-09-18 —
+   https://www.timesofisrael.com/netanyahus-anti-arab-campaign-has-found-gadi-eisenkots-achilles-heel/
+   (accessed 2026-09-20) — carried forward from v1 [5], still relied on
+8. Opinion polling for the 2015 Israeli legislative election — Wikipedia —
+   https://en.wikipedia.org/wiki/Opinion_polling_for_the_2015_Israeli_legislative_election
+   (accessed 2026-09-20) — carried forward from v1 [7], still relied on
+9. April 2019 Israeli legislative election — Wikipedia —
+   https://en.wikipedia.org/wiki/April_2019_Israeli_legislative_election (accessed 2026-09-20) — carried forward from v1 [9], still relied on
+10. Shlomo Filber — Wikipedia — https://en.wikipedia.org/wiki/Shlomo_Filber
+    (accessed 2026-09-20) — carried forward from v1 [11], still relied on
+11. Lists of Candidates — Central Elections Committee, 2026-09-03 —
+    https://www.gov.il/en/pages/candidates-lists-26 (accessed 2026-09-20) — carried forward from v1 [15], still relied on
+12. "Main opposition factions ink surplus-vote deals in bid to maximize Knesset
+    representation" — The Times of Israel, 2026-09-10 —
+    https://www.timesofisrael.com/main-opposition-factions-ink-surplus-vote-deals-in-bid-to-maximize-knesset-representation/
+    (accessed 2026-09-20) — carried forward from v1 [19], still relied on
+
+**Date**: 2026-09-26
+**Forecast**: Yashar 61.5%, Likud 37.6%, Other 0.9% — IQR on Yashar [55.5%, 67.5%]
+**Thesis**: The six mainstream pollsters still put Eisenkot's Yashar 3.4 seats ahead of Likud, slightly wider than at v1 [2]. The Channel 14/i24 gap to them narrowed a little. Metaculus's new tie-breaker, the next PM's party, turns v1's 11% annulment branch into a ~55/45 Yashar split, costing 0.7pp [1]. Metaculus Pros and gold (57.9) and Polymarket (59) sit 2.5–4.5pp Likud-ward of me, because they give the right-leaning houses more weight. The final 72 hours before the vote are unpolled, and that remains the main risk.
 
 ---
 

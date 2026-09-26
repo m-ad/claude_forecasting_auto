@@ -6,11 +6,120 @@
 | **Type** | multiple choice — 7 options: Dembélé · **Kane** · Kvaratskhelia · Mbappé · Rodri · Yamal · **Other** |
 | **Opened / Closes / Resolves** | — / 2026-10-26 09:00 UTC / **2026-10-26** (ceremony, London) |
 | **Status** | open |
-| **Current forecast** | **Kane 56.0%, Yamal 20.0%, Mbappé 9.0%, Rodri 7.5%, Other 4.5%, Kvaratskhelia 2.3%, Dembélé 0.7%** — IQR on Kane [48.0%, 63.0%] (v1, 2026-09-12) |
-| **Community (as of 2026-09-12)** | **CP not yet revealed** — n=10 forecasters; no Pro or gold-medalist aggregation exists yet. Fetched successfully via the repaired `metaculus-aggregations` skill; snapshot in `raw/` |
+| **Current forecast** | **Kane 55.0%, Yamal 22.0%, Mbappé 8.5%, Rodri 6.5%, Other 5.0%, Kvaratskhelia 2.0%, Dembélé 1.0%** — IQR on Kane [47.0%, 62.0%] (v2, 2026-09-26) |
+| **Community (as of 2026-09-26)** | Kane: CP **60.1%** (n=103) · Pros **58.3%** (n=9) · gold **59.0%** (n=27); Polymarket Kane 56.25 / Yamal 25.5 |
 | **Next review** | 2026-10-12 |
 
 <!-- Versions below, newest first. APPEND-ONLY: never edit or delete a past version. -->
+
+---
+
+## v2 — Update — 2026-09-26
+
+**Mode: Update** (incremental). 14 days since v1, just under a third of the time that was left
+to the ceremony at v1. No venue is more than 10pp from me on any option. The question's structure
+has not changed, and there is no earlier update to have drifted from. The Metaculus cohorts,
+unavailable at v1, are now visible and are used below. The operator also asked for the full
+option vector in the ledger's new `distribution` field. This version supplies it.
+
+### Revision table
+
+| Driver | Direction | Effect |
+|---|---|---|
+| **Prior (v1, 2026-09-12)** | — | Kane **56.0%** (IQR [48.0, 63.0]), Yamal 20.0, Mbappé 9.0, Rodri 7.5, Other 4.5, Kvaratskhelia 2.3, Dembélé 0.7 |
+| **The money re-rated Yamal: Polymarket 16.4 → 25.5, Kane 62.0 → 56.25**, on ~$4.3M of fresh volume ($34.6M → $38.9M) [1]. Kalshi Kane 60 / Yamal 24 / Mbappé 9 [2]. Coral's best Kane price is 4/6 (59.9%) [2]. The market has moved to, and past, v1's ballot-depth argument for Yamal. The news in the window is campaigning, not results: Yamal said "I think I deserve this award this year"; Flick backed him publicly; Kane stayed quiet [3]. Campaigning is weak evidence about 100 jurors, who told *Le Parisien* and Goal the campaigns do not move them [4]. So I move only part of the way | Yamal ↑, Kane ↓ | Yamal +2.0, Kane −1.0, Mbappé −0.5 (Polymarket 10.1 → 7.25), Rodri −0.5 (5.5 → 4.5) |
+| **Messi drifted up on Polymarket, 2.9 → 4.2** [1]. Messi is not an option, so his probability counts under Other. The Metaculus cohorts put Other at 4.0–5.2 | Other ↑ | Other +0.5 |
+| **Tail options brought toward all anchors.** Rodri: cohorts 5.0–6.4, Polymarket 4.5 → a further −0.5. Kvaratskhelia: cohorts 1.9–2.1, Polymarket 1.25 → −0.3. Dembélé: cohorts 1.0, Polymarket 0.9 → +0.3 | mixed | Rodri −0.5, Kvaratskhelia −0.3, Dembélé +0.3 |
+| **Metaculus cohorts revealed**: CP Kane 60.1 / Yamal 20.0; Pros 58.3 / 19.8; gold 59.0 / 19.5 [5]. All within 3pp of my Kane number and at my v1 Yamal number. That argues against following the market further on Yamal | — | 0 |
+| **New forecast (v2)** | | Kane **55.0%** (IQR [47.0, 62.0]), Yamal 22.0, Mbappé 8.5, Rodri 6.5, Other 5.0, Kvaratskhelia 2.0, Dembélé 1.0 |
+
+**Timing matters.** The juror voting deadline is reported as **28 September** [6]. After that,
+nothing that happens on the pitch can change the outcome. The only remaining information is
+leakage: jurors' straw polls, France Football's own previews, or a 2024-style leak in the final
+days. That is why the IQR stays wide on the downside.
+
+### Tripwire check (v1 list)
+
+| Tripwire | Status | Evidence |
+|---|---|---|
+| Credible France Football result leak or juror straw poll (L'Équipe, RMC, The Athletic) | Not fired | *Le Parisien* contacted jurors, and none would go on record. Goal (24 Sep) quotes jurors from Algeria and Sweden on the campaigns but not on their votes [4] |
+| Kane absent from Bayern's XI on the ankle injury (by 10-12), **−4** | Not fired (no evidence found) | Searches return only the April 2026 ankle episode. No September absence was found |
+| Three or more of SI, The Athletic, ESPN, Goal, L'Équipe name the same Spaniard first (by 10-19), **−8** | Not fired | The odds pieces and previews found (Sky, Goal, Covers, Oddspedia) all lead with Kane [2] |
+| Polymarket Kane outside 0.50–0.72 on ≥ $250k fresh volume | **Not fired** (inside band) | 0.5625 on ~$4.3M fresh volume. The volume condition is met but the price is inside the band [1] |
+| Metaculus reachable and Pro + gold > 10pp from this vector on the leading option | Not fired | Pro 58.3, gold 59.0 against my 55.0 [5] |
+| Ceremony postponed past 2026-10-26 | Not fired | 26 Oct at the London Palladium [2] |
+
+### What resolves YES
+
+Unchanged from v1.
+
+### Outside view
+
+Unchanged from v1.
+
+### Inside view
+
+Unchanged from v1.
+
+### Scenarios
+
+Unchanged from v1, except the scenario weights, which follow the new vector: Spain's vote
+fragments (Kane) 0.55 · Yamal's depth converts 0.22 · raw numbers carry Mbappé 0.085 ·
+the Modrić template (Rodri) 0.065 · off-list, chiefly Messi (Other) 0.05 · Kvaratskhelia 0.02 ·
+Dembélé repeats 0.01. The ledger uses Metaculus's exact labels: `Ousmane Dembélé`,
+`Harry Kane`, `Khvicha Kvaratskhelia`, `Kylian Mbappé`, `Rodri`, `Lamine Yamal`, `Other`.
+
+### Evidence
+
+Unchanged from v1.
+
+### Other forecasters (2026-09-26)
+
+| Source | Kane | Yamal | Mbappé | Rodri | Other | Kvara | Dembélé | Note |
+|---|---|---|---|---|---|---|---|---|
+| **This (v2)** | **55.0** | **22.0** | **8.5** | **6.5** | **5.0** | **2.0** | **1.0** | |
+| Metaculus CP | 60.1 | 20.0 | 8.0 | 5.0 | 4.0 | 1.9 | 1.0 | n=103 [5] |
+| Metaculus Pros | 58.3 | 19.8 | 8.3 | 5.2 | 5.2 | 2.1 | 1.0 | n=9 |
+| Metaculus gold | 59.0 | 19.5 | 7.8 | 6.4 | 4.4 | 2.0 | 1.0 | n=27 |
+| **Polymarket** | 56.25 | 25.5 | 7.25 | 4.5 | ~5.7 (Messi 4.2) | 1.25 | 0.9 | $38.9M volume; book sums to 101.3% [1] |
+| Kalshi | 60 | 24 | 9 | — | — | — | — | via Covers [2] |
+| Coral (best Kane) | 59.9 | — | — | — | — | — | — | 4/6, 24 Sep [2] |
+
+**Cohort disagreement**: none. The three Metaculus cohorts are within 1.8pp on Kane and 0.5pp
+on Yamal. **The interesting split is between Metaculus (Yamal ~20) and the money (Yamal
+24–25.5).** I sit between them.
+
+### Sensitivity
+
+Unchanged from v1.
+
+### What would change my mind (tripwires)
+
+- [ ] A credible France Football result leak or juror straw poll reported by L'Équipe, RMC or *The Athletic* before 2026-10-26 → resolves most of the uncertainty (±30pp on whoever it names); logged as direction either, magnitude 0.
+- [ ] Polymarket Kane below 0.48 or above 0.68 on ≥ $500k of fresh volume, by 2026-10-24 → move ~40% of the way; check for a leak first.
+- [ ] Three or more of SI, *The Athletic*, ESPN, Goal, L'Équipe name the same Spaniard first in their October previews, by 2026-10-19 → **−6pp** Kane, to that player.
+- [ ] Metaculus Pro + gold both more than 8pp from this vector on Kane, by 2026-10-19 → re-derive before defending.
+- [ ] The ceremony is postponed past 2026-10-26 → re-read the resolution window.
+
+### Sources
+
+1. Polymarket, "Ballon d'Or Winner 2026" (gamma API) — https://polymarket.com/event/ballon-dor-winner-2026 (accessed 2026-09-26; `raw/polymarket-ballon-dor-winner-2026-2026-09-26.json`)
+2. Ballon d'Or odds: Kane, Yamal, Messi, Mbappé and Rodri in race — Sky Sports — https://www.skysports.com/football/news/13565197/ ; 2026 Ballon d'Or Odds: Kane Leads Prediction Market — Covers — https://www.covers.com/soccer/2026-ballon-dor-odds-prediction-markets (both accessed 2026-09-26, via search summary)
+3. Ballon d'Or 2026: Yamal, Mbappé and Kane Are on the Campaign Trail — MSport, 2026-09-22 — https://blog-ng.msport.com/index.php/all-news/sports-stories/ballon-dor-2026-campaign-trail-yamal-mbappe-kane (accessed 2026-09-26)
+4. "Clear manipulation": explosive confessions from some members of the Ballon d'Or jury — Goal, 2026-09-24 — https://www.goal.com/en/news/clear-manipulation-explosive-confessions-from-some-members-of-the-ballon-d-or-jury/blt5c73c43d72c2984a (accessed 2026-09-26)
+5. Metaculus question 45617, three-cohort aggregations and comments — https://www.metaculus.com/questions/45617/ (accessed 2026-09-26; `raw/metaculus-2026-09-26.json`)
+6. Ballon d'Or 2026: Voting Deadline Date Emerges as Race Heats Up — Yen.com.gh — https://yen.com.gh/sports/football/312159-ballon-d-2026-voting-deadline-date-emerges-race-heats-up/ (accessed 2026-09-26, via search summary)
+7. 2026 Ballon d'Or — Wikipedia — https://en.wikipedia.org/wiki/2026_Ballon_d%27Or (accessed 2026-09-11) — carried forward from v1 [1], still relied on
+8. Ballon d'Or 2026 regulations: how the winners will be decided — Pulse — https://www.pulse.com.gh/story/ballon-dor-2026-regulations-how-the-winners-will-be-decided-2026090715413570044 (accessed 2026-09-11) — carried forward from v1 [2], still relied on
+9. Breaking down Harry Kane's brilliant 2025/26 numbers — Bundesliga.com — https://www.bundesliga.com/en/bundesliga/news/harry-kane-2025-26-numbers-england-bauern-munich-goals-records-messi-38301 (accessed 2026-09-11) — carried forward from v1 [5], still relied on
+10. Rodri wins World Cup Golden Ball as Spain dominate awards — ESPN — https://www.espn.com/soccer/story/_/id/49404995/2026-world-cup-golden-ball-spain-unai-simon-pau-cubarsi (accessed 2026-09-11) — carried forward from v1 [7], still relied on
+11. Bayern knock Real Madrid out of the Champions League in a quarter-final classic — Al Jazeera — https://www.aljazeera.com/sports/2026/4/15/bayern-edge-real-madrid-4-3-in-classic-to-reach-champions-league-semifinals (accessed 2026-09-11) — carried forward from v1 [9], still relied on
+12. Lamine Yamal injury: Barcelona star to miss rest of season — CBS Sports — https://www.cbssports.com/soccer/news/lamine-yamal-injury-world-cup-barcelona-out-for-season-expected-to-return/ (accessed 2026-09-11) — carried forward from v1 [10], still relied on
+13. Ballon d'Or 2026 odds: is Kalshi's Kane price too high? — OddsShopper 8-model ensemble — https://www.oddsshopper.com/articles/prediction-markets/ballon-dor-2026-model-verdict (accessed 2026-09-11) — carried forward from v1 [18], still relied on
+
+**Date**: 2026-09-26
+**Forecast**: Kane 55.0%, Yamal 22.0%, Mbappé 8.5%, Rodri 6.5%, Other 5.0%, Kvaratskhelia 2.0%, Dembélé 1.0% — IQR on Kane [47.0%, 62.0%]
+**Thesis**: Kane is still the favourite: a 73-goal season and a Champions League semi-final clear every modern winner's screen, and Spain's World Cup credit is spread across five or six players. Polymarket has since re-rated Yamal from 16% to 25.5% on $4.3M of new money [1], the direction v1 argued. But the news behind it is campaigning, not results, and all three Metaculus cohorts hold Yamal at ~20% [5], so I move only 2pp toward him. Juror ballots close on 28 Sep [6]. Only a leak can move this much after that.
 
 ---
 

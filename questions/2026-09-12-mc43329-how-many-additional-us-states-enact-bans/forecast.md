@@ -6,11 +6,105 @@
 | **Type** | multiple_choice (0 / 1 / 2 / 3 / 4+) |
 | **Opened / Closes / Resolves** | 2026-06-12 / 2027-07-01 / 2027-07-01 |
 | **Status** | open |
-| **Current forecast** | **0: 12.5% · 1: 27.5% · 2: 28.0% · 3: 18.5% · 4+: 13.5%** — leading option **2, IQR [24.0%, 32.0%]** (v1, 2026-09-12) |
-| **Community (as of 2026-09-12)** | CP 0=15.0 / 1=25.0 / 2=30.0 / 3=20.0 / 4+=10.0 (n=31) · Pro 14.4/23.7/28.3/21.7/11.9 (n=5) · Gold 15.2/25.3/28.8/20.2/10.4 (n=14) |
+| **Current forecast** | **0: 12.5% · 1: 27.5% · 2: 28.0% · 3: 18.5% · 4+: 13.5%** — leading option **2, IQR [24.0%, 32.0%]** (v2, 2026-09-26) |
+| **Community (as of 2026-09-26)** | CP 0=16.1 / 1=28.6 / 2=26.5 / 3=18.0 / 4+=10.7 (n=34) · Pro 15.1/28.1/27.1/17.1/12.7 (n=5) · Gold 14.9/27.2/27.7/18.3/11.9 (n=14) |
 | **Next review** | 2026-12-15 |
 
 <!-- Versions below, newest first. APPEND-ONLY: never edit or delete a past version. -->
+
+---
+
+## v2 — Update (no change) — 2026-09-26
+
+**Mode: Update** (incremental). 14 days since v1, 5% of the time to resolution. This version
+exists to record v1's forecast as a full option vector in the ledger's new `distribution`
+field. v1 was logged before that field existed. The Metaculus cohorts were re-fetched and the
+v1 tripwires re-checked. **No change** is correct. The window is essentially the January–June
+2027 legislative sessions, and nearly every state legislature is out of session until then. So
+two quiet weeks in September use up almost none of the window's hazard: the "quiet time lowers
+P" argument has almost nothing to act on yet.
+
+### Revision table
+
+| Driver | Direction | Effect |
+|---|---|---|
+| **Prior (v1, 2026-09-12)** | — | 0: 12.5 · 1: 27.5 · **2: 28.0** · 3: 18.5 · 4+: 13.5 (leading option `2`, IQR [24.0, 32.0]) |
+| **Elapsed time.** 12 Sep – 26 Sep is outside every relevant session. Full-time legislatures such as Ohio and Pennsylvania could in principle act, but no cultivated-meat ban movement was found [2][3] | — | 0 |
+| **Metaculus cohorts barely moved.** CP 16.1 / 28.6 / 26.5 / 18.0 / 10.7 (n=34). Pros 15.1 / 28.1 / 27.1 / 17.1 / 12.7 (n=5). Gold 14.9 / 27.2 / 27.7 / 18.3 / 11.9 (n=14) [1]. Every cohort is still within ~4pp of me on every option, which is v1's convergence. There is no new information to herd on | — | 0 |
+| **No Louisiana clarification.** The question has no comments at all, and no admin ruling on whether the contingent Act 742 counts [1] | — | 0 |
+| **v2 (2026-09-26)** | | 0: 12.5 · 1: 27.5 · **2: 28.0** · 3: 18.5 · 4+: 13.5, unchanged |
+
+### Tripwire check (v1 list)
+
+| Tripwire | Status | Note |
+|---|---|---|
+| < 3 states introduce a full sale ban for 2027 (by 2027-01-15) | Not due | pre-filing mostly opens in Nov–Dec |
+| ≥ 5 states introduce full sale bans for 2027 (by 2027-01-15) | Not due | — |
+| West Virginia Senate passes a ban (by 2027-03-15) | Not due | — |
+| South Carolina H.5096-equivalent clears Senate Agriculture (by 2027-04-15) | Not due | — |
+| A cultivated-meat product goes on US retail or chain-restaurant sale (by 2027-06-30) | Not fired | No US launch found. Federal approval exists, but no product is on sale [3] |
+| Admin clarifies whether Louisiana Act 742 counts | Not fired | No comments on the question [1] |
+
+All other sections are unchanged from v1. The ledger vector uses Metaculus's exact option labels
+`0`, `1`, `2`, `3`, `4+`. The distribution is recorded as `probabilities` because this is a
+multiple-choice question: its options are count bins, not a numeric scale.
+
+### What resolves YES
+
+Unchanged from v1.
+
+### Outside view
+
+Unchanged from v1.
+
+### Inside view
+
+Unchanged from v1.
+
+### Evidence
+
+Unchanged from v1.
+
+### Other forecasters
+
+Unchanged from v1.
+
+### Scenarios
+
+Unchanged from v1.
+
+### Sensitivity
+
+Unchanged from v1.
+
+### What would change my mind
+
+Unchanged from v1.
+
+### Sources
+
+1. Metaculus question 43329, three-cohort aggregations and comments — https://www.metaculus.com/questions/43329/ (accessed 2026-09-26; `raw/metaculus-2026-09-26.json`)
+2. Cell-Cultured Meat Updates: state bans, labeling requirements, and regulatory clarifications — National Agricultural Law Center — https://nationalaglawcenter.org/cell-cultured-meat-updates-state-bans-labeling-requirements-and-regulatory-clarifications/ (accessed 2026-09-26, via search summary)
+3. Cultivated Meat: Latest News 2026 — vegconomist — https://vegconomist.com/category/cultivated-cell-cultured-biotechnology/cultivated-meat/ (accessed 2026-09-26, via search summary)
+4. CSG Midwest, "Cell-cultured meat remains focus of new laws and legislation across the Midwest",
+   2026-05-04 — https://csgmidwest.org/2026/05/04/though-not-yet-on-grocery-shelves-lab-grown-meat-is-focus-of-new-laws-and-legislation/ (accessed 2026-09-12) — carried forward from v1 [2], still relied on
+5. National Agricultural Law Center, "Food Law in the States: 2026 Update Part 2", 2026-07-21 —
+   https://nationalaglawcenter.org/food-law-in-the-states-2026-update-part-2/ (accessed 2026-09-12) — carried forward from v1 [3], still relied on
+6. Regulatory Oversight (Troutman Pepper), "Eleventh Circuit Upholds Florida's Lab-Grown Meat Ban
+   Against Preemption Challenge", March 2026 — https://www.regulatoryoversight.com/2026/03/eleventh-circuit-upholds-floridas-lab-grown-meat-ban-against-preemption-challenge/ (accessed 2026-09-12) — carried forward from v1 [5], still relied on
+7. Louisiana Legislature, SB 152 (2026 RS) bill info and Senate floor amendments —
+   https://www.legis.la.gov/legis/BillInfo.aspx?s=26RS&b=SB152&sbi=y and
+   https://www.legis.la.gov/legis/ViewDocument.aspx?d=1463872 (accessed 2026-09-12) — carried forward from v1 [8], still relied on
+8. South Carolina Legislature Online, H.5096 (2025–2026), full action history —
+    https://www.scstatehouse.gov/sess126_2025-2026/bills/5096.htm (accessed 2026-09-12) — carried forward from v1 [10], still relied on
+9. West Virginia Legislature, HB 4462 (2026 RS) bill status —
+    https://www.wvlegislature.gov/bill_status/bills_history.cfm?INPUT=4462&year=2026&sessiontype=RS (accessed 2026-09-12) — carried forward from v1 [11], still relied on
+10. Oklahoma Voice, "Oklahoma panel passes measure to ban lab-grown meat", 2026-02-09 —
+    https://oklahomavoice.com/2026/02/09/oklahoma-panel-passes-measure-to-ban-lab-grown-meat/ (accessed 2026-09-12) — carried forward from v1 [12], still relied on
+
+**Date**: 2026-09-26
+**Forecast**: 0: 12.5%, 1: 27.5%, 2: 28.0%, 3: 18.5%, 4+: 13.5% (leading option **2**, IQR [24.0%, 32.0%]; mean ≈ 1.97 states)
+**Thesis**: Unchanged from v1. This version only records the full vector in the ledger. The window is essentially the 2027 legislative sessions, so two quiet September weeks use up almost none of the hazard. The Metaculus cohorts are still within ~4pp of me on every option [1]. The load-bearing uncertainties are unchanged: three states that enter 2027 with a ban already through one chamber, and whether Louisiana's contingent Act 742 counts.
 
 ---
 

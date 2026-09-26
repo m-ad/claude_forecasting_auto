@@ -16,18 +16,18 @@ dates:
   resolves: '2026-10-26'
 status: open
 current:
-  version: 1
-  date: '2026-09-12'
-  median: 0.56
+  version: 2
+  date: '2026-09-26'
+  median: 0.55
   iqr:
-  - 0.48
-  - 0.63
+  - 0.47
+  - 0.62
   community:
-    cp: null
-    pro: null
-    gold: null
-    n_forecasters: 10
-    as_of: '2026-09-12'
+    cp: 0.601
+    pro: 0.583
+    gold: 0.59
+    n_forecasters: 103
+    as_of: '2026-09-26'
 next_review: '2026-10-12'
 tripwires:
 - signal: Credible France Football result leak or juror straw poll reported by L'Equipe, RMC or The Athletic
@@ -36,27 +36,21 @@ tripwires:
   magnitude: 0
   magnitude_unit: pp
   fired: null
-- signal: Kane absent from Bayern's XI in Bundesliga or Champions League matchdays on the ankle injury
-  by: '2026-10-12'
-  direction: down
-  magnitude: 4
+- signal: Polymarket Kane below 0.48 or above 0.68 on at least $500k of fresh volume - move ~40% of the
+    way after checking for a leak
+  by: '2026-10-24'
+  direction: either
+  magnitude: 0
   magnitude_unit: pp
   fired: null
 - signal: Three or more of SI, The Athletic, ESPN, Goal, L'Equipe name the same Spaniard first in their
     October previews
   by: '2026-10-19'
   direction: down
-  magnitude: 8
+  magnitude: 6
   magnitude_unit: pp
   fired: null
-- signal: Polymarket Kane price closes outside 0.50-0.72 on at least $250k of fresh volume
-  by: '2026-10-19'
-  direction: either
-  magnitude: 0
-  magnitude_unit: pp
-  fired: null
-- signal: Metaculus reachable again and Pro + gold cohorts sit more than 10pp from this vector on the
-    leading option
+- signal: Metaculus Pro and gold both more than 8pp from this vector on Kane
   by: '2026-10-19'
   direction: either
   magnitude: 0
