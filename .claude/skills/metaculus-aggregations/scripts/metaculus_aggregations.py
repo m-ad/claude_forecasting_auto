@@ -105,9 +105,10 @@ single question for the Aggregation Explorer to aggregate. Queried by
 Before v4.3 that 400 was retried like a rate limit -- ~3 min of backoff that
 spent rate-limit budget -- and then reported as "403 / post does not exist".
 
-v4.3 recognises a group from the post JSON (``group_of_questions``), read over
-the API key up front when details are wanted anyway, or looked up after the
-explorer's 400 otherwise. It then fetches every subquestion with its
+v4.3 still asks the explorer first, so a single-question post makes exactly the
+requests it always did. Only on a 400 does it look the post up (API key first,
+then browser) and, if the JSON carries ``group_of_questions``, fetch every
+subquestion with its
 ``question_id`` pinned -- one request per subquestion, all cohorts
 comma-joined -- and returns them in ``result.subquestions``, each labelled
 with its group label (e.g. "2027"). A 400 is never retried: it is Metaculus
@@ -825,20 +826,20 @@ def _collect(
     Split out of :func:`fetch_aggregations` purely so the browser is torn down by
     one ``finally`` regardless of where a fetch fails.
     """
-    # Details need the post JSON anyway, and the API key reads it without the
-    # browser -- so asking first costs nothing and spots a group post before the
-    # explorer rejects it.
-    post = fetch_post_api(post_id) if include_details else None
-    subqs = _group_questions(post)
-
-    if not subqs:
-        status, base = fetcher.get_json(_url(methods))
-        if not base and status == 400:
-            # The explorer answers a group post queried without question_id with
-            # 400; confirm from the post itself before treating it as one.
-            post = post or _lookup_post(fetcher, post_id)
+    # The explorer goes first, exactly as for every post before group support:
+    # an IP-level rate limit also covers the API-key surface, so a lookup ahead
+    # of it could spend the request the explorer needs. Only its 400 -- which a
+    # single-question post never gets -- costs the extra post lookup.
+    post: dict = {}
+    subqs: list[dict] = []
+    status, base = fetcher.get_json(_url(methods))
+    if not base:
+        if status == 400:
+            # A group post queried without question_id; confirm from the post
+            # itself before treating it as one.
+            post = _lookup_post(fetcher, post_id)
             subqs = _group_questions(post)
-        if not base and not subqs:
+        if not subqs:
             raise RuntimeError(
                 f"No aggregation JSON for post {post_id} (last status {status}). "
                 "403 means the post does not exist or Cloudflare challenged every "
@@ -877,6 +878,9 @@ def _collect(
         )
 
     if include_details:
+        # A group's post JSON was already looked up; reuse it.
+        if not post:
+            post = fetch_post_api(post_id)
         if not post:
             _, post = fetcher.get_json(f"{_BASE}/posts/{post_id}/?with_cp=false")
         # A group keeps its criteria on the group, not on any one question.

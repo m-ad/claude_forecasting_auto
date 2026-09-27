@@ -128,8 +128,11 @@ Some posts are a **group of questions**: one numeric subquestion per year, say (
 answers a post-only query with **HTTP 400**. Since v4.3 the script handles this itself; pass the
 **post** id as usual.
 
-- It spots the group from the post JSON (`group_of_questions`). With `METACULUS_API_KEY` set it
-  reads that up front, at no browser cost. Without the key it looks the post up after the 400.
+- It still asks the explorer first, so a single-question post makes exactly the requests it
+  always did. Only after a 400 does it look the post up (`METACULUS_API_KEY` first, else the
+  browser) and check for `group_of_questions`. The explorer stays first on purpose: a tripped
+  rate limit also blocks the API surface, so a lookup ahead of it could spend the one request
+  the explorer needs.
 - It then makes **one request per subquestion**, with `question_id` pinned and all cohorts
   comma-joined.
 - Results come back in `res.subquestions`, one `AggregationResult` per subquestion. `label` holds

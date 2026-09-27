@@ -634,9 +634,7 @@ def _check_group_result(res):
         assert by_label["2028"].methods[m].latest.center == pytest.approx(113.0)
 
 
-def test_group_post_found_via_the_api_skips_the_doomed_post_only_query(
-    agg, monkeypatch
-):
+def test_group_post_found_via_the_api_after_the_explorer_s_400(agg, monkeypatch):
     monkeypatch.setattr(agg, "fetch_post_api", lambda _pid: _GROUP_POST)
     f = _GroupFetcher(post_via_browser=False)
     res = agg._collect(
@@ -649,8 +647,11 @@ def test_group_post_found_via_the_api_skips_the_doomed_post_only_query(
         include_details=True,
     )
     _check_group_result(res)
-    # Exactly one request per subquestion, all cohorts comma-joined, qid pinned.
+    # The post-only query once (its 400 is not retried), then exactly one request
+    # per subquestion, all cohorts comma-joined, qid pinned. The API answered the
+    # post lookup, so the browser never fetched the post.
     assert f.captured == [
+        "agg?methods=recency_weighted,metaculus_pros,gold_medalists",
         "agg?methods=recency_weighted,metaculus_pros,gold_medalists&qid=45576",
         "agg?methods=recency_weighted,metaculus_pros,gold_medalists&qid=45575",
     ]
@@ -743,3 +744,32 @@ def test_a_single_question_post_keeps_its_old_shape(agg):
     assert res.question_id == 40839
     assert res.subquestions == [] and res.label is None
     assert res.methods["recency_weighted"].latest.center == pytest.approx(100.0)
+
+
+def test_a_single_question_post_asks_the_explorer_before_the_api(agg, monkeypatch):
+    # An IP-level rate limit covers the API-key surface too, so a post lookup
+    # ahead of the explorer could spend the one request the explorer needs. Group
+    # support must not reorder a single-question post's requests.
+    order: list[str] = []
+
+    def api(_pid):
+        order.append("api")
+        return {"nr_forecasters": 3, "question": {"resolution_criteria": "rc"}}
+
+    monkeypatch.setattr(agg, "fetch_post_api", api)
+
+    class F:
+        def get_json(self, url):
+            order.append("browser:" + url.split("?")[0])
+            return 200, _explorer_json(40839, 0.5)
+
+    agg._collect(
+        F(),
+        40839,
+        _url_for,
+        agg_methods(),
+        include_history=False,
+        n_comments=0,
+        include_details=True,
+    )
+    assert order == ["browser:agg", "api"]
