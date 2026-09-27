@@ -6,13 +6,295 @@
 | **Type** | numeric group — two subquestions (2027: qid 45575; 2028: qid 45576), unit `%`, range 0–200, both bounds open |
 | **Opened / Closes / Resolves** | 2026-09-03 / 2028-07-01 / 2028-09-01 (2027) · 2029-09-01 (2028) |
 | **Status** | open |
-| **Current forecast** | **2027: Median 0.0%, IQR [−26.0%, +35.0%]** · **2028: Median +36.5%, IQR [−11.0%, +110.0%]** (v1, 2026-09-04) |
-| **Community (as of 2026-09-04)** | **none — 0 forecasters, 0 comments; CP, Pro and gold cohorts all empty** |
-| **Next review** | 2026-12-15 |
+| **Current forecast** | **2027: Median +14.2%, IQR [−17.2%, +67.1%]** · **2028: Median +67.3%, IQR [+17.1%, +152.7%]** (v2, 2026-09-27) |
+| **Community (as of 2026-09-26)** | 2027: CP 78.2% (n=5) · Pro 36.7% (n=2) · Gold 51.2% (n=4) — 2028: CP 113.0% · Pro 85.7% · Gold 91.6% |
+| **Next review** | 2026-11-30 |
 
-![Funds raised decomposition and forecast bands](charts/funds-raised-decomposition.png)
+![v2: decomposition and comparison with Metaculus cohorts](charts/funds-raised-v2.png)
 
 <!-- Versions below, newest first. APPEND-ONLY: never edit or delete a past version. -->
+
+---
+
+## v2 — Re-analysis — 2026-09-27
+
+Mode: **Re-analysis**. The Metaculus Pro and gold cohorts now sit 37–51 pp above v1 on the 2027
+leg, and the operator asked for a red-team first. Both legs are reported. The ledger carries the
+2027 leg (qid 45575) because it resolves first.
+
+![v2 decomposition and comparison with Metaculus cohorts](charts/funds-raised-v2.png)
+
+v1's chart, for comparison: [charts/funds-raised-decomposition.png](charts/funds-raised-decomposition.png).
+
+### Revision
+
+The effects come from switching one assumption at a time in `scripts/model_v2.py`, starting from
+the final v2 model. The structural row is the residual that makes each column add up.
+
+| Driver | Direction | 2027 leg | 2028 leg |
+|---|---|---|---|
+| Prior (v1, 2026-09-04) | — | Median 0.0%, IQR [−26.0%, +35.0%] | Median +36.5%, IQR [−11.0%, +110.0%] |
+| Model restructure. AI-linked money becomes its own additive block with explicit IPO/lockup states. v1 grew all non-Coefficient-Giving giving by a flat ×1.48 a year, which treats a one-time jump in the donor pool as a trend. | ↑ | +19.5 pp | +28.1 pp |
+| Anthropic's IPO target is now about $2tn (v1 assumed about $965bn). The donor-advised-fund (DAF) pool is now counted explicitly: $20–40bn at a $380bn valuation, which would scale to roughly $80–210bn at listing. | ↑ | +5.5 pp | +3.7 pp |
+| Lockup reported as "well over 180 days", with shares free around mid-2027. v1 assumed a modal 135–180 days, i.e. liquidity in Feb–Apr 2027. | ↓ | −8.4 pp | ≈ 0 |
+| Insiders may sell part of their stake at the IPO (now November 2026), so some AI-linked money reaches the December 2026 giving season, which counts in the **2026 denominator** | ↓ | −6.4 pp | −9.9 pp |
+| Coefficient Giving's 2027 median cut from $430m to $350m (before carryover). GiveWell carries a large unspent balance out of 2026, and new AI donors partly replace Coefficient Giving's money. | ↓ | −5.8 pp | 0 |
+| Correlation between Coefficient Giving and AI-linked giving cut from 0.55 to 0.15 (they partly substitute for each other) | ↑ (mostly spread) | +1.4 pp | 0 |
+| P(full $1bn booked in metrics year 2026) cut from 0.75 to 0.72 | ↑ | +0.3 pp | +0.3 pp |
+| Non-AI base growth in 2026 cut from ×1.48 to ×1.38. The One Big Beautiful Bill Act pulled gifts into calendar 2025, and large donors are being steered elsewhere after the $1bn. | ≈ | −0.3 pp | +0.9 pp |
+| *Model v2 output* | | *+6.0%, IQR [−20.0%, +46.7%]* | *+59.6%, IQR [+13.3%, +135.8%]* |
+| 30% weight on the pooled Metaculus Pro + gold distribution (linear pool on the CDF; `scripts/pool_v2.py`) | ↑ | +8.2 pp | +7.7 pp |
+| **New forecast** | | **Median +14.2%, IQR [−17.2%, +67.1%]** | **Median +67.3%, IQR [+17.1%, +152.7%]** |
+
+### Tripwire check
+
+| Tripwire from v1 | Fired? | Note |
+|---|---|---|
+| Coefficient Giving publishes a 2027 allocation to GiveWell's recommendations ≥ $800m (by 2027-03-31) | Not fired | Not due. No 2027 allocation found. The 2026 one came on 2025-12-18. |
+| Coefficient Giving's 2027 allocation ≤ $200m (by 2027-03-31) | Not fired | Same as above |
+| Anthropic IPO completes by 2026-12-31 with a lockup of ≤ 180 days | Not fired, and now unlikely **as worded** | The IPO slipped from October to **November 2026** (WSJ via Forbes 2026-09-23; Motley Fool 2026-09-26). The Information (via Motley Fool 2026-09-05) reports a portion of insider shares sellable at the IPO and the rest locked "well over 180 days", free around **mid-2027**. Replaced by two tripwires below. |
+| Anthropic IPO postponed beyond 2027-03-31 | Not fired | The slip is about one month |
+| GiveWell's 2026 metrics report recognises ≤ $700m of the Coefficient Giving commitment | Not due | Expected around August 2027 |
+| Nasdaq AI complex drawdown ≥ 35%, sustained past 2027-06-30 | Not fired | No drawdown of that size found. Anthropic's IPO target (~$2tn) is higher than at v1. |
+| Single ≥ $250m gift or pledge to GiveWell from an AI-linked donor, Feb 2027 – Jan 2028 | Window not open | — |
+| GiveWell publishes a forward funds-raised projection | Not fired | No such post on the GiveWell blog through its latest entry (2026-09-03) |
+
+### Red-team (operator-requested `/review`, 2026-09-27)
+
+The strongest case for a materially higher number, and how much of it survives.
+
+1. **Resolution risk: the base year could be smaller than v1 assumed.** GiveWell calls the
+   $1bn a "*near-term* funding commitment", not a 2026 one. Coefficient Giving co-funds some
+   grants directly (the $276m AMF/DRC net grant), and GiveWell could book those when granted
+   rather than when committed. A Metaculus Pro commenter estimates that only ~$600m of the $1bn is
+   approved as grants in calendar 2026. If ≥ $300m of the commitment moves into metrics year 2027
+   (or into a restated 2026), the 2027 leg jumps to about **+41%** (the model's split branch).
+   Against that: Coefficient Giving's post is titled "Increasing Our **2026 Allocation**", and in
+   2022 GiveWell recognised a full-year commitment in its year even though $128m was spent later.
+   *Survives in part:* P(full recognition) is trimmed from 0.75 to 0.72.
+   Smaller risks: GiveWell might redefine its headline metric to split Coefficient Giving out
+   (~5%, direction unclear under the "most comparable figure" clause). Metaculus admins have been
+   asked whether the 0–200 range was intended; a rescale changes scoring, not the outcome.
+2. **Reference class: v1 used the wrong one for the numerator.** v1 used GiveWell's plain
+   year-on-year series and the 2022→2023 cliff. A rival class is *"a default giving vehicle in
+   the year a large new donor cohort turns liquid"*. GiveWell's record has one clean example,
+   2025: +49% total and +64% non-Coefficient-Giving, driven by the $1m+ bucket (26 → 39 donors,
+   $151m → $360m). Some of those donors may be AI-linked, but that is not verified. 2021
+   (+103% vs 2020 money moved) does not count, because Open Philanthropy's $300m drove most of
+   it. Outside GiveWell, recipients of a founder cohort's post-IPO giving can see step changes
+   rather than growth rates; no reliable series was found to quantify that. *Survives in
+   part:* it describes the numerator, while the denominator carries a $1bn one-off that no
+   comparison year had. It is the main reason for the model restructure above.
+3. **Conjunction: v1's "≈ 0" needed three things at once.** Full recognition (0.72),
+   Coefficient Giving's 2027 level ≲ $500m (≈ 0.7), and only modest AI money in metrics year 2027
+   (≈ 0.55) jointly come to ≈ 0.28. If any one fails, the result rises by 20–40 pp. The same test
+   cuts the other way against the community prediction. Even with the normal-state AI-linked
+   increment raised to a $2bn median, the model's 2027 median only reaches +47%. Reaching +78%
+   needs ~$2.5–3bn of new money within ~5–7 months of the lockup ending, or split recognition on
+   top of ≥ $1.5bn. The v2 model puts P(2027 ≥ +78%) at 0.15 (0.22 after pooling).
+4. **Anchoring.** v1 inherited nothing from the crowd (0 forecasters). It did anchor on its own
+   insight — the $1bn that the question background omits. It copied the 2025 total growth (×1.48)
+   into the growth rate of the non-Coefficient-Giving block, and it treated a $100bn-scale
+   one-time liquidity event as a growth rate. Had a +78% community prediction existed on
+   2026-09-04, v1 would probably have landed around +10% to +20%, not 0. The live risk now runs
+   the other way, as stickiness to v1.
+5. **Missing tripwires.** v1 did not list: the Anthropic S-1's lockup schedule and how DAF-held
+   shares are treated; the IPO pricing valuation; any founder foundation or large gift
+   announcement; a GiveWell statement that it is over-funded, rolls over funds or tells donors
+   to give elsewhere; a mid-year 2027 Coefficient Giving top-up like July 2026's; GiveWell
+   changing its metric. All are added below.
+6. **IQR width.** v1's IQRs were 61 pp and 121 pp wide. The Metaculus cohorts' 2027 IQRs are
+   ~115–120 pp wide. v1 put P(2027 > +100%) at about 6%, which is too thin a right tail when a
+   $100bn-plus charitable pool unlocks *inside* metrics year 2027. v2 widens the IQRs to 84 pp
+   and 136 pp and puts P(2027 > +100%) at 11% (model) and 17% (pooled). The left tail is kept:
+   the observed −41% sits at about the 12th percentile.
+
+**Alternative forecast implied by the red team.** Stack all four red-team assumptions in
+`model_v2.py`: AI-linked increment in 2027 of $1.2bn in the normal state, P(full recognition) =
+0.5, Coefficient Giving's 2027 allocation at $500m, and 2026 base growth of ×1.25. The model then
+gives **2027: +47%, IQR [+5%, +117%]** and **2028: +69%, IQR [+18%, +152%]**. That sits at the
+gold-medalist cohort. **Weight: ~25%.** The 30% crowd weight in the revision table covers roughly
+that much.
+
+**The evidence that would settle it.** How GiveWell books the $1bn across metrics years 2026 and
+2027. It swings the 2027 leg by ~45 pp (full −4% vs split +41%), and GiveWell could state it
+long before the August 2027 metrics report. For the numerator, the equivalent is the final
+S-1's lockup schedule, including when DAF-held shares can be sold.
+
+### What resolves YES
+
+Unchanged from v1. The resolution-risk refinements are in red-team point 1.
+
+### Outside view
+
+Unchanged from v1, plus the rival reference class in red-team point 2. The raw one-year
+changes {+1.2, −41.1, +16.8, +48.6}% still bound the left tail. The liquidity-event years (2021,
+2025) inform the right tail.
+
+### Inside view
+
+`F = CG + BASE + AI`, each block modelled separately (`scripts/model_v2.py`, output in
+`raw/model-output-2026-09-27.txt`):
+
+| Block (median, $m) | 2026 | 2027 | 2028 |
+|---|---|---|---|
+| Coefficient Giving recognised (incl. carryover) | 980 | 420 | 599 |
+| Non-AI base (individuals, foundations, direct-to-charity) | 713 | 798 | 878 |
+| AI-linked increment (IPO-day sales, post-lockup DAF grants and gifts) | 60 | 446 | 1,044 |
+| **Total funds raised (median; IQR)** | **1,752 (1,590–1,929)** | **1,835 (1,379–2,581)** | **2,777 (1,915–4,230)** |
+
+**How the AI-linked block is sized (normal state).** Longterm Wiki estimated pre-IPO DAF
+holdings at $20–40bn at a $380bn valuation. If they scale with a $1.5–2tn listing, that is
+~$80–210bn. The seven co-founders hold ~1.8% each and pledge 80% (non-binding), which adds
+~$150–200bn. Take a liquid charitable pool of $150–400bn by H2 2027. If 2–5% of it is granted in
+the ~5–7 months of metrics year 2027 after the lockup, and 5–15% of those grants reach giving
+that GiveWell tracks, the result is $0.15–3bn, with a geometric centre ≈ $0.7bn. The 2028 full
+year uses 5–10% of the pool granted and a 5–12% GiveWell share, giving a centre ≈ $1.4bn.
+**This sizing is speculative.** No source estimates the global-health share of AI-linked giving.
+Transformer News names GiveWell only as one of several advisory channels, and the EA Forum
+expects most of this money to go to AI safety.
+
+**Which way the Anthropic news cuts.** The IPO slipping into November barely matters. A
+lockup that ends around mid-2027 still falls inside metrics year 2027, and so does the
+December 2027 giving season. What matters is that selling at the IPO pulls some money into the
+denominator, and that a lockup ending mid-2027 leaves roughly half a year of liquidity in the
+2027 numerator.
+
+### Evidence
+
+| Finding | Direction | Weight |
+|---|---|---|
+| Pre-IPO DAF holdings $20–40bn at $380bn, already irrevocably committed to charity; no minimum payout rule | ↑ both legs | LR ≈ 1.5:1 for a large AI-linked block. v1 treated this money as "all on paper" pledges, but DAF transfers are legally binding. |
+| IPO target ~$2tn, raising up to $100bn; run-rate revenue >$110bn expected by year-end | ↑ both legs | Priced in via AI sizing (+5.5 / +3.7 pp) |
+| IPO slips October → November 2026 | ≈ | Still inside calendar 2026 |
+| Lockup "well over 180 days", free around mid-2027; a portion sellable at the IPO | ↓ 2027, ↓ both via the denominator | −8.4 and −6.4 pp on 2027 |
+| GiveWell: "already committed over $400 million in 2026" by July; grantmaking to "approach or even exceed $1 billion" in 2026 | ↓ Coefficient Giving 2027 | GiveWell raises ~$1.75bn against ~$1bn of grants, leaving a large carryover |
+| EA Forum (2026-07-24): large donors advised to redirect their marginal dollar away from GiveWell after the $1bn | ↓ base 2026–2027 | small |
+| One Big Beautiful Bill Act: 0.5%-of-AGI floor and 35% cap on the value of itemised charitable deductions from 2026, so gifts were accelerated into 2025 | ↓ 2026 base growth (→ ↑ ratio, but tiny: the ratio is insensitive to the base) | ≈ 0 |
+| Metaculus Pro/gold history: Pros fell 114 pp and gold 73 pp on the 2027 leg within ~36 h of the $1bn being explained in comments | moves them toward v1; their remaining gap is partly an information gap | argues for W ≈ 0.3, not 0.5 |
+
+**Evidence expected but not found:** no Coefficient Giving 2027 allocation, no GiveWell forward
+projection, no public S-1 (so no confirmed lockup terms), no founder gift announcements, and no
+access to coefficientgiving.org or philanthropy.com (still 403 from this container).
+
+### Other forecasters
+
+Aggregations as of 2026-09-26 04:36 UTC, retrieved 2026-09-27. Metaculus clips quartiles to
+its 0–200 range; the out-of-range mass is listed separately.
+
+| Source | 2027 leg | 2028 leg | Note |
+|---|---|---|---|
+| Metaculus CP (recency-weighted), n = 5 | **78.2%**, IQR [11.1, 126.5]; P(<0) 19.6%, P(>200) 6.9% | **113.0%**, IQR [42.0, >200]; P(<0) 10.3%, P(>200) 29.8% | The gold cohort (n = 4) is most of the CP. One commenter (Zaldath) posted medians of 150% / >200% and said they first misread the formula. |
+| Metaculus Pros, n = 2 | **36.7%**, IQR [<0, 107.2]; P(<0) 27.0% | **85.7%**, IQR [27.8, >200] | was 151% / 200% before 2026-09-25 18:03 UTC |
+| Metaculus gold medalists, n = 4 | **51.2%**, IQR [1.3, 122.7]; P(<0) 24.2% | **91.6%**, IQR [30.7, 192.6] | was 124% / 160% before the same comment |
+| Comments (9) | — | — | MaxA laid out the $1bn denominator issue on 2026-09-25 and put weight below 0. Zaldath then said they would also add weight below 0, citing the IPO delay. |
+| Kalshi / Polymarket / Manifold / GJOpen / INFER | — | — | no coverage of GiveWell volumes (unchanged from v1) |
+
+**Cohort disagreement.** CP > gold > Pro by ~40 pp on the 2027 leg. That ordering is consistent
+with (not proof of) how far each group has absorbed the $1bn base-year fact. Every cohort moved *toward* v1 in the
+last 48 hours. v2 still sits 23–37 pp below the Pro and gold cohorts on the 2027 leg. The
+written justification: (a) n = 2 and n = 4; (b) their trajectory shows an information gap that
+is still closing; (c) the question's 0–200 range and slider make below-zero mass awkward to
+enter, which biases the crowd upward on a question whose median may sit near 0. Against that:
+they have better track records than one model, and v1's structural error on the AI-linked
+block was real. Hence W = 0.3.
+
+### Scenarios
+
+| # | Scenario | Weight | 2027 / 2028 (model medians) |
+|---|---|---|---|
+| 1 | **Normal.** IPO by 2026-12-31, main lockup ends by ~Sep 2027 | 72% | +17% / +75% |
+| 2 | **Delayed.** IPO slips into 2027 or the lockup runs past January 2028 | 18% | −12% / +43% |
+| 3 | **Bust.** IPO pulled, or a deep AI de-rating stops paper wealth converting | 10% | −21% / +5% |
+| — | Crossed with how the $1bn is booked: full in 2026 (72%) / split into 2027 (20%) / other (8%) | | 2027: −4% / +41% / +8% |
+
+Pooled (model ⊕ 30% Pro+gold):
+
+- **2027**: median **+14.2%**, IQR **[−17.2%, +67.1%]**, 10–90 [−35.7%, +139.4%]; `P(<0) = 0.39`.
+- **2028**: median **+67.3%**, IQR **[+17.1%, +152.7%]**, 10–90 [−13.7%, +291.9%]; `P(<0) = 0.16`.
+
+### Sensitivity
+
+One switch at a time on the v2 model, before pooling:
+
+| Assumption | If instead | 2027 median | 2028 median |
+|---|---|---|---|
+| *Base case (model v2, unpooled)* | | *+6.0%* | *+59.6%* |
+| AI-linked increment in 2027, normal-state median $700m | $1.2bn | +22.6% | unchanged |
+| " | $250m | −12.1% | unchanged |
+| " | $2.0bn | +47.1% | unchanged |
+| Coefficient Giving 2027, median $350m | $700m | +30.3% | unchanged |
+| " | $200m | −5.0% | unchanged |
+| P(full $1bn in metrics year 2026) = 0.72 | 0.50 | +17.2% | +67.1% |
+| " | 0.90 | −0.7% | +54.5% |
+| IPO-day money in the 2026 denominator (median $60m) | none | +12.4% | +69.5% |
+| P(normal IPO/lockup state) = 0.72 | 0.85 | +11.1% | +67.2% |
+| Non-AI base growth in 2026, ×1.38 | ×1.20 / ×1.60 | +5.5% / +6.6% | +61.3% / +57.7% |
+
+Three levers dominate the 2027 leg: the size of the AI-linked increment (−18 to +41 pp over
+the range tested), Coefficient Giving's 2027 level (−11 to +24 pp), and how the $1bn is booked
+(−7 to +11 pp). The size of the 2026 base barely matters, because the non-AI base scales both
+years alike.
+
+### Calibration hygiene
+
+- The 2027 IQR (84 pp wide) contains 3 of the 4 historical one-year changes. The fourth, −41%,
+  sits at about the 12th percentile. The 2028 IQR (136 pp) contains the +74% two-year change.
+  The two historical −31% and −40% two-year changes sit at about the 3rd–5th percentile, which
+  is defensible only because 2028 is the first full year of AI liquidity. That is the main way
+  the 2028 leg could be too high.
+- Scope: from 2027 to 2028 the median rises 53 pp and the IQR widens 1.6×. Directionally right.
+- Would I take the other side at my own price? At +14% on 2027, I would sell above about +30%
+  and buy below about 0%. At +67% on 2028 I have no strong lean.
+- Herding check: 8.2 pp of the 14.2 pp shift on the 2027 leg comes from crowd weight. The other
+  6 pp comes from re-derivation. Were the Metaculus cohorts to move again on no new facts,
+  that would not justify another shift.
+
+### What would change my mind (tripwires)
+
+- [ ] **Anthropic prices its IPO by 2026-12-31 at ≥ $1.5tn, with the final S-1 releasing the
+      main lockup on or before 2027-09-30** → 2027 **+8 pp**, 2028 **+10 pp**.
+- [ ] **Anthropic IPO not priced by 2027-03-31** → 2027 **−12 pp**, 2028 **−20 pp**.
+- [ ] **Final S-1 lets DAF/charitable holders or ≥ 25% of insider shares sell at the IPO**
+      (by 2026-12-31) → cuts both ways: more money lands in the 2026 denominator, but 2027
+      liquidity starts earlier. Triggers a re-analysis, not a signed move.
+- [ ] **Coefficient Giving publishes its 2027 allocation to GiveWell's recommendations**
+      (expect mid-December 2026 to March 2027): ≥ $800m → **+20 pp**; $250–500m → no change;
+      ≤ $200m → **−8 pp**.
+- [ ] **GiveWell states how the $1bn is booked across metrics years** (any blog post, FAQ or
+      metrics report, by 2027-09-30): ≤ $700m in 2026 → 2027 **+25 pp**; full $1bn in 2026 →
+      2027 **−7 pp** and IQR narrows by ~¼.
+- [ ] **A single gift or pledge ≥ $250m to GiveWell from an AI-linked donor, dated
+      2027-02-01 to 2028-01-31** → 2027 **+15 pp**.
+- [ ] **GiveWell says it is over-funded, will roll funds over, or tells donors to give
+      elsewhere** (by 2027-12-31) → 2027 **−10 pp**.
+- [ ] **Nasdaq AI complex drawdown ≥ 35% from its 2026 peak, sustained past 2027-06-30** →
+      2027 **−15 pp**, 2028 **−30 pp**.
+
+### Sources
+
+1. Metaculus #45386, aggregations for qids 45575/45576 (CP, Pros, gold medalists) and 9 comments — https://www.metaculus.com/questions/45386/ (accessed 2026-09-27; snapshot `raw/metaculus-2026-09-27.json`)
+2. The Motley Fool, "Anthropic's IPO Was Just Delayed to November. Here's the One Number That Has Me Even More Excited.", 2026-09-26 — https://www.fool.com/investing/2026/09/26/anthropic-s-ipo-was-just-delayed-to-november-here-s-the-one-number-that-has-me-even-more-excited/ (accessed 2026-09-27)
+3. Forbes (J. Markman), "Anthropic IPO Slips To November As Retail Money Floods Pre-IPO Funds", 2026-09-23 — https://www.forbes.com/sites/jonmarkman/2026/09/23/anthropic-ipo-slips-to-november-as-retail-money-floods-pre-ipo-funds/ (search summary only, citing the WSJ; accessed 2026-09-27)
+4. Bloomberg, "US IPO Delays Raise Caution as Anthropic Prepares for Market Debut", 2026-09-22 — https://www.bloomberg.com/news/articles/2026-09-22/derailed-ipo-plans-rattle-us-market-ahead-of-anthropic-debut (headline via search only; accessed 2026-09-27)
+5. The Motley Fool, "Anthropic Weighs Lockup Periods Longer Than the Standard 180 Days. Here's Why That Matters.", 2026-09-05, reporting The Information — https://www.fool.com/investing/2026/09/05/anthropic-lockup-periods-longer-180-day-ipo/ (accessed 2026-09-27)
+6. The Motley Fool, "Anthropic Is Reportedly Planning to Unveil IPO Prospectus After Labor Day", 2026-09-03 — https://www.fool.com/investing/2026/09/03/anthropic-planning-unveil-ipo-details-labor-day/ (accessed 2026-09-27)
+7. Longterm Wiki, "Anthropic Pre-IPO DAF Transfers" (data as of March 2026) — https://www.longtermwiki.com/wiki/anthropic-pre-ipo-daf-transfers (accessed 2026-09-27)
+8. EA Forum, "The Anthropic IPO Is Coming. We Aren't Ready for It." — https://forum.effectivealtruism.org/posts/ychu2LAw54sNcocKH/the-anthropic-ipo-is-coming-we-aren-t-ready-for-it (co-founder stakes ~1.8% each; accessed 2026-09-27)
+9. Transformer News, "Anthropic employees say they'll give away billions. Where will it go?", 2026-03-12 — https://www.transformernews.ai/p/anthropic-employees-philanthropy-billions-donations-effective-altruism-coefficient-giving-ai-safety (accessed 2026-09-27)
+10. GiveWell blog, "Scaling Our Impact, with Support from a $1 Billion Commitment", 2026-07-23 — https://blog.givewell.org/2026/07/23/scaling-our-impact-with-support/ (accessed 2026-09-27)
+11. GiveWell blog, "GiveWell's 2025 Metrics and Impact", 2026-08-31 — https://blog.givewell.org/2026/08/31/givewells-2025-metrics-and-impact/ (accessed 2026-09-27)
+12. GiveWell blog index (latest post 2026-09-03) — https://blog.givewell.org/ (accessed 2026-09-27)
+13. EA Forum (J. Lewars), "Coefficient Giving just gave GiveWell $1 billion. Where should other donors give?", 2026-07-24 — https://forum.effectivealtruism.org/posts/sgzmaRgxDFXZgNAsv/coefficient-giving-just-gave-givewell-usd1-billion-where (accessed 2026-09-27)
+14. Tax Foundation, "Changes to Charitable Giving Under the One Big Beautiful Bill Act" — https://taxfoundation.org/blog/charitable-deduction-big-beautiful-bill/ (search summary; accessed 2026-09-27)
+15. Fidelity Charitable, "One Big Beautiful Bill: Impact on Charitable Giving" — https://www.fidelitycharitable.org/articles/obbb-tax-reform.html (search summary; accessed 2026-09-27)
+16. Chronicle of Philanthropy, "Coefficient Giving boosts pledge to $1 billion, banking on an AI windfall" — https://www.philanthropy.com/news/coefficient-giving-boosts-pledge-to-1-billion-banking-on-an-ai-windfall/ (search summary only; accessed 2026-09-27)
+17. Coefficient Giving, "Increasing Our 2026 Allocation to GiveWell's Recommendations to $1 Billion" — https://coefficientgiving.org/research/increasing-our-2026-allocation-to-givewells-recommendations-to-1-billion/ (accessed 2026-09-04 via text proxy for v1; HTTP 403 on 2026-09-27, so not re-verified)
+18. GiveWell metrics reports 2021–2025 — series carried from v1, `raw/givewell-funds-raised-series-2026-09-04.json`
+
+**Date**: 2026-09-27
+**Forecast**: 2027 — Median +14.2%, IQR [−17.2%, +67.1%] · 2028 — Median +67.3%, IQR [+17.1%, +152.7%]
+**Thesis**: The 2026 base still carries Coefficient Giving's one-off $1bn, so 2027 needs roughly $0.8bn of new money to stand still. v1 badly under-modelled the one source that could supply it. Anthropic insiders' donor-advised funds (roughly $80–210bn at a ~$2tn listing) and founder pledges unlock around mid-2027, inside metrics year 2027. The red-team, the restructured model and a 30% weight on the Metaculus Pro and gold cohorts (37% / 51%) lift both legs. The model alone still says ≈ +6% for 2027, because of the later lockup, IPO-day sales landing in the base year, and Coefficient Giving's likely 2027 step-down.
 
 ---
 
