@@ -125,7 +125,8 @@ revealed yet (`status=upcoming`). This is normal, not an error — report it as 
 
 Some posts are a **group of questions**: one numeric subquestion per year, say (post 45386 has
 "2027" and "2028"). A group has no single question to aggregate, and the Aggregation Explorer
-answers a post-only query with **HTTP 400**. Since v4.3 the script handles this itself; pass the
+answers a post-only query with **HTTP 400**: `"Post with id 45386 has no question, please submit a
+subquestion."` (verified 2026-09-27). Since v4.3 the script handles this itself; pass the
 **post** id as usual.
 
 - It still asks the explorer first, so a single-question post makes exactly the requests it

@@ -101,7 +101,9 @@ GROUP POSTS (v4.3)
 --------------------------------------------------------------------------
 A "group of questions" post (e.g. one numeric subquestion per year) has no
 single question for the Aggregation Explorer to aggregate. Queried by
-``post_id`` alone it answers **HTTP 400** (verified 2026-09-27 on post 45386).
+``post_id`` alone it answers **HTTP 400** with ``{"non_field_errors": ["Post
+with id 45386 has no question, please submit a subquestion."]}`` (verified
+2026-09-27).
 Before v4.3 that 400 was retried like a rate limit -- ~3 min of backoff that
 spent rate-limit budget -- and then reported as "403 / post does not exist".
 
