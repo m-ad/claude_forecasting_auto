@@ -121,6 +121,35 @@ The `display` string and native `center`/`lower`/`upper` are formatted per type:
 `latest` is `None` when a cohort has no forecasters on the question, or when the CP has not been
 revealed yet (`status=upcoming`). This is normal, not an error — report it as "no data yet."
 
+## Group posts (one post, several subquestions)
+
+Some posts are a **group of questions**: one numeric subquestion per year, say (post 45386 has
+"2027" and "2028"). A group has no single question to aggregate, and the Aggregation Explorer
+answers a post-only query with **HTTP 400**. Since v4.3 the script handles this itself; pass the
+**post** id as usual.
+
+- It spots the group from the post JSON (`group_of_questions`). With `METACULUS_API_KEY` set it
+  reads that up front, at no browser cost. Without the key it looks the post up after the 400.
+- It then makes **one request per subquestion**, with `question_id` pinned and all cohorts
+  comma-joined.
+- Results come back in `res.subquestions`, one `AggregationResult` per subquestion. `label` holds
+  the group label (e.g. `"2027"`). The post-level `res.methods` is **empty** for a group.
+  Resolution criteria, fine print, background and comments are post-level and live on `res`.
+- `res.question_type` is the subquestions' shared type (e.g. `numeric`), or `None` if they differ.
+
+```python
+res = fetch_aggregations(45386, include_history=True)
+for sub in res.subquestions:
+    cp = sub.methods["recency_weighted"].latest
+    print(sub.label, sub.question_id, cp.display if cp else "no data yet")
+```
+
+The `--json` output carries the same `subquestions` list. For a single-question post it is `[]`,
+and nothing else about the output changes.
+
+A 400 is never retried (also since v4.3). It means Metaculus rejected the request itself, and
+the ~3 min backoff would only spend rate-limit budget.
+
 ## How it works (and why v4 is built this way)
 
 **Everything goes through a real Chromium.** Requests are issued either as a page navigation to
@@ -193,6 +222,8 @@ you fall back to it in a reset-prone environment, set `METACULUS_FORCE_TLS12=1` 
 | `Executable doesn't exist at .../chromium_headless_shell-<n>` | Playwright was upgraded past the Chromium build the image ships | The script pins `/opt/pw-browsers/chromium`; don't remove that, or override `PLAYWRIGHT_CHROMIUM_EXECUTABLE_PATH` |
 | `Looks like Playwright was just installed... run playwright install` | `PLAYWRIGHT_BROWSERS_PATH` unset | The script sets it when `/opt/pw-browsers` exists; don't remove that |
 | `latest` is `None` for all cohorts | Question is `upcoming` / CP not revealed | Expected — report "no community data yet" |
+| `res.methods` is empty but `res.subquestions` is not | Group post | Expected — read each subquestion's `methods`; see "Group posts" |
+| `RuntimeError: ... last status 400` | Metaculus rejected the query; for a post that is *not* a group this is unexpected | Check the post id. Groups are handled automatically, so the post itself is the likely problem |
 | Only community shows, pros/gold `None` | Those cohorts genuinely have no forecasters on this question | Expected for low-traffic questions |
 | Script missing from project dir | A stale session may try to rebuild it from memory | Don't rebuild from memory — use this bundled copy, which is the correct v4 |
 

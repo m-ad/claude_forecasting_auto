@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Metaculus Aggregation Explorer fetcher (v4, September 2026).
+Metaculus Aggregation Explorer fetcher (v4.3, September 2026).
 
 Pulls **structured numeric** aggregations straight from the JSON the Metaculus
 frontend consumes, for any aggregation method the Aggregation Explorer exposes:
@@ -96,6 +96,23 @@ the browser path: CP, Pros, gold medalists and comments stay anonymous-browser
 only. Python's default ``Python-urllib`` User-Agent is banned outright
 (Cloudflare error 1010); any honest custom UA passes.
 
+--------------------------------------------------------------------------
+GROUP POSTS (v4.3)
+--------------------------------------------------------------------------
+A "group of questions" post (e.g. one numeric subquestion per year) has no
+single question for the Aggregation Explorer to aggregate. Queried by
+``post_id`` alone it answers **HTTP 400** (verified 2026-09-27 on post 45386).
+Before v4.3 that 400 was retried like a rate limit -- ~3 min of backoff that
+spent rate-limit budget -- and then reported as "403 / post does not exist".
+
+v4.3 recognises a group from the post JSON (``group_of_questions``), read over
+the API key up front when details are wanted anyway, or looked up after the
+explorer's 400 otherwise. It then fetches every subquestion with its
+``question_id`` pinned -- one request per subquestion, all cohorts
+comma-joined -- and returns them in ``result.subquestions``, each labelled
+with its group label (e.g. "2027"). A 400 is never retried: it is Metaculus
+rejecting the request, and waiting does not change the answer.
+
 Usage
 -----
     python metaculus_aggregations.py <post_id> \
@@ -106,6 +123,9 @@ Usage
     from metaculus_aggregations import fetch_aggregations
     res = fetch_aggregations(43505, methods=["recency_weighted", "metaculus_pros"])
     print(res.methods["recency_weighted"].latest.display)
+    # group posts: one AggregationResult per subquestion
+    for sub in res.subquestions:
+        print(sub.label, sub.methods["recency_weighted"].latest.display)
 """
 
 from __future__ import annotations
@@ -258,6 +278,12 @@ class AggregationResult:
     nr_forecasters: int | None = None
     methods: dict = field(default_factory=dict)
     comments: list = field(default_factory=list)
+    # Group posts only: the subquestion's label in its group (e.g. "2027") on a
+    # subquestion result, and every subquestion's result on the post-level one.
+    # The post-level ``methods`` stays empty for a group -- there is no single
+    # question to aggregate.
+    label: str | None = None
+    subquestions: list = field(default_factory=list)
 
 
 # --------------------------------------------------------------------------- #
@@ -474,6 +500,12 @@ class _Fetcher:
             last_status = status or last_status
             if parsed is not None:
                 return status, parsed
+            # A 400 is Metaculus rejecting the request itself (a group post
+            # queried without question_id, for one), not a rate limit or a
+            # challenge: retrying cannot change the answer and only spends the
+            # rate-limit budget the backoff exists to protect.
+            if status == 400:
+                return status, {}
             # Status 0 means no HTTP response was seen at all, which is the
             # egress proxy killing the handshake rather than Metaculus
             # rate-limiting us -- and the exception that says so does not always
@@ -663,13 +695,16 @@ def fetch_aggregations(
     -------
     AggregationResult
         ``result.methods[m].latest`` is None when a method has no forecasters
-        on this question, or when the CP has not been revealed yet.
+        on this question, or when the CP has not been revealed yet. For a
+        group post, ``result.methods`` is empty and ``result.subquestions``
+        holds one result per subquestion (``label`` names it).
 
     Raises
     ------
     RuntimeError
         If the probe never returns valid JSON (a non-existent post, or a
-        Cloudflare challenge that survived all retries).
+        Cloudflare challenge that survived all retries), or a group
+        subquestion's aggregation cannot be fetched.
     """
     from playwright.sync_api import sync_playwright
 
@@ -711,30 +746,29 @@ def fetch_aggregations(
     return result
 
 
-def _collect(
+def _group_questions(post: dict | None) -> list[dict]:
+    """The subquestion dicts of a group-of-questions post; empty otherwise."""
+    return list(((post or {}).get("group_of_questions") or {}).get("questions") or [])
+
+
+def _lookup_post(fetcher: Any, post_id: int) -> dict:
+    """Post JSON via the API key, else via the browser; empty dict on failure."""
+    post = fetch_post_api(post_id)
+    if not post:
+        _, post = fetcher.get_json(f"{_BASE}/posts/{post_id}/?with_cp=false")
+    return post or {}
+
+
+def _from_explorer(
     fetcher: Any,
     post_id: int,
+    base: dict,
+    status: int,
     _url: Any,
     methods: list[str],
     include_history: bool,
-    n_comments: int,
-    include_details: bool,
 ) -> AggregationResult:
-    """Run every request for one post through ``fetcher`` and assemble the result.
-
-    Split out of :func:`fetch_aggregations` purely so the browser is torn down by
-    one ``finally`` regardless of where a fetch fails.
-    """
-    status, base = fetcher.get_json(_url(methods))
-    if not base:
-        raise RuntimeError(
-            f"No aggregation JSON for post {post_id} (last status {status}). "
-            "403 means the post does not exist or Cloudflare challenged every "
-            "retry -- wait ~3 min. Status 0 means no HTTP response at all, on "
-            "TLS 1.2 as well as 1.3 (the downgrade is automatic), so this is "
-            "egress: check HTTPS_PROXY and that www.metaculus.com is allowlisted."
-        )
-
+    """Parse one Aggregation Explorer response into an :class:`AggregationResult`."""
     qid = base.get("id")
     qtype = base.get("type")
     scaling = base.get("scaling") or {}
@@ -774,12 +808,79 @@ def _collect(
                 _extract_history(qtype, hist_raw, scaling) if include_history else []
             ),
         )
+    return result
+
+
+def _collect(
+    fetcher: Any,
+    post_id: int,
+    _url: Any,
+    methods: list[str],
+    include_history: bool,
+    n_comments: int,
+    include_details: bool,
+) -> AggregationResult:
+    """Run every request for one post through ``fetcher`` and assemble the result.
+
+    Split out of :func:`fetch_aggregations` purely so the browser is torn down by
+    one ``finally`` regardless of where a fetch fails.
+    """
+    # Details need the post JSON anyway, and the API key reads it without the
+    # browser -- so asking first costs nothing and spots a group post before the
+    # explorer rejects it.
+    post = fetch_post_api(post_id) if include_details else None
+    subqs = _group_questions(post)
+
+    if not subqs:
+        status, base = fetcher.get_json(_url(methods))
+        if not base and status == 400:
+            # The explorer answers a group post queried without question_id with
+            # 400; confirm from the post itself before treating it as one.
+            post = post or _lookup_post(fetcher, post_id)
+            subqs = _group_questions(post)
+        if not base and not subqs:
+            raise RuntimeError(
+                f"No aggregation JSON for post {post_id} (last status {status}). "
+                "403 means the post does not exist or Cloudflare challenged every "
+                "retry -- wait ~3 min. Status 0 means no HTTP response at all, on "
+                "TLS 1.2 as well as 1.3 (the downgrade is automatic), so this is "
+                "egress: check HTTPS_PROXY and that www.metaculus.com is allowlisted."
+            )
+
+    if subqs:
+        types = {q.get("type") for q in subqs}
+        result = AggregationResult(
+            post_id=post_id,
+            question_id=None,
+            title=post.get("title"),
+            # One shared type is what scaffolding needs; a mixed group has none.
+            question_type=types.pop() if len(types) == 1 else None,
+            status=post.get("status"),
+            resolution=None,
+            scheduled_close_time=post.get("scheduled_close_time"),
+        )
+        for q in subqs:
+            st, sub_base = fetcher.get_json(_url(methods, qid=q.get("id")))
+            if not sub_base:
+                raise RuntimeError(
+                    f"No aggregation JSON for subquestion {q.get('id')} "
+                    f"({q.get('label')!r}) of group post {post_id} (last status {st})."
+                )
+            sub = _from_explorer(
+                fetcher, post_id, sub_base, st, _url, methods, include_history
+            )
+            sub.label = q.get("label")
+            result.subquestions.append(sub)
+    else:
+        result = _from_explorer(
+            fetcher, post_id, base, status, _url, methods, include_history
+        )
 
     if include_details:
-        post = fetch_post_api(post_id)
         if not post:
             _, post = fetcher.get_json(f"{_BASE}/posts/{post_id}/?with_cp=false")
-        q = post.get("question") or {}
+        # A group keeps its criteria on the group, not on any one question.
+        q = post.get("question") or post.get("group_of_questions") or {}
         result.resolution_criteria = q.get("resolution_criteria")
         result.fine_print = q.get("fine_print")
         result.background = q.get("description")
@@ -805,18 +906,8 @@ def _collect(
 # --------------------------------------------------------------------------- #
 # CLI
 # --------------------------------------------------------------------------- #
-def _print_human(res: AggregationResult) -> None:
-    print(f"POST {res.post_id}  ->  question_id={res.question_id}")
-    print(f"TITLE: {res.title}")
-    print(
-        f"type={res.question_type}  status={res.status}  "
-        f"resolution={res.resolution}  close={res.scheduled_close_time}"
-    )
-    if res.nr_forecasters is not None:
-        print(f"forecasters(total)={res.nr_forecasters}")
-    if res.options:
-        print(f"options={res.options}")
-
+def _print_methods(res: AggregationResult) -> None:
+    """Print every cohort block of one question."""
     for mth, mr in res.methods.items():
         print(f"\n=== {mth} ===  [{mr.status}]  history_points={mr.history_points}")
         if mr.latest is None:
@@ -838,6 +929,31 @@ def _print_human(res: AggregationResult) -> None:
                 else ""
             )
             print(f"  {mr.latest.display}{extra}")
+
+
+def _print_human(res: AggregationResult) -> None:
+    if res.subquestions:
+        print(f"POST {res.post_id}  ->  group of {len(res.subquestions)} subquestions")
+    else:
+        print(f"POST {res.post_id}  ->  question_id={res.question_id}")
+    print(f"TITLE: {res.title}")
+    print(
+        f"type={res.question_type}  status={res.status}  "
+        f"resolution={res.resolution}  close={res.scheduled_close_time}"
+    )
+    if res.nr_forecasters is not None:
+        print(f"forecasters(total)={res.nr_forecasters}")
+    if res.options:
+        print(f"options={res.options}")
+
+    _print_methods(res)
+    for sub in res.subquestions:
+        print(
+            f"\n##### {sub.label}  (question_id={sub.question_id}, "
+            f"type={sub.question_type}, status={sub.status}, "
+            f"resolution={sub.resolution})"
+        )
+        _print_methods(sub)
 
     if res.resolution_criteria:
         print("\n--- Resolution Criteria ---")
