@@ -21,11 +21,33 @@ from _common import QUESTIONS, REPO, SRC_ABBREV, TEMPLATES, slugify, today
 SKILL_SCRIPTS = REPO / ".claude" / "skills" / "metaculus-aggregations" / "scripts"
 
 
+def _group_subquestions(post: dict[str, Any]) -> list[dict[str, Any]]:
+    """``{label, id, type}`` per subquestion of a group post; empty for any other.
+
+    A group-of-questions post (one subquestion per year, say) carries no
+    top-level ``question``: type, id and label live on each subquestion under
+    ``group_of_questions``.
+    """
+    group = post.get("group_of_questions") or {}
+    return [
+        {"label": q.get("label"), "id": q.get("id"), "type": q.get("type")}
+        for q in group.get("questions") or []
+    ]
+
+
+def _shared_type(subqs: list[dict[str, Any]]) -> str | None:
+    """The one type every subquestion shares, or None when they differ or none exist."""
+    types = {q.get("type") for q in subqs}
+    return types.pop() if len(types) == 1 else None
+
+
 def fetch_metaculus(post_id: int) -> dict[str, Any]:
     """Pull title/type/close-time for a Metaculus post, tolerating failure.
 
     Returns an empty dict when the fetch fails, so scaffolding never blocks on
-    network trouble — the agent can fill the fields in by hand.
+    network trouble — the agent can fill the fields in by hand. For a group post,
+    ``type`` is the subquestions' shared type (None if they differ) and
+    ``subquestions`` lists them; it is empty for a single-question post.
     """
     sys.path.insert(0, str(SKILL_SCRIPTS))
     try:
@@ -39,12 +61,16 @@ def fetch_metaculus(post_id: int) -> dict[str, Any]:
         post = fetch_post_api(post_id)
         if post:
             q = post.get("question") or {}
+            subqs = _group_subquestions(post)
             return {
                 "title": post.get("title"),
-                "type": q.get("type"),
+                # Without this a group came back typeless and was silently
+                # scaffolded as the --type default, "binary".
+                "type": q.get("type") or _shared_type(subqs),
                 "closes": (post.get("scheduled_close_time") or "")[:10] or None,
                 "status": post.get("status"),
                 "nr_forecasters": post.get("nr_forecasters"),
+                "subquestions": subqs,
             }
         res = fetch_aggregations(post_id, methods=["recency_weighted"])
     except Exception as exc:  # noqa: BLE001 - any failure degrades to manual entry
@@ -56,6 +82,10 @@ def fetch_metaculus(post_id: int) -> dict[str, Any]:
         "closes": (res.scheduled_close_time or "")[:10] or None,
         "status": res.status,
         "nr_forecasters": res.nr_forecasters,
+        "subquestions": [
+            {"label": s.label, "id": s.question_id, "type": s.question_type}
+            for s in res.subquestions
+        ],
     }
 
 
@@ -104,6 +134,24 @@ def main() -> None:
         title = title or meta_remote.get("title")
         qtype = meta_remote.get("type") or qtype
         closes = meta_remote.get("closes")
+        # Diagnostics go to stderr so stdout keeps its shape: slug, then path.
+        subqs = meta_remote.get("subquestions") or []
+        if subqs:
+            print(
+                f"note: post {post_id} is a group of {len(subqs)} subquestions; "
+                "each is forecast separately:",
+                file=sys.stderr,
+            )
+            for sq in subqs:
+                print(
+                    f"  {sq['label']}: question {sq['id']} ({sq['type']})",
+                    file=sys.stderr,
+                )
+            if not meta_remote.get("type"):
+                print(
+                    f"! the subquestions differ in type; scaffolding as --type {qtype}",
+                    file=sys.stderr,
+                )
 
     if not title:
         ap.error("--title is required when the title cannot be fetched")

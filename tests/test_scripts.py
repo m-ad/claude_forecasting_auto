@@ -377,6 +377,139 @@ def test_abbreviations_are_unique():
     assert len(set(_common.SRC_ABBREV.values())) == len(_common.SRC_ABBREV)
 
 
+# ------------------------------------------------ new_question.py: group posts
+# The bug: a group-of-questions post (one subquestion per year, say) has no
+# top-level ``question`` in its API JSON, so the type came back None and the
+# folder was silently scaffolded as the ``--type`` default, "binary".
+_GROUP_POST = {
+    "title": "What will be the percentage change in funds raised by GiveWell?",
+    "scheduled_close_time": "2028-07-01T00:00:00Z",
+    "status": "open",
+    "nr_forecasters": 5,
+    "group_of_questions": {
+        "questions": [
+            {"id": 45576, "label": "2028", "type": "numeric"},
+            {"id": 45575, "label": "2027", "type": "numeric"},
+        ]
+    },
+}
+
+
+def _fake_skill(monkeypatch, post=None, res=None):
+    """Stand in for the metaculus-aggregations module ``fetch_metaculus`` imports."""
+    import types
+
+    mod = types.ModuleType("metaculus_aggregations")
+    mod.fetch_post_api = lambda _pid: post
+
+    def fetch_aggregations(_pid, methods=None):
+        if res is None:
+            raise AssertionError("the browser fallback must not run")
+        return res
+
+    mod.fetch_aggregations = fetch_aggregations
+    monkeypatch.setitem(sys.modules, "metaculus_aggregations", mod)
+
+
+def test_group_post_via_the_api_takes_its_subquestions_shared_type(monkeypatch):
+    import new_question
+
+    _fake_skill(monkeypatch, post=_GROUP_POST)
+    got = new_question.fetch_metaculus(45386)
+    assert got["type"] == "numeric"
+    assert got["closes"] == "2028-07-01"
+    assert got["subquestions"] == [
+        {"label": "2028", "id": 45576, "type": "numeric"},
+        {"label": "2027", "id": 45575, "type": "numeric"},
+    ]
+
+
+def test_mixed_type_group_reports_no_type_rather_than_guessing(monkeypatch):
+    import new_question
+
+    post = json.loads(json.dumps(_GROUP_POST))
+    post["group_of_questions"]["questions"][0]["type"] = "binary"
+    _fake_skill(monkeypatch, post=post)
+    assert new_question.fetch_metaculus(45386)["type"] is None
+
+
+def test_single_question_post_via_the_api_is_unchanged(monkeypatch):
+    import new_question
+
+    post = {
+        "title": "Will OpenAI file for an IPO during 2026?",
+        "scheduled_close_time": "2026-12-31T00:00:00Z",
+        "status": "open",
+        "nr_forecasters": 40,
+        "question": {"type": "binary"},
+    }
+    _fake_skill(monkeypatch, post=post)
+    got = new_question.fetch_metaculus(41141)
+    assert (got["type"], got["closes"], got["subquestions"]) == (
+        "binary",
+        "2026-12-31",
+        [],
+    )
+
+
+def test_group_post_via_the_browser_fallback_keeps_its_subquestions(monkeypatch):
+    import types
+
+    import new_question
+
+    sub = types.SimpleNamespace(
+        label="2027", question_id=45575, question_type="numeric"
+    )
+    res = types.SimpleNamespace(
+        title="T",
+        question_type="numeric",
+        scheduled_close_time="2028-07-01T00:00:00Z",
+        status="open",
+        nr_forecasters=5,
+        subquestions=[sub],
+    )
+    _fake_skill(monkeypatch, post=None, res=res)
+    got = new_question.fetch_metaculus(45386)
+    assert got["type"] == "numeric"
+    assert got["subquestions"] == [{"label": "2027", "id": 45575, "type": "numeric"}]
+
+
+def test_group_post_is_scaffolded_with_its_real_type(monkeypatch, tmp_path, capsys):
+    import new_question
+
+    # main() prints the folder relative to REPO, so both must move to tmp_path.
+    monkeypatch.setattr(new_question, "REPO", tmp_path)
+    monkeypatch.setattr(new_question, "QUESTIONS", tmp_path / "questions")
+    monkeypatch.setattr(
+        new_question,
+        "fetch_metaculus",
+        lambda _pid: {
+            "title": _GROUP_POST["title"],
+            "type": "numeric",
+            "closes": "2028-07-01",
+            "subquestions": [
+                {"label": "2027", "id": 45575, "type": "numeric"},
+                {"label": "2028", "id": 45576, "type": "numeric"},
+            ],
+        },
+    )
+    monkeypatch.setattr(
+        sys,
+        "argv",
+        ["new_question.py", "--url", "https://www.metaculus.com/questions/45386/x/"],
+    )
+    new_question.main()
+    out, err = capsys.readouterr()
+    slug = out.splitlines()[0]
+    assert "mc45386" in slug, "stdout must still open with the slug"
+    folder = tmp_path / "questions" / slug
+    meta = yaml.safe_load((folder / "meta.yaml").read_text(encoding="utf-8"))
+    assert meta["type"] == "numeric", "a group must not fall back to --type binary"
+    assert meta["dates"]["closes"] == "2028-07-01"
+    assert "group of 2 subquestions" in err
+    assert "2027: question 45575 (numeric)" in err
+
+
 # ------------------------------------------------------- full distributions
 MC = {"probabilities": {"Likud": 0.381, "Yashar": 0.61, "Other": 0.009}}
 

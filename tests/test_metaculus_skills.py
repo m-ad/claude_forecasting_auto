@@ -537,3 +537,239 @@ def test_scraper_keeps_the_page_parse_without_the_api(scrape, monkeypatch):
     res = scrape.scrape_metaculus_question(41138, max_comments=0)
     assert (res.title, res.resolution_criteria) == ("Page T", "page text")
     assert res.num_forecasters == "12"
+
+
+# ----------------------------------------------------------------- group posts
+# The bug: a group-of-questions post (one subquestion per year, say) has no single
+# question for the Aggregation Explorer, which answers a post-only query with
+# HTTP 400 (verified 2026-09-27, post 45386). The fetcher retried that 400 like a
+# rate limit -- ~3 min of backoff spending rate-limit budget -- then reported it
+# as "403 / post does not exist". A group must be fetched per subquestion.
+def test_a_400_is_returned_at_once_not_retried(agg, monkeypatch):
+    monkeypatch.setattr(
+        agg.time, "sleep", lambda _s: pytest.fail("a 400 must not wait")
+    )
+    fake = _FakeFetcher(agg, {"id": 1})
+    fake._attempt = lambda _url: (400, None)
+
+    assert agg._Fetcher.get_json(fake, "https://www.metaculus.com/api-proxy/x") == (
+        400,
+        {},
+    )
+    assert (fake.warms, fake.downgrades) == (0, 0)
+
+
+_GROUP_POST = {
+    "id": 45386,
+    "title": "Group title",
+    "status": "open",
+    "scheduled_close_time": "2028-07-01T00:00:00Z",
+    "nr_forecasters": 5,
+    "group_of_questions": {
+        "resolution_criteria": "group criteria",
+        "fine_print": "group fine print",
+        "description": "group background",
+        "questions": [
+            {"id": 45576, "label": "2028", "type": "numeric"},
+            {"id": 45575, "label": "2027", "type": "numeric"},
+        ],
+    },
+}
+
+
+def _explorer_json(qid: int, center: float) -> dict:
+    """Explorer response for one numeric subquestion on a 0-200 range."""
+    latest = {
+        "centers": [center],
+        "interval_lower_bounds": [center / 2],
+        "interval_upper_bounds": [min(1.0, center * 1.5)],
+        "means": [center],
+        "forecaster_count": 5,
+        "start_time": 1_758_000_000,
+    }
+    return {
+        "id": qid,
+        "type": "numeric",
+        "title": f"q{qid}",
+        "scaling": {"range_min": 0.0, "range_max": 200.0, "zero_point": None},
+        "aggregations": {m: {"latest": latest, "history": []} for m in agg_methods()},
+    }
+
+
+def agg_methods() -> list[str]:
+    return ["recency_weighted", "metaculus_pros", "gold_medalists"]
+
+
+class _GroupFetcher:
+    """Answers like Metaculus does for a group post."""
+
+    def __init__(self, post_via_browser: bool):
+        self.captured: list[str] = []
+        self.post_via_browser = post_via_browser
+
+    def get_json(self, url):
+        self.captured.append(url)
+        if "/posts/" in url:
+            return (200, _GROUP_POST) if self.post_via_browser else (403, {})
+        if "qid=45575" in url:
+            return 200, _explorer_json(45575, 0.391)  # -> 78.2 on 0-200
+        if "qid=45576" in url:
+            return 200, _explorer_json(45576, 0.565)  # -> 113.0
+        return 400, {}  # post-only query on a group post
+
+
+def _url_for(methods, qid=None):
+    return f"agg?methods={','.join(methods)}" + (f"&qid={qid}" if qid else "")
+
+
+def _check_group_result(res):
+    assert res.question_id is None
+    assert res.methods == {}, "a group has no post-level aggregation"
+    assert res.question_type == "numeric"
+    assert [s.label for s in res.subquestions] == ["2028", "2027"]
+    by_label = {s.label: s for s in res.subquestions}
+    assert by_label["2027"].question_id == 45575
+    for m in agg_methods():
+        assert by_label["2027"].methods[m].latest.center == pytest.approx(78.2)
+        assert by_label["2028"].methods[m].latest.center == pytest.approx(113.0)
+
+
+def test_group_post_found_via_the_api_after_the_explorer_s_400(agg, monkeypatch):
+    monkeypatch.setattr(agg, "fetch_post_api", lambda _pid: _GROUP_POST)
+    f = _GroupFetcher(post_via_browser=False)
+    res = agg._collect(
+        f,
+        45386,
+        _url_for,
+        agg_methods(),
+        include_history=False,
+        n_comments=0,
+        include_details=True,
+    )
+    _check_group_result(res)
+    # The post-only query once (its 400 is not retried), then exactly one request
+    # per subquestion, all cohorts comma-joined, qid pinned. The API answered the
+    # post lookup, so the browser never fetched the post.
+    assert f.captured == [
+        "agg?methods=recency_weighted,metaculus_pros,gold_medalists",
+        "agg?methods=recency_weighted,metaculus_pros,gold_medalists&qid=45576",
+        "agg?methods=recency_weighted,metaculus_pros,gold_medalists&qid=45575",
+    ]
+    assert (res.resolution_criteria, res.fine_print, res.background) == (
+        "group criteria",
+        "group fine print",
+        "group background",
+    )
+    assert res.nr_forecasters == 5
+
+
+def test_group_post_found_after_a_400_without_the_api(agg, monkeypatch):
+    monkeypatch.setattr(agg, "fetch_post_api", lambda _pid: None)
+    f = _GroupFetcher(post_via_browser=True)
+    res = agg._collect(
+        f,
+        45386,
+        _url_for,
+        agg_methods(),
+        include_history=False,
+        n_comments=0,
+        include_details=True,
+    )
+    _check_group_result(res)
+    # The post JSON looked up after the 400 is reused for details, not refetched.
+    assert sum("/posts/" in u for u in f.captured) == 1
+    assert res.resolution_criteria == "group criteria"
+
+
+def test_a_400_on_a_post_that_is_not_a_group_still_raises(agg, monkeypatch):
+    monkeypatch.setattr(
+        agg, "fetch_post_api", lambda _pid: {"id": 1, "question": {"id": 2}}
+    )
+
+    class F:
+        def get_json(self, url):
+            return 400, {}
+
+    with pytest.raises(RuntimeError, match="last status 400"):
+        agg._collect(
+            F(),
+            1,
+            _url_for,
+            agg_methods(),
+            include_history=False,
+            n_comments=0,
+            include_details=False,
+        )
+
+
+def test_a_failed_subquestion_raises_rather_than_reading_as_no_forecasters(
+    agg, monkeypatch
+):
+    monkeypatch.setattr(agg, "fetch_post_api", lambda _pid: _GROUP_POST)
+
+    class F(_GroupFetcher):
+        def get_json(self, url):
+            if "qid=45575" in url:
+                return 403, {}
+            return super().get_json(url)
+
+    with pytest.raises(RuntimeError, match="45575"):
+        agg._collect(
+            F(post_via_browser=False),
+            45386,
+            _url_for,
+            agg_methods(),
+            include_history=False,
+            n_comments=0,
+            include_details=True,
+        )
+
+
+def test_a_single_question_post_keeps_its_old_shape(agg):
+    # Backward compatibility: ordinary posts still fill ``methods`` directly and
+    # carry no subquestions, so existing callers see what they always saw.
+    class F:
+        def get_json(self, url):
+            return 200, _explorer_json(40839, 0.5)
+
+    res = agg._collect(
+        F(),
+        40839,
+        _url_for,
+        agg_methods(),
+        include_history=False,
+        n_comments=0,
+        include_details=False,
+    )
+    assert res.question_id == 40839
+    assert res.subquestions == [] and res.label is None
+    assert res.methods["recency_weighted"].latest.center == pytest.approx(100.0)
+
+
+def test_a_single_question_post_asks_the_explorer_before_the_api(agg, monkeypatch):
+    # An IP-level rate limit covers the API-key surface too, so a post lookup
+    # ahead of the explorer could spend the one request the explorer needs. Group
+    # support must not reorder a single-question post's requests.
+    order: list[str] = []
+
+    def api(_pid):
+        order.append("api")
+        return {"nr_forecasters": 3, "question": {"resolution_criteria": "rc"}}
+
+    monkeypatch.setattr(agg, "fetch_post_api", api)
+
+    class F:
+        def get_json(self, url):
+            order.append("browser:" + url.split("?")[0])
+            return 200, _explorer_json(40839, 0.5)
+
+    agg._collect(
+        F(),
+        40839,
+        _url_for,
+        agg_methods(),
+        include_history=False,
+        n_comments=0,
+        include_details=True,
+    )
+    assert order == ["browser:agg", "api"]

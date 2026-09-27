@@ -18,64 +18,85 @@ dates:
   resolves: '2029-09-01'
 status: open
 current:
-  version: 1
-  date: '2026-09-04'
   # Numeric group: the 2027 leg (qid 45575, resolves 2028-09-01) is carried here
   # because it resolves first. The 2028 leg (qid 45576, resolves 2029-09-01) is
-  # forecast at median +36.5%, IQR [-11.0, +110.0] - see forecast.md.
-  median: 0.0
+  # forecast at median +67.3%, IQR [+17.1, +152.7] (CP 113.0, Pro 85.7, gold 91.6)
+  # - see forecast.md v2. Community values below are the 2027 leg.
+  version: 2
+  date: '2026-09-27'
+  median: 14.2
   iqr:
-  - -26.0
-  - 35.0
+  - -17.2
+  - 67.1
   community:
-    cp: null
-    pro: null
-    gold: null
-    n_forecasters: null       # zero forecasters on either subquestion
-    as_of: '2026-09-04'
-next_review: '2026-12-15'
+    cp: 78.2
+    pro: 36.7
+    gold: 51.2
+    n_forecasters: 5
+    as_of: '2026-09-27'
+next_review: '2026-11-30'
 tripwires:
-- signal: Coefficient Giving publishes its 2027 allocation to GiveWell's recommendations (>=$800m)
-  by: '2027-03-31'
-  direction: up
-  magnitude: 25
-  magnitude_unit: '%'
-  fired: null
-- signal: Coefficient Giving's 2027 allocation to GiveWell's recommendations is <=$200m
-  by: '2027-03-31'
-  direction: down
-  magnitude: 20
-  magnitude_unit: '%'
-  fired: null
-- signal: Anthropic IPO completes with a lockup of <=180 days stated in the final prospectus
+- signal: Anthropic prices its IPO at >=$1.5tn and the final S-1 releases the main insider lockup on or
+    before 2027-09-30
   by: '2026-12-31'
   direction: up
   magnitude: 8
   magnitude_unit: '%'
   fired: null
-- signal: Anthropic IPO postponed beyond 2027-03-31
+- signal: Anthropic IPO not priced by 2027-03-31
   by: '2027-03-31'
   direction: down
   magnitude: 12
   magnitude_unit: '%'
   fired: null
-- signal: GiveWell 2026 metrics report recognises <=$700m of the Coefficient Giving commitment in metrics
-    year 2026
+- signal: Final Anthropic S-1 lets DAF/charitable holders or >=25% of insider shares sell at the IPO (re-analyse
+    - money shifts into the 2026 denominator but 2027 liquidity starts earlier)
+  by: '2026-12-31'
+  direction: either
+  magnitude: 0
+  magnitude_unit: '%'
+  fired: null
+- signal: Coefficient Giving's 2027 allocation to GiveWell's recommendations is >=$800m
+  by: '2027-03-31'
+  direction: up
+  magnitude: 20
+  magnitude_unit: '%'
+  fired: null
+- signal: Coefficient Giving's 2027 allocation to GiveWell's recommendations is <=$200m
+  by: '2027-03-31'
+  direction: down
+  magnitude: 8
+  magnitude_unit: '%'
+  fired: null
+- signal: GiveWell states (blog, FAQ or 2026 metrics report) that <=$700m of the $1bn commitment is booked
+    in metrics year 2026
   by: '2027-09-30'
   direction: up
   magnitude: 25
   magnitude_unit: '%'
   fired: null
-- signal: Nasdaq AI complex drawdown >=35% from its 2026 peak, sustained past 2027-06-30
-  by: '2027-06-30'
+- signal: GiveWell states the full $1bn commitment is booked in metrics year 2026
+  by: '2027-09-30'
   direction: down
-  magnitude: 15
+  magnitude: 7
   magnitude_unit: '%'
   fired: null
 - signal: Single announced gift or pledge to GiveWell >=$250m from an AI-linked donor, dated Feb 2027
     - Jan 2028
   by: '2028-01-31'
   direction: up
+  magnitude: 15
+  magnitude_unit: '%'
+  fired: null
+- signal: GiveWell says it is over-funded, will roll funds over, or tells donors to give elsewhere
+  by: '2027-12-31'
+  direction: down
+  magnitude: 10
+  magnitude_unit: '%'
+  fired: null
+- signal: Nasdaq AI complex drawdown >=35% from its 2026 peak, sustained past 2027-06-30
+  by: '2027-06-30'
+  direction: down
   magnitude: 15
   magnitude_unit: '%'
   fired: null

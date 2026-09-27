@@ -156,3 +156,46 @@ retail trend — the retail buckets ($100–$9,999) barely moved.
 3. Did the Anthropic IPO happen in Q4 2026, and what lockup did the prospectus set?
 4. Any GiveWell statement quantifying expected funds raised for 2027–2028, in the style of
    the April 2023 "expected funds raised through 2025" post.
+
+## v2 — 2026-09-27 (red-team + re-analysis)
+
+### Metaculus fetch
+
+- `metaculus_aggregations.py` still cannot handle group posts, so the fetch used a scratch
+  wrapper that calls the skill's `_Fetcher` with `question_id=45575/45576` pinned. The output is
+  cached in `raw/metaculus-2026-09-27.json` (latest quartiles, full CDFs, history, 9 comments).
+  **Still worth fixing in the skill:** loop over `group_of_questions.questions[*].id`.
+- The history is the key finding. All cohorts sat at ~115–150% (2027 leg) until 2026-09-25
+  18:03 UTC, when a Pro commenter (MaxA) posted an analysis of the $1bn base-year effect. Within
+  ~36 h: CP 117 → 78, Pros 151 → 37, gold 124 → 51 (the 2027 leg). The first forecaster on 2026-09-04 (a gold
+  medalist) was at 10.7% / 37.4%, close to v1.
+
+### Search log
+
+| Date | Query / source | Finding | Effect |
+|---|---|---|---|
+| 2026-09-27 | "Anthropic IPO delayed" (Motley Fool 09-26, Forbes 09-23 citing WSJ, Bloomberg 09-22) | IPO slips Oct → **Nov 2026**, target ~$2tn, up to $100bn raised | valuation ↑; timing ≈ |
+| 2026-09-27 | Motley Fool 09-05 citing The Information | Portion of insider shares sellable **at the IPO**; the rest locked "well over 180 days", free ~**mid-2027** | 2027 numerator ↓; 2026 denominator ↑ |
+| 2026-09-27 | Longterm Wiki "Anthropic Pre-IPO DAF Transfers" | DAF holdings $20–40bn at $380bn (matching 3:1 at up to 50% in 2021–24, then 1:1 at 25%); no DAF payout minimum; no cause-split data | the missed fact in v1; AI block sized from it |
+| 2026-09-27 | EA Forum "The Anthropic IPO Is Coming…" | Co-founders ~1.8% each (~12.6% combined), 80% pledges | founder pool |
+| 2026-09-27 | Transformer News 2026-03-12 | GiveWell named as one of several advisory channels; AI safety expected to dominate | caps the GiveWell share |
+| 2026-09-27 | GiveWell blog index and "Scaling Our Impact" | "near-term funding commitment"; >$400m already committed in 2026 by July; latest post 2026-09-03; no 2027 guidance | recognition risk kept; carryover into 2027 |
+| 2026-09-27 | "Coefficient Giving GiveWell 2027 allocation" | nothing published | tripwire not due |
+| 2026-09-27 | OBBBA charitable deduction (Tax Foundation, Fidelity Charitable) | 0.5%-of-AGI floor and 35% cap from 2026, so gifts were accelerated into 2025 | the 2025 base is flattered; ratio impact ≈ 0 |
+| 2026-09-27 | EA Forum (Lewars, 2026-07-24) | Large donors advised to redirect marginal dollars after the $1bn | small ↓ base |
+| 2026-09-27 | coefficientgiving.org via WebFetch and archive.is | 403 / archive.is unreachable | not re-verified; v1 wording retained |
+
+### Model v2 (why it differs from v1)
+
+See the module docstring of `scripts/model_v2.py`. In short, the AI-linked money is now its
+own additive block with IPO/lockup states, and Coefficient Giving and AI-linked giving are no
+longer strongly positively correlated. `scripts/pool_v2.py` adds a 30% linear pool with the
+Pro + gold CDF.
+
+### Open questions (next update)
+
+1. The final S-1: lockup schedule, how DAF-held shares are treated, and pricing valuation.
+2. Coefficient Giving's 2027 allocation (expect Dec 2026).
+3. Any GiveWell statement on how the $1bn is split across metrics years. **Cheapest
+   high-value action: ask GiveWell directly.**
+4. Whether Metaculus admins rescale the 0–200 range (a commenter asked on 2026-09-25).
