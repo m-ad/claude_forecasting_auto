@@ -1,0 +1,75 @@
+slug: 2026-09-28-mc45515-highest-intraday-value-vix-between-october-1
+title: What will be the highest intraday value of the VIX between October 1 and December 24, 2026?
+source: metaculus
+url: https://www.metaculus.com/questions/45515/what-will-be-the-highest-intraday-value-of-the-vix-between-october-1-and-december-24-2026
+post_id: 45515
+type: numeric
+unit: VIX points
+tags:
+- markets
+- volatility
+- vix
+- us-midterms-2026
+dates:
+  created: '2026-09-28'
+  opened: '2026-09-28'
+  closes: '2026-12-10'
+  resolves: '2026-12-25'
+status: open
+current:
+  version: 1
+  date: '2026-09-28'
+  median: 23.3
+  iqr:
+  - 20.0
+  - 28.5
+  community:
+    cp: null
+    pro: null
+    gold: null
+    n_forecasters: 8
+    as_of: '2026-09-28'
+next_review: '2026-10-01'
+tripwires:
+- signal: Published Metaculus resolution criteria name a source other than Cboe daily HIGH, or exclude
+    extended-hours prints
+  by: '2026-10-01'
+  direction: either
+  magnitude: 0
+  magnitude_unit: VIX points
+  fired: null
+- signal: Metaculus CP or Pro median (revealed 2026-09-30 17:00 UTC) differs from 23.3 by more than 3
+    points
+  by: '2026-10-02'
+  direction: either
+  magnitude: 0
+  magnitude_unit: VIX points
+  fired: null
+- signal: US 10-year Treasury yield closes at or above 5.50%
+  by: '2026-11-15'
+  direction: up
+  magnitude: 3
+  magnitude_unit: VIX points
+  fired: null
+- signal: US resumes strikes on Iran or Strait of Hormuz closed with Brent settling above $120
+  by: '2026-12-10'
+  direction: up
+  magnitude: 3
+  magnitude_unit: VIX points
+  fired: null
+- signal: VIX intraday high stays below 18.0 every session from 2026-10-01 through 2026-11-06 (post-midterm)
+  by: '2026-11-06'
+  direction: down
+  magnitude: 4
+  magnitude_unit: VIX points
+  fired: null
+- signal: Continuing resolution lapses 2026-12-11 and a federal shutdown is still running on 2026-12-15
+  by: '2026-12-15'
+  direction: up
+  magnitude: 1
+  magnitude_unit: VIX points
+  fired: null
+resolution:
+  outcome: null
+  date: null
+  source: null
