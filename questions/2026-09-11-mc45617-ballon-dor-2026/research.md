@@ -120,3 +120,39 @@ structural question for 2026 is whether the World-Cup bloc consolidates or fragm
 - Whether Kane's ankle keeps him out of Bayern matches into October — out-of-window for
   eligibility but in-window for voter salience.
 - Whether the Spanish vote consolidates behind Rodri or Yamal in the October previews.
+
+## v3 session — 2026-09-30 (leak check after voting closed)
+
+Trigger: operator reports that voting has closed and a Facebook leak names Yamal. The wording
+matches the Metaculus comment by @Theomachado, 2026-09-29.
+
+| Date | Search / fetch | Finding |
+|---|---|---|
+| 2026-09-30 | Polymarket gamma event + CLOB hourly history (Kane, Yamal) | Kane 0.447 / Yamal 0.447, Messi 0.0405, Mbappé 0.0365, Rodri 0.0175. Volume $41.16M (up $2.26M since 26 Sep). Moves: 26 Sep 16–19 UTC Yamal 22 → 27 (England–Spain); 27–28 Sep drift to 34; **28 Sep 13–17 UTC 33.8 → 45.1 (unexplained)**; flat ~43–47 on the 29th |
+| 2026-09-30 | Metaculus 45617 (skill, no --history) | CP Kane 53.0 / Yamal 33.0 (n=109); Pros 49.0 / 37.0 (n=10); gold 55.7 / 30.4 (n=29). Comments: Theomachado (the leak, "doubt it actually leaked a month early", still Kane 60 / Yamal 25); MaxA ("on nothing but speculation") |
+| 2026-09-30 | "Ballon d'Or 2026 leak Yamal winner", "voting closed leaked results Facebook" | Dailysports (403), ZonalSports "exclusive" (no source), Foot Africa: voting closed at midnight on 27 Sep, and FF says nothing that circulates is official |
+| 2026-09-30 | "Balón de Oro 2026 filtración Lamine Yamal ganador" | tunota: the list spread via Instagram DeportesRPC and Facebook — **Yamal 805, Kane 738, Mbappé 703**, unconfirmed. Search summary credits @MadeInArsenal6 on X with the "leak", with a claimed record of Messi, Rodri and Dembélé |
+| 2026-09-30 | "MadeInArsenal6 Ballon d'Or leak 805 points" | **World Soccer Talk, 2025-09-22: the 2025 fake list also had "Yamal 805", with Dembélé 800 and Vitinha 643. Vincent García denied it: "I am the only one who knows the result."** Dembélé won 1,380–1,059, and Vitinha was 3rd on 703. The 2026 list reuses 805, and 703 is Vitinha's real 2025 total |
+| 2026-09-30 | "MadeInArsenal6" | X status IDs found. Snowflake decode: Yamal "CONFIRM" at **2026-09-26 05:44 UTC**, before voting closed (TouchlineX "voting has closed" at 2026-09-27 22:04 UTC). The 2025 Dembélé "confirm" was on 2025-09-07, when Dembélé was already the heavy favourite |
+| 2026-09-30 | England–Spain Nations League | 26 Sep (Sat), England 2–3 Spain at Wembley. Yamal scored in the 2nd minute; Kane's penalty hit the bar at 2–1 (Al Jazeera, ESPN). Out of the eligibility window |
+| 2026-09-30 | "Polymarket Kalshi Ballon d'Or Yamal odds surge" | Prediction News: Kalshi Yamal 31 (27 Sep) → 51 ATH (28 Sep), attributed to thin liquidity. AllFootball: Polymarket Yamal 44.2 / Kane 42.6; names no cause. predictionnews pages returned 403 |
+| 2026-09-30 | "Ballon d'Or 2026 jury vote … reveals ballot" | No juror has disclosed a vote. RMC and Goal pieces on lobbying only |
+| 2026-09-30 | deportestvc.com, dated 2026-09-27 | Names @MadeInArsenal6 and quotes its "I can CONFIRM Yamal" post. The article predates voting close, which corroborates the snowflake timing. No point totals |
+| 2026-09-30 | Spanish/French "fuite" search | Nothing from L'Équipe, RMC, Marca, AS or Mundo Deportivo reports a result |
+
+### Dead ends
+
+- The news trigger for the 28 Sep 13–17 UTC jump was **not found**. The best guesses are the
+  X "confirmation" going viral after voting closed, or momentum from Kalshi FC's post. Either
+  way it is unverified. This is the single most important open item.
+- dailysports.net and predictionnews.com returned 403. They are known only through search
+  summaries.
+- There is no Metaculus `--history` this time (per v1's note that it hangs).
+
+### Open questions for next time
+
+- Did any credible outlet explain the 28 Sep move? Search for "whale", "Polymarket Ballon d'Or
+  insider", and Kalshi FC.
+- Final-week logistics: do Bayern or Barcelona schedule around 26 Oct, and do Kane or Yamal
+  confirm attendance?
+- Any jurors publishing their ballots early (Theomachado noted some do after the ceremony).

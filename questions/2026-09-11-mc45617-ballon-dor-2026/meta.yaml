@@ -16,38 +16,45 @@ dates:
   resolves: '2026-10-26'
 status: open
 current:
-  version: 2
-  date: '2026-09-26'
-  median: 0.55
+  version: 3
+  date: '2026-09-30'
+  median: 0.5
   iqr:
-  - 0.47
-  - 0.62
+  - 0.4
+  - 0.57
   community:
-    cp: 0.601
-    pro: 0.583
-    gold: 0.59
-    n_forecasters: 103
-    as_of: '2026-09-26'
-next_review: '2026-10-12'
+    cp: 0.53
+    pro: 0.49
+    gold: 0.557
+    n_forecasters: 109
+    as_of: '2026-09-30'
+next_review: '2026-10-07'
 tripwires:
-- signal: Credible France Football result leak or juror straw poll reported by L'Equipe, RMC or The Athletic
+- signal: Credible report of the result (L'Equipe, RMC, The Athletic, Marca, AS, Mundo Deportivo, Bild) or of France
+    Football informing a player's camp
   by: '2026-10-26'
   direction: either
   magnitude: 0
   magnitude_unit: pp
   fired: null
-- signal: Polymarket Kane below 0.48 or above 0.68 on at least $500k of fresh volume - move ~40% of the
-    way after checking for a leak
+- signal: Attendance/logistics tell - Bayern, Barcelona, FA or RFEF announce or leak that Kane or Yamal will or will
+    not travel to London (2024 template)
+  by: '2026-10-26'
+  direction: either
+  magnitude: 0
+  magnitude_unit: pp
+  fired: null
+- signal: Polymarket Yamal above 0.62 or below 0.30 on at least $1M of fresh volume - move ~40% of the way after
+    checking the cause
   by: '2026-10-24'
   direction: either
   magnitude: 0
   magnitude_unit: pp
   fired: null
-- signal: Three or more of SI, The Athletic, ESPN, Goal, L'Equipe name the same Spaniard first in their
-    October previews
-  by: '2026-10-19'
-  direction: down
-  magnitude: 6
+- signal: At least 10 jurors publicly disclose their first-place vote before the ceremony - re-estimate from the sample
+  by: '2026-10-24'
+  direction: either
+  magnitude: 0
   magnitude_unit: pp
   fired: null
 - signal: Metaculus Pro and gold both more than 8pp from this vector on Kane

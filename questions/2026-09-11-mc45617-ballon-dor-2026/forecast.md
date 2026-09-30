@@ -6,11 +6,149 @@
 | **Type** | multiple choice — 7 options: Dembélé · **Kane** · Kvaratskhelia · Mbappé · Rodri · Yamal · **Other** |
 | **Opened / Closes / Resolves** | — / 2026-10-26 09:00 UTC / **2026-10-26** (ceremony, London) |
 | **Status** | open |
-| **Current forecast** | **Kane 55.0%, Yamal 22.0%, Mbappé 8.5%, Rodri 6.5%, Other 5.0%, Kvaratskhelia 2.0%, Dembélé 1.0%** — IQR on Kane [47.0%, 62.0%] (v2, 2026-09-26) |
-| **Community (as of 2026-09-26)** | Kane: CP **60.1%** (n=103) · Pros **58.3%** (n=9) · gold **59.0%** (n=27); Polymarket Kane 56.25 / Yamal 25.5 |
-| **Next review** | 2026-10-12 |
+| **Current forecast** | **Kane 50.0%, Yamal 31.5%, Mbappé 6.5%, Rodri 4.5%, Other 5.0%, Kvaratskhelia 1.5%, Dembélé 1.0%** — IQR on Kane [40.0%, 57.0%] (v3, 2026-09-30) |
+| **Community (as of 2026-09-30)** | Kane: CP **53.0%** (n=109) · Pros **49.0%** (n=10) · gold **55.7%** (n=29); Polymarket Kane 44.7 / Yamal 44.7 |
+| **Next review** | 2026-10-07 |
 
 <!-- Versions below, newest first. APPEND-ONLY: never edit or delete a past version. -->
+
+---
+
+## v3 — Update — 2026-09-30
+
+**Mode: Update** (incremental). Four days after v2. The market now contradicts me by ~22pp on
+Yamal, which is more than 10pp, so a re-analysis was considered. It was rejected because the
+cause of the gap can be named (below): part of it is an out-of-window match, part is a
+recycled fake leak, and one 10pp jump is unexplained. The question's structure has not changed.
+v1 → v2 moved Kane down by 1pp, a negligible drift. The trigger is the operator's report of a
+Facebook leak naming Yamal after voting closed. That report reproduces a Metaculus comment by
+@Theomachado (2026-09-29) [5].
+
+![Polymarket Kane vs Yamal around the voting close](charts/market-path-voting-close.png)
+
+### Revision table
+
+| Driver | Direction | Effect |
+|---|---|---|
+| **Prior (v2, 2026-09-26)** | — | Kane **55.0%** (IQR [47.0, 62.0]), Yamal 22.0, Mbappé 8.5, Rodri 6.5, Other 5.0, Kvaratskhelia 2.0, Dembélé 1.0 |
+| **The "leak" itself carries ~no information (likelihood ratio ≈ 1.0).** The circulating list gives Yamal 805, Kane 738 and Mbappé 703 points [14][15]. Three independent reasons to reject it. (a) **The numbers are recycled.** "Yamal 805" is the headline of the *2025* fake list (Yamal 805, Dembélé 800), which France Football's Vincent García publicly dismissed. Dembélé then won 1,380–1,059 [16][17]. And 703 is Vitinha's real 2025 third-place total [17]. (b) **The source "confirmed" Yamal before the ballots closed.** The X account @MadeInArsenal6, which Spanish media credit as the leaker [18], posted "I can CONFIRM that Lamine Yamal has won" at **2026-09-26 05:44 UTC**. That time is decoded from the post ID [19]. Voting closed on the night of 27 September [20][21]. The account's claimed 2025 hit was posted on 2025-09-07 for Dembélé, then a ~79% Polymarket favourite, which is no evidence of access [19]. (c) **The totals are implausible.** Under the 15-12-10-…-1 scale with 100 jurors, the last two winners scored 1,170 (Rodri 2024) and 1,380 (Dembélé 2025) [16][22]. A winner on 805 means the leader averaged a 4th–5th-place vote. That needs a fragmentation of the whole field never seen under this system | — | 0 |
+| **England 2–3 Spain at Wembley (Sat 26 Sep).** Yamal scored in the 2nd minute; Kane hit the bar with a penalty at 2–1 [23]. The match is **outside the eligibility window** (it closed 2026-07-19). Polymarket Yamal went 22 → 27 during the match. That is salience, not evidence about the ballots. The one real channel is jurors who had not yet voted, with the deadline ~30 hours away. That is plausibly a minority of the 100, and a single Nations League game shifts few ranked ballots | Yamal ↑ small | Yamal +1.0, Kane −1.0 |
+| **Unexplained market move: Polymarket Yamal 33.8 → 45.1 between 13:00 and 17:00 UTC on Mon 28 Sep**, after voting closed, on part of ~$2.3M of fresh volume across the event ($38.9M → $41.2M) [1][24]. Kalshi touched Yamal 51, an all-time high, the same day [25]. I found no news item at that hour. The Facebook/Instagram list spread on the 29th and did **not** move Polymarket further [14][24]. A real result leak a month before the ceremony has no precedent I could find. Known leaks come days or hours out: Rodri 2024, on the day [26]. But Polymarket has priced genuine award leaks before (the 2025 Nobel Peace Prize spike, hours before the announcement; *from memory, not re-verified this session*). Modelled as a **10% mixture weight on "the move is informed"**, where the informed branch is Yamal 85 / Kane 9. The 90% branch is the v2 vector plus the match row | Yamal ↑, Kane ↓ | Kane −4.5, Yamal +6.2, Mbappé −0.55, Rodri −0.55, Other −0.35, Kvara −0.17, Dembélé −0.08 (0.9 × [54, 23, 8.5, 6.5, 5, 2, 1] + 0.1 × [9, 85, 3, 1, 1.5, 0.3, 0.2] = Kane 49.5, Yamal 29.2, Mbappé 7.95, Rodri 5.95, Other 4.65, Kvara 1.83, Dembélé 0.92) |
+| **Tails trimmed toward every anchor.** Mbappé: Pros 4.0, gold 4.1, CP 5.0, Polymarket 3.65. Rodri: 3.0 / 3.0 / 3.0 / 1.75. Kvaratskhelia: 1.0 / 1.0 / 1.0 / 0.85. No new evidence against these players. Their market prices fell because money flowed into Yamal. I move about 40% of the way. Other goes back to 5.0 (Polymarket 4.95, mostly Messi). The freed ~2.8pp is split Kane +0.5 / Yamal +2.3, a **judgement call**: the tail losses in the market went to Yamal, not Kane | Mbappé ↓, Rodri ↓, Kvara ↓ | Mbappé −1.45, Rodri −1.45, Kvara −0.33, Other +0.35, Dembélé +0.08; Kane +0.5, Yamal +2.3 |
+| **Metaculus cohorts moved with the market**: Pros Kane 58.3 → **49.0** / Yamal 19.8 → **37.0**; gold 59.0 → 55.7 / 19.5 → 30.4; CP 60.1 → 53.0 / 20.0 → 33.0 [5]. None cites information beyond the market and the leak. The comments say the move rests "on nothing but speculation" (@MaxA) and "I doubt it actually leaked a month early" (@Theomachado) [5]. That makes this the same evidence counted a second time, not an independent signal | — | 0 |
+| **New forecast (v3)** | | Kane **50.0%** (IQR [40.0, 57.0]), Yamal 31.5, Mbappé 6.5, Rodri 4.5, Other 5.0, Kvaratskhelia 1.5, Dembélé 1.0 |
+
+**Why not follow the market to 45/45?** In a thin information environment the market
+is a better aggregator than I am. But the public evidence behind this move is weak: an
+irrelevant match, a list with recycled numbers, and an account that "confirmed" a result before
+it existed. The price is only strong evidence if someone trades on private information. The 10%
+mixture weight is my estimate of that. It is a judgement call, flagged as **speculative**: I
+cannot observe who bought. Cross-check: v2's pre-registered tripwire said "Polymarket Kane
+below 0.48 on ≥ $500k fresh volume → move ~40% of the way, after checking for a leak". Forty
+percent of the way would give Kane 50.9 / Yamal 31.1. The mixture model lands within 1pp of that.
+
+**Why the IQR widens on the downside** ([47, 62] → [40, 57]): if the unexplained move turns out
+to be informed, Kane collapses. If it is noise, the v2 case stands. My uncertainty about my own
+number is now mainly uncertainty about which world this is.
+
+### Tripwire check (v2 list)
+
+| Tripwire | Status | Evidence |
+|---|---|---|
+| Credible France Football result leak or juror straw poll reported by L'Équipe, RMC or *The Athletic* (by 10-26) | **Not fired** | The only "leak" is a social-media list from Instagram (DeportesRPC), Facebook and X. No credible outlet carries it. *tunota* and *Sport Aragón* explicitly say it is unconfirmed [14][15]. France Football's 2025 line is that only Vincent García knows the result [16] |
+| Polymarket Kane below 0.48 or above 0.68 on ≥ $500k fresh volume (by 10-24) → move ~40% of the way after checking for a leak | **Fired** | Kane 0.447, Yamal 0.447, on ~$2.3M of fresh volume [1]. Leak check done: the public leak is fabricated (see revision table). Moved Kane −5.0 and Yamal +9.5, close to the pre-registered 40% |
+| Three or more of SI, *The Athletic*, ESPN, Goal, L'Équipe name the same Spaniard first in October previews (by 10-19) | Not yet due | No October previews yet. This tripwire lost most of its value once the ballots closed; replaced below |
+| Metaculus Pro and gold both more than 8pp from this vector on Kane (by 10-19) | **Not fired** | Pros 49.0 (−1.0 from my 50.0), gold 55.7 (+5.7) [5]. Against v2's 55.0, Pros were −6.0 and gold +0.7 |
+| Ceremony postponed past 2026-10-26 | Not fired | Still 26 Oct, London Palladium, 20:00 UK time [20][21] |
+
+### What resolves YES
+
+Unchanged from v1. One addition: voting has now closed (27–28 Sep; the reports differ on
+midnight Sunday vs Monday) [20][21]. The outcome is fixed. Everything from here is about
+learning a result that already exists, not about influencing it.
+
+### Outside view
+
+Unchanged from v1. One new reference class: **social-media Ballon d'Or "leaks" published
+weeks before the ceremony.** The 2025 list (Yamal 805 / Dembélé 800) was wrong about the
+winner [16]. I found no case of a genuine leak more than a few days before a ceremony. Small n,
+and not systematically searched, so I give it little weight beyond the specific forensic
+problems of this list.
+
+### Inside view
+
+Unchanged from v2.
+
+### Scenarios
+
+Scenario weights follow the new vector: Spain's vote fragments (Kane) 0.50 · Yamal's depth
+converts, or the market knows something (Yamal) 0.315 · raw numbers carry Mbappé 0.065 · Modrić
+template (Rodri) 0.045 · off-list, chiefly Messi (Other) 0.05 · Kvaratskhelia 0.015 · Dembélé
+repeats 0.01.
+
+### Evidence
+
+Unchanged from v1 and v2, plus the forensic reading of the leak in the revision table. The
+decisive observable is now leakage in the final week before 26 October. In 2024 the tell was
+logistical: Real Madrid learned Vinícius had not won and cancelled travel on the day [26].
+
+### Other forecasters (2026-09-30)
+
+| Source | Kane | Yamal | Mbappé | Rodri | Other | Kvara | Dembélé | Note |
+|---|---|---|---|---|---|---|---|---|
+| **This (v3)** | **50.0** | **31.5** | **6.5** | **4.5** | **5.0** | **1.5** | **1.0** | |
+| Metaculus CP | 53.0 | 33.0 | 5.0 | 3.0 | 4.0 | 1.0 | 1.0 | n=109 [5] |
+| Metaculus Pros | 49.0 | 37.0 | 4.0 | 3.0 | 4.9 | 1.0 | 1.0 | n=10 |
+| Metaculus gold | 55.7 | 30.4 | 4.1 | 3.0 | 4.8 | 1.0 | 1.0 | n=29 |
+| **Polymarket** | 44.7 | 44.7 | 3.65 | 1.75 | 4.95 (Messi 4.05) | 0.85 | 0.55 | $41.2M volume, $8.6M liquidity; book sums to 101.2% [1] |
+| Kalshi | ~40–42 | 48.5–51 | — | — | — | — | — | peak on 28 Sep via Prediction News; later level via VenueGap; not API-verified [25] |
+
+**Cohort disagreement: material, and new.** Pros (Kane 49 / Yamal 37) and gold medalists
+(55.7 / 30.4) are 6.7pp apart on Kane and 6.6pp apart on Yamal. On 26 Sep they were within
+1pp. The Pros followed the market; gold held back. I sit between the two cohorts on both
+options, and ~13pp from Polymarket on Yamal.
+
+### Sensitivity
+
+The forecast is dominated by one parameter: the probability that the 28 Sep move was informed.
+At 0% → Kane ~54 / Yamal ~23 (before the tail trim). At 10% (used) → 50 / 31.5. At 25% → ~43 / 39.
+Matching the market's 45 / 45 needs ~30%. So the market price implies roughly a one-in-three
+chance that someone knows the result. I think that is too high for a month-early leak with no credible reporting, but not by
+an order of magnitude.
+
+### What would change my mind (tripwires)
+
+- [ ] A credible report of the result (L'Équipe, RMC, *The Athletic*, Marca, AS, *Mundo Deportivo*, *Bild*) or of France Football informing a player's camp, by 2026-10-26 → ±30pp to whoever it names.
+- [ ] **Attendance/logistics tell** in the final week: Bayern, Barcelona, the FA or the RFEF announce or leak that Kane or Yamal will or will not travel to London (the 2024 template), by 2026-10-26 → ±20pp.
+- [ ] Polymarket Yamal above 0.62 or below 0.30 on ≥ $1M fresh volume, by 2026-10-24 → move ~40% of the way, after checking the cause.
+- [ ] ≥ 10 jurors publicly disclose their first-place vote before the ceremony, by 2026-10-24 → re-estimate from the sample (a 7:3 split either way in a sample of 10 is worth ~±8pp).
+- [ ] Metaculus Pro and gold both more than 8pp from this vector on Kane, by 2026-10-19 → re-derive before defending.
+- [ ] The ceremony is postponed past 2026-10-26 → re-read the resolution window.
+
+### Sources
+
+1. Polymarket, "Ballon d'Or Winner 2026" (gamma API) — https://polymarket.com/event/ballon-dor-winner-2026 (accessed 2026-09-30; `raw/polymarket-ballon-dor-winner-2026-2026-09-30.json`)
+5. Metaculus question 45617, three-cohort aggregations and comments — https://www.metaculus.com/questions/45617/ (accessed 2026-09-30; `raw/metaculus-2026-09-30.json`)
+14. ¿Filtran lista de los supuestos ganadores al Balón de Oro 2026? Esto se sabe — TuNota, 2026-09-29 — https://www.tunota.com/deportes/filtran-lista-de-los-supuestos-ganadores-al-balon-de-oro-2026-esto-se-sabe-2026-09-29 (accessed 2026-09-30)
+15. La increíble remontada de Lamine Yamal en el Balón de Oro — Sport Aragón, 2026-09-29 — https://www.sportaragon.com/articulo/futbol-aragon/increible-remontada-lamine-yamal-balon-oro-asi-ha-cambiado-todo-horas/20260929091049160220.html (accessed 2026-09-30)
+16. Leaked Ballon d'Or list sparks controversy before being denied by organizers — World Soccer Talk, 2025-09-22 — https://worldsoccertalk.com/news/leaked-ballon-dor-list-sparks-controversy-before-being-denied-by-organizers/ (accessed 2026-09-30)
+17. 2025 Ballon d'Or — Wikipedia — https://en.wikipedia.org/wiki/2025_Ballon_d%27Or ; Final Ballon d'Or scores revealed — Yahoo Sports — https://sports.yahoo.com/article/final-ballon-dor-scores-revealed-172100100.html (both accessed 2026-09-30)
+18. Predicen que Lamine Yamal sería el próximo ganador del Balón de Oro — Deportes TVC, **2026-09-27** (before voting closed) — https://www.deportestvc.com/futbol-internacional/predicen-que-lamine-yamal-seria-el-proximo-ganador-del-balon-de-oro-2026-09-27 (accessed 2026-09-30). It names @MadeInArsenal6 and credits the account with an "impeccable record" (Messi 2023, Rodri 2024, Dembélé 2025). The article gives no point totals; those come from [14]
+19. @MadeInArsenal6 on X — https://x.com/MadeInArsenal6/status/2103722372188541258 (2026 Yamal claim) and https://x.com/MadeInArsenal6/status/1964641055317582072 (2025 Dembélé claim) (accessed 2026-09-30, via search listing). Post times decoded from the snowflake IDs: 2026-09-26 05:44 UTC and 2025-09-07 10:45 UTC
+20. Ballon d'Or 2026: voting officially closed — Foot Africa, 2026-09-27 — https://foot-africa.com/en/news/ballon-dor-2026-voting-officially-closed-1368023/ (accessed 2026-09-30)
+21. "OFFICIAL: Ballon d'Or 2026 voting has closed" — @TouchlineX, posted 2026-09-27 22:04 UTC (snowflake ID) — https://x.com/TouchlineX/status/2104331297099321723 ; Balón de Oro 2026: Lamine Yamal incendia Wembley y la votación se cierra — que.es, 2026-09-28 — https://www.que.es/2026/09/28/balon-de-oro-2026-lamine-yamal/ (accessed 2026-09-30)
+22. 2024 Ballon d'Or — Wikipedia — https://en.wikipedia.org/wiki/2024_Ballon_d%27Or (accessed 2026-09-30)
+23. Yamal nets in Spain's 3-2 comeback win against England in Nations League — Al Jazeera, 2026-09-26 — https://www.aljazeera.com/sports/2026/9/26/yamal-nets-in-spains-3-2-comeback-win-against-england-in-nations-league (accessed 2026-09-30, via search summary)
+24. Polymarket CLOB price history, hourly, Kane and Yamal tokens — https://clob.polymarket.com/prices-history (accessed 2026-09-30; `raw/polymarket-history-{kane,yamal}-2026-09-30.json`)
+25. Kalshi shifts Ballon d'Or odds sharply, Yamal surges to 51% — Prediction News — https://predictionnews.com/story/kalshi-fc-posts-ballon-dor-odds-on-x ; Ballon d'Or 2026 odds: Kalshi vs Polymarket — VenueGap — https://venuegap.com/m/ballondor/ballon-d-or-winner-2026 (accessed 2026-09-30, via search summary; the pages returned 403)
+26. Ballon d'Or results leaked on eve of award ceremony — Goal — https://www.goal.com/en/lists/ballon-dor-results-leaked-eve-award-ceremony-apparent-votes-vinicius-jr-rodri-revealed/bltde6d1672ff02afdd (accessed 2026-09-30, via search result listing)
+27. Exclusive: Lamine Yamal has won the 2026 Ballon d'Or — ZonalSports, 2026-09-29 — https://www.zonalsports.com/players/lamine-yamal-wins-2026-ballon-dor-zonalsports-exclusive (accessed 2026-09-30). Unsourced "exclusive" that cites nobody. Recorded as part of the rumour cascade and given no weight
+
+Sources 2–4 and 6–13 are carried forward from v2 unchanged.
+
+**Date**: 2026-09-30
+**Forecast**: Kane 50.0%, Yamal 31.5%, Mbappé 6.5%, Rodri 4.5%, Other 5.0%, Kvaratskhelia 1.5%, Dembélé 1.0% — IQR on Kane [40.0%, 57.0%]
+**Thesis**: The "leak" naming Yamal is almost certainly fabricated. It reuses the 805-point figure from the debunked 2025 list [16], and its X source "confirmed" Yamal before voting closed [19]. So it moves nothing. But Polymarket repriced Yamal from 22% to 45% on ~$2.3M [1][24]. Part of that is an out-of-window Spain win at Wembley [23]. One 10pp jump on 28 Sep has no public explanation. I give it a 10% chance of being informed, which moves Kane 55 → 50 and Yamal 22 → 31.5, in line with v2's pre-registered 40%-of-the-way rule.
 
 ---
 
