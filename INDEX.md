@@ -1,19 +1,22 @@
 # Question index
 
-_Regenerated 2026-09-28 by `scripts/status.py --index`._
+_Regenerated 2026-09-30 by `scripts/status.py --index`._
 
 | Question | Type | Current | v | Community (CP) | Resolves | Next review | Status |
 |---|---|---|---|---|---|---|---|
 | [Will OpenAI file for an IPO during 2026?](questions/2026-08-28-mc41141-openai-file-ipo-during-2026/forecast.md) | binary | 20.0% [15.0%, 26.0%] | 1 | 25.0% | 2027-01-01 | 2026-09-25 | open |
 | [Will it be confirmed before 2027 that the "swarm" in the July 2026 Hugging Face incident exfiltrated any OpenAI model weights?](questions/2026-09-13-mc45467-it-confirmed-before-2027-that-swarm-july/forecast.md) | binary | 5.5% [3.5%, 12.0%] | 2 | 7.0% | 2027-01-01 | 2026-09-25 | open |
 | [How many bots will finish in the top 10 of the Metaculus Cup Fall 2026?](questions/2026-09-20-mc45619-bots-top-10-metaculus-cup-fall-2026/forecast.md) | discrete | 4 [3, 5] | 1 | — | 2027-01-05 | 2026-09-27 | open |
-| [Which party will win the Holborn and St Pancras by-election?](questions/2026-09-11-mc45425-which-party-win-holborn-st-pancras-election/forecast.md) | multiple_choice | 0.78 [0.71, 0.84] | 3 | 0.79 | 2026-10-09 | 2026-10-01 | open |
 | [How many Major Atlantic Hurricanes will occur in the 2026 Atlantic hurricane season?](questions/2026-09-05-mc45381-how-many-major-atlantic-hurricanes-occur-2026/forecast.md) | multiple_choice | 0.7 [0.635, 0.76] | 4 | 0.707 | 2026-11-30 | 2026-09-30 | open |
-| [Who will be awarded the 2026 Nobel Peace Prize?](questions/2026-09-05-mc45383-who-awarded-2026-nobel-peace-prize/forecast.md) | multiple_choice | 0.44 [0.37, 0.51] | 2 | 0.394 | 2026-10-09 | 2026-10-02 | open |
 | [How many barrels of crude oil will the Strategic Petroleum Reserve hold in September 2026?](questions/2026-09-07-mc15240-spr-crude-barrels-september-2026/forecast.md) | numeric | 284,200,000 [283,800,000, 284,500,000] | 4 | — | 2026-11-30 | 2026-09-30 | open |
-| [Who will win the 2026 Ballon d'Or?](questions/2026-09-11-mc45617-ballon-dor-2026/forecast.md) | multiple_choice | 0.55 [0.47, 0.62] | 2 | 0.601 | 2026-10-26 | 2026-10-12 | open |
+| [Who will be awarded the 2026 Nobel Peace Prize?](questions/2026-09-05-mc45383-who-awarded-2026-nobel-peace-prize/forecast.md) | multiple_choice | 0.44 [0.37, 0.51] | 2 | 0.394 | 2026-10-09 | 2026-10-02 | open |
+| [Which party will win the Holborn and St Pancras by-election?](questions/2026-09-11-mc45425-which-party-win-holborn-st-pancras-election/forecast.md) | multiple_choice | 0.78 [0.71, 0.84] | 3 | 0.79 | 2026-10-09 | 2026-10-01 | open |
+| [What first round vote share will Iliana Iotova win in the 2026 Bulgarian Presidential election?](questions/2026-09-05-mc45262-first-round-vote-share-iliana-iotova-win/forecast.md) | numeric | 46.5 [43.3, 49.7] | 2 | 45.45 | 2026-10-31 | 2026-10-03 | open |
+| [Who will win the 2026 Ballon d'Or?](questions/2026-09-11-mc45617-ballon-dor-2026/forecast.md) | multiple_choice | 0.5 [0.4, 0.57] | 3 | 0.53 | 2026-10-26 | 2026-10-07 | open |
+| [Which party will win the most seats in the 2026 Israeli election?](questions/2026-09-20-mc45670-which-party-win-most-seats-2026-israeli/forecast.md) | multiple_choice | 0.615 [0.555, 0.675] | 2 | 0.57 | 2026-11-10 | 2026-10-03 | open |
 | [What will be the total spending by all Senate candidates in the 2026 US election cycle?](questions/2026-09-26-mc45220-total-spending-all-senate-candidates-2026-us/forecast.md) | numeric | 1,660,000,000 [1,520,000,000, 1,820,000,000] | 2 | — | 2026-12-31 | 2026-10-01 | open |
 | [How many politicians will leave their cabinet positions in the UK government before 2027?](questions/2026-09-26-mc45250-how-many-politicians-leave-their-cabinet-positions/forecast.md) | multiple_choice | 0.565 [0.495, 0.635] | 2 | — | 2027-01-01 | 2026-10-01 | open |
+| [Will Trump demolish the Kennedy Center before January 1, 2027?](questions/2026-09-26-mc45810-trump-demolish-kennedy-center-before-january-1/forecast.md) | binary | 3.5% [1.5%, 6.0%] | 1 | — | 2027-01-01 | 2026-10-03 | open |
 | [What will be the highest intraday value of the VIX between October 1 and December 24, 2026?](questions/2026-09-28-mc45515-highest-intraday-value-vix-between-october-1/forecast.md) | numeric | 23.3 [20, 28.5] | 1 | — | 2026-12-25 | 2026-10-01 | open |
 | [Will an AI system autonomously cause a major breach of US personal data held by an organization other than its operator before 2028?](questions/2026-09-10-mc45427-major-us-personal-data-breach-external-misaligned-ai/forecast.md) | binary | 70.0% [61.0%, 78.0%] | 2 | 80.0% | 2028-01-01 | 2026-10-22 | open |
 | [Will there be a bilateral ceasefire in the Russo-Ukrainian conflict before 2027?](questions/2026-08-28-mc41138-bilateral-ceasefire-russo-ukrainian-conflict-before-2027/forecast.md) | binary | 6.0% [4.0%, 9.0%] | 2 | 6.0% | 2026-12-31 | 2026-10-08 | open |
@@ -23,7 +26,6 @@ _Regenerated 2026-09-28 by `scripts/status.py --index`._
 | [What will be the percentage change in funds raised by GiveWell between 2026 and the following years?](questions/2026-09-04-mc45386-givewell-funds-raised-pct-change-2027-2028/forecast.md) | numeric | 14.2 [-17.2, 67.1] | 2 | 78.2 | 2029-09-01 | 2026-11-30 | open |
 | [Will the Save Our Bacon Act be enacted into law before July 2027?](questions/2026-09-05-mc43616-save-our-bacon-act-enacted-into-law/forecast.md) | binary | 3.0% [2.0%, 4.5%] | 1 | 5.0% | 2027-07-01 | 2026-10-05 | open |
 | [Will the United States attack Oman before 2027?](questions/2026-09-05-mc45230-united-states-attack-oman-before-2027/forecast.md) | binary | 5.5% [3.5%, 8.5%] | 3 | 4.0% | 2027-01-01 | 2026-10-16 | open |
-| [What first round vote share will Iliana Iotova win in the 2026 Bulgarian Presidential election?](questions/2026-09-05-mc45262-first-round-vote-share-iliana-iotova-win/forecast.md) | numeric | 46.5 [43.3, 49.7] | 2 | 45.45 | 2026-10-31 | 2026-10-03 | open |
 | [Will FEWS NET classify any area of Sudan as experiencing Famine before 2027?](questions/2026-09-05-mc45464-fews-net-classify-area-sudan-as-experiencing/forecast.md) | binary | 23.0% [16.0%, 31.0%] | 2 | 32.0% | 2026-12-31 | 2026-10-05 | open |
 | [How many barrels of crude oil will the Strategic Petroleum Reserve hold in December 2026?](questions/2026-09-07-mc15240-spr-crude-barrels-december-2026/forecast.md) | numeric | 283,100,000 [281,300,000, 286,400,000] | 2 | — | 2027-02-26 | 2026-10-08 | open |
 | [Who will win the 2026 World Chess Championship?](questions/2026-09-11-mc45216-who-win-2026-world-chess-championship/forecast.md) | multiple_choice | 0.695 [0.64, 0.75] | 3 | 0.7 | 2026-12-14 | 2026-10-05 | open |
@@ -40,8 +42,6 @@ _Regenerated 2026-09-28 by `scripts/status.py --index`._
 | [What percentage of the US hen flock will be sexed with in-ovo sexing technology in Q1 2027?](questions/2026-09-19-mc43280-percentage-us-hen-flock-sexed-with-ovo/forecast.md) | numeric | 2.4 [1.7, 3.2] | 1 | 3.23 | — | 2026-12-15 | open |
 | [What will be the US national debt on December 31, 2026?](questions/2026-09-20-mc45219-us-national-debt-december-31-2026/forecast.md) | numeric | 41,160,000,000,000 [41,070,000,000,000, 41,220,000,000,000] | 1 | — | 2027-01-04 | 2026-10-05 | open |
 | [Will Venezuela announce a presidential election before 2027?](questions/2026-09-20-mc45419-venezuela-announce-presidential-election-before-2027/forecast.md) | binary | 9.5% [6.5%, 14.0%] | 1 | — | 2027-01-01 | 2026-10-04 | open |
-| [Which party will win the most seats in the 2026 Israeli election?](questions/2026-09-20-mc45670-which-party-win-most-seats-2026-israeli/forecast.md) | multiple_choice | 0.615 [0.555, 0.675] | 2 | 0.57 | 2026-11-10 | 2026-10-03 | open |
 | [How much funding will Wild Animal Initiative receive in 2026?](questions/2026-09-21-mc43169-how-much-funding-wild-animal-initiative-receive/forecast.md) | numeric | 3.72 [2.91, 4.68] | 1 | 4.245 | 2027-11-15 | 2026-11-20 | open |
-| [Will Trump demolish the Kennedy Center before January 1, 2027?](questions/2026-09-26-mc45810-trump-demolish-kennedy-center-before-january-1/forecast.md) | binary | 3.5% [1.5%, 6.0%] | 1 | — | 2027-01-01 | 2026-10-03 | open |
 | [Will a U.S. federal agency announce new or expanded model evaluation agreements with both OpenAI and Anthropic before September 3, 2026?](questions/2026-08-27-mc44708-u-s-federal-agency-announce-new-expanded/forecast.md) | binary | 1.5% [0.5%, 3.0%] | 2 | 1.0% | 2026-09-03 | — | resolved |
 | [Will Uber's takeover of Delivery Hero be approved by BaFin before September 2026?](questions/2026-08-27-mc44921-uber-delivery-hero-bafin-approval/forecast.md) | binary | 45.0% [32.0%, 58.0%] | 1 | 51.0% | 2026-09-01 | — | resolved |
