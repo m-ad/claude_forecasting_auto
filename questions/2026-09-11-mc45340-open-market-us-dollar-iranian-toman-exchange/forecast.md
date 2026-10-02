@@ -6,11 +6,181 @@
 | **Type** | numeric (toman per USD); range **150,000–250,000, both bounds open**, 500-toman steps |
 | **Opened / Closes / Resolves** | — / 2026-11-30 23:00 UTC / **2026-12-31** (value date, Tehran time) |
 | **Status** | open |
-| **Current forecast** | **Median 272,000 toman/USD, IQR [236,000, 320,000]** — **P(resolves above the 250,000 upper bound) = 65%** (v1, 2026-09-12) |
-| **Community (as of 2026-09-12)** | **CP not yet revealed** — n=6 forecasters, status `upcoming`; no Pro or gold-medalist aggregation |
-| **Next review** | 2026-10-10 |
+| **Current forecast** | **Median 288,000 toman/USD, IQR [255,000, 322,000]** — **P(resolves above the 250,000 upper bound) ≈ 78%** (v2, 2026-10-02) |
+| **Community (as of 2026-10-02)** | CP median **≥ 250,000** (clipped at the open bound), p25 232,000 (n=102) · Pros p25 237,000 (n=10) · gold p25 238,000 (n=31); Polymarket Dec median ≈ 290,000 |
+| **Next review** | 2026-10-16 |
 
 <!-- Versions below, newest first. APPEND-ONLY: never edit or delete a past version. -->
+
+---
+
+## v2 — Update — 2026-10-02
+
+**Mode: Update** (incremental). It has been 20 days since v1, 18% of the 110 days that remained
+then. That is below the one-third trigger for a re-analysis. No market contradicts me
+unexplained. The Metaculus community prediction (CP) is now revealed but its median is clipped
+at the 250,000 bound, so it cannot contradict a median above 250,000. The question's structure
+is unchanged: same range, same close date, same source. This is the first update, so there is
+no drift to check.
+
+### Revision table
+
+| Driver | Direction | Effect on median (toman) |
+|---|---|---|
+| **Prior (v1, 2026-09-12)** | — | **272,000**, IQR [236,000, 320,000]; P(>250k) 65% |
+| **Spot rebased, 237,500 → 258,700 (+8.9%), a new record and now above the question's ceiling.** The path was flat at 229–236k from 13 to 27 Sep, then jumped **+10.4% in four days**: 245,000 on 28 Sep, 255,800 on 29 Sep, 258,700 on 1 Oct [1][2]. The trigger was Trump calling Iran's seven-day Hormuz proposal "unacceptable" on 27 Sep [4][5]. Carrying v1's drift (×1.145 over 111 days) over the 90 days left from the new spot gives 288,800 | up | **+16,800** |
+| **Some of a four-day spike usually retraces.** The September analogue: 237,500 on 11 Sep, then 228,600 on 18 Sep (−3.7%) [2]. In the tgju series, 90-day windows that start after a rise of 8% or more in 21 days have the same median drift as all windows (×1.133) but a fatter left tail: 17% end more than 8% lower, against 11% after 2018 [3] | down | −3,000 |
+| **The de-escalation markets fell.** Polymarket "US announces end of Iranian blockade by 31 Dec" went **64% → 53.7%**, "by 31 Oct" 37% → **24.5%**, and "by 30 Nov" is 38% [6]. Trump says the blockade stays and Iran is "ready to fold up … right after the election" [7]. I cut the weight on the two de-escalation branches from 0.40 to 0.34 | up | +4,000 |
+| **But talks are live and the guns are quiet.** The US delivered its response to the seven-day plan through Qatari mediators on 30 Sep. GlobalSecurity reports that the dispute is "the sequence of steps rather than the content" [5]. A US official calls the indirect talks "positive and constructive" [4]. No coalition strikes on Iranian territory have been reported for 24 consecutive reporting periods [5] | down | −2,500 |
+| **Polymarket's December book got ten times deeper and agrees.** Volume went from $9.4k to **$90.0k**. Normalised implied median ≈ **290,000**, p25 ≈ 239,000, p75 ≈ 334,000 [8]. Its median is within 2,000 of mine. Its lower quartile is fatter, as is the Metaculus cohorts' (next row) | — | 0 |
+| **Rounding to the scenario mixture** | — | +700 |
+| **New median (v2)** | | **288,000** |
+| **Lower quartile widened, 257,800 → 255,000.** All three Metaculus cohorts put their lower quartile at 232,000–238,000 [9]. The post-spike base rate puts it at ×0.98 of spot, 253,500 [3]. My unadjusted mixture put it at spot. I move half-way toward the base rate. The cohorts' numbers are partly stale: many were entered during the 229–236k plateau | — | (IQR only) |
+| **New forecast (v2)** | | **288,000**, IQR [255,000, 322,000]; P(>250k) **78%** |
+
+![Bonbast path since August, and the end-December distribution: v1, v2 and Polymarket](charts/path-and-distribution-v2.png)
+
+### Tripwire check (v1 list)
+
+| Tripwire | Status | Evidence |
+|---|---|---|
+| Bonbast's 31 Oct close at or below 230,000 → −25,000 | Not due (moving away) | Bonbast 258,700 on 1–2 Oct [1][2] |
+| Bonbast's 31 Oct close at or above 280,000 → +35,000 | Not due | 8.2% above spot. Polymarket's thin October book ($12.8k) has "2.8M+ rial" at 69% (bid 0.67 / ask 0.71) [10]. I note it but do not use it; spreads in the lower brackets are 8–12¢ |
+| Formal US announcement ending the blockade, or a resumed US–Iran negotiating round → −30,000 | **Not fired (indirect only)** | Araghchi met Qatari mediators in New York on 29 Sep, and the US answered through them on 30 Sep [4][5]. These are indirect exchanges, not a negotiating round. Trump rejected the proposal publicly [4][7]. Applied as the −2,500 row above, not at the tripwire's −30,000 |
+| Hormuz transits above 40/day (PortWatch) for a week → −40,000 | Not fired | PortWatch: 1 transit on 27 Sep against an 85/day baseline. straits.live counted 16–17/day on 29–30 Sep, including dark (AIS-off) vessels [11] |
+| US ground invasion, or confirmed removal of the Supreme Leader → +60,000 | Not fired | Mojtaba Khamenei has been Supreme Leader since February. There have been no strikes ashore for 24 reporting periods [5]. Trump has threatened attacks after the 3 Nov midterms if talks fail [7] |
+| Bonbast dark for more than five days, or a source switches to new rials | Not fired | Bonbast was live on 2 Oct (05:07 Tehran) and still quotes old toman [1] |
+
+### What resolves YES
+
+Unchanged from v1. One clarification: Polymarket's December contract names the same source
+(bonbast.com/graph/usd) and the same value date. It uses the "finalized" daily figure, meaning
+the one that stands once the next day's figure is out [8]. So Polymarket is a direct comparison
+once you divide its rial brackets by ten. Metaculus has no matching "finalized" rule. The
+graph's daily point and the live quote were identical on 1 Oct (258,700), so this barely matters.
+
+### Outside view
+
+v1's table stands. Added this session, from the same tgju series [3], 90-day horizons (the time
+left to the value date):
+
+| Class | n | p10 / p25 / median / p75 / p90 | P(fall) | P(fall > 8%) | Applied to 258,700 |
+|---|---|---|---|---|---|
+| All windows, 2012+ | 3,855 | 0.930 / 0.989 / 1.052 / 1.187 / 1.309 | 29.1% | 8.8% | median 272,200 |
+| Post-2018 | 2,366 | 0.914 / 0.997 / 1.119 / 1.231 / 1.350 | 25.6% | 10.7% | median 289,500, IQR [257,900, 318,500] |
+| Post-2024 | 697 | 0.956 / 1.031 / 1.138 / 1.254 / 1.317 | 19.5% | 6.6% | median 294,400 |
+| **After a ≥ 8% rise in the prior 21 days**, 2012+ | 575 | 0.875 / 0.980 / 1.133 / 1.267 / 1.421 | 28.7% | 17.0% | **median 293,100, IQR [253,500, 327,800]** |
+
+The post-spike class is the best match, because spot rose 8.9% in 21 days. It gives almost
+exactly my median, and a lower quartile 4,300 below my unadjusted one, which is why the IQR row
+in the revision table exists.
+
+### Inside view
+
+Unchanged from v1 in structure. Three facts are updated:
+
+- **Inflation:** GlobalSecurity cites **61.4%** annual inflation with food at 128% [5], against
+  the 84.4% year-on-year figure in v1. The two series measure different things (a 12-month
+  average versus point-to-point), so I do not read this as disinflation. The monetary floor is
+  unchanged.
+- **Oil:** Al Jazeera reports Gulf crude exports recovering to 12.8 mb/d in September [4]. That
+  is the region, not Iran: the blockade still zeroes Iranian exports [7].
+- **The new driver is the news cycle around a binary US decision.** Trump said on 1 Oct that
+  the US would decide "very soon" whether to strike Iran or negotiate (reported in GlobalSecurity's
+  daily update, via search summary) [5]. The rate is pricing that coin-flip with an upward skew.
+
+### Scenarios
+
+Re-weighted and re-based to the new spot, for the 90 days to 31 December:
+
+| # | Scenario | Weight (v1 → v2) | Median implied (×spot) |
+|---|---|---|---|
+| 1 | **Genuine reopening**: the enhanced-MoU route, with the blockade lifted, Hormuz reopened and ~$12bn unfrozen, and it holds to 31 Dec | 0.10 → **0.09** | ~191,000 (×0.74) |
+| 2 | **Announcement, rally partly fades** | 0.30 → **0.25** | ~259,000 (×1.00) |
+| 3 | **No relief**: the monetary grind continues | 0.45 → **0.50** | ~297,500 (×1.15) |
+| 4 | **Escalation**: post-midterm strikes, invasion, or regime rupture | 0.15 → **0.16** | ~401,000 (×1.55) |
+
+Resulting percentiles: p5 195,000 · p10 222,000 · **p25 255,000** · **p50 288,000** ·
+**p75 322,000** · p90 381,000 · p95 442,000.
+
+**P(above the 250,000 upper bound) ≈ 78%. P(inside the range) ≈ 21.6%. P(below 150,000) ≈ 0.4%.
+P(below today's spot of 258,700) ≈ 27%.**
+
+### Evidence
+
+v1's evidence stands. New items are in the revision table.
+
+### Other forecasters (2026-10-02)
+
+| Source | Value | As of | Note |
+|---|---|---|---|
+| **Metaculus CP** | median **≥ 250,000** (clipped at the open upper bound), p25 **231,967** | 2026-10-02 03:39 | n=102. It was 237,442 at reveal on 14 Sep and has been pinned at the bound since |
+| **Metaculus Pros** | median **≥ 250,000**, p25 **237,046** | 2026-10-02 | n=10. Pinned at the bound since reveal |
+| **Metaculus gold medalists** | median **≥ 250,000**, p25 **237,876** | 2026-10-02 | n=31 |
+| **Polymarket** "USD x Iranian rials End of December" | implied median **≈ 290,000**, p25 ≈ 239,000, p75 ≈ 334,000 | 2026-10-02 | $90.0k volume (was $9.4k), $166k liquidity; book sums to 102.6% [8] |
+| Polymarket "…End of October" | "2.8M+" (≥ 280,000) at **69%** | 2026-10-02 | $12.8k volume; lower brackets have 8–12¢ spreads [10] |
+| Polymarket, US announces end of blockade | 15 Oct 9.5% · 31 Oct **24.5%** · 30 Nov 38% · 31 Dec **53.7%** · 31 Mar 70% | 2026-10-02 | 31 Dec contract $2.70m volume [6] |
+| Metaculus commenters | tejvn: shifted right 13k after the jump; DeRuina: 2018 and 2020 rallies "gave back a quarter to a third" within weeks once a deal looked plausible | 2026-09-29/30 | [9] |
+
+**Cohort disagreement**: the three Metaculus cohorts agree with one another: every median is at
+the bound, and the lower quartiles span 232–238k. They disagree with me only on the lower
+quartile, by 17–23k, and the gap is explained in the revision table. Pros and gold put their
+lower quartile ~5,500 above the CP's, so the better track records lean toward my side.
+
+Bracket comparison (Polymarket rials ÷ 10, normalised):
+
+| Bracket (toman) | v1 | **v2** | Polymarket |
+|---|---|---|---|
+| < 200,000 | 8.3% | **5.7%** | 10.2% |
+| 200,000 – 250,000 | 26.4% | **16.3%** | 19.0% |
+| 250,000 – 300,000 | 31.3% | **38.1%** | 25.8% |
+| 300,000 – 350,000 | 18.1% | **25.2%** | 28.8% |
+| 350,000 – 400,000 | 7.3% | **6.5%** | 11.1% |
+| > 400,000 | 8.6% | **8.2%** | 5.0% |
+
+Polymarket's book is still somewhat bimodal, with a dip at 250–300k. It is less extreme than at
+v1, and $90k is real money. I am more concentrated in the middle than it is. If I am wrong it is
+probably there, so the IQR is wider than the scenario medians alone would make it.
+
+### Sensitivity
+
+| Assumption | If instead | Forecast becomes |
+|---|---|---|
+| De-escalation weight 0.34 | the enhanced MoU is signed in October (the blockade market gives ~25% to an announcement by 31 Oct); weights 0.45 / 0.40 / 0.12 / 0.03 | median ≈ 237,000, P(>250k) ≈ 41% |
+| — | strikes resume; weights 0.03 / 0.10 / 0.50 / 0.37 | median ≈ 311,000, P(>250k) ≈ 91% |
+| The four-day spike retraces 3,000 | spot retraces fully to ~235k, like the September plateau, before the scenarios play out | median ≈ 262,000, P(>250k) ≈ 61% |
+| Bonbast keeps old units | it switches to new rials before 31 Dec | resolution ambiguous, since the Metaculus criteria have no conversion clause; Polymarket's do |
+
+### What would change my mind (tripwires)
+
+- [ ] Bonbast's **31 October close at or below 240,000 toman** → retracement; **−20,000 toman**.
+- [ ] Bonbast's **31 October close at or above 300,000 toman** → the melt-up is compounding; **+30,000 toman**.
+- [ ] A **formal US announcement ending the blockade, or a signed US–Iran framework** (an enhanced MoU) before 2026-11-30 → **−35,000 toman**.
+- [ ] **Hormuz transits above 40/day** (PortWatch) for a full week before 2026-11-30 → **−30,000 toman**.
+- [ ] **US or Israeli strikes on Iranian territory resume** before 2026-11-30 → **+25,000 toman**; a **ground invasion or regime rupture** → **+60,000 toman**.
+- [ ] **Bonbast goes dark** for more than five consecutive days, or any major source switches to new rials, before 2026-12-31 → re-read the criteria; **either**, magnitude 0.
+
+### Sources
+
+1. Bonbast live rates, POST `/json` with page token and cookie — USD 258,700 sell / 258,600 buy, last modified 2026-10-02 05:07 — https://www.bonbast.com/ (accessed 2026-10-02; `raw/bonbast-2026-10-02.json`)
+2. Bonbast USD graph, the named resolution source, daily series 3 Aug – 1 Oct 2026 — https://www.bonbast.com/graph/usd (accessed 2026-10-02; `raw/bonbast-graph-usd-2026-10-02.json`)
+3. tgju.org, قیمت دلار آزاد (free-market dollar) daily series, 2011-11-26 → 2026-09-10; 90-day window statistics recomputed this session — https://www.tgju.org/profile/price_dollar_rl (accessed 2026-09-11; snapshot `raw/tgju-usd-free-market-daily-2026-09-11.json`, re-analysed 2026-10-02)
+4. "Iran's Araghchi meets Qatari mediators as US calls for nuclear talks" — Al Jazeera, 2026-09-29 — https://www.aljazeera.com/news/2026/9/29/irans-araghchi-meets-qatari-mediators-as-us-insists-on-nuclear-talks (accessed 2026-10-02)
+5. GlobalSecurity, "Iran War 2026 — Day 216 Update, 01 October 2026" — https://www.globalsecurity.org/military/ops/iran-war-oprep.htm (accessed 2026-10-02)
+6. Polymarket, "US announces end of Iranian blockade by…?" (gamma API) — https://polymarket.com/event/us-announces-end-of-iranian-blockade-byptptpt-20260713152715080 (accessed 2026-10-02; `raw/polymarket-us-announces-end-of-iranian-blockade-2026-10-02.json`)
+7. CBS News live updates, "Trump says Iran 'ready to fold up,' after threatening post-midterm attacks" — https://www.cbsnews.com/live-updates/iran-war-us-negotiations-strait-of-hormuz-oil/ (accessed 2026-10-02)
+8. Polymarket, "USD x Iranian rials End of December?" (gamma API, incl. resolution rules) — https://polymarket.com/event/usd-x-iranian-rials-end-of-december (accessed 2026-10-02; `raw/polymarket-usd-x-iranian-rials-end-of-december-2026-10-02.json`)
+9. Metaculus question 45340, three-cohort aggregations and comments — https://www.metaculus.com/questions/45340/ (accessed 2026-10-02; `raw/metaculus-2026-10-02.json`)
+10. Polymarket, "USD x Iranian rials End of October?" (gamma API) — https://polymarket.com/event/usd-x-iranian-rials-end-of-october (accessed 2026-10-02; `raw/polymarket-usd-x-iranian-rials-end-of-october-2026-10-02.json`)
+11. straits.live, "Strait of Hormuz Status: September 30, 2026" (citing IMF PortWatch) — https://straits.live/briefs/2026-09-30 (accessed 2026-10-02, via search summary)
+12. "Iran's currency hits a new record low as war erodes the country's economic stability" — PBS NewsHour / AP, 2026-09-29 — https://www.pbs.org/newshour/world/irans-currency-hits-a-new-record-low-as-war-erodes-the-countrys-economic-stability (accessed 2026-10-02, via search summary: 2.5 million rial per dollar on 29 Sep); and "'This is how the war will end'" — Fortune, 2026-09-29 — https://fortune.com/2026/09/29/iran-currency-new-low-us-back-into-colony/ (accessed 2026-10-02)
+13. IranWire, "Iran's inflation crisis deepens as year-on-year rate hits 84.4% in August" — https://iranwire.com/en/news/156819-irans-inflation-crisis-deepens-as-year-on-year-rate-hits-844-in-august/ (accessed 2026-09-11) — carried forward from v1 [9], still relied on
+14. FDD, "Trump's blockade is zeroing out Iran's oil exports", 2026-06-05 — https://www.fdd.org/analysis/2026/06/05/trumps-blockade-is-zeroing-out-irans-oil-exports/ (accessed 2026-09-11) — carried forward from v1 [15], still relied on
+15. bne IntelliNews, "Iran to phase out old rial by 2030 in four-zero redenomination" — https://www.intellinews.com/iran-to-phase-out-old-rial-by-2030-in-four-zero-redenomination-427812/ (accessed 2026-09-11) — carried forward from v1 [20], still relied on
+
+**Date**: 2026-10-02
+**Forecast**: Median 288,000 toman/USD, IQR [255,000, 322,000] — P(above the 250,000 upper bound) ≈ 78%
+**Thesis**: Up 16,000. Bonbast jumped 10% in four days to a record 258,700 after Trump rejected Iran's seven-day Hormuz plan [1][2][4], which puts spot above the question's ceiling with 90 days to go. Polymarket's odds of an announced end to the blockade by 31 Dec fell from 64% to 54% [6]. The best-matched base rate, 90-day windows after an 8%+ three-week rise, gives a median of ×1.13 (293,000) [3]. Live Qatari-mediated talks and 24 strike-free reporting periods [5] are the reason I keep a third of the weight on de-escalation. The now-deep Polymarket December book (median ≈ 290,000) agrees [8]. All three Metaculus cohorts sit at the bound, with lower quartiles of 232–238k [9]. That is why my lower quartile sits below spot.
 
 ---
 

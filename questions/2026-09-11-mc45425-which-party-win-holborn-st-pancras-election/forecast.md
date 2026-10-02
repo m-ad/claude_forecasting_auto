@@ -6,11 +6,128 @@
 | **Type** | multiple choice — 3 options: **Labour Party** · **Green Party** · **Other** |
 | **Opened / Closes / Resolves** | — / 2026-10-07 23:00 UTC / **2026-10-09** (declaration; poll is Thursday 2026-10-08) |
 | **Status** | open |
-| **Current forecast** | **Labour 78.0%, Green 20.5%, Other 1.5%** — IQR on Labour [71.0%, 84.0%] (v3, 2026-09-26) |
-| **Community (as of 2026-09-26)** | Labour: CP **79.0%** (n=107) · Pros **81.5%** (n=10) · gold **81.0%** (n=31); Polymarket 87.0% |
-| **Next review** | 2026-10-01 |
+| **Current forecast** | **Labour 79.5%, Green 19.3%, Other 1.2%** — IQR on Labour [73.0%, 85.0%] (v4, 2026-10-02) |
+| **Community (as of 2026-10-02)** | Labour: CP **82.4%** (n=117) · Pros **84.0%** (n=11) · gold **83.8%** (n=34); Polymarket 86.0% |
+| **Next review** | 2026-10-06 |
 
 <!-- Versions below, newest first. APPEND-ONLY: never edit or delete a past version. -->
+
+---
+
+## v4 — Update — 2026-10-02
+
+**Mode: Update** (incremental). Six days since v3 and six days to polling day. None of the
+re-analysis triggers holds. No market or cohort contradicts me by more than 10pp: Polymarket
+(86%) is 6.5pp above me, the Metaculus cohorts 3–4.5pp. The question's structure is unchanged.
+My last two versions moved the same way (68 → 76 → 78), but v2 was itself a re-analysis, so
+only one incremental step has been taken, and the reasons for it are written down.
+
+### Revision table
+
+| Driver | Direction | Effect on P(Labour) |
+|---|---|---|
+| **Prior (v3, 2026-09-26)** | — | **78.0%**, IQR [71.0%, 84.0%] (Green 20.5, Other 1.5) |
+| **The UK-wide Green share kept falling.** PollCheck's 7-poll average has the Greens at **9.7%** on 30 Sep, down from 10.6% at v3. Labour 26.7, Reform 23.3 [3]. More in Common's September MRP (multilevel regression and post-stratification, a model that turns national polls into seat estimates) has the Greens at 8% [10]. The "Greens above 15% in two polls" tripwire is now about 5pp away with three days left | up | +0.5 |
+| **A second seat model agrees on the direction, with a wider margin.** Stats for Lefties projects **Lab 39 / Grn 32 / Con 10 / Ref 9** [4], against PollCheck's Lab 41.7 / Grn 37.8 [8]. Both are built from the same inputs (May local results plus national polls), so they are not independent. Small weight | up | +0.5 |
+| **Six more quiet days, and six left.** There is still no constituency poll (Wikipedia, PollCheck, search, 2 Oct) [7][8]. There was no campaign shock. v2's late-collapse scenario now has six days to happen, not twelve | up | +0.5 |
+| **Campaign reporting cuts both ways.** Against the Greens: Polanski's Bengali video used standard Bangla, not the Sylheti most local Bangladeshi-heritage voters speak, and the conference row became a story about party dysfunction [5]. For the Greens: Aaron Bastani (UnHerd) found Labour's campaign "lacking the energy" of Makerfield and Abdi-Wali "cagey and lightweight", and expects the race to be closer than Labour assumes [6]. Earlier, Chris Williamson resigned as Workers Party deputy leader over Galloway's candidacy and urged support for Polanski [7]. Net zero | — | 0.0 |
+| **A Metaculus comment questions the ward baseline.** DeRuina (30 Sep) argues that Labour's 9-point lead across the seat's wards in May shrinks to about 3 points once you allow for two wards where the Greens stood no candidate [2]. My scenario 3 already covers this uncertainty, and the national Green share has fallen since May. Small weight | down | −0.5 |
+| **The cohorts moved up; the money is flat.** Metaculus CP 79.0 → **82.4** (n=117), Pros 81.5 → **84.0** (n=11), gold 81.0 → **83.8** (n=34) [2]. Polymarket 87.0 → **86.0** on $4k of fresh volume [1]. Betfred has Labour at 1/10 and the Greens at 13/2 [9]. The cohorts are seeing the same news I see, so this gets a small weight. It is not a reason to adopt their number | up | +0.5 |
+| **New forecast (v4)** | | **79.5%**, IQR [73.0%, 85.0%] (Green 19.3, Other 1.2) |
+
+### Tripwire check (v3 list)
+
+| Tripwire | Status | Evidence |
+|---|---|---|
+| Constituency poll shows the Greens within 3pp or ahead, **−15** | Not fired | No constituency poll has been published (Wikipedia, PollCheck, search for Survation, Find Out Now and JL Partners; 2 Oct) [7][8]. The only new numbers are a seat model [4] |
+| Constituency poll shows Labour ahead by 10pp+, **+5** | Not fired | same. The Stats for Lefties model (Lab +7) is a model, not a poll, so it does not count [4] |
+| UK-wide Green VI above 15% in two or more polls (by 10-05), **−4** | Not fired, and moving away | PollCheck 7-poll average Grn 9.7% (30 Sep) [3]; More in Common MRP Grn 8% [10] |
+| Polymarket Abdi-Wali below 75%, or best bookmaker Green price 3/1 or shorter, for 24h, **−5** | Not fired | Polymarket 0.86 (bid 0.85 / ask 0.87) [1]. Betfred Greens 13/2 [9] |
+| Galloway endorses Polanski, **−3** | Not fired | Galloway is still campaigning. The Critic (1 Oct) quotes an estimate of 8–25% for him, which I think is far too high [5]. No endorsement found |
+| General election called or poll postponed, **annul** | Not fired | Poll still set for Thursday 2026-10-08 [7] |
+
+### What resolves YES
+
+Unchanged from v2.
+
+### Outside view
+
+Unchanged from v1. I note one dissent I had not weighed explicitly: Peter Kellner (7 Sep)
+counts nine left-versus-left by-elections over sixty years. Labour lost five of them, with an
+average vote-share fall of 24pp, and the only clear hold was Southall in 2007, during a new
+prime minister's honeymoon [11]. Burnham's arrival is close to that Southall exception, which is
+why I give the hostile reference class less weight than its raw count suggests.
+
+### Inside view
+
+Unchanged from v2.
+
+### Scenarios
+
+Unchanged from v2, except the scenario weights. Scenario 4 (late collapse) goes 0.030 → 0.025
+and scenario 3 (Feinstein's vote consolidates behind Polanski) goes 0.175 → 0.168. The freed
+mass goes to scenario 1, the Burnham floor holds. Other goes 1.5 → 1.2: Galloway is still on the
+ballot, but no reporting suggests he is close to winning. Result: Labour **0.795**, Green
+**0.193**, Other **0.012**. The ledger vector uses the Metaculus labels `Other`,
+`Labour Party`, `Green Party`.
+
+### Evidence
+
+Unchanged from v2. New items are cited in the revision table.
+
+### Other forecasters (2026-10-02)
+
+| Source | Value | As of | Note |
+|---|---|---|---|
+| **Metaculus CP** | Labour **82.4%** (IQR 79.4–88.2), Green 17.1, Other 0.5 | 2026-10-02 05:10 | n=117 (was 79.0 on n=107) |
+| **Metaculus Pros** | Labour **84.0%**, Green 15.9, Other 0.1 | 2026-10-02 | n=11 (was 81.5) |
+| **Metaculus gold medalists** | Labour **83.8%**, Green 16.1, Other 0.1 | 2026-10-02 | n=34 (was 81.0) |
+| **Polymarket** | Abdi-Wali **86.0%** (0.85/0.87), Polanski 14.0% (0.13/0.15) | 2026-10-02 | event volume $66.0k (was $62.0k) |
+| Betfred | Labour 1/10 (~91%), Greens 13/2 (~13%) | ~2026-10 | not normalised (the book sums to more than 100%) [9] |
+| PollCheck by-election model | Lab 41.7 / Grn 37.8, P(Lab) 70% | 2026-10-02 | unchanged since v2 [8] |
+| Stats for Lefties model | Lab 39 / Grn 32 | ~2026-10-01 | via Left Foot Forward; no probability given [4] |
+
+**Cohort disagreement**: none that matters. All three Metaculus cohorts sit between 82 and 84,
+within 1.6pp of one another. I am 3–4.5pp below them and 6.5pp below Polymarket. The reason is
+the same as in v2: neither seat model gives Labour a lead of more than 7 points, and seat polls
+this parliament have missed by 8–12pp. A 5–6 point modelled lead with a 9-point error has
+Labour winning about 73% of the time. I sit above that because the national Green share has
+been falling since the models were built.
+
+### Sensitivity
+
+Unchanged from v2.
+
+### What would change my mind (tripwires)
+
+- [ ] A **constituency poll** before 2026-10-08 showing the Greens within 3pp or ahead → **−15pp Labour**.
+- [ ] A constituency poll showing Labour ahead by 10pp or more → **+5pp Labour**.
+- [ ] Polymarket Abdi-Wali below 75%, or bookmakers' best Green price 3/1 or shorter, sustained for 12h before 2026-10-07 → **−5pp Labour**.
+- [ ] Galloway endorses Polanski, or withdraws from campaigning, before 2026-10-08 → **−3pp Labour**.
+- [ ] UK-wide Green VI at 13% or more in two polls published 2026-10-02 to 2026-10-06 (a post-conference bounce) → **−2pp Labour**.
+- [ ] A general election is called or the poll is postponed → question **annulled**.
+
+### Sources
+
+1. Polymarket, "Holborn and St Pancras By-Election Winner" (gamma API) — https://polymarket.com/event/holborn-and-st-pancras-by-election-winner (accessed 2026-10-02; `raw/polymarket-holborn-and-st-pancras-by-election-winner-2026-10-02.json`)
+2. Metaculus question 45425, three-cohort aggregations and comments — https://www.metaculus.com/questions/45425/ (accessed 2026-10-02; `raw/metaculus-2026-10-02.json`)
+3. UK Opinion Polls 2026, voting-intention tracker — PollCheck — https://www.pollcheck.co.uk/gb-polls (accessed 2026-10-02, via search summary: 7-poll average on 30 Sep Lab 26.7, Ref 23.3, LD 10.4, Grn 9.7)
+4. "Labour projected to hold on to Holborn and St Pancras, projection shows" — Left Foot Forward, October 2026 — https://leftfootforward.org/2026/10/labour-projected-to-hold-on-to-holborn-and-st-pancras-poll-predicts/ (accessed 2026-10-02)
+5. "Polanski's problems in St Pancras" — The Critic, 2026-10-01 — https://thecritic.co.uk/bait-blunders-and-bengali-polanskis-problems-in-holborn/ (accessed 2026-10-02)
+6. Aaron Bastani, "Have the Greens lost all hope?" — UnHerd, October 2026 — https://unherd.com/2026/10/have-the-greens-lost-all-hope/ (accessed 2026-10-02)
+7. 2026 Holborn and St Pancras by-election — Wikipedia — https://en.wikipedia.org/wiki/2026_Holborn_and_St_Pancras_by-election (accessed 2026-10-02)
+8. Holborn and St Pancras By-Election: Candidates, Polls & Projection — PollCheck — https://www.pollcheck.co.uk/by-elections/holborn-and-st-pancras (accessed 2026-10-02, via search summary)
+9. Holborn and St Pancras By-Election Odds — Betfred Insights — https://insights.betfred.com/politics/uk-politics/holborn-st-pancras-by-election-odds-september-2026/ (accessed 2026-10-02, via search summary: Labour 1/10, Greens 13/2; the page returns 403 to direct fetch)
+10. More in Common's September 2026 MRP — https://www.moreincommon.org.uk/research/more-in-commons-september-2026-mrp/ (accessed 2026-10-02, via search summary: Lab 26, Ref 24, Grn 8)
+11. Peter Kellner, "History says Polanski is going to win the St Pancras by-election" — The New World, 2026-09-07 — https://www.thenewworld.co.uk/peter-kellner-history-says-polanski-is-going-to-win-the-st-pancras-by-election/ (accessed 2026-10-02)
+12. 2026 Camden London Borough Council election — Wikipedia — https://en.wikipedia.org/wiki/2026_Camden_London_Borough_Council_election (accessed 2026-09-11) — carried forward from v3 [7], still relied on
+13. "There's a lot of hope and positivity, but what are you going to do?" My focus groups in Holborn and St Pancras — Lord Ashcroft Polls, 2026-09-21 — https://lordashcroftpolls.com/2026/09/theres-a-lot-of-hope-and-positivity-but-what-are-you-going-to-do-my-focus-groups-in-holborn-and-st-pancras/ (accessed 2026-09-24) — carried forward from v3 [10], still relied on
+14. George Galloway v Zack Polanski: How fight for radical Left vote may gift Holborn by-election win to Labour — The Telegraph via Yahoo News UK, 2026-09-23 — https://uk.news.yahoo.com/george-galloway-v-zack-polanski-053046737.html (accessed 2026-09-24) — carried forward from v3 [12], still relied on
+15. Polanski request to postpone Greens' conference to focus on byelection refused by party — The Guardian via inkl, 2026-09-18 — https://www.inkl.com/news/polanski-request-to-postpone-greens-conference-to-focus-on-byelection-refused-by-party (accessed 2026-09-24) — carried forward from v3 [11], still relied on
+
+**Date**: 2026-10-02
+**Forecast**: Labour 79.5%, Green 19.3%, Other 1.2% — IQR on Labour [73.0%, 85.0%]
+**Thesis**: Up 1.5pp from v3. No v3 tripwire fired. The UK-wide Green share fell further to 9.7% [3], a second seat model gives Labour a 7-point lead [4], and six more days passed with no constituency poll and no campaign shock [7]. The Metaculus cohorts rose to 82–84% [2] and Polymarket held at 86% [1]. I stay a few points below them because neither seat model gives Labour more than a 7-point lead, and seat-level estimates this parliament have missed by 8–12pp.
 
 ---
 

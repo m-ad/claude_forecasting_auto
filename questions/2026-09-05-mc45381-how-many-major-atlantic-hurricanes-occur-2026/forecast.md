@@ -6,12 +6,137 @@
 | **Type** | multiple choice — options `0`, `1`, `2`, `3`, `4+` |
 | **Opened / Closes / Resolves** | 2026-09-07 / 2026-10-16 / 2026-11-30 (NHC data as of 2026-12-01) |
 | **Status** | open |
-| **Current forecast** | **0: 70.0% · 1: 22.5% · 2: 5.5% · 3: 1.5% · 4+: 0.5%** — leading option `0`, IQR [63.5%, 76.0%] (v4, 2026-09-26) |
-| **Community (as of 2026-09-26)** | CP **0: 70.7%** · Pro **71.2%** (n=10) · gold **70.1%** (n=33) — n=132 forecasters; cohorts within 1.1 pp |
-| **Market (as of 2026-09-26)** | **Kalshi `KXHURCTOTMAJ-26DEC01`: P(0) ≈ 62.5%** (`>0` strike 36/39¢, last 39¢, 17.5k contracts; thin fresh volume) |
-| **Next review** | 2026-09-30 |
+| **Current forecast** | **0: 80.0% · 1: 16.0% · 2: 3.0% · 3: 0.8% · 4+: 0.2%** — leading option `0`, IQR [74.0%, 85.0%] (v5, 2026-10-02) |
+| **Community (as of 2026-10-02)** | CP **0: 79.5%** · Pro **84.5%** (n=11) · gold **82.2%** (n=36) — n=143 forecasters; cohorts within 5 pp |
+| **Market (as of 2026-10-02)** | **Kalshi `KXHURCTOTMAJ-26DEC01`: P(0) ≈ 70.5%** (`>0` strike 29/30¢, last 32¢, 18.3k contracts; ~800 fresh) |
+| **Next review** | 2026-10-09 |
 
 <!-- Versions below, newest first. APPEND-ONLY: never edit or delete a past version. -->
+
+---
+
+## v5 — Update — 2026-10-02
+
+**Mode: Update** (incremental). Six days since v4. The question's structure has not changed, and
+no market or cohort sits more than 10pp from me: Metaculus Pros are 4.5pp above, Kalshi 9.5pp
+below. My last three versions all moved the same way (63 → 67 → 70 → now 80). The protocol
+flags that as possible drift, so the rate below is re-derived from scratch, not nudged. The
+driver is the calendar. v4 wrote down in advance that a quiet 10 October would put `0` near 79%,
+and the NHC outlook now all but guarantees a quiet 10 October.
+
+### Revision table
+
+| Driver | Direction | Effect on P(`0`) |
+|---|---|---|
+| **Prior (v4, 2026-09-26)** | — | **70.0%** (1: 22.5 · 2: 5.5 · 3: 1.5 · 4+: 0.5) |
+| **The basin is closed to majors until about 10 Oct.** Still zero hurricanes on 2 Oct: 8 named storms, 0 hurricanes, ACE (accumulated cyclone energy, a season-total measure of storm strength and duration) 10.8 [1][2]. Gonzalo peaked at 50 mph, Hanna at 45 mph, and Fay's remnant is at 10%/10% with chances "ending by Sunday" [1][3]. NHC: "Tropical cyclone formation is not expected over the next 7 days" bar that remnant [3]. A storm that forms on 9 Oct cannot plausibly reach Cat 3 before 10–11 Oct. So v4's tripwire 5 (10 Oct passes with zero majors → `0` to ~79%) is effectively locked in. Re-derived: about 12% of climatological major-hurricane activity falls after 10 Oct. On a normal season of 3.2 majors that is ~0.38. Two independent expert estimates put this season's late-season multiplier at about 0.4 (WeatherTiger: El Niño cuts October–November activity by ~60% [4]; Klotzbach: about a 50% chance of no hurricane at all [5]). Together that gives λ ≈ 0.15–0.18. v2's four-branch mixture gives `0` ≈ 82–84%. I book only the +9 that v4 committed to in advance (→ 79%); see the rate construction below | up | **+9.0 pp** |
+| **CSU two-week forecast (30 Sep): 78% below normal, 2% above normal through 13 Oct** [5]. v4's tripwire 3 fired on the "below normal" side, worth +2. Half weight, because it overlaps the NHC row | up | +1.0 pp |
+| **A southern-Gulf development window for 7–10 Oct.** This is the route v3/v4's shade was kept for. CPC's Global Tropics Hazards outlook (29 Sep) has 20–40% genesis in week 2 in the Bay of Campeche or western Caribbean [6]. Lowry (1 Oct): Google DeepMind's ensemble rose from ~20–30% to just over 50%, and the ECMWF ensemble has 30–40% for a tropical storm in the Bay of Campeche. Southern Gulf water is the warmest on record for early October [7][4]. But both specialists expect a "sprawling, sloppy subtropical-like system" under a strong subtropical jet; "most scenarios don't point to a strong system" [7][4]. I put P(it forms) at ~0.4 and P(Cat 3 \| it forms) at ~0.08, so ~3% for a major from this window. That is already inside λ, but I keep a 2pp shade because of the record-warm water and the Opal/Michael-type rapid-intensification tail | down | −2.0 pp |
+| **Every cohort rose, and the Pros overshot my band.** Metaculus CP 70.7 → **79.5** (n=143), Pros 71.2 → **84.5** (n=11), gold 70.1 → **82.2** (n=36) [8]. v4's tripwire 7 (Pros above 80%) fired, so I re-checked for a fact I had missed. I found none: the Pros sit where my unshaded mixture sits (~83%). The gap to them is my shade, which I trim by 2pp. Kalshi P(0) 62.5 → **~70.5%** (`>0` 29/30¢, last 32¢) on ~800 fresh contracts [9] | up | +2.0 pp |
+| **Kalshi's upper book is still too fat.** `>1` at 11/14¢ implies P(≥2) ≈ 12.5%. `>2` at 3/4¢ implies P(≥3) ≈ 3.5%. Two majors after 10 Oct in a strong El Niño year has no precedent in the analogue set [v2 research]. I do not follow it on 2+, but it keeps `1` from collapsing | — | 0.0 pp |
+| **New forecast (v5)** | | **0: 80.0%** · 1: 16.0 · 2: 3.0 · 3: 0.8 · 4+: 0.2, IQR on `0` [74.0%, 85.0%] |
+
+**Rate construction.** At λ ≈ 0.16, v2's four-branch mixture (scaled branches 0.09 / 0.16 /
+0.27 / 0.50 at weights 0.30 / 0.40 / 0.22 / 0.08) gives `0` ≈ 83%. I book only the +9pp that
+v4 committed to in advance for a quiet 10 October, which takes it to 79%. That keeps ~4pp in
+reserve for model error. My hazard arithmetic has drifted up three versions running, and the one
+system this season that beat its guidance (Fay, 20 Sep) beat it by a wide margin. CSU (+1), the
+Gulf shade (−2) and the cohort re-check (+2) then land at 80.0.
+
+### Tripwire check (v4 list)
+
+| # | Tripwire | Status | Evidence |
+|---|---|---|---|
+| 1 | Any Atlantic system reaches Cat 3 | **Not fired** | No hurricanes at all. Gonzalo peaked at 50 mph, Hanna at 45 mph [2] |
+| 2 | CSU two-week forecast of 2026-09-30: near/above normal → −5pp; below normal → +2pp | **Fired (below normal)** | 78% below normal, 2% above normal, through 13 Oct [5]. Applied at +1 because it overlaps the NHC row |
+| 3 | NHC ≥ 50% 7-day in the Gulf, western Caribbean or Bahamas/western Atlantic → −6pp | **Not fired (watch)** | NHC 1 Oct, 8 pm EDT: only Fay's remnant SE of Bermuda at 10%/10% [3]. The southern-Gulf signal is days 6–9, still beyond NHC's 7-day outlook. CPC has 20–40% in week 2 [6] |
+| 4 | 2026-10-10 passes with zero majors → `0` to ~79% | **Not due, all but certain to fire** | Nothing is expected to form before ~8 Oct [3]. Its effect is already in revision row 2 and will not be added again on 10 Oct |
+| 5 | CPC ENSO update (~10-08) puts OND RONI (October–December relative Oceanic Niño Index) below +2.0 or shows El Niño peaking early → −5pp | Not due | Release ~2026-10-08. The season-level coverage still calls it a very strong El Niño [2][5] |
+| 6 | Kalshi `>0` outside 25–45¢ on more than 3k fresh contracts → re-check | **Not fired** | 29/30¢, last 32¢. T0 volume 17.5k → 18.3k, so ~800 contracts [9] |
+| 7 | Metaculus Pros below 62% or above 80% | **Fired (above 80%)** | Pros **84.5%** (n=11) [8]. Re-checked; see revision row 5. The move comes from the same calendar evidence, not from a fact I lacked |
+
+### What resolves YES
+
+Unchanged from v3.
+
+### Outside view
+
+Unchanged from v3. One addition: for a major hurricane *after 10 October* in a moderate or
+strong El Niño year, the analogue record I know of is close to empty (1982, 1987, 1991, 1997,
+2002, 2009, 2015 and 2023 had none after early October). In neutral and La Niña years such a
+storm comes about one year in two (2016 Nicole, 2017 Ophelia, 2018 Michael, 2020 Epsilon, Eta
+and Iota). *I recalled this list from memory and did not re-verify it this session*. I use it as
+direction only, not as a rate.
+
+### Scenarios
+
+Unchanged from v4, except the scenario weights, which follow the new vector: shear never relaxes
+enough 0.80 · one window, one major (most plausibly the southern Gulf or an Oct–Nov western
+Caribbean storm) 0.16 · the 2002 shape 0.03 · genuine back-loading 0.008 · full repeat 0.002.
+Option labels in the ledger are Metaculus's exact strings `0`, `1`, `2`, `3`, `4+`.
+
+### Inside view
+
+Unchanged from v3, apart from the southern-Gulf window in revision row 4.
+
+### Evidence
+
+Unchanged from v3. New items are cited in the revision table.
+
+### Other forecasters (2026-10-02)
+
+| Source | P(0 majors) | As of | Note |
+|---|---|---|---|
+| **Kalshi `KXHURCTOTMAJ-26DEC01`** | **≈ 70.5%** (`>0` 29/30¢, last 32¢) | 2026-10-02 | T0 18.3k contracts (was 17.5k). Implied 1: ~17 · 2: ~9 · 3+: ~3.5 [9] |
+| **Metaculus CP** | **79.5%** (IQR 75.8–81.8) | 2026-10-02 04:45 | n=143; 1: 17.9 · 2: 2.0 · 3: 0.5 · 4+: 0.1 |
+| **Metaculus Pros** | **84.5%** (IQR 77.9–87.9) | 2026-10-02 | n=11; 1: 13.0 · 2: 2.0 |
+| **Metaculus gold medalists** | **82.2%** (IQR 79.4–88.9) | 2026-10-02 | n=36; 1: 15.2 · 2: 2.0 |
+| Klotzbach (CSU) | about 50% chance of **no hurricane at all** | 2026-09-30 | implies P(no major) ≈ 80% if ~35–40% of late hurricanes reach Cat 3 [5] |
+| WeatherTiger | just over 5% chance of a US hurricane landfall for the rest of 2026; 30–35% chance the season stays below 1983's record-low activity | 2026-09-30 | public portion only [4] |
+
+**Cohort agreement**: the three Metaculus cohorts span 79.5–84.5, within 5pp of one another.
+Pros and gold are on the high side, as they were at v2. I am 0.5pp above the CP, 2–4.5pp below
+Pros and gold, and 9.5pp above Kalshi. My `1` (16.0) sits between the Pros' 13.0 and the CP's
+17.9. My `2+` (4.0) is double the cohorts' ~2.6, and that is deliberate: one good window can
+produce two storms.
+
+### Sensitivity
+
+| Assumption | If instead | Forecast becomes |
+|---|---|---|
+| λ ≈ 0.16 after 10 Oct, with a 2pp Gulf shade | the Gulf system becomes a hurricane (NHC forecasts Cat 1+) | 0: ~68% while it is active |
+| — | the Gulf window passes with nothing or a weak subtropical storm (checkable ~12 Oct) | 0: ~84% |
+| — | the CPC ENSO update shows El Niño weakening fast (OND RONI below +2.0) | 0: ~76% |
+| — | λ = 0.25 (v4's rate, i.e., I am wrong about how late-season the climatology is) | 0: ~75% |
+
+### What would change my mind (tripwires)
+
+- [ ] **Any Atlantic system reaches Category 3**, by 2026-11-30 → `0` collapses to ~0%.
+- [ ] **NHC TWO flags ≥ 50% 7-day formation in the Gulf or western Caribbean**, by 2026-10-31 → down ~4pp; if NHC forecasts that system to reach Cat 2+ → down a further ~12pp.
+- [ ] **The 7–10 Oct southern-Gulf window passes with no system, or with one that peaks below hurricane strength**, by 2026-10-13 → up ~4pp.
+- [ ] **CPC ENSO update (~2026-10-08) puts OND RONI below +2.0 or shows El Niño peaking early** → down ~4pp.
+- [ ] **CSU two-week forecast of 2026-10-14 favours near- or above-normal activity** → down ~4pp.
+- [ ] **Kalshi `>0` trades outside 20–40¢** (P(0) outside 60–80%) on more than 3k fresh contracts → re-check, do not nudge.
+- [ ] **Metaculus Pros fall below 72% or rise above 90%**.
+
+### Sources
+
+1. Wikipedia — "2026 Atlantic hurricane season": 8 NS / 0 H / 0 MH, ACE 10.8; Fay 19–29 Sep (70 mph), Gonzalo 25–26 Sep (50 mph), Hanna 28–30 Sep (45 mph) — https://en.wikipedia.org/wiki/2026_Atlantic_hurricane_season (accessed 2026-10-02)
+2. "Atlantic season hits October without a single hurricane, a satellite-era first" — Tampa Bay Times, 2026-10-01 — https://www.tampabay.com/hurricane/2026/10/01/atlantic-gulf-storm-season-tropics-el-nino-weather-forecast/ (accessed 2026-10-02)
+3. NHC Atlantic Tropical Weather Outlook, 8:00 PM EDT Thu 1 Oct 2026 — https://www.nhc.noaa.gov/gtwo.php?basin=atlc&fdays=7 (accessed 2026-10-02)
+4. WeatherTiger — "The Going Gets Weird: WeatherTiger's Weekly Hurricane Column for September 30th" — https://weathertiger.substack.com/p/the-going-gets-weird-weathertigers (accessed 2026-10-02; public portion)
+5. "A hurricane-free 2026 is within reach, but we're not in the clear yet" — Yahoo News / USA Today Network, 2026-09-30 (CSU two-week forecast of 30 Sep; Klotzbach ~50% hurricane-free) — https://www.yahoo.com/news/weather-news/articles/hurricane-free-2026-within-reach-201448621.html (accessed 2026-10-02)
+6. NOAA CPC — Global Tropics Hazards Outlook, issued 2026-09-29 — https://www.cpc.ncep.noaa.gov/products/precip/CWlink/ghazards/index.php (accessed 2026-10-02)
+7. Michael Lowry — "Keeping an Eye to the Southern Gulf for Late Next Week", 2026-10-01 — https://michaelrlowry.substack.com/p/keeping-an-eye-to-the-southern-gulf (accessed 2026-10-02)
+8. Metaculus question 45381, three-cohort aggregations — https://www.metaculus.com/questions/45381/ (accessed 2026-10-02; `raw/metaculus-2026-10-02.json`; the fetch returned no comments)
+9. Kalshi `KXHURCTOTMAJ` series, public trade API — https://kalshi.com/markets/kxhurctotmaj (accessed 2026-10-02; `raw/kalshi-KXHURCTOTMAJ-2026-10-02.json`)
+10. WeatherTiger — "THE Miami Hurricane: WeatherTiger's Weekly Hurricane Column for September 18th" (ECMWF 40% / 70% / 60% of normal activity by window) — https://weathertiger.substack.com/p/the-miami-hurricane-weathertigers (accessed 2026-09-23) — carried forward from v4 [10], still relied on
+11. Michael Lowry — "Fast-Forming Fay Nearly Ends Record Atlantic Hurricane Drought, Now Quickly Fading" — https://michaelrlowry.substack.com/p/fast-forming-fay-nearly-ends-record (accessed 2026-09-23) — carried forward from v4 [9], still relied on
+12. Boston Globe — "Atlantic hurricane activity remains quiet while Pacific roars" (21–22 Sep 2026; no October Gulf system in any super El Niño since 1960) — https://www.bostonglobe.com/2026/09/22/metro/record-quiet-2026-atlantic-hurricane-season/ (accessed 2026-09-23) — carried forward from v4 [13], still relied on
+
+**Date**: 2026-10-02
+**Forecast**: 0: 80.0%, 1: 16.0%, 2: 3.0%, 3: 0.8%, 4+: 0.2% — IQR on `0` [74.0%, 85.0%]
+**Thesis**: Up 10pp. The Atlantic entered October with no hurricane at all, a satellite-era first [1][2]. NHC expects nothing to form for 7 days [3], so v4's pre-committed "quiet 10 October → ~79%" is effectively locked in. Only about 12% of climatological major activity falls after 10 Oct, and experts put this El Niño season at ~40% of normal for October–November [4][5]. CSU's two-week outlook is 78% below normal [5], and all three Metaculus cohorts moved to 79.5–84.5% [8]. The main risk is a 7–10 Oct southern-Gulf system over record-warm water. Specialists expect it to be sloppy and sheared [7], so it costs only ~2pp.
 
 ---
 

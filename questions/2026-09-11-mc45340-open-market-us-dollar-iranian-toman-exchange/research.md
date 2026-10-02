@@ -129,3 +129,20 @@ The end-December level is spot × (war/sanctions path) × (monetary path).
   criteria do not hedge against.
 - CBI intervention capacity: FX reserves accessible under blockade conditions.
 - Whether the September spike retraces — the single most informative observable before December.
+
+## v2 search log (2026-10-02)
+
+| Date | Query / source | Finding | Use |
+|---|---|---|---|
+| 2026-10-02 | Bonbast POST `/json` (token from homepage + cookie jar) | USD 258,700 / 258,600, last modified 05:07 | spot |
+| 2026-10-02 | bonbast.com/graph/usd (default view carries 3 Aug – 1 Oct inline in the Chart.js config) | flat 229–236k 13–27 Sep, then 245,000 / 255,800 / 256,200 / 258,700 on 28 Sep – 1 Oct | path; snapshot saved |
+| 2026-10-02 | tgju series (v1 snapshot), 90-day windows | post-2018 median ×1.119, IQR [0.997, 1.231]; after ≥8% 21-day rise (n=575): median ×1.133, IQR [0.980, 1.267], P(<0.92) 17% | outside view for v2 |
+| 2026-10-02 | Polymarket gamma API: Dec, Oct, blockade-end events | Dec volume $90.0k, implied median ≈ 290k; Oct "2.8M+" 69% on $12.8k; blockade end Oct 31 24.5%, Nov 30 38%, Dec 31 53.7% | market comparison; de-escalation weight |
+| 2026-10-02 | metaculus-aggregations, post 45340 | CP/Pro/gold medians all clipped at 250,000; p25 232.0k / 237.0k / 237.9k; n=102–104; 5 comments | community |
+| 2026-10-02 | Fortune / PBS / BNN, 29 Sep | rial 2.5M per dollar on 29 Sep; Trump rejected Iran's proposal; Araghchi says talks "more serious" | driver of the jump |
+| 2026-10-02 | Al Jazeera 29 Sep; GlobalSecurity day 216 | US response delivered via Qatar 30 Sep; dispute on sequencing; 24 strike-free periods; inflation 61.4% (different measure from v1's 84.4%) | talks branch |
+| 2026-10-02 | CBS live updates | Trump: Iran "ready to fold up … right after the election"; possible post-midterm attacks; blockade stays | escalation branch |
+| 2026-10-02 | straits.live (PortWatch) | 1 transit 27 Sep (PortWatch); 16–17/day 29–30 Sep incl. dark vessels | Hormuz tripwire not fired |
+
+Metaculus aggregations for this numeric question carry no CDF, so P(>250k) for the cohorts is
+unknowable from the API beyond "≥ 50%".
