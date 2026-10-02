@@ -1,0 +1,7134 @@
+{
+  "post_id": 15240,
+  "question_id": null,
+  "title": "How many barrels of crude oil will the Strategic Petroleum Reserve hold on the following dates?",
+  "question_type": "numeric",
+  "status": "open",
+  "resolution": null,
+  "scheduled_close_time": "2026-12-30T12:02:00Z",
+  "cp_reveal_time": null,
+  "options": null,
+  "scaling": null,
+  "resolution_criteria": "This question will resolve as the number of barrels of crude oil that are held in the US Strategic Petroleum Reserve for the respective month. This will resolve based on the [EIA monthly data -  MCSSTUS1](https://www.eia.gov/dnav/pet/hist/LeafHandler.ashx?n=PET\\&s=MCSSTUS1\\&f=M). For example, the number for September 2022 was 416,393 thousand barrels, which would resolve as 416,393,000.\n\nIf the EIA stops updating this tracker, the question will resolve as ambiguous",
+  "fine_print": "",
+  "background": "The United States of America started in the 1970s to main an emergency stockpile of oil called the Strategic Petroleum Reserve (SPR). The SPR is under command of the President (and Congress), who can initiate sale of this oil in cases where this is deemed fit (such as domestic shortages, natural disasters, and wars). The main goal of the SPR is to [“alleviate significant oil supply disruptions or price inflation”](https://www.cfr.org/backgrounder/how-does-us-government-use-strategic-petroleum-reserve#:~:text=The%20SPR%20is%20the%20world's,supply%20disruptions%20or%20price%20inflation.) primarily domestically but also internationally. Most recently, the SPR has been tapped during the COVID-19 pandemic and in response to Russia’s invasion of Ukraine, according to the [CFR](https://www.cfr.org/backgrounder/how-does-us-government-use-strategic-petroleum-reserve#:~:text=The%20SPR%20is%20the%20world's,supply%20disruptions%20or%20price%20inflation.):\n\n> The most recent releases before the war were due to the COVID-19 pandemic and the subsequent rebound in oil demand, as rising gasoline prices contributed to record inflation in the United States. In November 2021, President Biden announced a release of thirty-two million barrels in exchange agreements and eighteen million barrels in sales, seen as an effort to pressure OPEC to increase production; some experts said it was a novel use of the SPR, given there was no supply disruption.\n\n> In March 2022, as Russia’s war in Ukraine caused turmoil in global energy markets, Biden authorized an emergency release of thirty million barrels, as part of a coordinated action led by the IEA. Later that month, he approved the emergency release of up to one million barrels per day for six months, or a total of about 180 million barrels—the largest release in the reserve’s history. Biden said the move was a “wartime bridge” that would allow domestic oil production time to ramp up. By October of that year, the Department of Energy had completed its emergency sale from the stockpile, bringing the reserve down to fewer than four hundred million barrels, a four-decade low. The administration said it will use the revenue to replenish the reserve by purchasing oil when the price of West Texas Intermediate (a U.S. benchmark) is \\$72 per barrel or less.\n\nThe size of the SPR (in barrels of crude oil) is tracked by the [EIA](https://www.eia.gov/dnav/pet/hist/LeafHandler.ashx?n=PET\\&s=MCSSTUS1\\&f=M). Below the number of crude oil barrels (in thousands) of the SPR.\n\n| Date     | Crude Oil Barrels (thousands) |\n| -------- | ----------------------------- |\n| Mar-2020 | 634,967                       |\n| Jun-2020 | 656,023                       |\n| Sep-2020 | 642,186                       |\n| Dec-2020 | 638,086                       |\n| Mar-2021 | 637,774                       |\n| Jun-2021 | 621,304                       |\n| Sep-2021 | 617,768                       |\n| Dec-2021 | 593,682                       |\n| Mar-2022 | 566,061                       |\n| Jun-2022 | 493,324                       |\n| Sep-2022 | 416,393                       |\n\nIn [January 2023](https://www.cnbc.com/2023/01/27/house-republicans-pass-bill-to-limit-strategic-petroleum-reserve-draws.html), the US House of Representative passed a bill that aims at reducing the president’s authority to draw down the SPR for a reason other than “severe energy supply disruption”.\n\n> Despite passing the House, the legislation is all but certain never to be signed into law. It lacks the support to pass the Democratic-controlled Senate and the White House has said Biden will veto it if it ever comes to his desk.\n\nIn [February 2023](https://www.foxbusiness.com/politics/biden-sell-26-million-barrels-more-strategic-petroleum-reserve), the Biden administration announced plans for further sales (of 26 million barrels between April 1 and June 30, which is expected to bring the SPR to the lowest levels since 1983.\n\n<iframe id=\"eia_widget\" style=\"width: 100%; height: 500px;\" src=\"https://api.eia.gov/v2/embed/iframe.php?api_key=9kJ6KR3g1Wl808tDJCW7hSY0BMg4RGcxm2sLlqXc&series_id=PET.MCSSTUS1.M\"></iframe>",
+  "nr_forecasters": 33,
+  "methods": {},
+  "comments": [
+    {
+      "author": "exmateriae",
+      "created_at": "2026-08-14",
+      "text": "@(johnnycaffeine) Huh community got real lucky with that one... (me too tbc)&#x20;",
+      "prediction": null
+    },
+    {
+      "author": "johnnycaffeine",
+      "created_at": "2026-07-19",
+      "text": "March 2026 resolves as **414,825,000** barrels.&#x20;\n\n<img height=\"270\" width=\"431\" src=\"https://cdn.metaculus.com/user_uploaded/Screenshot_2026-07-19_at_12.57.04PM.png\" />",
+      "prediction": null
+    },
+    {
+      "author": "johnnycaffeine",
+      "created_at": "2026-03-28",
+      "text": "@(exmateriae) Cool! Glad to hear it. Thanks for flagging when you saw that weird thing.",
+      "prediction": null
+    },
+    {
+      "author": "exmateriae",
+      "created_at": "2026-03-28",
+      "text": "@(johnnycaffeine) All good thanks !&#x20;",
+      "prediction": null
+    },
+    {
+      "author": "exmateriae",
+      "created_at": "2026-03-28",
+      "text": "@(johnnycaffeine) No mine should be largely positive, I remember we had had that issue once so I did check but on the UI everything looked good resolution wise except for the score. I'll tell you !&#x20;",
+      "prediction": null
+    },
+    {
+      "author": "johnnycaffeine",
+      "created_at": "2026-03-28",
+      "text": "@(exmateriae) Hmm, I think it's some kind of bug. Does your score look okay? I at first resolved literally at 413,464 instead of 413,464,000. And so then I edited. But I think editing did not make it re-score. So instead I will try to unresolve and then re-resolve and hopefully that should fix it.&#x20;",
+      "prediction": null
+    },
+    {
+      "author": "exmateriae",
+      "created_at": "2026-03-28",
+      "text": "@(johnnycaffeine) I'm a bit surprised by the baseline score (the community!!)\n\n![](https://cdn.metaculus.com/user_uploaded/image_DVIIfzV.png)![](https://cdn.metaculus.com/user_uploaded/image_mYCwuv2.png)![](https://cdn.metaculus.com/user_uploaded/image_nQkqsKo.png)",
+      "prediction": null
+    },
+    {
+      "author": "johnnycaffeine",
+      "created_at": "2026-03-28",
+      "text": "@(exmateriae) Thanks, resolved.",
+      "prediction": null
+    }
+  ],
+  "label": null,
+  "subquestions": [
+    {
+      "post_id": 15240,
+      "question_id": 20524,
+      "title": "How many barrels of crude oil will the Strategic Petroleum Reserve hold on the following dates? (September 2024)",
+      "question_type": "numeric",
+      "status": "resolved",
+      "resolution": "382930000.0",
+      "scheduled_close_time": "2024-09-30T11:02:00Z",
+      "cp_reveal_time": "2023-03-08T16:00:00Z",
+      "options": null,
+      "scaling": {
+        "range_min": 200000000.0,
+        "range_max": 700000000.0,
+        "nominal_min": 200000000.0,
+        "nominal_max": 700000000.0,
+        "zero_point": null,
+        "open_upper_bound": true,
+        "open_lower_bound": true,
+        "inbound_outcome_count": 200,
+        "continuous_range": [
+          200000000.0,
+          202500000.0,
+          205000000.0,
+          207500000.0,
+          210000000.0,
+          212500000.0,
+          215000000.0,
+          217500000.0,
+          220000000.0,
+          222500000.0,
+          225000000.0,
+          227500000.0,
+          230000000.0,
+          232500000.0,
+          235000000.0,
+          237500000.0,
+          240000000.0,
+          242500000.0,
+          245000000.0,
+          247500000.0,
+          250000000.0,
+          252500000.0,
+          255000000.0,
+          257500000.0,
+          260000000.0,
+          262500000.0,
+          265000000.0,
+          267500000.0,
+          270000000.0,
+          272500000.0,
+          275000000.0,
+          277500000.0,
+          280000000.0,
+          282500000.0,
+          285000000.0,
+          287500000.0,
+          290000000.0,
+          292500000.0,
+          295000000.0,
+          297500000.0,
+          300000000.0,
+          302500000.0,
+          305000000.0,
+          307500000.0,
+          310000000.0,
+          312500000.0,
+          315000000.0,
+          317500000.0,
+          320000000.0,
+          322500000.0,
+          325000000.0,
+          327500000.0,
+          330000000.0,
+          332500000.0,
+          335000000.0,
+          337500000.0,
+          340000000.0,
+          342500000.0,
+          345000000.0,
+          347500000.0,
+          350000000.0,
+          352500000.0,
+          355000000.0,
+          357500000.0,
+          360000000.0,
+          362500000.0,
+          365000000.0,
+          367500000.0,
+          370000000.0,
+          372500000.0,
+          375000000.0,
+          377500000.0,
+          380000000.0,
+          382500000.0,
+          385000000.0,
+          387500000.0,
+          390000000.0,
+          392500000.0,
+          395000000.0,
+          397500000.0,
+          400000000.0,
+          402500000.0,
+          405000000.0,
+          407500000.0,
+          410000000.0,
+          412500000.0,
+          415000000.0,
+          417500000.0,
+          420000000.0,
+          422500000.0,
+          425000000.0,
+          427500000.0,
+          430000000.0,
+          432500000.0,
+          435000000.0,
+          437500000.0,
+          440000000.0,
+          442500000.0,
+          445000000.0,
+          447500000.0,
+          450000000.0,
+          452500000.0,
+          455000000.0,
+          457500000.0,
+          460000000.0,
+          462500000.0,
+          465000000.0,
+          467500000.0,
+          470000000.0,
+          472500000.0,
+          475000000.0,
+          477500000.0,
+          480000000.0,
+          482500000.0,
+          485000000.00000006,
+          487500000.00000006,
+          490000000.0,
+          492500000.0,
+          495000000.0,
+          497500000.0,
+          500000000.0,
+          502500000.0,
+          505000000.0,
+          507500000.0,
+          510000000.0,
+          512500000.0,
+          515000000.0,
+          517500000.0,
+          520000000.0,
+          522500000.0,
+          525000000.0,
+          527500000.0,
+          530000000.0,
+          532500000.0,
+          535000000.0,
+          537500000.0,
+          540000000.0,
+          542500000.0,
+          545000000.0,
+          547500000.0,
+          550000000.0,
+          552500000.0,
+          555000000.0,
+          557500000.0,
+          560000000.0,
+          562500000.0,
+          565000000.0,
+          567500000.0,
+          570000000.0,
+          572500000.0,
+          575000000.0,
+          577500000.0,
+          580000000.0,
+          582500000.0,
+          585000000.0,
+          587500000.0,
+          590000000.0,
+          592500000.0,
+          595000000.0,
+          597500000.0,
+          600000000.0,
+          602500000.0,
+          605000000.0,
+          607500000.0,
+          610000000.0,
+          612500000.0,
+          615000000.0,
+          617500000.0,
+          620000000.0,
+          622500000.0,
+          625000000.0,
+          627500000.0,
+          630000000.0,
+          632500000.0,
+          635000000.0,
+          637500000.0,
+          640000000.0,
+          642500000.0,
+          645000000.0,
+          647500000.0,
+          650000000.0,
+          652500000.0,
+          655000000.0,
+          657500000.0,
+          660000000.0,
+          662500000.0,
+          665000000.0,
+          667500000.0,
+          670000000.0,
+          672500000.0,
+          675000000.0,
+          677500000.0,
+          680000000.0,
+          682500000.0,
+          685000000.0,
+          687500000.0,
+          690000000.0,
+          692500000.0,
+          695000000.0,
+          697500000.0,
+          700000000.0
+        ]
+      },
+      "resolution_criteria": null,
+      "fine_print": null,
+      "background": null,
+      "nr_forecasters": null,
+      "methods": {
+        "recency_weighted": {
+          "method": "recency_weighted",
+          "status": 200,
+          "history_points": 18,
+          "latest": {
+            "as_of": "2024-09-03 19:00",
+            "forecaster_count": 8,
+            "center": 379227722.7459918,
+            "lower": 361070027.815676,
+            "upper": 397274441.4231863,
+            "mean": null,
+            "display": "379,227,723  IQR[361,070,028, 397,274,441]",
+            "per_option": null
+          },
+          "history": [
+            [
+              "2024-01-08 17:20",
+              372530622.3024577
+            ],
+            [
+              "2024-04-03 18:05",
+              382700495.12027645
+            ],
+            [
+              "2024-04-05 00:08",
+              383864551.7450841
+            ],
+            [
+              "2024-04-05 09:03",
+              379828786.05815446
+            ],
+            [
+              "2024-05-22 23:34",
+              372944545.3490428
+            ],
+            [
+              "2024-05-23 00:46",
+              369411273.1584202
+            ],
+            [
+              "2024-07-30 07:42",
+              373533933.0240929
+            ],
+            [
+              "2024-07-30 14:19",
+              389353147.45478684
+            ],
+            [
+              "2024-07-30 14:19",
+              369120032.11916494
+            ],
+            [
+              "2024-07-30 18:24",
+              371541089.9291498
+            ],
+            [
+              "2024-08-12 01:25",
+              374302384.2771528
+            ],
+            [
+              "2024-08-31 15:40",
+              374654530.3514912
+            ],
+            [
+              "2024-08-31 15:41",
+              375187161.2855086
+            ],
+            [
+              "2024-08-31 15:41",
+              376412083.5776609
+            ],
+            [
+              "2024-09-03 16:05",
+              376654645.0508442
+            ],
+            [
+              "2024-09-03 17:20",
+              376748831.8713591
+            ],
+            [
+              "2024-09-03 17:21",
+              377864903.03274053
+            ],
+            [
+              "2024-09-03 19:00",
+              379227722.7459918
+            ]
+          ]
+        },
+        "metaculus_pros": {
+          "method": "metaculus_pros",
+          "status": 200,
+          "history_points": 16,
+          "latest": {
+            "as_of": "2024-09-03 19:00",
+            "forecaster_count": 2,
+            "center": 381366420.26745546,
+            "lower": 366735919.82245207,
+            "upper": 396161716.0531322,
+            "mean": null,
+            "display": "381,366,420  IQR[366,735,920, 396,161,716]",
+            "per_option": null
+          },
+          "history": [
+            [
+              "2024-04-05 00:08",
+              382353497.2093784
+            ],
+            [
+              "2024-04-05 09:03",
+              382353497.2093784
+            ],
+            [
+              "2024-05-22 23:34",
+              382353497.2093784
+            ],
+            [
+              "2024-05-23 00:46",
+              382353497.2093784
+            ],
+            [
+              "2024-07-30 07:42",
+              382703786.98394597
+            ],
+            [
+              "2024-07-30 14:19",
+              382703786.98394597
+            ],
+            [
+              "2024-07-30 14:19",
+              382703786.98394597
+            ],
+            [
+              "2024-07-30 18:24",
+              382703786.98394597
+            ],
+            [
+              "2024-08-12 01:25",
+              382703786.98394597
+            ],
+            [
+              "2024-08-31 15:40",
+              382684903.6907969
+            ],
+            [
+              "2024-08-31 15:41",
+              382684903.6907969
+            ],
+            [
+              "2024-08-31 15:41",
+              382684903.6907969
+            ],
+            [
+              "2024-09-03 16:05",
+              379519632.2738447
+            ],
+            [
+              "2024-09-03 17:20",
+              379433432.23755586
+            ],
+            [
+              "2024-09-03 17:21",
+              379433432.23755586
+            ],
+            [
+              "2024-09-03 19:00",
+              381366420.26745546
+            ]
+          ]
+        },
+        "gold_medalists": {
+          "method": "gold_medalists",
+          "status": 200,
+          "history_points": 14,
+          "latest": {
+            "as_of": "2024-09-03 19:00",
+            "forecaster_count": 2,
+            "center": 380581897.5246422,
+            "lower": 367965739.19010794,
+            "upper": 393604014.0481186,
+            "mean": null,
+            "display": "380,581,898  IQR[367,965,739, 393,604,014]",
+            "per_option": null
+          },
+          "history": [
+            [
+              "2024-05-22 23:34",
+              359037417.2661507
+            ],
+            [
+              "2024-05-23 00:46",
+              359037417.2661507
+            ],
+            [
+              "2024-07-30 07:42",
+              374072807.50045836
+            ],
+            [
+              "2024-07-30 14:19",
+              374072807.50045836
+            ],
+            [
+              "2024-07-30 14:19",
+              374072807.50045836
+            ],
+            [
+              "2024-07-30 18:24",
+              374072807.50045836
+            ],
+            [
+              "2024-08-12 01:25",
+              374072807.50045836
+            ],
+            [
+              "2024-08-31 15:40",
+              372780417.8701556
+            ],
+            [
+              "2024-08-31 15:41",
+              372780417.8701556
+            ],
+            [
+              "2024-08-31 15:41",
+              372780417.8701556
+            ],
+            [
+              "2024-09-03 16:05",
+              372977750.34060144
+            ],
+            [
+              "2024-09-03 17:20",
+              375392404.16255295
+            ],
+            [
+              "2024-09-03 17:21",
+              378542135.08465886
+            ],
+            [
+              "2024-09-03 19:00",
+              380581897.5246422
+            ]
+          ]
+        }
+      },
+      "comments": [],
+      "label": "September 2024",
+      "subquestions": []
+    },
+    {
+      "post_id": 15240,
+      "question_id": 20525,
+      "title": "How many barrels of crude oil will the Strategic Petroleum Reserve hold on the following dates? (December 2024)",
+      "question_type": "numeric",
+      "status": "resolved",
+      "resolution": "393568000.0",
+      "scheduled_close_time": "2024-12-31T12:02:00Z",
+      "cp_reveal_time": "2023-03-08T16:00:00Z",
+      "options": null,
+      "scaling": {
+        "range_min": 200000000.0,
+        "range_max": 700000000.0,
+        "nominal_min": 200000000.0,
+        "nominal_max": 700000000.0,
+        "zero_point": null,
+        "open_upper_bound": true,
+        "open_lower_bound": true,
+        "inbound_outcome_count": 200,
+        "continuous_range": [
+          200000000.0,
+          202500000.0,
+          205000000.0,
+          207500000.0,
+          210000000.0,
+          212500000.0,
+          215000000.0,
+          217500000.0,
+          220000000.0,
+          222500000.0,
+          225000000.0,
+          227500000.0,
+          230000000.0,
+          232500000.0,
+          235000000.0,
+          237500000.0,
+          240000000.0,
+          242500000.0,
+          245000000.0,
+          247500000.0,
+          250000000.0,
+          252500000.0,
+          255000000.0,
+          257500000.0,
+          260000000.0,
+          262500000.0,
+          265000000.0,
+          267500000.0,
+          270000000.0,
+          272500000.0,
+          275000000.0,
+          277500000.0,
+          280000000.0,
+          282500000.0,
+          285000000.0,
+          287500000.0,
+          290000000.0,
+          292500000.0,
+          295000000.0,
+          297500000.0,
+          300000000.0,
+          302500000.0,
+          305000000.0,
+          307500000.0,
+          310000000.0,
+          312500000.0,
+          315000000.0,
+          317500000.0,
+          320000000.0,
+          322500000.0,
+          325000000.0,
+          327500000.0,
+          330000000.0,
+          332500000.0,
+          335000000.0,
+          337500000.0,
+          340000000.0,
+          342500000.0,
+          345000000.0,
+          347500000.0,
+          350000000.0,
+          352500000.0,
+          355000000.0,
+          357500000.0,
+          360000000.0,
+          362500000.0,
+          365000000.0,
+          367500000.0,
+          370000000.0,
+          372500000.0,
+          375000000.0,
+          377500000.0,
+          380000000.0,
+          382500000.0,
+          385000000.0,
+          387500000.0,
+          390000000.0,
+          392500000.0,
+          395000000.0,
+          397500000.0,
+          400000000.0,
+          402500000.0,
+          405000000.0,
+          407500000.0,
+          410000000.0,
+          412500000.0,
+          415000000.0,
+          417500000.0,
+          420000000.0,
+          422500000.0,
+          425000000.0,
+          427500000.0,
+          430000000.0,
+          432500000.0,
+          435000000.0,
+          437500000.0,
+          440000000.0,
+          442500000.0,
+          445000000.0,
+          447500000.0,
+          450000000.0,
+          452500000.0,
+          455000000.0,
+          457500000.0,
+          460000000.0,
+          462500000.0,
+          465000000.0,
+          467500000.0,
+          470000000.0,
+          472500000.0,
+          475000000.0,
+          477500000.0,
+          480000000.0,
+          482500000.0,
+          485000000.00000006,
+          487500000.00000006,
+          490000000.0,
+          492500000.0,
+          495000000.0,
+          497500000.0,
+          500000000.0,
+          502500000.0,
+          505000000.0,
+          507500000.0,
+          510000000.0,
+          512500000.0,
+          515000000.0,
+          517500000.0,
+          520000000.0,
+          522500000.0,
+          525000000.0,
+          527500000.0,
+          530000000.0,
+          532500000.0,
+          535000000.0,
+          537500000.0,
+          540000000.0,
+          542500000.0,
+          545000000.0,
+          547500000.0,
+          550000000.0,
+          552500000.0,
+          555000000.0,
+          557500000.0,
+          560000000.0,
+          562500000.0,
+          565000000.0,
+          567500000.0,
+          570000000.0,
+          572500000.0,
+          575000000.0,
+          577500000.0,
+          580000000.0,
+          582500000.0,
+          585000000.0,
+          587500000.0,
+          590000000.0,
+          592500000.0,
+          595000000.0,
+          597500000.0,
+          600000000.0,
+          602500000.0,
+          605000000.0,
+          607500000.0,
+          610000000.0,
+          612500000.0,
+          615000000.0,
+          617500000.0,
+          620000000.0,
+          622500000.0,
+          625000000.0,
+          627500000.0,
+          630000000.0,
+          632500000.0,
+          635000000.0,
+          637500000.0,
+          640000000.0,
+          642500000.0,
+          645000000.0,
+          647500000.0,
+          650000000.0,
+          652500000.0,
+          655000000.0,
+          657500000.0,
+          660000000.0,
+          662500000.0,
+          665000000.0,
+          667500000.0,
+          670000000.0,
+          672500000.0,
+          675000000.0,
+          677500000.0,
+          680000000.0,
+          682500000.0,
+          685000000.0,
+          687500000.0,
+          690000000.0,
+          692500000.0,
+          695000000.0,
+          697500000.0,
+          700000000.0
+        ]
+      },
+      "resolution_criteria": null,
+      "fine_print": null,
+      "background": null,
+      "nr_forecasters": null,
+      "methods": {
+        "recency_weighted": {
+          "method": "recency_weighted",
+          "status": 200,
+          "history_points": 10,
+          "latest": {
+            "as_of": "2024-12-21 01:09",
+            "forecaster_count": 5,
+            "center": 391190330.5240494,
+            "lower": 373634721.90641934,
+            "upper": 418043676.81631225,
+            "mean": null,
+            "display": "391,190,331  IQR[373,634,722, 418,043,677]",
+            "per_option": null
+          },
+          "history": [
+            [
+              "2024-01-08 17:20",
+              370303634.3119714
+            ],
+            [
+              "2024-04-05 00:08",
+              366502739.9770616
+            ],
+            [
+              "2024-07-30 14:19",
+              394496085.2252001
+            ],
+            [
+              "2024-07-30 18:25",
+              383372068.9467962
+            ],
+            [
+              "2024-08-12 01:25",
+              388605566.6622788
+            ],
+            [
+              "2024-08-31 15:40",
+              385045291.6094984
+            ],
+            [
+              "2024-08-31 15:42",
+              390283526.4304185
+            ],
+            [
+              "2024-09-03 16:05",
+              391498713.1171756
+            ],
+            [
+              "2024-12-21 01:09",
+              390979534.1478182
+            ],
+            [
+              "2024-12-21 01:09",
+              391190330.5240494
+            ]
+          ]
+        },
+        "metaculus_pros": {
+          "method": "metaculus_pros",
+          "status": 200,
+          "history_points": 9,
+          "latest": {
+            "as_of": "2024-12-21 01:09",
+            "forecaster_count": 1,
+            "center": 384412897.4286332,
+            "lower": 359340641.94977736,
+            "upper": 416615606.273842,
+            "mean": null,
+            "display": "384,412,897  IQR[359,340,642, 416,615,606]",
+            "per_option": null
+          },
+          "history": [
+            [
+              "2024-04-05 00:08",
+              363108457.4061143
+            ],
+            [
+              "2024-07-30 14:19",
+              363108457.4061143
+            ],
+            [
+              "2024-07-30 18:25",
+              363108457.4061143
+            ],
+            [
+              "2024-08-12 01:25",
+              363108457.4061143
+            ],
+            [
+              "2024-08-31 15:40",
+              363108457.4061143
+            ],
+            [
+              "2024-08-31 15:42",
+              363108457.4061143
+            ],
+            [
+              "2024-09-03 16:05",
+              384412897.4286332
+            ],
+            [
+              "2024-12-21 01:09",
+              384412897.4286332
+            ],
+            [
+              "2024-12-21 01:09",
+              384412897.4286332
+            ]
+          ]
+        },
+        "gold_medalists": {
+          "method": "gold_medalists",
+          "status": 200,
+          "history_points": 0,
+          "latest": null,
+          "history": []
+        }
+      },
+      "comments": [],
+      "label": "December 2024",
+      "subquestions": []
+    },
+    {
+      "post_id": 15240,
+      "question_id": 31303,
+      "title": "How many barrels of crude oil will the Strategic Petroleum Reserve hold on the following dates? (March 2025)",
+      "question_type": "numeric",
+      "status": "resolved",
+      "resolution": "396710000.0",
+      "scheduled_close_time": "2025-03-30T11:02:00Z",
+      "cp_reveal_time": "2025-01-30T16:00:00Z",
+      "options": null,
+      "scaling": {
+        "range_min": 200000000.0,
+        "range_max": 700000000.0,
+        "nominal_min": 200000000.0,
+        "nominal_max": 700000000.0,
+        "zero_point": null,
+        "open_upper_bound": true,
+        "open_lower_bound": true,
+        "inbound_outcome_count": 200,
+        "continuous_range": [
+          200000000.0,
+          202500000.0,
+          205000000.0,
+          207500000.0,
+          210000000.0,
+          212500000.0,
+          215000000.0,
+          217500000.0,
+          220000000.0,
+          222500000.0,
+          225000000.0,
+          227500000.0,
+          230000000.0,
+          232500000.0,
+          235000000.0,
+          237500000.0,
+          240000000.0,
+          242500000.0,
+          245000000.0,
+          247500000.0,
+          250000000.0,
+          252500000.0,
+          255000000.0,
+          257500000.0,
+          260000000.0,
+          262500000.0,
+          265000000.0,
+          267500000.0,
+          270000000.0,
+          272500000.0,
+          275000000.0,
+          277500000.0,
+          280000000.0,
+          282500000.0,
+          285000000.0,
+          287500000.0,
+          290000000.0,
+          292500000.0,
+          295000000.0,
+          297500000.0,
+          300000000.0,
+          302500000.0,
+          305000000.0,
+          307500000.0,
+          310000000.0,
+          312500000.0,
+          315000000.0,
+          317500000.0,
+          320000000.0,
+          322500000.0,
+          325000000.0,
+          327500000.0,
+          330000000.0,
+          332500000.0,
+          335000000.0,
+          337500000.0,
+          340000000.0,
+          342500000.0,
+          345000000.0,
+          347500000.0,
+          350000000.0,
+          352500000.0,
+          355000000.0,
+          357500000.0,
+          360000000.0,
+          362500000.0,
+          365000000.0,
+          367500000.0,
+          370000000.0,
+          372500000.0,
+          375000000.0,
+          377500000.0,
+          380000000.0,
+          382500000.0,
+          385000000.0,
+          387500000.0,
+          390000000.0,
+          392500000.0,
+          395000000.0,
+          397500000.0,
+          400000000.0,
+          402500000.0,
+          405000000.0,
+          407500000.0,
+          410000000.0,
+          412500000.0,
+          415000000.0,
+          417500000.0,
+          420000000.0,
+          422500000.0,
+          425000000.0,
+          427500000.0,
+          430000000.0,
+          432500000.0,
+          435000000.0,
+          437500000.0,
+          440000000.0,
+          442500000.0,
+          445000000.0,
+          447500000.0,
+          450000000.0,
+          452500000.0,
+          455000000.0,
+          457500000.0,
+          460000000.0,
+          462500000.0,
+          465000000.0,
+          467500000.0,
+          470000000.0,
+          472500000.0,
+          475000000.0,
+          477500000.0,
+          480000000.0,
+          482500000.0,
+          485000000.00000006,
+          487500000.00000006,
+          490000000.0,
+          492500000.0,
+          495000000.0,
+          497500000.0,
+          500000000.0,
+          502500000.0,
+          505000000.0,
+          507500000.0,
+          510000000.0,
+          512500000.0,
+          515000000.0,
+          517500000.0,
+          520000000.0,
+          522500000.0,
+          525000000.0,
+          527500000.0,
+          530000000.0,
+          532500000.0,
+          535000000.0,
+          537500000.0,
+          540000000.0,
+          542500000.0,
+          545000000.0,
+          547500000.0,
+          550000000.0,
+          552500000.0,
+          555000000.0,
+          557500000.0,
+          560000000.0,
+          562500000.0,
+          565000000.0,
+          567500000.0,
+          570000000.0,
+          572500000.0,
+          575000000.0,
+          577500000.0,
+          580000000.0,
+          582500000.0,
+          585000000.0,
+          587500000.0,
+          590000000.0,
+          592500000.0,
+          595000000.0,
+          597500000.0,
+          600000000.0,
+          602500000.0,
+          605000000.0,
+          607500000.0,
+          610000000.0,
+          612500000.0,
+          615000000.0,
+          617500000.0,
+          620000000.0,
+          622500000.0,
+          625000000.0,
+          627500000.0,
+          630000000.0,
+          632500000.0,
+          635000000.0,
+          637500000.0,
+          640000000.0,
+          642500000.0,
+          645000000.0,
+          647500000.0,
+          650000000.0,
+          652500000.0,
+          655000000.0,
+          657500000.0,
+          660000000.0,
+          662500000.0,
+          665000000.0,
+          667500000.0,
+          670000000.0,
+          672500000.0,
+          675000000.0,
+          677500000.0,
+          680000000.0,
+          682500000.0,
+          685000000.0,
+          687500000.0,
+          690000000.0,
+          692500000.0,
+          695000000.0,
+          697500000.0,
+          700000000.0
+        ]
+      },
+      "resolution_criteria": null,
+      "fine_print": null,
+      "background": null,
+      "nr_forecasters": null,
+      "methods": {
+        "recency_weighted": {
+          "method": "recency_weighted",
+          "status": 200,
+          "history_points": 10,
+          "latest": {
+            "as_of": "2025-03-18 14:05",
+            "forecaster_count": 3,
+            "center": 465613220.63272953,
+            "lower": 421385056.8728409,
+            "upper": 494875624.72587705,
+            "mean": null,
+            "display": "465,613,221  IQR[421,385,057, 494,875,625]",
+            "per_option": null
+          },
+          "history": [
+            [
+              "2025-01-31 11:06",
+              407343069.41991127
+            ],
+            [
+              "2025-01-31 11:07",
+              407343069.41991127
+            ],
+            [
+              "2025-01-31 11:07",
+              407343069.41991127
+            ],
+            [
+              "2025-01-31 11:07",
+              407343069.41991127
+            ],
+            [
+              "2025-01-31 11:12",
+              407343069.41991127
+            ],
+            [
+              "2025-01-31 11:12",
+              407343069.41991127
+            ],
+            [
+              "2025-03-18 09:50",
+              420114541.9276705
+            ],
+            [
+              "2025-03-18 09:50",
+              420114541.9276705
+            ],
+            [
+              "2025-03-18 14:05",
+              465613220.63272953
+            ],
+            [
+              "2025-03-18 14:05",
+              465613220.63272953
+            ]
+          ]
+        },
+        "metaculus_pros": {
+          "method": "metaculus_pros",
+          "status": 200,
+          "history_points": 0,
+          "latest": null,
+          "history": []
+        },
+        "gold_medalists": {
+          "method": "gold_medalists",
+          "status": 200,
+          "history_points": 10,
+          "latest": {
+            "as_of": "2025-03-18 14:05",
+            "forecaster_count": 1,
+            "center": 407343069.41991127,
+            "lower": 398525263.8061655,
+            "upper": 416261763.9448563,
+            "mean": null,
+            "display": "407,343,069  IQR[398,525,264, 416,261,764]",
+            "per_option": null
+          },
+          "history": [
+            [
+              "2025-01-31 11:06",
+              407343069.41991127
+            ],
+            [
+              "2025-01-31 11:07",
+              407343069.41991127
+            ],
+            [
+              "2025-01-31 11:07",
+              407343069.41991127
+            ],
+            [
+              "2025-01-31 11:07",
+              407343069.41991127
+            ],
+            [
+              "2025-01-31 11:12",
+              407343069.41991127
+            ],
+            [
+              "2025-01-31 11:12",
+              407343069.41991127
+            ],
+            [
+              "2025-03-18 09:50",
+              407343069.41991127
+            ],
+            [
+              "2025-03-18 09:50",
+              407343069.41991127
+            ],
+            [
+              "2025-03-18 14:05",
+              407343069.41991127
+            ],
+            [
+              "2025-03-18 14:05",
+              407343069.41991127
+            ]
+          ]
+        }
+      },
+      "comments": [],
+      "label": "March 2025",
+      "subquestions": []
+    },
+    {
+      "post_id": 15240,
+      "question_id": 31304,
+      "title": "How many barrels of crude oil will the Strategic Petroleum Reserve hold on the following dates? (September 2025)",
+      "question_type": "numeric",
+      "status": "resolved",
+      "resolution": "406983000.0",
+      "scheduled_close_time": "2025-09-30T11:02:00Z",
+      "cp_reveal_time": "2025-01-30T16:00:00Z",
+      "options": null,
+      "scaling": {
+        "range_min": 200000000.0,
+        "range_max": 700000000.0,
+        "nominal_min": 200000000.0,
+        "nominal_max": 700000000.0,
+        "zero_point": null,
+        "open_upper_bound": true,
+        "open_lower_bound": true,
+        "inbound_outcome_count": 200,
+        "continuous_range": [
+          200000000.0,
+          202500000.0,
+          205000000.0,
+          207500000.0,
+          210000000.0,
+          212500000.0,
+          215000000.0,
+          217500000.0,
+          220000000.0,
+          222500000.0,
+          225000000.0,
+          227500000.0,
+          230000000.0,
+          232500000.0,
+          235000000.0,
+          237500000.0,
+          240000000.0,
+          242500000.0,
+          245000000.0,
+          247500000.0,
+          250000000.0,
+          252500000.0,
+          255000000.0,
+          257500000.0,
+          260000000.0,
+          262500000.0,
+          265000000.0,
+          267500000.0,
+          270000000.0,
+          272500000.0,
+          275000000.0,
+          277500000.0,
+          280000000.0,
+          282500000.0,
+          285000000.0,
+          287500000.0,
+          290000000.0,
+          292500000.0,
+          295000000.0,
+          297500000.0,
+          300000000.0,
+          302500000.0,
+          305000000.0,
+          307500000.0,
+          310000000.0,
+          312500000.0,
+          315000000.0,
+          317500000.0,
+          320000000.0,
+          322500000.0,
+          325000000.0,
+          327500000.0,
+          330000000.0,
+          332500000.0,
+          335000000.0,
+          337500000.0,
+          340000000.0,
+          342500000.0,
+          345000000.0,
+          347500000.0,
+          350000000.0,
+          352500000.0,
+          355000000.0,
+          357500000.0,
+          360000000.0,
+          362500000.0,
+          365000000.0,
+          367500000.0,
+          370000000.0,
+          372500000.0,
+          375000000.0,
+          377500000.0,
+          380000000.0,
+          382500000.0,
+          385000000.0,
+          387500000.0,
+          390000000.0,
+          392500000.0,
+          395000000.0,
+          397500000.0,
+          400000000.0,
+          402500000.0,
+          405000000.0,
+          407500000.0,
+          410000000.0,
+          412500000.0,
+          415000000.0,
+          417500000.0,
+          420000000.0,
+          422500000.0,
+          425000000.0,
+          427500000.0,
+          430000000.0,
+          432500000.0,
+          435000000.0,
+          437500000.0,
+          440000000.0,
+          442500000.0,
+          445000000.0,
+          447500000.0,
+          450000000.0,
+          452500000.0,
+          455000000.0,
+          457500000.0,
+          460000000.0,
+          462500000.0,
+          465000000.0,
+          467500000.0,
+          470000000.0,
+          472500000.0,
+          475000000.0,
+          477500000.0,
+          480000000.0,
+          482500000.0,
+          485000000.00000006,
+          487500000.00000006,
+          490000000.0,
+          492500000.0,
+          495000000.0,
+          497500000.0,
+          500000000.0,
+          502500000.0,
+          505000000.0,
+          507500000.0,
+          510000000.0,
+          512500000.0,
+          515000000.0,
+          517500000.0,
+          520000000.0,
+          522500000.0,
+          525000000.0,
+          527500000.0,
+          530000000.0,
+          532500000.0,
+          535000000.0,
+          537500000.0,
+          540000000.0,
+          542500000.0,
+          545000000.0,
+          547500000.0,
+          550000000.0,
+          552500000.0,
+          555000000.0,
+          557500000.0,
+          560000000.0,
+          562500000.0,
+          565000000.0,
+          567500000.0,
+          570000000.0,
+          572500000.0,
+          575000000.0,
+          577500000.0,
+          580000000.0,
+          582500000.0,
+          585000000.0,
+          587500000.0,
+          590000000.0,
+          592500000.0,
+          595000000.0,
+          597500000.0,
+          600000000.0,
+          602500000.0,
+          605000000.0,
+          607500000.0,
+          610000000.0,
+          612500000.0,
+          615000000.0,
+          617500000.0,
+          620000000.0,
+          622500000.0,
+          625000000.0,
+          627500000.0,
+          630000000.0,
+          632500000.0,
+          635000000.0,
+          637500000.0,
+          640000000.0,
+          642500000.0,
+          645000000.0,
+          647500000.0,
+          650000000.0,
+          652500000.0,
+          655000000.0,
+          657500000.0,
+          660000000.0,
+          662500000.0,
+          665000000.0,
+          667500000.0,
+          670000000.0,
+          672500000.0,
+          675000000.0,
+          677500000.0,
+          680000000.0,
+          682500000.0,
+          685000000.0,
+          687500000.0,
+          690000000.0,
+          692500000.0,
+          695000000.0,
+          697500000.0,
+          700000000.0
+        ]
+      },
+      "resolution_criteria": null,
+      "fine_print": null,
+      "background": null,
+      "nr_forecasters": null,
+      "methods": {
+        "recency_weighted": {
+          "method": "recency_weighted",
+          "status": 200,
+          "history_points": 73,
+          "latest": {
+            "as_of": "2025-09-13 07:38",
+            "forecaster_count": 6,
+            "center": 420734173.4877679,
+            "lower": 398674699.2564436,
+            "upper": 445355892.39742106,
+            "mean": null,
+            "display": "420,734,173  IQR[398,674,699, 445,355,892]",
+            "per_option": null
+          },
+          "history": [
+            [
+              "2025-01-31 11:07",
+              411960800.9154147
+            ],
+            [
+              "2025-01-31 11:07",
+              411960800.9154147
+            ],
+            [
+              "2025-01-31 11:07",
+              411960800.9154147
+            ],
+            [
+              "2025-01-31 11:12",
+              411960800.9154147
+            ],
+            [
+              "2025-01-31 11:12",
+              411960800.9154147
+            ],
+            [
+              "2025-03-18 09:50",
+              507758104.10417736
+            ],
+            [
+              "2025-03-18 09:50",
+              507758104.10417736
+            ],
+            [
+              "2025-04-08 09:13",
+              439848038.98323464
+            ],
+            [
+              "2025-04-08 09:13",
+              439848038.98323464
+            ],
+            [
+              "2025-04-09 07:02",
+              456656701.1276597
+            ],
+            [
+              "2025-06-05 00:18",
+              453557691.2731892
+            ],
+            [
+              "2025-06-05 00:19",
+              453759567.5862404
+            ],
+            [
+              "2025-06-06 20:52",
+              454899319.962875
+            ],
+            [
+              "2025-07-18 16:26",
+              447927380.0270698
+            ],
+            [
+              "2025-07-20 18:50",
+              447927380.0270698
+            ],
+            [
+              "2025-07-20 18:50",
+              447927380.0270698
+            ],
+            [
+              "2025-07-21 06:08",
+              447927380.0270698
+            ],
+            [
+              "2025-07-21 06:08",
+              447927380.0270698
+            ],
+            [
+              "2025-07-21 06:08",
+              447927380.0270698
+            ],
+            [
+              "2025-07-21 06:08",
+              447927380.0270698
+            ],
+            [
+              "2025-08-04 07:07",
+              477703570.53887886
+            ],
+            [
+              "2025-08-12 05:23",
+              451800146.2409661
+            ],
+            [
+              "2025-08-12 05:25",
+              449262900.98518306
+            ],
+            [
+              "2025-08-12 16:12",
+              430780509.8597026
+            ],
+            [
+              "2025-08-13 04:50",
+              437935837.31141555
+            ],
+            [
+              "2025-08-13 07:38",
+              452653140.55996567
+            ],
+            [
+              "2025-08-15 18:28",
+              450676295.31323665
+            ],
+            [
+              "2025-08-15 18:30",
+              449697302.6907964
+            ],
+            [
+              "2025-09-04 11:04",
+              437681200.4080707
+            ],
+            [
+              "2025-09-05 03:39",
+              430979832.8414491
+            ],
+            [
+              "2025-09-06 05:32",
+              437585020.9229409
+            ],
+            [
+              "2025-09-06 05:32",
+              437585020.9229409
+            ],
+            [
+              "2025-09-06 05:32",
+              437585020.9229409
+            ],
+            [
+              "2025-09-06 05:32",
+              437585020.9229409
+            ],
+            [
+              "2025-09-06 05:32",
+              437585020.9229409
+            ],
+            [
+              "2025-09-06 05:32",
+              437585020.9229409
+            ],
+            [
+              "2025-09-06 05:32",
+              437585020.9229409
+            ],
+            [
+              "2025-09-06 05:32",
+              437585020.9229409
+            ],
+            [
+              "2025-09-06 05:33",
+              437585020.9229409
+            ],
+            [
+              "2025-09-06 05:34",
+              437585020.9229409
+            ],
+            [
+              "2025-09-07 04:40",
+              437585020.9229409
+            ],
+            [
+              "2025-09-07 04:40",
+              437585020.9229409
+            ],
+            [
+              "2025-09-07 04:40",
+              437585020.9229409
+            ],
+            [
+              "2025-09-07 04:40",
+              437585020.9229409
+            ],
+            [
+              "2025-09-07 04:40",
+              437585020.9229409
+            ],
+            [
+              "2025-09-07 04:40",
+              437585020.9229409
+            ],
+            [
+              "2025-09-07 04:40",
+              437585020.9229409
+            ],
+            [
+              "2025-09-07 04:40",
+              437585020.9229409
+            ],
+            [
+              "2025-09-07 04:40",
+              437585020.9229409
+            ],
+            [
+              "2025-09-07 04:40",
+              437585020.9229409
+            ],
+            [
+              "2025-09-07 04:40",
+              437585020.9229409
+            ],
+            [
+              "2025-09-07 04:40",
+              437585020.9229409
+            ],
+            [
+              "2025-09-07 04:40",
+              437585020.9229409
+            ],
+            [
+              "2025-09-07 04:40",
+              437585020.9229409
+            ],
+            [
+              "2025-09-07 04:40",
+              432913496.26000106
+            ],
+            [
+              "2025-09-07 04:40",
+              432913496.26000106
+            ],
+            [
+              "2025-09-07 04:40",
+              432913496.26000106
+            ],
+            [
+              "2025-09-07 04:40",
+              432913496.26000106
+            ],
+            [
+              "2025-09-07 04:40",
+              432913496.26000106
+            ],
+            [
+              "2025-09-07 04:40",
+              432913496.26000106
+            ],
+            [
+              "2025-09-07 04:40",
+              432913496.26000106
+            ],
+            [
+              "2025-09-07 04:40",
+              432913496.26000106
+            ],
+            [
+              "2025-09-07 04:40",
+              432913496.26000106
+            ],
+            [
+              "2025-09-07 04:40",
+              432913496.26000106
+            ],
+            [
+              "2025-09-07 04:40",
+              432913496.26000106
+            ],
+            [
+              "2025-09-07 04:40",
+              432913496.26000106
+            ],
+            [
+              "2025-09-07 04:40",
+              432913496.26000106
+            ],
+            [
+              "2025-09-07 04:41",
+              435971502.17674994
+            ],
+            [
+              "2025-09-07 04:41",
+              435971502.17674994
+            ],
+            [
+              "2025-09-07 04:41",
+              435971502.17674994
+            ],
+            [
+              "2025-09-07 04:41",
+              425213631.7380346
+            ],
+            [
+              "2025-09-07 04:41",
+              425213631.7380346
+            ],
+            [
+              "2025-09-13 07:38",
+              420734173.4877679
+            ]
+          ]
+        },
+        "metaculus_pros": {
+          "method": "metaculus_pros",
+          "status": 200,
+          "history_points": 47,
+          "latest": {
+            "as_of": "2025-09-13 07:38",
+            "forecaster_count": 1,
+            "center": 443506523.7926966,
+            "lower": 414116186.0082933,
+            "upper": 480555044.53485084,
+            "mean": null,
+            "display": "443,506,524  IQR[414,116,186, 480,555,045]",
+            "per_option": null
+          },
+          "history": [
+            [
+              "2025-08-15 18:28",
+              446263711.1376946
+            ],
+            [
+              "2025-08-15 18:30",
+              443506523.7926966
+            ],
+            [
+              "2025-09-04 11:04",
+              443506523.7926966
+            ],
+            [
+              "2025-09-05 03:39",
+              443506523.7926966
+            ],
+            [
+              "2025-09-06 05:32",
+              443506523.7926966
+            ],
+            [
+              "2025-09-06 05:32",
+              443506523.7926966
+            ],
+            [
+              "2025-09-06 05:32",
+              443506523.7926966
+            ],
+            [
+              "2025-09-06 05:32",
+              443506523.7926966
+            ],
+            [
+              "2025-09-06 05:32",
+              443506523.7926966
+            ],
+            [
+              "2025-09-06 05:32",
+              443506523.7926966
+            ],
+            [
+              "2025-09-06 05:32",
+              443506523.7926966
+            ],
+            [
+              "2025-09-06 05:32",
+              443506523.7926966
+            ],
+            [
+              "2025-09-06 05:33",
+              443506523.7926966
+            ],
+            [
+              "2025-09-06 05:34",
+              443506523.7926966
+            ],
+            [
+              "2025-09-07 04:40",
+              443506523.7926966
+            ],
+            [
+              "2025-09-07 04:40",
+              443506523.7926966
+            ],
+            [
+              "2025-09-07 04:40",
+              443506523.7926966
+            ],
+            [
+              "2025-09-07 04:40",
+              443506523.7926966
+            ],
+            [
+              "2025-09-07 04:40",
+              443506523.7926966
+            ],
+            [
+              "2025-09-07 04:40",
+              443506523.7926966
+            ],
+            [
+              "2025-09-07 04:40",
+              443506523.7926966
+            ],
+            [
+              "2025-09-07 04:40",
+              443506523.7926966
+            ],
+            [
+              "2025-09-07 04:40",
+              443506523.7926966
+            ],
+            [
+              "2025-09-07 04:40",
+              443506523.7926966
+            ],
+            [
+              "2025-09-07 04:40",
+              443506523.7926966
+            ],
+            [
+              "2025-09-07 04:40",
+              443506523.7926966
+            ],
+            [
+              "2025-09-07 04:40",
+              443506523.7926966
+            ],
+            [
+              "2025-09-07 04:40",
+              443506523.7926966
+            ],
+            [
+              "2025-09-07 04:40",
+              443506523.7926966
+            ],
+            [
+              "2025-09-07 04:40",
+              443506523.7926966
+            ],
+            [
+              "2025-09-07 04:40",
+              443506523.7926966
+            ],
+            [
+              "2025-09-07 04:40",
+              443506523.7926966
+            ],
+            [
+              "2025-09-07 04:40",
+              443506523.7926966
+            ],
+            [
+              "2025-09-07 04:40",
+              443506523.7926966
+            ],
+            [
+              "2025-09-07 04:40",
+              443506523.7926966
+            ],
+            [
+              "2025-09-07 04:40",
+              443506523.7926966
+            ],
+            [
+              "2025-09-07 04:40",
+              443506523.7926966
+            ],
+            [
+              "2025-09-07 04:40",
+              443506523.7926966
+            ],
+            [
+              "2025-09-07 04:40",
+              443506523.7926966
+            ],
+            [
+              "2025-09-07 04:40",
+              443506523.7926966
+            ],
+            [
+              "2025-09-07 04:40",
+              443506523.7926966
+            ],
+            [
+              "2025-09-07 04:41",
+              443506523.7926966
+            ],
+            [
+              "2025-09-07 04:41",
+              443506523.7926966
+            ],
+            [
+              "2025-09-07 04:41",
+              443506523.7926966
+            ],
+            [
+              "2025-09-07 04:41",
+              443506523.7926966
+            ],
+            [
+              "2025-09-07 04:41",
+              443506523.7926966
+            ],
+            [
+              "2025-09-13 07:38",
+              443506523.7926966
+            ]
+          ]
+        },
+        "gold_medalists": {
+          "method": "gold_medalists",
+          "status": 200,
+          "history_points": 73,
+          "latest": {
+            "as_of": "2025-09-13 07:38",
+            "forecaster_count": 4,
+            "center": 426898674.6402379,
+            "lower": 405532685.03042006,
+            "upper": 453912014.2299466,
+            "mean": null,
+            "display": "426,898,675  IQR[405,532,685, 453,912,014]",
+            "per_option": null
+          },
+          "history": [
+            [
+              "2025-01-31 11:07",
+              411960800.9154147
+            ],
+            [
+              "2025-01-31 11:07",
+              411960800.9154147
+            ],
+            [
+              "2025-01-31 11:07",
+              411960800.9154147
+            ],
+            [
+              "2025-01-31 11:12",
+              411960800.9154147
+            ],
+            [
+              "2025-01-31 11:12",
+              411960800.9154147
+            ],
+            [
+              "2025-03-18 09:50",
+              411960800.9154147
+            ],
+            [
+              "2025-03-18 09:50",
+              411960800.9154147
+            ],
+            [
+              "2025-04-08 09:13",
+              411960800.9154147
+            ],
+            [
+              "2025-04-08 09:13",
+              411960800.9154147
+            ],
+            [
+              "2025-04-09 07:02",
+              411960800.9154147
+            ],
+            [
+              "2025-06-05 00:18",
+              440896813.6579635
+            ],
+            [
+              "2025-06-05 00:19",
+              439956827.3392544
+            ],
+            [
+              "2025-06-06 20:52",
+              437572052.58268565
+            ],
+            [
+              "2025-07-18 16:26",
+              434353345.16050285
+            ],
+            [
+              "2025-07-20 18:50",
+              434353345.16050285
+            ],
+            [
+              "2025-07-20 18:50",
+              434353345.16050285
+            ],
+            [
+              "2025-07-21 06:08",
+              434353345.16050285
+            ],
+            [
+              "2025-07-21 06:08",
+              434353345.16050285
+            ],
+            [
+              "2025-07-21 06:08",
+              434353345.16050285
+            ],
+            [
+              "2025-07-21 06:08",
+              434353345.16050285
+            ],
+            [
+              "2025-08-04 07:07",
+              434353345.1605028
+            ],
+            [
+              "2025-08-12 05:23",
+              428173884.13763046
+            ],
+            [
+              "2025-08-12 05:25",
+              423046748.73768556
+            ],
+            [
+              "2025-08-12 16:12",
+              423046748.73768556
+            ],
+            [
+              "2025-08-13 04:50",
+              423939905.531136
+            ],
+            [
+              "2025-08-13 07:38",
+              425021207.226997
+            ],
+            [
+              "2025-08-15 18:28",
+              434232673.41166294
+            ],
+            [
+              "2025-08-15 18:30",
+              433328653.8642622
+            ],
+            [
+              "2025-09-04 11:04",
+              432420707.9846637
+            ],
+            [
+              "2025-09-05 03:39",
+              426512350.10122263
+            ],
+            [
+              "2025-09-06 05:32",
+              426682952.4002997
+            ],
+            [
+              "2025-09-06 05:32",
+              426682952.4002997
+            ],
+            [
+              "2025-09-06 05:32",
+              426682952.4002997
+            ],
+            [
+              "2025-09-06 05:32",
+              426682952.4002997
+            ],
+            [
+              "2025-09-06 05:32",
+              426682952.4002997
+            ],
+            [
+              "2025-09-06 05:32",
+              426682952.4002997
+            ],
+            [
+              "2025-09-06 05:32",
+              426682952.4002997
+            ],
+            [
+              "2025-09-06 05:32",
+              426682952.4002997
+            ],
+            [
+              "2025-09-06 05:33",
+              426682952.4002997
+            ],
+            [
+              "2025-09-06 05:34",
+              426682952.4002997
+            ],
+            [
+              "2025-09-07 04:40",
+              426682952.4002997
+            ],
+            [
+              "2025-09-07 04:40",
+              426682952.4002997
+            ],
+            [
+              "2025-09-07 04:40",
+              426682952.4002997
+            ],
+            [
+              "2025-09-07 04:40",
+              426682952.4002997
+            ],
+            [
+              "2025-09-07 04:40",
+              426682952.4002997
+            ],
+            [
+              "2025-09-07 04:40",
+              426682952.4002997
+            ],
+            [
+              "2025-09-07 04:40",
+              426682952.4002997
+            ],
+            [
+              "2025-09-07 04:40",
+              426682952.4002997
+            ],
+            [
+              "2025-09-07 04:40",
+              426682952.4002997
+            ],
+            [
+              "2025-09-07 04:40",
+              426682952.4002997
+            ],
+            [
+              "2025-09-07 04:40",
+              426682952.4002997
+            ],
+            [
+              "2025-09-07 04:40",
+              426682952.4002997
+            ],
+            [
+              "2025-09-07 04:40",
+              426682952.4002997
+            ],
+            [
+              "2025-09-07 04:40",
+              426682952.4002997
+            ],
+            [
+              "2025-09-07 04:40",
+              426682952.4002997
+            ],
+            [
+              "2025-09-07 04:40",
+              426682952.4002997
+            ],
+            [
+              "2025-09-07 04:40",
+              426682952.4002997
+            ],
+            [
+              "2025-09-07 04:40",
+              426682952.4002997
+            ],
+            [
+              "2025-09-07 04:40",
+              426682952.4002997
+            ],
+            [
+              "2025-09-07 04:40",
+              426682952.4002997
+            ],
+            [
+              "2025-09-07 04:40",
+              426682952.4002997
+            ],
+            [
+              "2025-09-07 04:40",
+              426682952.4002997
+            ],
+            [
+              "2025-09-07 04:40",
+              426682952.4002997
+            ],
+            [
+              "2025-09-07 04:40",
+              426682952.4002997
+            ],
+            [
+              "2025-09-07 04:40",
+              426682952.4002997
+            ],
+            [
+              "2025-09-07 04:40",
+              426682952.4002997
+            ],
+            [
+              "2025-09-07 04:40",
+              426682952.4002997
+            ],
+            [
+              "2025-09-07 04:41",
+              426682952.4002997
+            ],
+            [
+              "2025-09-07 04:41",
+              426682952.4002997
+            ],
+            [
+              "2025-09-07 04:41",
+              426682952.4002997
+            ],
+            [
+              "2025-09-07 04:41",
+              426682952.4002997
+            ],
+            [
+              "2025-09-07 04:41",
+              426682952.4002997
+            ],
+            [
+              "2025-09-13 07:38",
+              426898674.6402379
+            ]
+          ]
+        }
+      },
+      "comments": [],
+      "label": "September 2025",
+      "subquestions": []
+    },
+    {
+      "post_id": 15240,
+      "question_id": 31306,
+      "title": "How many barrels of crude oil will the Strategic Petroleum Reserve hold on the following dates? (March 2026)",
+      "question_type": "numeric",
+      "status": "resolved",
+      "resolution": "414825000.0",
+      "scheduled_close_time": "2026-03-30T11:02:00Z",
+      "cp_reveal_time": "2025-01-30T16:00:00Z",
+      "options": null,
+      "scaling": {
+        "range_min": 200000000.0,
+        "range_max": 700000000.0,
+        "nominal_min": 200000000.0,
+        "nominal_max": 700000000.0,
+        "zero_point": null,
+        "open_upper_bound": true,
+        "open_lower_bound": true,
+        "inbound_outcome_count": 200,
+        "continuous_range": [
+          200000000.0,
+          202500000.0,
+          205000000.0,
+          207500000.0,
+          210000000.0,
+          212500000.0,
+          215000000.0,
+          217500000.0,
+          220000000.0,
+          222500000.0,
+          225000000.0,
+          227500000.0,
+          230000000.0,
+          232500000.0,
+          235000000.0,
+          237500000.0,
+          240000000.0,
+          242500000.0,
+          245000000.0,
+          247500000.0,
+          250000000.0,
+          252500000.0,
+          255000000.0,
+          257500000.0,
+          260000000.0,
+          262500000.0,
+          265000000.0,
+          267500000.0,
+          270000000.0,
+          272500000.0,
+          275000000.0,
+          277500000.0,
+          280000000.0,
+          282500000.0,
+          285000000.0,
+          287500000.0,
+          290000000.0,
+          292500000.0,
+          295000000.0,
+          297500000.0,
+          300000000.0,
+          302500000.0,
+          305000000.0,
+          307500000.0,
+          310000000.0,
+          312500000.0,
+          315000000.0,
+          317500000.0,
+          320000000.0,
+          322500000.0,
+          325000000.0,
+          327500000.0,
+          330000000.0,
+          332500000.0,
+          335000000.0,
+          337500000.0,
+          340000000.0,
+          342500000.0,
+          345000000.0,
+          347500000.0,
+          350000000.0,
+          352500000.0,
+          355000000.0,
+          357500000.0,
+          360000000.0,
+          362500000.0,
+          365000000.0,
+          367500000.0,
+          370000000.0,
+          372500000.0,
+          375000000.0,
+          377500000.0,
+          380000000.0,
+          382500000.0,
+          385000000.0,
+          387500000.0,
+          390000000.0,
+          392500000.0,
+          395000000.0,
+          397500000.0,
+          400000000.0,
+          402500000.0,
+          405000000.0,
+          407500000.0,
+          410000000.0,
+          412500000.0,
+          415000000.0,
+          417500000.0,
+          420000000.0,
+          422500000.0,
+          425000000.0,
+          427500000.0,
+          430000000.0,
+          432500000.0,
+          435000000.0,
+          437500000.0,
+          440000000.0,
+          442500000.0,
+          445000000.0,
+          447500000.0,
+          450000000.0,
+          452500000.0,
+          455000000.0,
+          457500000.0,
+          460000000.0,
+          462500000.0,
+          465000000.0,
+          467500000.0,
+          470000000.0,
+          472500000.0,
+          475000000.0,
+          477500000.0,
+          480000000.0,
+          482500000.0,
+          485000000.00000006,
+          487500000.00000006,
+          490000000.0,
+          492500000.0,
+          495000000.0,
+          497500000.0,
+          500000000.0,
+          502500000.0,
+          505000000.0,
+          507500000.0,
+          510000000.0,
+          512500000.0,
+          515000000.0,
+          517500000.0,
+          520000000.0,
+          522500000.0,
+          525000000.0,
+          527500000.0,
+          530000000.0,
+          532500000.0,
+          535000000.0,
+          537500000.0,
+          540000000.0,
+          542500000.0,
+          545000000.0,
+          547500000.0,
+          550000000.0,
+          552500000.0,
+          555000000.0,
+          557500000.0,
+          560000000.0,
+          562500000.0,
+          565000000.0,
+          567500000.0,
+          570000000.0,
+          572500000.0,
+          575000000.0,
+          577500000.0,
+          580000000.0,
+          582500000.0,
+          585000000.0,
+          587500000.0,
+          590000000.0,
+          592500000.0,
+          595000000.0,
+          597500000.0,
+          600000000.0,
+          602500000.0,
+          605000000.0,
+          607500000.0,
+          610000000.0,
+          612500000.0,
+          615000000.0,
+          617500000.0,
+          620000000.0,
+          622500000.0,
+          625000000.0,
+          627500000.0,
+          630000000.0,
+          632500000.0,
+          635000000.0,
+          637500000.0,
+          640000000.0,
+          642500000.0,
+          645000000.0,
+          647500000.0,
+          650000000.0,
+          652500000.0,
+          655000000.0,
+          657500000.0,
+          660000000.0,
+          662500000.0,
+          665000000.0,
+          667500000.0,
+          670000000.0,
+          672500000.0,
+          675000000.0,
+          677500000.0,
+          680000000.0,
+          682500000.0,
+          685000000.0,
+          687500000.0,
+          690000000.0,
+          692500000.0,
+          695000000.0,
+          697500000.0,
+          700000000.0
+        ]
+      },
+      "resolution_criteria": null,
+      "fine_print": null,
+      "background": null,
+      "nr_forecasters": null,
+      "methods": {
+        "recency_weighted": {
+          "method": "recency_weighted",
+          "status": 200,
+          "history_points": 22,
+          "latest": {
+            "as_of": "2026-03-27 18:41",
+            "forecaster_count": 5,
+            "center": 413666101.1919759,
+            "lower": 392984282.78739977,
+            "upper": 434128559.1656766,
+            "mean": null,
+            "display": "413,666,101  IQR[392,984,283, 434,128,559]",
+            "per_option": null
+          },
+          "history": [
+            [
+              "2025-01-31 11:07",
+              411954311.3139712
+            ],
+            [
+              "2025-01-31 11:12",
+              411954311.3139712
+            ],
+            [
+              "2025-01-31 11:12",
+              411954311.3139712
+            ],
+            [
+              "2025-03-18 09:51",
+              519566728.5362005
+            ],
+            [
+              "2025-03-18 09:51",
+              519566728.5362005
+            ],
+            [
+              "2025-03-18 09:51",
+              519566728.5362005
+            ],
+            [
+              "2025-04-08 09:14",
+              519566728.5362005
+            ],
+            [
+              "2025-04-08 09:14",
+              519566728.5362005
+            ],
+            [
+              "2025-04-08 09:14",
+              519566728.5362005
+            ],
+            [
+              "2025-07-05 15:42",
+              411954311.3139712
+            ],
+            [
+              "2025-08-12 05:28",
+              416053125.1623494
+            ],
+            [
+              "2025-10-13 05:05",
+              413442228.5583713
+            ],
+            [
+              "2025-10-19 21:22",
+              413522330.877064
+            ],
+            [
+              "2025-11-19 22:22",
+              413442228.5583713
+            ],
+            [
+              "2025-12-09 00:50",
+              416584233.62088716
+            ],
+            [
+              "2026-01-06 06:45",
+              415991655.44531107
+            ],
+            [
+              "2026-01-06 20:53",
+              415752778.6479431
+            ],
+            [
+              "2026-01-28 06:42",
+              413739486.37024605
+            ],
+            [
+              "2026-02-01 17:18",
+              414067113.48744494
+            ],
+            [
+              "2026-02-26 08:30",
+              414067113.48744494
+            ],
+            [
+              "2026-03-21 11:37",
+              413265102.3574352
+            ],
+            [
+              "2026-03-27 18:41",
+              413666101.1919759
+            ]
+          ]
+        },
+        "metaculus_pros": {
+          "method": "metaculus_pros",
+          "status": 200,
+          "history_points": 1,
+          "latest": {
+            "as_of": "2026-03-27 18:41",
+            "forecaster_count": 1,
+            "center": 414481933.92524743,
+            "lower": 394497145.0625881,
+            "upper": 434120591.31206685,
+            "mean": null,
+            "display": "414,481,934  IQR[394,497,145, 434,120,591]",
+            "per_option": null
+          },
+          "history": [
+            [
+              "2026-03-27 18:41",
+              414481933.92524743
+            ]
+          ]
+        },
+        "gold_medalists": {
+          "method": "gold_medalists",
+          "status": 200,
+          "history_points": 22,
+          "latest": {
+            "as_of": "2026-03-27 18:41",
+            "forecaster_count": 5,
+            "center": 413666101.1919759,
+            "lower": 392984282.78739977,
+            "upper": 434128559.1656766,
+            "mean": null,
+            "display": "413,666,101  IQR[392,984,283, 434,128,559]",
+            "per_option": null
+          },
+          "history": [
+            [
+              "2025-01-31 11:07",
+              411954311.3139712
+            ],
+            [
+              "2025-01-31 11:12",
+              411954311.3139712
+            ],
+            [
+              "2025-01-31 11:12",
+              411954311.3139712
+            ],
+            [
+              "2025-03-18 09:51",
+              411954311.3139712
+            ],
+            [
+              "2025-03-18 09:51",
+              411954311.3139712
+            ],
+            [
+              "2025-03-18 09:51",
+              411954311.3139712
+            ],
+            [
+              "2025-04-08 09:14",
+              411954311.3139712
+            ],
+            [
+              "2025-04-08 09:14",
+              411954311.3139712
+            ],
+            [
+              "2025-04-08 09:14",
+              411954311.3139712
+            ],
+            [
+              "2025-07-05 15:42",
+              411954311.3139712
+            ],
+            [
+              "2025-08-12 05:28",
+              416053125.1623494
+            ],
+            [
+              "2025-10-13 05:05",
+              413442228.5583713
+            ],
+            [
+              "2025-10-19 21:22",
+              413522330.877064
+            ],
+            [
+              "2025-11-19 22:22",
+              413442228.5583713
+            ],
+            [
+              "2025-12-09 00:50",
+              416584233.62088716
+            ],
+            [
+              "2026-01-06 06:45",
+              415991655.44531107
+            ],
+            [
+              "2026-01-06 20:53",
+              415752778.6479431
+            ],
+            [
+              "2026-01-28 06:42",
+              413739486.37024605
+            ],
+            [
+              "2026-02-01 17:18",
+              414067113.48744494
+            ],
+            [
+              "2026-02-26 08:30",
+              414067113.48744494
+            ],
+            [
+              "2026-03-21 11:37",
+              413265102.3574352
+            ],
+            [
+              "2026-03-27 18:41",
+              413666101.1919759
+            ]
+          ]
+        }
+      },
+      "comments": [],
+      "label": "March 2026",
+      "subquestions": []
+    },
+    {
+      "post_id": 15240,
+      "question_id": 31307,
+      "title": "How many barrels of crude oil will the Strategic Petroleum Reserve hold on the following dates? (September 2026)",
+      "question_type": "numeric",
+      "status": "closed",
+      "resolution": null,
+      "scheduled_close_time": "2026-09-30T11:02:00Z",
+      "cp_reveal_time": "2025-01-30T16:00:00Z",
+      "options": null,
+      "scaling": {
+        "range_min": 200000000.0,
+        "range_max": 700000000.0,
+        "nominal_min": 200000000.0,
+        "nominal_max": 700000000.0,
+        "zero_point": null,
+        "open_upper_bound": true,
+        "open_lower_bound": true,
+        "inbound_outcome_count": 200,
+        "continuous_range": [
+          200000000.0,
+          202500000.0,
+          205000000.0,
+          207500000.0,
+          210000000.0,
+          212500000.0,
+          215000000.0,
+          217500000.0,
+          220000000.0,
+          222500000.0,
+          225000000.0,
+          227500000.0,
+          230000000.0,
+          232500000.0,
+          235000000.0,
+          237500000.0,
+          240000000.0,
+          242500000.0,
+          245000000.0,
+          247500000.0,
+          250000000.0,
+          252500000.0,
+          255000000.0,
+          257500000.0,
+          260000000.0,
+          262500000.0,
+          265000000.0,
+          267500000.0,
+          270000000.0,
+          272500000.0,
+          275000000.0,
+          277500000.0,
+          280000000.0,
+          282500000.0,
+          285000000.0,
+          287500000.0,
+          290000000.0,
+          292500000.0,
+          295000000.0,
+          297500000.0,
+          300000000.0,
+          302500000.0,
+          305000000.0,
+          307500000.0,
+          310000000.0,
+          312500000.0,
+          315000000.0,
+          317500000.0,
+          320000000.0,
+          322500000.0,
+          325000000.0,
+          327500000.0,
+          330000000.0,
+          332500000.0,
+          335000000.0,
+          337500000.0,
+          340000000.0,
+          342500000.0,
+          345000000.0,
+          347500000.0,
+          350000000.0,
+          352500000.0,
+          355000000.0,
+          357500000.0,
+          360000000.0,
+          362500000.0,
+          365000000.0,
+          367500000.0,
+          370000000.0,
+          372500000.0,
+          375000000.0,
+          377500000.0,
+          380000000.0,
+          382500000.0,
+          385000000.0,
+          387500000.0,
+          390000000.0,
+          392500000.0,
+          395000000.0,
+          397500000.0,
+          400000000.0,
+          402500000.0,
+          405000000.0,
+          407500000.0,
+          410000000.0,
+          412500000.0,
+          415000000.0,
+          417500000.0,
+          420000000.0,
+          422500000.0,
+          425000000.0,
+          427500000.0,
+          430000000.0,
+          432500000.0,
+          435000000.0,
+          437500000.0,
+          440000000.0,
+          442500000.0,
+          445000000.0,
+          447500000.0,
+          450000000.0,
+          452500000.0,
+          455000000.0,
+          457500000.0,
+          460000000.0,
+          462500000.0,
+          465000000.0,
+          467500000.0,
+          470000000.0,
+          472500000.0,
+          475000000.0,
+          477500000.0,
+          480000000.0,
+          482500000.0,
+          485000000.00000006,
+          487500000.00000006,
+          490000000.0,
+          492500000.0,
+          495000000.0,
+          497500000.0,
+          500000000.0,
+          502500000.0,
+          505000000.0,
+          507500000.0,
+          510000000.0,
+          512500000.0,
+          515000000.0,
+          517500000.0,
+          520000000.0,
+          522500000.0,
+          525000000.0,
+          527500000.0,
+          530000000.0,
+          532500000.0,
+          535000000.0,
+          537500000.0,
+          540000000.0,
+          542500000.0,
+          545000000.0,
+          547500000.0,
+          550000000.0,
+          552500000.0,
+          555000000.0,
+          557500000.0,
+          560000000.0,
+          562500000.0,
+          565000000.0,
+          567500000.0,
+          570000000.0,
+          572500000.0,
+          575000000.0,
+          577500000.0,
+          580000000.0,
+          582500000.0,
+          585000000.0,
+          587500000.0,
+          590000000.0,
+          592500000.0,
+          595000000.0,
+          597500000.0,
+          600000000.0,
+          602500000.0,
+          605000000.0,
+          607500000.0,
+          610000000.0,
+          612500000.0,
+          615000000.0,
+          617500000.0,
+          620000000.0,
+          622500000.0,
+          625000000.0,
+          627500000.0,
+          630000000.0,
+          632500000.0,
+          635000000.0,
+          637500000.0,
+          640000000.0,
+          642500000.0,
+          645000000.0,
+          647500000.0,
+          650000000.0,
+          652500000.0,
+          655000000.0,
+          657500000.0,
+          660000000.0,
+          662500000.0,
+          665000000.0,
+          667500000.0,
+          670000000.0,
+          672500000.0,
+          675000000.0,
+          677500000.0,
+          680000000.0,
+          682500000.0,
+          685000000.0,
+          687500000.0,
+          690000000.0,
+          692500000.0,
+          695000000.0,
+          697500000.0,
+          700000000.0
+        ]
+      },
+      "resolution_criteria": null,
+      "fine_print": null,
+      "background": null,
+      "nr_forecasters": null,
+      "methods": {
+        "recency_weighted": {
+          "method": "recency_weighted",
+          "status": 200,
+          "history_points": 44,
+          "latest": {
+            "as_of": "2026-09-30 04:55",
+            "forecaster_count": 6,
+            "center": 289616937.61359644,
+            "lower": 278594296.4944074,
+            "upper": 380019598.64329714,
+            "mean": null,
+            "display": "289,616,938  IQR[278,594,296, 380,019,599]",
+            "per_option": null
+          },
+          "history": [
+            [
+              "2025-01-31 11:12",
+              411954311.3139712
+            ],
+            [
+              "2025-01-31 11:12",
+              411954311.3139712
+            ],
+            [
+              "2025-03-18 09:51",
+              517129825.37171626
+            ],
+            [
+              "2025-03-18 09:51",
+              517129825.37171626
+            ],
+            [
+              "2025-04-08 09:14",
+              517129825.37171626
+            ],
+            [
+              "2025-04-08 09:14",
+              517129825.37171626
+            ],
+            [
+              "2025-08-10 00:50",
+              411954311.3139712
+            ],
+            [
+              "2025-10-13 05:06",
+              411396440.01113033
+            ],
+            [
+              "2025-10-19 21:22",
+              411695358.0532484
+            ],
+            [
+              "2025-12-09 00:50",
+              414438609.97177076
+            ],
+            [
+              "2026-01-06 06:45",
+              413568420.9235022
+            ],
+            [
+              "2026-01-06 20:10",
+              413150155.8930192
+            ],
+            [
+              "2026-01-28 06:42",
+              413026817.88841087
+            ],
+            [
+              "2026-03-27 18:41",
+              411711418.015929
+            ],
+            [
+              "2026-03-27 20:57",
+              412013459.65106404
+            ],
+            [
+              "2026-04-15 07:18",
+              412270764.15043557
+            ],
+            [
+              "2026-04-21 05:15",
+              412161899.40565264
+            ],
+            [
+              "2026-05-11 04:49",
+              424210615.5008741
+            ],
+            [
+              "2026-05-18 04:54",
+              427762073.2306063
+            ],
+            [
+              "2026-05-18 04:54",
+              426415611.8403293
+            ],
+            [
+              "2026-06-18 20:10",
+              425408901.14771765
+            ],
+            [
+              "2026-06-27 20:57",
+              426846922.49468803
+            ],
+            [
+              "2026-08-11 04:49",
+              418062918.5422331
+            ],
+            [
+              "2026-08-11 05:15",
+              416603789.84417963
+            ],
+            [
+              "2026-08-11 05:15",
+              416603789.84417963
+            ],
+            [
+              "2026-08-14 19:03",
+              412869158.3024707
+            ],
+            [
+              "2026-08-20 23:09",
+              409151663.49364823
+            ],
+            [
+              "2026-08-20 23:09",
+              403786301.4661149
+            ],
+            [
+              "2026-08-21 04:52",
+              402458141.44285464
+            ],
+            [
+              "2026-09-06 19:05",
+              380763698.45838004
+            ],
+            [
+              "2026-09-07 00:24",
+              317131972.8974927
+            ],
+            [
+              "2026-09-07 06:01",
+              350620089.60873455
+            ],
+            [
+              "2026-09-07 14:07",
+              286506709.5989653
+            ],
+            [
+              "2026-09-07 14:07",
+              286506709.5989653
+            ],
+            [
+              "2026-09-13 16:49",
+              286042241.171873
+            ],
+            [
+              "2026-09-18 16:17",
+              286623746.33654404
+            ],
+            [
+              "2026-09-18 21:26",
+              289243341.19935715
+            ],
+            [
+              "2026-09-29 13:06",
+              289047042.3229974
+            ],
+            [
+              "2026-09-29 13:20",
+              289047042.3229974
+            ],
+            [
+              "2026-09-29 13:20",
+              289047042.3229974
+            ],
+            [
+              "2026-09-29 13:39",
+              289047042.3229974
+            ],
+            [
+              "2026-09-30 04:55",
+              289616937.61359644
+            ],
+            [
+              "2026-09-30 04:55",
+              289616937.61359644
+            ],
+            [
+              "2026-09-30 04:55",
+              289616937.61359644
+            ]
+          ]
+        },
+        "metaculus_pros": {
+          "method": "metaculus_pros",
+          "status": 200,
+          "history_points": 31,
+          "latest": {
+            "as_of": "2026-09-30 04:55",
+            "forecaster_count": 1,
+            "center": 403880898.7859454,
+            "lower": 383652707.2459517,
+            "upper": 420477011.04318,
+            "mean": null,
+            "display": "403,880,899  IQR[383,652,707, 420,477,011]",
+            "per_option": null
+          },
+          "history": [
+            [
+              "2026-03-27 18:41",
+              409019329.3026911
+            ],
+            [
+              "2026-03-27 20:57",
+              409019329.3026911
+            ],
+            [
+              "2026-04-15 07:18",
+              409019329.3026911
+            ],
+            [
+              "2026-04-21 05:15",
+              409019329.3026911
+            ],
+            [
+              "2026-05-11 04:49",
+              409019329.3026911
+            ],
+            [
+              "2026-05-18 04:54",
+              409019329.3026911
+            ],
+            [
+              "2026-05-18 04:54",
+              409019329.3026911
+            ],
+            [
+              "2026-06-18 20:10",
+              409019329.3026911
+            ],
+            [
+              "2026-06-27 20:57",
+              409019329.3026911
+            ],
+            [
+              "2026-08-11 04:49",
+              409019329.3026911
+            ],
+            [
+              "2026-08-11 05:15",
+              409019329.3026911
+            ],
+            [
+              "2026-08-11 05:15",
+              409019329.3026911
+            ],
+            [
+              "2026-08-14 19:03",
+              403880898.7859454
+            ],
+            [
+              "2026-08-20 23:09",
+              403880898.7859454
+            ],
+            [
+              "2026-08-20 23:09",
+              403880898.7859454
+            ],
+            [
+              "2026-08-21 04:52",
+              403880898.7859454
+            ],
+            [
+              "2026-09-06 19:05",
+              403880898.7859454
+            ],
+            [
+              "2026-09-07 00:24",
+              403880898.7859454
+            ],
+            [
+              "2026-09-07 06:01",
+              403880898.7859454
+            ],
+            [
+              "2026-09-07 14:07",
+              403880898.7859454
+            ],
+            [
+              "2026-09-07 14:07",
+              403880898.7859454
+            ],
+            [
+              "2026-09-13 16:49",
+              403880898.7859454
+            ],
+            [
+              "2026-09-18 16:17",
+              403880898.7859454
+            ],
+            [
+              "2026-09-18 21:26",
+              403880898.7859454
+            ],
+            [
+              "2026-09-29 13:06",
+              403880898.7859454
+            ],
+            [
+              "2026-09-29 13:20",
+              403880898.7859454
+            ],
+            [
+              "2026-09-29 13:20",
+              403880898.7859454
+            ],
+            [
+              "2026-09-29 13:39",
+              403880898.7859454
+            ],
+            [
+              "2026-09-30 04:55",
+              403880898.7859454
+            ],
+            [
+              "2026-09-30 04:55",
+              403880898.7859454
+            ],
+            [
+              "2026-09-30 04:55",
+              403880898.7859454
+            ]
+          ]
+        },
+        "gold_medalists": {
+          "method": "gold_medalists",
+          "status": 200,
+          "history_points": 44,
+          "latest": {
+            "as_of": "2026-09-30 04:55",
+            "forecaster_count": 5,
+            "center": 301973732.5321996,
+            "lower": 276335973.53288877,
+            "upper": 399659601.5384948,
+            "mean": null,
+            "display": "301,973,733  IQR[276,335,974, 399,659,602]",
+            "per_option": null
+          },
+          "history": [
+            [
+              "2025-01-31 11:12",
+              411954311.3139712
+            ],
+            [
+              "2025-01-31 11:12",
+              411954311.3139712
+            ],
+            [
+              "2025-03-18 09:51",
+              411954311.3139712
+            ],
+            [
+              "2025-03-18 09:51",
+              411954311.3139712
+            ],
+            [
+              "2025-04-08 09:14",
+              411954311.3139712
+            ],
+            [
+              "2025-04-08 09:14",
+              411954311.3139712
+            ],
+            [
+              "2025-08-10 00:50",
+              411954311.3139712
+            ],
+            [
+              "2025-10-13 05:06",
+              411396440.01113033
+            ],
+            [
+              "2025-10-19 21:22",
+              411695358.0532484
+            ],
+            [
+              "2025-12-09 00:50",
+              414438609.97177076
+            ],
+            [
+              "2026-01-06 06:45",
+              413568420.9235022
+            ],
+            [
+              "2026-01-06 20:10",
+              413150155.8930192
+            ],
+            [
+              "2026-01-28 06:42",
+              413026817.88841087
+            ],
+            [
+              "2026-03-27 18:41",
+              411711418.015929
+            ],
+            [
+              "2026-03-27 20:57",
+              412013459.65106404
+            ],
+            [
+              "2026-04-15 07:18",
+              412270764.15043557
+            ],
+            [
+              "2026-04-21 05:15",
+              412161899.40565264
+            ],
+            [
+              "2026-05-11 04:49",
+              412161899.40565264
+            ],
+            [
+              "2026-05-18 04:54",
+              418432593.51236117
+            ],
+            [
+              "2026-05-18 04:54",
+              417244713.0155206
+            ],
+            [
+              "2026-06-18 20:10",
+              417834158.9253219
+            ],
+            [
+              "2026-06-27 20:57",
+              418636483.66348416
+            ],
+            [
+              "2026-08-11 04:49",
+              418062918.5422331
+            ],
+            [
+              "2026-08-11 05:15",
+              416603789.84417963
+            ],
+            [
+              "2026-08-11 05:15",
+              416603789.84417963
+            ],
+            [
+              "2026-08-14 19:03",
+              412869158.3024707
+            ],
+            [
+              "2026-08-20 23:09",
+              409151663.49364823
+            ],
+            [
+              "2026-08-20 23:09",
+              403786301.4661149
+            ],
+            [
+              "2026-08-21 04:52",
+              402458141.44285464
+            ],
+            [
+              "2026-09-06 19:05",
+              402458141.44285464
+            ],
+            [
+              "2026-09-07 00:24",
+              379133972.6858431
+            ],
+            [
+              "2026-09-07 06:01",
+              380454841.87936556
+            ],
+            [
+              "2026-09-07 14:07",
+              298056065.28171635
+            ],
+            [
+              "2026-09-07 14:07",
+              298056065.28171635
+            ],
+            [
+              "2026-09-13 16:49",
+              304213851.5785889
+            ],
+            [
+              "2026-09-18 16:17",
+              304213851.5785889
+            ],
+            [
+              "2026-09-18 21:26",
+              301973732.5321996
+            ],
+            [
+              "2026-09-29 13:06",
+              308215115.601261
+            ],
+            [
+              "2026-09-29 13:20",
+              308215115.601261
+            ],
+            [
+              "2026-09-29 13:20",
+              308215115.601261
+            ],
+            [
+              "2026-09-29 13:39",
+              308215115.601261
+            ],
+            [
+              "2026-09-30 04:55",
+              301973732.5321996
+            ],
+            [
+              "2026-09-30 04:55",
+              301973732.5321996
+            ],
+            [
+              "2026-09-30 04:55",
+              301973732.5321996
+            ]
+          ]
+        }
+      },
+      "comments": [],
+      "label": "September 2026",
+      "subquestions": []
+    },
+    {
+      "post_id": 15240,
+      "question_id": 15243,
+      "title": "How many barrels of crude oil will the Strategic Petroleum Reserve hold on the following dates? (September 2023)",
+      "question_type": "numeric",
+      "status": "resolved",
+      "resolution": "351274000.0",
+      "scheduled_close_time": "2023-09-30T11:02:00Z",
+      "cp_reveal_time": "2023-03-05T16:00:00Z",
+      "options": null,
+      "scaling": {
+        "range_min": 200000000.0,
+        "range_max": 700000000.0,
+        "nominal_min": 200000000.0,
+        "nominal_max": 700000000.0,
+        "zero_point": null,
+        "open_upper_bound": true,
+        "open_lower_bound": true,
+        "inbound_outcome_count": 200,
+        "continuous_range": [
+          200000000.0,
+          202500000.0,
+          205000000.0,
+          207500000.0,
+          210000000.0,
+          212500000.0,
+          215000000.0,
+          217500000.0,
+          220000000.0,
+          222500000.0,
+          225000000.0,
+          227500000.0,
+          230000000.0,
+          232500000.0,
+          235000000.0,
+          237500000.0,
+          240000000.0,
+          242500000.0,
+          245000000.0,
+          247500000.0,
+          250000000.0,
+          252500000.0,
+          255000000.0,
+          257500000.0,
+          260000000.0,
+          262500000.0,
+          265000000.0,
+          267500000.0,
+          270000000.0,
+          272500000.0,
+          275000000.0,
+          277500000.0,
+          280000000.0,
+          282500000.0,
+          285000000.0,
+          287500000.0,
+          290000000.0,
+          292500000.0,
+          295000000.0,
+          297500000.0,
+          300000000.0,
+          302500000.0,
+          305000000.0,
+          307500000.0,
+          310000000.0,
+          312500000.0,
+          315000000.0,
+          317500000.0,
+          320000000.0,
+          322500000.0,
+          325000000.0,
+          327500000.0,
+          330000000.0,
+          332500000.0,
+          335000000.0,
+          337500000.0,
+          340000000.0,
+          342500000.0,
+          345000000.0,
+          347500000.0,
+          350000000.0,
+          352500000.0,
+          355000000.0,
+          357500000.0,
+          360000000.0,
+          362500000.0,
+          365000000.0,
+          367500000.0,
+          370000000.0,
+          372500000.0,
+          375000000.0,
+          377500000.0,
+          380000000.0,
+          382500000.0,
+          385000000.0,
+          387500000.0,
+          390000000.0,
+          392500000.0,
+          395000000.0,
+          397500000.0,
+          400000000.0,
+          402500000.0,
+          405000000.0,
+          407500000.0,
+          410000000.0,
+          412500000.0,
+          415000000.0,
+          417500000.0,
+          420000000.0,
+          422500000.0,
+          425000000.0,
+          427500000.0,
+          430000000.0,
+          432500000.0,
+          435000000.0,
+          437500000.0,
+          440000000.0,
+          442500000.0,
+          445000000.0,
+          447500000.0,
+          450000000.0,
+          452500000.0,
+          455000000.0,
+          457500000.0,
+          460000000.0,
+          462500000.0,
+          465000000.0,
+          467500000.0,
+          470000000.0,
+          472500000.0,
+          475000000.0,
+          477500000.0,
+          480000000.0,
+          482500000.0,
+          485000000.00000006,
+          487500000.00000006,
+          490000000.0,
+          492500000.0,
+          495000000.0,
+          497500000.0,
+          500000000.0,
+          502500000.0,
+          505000000.0,
+          507500000.0,
+          510000000.0,
+          512500000.0,
+          515000000.0,
+          517500000.0,
+          520000000.0,
+          522500000.0,
+          525000000.0,
+          527500000.0,
+          530000000.0,
+          532500000.0,
+          535000000.0,
+          537500000.0,
+          540000000.0,
+          542500000.0,
+          545000000.0,
+          547500000.0,
+          550000000.0,
+          552500000.0,
+          555000000.0,
+          557500000.0,
+          560000000.0,
+          562500000.0,
+          565000000.0,
+          567500000.0,
+          570000000.0,
+          572500000.0,
+          575000000.0,
+          577500000.0,
+          580000000.0,
+          582500000.0,
+          585000000.0,
+          587500000.0,
+          590000000.0,
+          592500000.0,
+          595000000.0,
+          597500000.0,
+          600000000.0,
+          602500000.0,
+          605000000.0,
+          607500000.0,
+          610000000.0,
+          612500000.0,
+          615000000.0,
+          617500000.0,
+          620000000.0,
+          622500000.0,
+          625000000.0,
+          627500000.0,
+          630000000.0,
+          632500000.0,
+          635000000.0,
+          637500000.0,
+          640000000.0,
+          642500000.0,
+          645000000.0,
+          647500000.0,
+          650000000.0,
+          652500000.0,
+          655000000.0,
+          657500000.0,
+          660000000.0,
+          662500000.0,
+          665000000.0,
+          667500000.0,
+          670000000.0,
+          672500000.0,
+          675000000.0,
+          677500000.0,
+          680000000.0,
+          682500000.0,
+          685000000.0,
+          687500000.0,
+          690000000.0,
+          692500000.0,
+          695000000.0,
+          697500000.0,
+          700000000.0
+        ]
+      },
+      "resolution_criteria": null,
+      "fine_print": null,
+      "background": null,
+      "nr_forecasters": null,
+      "methods": {
+        "recency_weighted": {
+          "method": "recency_weighted",
+          "status": 200,
+          "history_points": 22,
+          "latest": {
+            "as_of": "2023-09-28 20:50",
+            "forecaster_count": 9,
+            "center": 350519053.9396398,
+            "lower": 333018600.7943985,
+            "upper": 368038954.2920492,
+            "mean": null,
+            "display": "350,519,054  IQR[333,018,601, 368,038,954]",
+            "per_option": null
+          },
+          "history": [
+            [
+              "2023-03-03 21:49",
+              347488878.4991739
+            ],
+            [
+              "2023-03-04 06:49",
+              350419735.8459188
+            ],
+            [
+              "2023-03-12 20:55",
+              344233883.6414204
+            ],
+            [
+              "2023-03-12 20:58",
+              344233883.6414204
+            ],
+            [
+              "2023-03-13 15:54",
+              344769392.28322387
+            ],
+            [
+              "2023-03-14 08:42",
+              344769392.28322387
+            ],
+            [
+              "2023-03-23 16:31",
+              344769392.28322387
+            ],
+            [
+              "2023-04-02 19:43",
+              352035196.61523265
+            ],
+            [
+              "2023-04-02 19:43",
+              351057522.7871818
+            ],
+            [
+              "2023-04-11 20:21",
+              349945847.65699375
+            ],
+            [
+              "2023-04-23 03:10",
+              351088359.5733958
+            ],
+            [
+              "2023-04-30 02:09",
+              351629156.63808584
+            ],
+            [
+              "2023-05-02 08:05",
+              351364000.2994902
+            ],
+            [
+              "2023-05-02 20:03",
+              352576329.6630095
+            ],
+            [
+              "2023-05-02 20:04",
+              350967351.0786626
+            ],
+            [
+              "2023-07-06 22:26",
+              351201352.16158444
+            ],
+            [
+              "2023-07-07 04:00",
+              354645762.75070167
+            ],
+            [
+              "2023-07-07 04:00",
+              351505938.43456143
+            ],
+            [
+              "2023-07-17 05:59",
+              352402363.433815
+            ],
+            [
+              "2023-09-25 19:34",
+              350547115.6993986
+            ],
+            [
+              "2023-09-28 20:50",
+              350136269.63658464
+            ],
+            [
+              "2023-09-28 20:50",
+              350519053.9396398
+            ]
+          ]
+        },
+        "metaculus_pros": {
+          "method": "metaculus_pros",
+          "status": 200,
+          "history_points": 21,
+          "latest": {
+            "as_of": "2023-09-28 20:50",
+            "forecaster_count": 5,
+            "center": 351642988.45452416,
+            "lower": 332011551.17979825,
+            "upper": 372058860.70386803,
+            "mean": null,
+            "display": "351,642,988  IQR[332,011,551, 372,058,861]",
+            "per_option": null
+          },
+          "history": [
+            [
+              "2023-03-04 06:49",
+              356249508.85145473
+            ],
+            [
+              "2023-03-12 20:55",
+              356249508.85145473
+            ],
+            [
+              "2023-03-12 20:58",
+              356249508.85145473
+            ],
+            [
+              "2023-03-13 15:54",
+              356249508.85145473
+            ],
+            [
+              "2023-03-14 08:42",
+              356249508.85145473
+            ],
+            [
+              "2023-03-23 16:31",
+              356249508.85145473
+            ],
+            [
+              "2023-04-02 19:43",
+              356249508.85145473
+            ],
+            [
+              "2023-04-02 19:43",
+              356249508.85145473
+            ],
+            [
+              "2023-04-11 20:21",
+              349493324.9107536
+            ],
+            [
+              "2023-04-23 03:10",
+              349719389.20510685
+            ],
+            [
+              "2023-04-30 02:09",
+              351322011.86087793
+            ],
+            [
+              "2023-05-02 08:05",
+              351946974.96375513
+            ],
+            [
+              "2023-05-02 20:03",
+              351699526.02167404
+            ],
+            [
+              "2023-05-02 20:04",
+              351699526.02167404
+            ],
+            [
+              "2023-07-06 22:26",
+              351863169.4446852
+            ],
+            [
+              "2023-07-07 04:00",
+              356884178.86670035
+            ],
+            [
+              "2023-07-07 04:00",
+              352050219.67868555
+            ],
+            [
+              "2023-07-17 05:59",
+              352097184.52434796
+            ],
+            [
+              "2023-09-25 19:34",
+              352097184.52434796
+            ],
+            [
+              "2023-09-28 20:50",
+              350757761.16512066
+            ],
+            [
+              "2023-09-28 20:50",
+              351642988.45452416
+            ]
+          ]
+        },
+        "gold_medalists": {
+          "method": "gold_medalists",
+          "status": 200,
+          "history_points": 11,
+          "latest": {
+            "as_of": "2023-09-28 20:50",
+            "forecaster_count": 2,
+            "center": 352527117.8374531,
+            "lower": 331012756.47596025,
+            "upper": 374820636.9400485,
+            "mean": null,
+            "display": "352,527,118  IQR[331,012,756, 374,820,637]",
+            "per_option": null
+          },
+          "history": [
+            [
+              "2023-04-30 02:09",
+              352932732.9271624
+            ],
+            [
+              "2023-05-02 08:05",
+              352932732.9271624
+            ],
+            [
+              "2023-05-02 20:03",
+              352932732.9271624
+            ],
+            [
+              "2023-05-02 20:04",
+              352932732.9271624
+            ],
+            [
+              "2023-07-06 22:26",
+              352539481.5248042
+            ],
+            [
+              "2023-07-07 04:00",
+              352539481.5248042
+            ],
+            [
+              "2023-07-07 04:00",
+              352539481.5248042
+            ],
+            [
+              "2023-07-17 05:59",
+              352527117.8374531
+            ],
+            [
+              "2023-09-25 19:34",
+              352527117.8374531
+            ],
+            [
+              "2023-09-28 20:50",
+              352527117.8374531
+            ],
+            [
+              "2023-09-28 20:50",
+              352527117.8374531
+            ]
+          ]
+        }
+      },
+      "comments": [],
+      "label": "September 2023",
+      "subquestions": []
+    },
+    {
+      "post_id": 15240,
+      "question_id": 31305,
+      "title": "How many barrels of crude oil will the Strategic Petroleum Reserve hold on the following dates? (December 2025)",
+      "question_type": "numeric",
+      "status": "resolved",
+      "resolution": "413464000.0",
+      "scheduled_close_time": "2025-12-31T12:02:00Z",
+      "cp_reveal_time": "2025-01-30T16:00:00Z",
+      "options": null,
+      "scaling": {
+        "range_min": 200000000.0,
+        "range_max": 700000000.0,
+        "nominal_min": 200000000.0,
+        "nominal_max": 700000000.0,
+        "zero_point": null,
+        "open_upper_bound": true,
+        "open_lower_bound": true,
+        "inbound_outcome_count": 200,
+        "continuous_range": [
+          200000000.0,
+          202500000.0,
+          205000000.0,
+          207500000.0,
+          210000000.0,
+          212500000.0,
+          215000000.0,
+          217500000.0,
+          220000000.0,
+          222500000.0,
+          225000000.0,
+          227500000.0,
+          230000000.0,
+          232500000.0,
+          235000000.0,
+          237500000.0,
+          240000000.0,
+          242500000.0,
+          245000000.0,
+          247500000.0,
+          250000000.0,
+          252500000.0,
+          255000000.0,
+          257500000.0,
+          260000000.0,
+          262500000.0,
+          265000000.0,
+          267500000.0,
+          270000000.0,
+          272500000.0,
+          275000000.0,
+          277500000.0,
+          280000000.0,
+          282500000.0,
+          285000000.0,
+          287500000.0,
+          290000000.0,
+          292500000.0,
+          295000000.0,
+          297500000.0,
+          300000000.0,
+          302500000.0,
+          305000000.0,
+          307500000.0,
+          310000000.0,
+          312500000.0,
+          315000000.0,
+          317500000.0,
+          320000000.0,
+          322500000.0,
+          325000000.0,
+          327500000.0,
+          330000000.0,
+          332500000.0,
+          335000000.0,
+          337500000.0,
+          340000000.0,
+          342500000.0,
+          345000000.0,
+          347500000.0,
+          350000000.0,
+          352500000.0,
+          355000000.0,
+          357500000.0,
+          360000000.0,
+          362500000.0,
+          365000000.0,
+          367500000.0,
+          370000000.0,
+          372500000.0,
+          375000000.0,
+          377500000.0,
+          380000000.0,
+          382500000.0,
+          385000000.0,
+          387500000.0,
+          390000000.0,
+          392500000.0,
+          395000000.0,
+          397500000.0,
+          400000000.0,
+          402500000.0,
+          405000000.0,
+          407500000.0,
+          410000000.0,
+          412500000.0,
+          415000000.0,
+          417500000.0,
+          420000000.0,
+          422500000.0,
+          425000000.0,
+          427500000.0,
+          430000000.0,
+          432500000.0,
+          435000000.0,
+          437500000.0,
+          440000000.0,
+          442500000.0,
+          445000000.0,
+          447500000.0,
+          450000000.0,
+          452500000.0,
+          455000000.0,
+          457500000.0,
+          460000000.0,
+          462500000.0,
+          465000000.0,
+          467500000.0,
+          470000000.0,
+          472500000.0,
+          475000000.0,
+          477500000.0,
+          480000000.0,
+          482500000.0,
+          485000000.00000006,
+          487500000.00000006,
+          490000000.0,
+          492500000.0,
+          495000000.0,
+          497500000.0,
+          500000000.0,
+          502500000.0,
+          505000000.0,
+          507500000.0,
+          510000000.0,
+          512500000.0,
+          515000000.0,
+          517500000.0,
+          520000000.0,
+          522500000.0,
+          525000000.0,
+          527500000.0,
+          530000000.0,
+          532500000.0,
+          535000000.0,
+          537500000.0,
+          540000000.0,
+          542500000.0,
+          545000000.0,
+          547500000.0,
+          550000000.0,
+          552500000.0,
+          555000000.0,
+          557500000.0,
+          560000000.0,
+          562500000.0,
+          565000000.0,
+          567500000.0,
+          570000000.0,
+          572500000.0,
+          575000000.0,
+          577500000.0,
+          580000000.0,
+          582500000.0,
+          585000000.0,
+          587500000.0,
+          590000000.0,
+          592500000.0,
+          595000000.0,
+          597500000.0,
+          600000000.0,
+          602500000.0,
+          605000000.0,
+          607500000.0,
+          610000000.0,
+          612500000.0,
+          615000000.0,
+          617500000.0,
+          620000000.0,
+          622500000.0,
+          625000000.0,
+          627500000.0,
+          630000000.0,
+          632500000.0,
+          635000000.0,
+          637500000.0,
+          640000000.0,
+          642500000.0,
+          645000000.0,
+          647500000.0,
+          650000000.0,
+          652500000.0,
+          655000000.0,
+          657500000.0,
+          660000000.0,
+          662500000.0,
+          665000000.0,
+          667500000.0,
+          670000000.0,
+          672500000.0,
+          675000000.0,
+          677500000.0,
+          680000000.0,
+          682500000.0,
+          685000000.0,
+          687500000.0,
+          690000000.0,
+          692500000.0,
+          695000000.0,
+          697500000.0,
+          700000000.0
+        ]
+      },
+      "resolution_criteria": null,
+      "fine_print": null,
+      "background": null,
+      "nr_forecasters": null,
+      "methods": {
+        "recency_weighted": {
+          "method": "recency_weighted",
+          "status": 200,
+          "history_points": 19,
+          "latest": {
+            "as_of": "2025-12-09 00:50",
+            "forecaster_count": 5,
+            "center": 420859300.5765671,
+            "lower": 395980221.8758894,
+            "upper": 448096640.00127834,
+            "mean": null,
+            "display": "420,859,301  IQR[395,980,222, 448,096,640]",
+            "per_option": null
+          },
+          "history": [
+            [
+              "2025-01-31 11:07",
+              411954311.3139712
+            ],
+            [
+              "2025-01-31 11:07",
+              411954311.3139712
+            ],
+            [
+              "2025-01-31 11:12",
+              411954311.3139712
+            ],
+            [
+              "2025-01-31 11:12",
+              411954311.3139712
+            ],
+            [
+              "2025-03-18 09:51",
+              519566728.5362005
+            ],
+            [
+              "2025-03-18 09:51",
+              519566728.5362005
+            ],
+            [
+              "2025-03-18 09:51",
+              519566728.5362005
+            ],
+            [
+              "2025-04-08 09:14",
+              521166085.1377407
+            ],
+            [
+              "2025-04-08 09:14",
+              521166085.1377407
+            ],
+            [
+              "2025-06-05 00:20",
+              470326395.5294452
+            ],
+            [
+              "2025-07-20 23:20",
+              427732215.9720522
+            ],
+            [
+              "2025-08-12 05:26",
+              428687121.82264936
+            ],
+            [
+              "2025-08-15 18:29",
+              426587968.7445722
+            ],
+            [
+              "2025-10-13 05:06",
+              424614457.64902437
+            ],
+            [
+              "2025-10-19 21:22",
+              424263950.09969836
+            ],
+            [
+              "2025-10-20 05:13",
+              423435797.8110167
+            ],
+            [
+              "2025-11-19 22:22",
+              423914033.77649283
+            ],
+            [
+              "2025-12-08 13:00",
+              422744817.82352847
+            ],
+            [
+              "2025-12-09 00:50",
+              420859300.5765671
+            ]
+          ]
+        },
+        "metaculus_pros": {
+          "method": "metaculus_pros",
+          "status": 200,
+          "history_points": 7,
+          "latest": {
+            "as_of": "2025-12-09 00:50",
+            "forecaster_count": 1,
+            "center": 423292921.80269974,
+            "lower": 397388406.9087003,
+            "upper": 455373352.0032681,
+            "mean": null,
+            "display": "423,292,922  IQR[397,388,407, 455,373,352]",
+            "per_option": null
+          },
+          "history": [
+            [
+              "2025-08-15 18:29",
+              423292921.80269974
+            ],
+            [
+              "2025-10-13 05:06",
+              423292921.80269974
+            ],
+            [
+              "2025-10-19 21:22",
+              423292921.8026997
+            ],
+            [
+              "2025-10-20 05:13",
+              423292921.8026997
+            ],
+            [
+              "2025-11-19 22:22",
+              423292921.80269974
+            ],
+            [
+              "2025-12-08 13:00",
+              423292921.8026997
+            ],
+            [
+              "2025-12-09 00:50",
+              423292921.80269974
+            ]
+          ]
+        },
+        "gold_medalists": {
+          "method": "gold_medalists",
+          "status": 200,
+          "history_points": 19,
+          "latest": {
+            "as_of": "2025-12-09 00:50",
+            "forecaster_count": 5,
+            "center": 420859300.5765671,
+            "lower": 395980221.8758894,
+            "upper": 448096640.00127834,
+            "mean": null,
+            "display": "420,859,301  IQR[395,980,222, 448,096,640]",
+            "per_option": null
+          },
+          "history": [
+            [
+              "2025-01-31 11:07",
+              411954311.3139712
+            ],
+            [
+              "2025-01-31 11:07",
+              411954311.3139712
+            ],
+            [
+              "2025-01-31 11:12",
+              411954311.3139712
+            ],
+            [
+              "2025-01-31 11:12",
+              411954311.3139712
+            ],
+            [
+              "2025-03-18 09:51",
+              411954311.3139712
+            ],
+            [
+              "2025-03-18 09:51",
+              411954311.3139712
+            ],
+            [
+              "2025-03-18 09:51",
+              411954311.3139712
+            ],
+            [
+              "2025-04-08 09:14",
+              411954311.3139712
+            ],
+            [
+              "2025-04-08 09:14",
+              411954311.3139712
+            ],
+            [
+              "2025-06-05 00:20",
+              436020830.3897159
+            ],
+            [
+              "2025-07-20 23:20",
+              427732215.9720522
+            ],
+            [
+              "2025-08-12 05:26",
+              428687121.82264936
+            ],
+            [
+              "2025-08-15 18:29",
+              426587968.7445722
+            ],
+            [
+              "2025-10-13 05:06",
+              424614457.64902437
+            ],
+            [
+              "2025-10-19 21:22",
+              424263950.09969836
+            ],
+            [
+              "2025-10-20 05:13",
+              423435797.8110167
+            ],
+            [
+              "2025-11-19 22:22",
+              423914033.77649283
+            ],
+            [
+              "2025-12-08 13:00",
+              422744817.82352847
+            ],
+            [
+              "2025-12-09 00:50",
+              420859300.5765671
+            ]
+          ]
+        }
+      },
+      "comments": [],
+      "label": "December 2025",
+      "subquestions": []
+    },
+    {
+      "post_id": 15240,
+      "question_id": 20523,
+      "title": "How many barrels of crude oil will the Strategic Petroleum Reserve hold on the following dates? (March 2024)",
+      "question_type": "numeric",
+      "status": "resolved",
+      "resolution": "363934000.0",
+      "scheduled_close_time": "2024-03-30T11:02:00Z",
+      "cp_reveal_time": "2023-03-08T16:00:00Z",
+      "options": null,
+      "scaling": {
+        "range_min": 200000000.0,
+        "range_max": 700000000.0,
+        "nominal_min": 200000000.0,
+        "nominal_max": 700000000.0,
+        "zero_point": null,
+        "open_upper_bound": true,
+        "open_lower_bound": true,
+        "inbound_outcome_count": 200,
+        "continuous_range": [
+          200000000.0,
+          202500000.0,
+          205000000.0,
+          207500000.0,
+          210000000.0,
+          212500000.0,
+          215000000.0,
+          217500000.0,
+          220000000.0,
+          222500000.0,
+          225000000.0,
+          227500000.0,
+          230000000.0,
+          232500000.0,
+          235000000.0,
+          237500000.0,
+          240000000.0,
+          242500000.0,
+          245000000.0,
+          247500000.0,
+          250000000.0,
+          252500000.0,
+          255000000.0,
+          257500000.0,
+          260000000.0,
+          262500000.0,
+          265000000.0,
+          267500000.0,
+          270000000.0,
+          272500000.0,
+          275000000.0,
+          277500000.0,
+          280000000.0,
+          282500000.0,
+          285000000.0,
+          287500000.0,
+          290000000.0,
+          292500000.0,
+          295000000.0,
+          297500000.0,
+          300000000.0,
+          302500000.0,
+          305000000.0,
+          307500000.0,
+          310000000.0,
+          312500000.0,
+          315000000.0,
+          317500000.0,
+          320000000.0,
+          322500000.0,
+          325000000.0,
+          327500000.0,
+          330000000.0,
+          332500000.0,
+          335000000.0,
+          337500000.0,
+          340000000.0,
+          342500000.0,
+          345000000.0,
+          347500000.0,
+          350000000.0,
+          352500000.0,
+          355000000.0,
+          357500000.0,
+          360000000.0,
+          362500000.0,
+          365000000.0,
+          367500000.0,
+          370000000.0,
+          372500000.0,
+          375000000.0,
+          377500000.0,
+          380000000.0,
+          382500000.0,
+          385000000.0,
+          387500000.0,
+          390000000.0,
+          392500000.0,
+          395000000.0,
+          397500000.0,
+          400000000.0,
+          402500000.0,
+          405000000.0,
+          407500000.0,
+          410000000.0,
+          412500000.0,
+          415000000.0,
+          417500000.0,
+          420000000.0,
+          422500000.0,
+          425000000.0,
+          427500000.0,
+          430000000.0,
+          432500000.0,
+          435000000.0,
+          437500000.0,
+          440000000.0,
+          442500000.0,
+          445000000.0,
+          447500000.0,
+          450000000.0,
+          452500000.0,
+          455000000.0,
+          457500000.0,
+          460000000.0,
+          462500000.0,
+          465000000.0,
+          467500000.0,
+          470000000.0,
+          472500000.0,
+          475000000.0,
+          477500000.0,
+          480000000.0,
+          482500000.0,
+          485000000.00000006,
+          487500000.00000006,
+          490000000.0,
+          492500000.0,
+          495000000.0,
+          497500000.0,
+          500000000.0,
+          502500000.0,
+          505000000.0,
+          507500000.0,
+          510000000.0,
+          512500000.0,
+          515000000.0,
+          517500000.0,
+          520000000.0,
+          522500000.0,
+          525000000.0,
+          527500000.0,
+          530000000.0,
+          532500000.0,
+          535000000.0,
+          537500000.0,
+          540000000.0,
+          542500000.0,
+          545000000.0,
+          547500000.0,
+          550000000.0,
+          552500000.0,
+          555000000.0,
+          557500000.0,
+          560000000.0,
+          562500000.0,
+          565000000.0,
+          567500000.0,
+          570000000.0,
+          572500000.0,
+          575000000.0,
+          577500000.0,
+          580000000.0,
+          582500000.0,
+          585000000.0,
+          587500000.0,
+          590000000.0,
+          592500000.0,
+          595000000.0,
+          597500000.0,
+          600000000.0,
+          602500000.0,
+          605000000.0,
+          607500000.0,
+          610000000.0,
+          612500000.0,
+          615000000.0,
+          617500000.0,
+          620000000.0,
+          622500000.0,
+          625000000.0,
+          627500000.0,
+          630000000.0,
+          632500000.0,
+          635000000.0,
+          637500000.0,
+          640000000.0,
+          642500000.0,
+          645000000.0,
+          647500000.0,
+          650000000.0,
+          652500000.0,
+          655000000.0,
+          657500000.0,
+          660000000.0,
+          662500000.0,
+          665000000.0,
+          667500000.0,
+          670000000.0,
+          672500000.0,
+          675000000.0,
+          677500000.0,
+          680000000.0,
+          682500000.0,
+          685000000.0,
+          687500000.0,
+          690000000.0,
+          692500000.0,
+          695000000.0,
+          697500000.0,
+          700000000.0
+        ]
+      },
+      "resolution_criteria": null,
+      "fine_print": null,
+      "background": null,
+      "nr_forecasters": null,
+      "methods": {
+        "recency_weighted": {
+          "method": "recency_weighted",
+          "status": 200,
+          "history_points": 6,
+          "latest": {
+            "as_of": "2024-01-20 21:40",
+            "forecaster_count": 4,
+            "center": 361326321.86931604,
+            "lower": 354555154.55106306,
+            "upper": 367334570.52053094,
+            "mean": null,
+            "display": "361,326,322  IQR[354,555,155, 367,334,571]",
+            "per_option": null
+          },
+          "history": [
+            [
+              "2023-12-11 18:32",
+              346174606.0264826
+            ],
+            [
+              "2024-01-02 23:00",
+              356305680.0058968
+            ],
+            [
+              "2024-01-02 23:08",
+              353427814.3609328
+            ],
+            [
+              "2024-01-08 17:20",
+              356297942.2269216
+            ],
+            [
+              "2024-01-09 12:57",
+              359490122.1534389
+            ],
+            [
+              "2024-01-20 21:40",
+              361326321.86931604
+            ]
+          ]
+        },
+        "metaculus_pros": {
+          "method": "metaculus_pros",
+          "status": 200,
+          "history_points": 6,
+          "latest": {
+            "as_of": "2024-01-20 21:40",
+            "forecaster_count": 1,
+            "center": 346174606.0264826,
+            "lower": 308771617.2003621,
+            "upper": 381109301.13645947,
+            "mean": null,
+            "display": "346,174,606  IQR[308,771,617, 381,109,301]",
+            "per_option": null
+          },
+          "history": [
+            [
+              "2023-12-11 18:32",
+              346174606.0264826
+            ],
+            [
+              "2024-01-02 23:00",
+              346174606.0264826
+            ],
+            [
+              "2024-01-02 23:08",
+              346174606.0264826
+            ],
+            [
+              "2024-01-08 17:20",
+              346174606.0264826
+            ],
+            [
+              "2024-01-09 12:57",
+              346174606.0264826
+            ],
+            [
+              "2024-01-20 21:40",
+              346174606.0264826
+            ]
+          ]
+        },
+        "gold_medalists": {
+          "method": "gold_medalists",
+          "status": 200,
+          "history_points": 0,
+          "latest": null,
+          "history": []
+        }
+      },
+      "comments": [],
+      "label": "March 2024",
+      "subquestions": []
+    },
+    {
+      "post_id": 15240,
+      "question_id": 31308,
+      "title": "How many barrels of crude oil will the Strategic Petroleum Reserve hold on the following dates? (December 2026)",
+      "question_type": "numeric",
+      "status": "open",
+      "resolution": null,
+      "scheduled_close_time": "2026-12-30T12:02:00Z",
+      "cp_reveal_time": "2025-01-30T16:00:00Z",
+      "options": null,
+      "scaling": {
+        "range_min": 200000000.0,
+        "range_max": 700000000.0,
+        "nominal_min": 200000000.0,
+        "nominal_max": 700000000.0,
+        "zero_point": null,
+        "open_upper_bound": true,
+        "open_lower_bound": true,
+        "inbound_outcome_count": 200,
+        "continuous_range": [
+          200000000.0,
+          202500000.0,
+          205000000.0,
+          207500000.0,
+          210000000.0,
+          212500000.0,
+          215000000.0,
+          217500000.0,
+          220000000.0,
+          222500000.0,
+          225000000.0,
+          227500000.0,
+          230000000.0,
+          232500000.0,
+          235000000.0,
+          237500000.0,
+          240000000.0,
+          242500000.0,
+          245000000.0,
+          247500000.0,
+          250000000.0,
+          252500000.0,
+          255000000.0,
+          257500000.0,
+          260000000.0,
+          262500000.0,
+          265000000.0,
+          267500000.0,
+          270000000.0,
+          272500000.0,
+          275000000.0,
+          277500000.0,
+          280000000.0,
+          282500000.0,
+          285000000.0,
+          287500000.0,
+          290000000.0,
+          292500000.0,
+          295000000.0,
+          297500000.0,
+          300000000.0,
+          302500000.0,
+          305000000.0,
+          307500000.0,
+          310000000.0,
+          312500000.0,
+          315000000.0,
+          317500000.0,
+          320000000.0,
+          322500000.0,
+          325000000.0,
+          327500000.0,
+          330000000.0,
+          332500000.0,
+          335000000.0,
+          337500000.0,
+          340000000.0,
+          342500000.0,
+          345000000.0,
+          347500000.0,
+          350000000.0,
+          352500000.0,
+          355000000.0,
+          357500000.0,
+          360000000.0,
+          362500000.0,
+          365000000.0,
+          367500000.0,
+          370000000.0,
+          372500000.0,
+          375000000.0,
+          377500000.0,
+          380000000.0,
+          382500000.0,
+          385000000.0,
+          387500000.0,
+          390000000.0,
+          392500000.0,
+          395000000.0,
+          397500000.0,
+          400000000.0,
+          402500000.0,
+          405000000.0,
+          407500000.0,
+          410000000.0,
+          412500000.0,
+          415000000.0,
+          417500000.0,
+          420000000.0,
+          422500000.0,
+          425000000.0,
+          427500000.0,
+          430000000.0,
+          432500000.0,
+          435000000.0,
+          437500000.0,
+          440000000.0,
+          442500000.0,
+          445000000.0,
+          447500000.0,
+          450000000.0,
+          452500000.0,
+          455000000.0,
+          457500000.0,
+          460000000.0,
+          462500000.0,
+          465000000.0,
+          467500000.0,
+          470000000.0,
+          472500000.0,
+          475000000.0,
+          477500000.0,
+          480000000.0,
+          482500000.0,
+          485000000.00000006,
+          487500000.00000006,
+          490000000.0,
+          492500000.0,
+          495000000.0,
+          497500000.0,
+          500000000.0,
+          502500000.0,
+          505000000.0,
+          507500000.0,
+          510000000.0,
+          512500000.0,
+          515000000.0,
+          517500000.0,
+          520000000.0,
+          522500000.0,
+          525000000.0,
+          527500000.0,
+          530000000.0,
+          532500000.0,
+          535000000.0,
+          537500000.0,
+          540000000.0,
+          542500000.0,
+          545000000.0,
+          547500000.0,
+          550000000.0,
+          552500000.0,
+          555000000.0,
+          557500000.0,
+          560000000.0,
+          562500000.0,
+          565000000.0,
+          567500000.0,
+          570000000.0,
+          572500000.0,
+          575000000.0,
+          577500000.0,
+          580000000.0,
+          582500000.0,
+          585000000.0,
+          587500000.0,
+          590000000.0,
+          592500000.0,
+          595000000.0,
+          597500000.0,
+          600000000.0,
+          602500000.0,
+          605000000.0,
+          607500000.0,
+          610000000.0,
+          612500000.0,
+          615000000.0,
+          617500000.0,
+          620000000.0,
+          622500000.0,
+          625000000.0,
+          627500000.0,
+          630000000.0,
+          632500000.0,
+          635000000.0,
+          637500000.0,
+          640000000.0,
+          642500000.0,
+          645000000.0,
+          647500000.0,
+          650000000.0,
+          652500000.0,
+          655000000.0,
+          657500000.0,
+          660000000.0,
+          662500000.0,
+          665000000.0,
+          667500000.0,
+          670000000.0,
+          672500000.0,
+          675000000.0,
+          677500000.0,
+          680000000.0,
+          682500000.0,
+          685000000.0,
+          687500000.0,
+          690000000.0,
+          692500000.0,
+          695000000.0,
+          697500000.0,
+          700000000.0
+        ]
+      },
+      "resolution_criteria": null,
+      "fine_print": null,
+      "background": null,
+      "nr_forecasters": null,
+      "methods": {
+        "recency_weighted": {
+          "method": "recency_weighted",
+          "status": 200,
+          "history_points": 37,
+          "latest": {
+            "as_of": "2026-09-30 04:55",
+            "forecaster_count": 5,
+            "center": 287770298.11542344,
+            "lower": 274031058.0992537,
+            "upper": 333295130.2998576,
+            "mean": null,
+            "display": "287,770,298  IQR[274,031,058, 333,295,130]",
+            "per_option": null
+          },
+          "history": [
+            [
+              "2025-01-31 11:12",
+              411960800.9154147
+            ],
+            [
+              "2025-04-08 09:14",
+              493220645.2714991
+            ],
+            [
+              "2025-04-08 09:14",
+              493220645.2714991
+            ],
+            [
+              "2025-04-08 09:14",
+              493220645.2714991
+            ],
+            [
+              "2025-08-28 05:51",
+              411960800.9154147
+            ],
+            [
+              "2025-10-19 21:22",
+              453025680.35377294
+            ],
+            [
+              "2025-10-19 21:22",
+              433089292.638007
+            ],
+            [
+              "2025-10-19 21:22",
+              422582564.0795153
+            ],
+            [
+              "2025-12-09 00:50",
+              431516613.6629743
+            ],
+            [
+              "2026-01-06 20:10",
+              430735286.8760862
+            ],
+            [
+              "2026-01-28 06:43",
+              428368657.02035415
+            ],
+            [
+              "2026-01-28 06:44",
+              427707741.1829221
+            ],
+            [
+              "2026-03-27 20:57",
+              428697627.7987528
+            ],
+            [
+              "2026-04-21 05:15",
+              427707741.1829221
+            ],
+            [
+              "2026-05-11 04:50",
+              443989322.47942007
+            ],
+            [
+              "2026-05-18 04:55",
+              444633540.0684239
+            ],
+            [
+              "2026-05-18 04:55",
+              444633540.0684239
+            ],
+            [
+              "2026-05-18 04:55",
+              444633540.0684239
+            ],
+            [
+              "2026-06-27 20:57",
+              446574409.0654322
+            ],
+            [
+              "2026-08-11 04:50",
+              432536673.8834106
+            ],
+            [
+              "2026-08-11 05:16",
+              429880661.2281338
+            ],
+            [
+              "2026-08-20 23:09",
+              411670974.035831
+            ],
+            [
+              "2026-08-20 23:09",
+              408036341.6115371
+            ],
+            [
+              "2026-08-21 04:52",
+              399488357.2785564
+            ],
+            [
+              "2026-08-27 12:21",
+              399811114.5309287
+            ],
+            [
+              "2026-09-07 14:08",
+              355762821.49632436
+            ],
+            [
+              "2026-09-07 14:08",
+              355762821.49632436
+            ],
+            [
+              "2026-09-07 14:09",
+              355762821.49632436
+            ],
+            [
+              "2026-09-08 00:28",
+              335473085.3791291
+            ],
+            [
+              "2026-09-08 00:28",
+              303706320.34712523
+            ],
+            [
+              "2026-09-08 00:28",
+              297204719.6630726
+            ],
+            [
+              "2026-09-13 16:52",
+              286909241.1146218
+            ],
+            [
+              "2026-09-18 16:18",
+              282547557.1569825
+            ],
+            [
+              "2026-09-18 16:18",
+              282590658.7376111
+            ],
+            [
+              "2026-09-29 13:39",
+              287624822.0248832
+            ],
+            [
+              "2026-09-30 04:55",
+              287770298.11542344
+            ],
+            [
+              "2026-09-30 04:55",
+              287770298.11542344
+            ]
+          ]
+        },
+        "metaculus_pros": {
+          "method": "metaculus_pros",
+          "status": 200,
+          "history_points": 13,
+          "latest": {
+            "as_of": "2026-09-30 04:55",
+            "forecaster_count": 1,
+            "center": 400242449.0135466,
+            "lower": 370371671.37314415,
+            "upper": 424995840.7385894,
+            "mean": null,
+            "display": "400,242,449  IQR[370,371,671, 424,995,841]",
+            "per_option": null
+          },
+          "history": [
+            [
+              "2026-08-27 12:21",
+              400242449.0135466
+            ],
+            [
+              "2026-09-07 14:08",
+              400242449.0135466
+            ],
+            [
+              "2026-09-07 14:08",
+              400242449.0135466
+            ],
+            [
+              "2026-09-07 14:09",
+              400242449.0135466
+            ],
+            [
+              "2026-09-08 00:28",
+              400242449.0135466
+            ],
+            [
+              "2026-09-08 00:28",
+              400242449.0135466
+            ],
+            [
+              "2026-09-08 00:28",
+              400242449.0135466
+            ],
+            [
+              "2026-09-13 16:52",
+              400242449.0135466
+            ],
+            [
+              "2026-09-18 16:18",
+              400242449.0135466
+            ],
+            [
+              "2026-09-18 16:18",
+              400242449.0135466
+            ],
+            [
+              "2026-09-29 13:39",
+              400242449.0135466
+            ],
+            [
+              "2026-09-30 04:55",
+              400242449.0135466
+            ],
+            [
+              "2026-09-30 04:55",
+              400242449.0135466
+            ]
+          ]
+        },
+        "gold_medalists": {
+          "method": "gold_medalists",
+          "status": 200,
+          "history_points": 37,
+          "latest": {
+            "as_of": "2026-09-30 04:55",
+            "forecaster_count": 4,
+            "center": 292861811.7547889,
+            "lower": 274096716.13736963,
+            "upper": 378122891.66338396,
+            "mean": null,
+            "display": "292,861,812  IQR[274,096,716, 378,122,892]",
+            "per_option": null
+          },
+          "history": [
+            [
+              "2025-01-31 11:12",
+              411960800.9154147
+            ],
+            [
+              "2025-04-08 09:14",
+              411960800.9154147
+            ],
+            [
+              "2025-04-08 09:14",
+              411960800.9154147
+            ],
+            [
+              "2025-04-08 09:14",
+              411960800.9154147
+            ],
+            [
+              "2025-08-28 05:51",
+              411960800.9154147
+            ],
+            [
+              "2025-10-19 21:22",
+              453025680.35377294
+            ],
+            [
+              "2025-10-19 21:22",
+              433089292.638007
+            ],
+            [
+              "2025-10-19 21:22",
+              422582564.0795153
+            ],
+            [
+              "2025-12-09 00:50",
+              431516613.6629743
+            ],
+            [
+              "2026-01-06 20:10",
+              430735286.8760862
+            ],
+            [
+              "2026-01-28 06:43",
+              428368657.02035415
+            ],
+            [
+              "2026-01-28 06:44",
+              427707741.1829221
+            ],
+            [
+              "2026-03-27 20:57",
+              428697627.7987528
+            ],
+            [
+              "2026-04-21 05:15",
+              427707741.1829221
+            ],
+            [
+              "2026-05-11 04:50",
+              427707741.1829221
+            ],
+            [
+              "2026-05-18 04:55",
+              433527997.64279926
+            ],
+            [
+              "2026-05-18 04:55",
+              433527997.64279926
+            ],
+            [
+              "2026-05-18 04:55",
+              433527997.64279926
+            ],
+            [
+              "2026-06-27 20:57",
+              433140660.3588238
+            ],
+            [
+              "2026-08-11 04:50",
+              432536673.8834106
+            ],
+            [
+              "2026-08-11 05:16",
+              429880661.2281338
+            ],
+            [
+              "2026-08-20 23:09",
+              411670974.035831
+            ],
+            [
+              "2026-08-20 23:09",
+              408036341.6115371
+            ],
+            [
+              "2026-08-21 04:52",
+              399488357.2785564
+            ],
+            [
+              "2026-08-27 12:21",
+              399811114.5309287
+            ],
+            [
+              "2026-09-07 14:08",
+              355762821.49632436
+            ],
+            [
+              "2026-09-07 14:08",
+              355762821.49632436
+            ],
+            [
+              "2026-09-07 14:09",
+              355762821.49632436
+            ],
+            [
+              "2026-09-08 00:28",
+              335473085.3791291
+            ],
+            [
+              "2026-09-08 00:28",
+              303706320.34712523
+            ],
+            [
+              "2026-09-08 00:28",
+              297204719.6630726
+            ],
+            [
+              "2026-09-13 16:52",
+              297204719.6630726
+            ],
+            [
+              "2026-09-18 16:18",
+              297204719.6630726
+            ],
+            [
+              "2026-09-18 16:18",
+              297204719.6630726
+            ],
+            [
+              "2026-09-29 13:39",
+              297204719.6630726
+            ],
+            [
+              "2026-09-30 04:55",
+              292861811.7547889
+            ],
+            [
+              "2026-09-30 04:55",
+              292861811.7547889
+            ]
+          ]
+        }
+      },
+      "comments": [],
+      "label": "December 2026",
+      "subquestions": []
+    },
+    {
+      "post_id": 15240,
+      "question_id": 15244,
+      "title": "How many barrels of crude oil will the Strategic Petroleum Reserve hold on the following dates? (December 2023)",
+      "question_type": "numeric",
+      "status": "resolved",
+      "resolution": "354684000.0",
+      "scheduled_close_time": "2023-12-30T12:02:00Z",
+      "cp_reveal_time": "2023-03-05T16:00:00Z",
+      "options": null,
+      "scaling": {
+        "range_min": 200000000.0,
+        "range_max": 700000000.0,
+        "nominal_min": 200000000.0,
+        "nominal_max": 700000000.0,
+        "zero_point": null,
+        "open_upper_bound": true,
+        "open_lower_bound": true,
+        "inbound_outcome_count": 200,
+        "continuous_range": [
+          200000000.0,
+          202500000.0,
+          205000000.0,
+          207500000.0,
+          210000000.0,
+          212500000.0,
+          215000000.0,
+          217500000.0,
+          220000000.0,
+          222500000.0,
+          225000000.0,
+          227500000.0,
+          230000000.0,
+          232500000.0,
+          235000000.0,
+          237500000.0,
+          240000000.0,
+          242500000.0,
+          245000000.0,
+          247500000.0,
+          250000000.0,
+          252500000.0,
+          255000000.0,
+          257500000.0,
+          260000000.0,
+          262500000.0,
+          265000000.0,
+          267500000.0,
+          270000000.0,
+          272500000.0,
+          275000000.0,
+          277500000.0,
+          280000000.0,
+          282500000.0,
+          285000000.0,
+          287500000.0,
+          290000000.0,
+          292500000.0,
+          295000000.0,
+          297500000.0,
+          300000000.0,
+          302500000.0,
+          305000000.0,
+          307500000.0,
+          310000000.0,
+          312500000.0,
+          315000000.0,
+          317500000.0,
+          320000000.0,
+          322500000.0,
+          325000000.0,
+          327500000.0,
+          330000000.0,
+          332500000.0,
+          335000000.0,
+          337500000.0,
+          340000000.0,
+          342500000.0,
+          345000000.0,
+          347500000.0,
+          350000000.0,
+          352500000.0,
+          355000000.0,
+          357500000.0,
+          360000000.0,
+          362500000.0,
+          365000000.0,
+          367500000.0,
+          370000000.0,
+          372500000.0,
+          375000000.0,
+          377500000.0,
+          380000000.0,
+          382500000.0,
+          385000000.0,
+          387500000.0,
+          390000000.0,
+          392500000.0,
+          395000000.0,
+          397500000.0,
+          400000000.0,
+          402500000.0,
+          405000000.0,
+          407500000.0,
+          410000000.0,
+          412500000.0,
+          415000000.0,
+          417500000.0,
+          420000000.0,
+          422500000.0,
+          425000000.0,
+          427500000.0,
+          430000000.0,
+          432500000.0,
+          435000000.0,
+          437500000.0,
+          440000000.0,
+          442500000.0,
+          445000000.0,
+          447500000.0,
+          450000000.0,
+          452500000.0,
+          455000000.0,
+          457500000.0,
+          460000000.0,
+          462500000.0,
+          465000000.0,
+          467500000.0,
+          470000000.0,
+          472500000.0,
+          475000000.0,
+          477500000.0,
+          480000000.0,
+          482500000.0,
+          485000000.00000006,
+          487500000.00000006,
+          490000000.0,
+          492500000.0,
+          495000000.0,
+          497500000.0,
+          500000000.0,
+          502500000.0,
+          505000000.0,
+          507500000.0,
+          510000000.0,
+          512500000.0,
+          515000000.0,
+          517500000.0,
+          520000000.0,
+          522500000.0,
+          525000000.0,
+          527500000.0,
+          530000000.0,
+          532500000.0,
+          535000000.0,
+          537500000.0,
+          540000000.0,
+          542500000.0,
+          545000000.0,
+          547500000.0,
+          550000000.0,
+          552500000.0,
+          555000000.0,
+          557500000.0,
+          560000000.0,
+          562500000.0,
+          565000000.0,
+          567500000.0,
+          570000000.0,
+          572500000.0,
+          575000000.0,
+          577500000.0,
+          580000000.0,
+          582500000.0,
+          585000000.0,
+          587500000.0,
+          590000000.0,
+          592500000.0,
+          595000000.0,
+          597500000.0,
+          600000000.0,
+          602500000.0,
+          605000000.0,
+          607500000.0,
+          610000000.0,
+          612500000.0,
+          615000000.0,
+          617500000.0,
+          620000000.0,
+          622500000.0,
+          625000000.0,
+          627500000.0,
+          630000000.0,
+          632500000.0,
+          635000000.0,
+          637500000.0,
+          640000000.0,
+          642500000.0,
+          645000000.0,
+          647500000.0,
+          650000000.0,
+          652500000.0,
+          655000000.0,
+          657500000.0,
+          660000000.0,
+          662500000.0,
+          665000000.0,
+          667500000.0,
+          670000000.0,
+          672500000.0,
+          675000000.0,
+          677500000.0,
+          680000000.0,
+          682500000.0,
+          685000000.0,
+          687500000.0,
+          690000000.0,
+          692500000.0,
+          695000000.0,
+          697500000.0,
+          700000000.0
+        ]
+      },
+      "resolution_criteria": null,
+      "fine_print": null,
+      "background": null,
+      "nr_forecasters": null,
+      "methods": {
+        "recency_weighted": {
+          "method": "recency_weighted",
+          "status": 200,
+          "history_points": 52,
+          "latest": {
+            "as_of": "2023-12-11 20:06",
+            "forecaster_count": 17,
+            "center": 355646662.99669254,
+            "lower": 342516020.01768756,
+            "upper": 370136141.8466679,
+            "mean": null,
+            "display": "355,646,663  IQR[342,516,020, 370,136,142]",
+            "per_option": null
+          },
+          "history": [
+            [
+              "2023-03-03 21:49",
+              357919971.2358433
+            ],
+            [
+              "2023-03-04 06:49",
+              355766550.7256364
+            ],
+            [
+              "2023-03-12 20:57",
+              323757794.9209193
+            ],
+            [
+              "2023-03-12 20:58",
+              329893122.78143156
+            ],
+            [
+              "2023-03-12 20:58",
+              329893122.78143156
+            ],
+            [
+              "2023-03-13 15:54",
+              336298252.36669815
+            ],
+            [
+              "2023-03-14 08:42",
+              336298252.36669815
+            ],
+            [
+              "2023-03-23 16:31",
+              336298252.36669815
+            ],
+            [
+              "2023-04-02 19:44",
+              352815153.54329246
+            ],
+            [
+              "2023-04-11 20:22",
+              350808409.9790184
+            ],
+            [
+              "2023-04-11 20:23",
+              350804512.451523
+            ],
+            [
+              "2023-04-11 20:23",
+              350040399.9360455
+            ],
+            [
+              "2023-04-23 03:10",
+              351625166.26118094
+            ],
+            [
+              "2023-04-30 02:09",
+              350154876.71659935
+            ],
+            [
+              "2023-05-02 08:05",
+              349703349.34955984
+            ],
+            [
+              "2023-05-02 20:03",
+              351701824.69878125
+            ],
+            [
+              "2023-05-02 20:04",
+              348670962.6325785
+            ],
+            [
+              "2023-07-06 22:27",
+              348982560.2780621
+            ],
+            [
+              "2023-07-07 04:00",
+              348468746.95861757
+            ],
+            [
+              "2023-07-07 04:01",
+              349071781.55863804
+            ],
+            [
+              "2023-07-17 06:00",
+              350372214.7810067
+            ],
+            [
+              "2023-10-01 07:55",
+              350030155.34762913
+            ],
+            [
+              "2023-10-04 04:49",
+              347579406.19042933
+            ],
+            [
+              "2023-10-04 04:50",
+              347579406.19042933
+            ],
+            [
+              "2023-10-06 23:57",
+              348548775.2311021
+            ],
+            [
+              "2023-10-06 23:57",
+              348548775.2311021
+            ],
+            [
+              "2023-10-07 00:01",
+              348548775.2311021
+            ],
+            [
+              "2023-10-10 16:13",
+              349227468.7992722
+            ],
+            [
+              "2023-10-10 16:13",
+              349227468.7992722
+            ],
+            [
+              "2023-10-12 19:53",
+              349776966.22687644
+            ],
+            [
+              "2023-10-12 19:53",
+              350322137.8006436
+            ],
+            [
+              "2023-10-12 19:53",
+              350322137.8006436
+            ],
+            [
+              "2023-10-19 00:44",
+              350731253.59702754
+            ],
+            [
+              "2023-10-28 19:56",
+              350749488.3558576
+            ],
+            [
+              "2023-10-30 07:06",
+              351286293.3615843
+            ],
+            [
+              "2023-10-31 01:27",
+              351454957.55984235
+            ],
+            [
+              "2023-11-12 22:07",
+              351635380.38446295
+            ],
+            [
+              "2023-11-20 21:26",
+              351134612.301631
+            ],
+            [
+              "2023-11-22 15:43",
+              351513537.68425924
+            ],
+            [
+              "2023-11-29 15:16",
+              352322830.0764369
+            ],
+            [
+              "2023-12-01 11:35",
+              352472798.0369961
+            ],
+            [
+              "2023-12-01 11:39",
+              352057836.25008994
+            ],
+            [
+              "2023-12-01 11:40",
+              352452058.2461835
+            ],
+            [
+              "2023-12-05 06:27",
+              354564235.9225049
+            ],
+            [
+              "2023-12-05 11:07",
+              355220739.61251235
+            ],
+            [
+              "2023-12-05 12:58",
+              355302810.50377816
+            ],
+            [
+              "2023-12-05 19:08",
+              355365783.27931046
+            ],
+            [
+              "2023-12-07 01:08",
+              355592839.6801777
+            ],
+            [
+              "2023-12-11 11:42",
+              356591094.0287185
+            ],
+            [
+              "2023-12-11 14:20",
+              356337472.8112253
+            ],
+            [
+              "2023-12-11 18:31",
+              355929095.28551173
+            ],
+            [
+              "2023-12-11 20:06",
+              355646662.99669254
+            ]
+          ]
+        },
+        "metaculus_pros": {
+          "method": "metaculus_pros",
+          "status": 200,
+          "history_points": 51,
+          "latest": {
+            "as_of": "2023-12-11 20:06",
+            "forecaster_count": 5,
+            "center": 353700898.4780912,
+            "lower": 340324877.9969825,
+            "upper": 366696061.18553567,
+            "mean": null,
+            "display": "353,700,898  IQR[340,324,878, 366,696,061]",
+            "per_option": null
+          },
+          "history": [
+            [
+              "2023-03-04 06:49",
+              351440171.71621126
+            ],
+            [
+              "2023-03-12 20:57",
+              351440171.71621126
+            ],
+            [
+              "2023-03-12 20:58",
+              351440171.71621126
+            ],
+            [
+              "2023-03-12 20:58",
+              351440171.71621126
+            ],
+            [
+              "2023-03-13 15:54",
+              351440171.71621126
+            ],
+            [
+              "2023-03-14 08:42",
+              351440171.71621126
+            ],
+            [
+              "2023-03-23 16:31",
+              351440171.71621126
+            ],
+            [
+              "2023-04-02 19:44",
+              351440171.71621126
+            ],
+            [
+              "2023-04-11 20:22",
+              347926747.9430485
+            ],
+            [
+              "2023-04-11 20:23",
+              347507706.920324
+            ],
+            [
+              "2023-04-11 20:23",
+              345600613.488307
+            ],
+            [
+              "2023-04-23 03:10",
+              345877533.4025511
+            ],
+            [
+              "2023-04-30 02:09",
+              345898121.995853
+            ],
+            [
+              "2023-05-02 08:05",
+              347099455.53463
+            ],
+            [
+              "2023-05-02 20:03",
+              346940305.93299204
+            ],
+            [
+              "2023-05-02 20:04",
+              346940305.93299204
+            ],
+            [
+              "2023-07-06 22:27",
+              348137620.09987736
+            ],
+            [
+              "2023-07-07 04:00",
+              347513942.7349019
+            ],
+            [
+              "2023-07-07 04:01",
+              348564190.9709142
+            ],
+            [
+              "2023-07-17 06:00",
+              348649696.64848167
+            ],
+            [
+              "2023-10-01 07:55",
+              348735831.7650598
+            ],
+            [
+              "2023-10-04 04:49",
+              345360623.25196326
+            ],
+            [
+              "2023-10-04 04:50",
+              345360623.25196326
+            ],
+            [
+              "2023-10-06 23:57",
+              345360623.25196326
+            ],
+            [
+              "2023-10-06 23:57",
+              345360623.25196326
+            ],
+            [
+              "2023-10-07 00:01",
+              345360623.25196326
+            ],
+            [
+              "2023-10-10 16:13",
+              345360623.25196326
+            ],
+            [
+              "2023-10-10 16:13",
+              345360623.25196326
+            ],
+            [
+              "2023-10-12 19:53",
+              347078733.97840214
+            ],
+            [
+              "2023-10-12 19:53",
+              348052179.86369467
+            ],
+            [
+              "2023-10-12 19:53",
+              348052179.86369467
+            ],
+            [
+              "2023-10-19 00:44",
+              348052179.86369467
+            ],
+            [
+              "2023-10-28 19:56",
+              348052179.86369467
+            ],
+            [
+              "2023-10-30 07:06",
+              348108454.4134803
+            ],
+            [
+              "2023-10-31 01:27",
+              348108454.4134803
+            ],
+            [
+              "2023-11-12 22:07",
+              348108454.4134803
+            ],
+            [
+              "2023-11-20 21:26",
+              348108454.4134803
+            ],
+            [
+              "2023-11-22 15:43",
+              351557574.72497034
+            ],
+            [
+              "2023-11-29 15:16",
+              351557574.72497034
+            ],
+            [
+              "2023-12-01 11:35",
+              351219132.3498872
+            ],
+            [
+              "2023-12-01 11:39",
+              351219132.3498872
+            ],
+            [
+              "2023-12-01 11:40",
+              351219132.3498872
+            ],
+            [
+              "2023-12-05 06:27",
+              350853727.9547041
+            ],
+            [
+              "2023-12-05 11:07",
+              350853727.9547041
+            ],
+            [
+              "2023-12-05 12:58",
+              350853727.9547041
+            ],
+            [
+              "2023-12-05 19:08",
+              350853727.9547041
+            ],
+            [
+              "2023-12-07 01:08",
+              354201560.3243739
+            ],
+            [
+              "2023-12-11 11:42",
+              354201560.3243739
+            ],
+            [
+              "2023-12-11 14:20",
+              353854484.3662561
+            ],
+            [
+              "2023-12-11 18:31",
+              353792350.5549637
+            ],
+            [
+              "2023-12-11 20:06",
+              353700898.4780912
+            ]
+          ]
+        },
+        "gold_medalists": {
+          "method": "gold_medalists",
+          "status": 200,
+          "history_points": 39,
+          "latest": {
+            "as_of": "2023-12-11 20:06",
+            "forecaster_count": 5,
+            "center": 354421869.43756735,
+            "lower": 341820500.21655315,
+            "upper": 368251569.02908003,
+            "mean": null,
+            "display": "354,421,869  IQR[341,820,500, 368,251,569]",
+            "per_option": null
+          },
+          "history": [
+            [
+              "2023-04-30 02:09",
+              345917138.44025946
+            ],
+            [
+              "2023-05-02 08:05",
+              345917138.44025946
+            ],
+            [
+              "2023-05-02 20:03",
+              345917138.44025946
+            ],
+            [
+              "2023-05-02 20:04",
+              345917138.44025946
+            ],
+            [
+              "2023-07-06 22:27",
+              348555067.0985307
+            ],
+            [
+              "2023-07-07 04:00",
+              348555067.0985307
+            ],
+            [
+              "2023-07-07 04:01",
+              348555067.0985307
+            ],
+            [
+              "2023-07-17 06:00",
+              348626503.1013497
+            ],
+            [
+              "2023-10-01 07:55",
+              348832189.2392434
+            ],
+            [
+              "2023-10-04 04:49",
+              348893615.6417163
+            ],
+            [
+              "2023-10-04 04:50",
+              348893615.6417163
+            ],
+            [
+              "2023-10-06 23:57",
+              348893615.6417163
+            ],
+            [
+              "2023-10-06 23:57",
+              348893615.6417163
+            ],
+            [
+              "2023-10-07 00:01",
+              348893615.6417163
+            ],
+            [
+              "2023-10-10 16:13",
+              348893615.6417163
+            ],
+            [
+              "2023-10-10 16:13",
+              348893615.6417163
+            ],
+            [
+              "2023-10-12 19:53",
+              348802517.5835312
+            ],
+            [
+              "2023-10-12 19:53",
+              348802517.5835312
+            ],
+            [
+              "2023-10-12 19:53",
+              348802517.5835312
+            ],
+            [
+              "2023-10-19 00:44",
+              350743344.8867959
+            ],
+            [
+              "2023-10-28 19:56",
+              350743344.8867959
+            ],
+            [
+              "2023-10-30 07:06",
+              350726454.2793381
+            ],
+            [
+              "2023-10-31 01:27",
+              351390330.0674453
+            ],
+            [
+              "2023-11-12 22:07",
+              351729652.29446614
+            ],
+            [
+              "2023-11-20 21:26",
+              351729652.29446614
+            ],
+            [
+              "2023-11-22 15:43",
+              351688998.8759996
+            ],
+            [
+              "2023-11-29 15:16",
+              351688998.8759996
+            ],
+            [
+              "2023-12-01 11:35",
+              352280111.85428905
+            ],
+            [
+              "2023-12-01 11:39",
+              350637751.9522984
+            ],
+            [
+              "2023-12-01 11:40",
+              352059236.4289554
+            ],
+            [
+              "2023-12-05 06:27",
+              352016553.1852045
+            ],
+            [
+              "2023-12-05 11:07",
+              354937386.800127
+            ],
+            [
+              "2023-12-05 12:58",
+              355487423.71129036
+            ],
+            [
+              "2023-12-05 19:08",
+              355487423.71129036
+            ],
+            [
+              "2023-12-07 01:08",
+              355314122.2304914
+            ],
+            [
+              "2023-12-11 11:42",
+              355314122.2304914
+            ],
+            [
+              "2023-12-11 14:20",
+              355218652.2354617
+            ],
+            [
+              "2023-12-11 18:31",
+              355105826.3775372
+            ],
+            [
+              "2023-12-11 20:06",
+              354421869.43756735
+            ]
+          ]
+        }
+      },
+      "comments": [],
+      "label": "December 2023",
+      "subquestions": []
+    },
+    {
+      "post_id": 15240,
+      "question_id": 15241,
+      "title": "How many barrels of crude oil will the Strategic Petroleum Reserve hold on the following dates? (March 2023)",
+      "question_type": "numeric",
+      "status": "resolved",
+      "resolution": "371175000.0",
+      "scheduled_close_time": "2023-03-30T11:02:00Z",
+      "cp_reveal_time": "2023-03-05T16:00:00Z",
+      "options": null,
+      "scaling": {
+        "range_min": 200000000.0,
+        "range_max": 700000000.0,
+        "nominal_min": 200000000.0,
+        "nominal_max": 700000000.0,
+        "zero_point": null,
+        "open_upper_bound": true,
+        "open_lower_bound": true,
+        "inbound_outcome_count": 200,
+        "continuous_range": [
+          200000000.0,
+          202500000.0,
+          205000000.0,
+          207500000.0,
+          210000000.0,
+          212500000.0,
+          215000000.0,
+          217500000.0,
+          220000000.0,
+          222500000.0,
+          225000000.0,
+          227500000.0,
+          230000000.0,
+          232500000.0,
+          235000000.0,
+          237500000.0,
+          240000000.0,
+          242500000.0,
+          245000000.0,
+          247500000.0,
+          250000000.0,
+          252500000.0,
+          255000000.0,
+          257500000.0,
+          260000000.0,
+          262500000.0,
+          265000000.0,
+          267500000.0,
+          270000000.0,
+          272500000.0,
+          275000000.0,
+          277500000.0,
+          280000000.0,
+          282500000.0,
+          285000000.0,
+          287500000.0,
+          290000000.0,
+          292500000.0,
+          295000000.0,
+          297500000.0,
+          300000000.0,
+          302500000.0,
+          305000000.0,
+          307500000.0,
+          310000000.0,
+          312500000.0,
+          315000000.0,
+          317500000.0,
+          320000000.0,
+          322500000.0,
+          325000000.0,
+          327500000.0,
+          330000000.0,
+          332500000.0,
+          335000000.0,
+          337500000.0,
+          340000000.0,
+          342500000.0,
+          345000000.0,
+          347500000.0,
+          350000000.0,
+          352500000.0,
+          355000000.0,
+          357500000.0,
+          360000000.0,
+          362500000.0,
+          365000000.0,
+          367500000.0,
+          370000000.0,
+          372500000.0,
+          375000000.0,
+          377500000.0,
+          380000000.0,
+          382500000.0,
+          385000000.0,
+          387500000.0,
+          390000000.0,
+          392500000.0,
+          395000000.0,
+          397500000.0,
+          400000000.0,
+          402500000.0,
+          405000000.0,
+          407500000.0,
+          410000000.0,
+          412500000.0,
+          415000000.0,
+          417500000.0,
+          420000000.0,
+          422500000.0,
+          425000000.0,
+          427500000.0,
+          430000000.0,
+          432500000.0,
+          435000000.0,
+          437500000.0,
+          440000000.0,
+          442500000.0,
+          445000000.0,
+          447500000.0,
+          450000000.0,
+          452500000.0,
+          455000000.0,
+          457500000.0,
+          460000000.0,
+          462500000.0,
+          465000000.0,
+          467500000.0,
+          470000000.0,
+          472500000.0,
+          475000000.0,
+          477500000.0,
+          480000000.0,
+          482500000.0,
+          485000000.00000006,
+          487500000.00000006,
+          490000000.0,
+          492500000.0,
+          495000000.0,
+          497500000.0,
+          500000000.0,
+          502500000.0,
+          505000000.0,
+          507500000.0,
+          510000000.0,
+          512500000.0,
+          515000000.0,
+          517500000.0,
+          520000000.0,
+          522500000.0,
+          525000000.0,
+          527500000.0,
+          530000000.0,
+          532500000.0,
+          535000000.0,
+          537500000.0,
+          540000000.0,
+          542500000.0,
+          545000000.0,
+          547500000.0,
+          550000000.0,
+          552500000.0,
+          555000000.0,
+          557500000.0,
+          560000000.0,
+          562500000.0,
+          565000000.0,
+          567500000.0,
+          570000000.0,
+          572500000.0,
+          575000000.0,
+          577500000.0,
+          580000000.0,
+          582500000.0,
+          585000000.0,
+          587500000.0,
+          590000000.0,
+          592500000.0,
+          595000000.0,
+          597500000.0,
+          600000000.0,
+          602500000.0,
+          605000000.0,
+          607500000.0,
+          610000000.0,
+          612500000.0,
+          615000000.0,
+          617500000.0,
+          620000000.0,
+          622500000.0,
+          625000000.0,
+          627500000.0,
+          630000000.0,
+          632500000.0,
+          635000000.0,
+          637500000.0,
+          640000000.0,
+          642500000.0,
+          645000000.0,
+          647500000.0,
+          650000000.0,
+          652500000.0,
+          655000000.0,
+          657500000.0,
+          660000000.0,
+          662500000.0,
+          665000000.0,
+          667500000.0,
+          670000000.0,
+          672500000.0,
+          675000000.0,
+          677500000.0,
+          680000000.0,
+          682500000.0,
+          685000000.0,
+          687500000.0,
+          690000000.0,
+          692500000.0,
+          695000000.0,
+          697500000.0,
+          700000000.0
+        ]
+      },
+      "resolution_criteria": null,
+      "fine_print": null,
+      "background": null,
+      "nr_forecasters": null,
+      "methods": {
+        "recency_weighted": {
+          "method": "recency_weighted",
+          "status": 200,
+          "history_points": 14,
+          "latest": {
+            "as_of": "2023-03-29 16:20",
+            "forecaster_count": 5,
+            "center": 370175217.46545,
+            "lower": 358472735.33935404,
+            "upper": 384876815.8775289,
+            "mean": null,
+            "display": "370,175,217  IQR[358,472,735, 384,876,816]",
+            "per_option": null
+          },
+          "history": [
+            [
+              "2023-03-03 21:48",
+              363895274.3440154
+            ],
+            [
+              "2023-03-04 06:48",
+              364432588.89134705
+            ],
+            [
+              "2023-03-04 15:28",
+              360794057.6241179
+            ],
+            [
+              "2023-03-05 19:55",
+              364926808.8390225
+            ],
+            [
+              "2023-03-12 20:54",
+              369012203.72808146
+            ],
+            [
+              "2023-03-12 20:56",
+              355502860.2406982
+            ],
+            [
+              "2023-03-12 20:57",
+              368532334.18742263
+            ],
+            [
+              "2023-03-12 20:58",
+              368532334.18742263
+            ],
+            [
+              "2023-03-13 15:54",
+              368052497.6876681
+            ],
+            [
+              "2023-03-14 08:42",
+              368052497.6876681
+            ],
+            [
+              "2023-03-23 16:31",
+              368052497.6876681
+            ],
+            [
+              "2023-03-29 16:20",
+              370175217.46545
+            ],
+            [
+              "2023-03-29 16:20",
+              370175217.46545
+            ],
+            [
+              "2023-03-29 16:20",
+              370175217.46545
+            ]
+          ]
+        },
+        "metaculus_pros": {
+          "method": "metaculus_pros",
+          "status": 200,
+          "history_points": 13,
+          "latest": {
+            "as_of": "2023-03-29 16:20",
+            "forecaster_count": 1,
+            "center": 365394958.06447417,
+            "lower": 354860293.6350189,
+            "upper": 377042071.53744674,
+            "mean": null,
+            "display": "365,394,958  IQR[354,860,294, 377,042,072]",
+            "per_option": null
+          },
+          "history": [
+            [
+              "2023-03-04 06:48",
+              365394958.06447417
+            ],
+            [
+              "2023-03-04 15:28",
+              365394958.06447417
+            ],
+            [
+              "2023-03-05 19:55",
+              365394958.06447417
+            ],
+            [
+              "2023-03-12 20:54",
+              365394958.06447417
+            ],
+            [
+              "2023-03-12 20:56",
+              365394958.06447417
+            ],
+            [
+              "2023-03-12 20:57",
+              365394958.06447417
+            ],
+            [
+              "2023-03-12 20:58",
+              365394958.06447417
+            ],
+            [
+              "2023-03-13 15:54",
+              365394958.06447417
+            ],
+            [
+              "2023-03-14 08:42",
+              365394958.06447417
+            ],
+            [
+              "2023-03-23 16:31",
+              365394958.06447417
+            ],
+            [
+              "2023-03-29 16:20",
+              365394958.06447417
+            ],
+            [
+              "2023-03-29 16:20",
+              365394958.06447417
+            ],
+            [
+              "2023-03-29 16:20",
+              365394958.06447417
+            ]
+          ]
+        },
+        "gold_medalists": {
+          "method": "gold_medalists",
+          "status": 200,
+          "history_points": 0,
+          "latest": null,
+          "history": []
+        }
+      },
+      "comments": [],
+      "label": "March 2023",
+      "subquestions": []
+    },
+    {
+      "post_id": 15240,
+      "question_id": 15242,
+      "title": "How many barrels of crude oil will the Strategic Petroleum Reserve hold on the following dates? (June 2023)",
+      "question_type": "numeric",
+      "status": "resolved",
+      "resolution": "347158000.0",
+      "scheduled_close_time": "2023-06-30T11:02:00Z",
+      "cp_reveal_time": "2023-03-05T16:00:00Z",
+      "options": null,
+      "scaling": {
+        "range_min": 200000000.0,
+        "range_max": 700000000.0,
+        "nominal_min": 200000000.0,
+        "nominal_max": 700000000.0,
+        "zero_point": null,
+        "open_upper_bound": true,
+        "open_lower_bound": true,
+        "inbound_outcome_count": 200,
+        "continuous_range": [
+          200000000.0,
+          202500000.0,
+          205000000.0,
+          207500000.0,
+          210000000.0,
+          212500000.0,
+          215000000.0,
+          217500000.0,
+          220000000.0,
+          222500000.0,
+          225000000.0,
+          227500000.0,
+          230000000.0,
+          232500000.0,
+          235000000.0,
+          237500000.0,
+          240000000.0,
+          242500000.0,
+          245000000.0,
+          247500000.0,
+          250000000.0,
+          252500000.0,
+          255000000.0,
+          257500000.0,
+          260000000.0,
+          262500000.0,
+          265000000.0,
+          267500000.0,
+          270000000.0,
+          272500000.0,
+          275000000.0,
+          277500000.0,
+          280000000.0,
+          282500000.0,
+          285000000.0,
+          287500000.0,
+          290000000.0,
+          292500000.0,
+          295000000.0,
+          297500000.0,
+          300000000.0,
+          302500000.0,
+          305000000.0,
+          307500000.0,
+          310000000.0,
+          312500000.0,
+          315000000.0,
+          317500000.0,
+          320000000.0,
+          322500000.0,
+          325000000.0,
+          327500000.0,
+          330000000.0,
+          332500000.0,
+          335000000.0,
+          337500000.0,
+          340000000.0,
+          342500000.0,
+          345000000.0,
+          347500000.0,
+          350000000.0,
+          352500000.0,
+          355000000.0,
+          357500000.0,
+          360000000.0,
+          362500000.0,
+          365000000.0,
+          367500000.0,
+          370000000.0,
+          372500000.0,
+          375000000.0,
+          377500000.0,
+          380000000.0,
+          382500000.0,
+          385000000.0,
+          387500000.0,
+          390000000.0,
+          392500000.0,
+          395000000.0,
+          397500000.0,
+          400000000.0,
+          402500000.0,
+          405000000.0,
+          407500000.0,
+          410000000.0,
+          412500000.0,
+          415000000.0,
+          417500000.0,
+          420000000.0,
+          422500000.0,
+          425000000.0,
+          427500000.0,
+          430000000.0,
+          432500000.0,
+          435000000.0,
+          437500000.0,
+          440000000.0,
+          442500000.0,
+          445000000.0,
+          447500000.0,
+          450000000.0,
+          452500000.0,
+          455000000.0,
+          457500000.0,
+          460000000.0,
+          462500000.0,
+          465000000.0,
+          467500000.0,
+          470000000.0,
+          472500000.0,
+          475000000.0,
+          477500000.0,
+          480000000.0,
+          482500000.0,
+          485000000.00000006,
+          487500000.00000006,
+          490000000.0,
+          492500000.0,
+          495000000.0,
+          497500000.0,
+          500000000.0,
+          502500000.0,
+          505000000.0,
+          507500000.0,
+          510000000.0,
+          512500000.0,
+          515000000.0,
+          517500000.0,
+          520000000.0,
+          522500000.0,
+          525000000.0,
+          527500000.0,
+          530000000.0,
+          532500000.0,
+          535000000.0,
+          537500000.0,
+          540000000.0,
+          542500000.0,
+          545000000.0,
+          547500000.0,
+          550000000.0,
+          552500000.0,
+          555000000.0,
+          557500000.0,
+          560000000.0,
+          562500000.0,
+          565000000.0,
+          567500000.0,
+          570000000.0,
+          572500000.0,
+          575000000.0,
+          577500000.0,
+          580000000.0,
+          582500000.0,
+          585000000.0,
+          587500000.0,
+          590000000.0,
+          592500000.0,
+          595000000.0,
+          597500000.0,
+          600000000.0,
+          602500000.0,
+          605000000.0,
+          607500000.0,
+          610000000.0,
+          612500000.0,
+          615000000.0,
+          617500000.0,
+          620000000.0,
+          622500000.0,
+          625000000.0,
+          627500000.0,
+          630000000.0,
+          632500000.0,
+          635000000.0,
+          637500000.0,
+          640000000.0,
+          642500000.0,
+          645000000.0,
+          647500000.0,
+          650000000.0,
+          652500000.0,
+          655000000.0,
+          657500000.0,
+          660000000.0,
+          662500000.0,
+          665000000.0,
+          667500000.0,
+          670000000.0,
+          672500000.0,
+          675000000.0,
+          677500000.0,
+          680000000.0,
+          682500000.0,
+          685000000.0,
+          687500000.0,
+          690000000.0,
+          692500000.0,
+          695000000.0,
+          697500000.0,
+          700000000.0
+        ]
+      },
+      "resolution_criteria": null,
+      "fine_print": null,
+      "background": null,
+      "nr_forecasters": null,
+      "methods": {
+        "recency_weighted": {
+          "method": "recency_weighted",
+          "status": 200,
+          "history_points": 19,
+          "latest": {
+            "as_of": "2023-05-02 20:03",
+            "forecaster_count": 8,
+            "center": 365830929.84112775,
+            "lower": 349272623.71960425,
+            "upper": 378652516.5825604,
+            "mean": null,
+            "display": "365,830,930  IQR[349,272,624, 378,652,517]",
+            "per_option": null
+          },
+          "history": [
+            [
+              "2023-03-03 21:48",
+              370104242.51616156
+            ],
+            [
+              "2023-03-04 06:49",
+              370333821.04147345
+            ],
+            [
+              "2023-03-04 18:54",
+              361214505.1593648
+            ],
+            [
+              "2023-03-12 20:54",
+              369417310.9706019
+            ],
+            [
+              "2023-03-12 20:58",
+              369417310.9706019
+            ],
+            [
+              "2023-03-13 15:54",
+              369563408.82815754
+            ],
+            [
+              "2023-03-13 17:34",
+              361163048.94105816
+            ],
+            [
+              "2023-03-14 08:42",
+              363101676.83033127
+            ],
+            [
+              "2023-03-23 16:31",
+              363101676.83033127
+            ],
+            [
+              "2023-04-02 19:42",
+              365622730.5767722
+            ],
+            [
+              "2023-04-11 20:19",
+              365452149.8402312
+            ],
+            [
+              "2023-04-11 20:19",
+              365452149.8402312
+            ],
+            [
+              "2023-04-11 20:20",
+              365452149.8402312
+            ],
+            [
+              "2023-04-23 03:10",
+              365717334.4935576
+            ],
+            [
+              "2023-04-30 02:09",
+              365027242.0432621
+            ],
+            [
+              "2023-05-02 08:05",
+              363982104.15421927
+            ],
+            [
+              "2023-05-02 13:47",
+              365190123.23881274
+            ],
+            [
+              "2023-05-02 20:03",
+              366038562.4782978
+            ],
+            [
+              "2023-05-02 20:03",
+              365830929.84112775
+            ]
+          ]
+        },
+        "metaculus_pros": {
+          "method": "metaculus_pros",
+          "status": 200,
+          "history_points": 18,
+          "latest": {
+            "as_of": "2023-05-02 20:03",
+            "forecaster_count": 3,
+            "center": 363113667.23487616,
+            "lower": 347905575.3315209,
+            "upper": 376720080.81275237,
+            "mean": null,
+            "display": "363,113,667  IQR[347,905,575, 376,720,081]",
+            "per_option": null
+          },
+          "history": [
+            [
+              "2023-03-04 06:49",
+              370635480.80196255
+            ],
+            [
+              "2023-03-04 18:54",
+              370635480.80196255
+            ],
+            [
+              "2023-03-12 20:54",
+              370635480.80196255
+            ],
+            [
+              "2023-03-12 20:58",
+              370635480.80196255
+            ],
+            [
+              "2023-03-13 15:54",
+              370635480.80196255
+            ],
+            [
+              "2023-03-13 17:34",
+              370635480.80196255
+            ],
+            [
+              "2023-03-14 08:42",
+              370635480.80196255
+            ],
+            [
+              "2023-03-23 16:31",
+              370635480.80196255
+            ],
+            [
+              "2023-04-02 19:42",
+              370635480.80196255
+            ],
+            [
+              "2023-04-11 20:19",
+              366046738.0215283
+            ],
+            [
+              "2023-04-11 20:19",
+              366046738.0215283
+            ],
+            [
+              "2023-04-11 20:20",
+              366046738.0215283
+            ],
+            [
+              "2023-04-23 03:10",
+              366230502.5619519
+            ],
+            [
+              "2023-04-30 02:09",
+              364353202.29478455
+            ],
+            [
+              "2023-05-02 08:05",
+              363049950.2023978
+            ],
+            [
+              "2023-05-02 13:47",
+              363030827.23565614
+            ],
+            [
+              "2023-05-02 20:03",
+              363113667.23487616
+            ],
+            [
+              "2023-05-02 20:03",
+              363113667.23487616
+            ]
+          ]
+        },
+        "gold_medalists": {
+          "method": "gold_medalists",
+          "status": 200,
+          "history_points": 5,
+          "latest": {
+            "as_of": "2023-05-02 20:03",
+            "forecaster_count": 1,
+            "center": 362608034.3680557,
+            "lower": 345894636.37901056,
+            "upper": 378608465.9912814,
+            "mean": null,
+            "display": "362,608,034  IQR[345,894,636, 378,608,466]",
+            "per_option": null
+          },
+          "history": [
+            [
+              "2023-04-30 02:09",
+              362608034.3680557
+            ],
+            [
+              "2023-05-02 08:05",
+              362608034.3680557
+            ],
+            [
+              "2023-05-02 13:47",
+              362608034.3680557
+            ],
+            [
+              "2023-05-02 20:03",
+              362608034.3680557
+            ],
+            [
+              "2023-05-02 20:03",
+              362608034.3680557
+            ]
+          ]
+        }
+      },
+      "comments": [],
+      "label": "June 2023",
+      "subquestions": []
+    }
+  ]
+}

@@ -18,60 +18,64 @@ dates:
   resolves: '2027-01-01'
 status: open
 current:
-  version: 2
-  date: '2026-09-13'
-  median: 0.055
+  version: 3
+  date: '2026-10-02'
+  median: 0.05
   iqr:
-  - 0.035
-  - 0.12
+  - 0.03
+  - 0.105
   community:
-    cp: 0.07
+    cp: 0.04
     pro: 0.3
-    gold: 0.1
-    n_forecasters: 99
-    as_of: '2026-09-13'
-next_review: '2026-09-25'
+    gold: 0.05
+    n_forecasters: 110
+    as_of: '2026-10-02'
+next_review: '2026-10-16'
 tripwires:
-- signal: A forensic disclosure (OpenAI supplementary report, compelled production, or auditor findings)
-    states what the 956 secrets' IAM/API/IaC scopes covered, what was on the cloned worker-node disk,
-    or names model-weight or checkpoint storage among assets reached
+- signal: A forensic disclosure (OpenAI supplementary or 'broader effects' disclosure, compelled production,
+    or auditor findings) states what the 956 secrets' IAM/API/IaC scopes covered, what was on the cloned
+    worker-node disk, or names model-weight or checkpoint storage among assets reached
   by: '2026-11-30'
   direction: up
   magnitude: 20
   magnitude_unit: pp
-  fired: null
-- signal: A named, non-anonymous source (on-the-record OpenAI employee, AG filing, court document) asserts
-    weight access and copying by the swarm
+  fired: false
+- signal: A named, non-anonymous source (on-the-record OpenAI employee incl. fired researchers Korbak,
+    Balesni or Wang; AG filing; court document) asserts weight access and copying by the swarm
   by: '2026-12-15'
   direction: up
   magnitude: 25
   magnitude_unit: pp
-  fired: null
+  fired: false
 - signal: OpenAI or an OpenAI executive states on the record that forensics found no access to or copying
     of model weights
   by: '2026-10-31'
   direction: down
   magnitude: 2.5
   magnitude_unit: pp
-  fired: null
-- signal: Hawley's 2026-10-01 response set or Blumenthal's 2026-09-24 response published in whole or part
-    and addressing weight custody during the incident
+  fired: false
+- signal: Hawley publishes (whole or part) OpenAI's answer to annex Q10 or documents on the July 13-20
+    second wave, or Blumenthal publishes OpenAI's reply (both response deadlines passed unpublished as
+    of 2026-10-02)
   by: '2026-11-15'
   direction: either
   magnitude: 0
   magnitude_unit: pp
-  fired: null
-- signal: Alabama subpoena litigated (motion to quash or enforcement) onto a public docket, or Nvidia-Hugging
-    Face merger filings (S-4, proxy, HSR second request, closing risk factors) describe incident scope
+  fired: false
+- signal: 'California AG (subpoena 2026-10-01), FTC (CIDs), or the LASST suit (SF Superior Court, filed
+    2026-09-29) puts a document describing OpenAI-internal incident scope on a public record, or the Alabama
+    subpoena is litigated onto a public docket. (Nvidia-HF merger-filing leg dropped: cash deal for a
+    private company, no S-4/proxy)'
   by: '2026-12-15'
   direction: either
   magnitude: 0
   magnitude_unit: pp
-  fired: null
-- signal: No weights-relevant disclosure of any kind (mechanical decay with ~1 month of window left)
+  fired: false
+- signal: No weights-relevant disclosure of any kind (remaining mechanical decay after -0.4pp applied
+    in v3)
   by: '2026-11-30'
   direction: down
-  magnitude: 2
+  magnitude: 1.5
   magnitude_unit: pp
   fired: null
 resolution:

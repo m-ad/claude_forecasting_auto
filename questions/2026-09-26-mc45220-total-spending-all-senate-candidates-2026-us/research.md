@@ -148,3 +148,44 @@ few pre-primary reports run to Jul–Sep):
   - How fast does the FEC process Senate post-general reports into the aggregate? Check
     2024: was the aggregate on 2024-12-31 already near final?
   - After 10-15, re-download weball26 and re-run the multiple check.
+
+## 2026-10-02 (v3) — update
+
+- **Metaculus (pre-fetched `raw/metaculus-2026-10-02.json`, 14:09Z).**
+  - CP $1.694B [$1.497B, $1.950B], n=65.
+  - Pro $1.816B [$1.591B, $2.088B], n=7.
+  - Gold $1.709B [$1.530B, $1.927B], n=24.
+  - Movement since opening (09-28): CP 1.686 → 1.754 (09-30) → 1.694; Pro flat at ~1.82;
+    gold 1.766 → 1.709.
+  - Reveal tripwire (> $200M gap) not fired.
+- **Comments.**
+  - Theomachado (09-28) asked whether the 12-02 page (data to 10-14) or a later page
+    counts, and estimated a ~$220M timing gap.
+  - The author, DaAdCh (09-28), replied that reporting lag "should and will be considered"
+    by the admins, and that "we have almost a month to wait … and so will include
+    post-general reports". The only limit is the tournament window.
+  - DeRuina (09-30) made a disbursement-multiple argument: June disbursements were $711M in
+    2022, $682M in 2024 and ~$670M in 2026, with finals at ~2.5×. They watch for Q3
+    disbursements through 09-30 above ~$1.05B.
+- **FEC bulk weball26/cn26** (file last-modified 2026-10-02 05:37Z) are unchanged versus
+  09-26 for Senate candidates: running-2026 class 336 candidates, $880.8M receipts,
+  $644.0M disbursements, $369.9M COH. 93 candidates have coverage past 06-30
+  (pre-primary), carrying $173M of disbursements. No Q3 reports yet. Snapshot:
+  `raw/fec-bulk-senate-totals-2026-10-02.csv`.
+- **FEC API** `candidates/totals/aggregates` (election_full true and false): OVER_RATE_LIMIT
+  on DEMO_KEY again. Still no full-period 2026 number newer than 09-26 ($711.3M).
+- **Reporting calendar:** no FEC deadline has passed since 09-26.
+  - October Quarterly (to 09-30) due 10-15. Expect bulk/API processing ~10-16 → 10-25.
+  - Pre-General (to 10-14) due 10-22.
+  - Post-General (to 11-23) due 12-03.
+- **News searches** ("third quarter Senate fundraising 2026", "Talarico Paxton September
+  2026", "Senate campaign spending 2026 most expensive"): no 2026 Q3 totals announced yet.
+  - USAFacts snippet matches the bulk data (Talarico $47.0M, Ossoff $39.7M spent).
+  - Washington Sun (09-20): after NRSC v. FEC, NRSC coordinated spending ~$46M (vs <$3M
+    before); DSCC ~$1M. This party spending is not in candidate totals: small down.
+- **OpenSecrets:** still 403.
+- **MC** (`v2` model reproduced exactly: 1.658 [1.519, 1.813]). Timing weights 80/12/5/3 →
+  87/8/2/3 give 1.671 [1.537, 1.824]. Hand adjustments: crowd +$10M (upper quartile +$15M),
+  NRSC −$5M → **$1.675B [$1.540B, $1.835B]**.
+- **Next:** re-download weball26 after ~10-16 (Q3) and ~10-24 (pre-general). Retry the FEC
+  API in a fresh hour window.

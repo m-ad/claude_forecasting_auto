@@ -195,3 +195,39 @@ IQR on the leading option: **[40%, 54%]**.
 3. Does an **Iran settlement** land before 9 October? It is the only path that revives Trump.
 4. Norwegian Nobel Committee composition and any public signalling from chair-level figures.
 5. Whether Kalshi's Sudan ERR price holds, drifts, or spikes through late September.
+
+## v3 update — 2026-10-02
+
+### Live numbers fetched this session
+
+| Source | Retrieved | Key values |
+|---|---|---|
+| Metaculus #45383 (pre-fetched by the parent session, `raw/metaculus-2026-10-02.json`) | 2026-10-02 13:30 UTC | CP n=125: Other ind 40.1, Other org 20.2, Sudan 11.0, StC 5.8, MSF 5.5, ICC/ICJ 5.0, Navalnaya 4.4, Kuleba 4.0, UNRWA 2.6, Pope 1.0, Trump 0.2. Pros n=10: 34.7 / 19.4 / 14.3 / 6.6 / 5.1 / 5.1 / 5.1 / 5.1 / 2.3 / 2.0 / 0.3. Gold n=36: 42.0 / 21.8 / 11.3 / 4.1 / 5.1 / 4.1 / 4.1 / 3.6 / 2.7 / 1.1 / 0.1. No comments returned |
+| Kalshi API, event KXNOBELPEACE-26 (`raw/kalshi-KXNOBELPEACE-2026-10-02.json`) | 2026-10-02 | 37 lines, mids sum 103%, $1.62M total volume, $194k in the last 24h. Sudan 13/14, MSF 9/10 (was 10/14), Kuleba 8/9, StC 8/9, ICJ 6/7, ICC 4/5, CPJ 4/5, Navalnaya 3/4 (was 7/9), Carney 2.7/4.8, Nakate 2.0/2.1 (a new line; $21k traded). New organisation lines: Concordis, IAJ, IPRA (~2.5–3 each) |
+| Polymarket gamma API (`raw/polymarket-nobel-peace-prize-winner-2026-2026-10-02.json`) | 2026-10-02 | 32 open lines sum to 61.3%; $25.6M total. Sudan 15.65 (was 15.1), StC 6.35, ICJ 5.75 (was 4.75), CPJ 3.8, Navalnaya 3.7 (was 6.0), UNRWA 3.7 (was 5.35), Al-Saqqa 3.4, Trump 0.85 |
+
+Movement since 2026-09-26: Navalnaya fell on every venue. MSF and UNRWA softened, and the ICJ
+firmed. The Pros converged towards the CP (StC 11.9 → 6.6, Other org 16.2 → 19.4). No option
+is above 25% on any exchange.
+
+### Search log
+
+| Date | Query / source | Finding | Effect |
+|---|---|---|---|
+| 2026-10-02 | Oddschecker, 29 Sep | Nakate 19/10 (~34%) at BetGoodwin, BetAhoy and BetTom (identical prices); Sudan 3/1, MSF 4/1, Minneapolis 11/2, Attenborough 15/2, Navalnaya 15/2; MSF drifted 15/4 → 11/2 on 24 Sep | Nakate not followed by the exchanges (Kalshi 2%) → read as a soft-book price, not a leak |
+| 2026-10-02 | Covers.com, Kalshi recap updated 1 Oct | Sudan 13%, MSF 10%, Kuleba 9%, StC 9%, ICJ 6%; Carney's Kalshi price hit 14% the previous week, then fell back | confirms the Kalshi snapshot |
+| 2026-10-02 | NRK / VG / Dagbladet, "fredsprisen lekkasje" | Only the investigation into the **2025** leak (probable espionage; a state actor not ruled out). No 2026 leak | tripwire 1 not fired |
+| 2026-10-02 | NRK Sápmi (Egereva) | NRK repeats PRIO's list of 22 Sep; no new PRIO list | — |
+| 2026-10-02 | GlobalSecurity Iran War Day 216 (1 Oct) | No US strikes ashore for 24 periods; a Qatari-mediated Hormuz proposal; Trump to decide "very soon" between strikes and negotiation | tripwire 3 not fired |
+| 2026-10-02 | UK Charity Commission / MSF (Yahoo, 26 Sep) | Regulatory compliance case over alleged militant links in Gaza | MSF −0.5 (tripwire 4 partly fired) |
+| 2026-10-02 | UNRWA, September | Critical watchdog "report card"; confrontation at the UN | UNRWA −0.5, combined with the Polymarket fall |
+| 2026-10-02 | Navalnaya news, September | Statements on the Duma elections (21 Sep) and the EU's lifting of sanctions (22 Sep); nothing explains the market fall | Navalnaya −1.0, driven by the markets |
+| 2026-10-02 | Sudan ERRs, September | No new negative or positive news; MSF warns that Sudanese facilities are closing for lack of funding | hold |
+| 2026-10-02 | Wikipedia "2026 Nobel Peace Prize" | Last edited 4 Sep; nothing new | — |
+
+### Notes for the next update (2026-10-04 and T−1 on 2026-10-07)
+
+- The 2025 leak appeared on Polymarket hours before the announcement. This question closes
+  2026-10-08 at 11:00 UTC, so the leak tripwire is most useful between 7 and 8 Oct.
+- Watch whether Kalshi's Nakate or Carney line follows the bookmakers.
+- Watch whether the Charity Commission escalates the MSF case to a statutory inquiry.

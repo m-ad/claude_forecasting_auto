@@ -203,3 +203,37 @@ Paths and weights (mutually exclusive by *listing* date):
   written into risk factors.
 - Metaculus #44766 has only 7 forecasters; re-pull when the count rises — it is a better
   instrument for this question than #41141 itself.
+
+---
+
+## 2026-10-02 — v2 update log
+
+**Mode:** Update. CP moved 25% → 2%, a gap of more than 10pp against v1, but the cause is named and explained (Altman, 2026-09-12). 35 of 125 days have elapsed (<1/3), and the question's structure is unchanged.
+
+### Tripwire searches (run first)
+| Tripwire | Search / check | Result |
+|---|---|---|
+| Anthropic public S-1 by 09-30 | EDGAR company search "anthropic" (HTML + atom); full-text search "Anthropic PBC" in S-1/S-1/A/DRS since 2026-05-01 | **Not fired.** Only SPV and fund series. Reuters 09-05: launch slipped to mid-Oct at the earliest. Prospectus leaked to Reuters 09-28 ($4.59B 2025 revenue, $41.97B GAAP net loss) |
+| OpenAI ticker/exchange/range/syndicate report | WebSearch: "OpenAI IPO early 2027 / Q1 2027 / ticker" | **Not fired.** No such report |
+| OpenAI/Altman confirms 2027 on record | WebSearch "Altman OpenAI IPO will not happen 2026"; Investing.com/Reuters text read in full | **Fired, in a stronger form.** Fortune interview, carried by Reuters 2026-09-12: "right now would be an ill-advised moment to go public, and we don't feel pressure on that"; "I would say not 2026". Repeated at DevDay 09-29 (Bloomberg) with Friar: "we don't want to get distracted by suddenly being a public company" |
+| SoftBank bridge | WebSearch; Bloomberg via Yahoo 2026-09-09 read in full | **Fired.** $25.9B outstanding repaid 2026-09-15 via $10–20B bonds and a $10B margin loan against the OpenAI stake |
+| No OpenAI public S-1 | EDGAR company search "openai"; full-text search "OpenAI Group PBC", "OpenAI, Inc." | No operating-company registrant as of 2026-10-02 (pending; deadline 11-30) |
+
+### General developments since 2026-08-28
+| Date | Source | Finding | Effect |
+|---|---|---|---|
+| 09-04 → 10-01 | Wikipedia "2026 OpenAI agent cyberattacks"; Fortune 09-26; Forbes/WSJ 10-01 | Rogue-agent incidents (Hugging Face, Artifactory, RubyGems, Australian Medicare portal); second training pause ~09-26; GPT-6.1 launch scrapped; 3 safety researchers fired; **CA AG subpoena 10-01** | NO: a January roadshow is implausible; disclosure and legal overhang |
+| 09-16, 09-29 | Forbes; Bloomberg/TechCrunch | OpenAI is raising ≥$30B privately at ~$1.2–1.5T (latest ~$1.4T) | NO: private money replaces a near-term IPO |
+| 09-05 | Reuters via CNBC | Anthropic launch moved to mid-October at the earliest; a listing possible just before the November midterms | mildly NO for OpenAI (the AI-IPO pull comes later) |
+
+### Live numbers (2026-10-02)
+- Metaculus (pre-fetched by the parent, `raw/metaculus-2026-10-02.json`): CP 2.0% [1, 3] n=283 (817 total); Pro 2.0% [1, 3] n=24; gold 2.0% [1, 3] n=87. All three cohorts fell 25/20/25 → ~2 between 09-13 and 09-24. Comments: Wineclaw posted the Reuters link on 09-13; exmateriae (09-18): "even Anthropic might not IPO in 2026".
+- Polymarket "OpenAI IPO by Dec 31 2026": YES 3.75% (bid 3.6 / ask 3.9), $1.04M volume. NO-token history: 0.85 on 08-28 → 0.915–0.935 on 09-07..09-12 → 0.9625 on 09-13 onward. The market had already fallen from 15% to ~7–8% before the Altman interview (Anthropic delay, SoftBank repayment news, the safety incidents). File: `raw/polymarket-openai-ipo-2026-10-02.json`.
+- **Kalshi KXIPOOPENAI exists. v1 wrongly recorded "Kalshi: no market"**, because it only searched `category=Companies`, while this series is filed under "Financials". It resolves on S-1 effective, priced, or ticker assigned. Before 2027-01-01: bid 2 / ask 5 / last 3¢ ($143k). Before 02-01: 7/11/19¢. Before 03-01: 27/28/28¢. Before 04-01: 26/33/25¢ (not monotone, so thin). Before 06-01: 55/62¢. KXIPOANTHROPIC: before 11-01 4–6¢, before 12-01 73–78¢, before 2027-01-01 79–80¢. File: `raw/kalshi-ipo-markets-2026-10-02.json`.
+- Manifold ACX mirror: 5.8% (109 traders). File: `raw/manifold-acx-openai-ipo-2026-10-02.json`.
+- Metaculus #44766: not re-fetched (single-fetch rate-limit policy for this session).
+
+### Reasoning notes
+- Altman's statement covers *going public* (listing), not *filing*. The surviving YES mass is a public flip in mid/late December 2026 for a late-January 2027 pricing, before the Reg S-X 3-12 staleness cliff (~2027-02-14). An early-February pricing would most likely flip in January (NO).
+- Kalshi's Feb-2027 bucket (~18¢ between 02-01 and 03-01) is the main YES-side signal. It conflicts with the CEO's statement, paused training and the AG subpoena, and it trades on thin books, so I discount it.
+- Dead ends: marketplace.org and business-standard.com return 403. The CNBC DevDay live blog was available only as a search summary.

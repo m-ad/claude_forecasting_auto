@@ -17,19 +17,19 @@ dates:
   resolves: '2026-11-30'
 status: open
 current:
-  version: 4
-  date: '2026-09-24'
-  median: 284200000.0
+  version: 5
+  date: '2026-10-02'
+  median: 283600000.0
   iqr:
+  - 283300000.0
   - 283800000.0
-  - 284500000.0
   community:
-    cp: null
-    pro: null
-    gold: null
-    n_forecasters: null
-    as_of: '2026-09-24'
-next_review: '2026-09-30'
+    cp: 289616938.0
+    pro: 403880899.0
+    gold: 301973733.0
+    n_forecasters: 6
+    as_of: '2026-10-02'
+next_review: '2026-10-08'
 tripwires:
 - signal: EIA WPSR of 2026-09-30 (week ending 09-25) shows a draw of 0.25-0.60 Mb - flat trickle confirmed;
     also tighten the IQR to +/-0.25 Mb
@@ -37,39 +37,60 @@ tripwires:
   direction: down
   magnitude: 100000
   magnitude_unit: barrels
-  fired: null
+  fired: false
 - signal: EIA WPSR of 2026-09-30 (week ending 09-25) shows a build or a draw under 0.15 Mb - programme
     done
   by: '2026-09-30'
   direction: up
   magnitude: 350000
   magnitude_unit: barrels
-  fired: null
+  fired: false
 - signal: EIA WPSR of 2026-09-30 (week ending 09-25) shows a draw larger than 0.9 Mb - residual lifting
     fast
   by: '2026-09-30'
   direction: down
   magnitude: 600000
   magnitude_unit: barrels
-  fired: null
+  fired: false
 - signal: DOE issues any new SPR exchange RFP, award or re-offer before question close
   by: '2026-09-30'
   direction: down
   magnitude: 500000
   magnitude_unit: barrels
-  fired: null
-- signal: October-2026 STEO holds COSQPUS for September 2026 near 282 Mb while the weekly series sits
-    near 284 - investigate the delivery-paperwork gap
-  by: '2026-10-14'
-  direction: down
-  magnitude: 500000
+  fired: '2026-09-29'
+- signal: EIA WPSR of 2026-10-07 (week ending 10-02) shows a draw under 0.30 Mb or a build - the 09-25
+    lump was one-off
+  by: '2026-10-07'
+  direction: up
+  magnitude: 150000
   magnitude_unit: barrels
   fired: null
-- signal: Petroleum Supply Monthly prints the August 2026 actual near the STEO 284.15 Mb rather than the
-    weekly-implied ~286.07 - the bridge calibration is wrong for this regime; widen
+- signal: EIA WPSR of 2026-10-07 (week ending 10-02) shows a draw larger than 1.20 Mb - late-September
+    lifting fast
+  by: '2026-10-07'
+  direction: down
+  magnitude: 300000
+  magnitude_unit: barrels
+  fired: null
+- signal: October-2026 STEO prints COSQPUS for September 2026 at or below 282.5 Mb while the weekly series
+    sits near 283.8 - investigate the delivery-paperwork gap
+  by: '2026-10-14'
+  direction: down
+  magnitude: 400000
+  magnitude_unit: barrels
+  fired: null
+- signal: Petroleum Supply Monthly prints August 2026 MCSSTUS1 at or below 285.6 Mb (>=0.45 Mb under the
+    weekly-implied 286.07) - bridge negative in this regime; widen
   by: '2026-10-31'
   direction: down
-  magnitude: 1500000
+  magnitude: 600000
+  magnitude_unit: barrels
+  fired: null
+- signal: WCSSTUS1 value for week ending 2026-09-25 revised by more than 0.1 Mb from 283,767 kb - shift
+    one-for-one
+  by: '2026-10-31'
+  direction: either
+  magnitude: 0
   magnitude_unit: barrels
   fired: null
 resolution:

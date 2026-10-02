@@ -114,3 +114,62 @@ terminal probabilities into path-max probabilities.
 - Metaculus CP/Pro/gold after reveal 2026-09-30 17:00 UTC.
 - 10Y yield path after Sept PCE / Oct 2 payrolls; VIX futures Nov–Dec premium.
 - Whether US strikes on Iran resume earlier than "after midterms".
+
+## 2026-10-02 — v2 update log
+
+### Question mechanics (now published)
+
+- Criteria: highest Yahoo Finance `^VIX` "High" for any date 2026-10-01 … 2026-12-24 inclusive;
+  example given: Aug 2026 max 18.43 (Aug 5). Fine print: Cboe as fallback if Yahoo unreliable;
+  revisions after Dec 24 don't count.
+- **Verified Yahoo = Cboe daily HIGH incl. GTH**: Yahoo daily bars match `VIX_History.csv`
+  HIGH/OPEN to the cent for every September 2026 session, including the 2026-09-07 Labor Day
+  (GTH-only) row. Yahoo 5-min series: Oct 2 high 16.24 at 03:20 ET (overnight), while Cboe's
+  regular-session delayed quote showed high 15.80. → overnight spikes count.
+- Realised: Oct 1 high **17.59** (10:00 ET; close 16.39); Oct 2 high 16.24 so far (retrieved
+  ~11:00 ET, session open; spot 15.47). Floor = 17.59.
+
+### Data pulled 2026-10-02
+
+| Series | Value | File |
+|---|---|---|
+| VIX close Sep 28/29/30/Oct 1 | 16.07 / 16.04 / 16.34 / 16.39 | `raw/VIX_History-2026-10-02.csv` (Cboe now 307-redirects to cdn-api.cboe.com; use `curl -L`) |
+| VIX3M Oct 1 / Oct 2 intraday | 18.58 / 18.17 | `raw/VIX3M_History-2026-10-02.csv`, `raw/cboe-quotes-2026-10-02.json` |
+| VIX9D Oct 1 / Oct 2 | 14.00 / 12.45 | same |
+| VVIX Oct 1 / Oct 2 | 92.0 / 89.1 | same |
+| Option forwards (parity) | Oct-07 16.6, Oct-14 17.3, Oct-21 17.8, Oct-28 17.8, Nov-04 18.2, Nov-18 18.4, Dec-16 18.8 | `raw/cboe-vix-options-2026-10-02.json` |
+| Risk-neutral digitals | Nov-18 P(>25) 8.5%, P(>30) 4.5%; Dec-16 10.5% / 6% | same |
+| 10Y (^TNX) | close 5.293 Sep 30 (peak), intraday 5.342 Oct 1, 5.21 Oct 2 | Yahoo chart API |
+| Brent / WTI | ~100.0 / ~89.5 Oct 2 (Brent 106 a week ago) | Yahoo chart API |
+| S&P 500 | 7,666 Oct 1; 7,738 Oct 2 (+0.9%) | Yahoo chart API |
+| Metaculus | CP 24.31 [21.07, 28.74] n=67; Pro 24.39 [21.28, 28.96] n=7; gold 24.33 [21.40, 28.33] n=26; CP path 22.8 (09-28) → 23.8 (10-01) → 24.3 | `raw/metaculus-2026-10-02.json` |
+
+### Base rates recomputed (`analysis/update_2026_10_02.py`)
+
+Remaining 57 sessions, floored at 17.59:
+- start close 14.5–17.5, 1992+: median 23.1, IQR [19.8, 28.8], P>30 21%, P>40 6% (~33 episodes)
+- same 2004+: median 23.4, IQR [20.8, 29.6], P>30 25%, P>40 8% (~24 episodes)
+- + VIX3M 17.5–19.5: median 25.3, IQR [22.1, 31.0], P>30 25%, P>40 11% (~24 episodes)
+- Spike-year sub-class (Jan–Sep max HIGH > 30, last-Sep close < 19), n=9: Q4 peaks 21.9, 16.9,
+  17.2, 31.1, 23.0, 36.1, 23.1, 28.3, 29.0; median 23.1; median ratio to Sep close 1.69 vs 1.32
+  for non-spike calm-Sep years (n=11, median level 19.9). Tested in response to DeRuina's
+  Metaculus comment. The 2004/2005 >30 Jan–Sep highs look suspicious (possibly data artefacts),
+  which is another reason this gets low weight.
+
+### Search log
+
+| Date | Query / source | Finding | Effect |
+|---|---|---|---|
+| 2026-10-02 | "stock market today October 1 2026" (TheStreet, WaPo, CNBC snippets) | S&P +0.19% to 7,666; yields at 20+-year highs in the morning, stocks bottomed ~noon; this matches the VIX 17.59 high at 10:00 ET | floor explained; rate channel live |
+| 2026-10-02 | "stocks jobs report October 2 2026" (CNBC, Yahoo live, TheStreet snippets) | Sept NFP +29k vs 84k consensus, UE 4.2%; 10Y −6bp to 5.18% after highest since 2002 this week; FedWatch 84% October hold; S&P +1%, Nasdaq +1.7% record | ↓ small (rates channel cooler) |
+| 2026-10-02 | CBS Iran live blog 10-02 (fetched) | Trump: war over "right after the election… maybe before"; TR CSG + Makin Island ARG (~9,000) arrive by end of October; no strikes resumed; Iranian Hormuz-toll bill | ↑ small; pre-election strike risk |
+| 2026-10-02 | Iran search (Iran International, GlobalSecurity day-216) | UK links Iran to RAF Fairford incident; Houthi–Saudi fighting near a shipping lane | context |
+| 2026-10-02 | "VIX October 2026 midterms hedging" | Futures hump at Nov; CNBC 09-10 says investors are paying up for 3-month vol protection | already priced in options |
+| 2026-10-02 | Kalshi series (14,567), Polymarket search "VIX" | No matching market | none |
+| 2026-10-02 | WebFetch TheStreet / CNBC | 403 (snippets only) | — |
+
+### Open questions for next review (2026-10-16)
+
+- VIX path through Oct 21 expiry (the below-18 tripwire); Q3 earnings kick-off.
+- Iran: any pre-election strikes once the carrier group arrives (late October).
+- 10Y back above 5.3%? Sept CPI (mid-October).

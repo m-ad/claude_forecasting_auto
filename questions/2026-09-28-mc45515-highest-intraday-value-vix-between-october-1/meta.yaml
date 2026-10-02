@@ -17,19 +17,19 @@ dates:
   resolves: '2026-12-25'
 status: open
 current:
-  version: 1
-  date: '2026-09-28'
-  median: 23.3
+  version: 2
+  date: '2026-10-02'
+  median: 23.8
   iqr:
-  - 20.0
-  - 28.5
+  - 20.4
+  - 29.0
   community:
-    cp: null
-    pro: null
-    gold: null
-    n_forecasters: 8
-    as_of: '2026-09-28'
-next_review: '2026-10-01'
+    cp: 24.31
+    pro: 24.39
+    gold: 24.33
+    n_forecasters: 68
+    as_of: '2026-10-02'
+next_review: '2026-10-16'
 tripwires:
 - signal: Published Metaculus resolution criteria name a source other than Cboe daily HIGH, or exclude
     extended-hours prints
@@ -37,30 +37,44 @@ tripwires:
   direction: either
   magnitude: 0
   magnitude_unit: VIX points
-  fired: null
+  fired: false
 - signal: Metaculus CP or Pro median (revealed 2026-09-30 17:00 UTC) differs from 23.3 by more than 3
     points
   by: '2026-10-02'
   direction: either
   magnitude: 0
   magnitude_unit: VIX points
-  fired: null
+  fired: false
 - signal: US 10-year Treasury yield closes at or above 5.50%
   by: '2026-11-15'
   direction: up
   magnitude: 3
   magnitude_unit: VIX points
-  fired: null
-- signal: US resumes strikes on Iran or Strait of Hormuz closed with Brent settling above $120
+  fired: false
+- signal: US resumes strikes on Iran (incl. before Nov 3) or Strait of Hormuz closed with Brent settling
+    above $120
   by: '2026-12-10'
   direction: up
   magnitude: 3
+  magnitude_unit: VIX points
+  fired: false
+- signal: VIX intraday high stays below 18.0 every session from 2026-10-01 through 2026-10-21 (Oct VIX
+    expiry)
+  by: '2026-10-21'
+  direction: down
+  magnitude: 1
   magnitude_unit: VIX points
   fired: null
 - signal: VIX intraday high stays below 18.0 every session from 2026-10-01 through 2026-11-06 (post-midterm)
   by: '2026-11-06'
   direction: down
   magnitude: 4
+  magnitude_unit: VIX points
+  fired: null
+- signal: VIX closes above 20.0 on any session before 2026-10-16
+  by: '2026-10-16'
+  direction: up
+  magnitude: 3
   magnitude_unit: VIX points
   fired: null
 - signal: Continuing resolution lapses 2026-12-11 and a federal shutdown is still running on 2026-12-15

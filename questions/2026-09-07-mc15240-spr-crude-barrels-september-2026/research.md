@@ -303,3 +303,52 @@ the tails. v4's 09-30 tripwires include the middle band.
 1. 2026-09-30 WPSR (week ending 09-25): the last weekly print before close.
 2. October STEO (~10-06): September `COSQPUS` vs ~284.2.
 3. PSM July/August actuals (~10-31): bridge test.
+
+---
+
+# v5 research log — 2026-10-02
+
+Single-slug update; December sibling not touched (its evidence is noted in the report line only).
+
+## Searches and fetches
+
+| Date | Query / source | Result | Used for |
+|---|---|---|---|
+| 2026-10-02 | `raw/metaculus-2026-10-02.json` (pre-fetched by parent; whole group post) | q31307 status **closed** (2026-09-30 11:02 UTC), unresolved; final CP 289,616,938 IQR [278.6, 380.0] Mb n=6; gold 301,973,733 n=5; Pro 403,880,899 n=1; 8 comments, none on September 2026 | community fields; no info on the print |
+| 2026-10-02 | EIA `WCSSTUS1w.xls` (HTTP 200) | wk. 09-25 = **283,767** kb (draw 0.785 Mb); 09-18 unrevised 284,552 | anchor |
+| 2026-10-02 | EIA `MCSSTUS1m.xls` (HTTP 200) | now ends **2026-07 = 304,810** kb | bridge point: weekly 07-31 = 304,809, residual +1 kb (Friday month end) |
+| 2026-10-02 | DOE Petroleum Reserves News listing | latest item still 2026-07-09; the 09-29 RFP not listed there | — |
+| 2026-10-02 | "Strategic Petroleum Reserve October 2026"; "Energy Department RFP 40 million barrels ... bids due October 6" | DOE RFP 2026-09-29: up to 40 Mb exchange, Big Hill + Bryan Mound, bids due 10-06 11:00 CT, **deliveries November and December 2026**, "final tranche" of the 172 Mb | v4 tripwire "new RFP" fired; zero September effect |
+| 2026-10-02 | OilPrice 09-29, Big Energy News 09-30, OGJ 09-30 | corroborate; OGJ: >133 Mb awarded over four exchanges; June solicitation placed only ~0.5 Mb with one company | residual 1.825 Mb; December context |
+| 2026-10-02 | qz.com "final 40 million barrels" | HTTP 403 | — |
+| 2026-10-02 | energy.gov article URL from search | fetch returned unrelated Office of Science content | not cited as primary |
+| 2026-10-02 | Tim Dallinger WPSR summary 9-25-26 | "0.8 MMB drawn from the SPR"; low interest in loans at current terms | corroboration |
+| 2026-10-02 | KuCoin / Trading Economics search text | 283.8 Mb, 27th straight weekly draw, lowest since Oct 1982 | corroboration |
+| 2026-10-02 | Kalshi `KXSPR`; Manifold search | none relevant | — |
+
+## What the print says
+
+Draws: 3.122 → 1.244 → 0.403 → 0.405 → **0.785**. The flat trickle did not hold. The rate doubled. That
+fits the "awarded ≠ lifted" tail: lumpy lifts by one or two remaining holders. Residual award
+balance: 133.5 − (415.442 − 283.767) = **1.825 Mb**. Only 5 days (09-26 → 09-30, a Wednesday) remain
+to project, so the regime choice matters much less than before. The bridge SD (0.28 Mb) now
+accounts for most of the uncertainty.
+
+Model `raw/scenario-model-2026-10-02.py`: trickle 0.35–0.85 Mb/wk 55%, faster 0.85–1.6 15%, taper 20%,
+done 10%; bridge N(+0.18, 0.28). Result: median 283.57, IQR [283.30, 283.83], p5 282.88, p95 284.20.
+Sensitivity: an unbiased bridge gives 283.39; fast-lift weight at 40% gives 283.41; taper+done at 60% gives 283.74.
+
+## Tripwire design lesson (repeat)
+
+For the second consecutive version, the print landed in a gap between tripwire bands (v4: 0.60–0.90
+uncovered). For a continuous signal, the bands must partition the range. v5 does this with three
+bands for the 10-07 print (< 0.30 / 0.30–1.20 / > 1.20). Also: an "RFP issued" tripwire must
+condition on the **delivery window**, not just on issuance. The 09-29 RFP fired the v4 tripwire but has
+zero September effect.
+
+## Open questions for next time
+
+1. 2026-10-07 WPSR (wk. 10-02): brackets the 09-30 level; interpolated 09-30 ≈ 283.767 − (5/7)·D.
+2. October STEO (~10-06/07): September `COSQPUS`.
+3. PSM August (~10-30): first post-drawdown test of the bridge on a non-Friday month end (Mon 08-31).
+4. Resolution: PSM September, ~2026-11-30.

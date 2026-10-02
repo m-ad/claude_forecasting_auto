@@ -13,19 +13,19 @@ dates:
   resolves: '2026-10-09'
 status: open
 current:
-  version: 2
-  date: '2026-09-26'
-  median: 0.44
+  version: 3
+  date: '2026-10-02'
+  median: 0.43
   iqr:
   - 0.37
-  - 0.51
+  - 0.5
   community:
-    cp: 0.394
-    pro: 0.337
-    gold: 0.413
-    n_forecasters: 114
-    as_of: '2026-09-26'
-next_review: '2026-10-02'
+    cp: 0.401
+    pro: 0.347
+    gold: 0.42
+    n_forecasters: 125
+    as_of: '2026-10-02'
+next_review: '2026-10-04'
 tripwires:
 - signal: Norwegian media (NRK, Aftenposten, VG) report a leak of the laureate's name - collapse the vector
     onto that option
@@ -33,34 +33,34 @@ tripwires:
   direction: either
   magnitude: 0
   magnitude_unit: pp
-  fired: null
-- signal: Kalshi or Polymarket moves any named option above 25% in the final week - check for a leak,
-    else move ~30% of the way
+  fired: false
+- signal: Kalshi or Polymarket moves any named option or single unlisted name (e.g. Nakate) above 25%
+    - check for a leak, else move ~30% of the way
   by: '2026-10-08'
   direction: either
   magnitude: 0
   magnitude_unit: pp
-  fired: null
+  fired: false
 - signal: A US-Iran ceasefire or settlement is signed - on the Donald J. Trump option
   by: '2026-10-08'
   direction: up
-  magnitude: 5
+  magnitude: 3
   magnitude_unit: pp
-  fired: null
-- signal: A named option's principal becomes ineligible or is discredited - redistribute that option's
-    mass
+  fired: false
+- signal: A named option's principal becomes ineligible or is discredited (e.g. Charity Commission escalates
+    the MSF case to a statutory inquiry) - redistribute that option's mass
   by: '2026-10-08'
   direction: either
   magnitude: 0
   magnitude_unit: pp
-  fired: null
+  fired: false
 - signal: Metaculus Pros and gold converge (within 3pp of each other on Other individual) more than 8pp
     from this vector - re-derive
   by: '2026-10-07'
   direction: either
   magnitude: 0
   magnitude_unit: pp
-  fired: null
+  fired: false
 resolution:
   outcome: null
   date: null
