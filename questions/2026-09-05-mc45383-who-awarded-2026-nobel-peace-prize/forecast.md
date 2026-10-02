@@ -6,11 +6,154 @@
 | **Type** | multiple choice — 11 options |
 | **Opened / Closes / Resolves** | 2026-09-07 / 2026-10-08 / 2026-10-09 |
 | **Status** | open |
-| **Current forecast** | **Other individual 44.0% · Other organization 14.0% · Sudan ERRs 13.5% · Save the Children 5.5% · Navalnaya 5.0% · MSF 5.0% · ICC/ICJ 5.0% · Kuleba/Save Ukraine 3.5% · UNRWA 3.0% · Pope Leo XIV 1.0% · Trump 0.5%** — leading option IQR [37.0%, 51.0%] (v2, 2026-09-26) |
-| **Community (as of 2026-09-26)** | Other individual: CP **39.4%** (n=114) · Pros **33.7%** (n=10) · gold **41.3%** (n=34); Sudan ERRs: CP 10.0 · Pro 16.0 · gold 10.2 · Kalshi 12/13¢ · Polymarket 15.1% |
-| **Next review** | 2026-10-02 |
+| **Current forecast** | **Other individual 43.0% · Other organization 16.5% · Sudan ERRs 13.5% · ICC/ICJ 5.5% · Save the Children 5.5% · MSF 4.5% · Navalnaya 4.0% · Kuleba/Save Ukraine 3.5% · UNRWA 2.5% · Pope Leo XIV 1.0% · Trump 0.5%** — leading option IQR [37.0%, 50.0%] (v3, 2026-10-02) |
+| **Community (as of 2026-10-02)** | Other individual: CP **40.1%** (n=125) · Pros **34.7%** (n=10) · gold **42.0%** (n=36); Other org: CP 20.2 · Pro 19.4 · gold 21.8; Sudan ERRs: CP 11.0 · Pro 14.3 · gold 11.3 · Kalshi 13/14¢ · Polymarket 15.65% |
+| **Next review** | 2026-10-04 |
 
 <!-- Versions below, newest first. APPEND-ONLY: never edit or delete a past version. -->
+
+---
+
+## v3 — Re-analysis — 2026-10-02
+
+**Why re-analysis:** 6 of the 13 days left at v2 have passed (46%), above the protocol's
+one-third threshold. My last two versions also both cut Other individual (47 → 44), which is
+the drift pattern the protocol warns about. So each option is re-derived again from today's
+anchors, with v2 as the prior. No tripwire fired outright, and no venue shows signs of a leak.
+The changes are small and come from three venues moving together.
+
+### Revision table
+
+| Driver | Direction | Effect |
+|---|---|---|
+| **Prior (v2, 2026-09-26)** | — | Other individual **44.0%** (IQR [37.0, 51.0]); Other org 14.0; Sudan ERRs 13.5; StC 5.5; Navalnaya 5.0; MSF 5.0; ICC/ICJ 5.0; Kuleba 3.5; UNRWA 3.0; Pope 1.0; Trump 0.5 |
+| **The Pros moved towards the field's organisations.** All three Metaculus cohorts now sit at **19.4–21.8%** on Other organization (Pros 16.2 → 19.4, gold 20.4 → 21.8, CP 20.0 → 20.2) [3]. That is a 2.4pp spread, against my 14. The convergence tripwire (5) is defined on Other individual, so it did not fire. But this is the agreement between Pros and gold that the repo's rules say to respect. Kalshi now lists new organisation lines (Concordis 2.5, International Association of Judges 2.65, IPRA 3.05), and its unlisted-organisation lines sum to ~25% before longshot bias (the tendency to overprice long shots) [1] | Other org ↑, Other ind ↓ | Other org +2.5 → **16.5** (includes 1.5 freed from the rows below); Other individual −1.0 → **43.0** |
+| **Navalnaya fell on every venue**: Kalshi 8 → 3.5 mid, Polymarket 6.0 → 3.7, CP 5.9 → 4.4, gold 6.3 → 4.1, Pros 6.5 → 5.1 [1][2][3]. I found no news trigger. Her late-September activity was routine (Duma-election statements, 21–22 Sep) [10] | ↓ | −1.0 → **4.0** |
+| **MSF softened.** Kalshi 12 → 9.5 mid. Bookmakers drifted from 15/4 to 11/2 on 24 Sep [5]. On 26 Sep the UK Charity Commission opened a regulatory compliance case over alleged militant links in Gaza [7]. That is a low bar, not a finding, so tripwire 4 fired only partly | ↓ | −0.5 → **4.5** |
+| **UNRWA.** Polymarket 5.35 → 3.7, Kalshi 2.5, cohorts 2.3–2.7 [1][2][3] | ↓ | −0.5 → **2.5** |
+| **ICC/ICJ.** Polymarket ICJ 4.75 → 5.75. Kalshi ICJ 4.5 → 6.5 and ICC 4.0 → 4.5 (both mids). Pros 2.7 → 5.1 [1][2][3] | ↑ | +0.5 → **5.5** |
+| **Sudan ERRs held.** Kalshi 12.5 → 13.5, Polymarket 15.1 → 15.65, CP 10.0 → 11.0, Pros 16.0 → 14.3, gold 10.2 → 11.3. Still the favourite on every real-money venue, and still well below 25% [1][2][3][4] | → | 0 → **13.5** |
+| **Save the Children and Kuleba held.** The Pros cut StC from 11.9 to 6.6 and Kuleba from 6.5 to 5.1, which brings them back to the CP. Kalshi still has 8.5 on each and Polymarket StC 6.35. My v2 numbers (5.5 and 3.5) already sat at the CP | → | 0 |
+| **Bookmakers' Vanessa Nakate price (19/10, ~34%)** comes from three small books quoting identical prices (BetGoodwin, BetAhoy and BetTom) as of 29 Sep [5]. They are probably one shared white-label price feed; that is speculation. Kalshi's Nakate line traded ~$21k and fell **back to 2%** [1]. Polymarket has no Nakate line. That is a soft-book liability cut, not a leak. A real leak would also show on Kalshi and Polymarket, as Machado's did in 2025 [9]. She would resolve as Other individual | → | 0 (noted; watch through 8 Oct) |
+| **Trump and the Pope.** There is no US–Iran settlement. There has been a 24-day lull without strikes. Trump said on 1 Oct he would decide "very soon" between strikes and a Qatari-mediated Hormuz deal [6]. Trump: Polymarket 0.85, Kalshi 0.5, cohorts 0.1–0.3. Pope: the Pros moved 0.4 → 2.0, Polymarket 0.9 | → | 0 |
+| **New forecast (v3)** | | Other individual **43.0%** (IQR [37.0, 50.0]); Other org 16.5; Sudan ERRs 13.5; ICC/ICJ 5.5; StC 5.5; MSF 4.5; Navalnaya 4.0; Kuleba 3.5; UNRWA 2.5; Pope 1.0; Trump 0.5 |
+
+The two Other buckets now hold **59.5%**. The cohorts give them 60.3 (CP), 54.1 (Pros) and
+63.8 (gold). My split between them moves towards the cohorts, but Other individual stays above
+all three. The reasons are as in v1 and v2: in the last 10 prizes, 7 first-listed laureates
+were individuals, and the 2025 laureate (Machado) traded under 4% until the leak hours
+before the announcement [9]. The IQR's upper bound narrows by 1pp because one week less remains
+for news.
+
+### Tripwire check (v2 list)
+
+| # | Tripwire | Status | Evidence |
+|---|---|---|---|
+| 1 | Norwegian media (NRK, Aftenposten, VG) report a leak | **Not fired** | No 2026 leak report found (search 2026-10-02). The latest Norwegian coverage concerns the investigation into the **2025** leak, which the Institute attributes to probable espionage that may have involved a state actor [9]. NRK's coverage of favourites repeats PRIO's list [8]. In 2025 the leak surfaced only hours before the announcement. This question closes 2026-10-08 11:00 UTC, so a same-pattern leak would probably land after close |
+| 2 | Kalshi or Polymarket moves any named option above 25% | **Not fired** | Highest on Kalshi: Sudan ERRs 13/14¢. Polymarket: Sudan ERRs 15.65%. Total Kalshi volume $1.62M, of which $194k traded in the last 24h [1][2]. Bookmakers' Nakate 19/10 (~34%) is not a Kalshi or Polymarket price, and Kalshi's Nakate line is at 2%. Checked and discounted (revision table) |
+| 3 | US–Iran ceasefire or settlement signed → Trump +5 | **Not fired** | No new agreement. 24 operating periods without US strikes ashore. The Hormuz proposal is being exchanged through Qatar, and the 1 Oct reporting describes a dispute about sequencing [6] |
+| 4 | A named option's principal becomes ineligible or is discredited | **Partly fired** | MSF: UK Charity Commission compliance case, 26 Sep [7]. UNRWA: a critical watchdog "report card" in mid-September. Both are low-grade. MSF −0.5 and UNRWA −0.5, absorbed into the market-driven moves above |
+| 5 | Pros and gold within 3pp of each other on Other individual, and >8pp from mine | **Not fired** | Pros 34.7 and gold 42.0: 7.3pp apart. Their convergence happened on **Other organization** instead (19.4 vs 21.8), and that is acted on above |
+
+### What resolves YES
+
+Unchanged from v2. The announcement is **Friday 2026-10-09, 11:00 CEST**. The question closes on
+2026-10-08 at 11:00 UTC. For a shared prize the rule is in v1.
+
+### Outside view
+
+Unchanged from v1/v2.
+
+### Inside view
+
+Re-derived option by option in the revision table. The structure is unchanged: about 40% for
+an individual off every list, about 14–17% for an unlisted organisation, and the named
+favourites priced near the real-money consensus. Sudan ERRs remains the single most likely
+named recipient.
+
+### Evidence
+
+Itemised in the revision table and the tripwire check. Absences matter: I found no new PRIO
+update after 22 Sep, no Norwegian leak report, and no settlement for Iran or Gaza. The only
+large mover anywhere is a soft bookmaker's Nakate price, and the exchanges did not follow it.
+
+### Other forecasters (2026-10-02)
+
+| Option | **This (v3)** | CP (n=125) | Pro (n=10) | Gold (n=36) | Kalshi bid/ask (¢) | Polymarket |
+|---|---|---|---|---|---|---|
+| Other individual | **43.0** | 40.1 | 34.7 | 42.0 | Carney 2.7/4.8, Al-Saqqa 2.3/2.4, Nakate 2.0/2.1, Tamim 1.8/1.9, Zelenskyy 1/2 | ~39% unallocated; Al-Saqqa 3.4, Abu Safiya 1.95, Carney 1.65 |
+| Other organization | **16.5** | 20.2 | 19.4 | 21.8 | CPJ 4/5, IPRA 3.0/3.1, IAJ 2.6/2.7, Concordis 2.5/2.6, HD 2/3, RSF 2.3/2.4, ICRC 2.0/2.1, ISS 2.0/2.1 | CPJ 3.8, RSF 2.4, ICRC 1.6, WCK 1.15, UNHCR 0.85 |
+| Sudan ERRs | **13.5** | 11.0 | 14.3 | 11.3 | 13/14 | 15.65 |
+| ICC / ICJ | **5.5** | 5.0 | 5.1 | 4.1 | ICJ 6/7, ICC 4/5 | ICJ 5.75 |
+| Save the Children | **5.5** | 5.8 | 6.6 | 4.1 | 8/9 | 6.35 |
+| MSF | **4.5** | 5.5 | 5.1 | 5.1 | 9/10 | no line |
+| Yulia Navalnaya | **4.0** | 4.4 | 5.1 | 4.1 | 3/4 | 3.7 |
+| Kuleba / Save Ukraine | **3.5** | 4.0 | 5.1 | 3.6 | 8/9 | no line |
+| UNRWA | **2.5** | 2.6 | 2.3 | 2.7 | 2/3 | 3.7 |
+| Pope Leo XIV | **1.0** | 1.0 | 2.0 | 1.1 | 1/2 | 0.9 |
+| Donald J. Trump | **0.5** | 0.2 | 0.3 | 0.1 | 0/1 | 0.85 |
+
+Kalshi: 37 lines, mids sum to 103%, total volume $1.62M [1]. Polymarket: 32 open lines summing
+to 61.3%, $25.6M total volume [2]. Bookmakers on 29 Sep: Nakate 19/10, Sudan ERRs 3/1,
+MSF 4/1, Minneapolis 11/2, Attenborough 15/2, Navalnaya 15/2 [5]. Their prices carry no
+"any other" option and include a single-book outlier, so they are used only for ordering.
+Metaculus has no comments in today's fetch.
+
+**Cohort disagreement: smaller than in v2, still material on Other individual.** The Pros
+moved towards the CP on almost every option: StC 11.9 → 6.6, Kuleba 6.5 → 5.1, Other org
+16.2 → 19.4. They still differ from gold by 7.3pp on Other individual (34.7 vs 42.0) and by
+3.0pp on Sudan ERRs (14.3 vs 11.3). I sit with gold on Other individual and between the two on
+Sudan.
+
+### Scenarios
+
+| # | Scenario | Weight | Implies |
+|---|---|---|---|
+| 1 | The usual outcome: an individual off every published list | 0.39 | Other individual |
+| 2 | Sudan's grassroots networks | 0.135 | Sudan ERRs |
+| 3 | An unlisted organisation: CPJ, RSF, ICRC, UNHCR, HD Centre, the ISS, a peace-research or judges' body | 0.165 | Other organization |
+| 4 | PRIO #1, children in war: StC and/or Kuleba | 0.09 | StC / Kuleba |
+| 5 | International law: the ICC and/or ICJ | 0.055 | ICC / ICJ |
+| 6 | A named humanitarian organisation: MSF or UNRWA | 0.07 | MSF / UNRWA |
+| 7 | A visible named individual: Navalnaya or the Pope | 0.05 | those options |
+| 8 | A visible unlisted individual: Nakate, Carney, Zelenskyy, Al-Saqqa, Mohammadi | 0.04 | Other individual |
+| 9 | A late peacemaker narrative | 0.005 | Trump |
+
+### Sensitivity
+
+| Assumption | If instead | Forecast becomes |
+|---|---|---|
+| Other individual 43% | the Pros' vector is adopted | Other ind ~35, Other org ~19, Sudan ~14 |
+| — | the gold vector is adopted | Other ind ~42, Other org ~22, Sudan ~11 |
+| The Nakate bookmaker price is liability noise | it reflects real information that Kalshi has not picked up | Other individual ~48–50, and every named option shrinks proportionally |
+| No leak before close | a credible leak lands before 8 Oct 11:00 UTC | collapse onto that option |
+
+### What would change my mind (tripwires)
+
+- [ ] **Norwegian media (NRK, Aftenposten, VG) report a leak** of the laureate's name, by 2026-10-09 → collapse the vector onto that option.
+- [ ] **Kalshi or Polymarket moves any named option, or a single unlisted name, above 25%** by 2026-10-08 → check for a leak first; if no leak is found, move ~30% of the way. That includes a Kalshi Nakate move that follows the bookmakers.
+- [ ] **A US–Iran ceasefire or settlement is signed** by 2026-10-08 → Trump +3pp. Smaller than before, because the Committee's deliberations are nearly finished.
+- [ ] **A named option's principal becomes ineligible or is discredited** by 2026-10-08 (for example, the Charity Commission escalates its MSF case to a statutory inquiry) → redistribute that option's mass.
+- [ ] **Pros and gold land within 3pp of each other on Other individual, more than 8pp from mine**, by 2026-10-07 → re-derive before defending.
+
+### Sources
+
+1. Kalshi, "Nobel Peace Prize winner" (event KXNOBELPEACE-26), trade API — https://kalshi.com/markets/kxnobelpeace/nobel-peace-prize/kxnobelpeace-26 (accessed 2026-10-02; `raw/kalshi-KXNOBELPEACE-2026-10-02.json`)
+2. Polymarket, "Nobel Peace Prize Winner 2026" (gamma API, slug nobel-peace-prize-winner-2026-139) — https://polymarket.com/event/nobel-peace-prize-winner-2026-139 (accessed 2026-10-02; `raw/polymarket-nobel-peace-prize-winner-2026-2026-10-02.json`)
+3. Metaculus question 45383, three-cohort aggregations (as of 2026-10-02 13:30 UTC) — https://www.metaculus.com/questions/45383/ (accessed 2026-10-02; `raw/metaculus-2026-10-02.json`)
+4. Nobel Peace Prize Odds 2026: Sudan's ERRs Lead, Trump Slips — Covers.com, updated 2026-10-01 — https://www.covers.com/entertainment/nobel-peace-prize-odds (accessed 2026-10-02)
+5. Nobel Peace Prize 2026 Odds: Attenborough & Trump Among Contenders — Oddschecker, 2026-09-29 — https://www.oddschecker.com/insight/specials/20260929-nobel-peace-prize-2026-odds-attenborough-trump-among-contenders (accessed 2026-10-02)
+6. Iran War 2026 — Day 216 Update, 01 October 2026 — GlobalSecurity.org — https://www.globalsecurity.org/military/ops/iran-war-oprep.htm (accessed 2026-10-02, via search summary)
+7. Case opened against Doctors Without Borders over alleged Hamas links — Yahoo News, 2026-09-26 — https://www.yahoo.com/news/world/articles/case-opened-against-doctors-without-131229612.html (accessed 2026-10-02)
+8. Egereva nevnes ikke blant favorittene — NRK Sápmi — https://www.nrk.no/sapmi/egereva-nevnes-ikke-blant-favorittene-1.18042048 (accessed 2026-10-02, via search summary)
+9. Nobelkomiteen utelukker ikke statlig aktør bak mulig lekkasje rundt fredspristildelingen — NRK — https://www.nrk.no/nyheter/nobelkomiteen-utelukker-ikke-statlig-aktor-bak-mulig-lekkasje-rundt-fredspristildelingen-1.17749698 (accessed 2026-10-02, via search summary; concerns the 2025 leak)
+10. Yulia Navalnaya — news (statements of 21 and 22 Sep 2026) — https://yulianavalnaya.com/en (accessed 2026-10-02, via search summary)
+11. Nobel Peace Prize 2026: PRIO Director's updated list announced — PRIO, 2026-09-22 — https://www.prio.org/news/3746 (accessed 2026-09-26). Carried forward from v2 [3] and still relied on
+12. NobelPrize.org — "The 2026 Nobel Prize announcements" — https://www.nobelprize.org/press-release/the-2026-nobel-prize-announcements/ (accessed 2026-09-05). Carried forward from v2 [12] and still relied on
+
+**Date**: 2026-10-02
+**Forecast**: Other individual 43.0%, Other organization 16.5%, Sudan ERRs 13.5%, ICC/ICJ 5.5%, Save the Children 5.5%, MSF 4.5%, Navalnaya 4.0%, Kuleba/Save Ukraine 3.5%, UNRWA 2.5%, Pope Leo XIV 1.0%, Trump 0.5% — IQR on Other individual [37.0%, 50.0%]
+**Thesis**: No leak and no named option near 25% on Kalshi or Polymarket. Sudan ERRs holds at 13–16% on both [1][2]. Metaculus Pros and gold medalists now agree on ~19–22% for an unlisted organisation, and I move Other organization from 14 to 16.5, mostly from Navalnaya, MSF and UNRWA, which fell on every venue [1][2][3]. With no Iran settlement [6], Other individual stays the modal outcome at 43%.
 
 ---
 

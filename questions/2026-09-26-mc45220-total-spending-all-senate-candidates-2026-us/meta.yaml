@@ -17,19 +17,19 @@ dates:
   resolves: '2026-12-31'
 status: open
 current:
-  version: 2
-  date: '2026-09-26'
-  median: 1660000000.0
+  version: 3
+  date: '2026-10-02'
+  median: 1675000000.0
   iqr:
-  - 1520000000.0
-  - 1820000000.0
+  - 1540000000.0
+  - 1835000000.0
   community:
-    cp: null
-    pro: null
-    gold: null
-    n_forecasters: 8
-    as_of: '2026-09-26'
-next_review: '2026-10-01'
+    cp: 1694104698.0
+    pro: 1815605548.0
+    gold: 1709091834.0
+    n_forecasters: 65
+    as_of: '2026-10-02'
+next_review: '2026-10-17'
 tripwires:
 - signal: 'Q3 filings: 2-year-class receipts of 2026 Senate candidates through 2026-09-30 above $1.30B
     (up ~$100M) or below $1.15B (down ~$80M)'
@@ -50,10 +50,17 @@ tripwires:
   direction: either
   magnitude: 0
   magnitude_unit: USD
-  fired: null
+  fired: false
 - signal: 'Pre-general filings: aggregate disbursements through 2026-10-14 above $1.45B (up ~$60M) or
     below $1.25B (down ~$60M)'
   by: '2026-10-30'
+  direction: either
+  magnitude: 0
+  magnitude_unit: USD
+  fired: null
+- signal: 'Admin/author comment fixes resolution on the 2026-12-02 page (pre-general data only): down
+    ~$250M, re-analyse; or confirms a data pull on/after 2026-12-20: up ~$10M, narrow lower tail'
+  by: '2026-12-31'
   direction: either
   magnitude: 0
   magnitude_unit: USD

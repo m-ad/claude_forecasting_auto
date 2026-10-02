@@ -4,13 +4,164 @@
 |---|---|
 | **Source** | Metaculus #45250 (question 45442, Metaculus Cup Fall 2026) — https://www.metaculus.com/questions/45250/how-many-politicians-will-leave-cabinet-positions-in-uk-government-before-2027/ |
 | **Type** | multiple choice — 4 options: **0** · **1** · **2** · **3 or more** |
-| **Opened / Closes / Resolves** | — (Metaculus "upcoming"; opens 2026-09-28 17:00 UTC) / 2026-12-31 23:59 UTC / 2027-01-01 12:30 UTC (scheduled) |
+| **Opened / Closes / Resolves** | 2026-09-28 / 2026-12-31 23:59 UTC / 2027-01-01 12:30 UTC (scheduled) |
 | **Status** | open |
-| **Current forecast** | **0: 56.5%, 1: 22.0%, 2: 10.0%, 3+: 11.5%** — IQR on "0" [49.5%, 63.5%] (v2, 2026-09-26) |
-| **Community (as of 2026-09-26)** | CP / Pro / gold hidden until 2026-09-30 17:00 UTC (n=10 pre-open forecasters) |
-| **Next review** | 2026-10-01 |
+| **Current forecast** | **0: 59.0%, 1: 21.5%, 2: 9.0%, 3+: 10.5%** — IQR on "0" [52.5%, 65.5%] (v3, 2026-10-02) |
+| **Community (as of 2026-10-02 14:45 UTC)** | CP 0: 64.6 · 1: 24.1 · 2: 7.3 · 3+: 4.0 (n=68) · Pro 60.4 / 24.9 / 9.5 / 5.1 (n=8) · gold 62.6 / 25.3 / 9.1 / 3.0 (n=26) |
+| **Next review** | 2026-10-16 |
 
 <!-- Versions below, newest first. APPEND-ONLY: never edit or delete a past version. -->
+
+---
+
+## v3 — Update — 2026-10-02
+
+**Mode: Update (incremental).** Six days since v2. The question structure is unchanged; the
+criteria re-read today match v2 word for word [1]. The CP (community prediction) is 5.6pp above
+me on `0` and Pro only 1.4pp, both within the 10pp threshold. None of the de-novo triggers
+applies.
+
+### What resolves YES (re-read 2026-10-02)
+
+The text is identical to what v2 read [1]. It counts MPs among the 18 named posts (as of 20 July
+2026) who "leave their positions" after 1 Sep 2026 and before 1 Jan 2027, for "any reason". A
+change of PM truncates the count at that date. The resolution source is the Parliament cabinet
+page. No admin clarification on sideways moves has been posted, and none of the three comments
+raises the point. One comment (DeRuina, 30 Sep) reads moves as "plausibly" counting [1].
+**Status of the 18 on 2026-10-02:** all in post. GOV.UK lists the same 18 in the same roles, with
+no vacancies [2]. The Wikipedia Burnham-ministry page shows no change since 20 July [3]. **Count
+so far: 0.**
+
+### Revision table
+
+| Driver | Direction | Effect on P(`0`) |
+|---|---|---|
+| **Prior (v2, 2026-09-26)** | — | **56.5%** (1: 22.0 · 2: 10.0 · 3+: 11.5) |
+| **Elapsed quiet time.** Six days, conference week included, with none of the 18 leaving [2][3]. The idiosyncratic rate λ (expected departures in the remaining window) shrinks with the window, 96 → 90 days: 0.54 → 0.51 | ↑ | **+1.7** |
+| **Conference passed; the Rayner–Mahmood split was defused.** Mahmood signalled a retreat on retrospective settlement rules on 28 Sep [5][6]. Rayner says there is "no cabinet split" and that collective responsibility is not dead, because the government will "do politics differently" [7]. Open dissent is being tolerated rather than forcing exits, which lowers the chance of a policy resignation. With conference over and no casualty, a flashpoint has passed. λ −0.03 | ↑ | **+1.8** |
+| **The triple-lock announcement opens a new split.** On 29 Sep Burnham said he would scrap the triple lock (the rule that state pensions rise by the highest of inflation, earnings or 2.5%) in 2030. Hours earlier Lucy Powell, deputy leader and one of the 18, had told Sky and LBC that the party was "absolutely committed" to it. Douglas Alexander, also one of the 18, was equivocal [8][9][10]. Nobody threatened to resign. λ +0.01 | ↓ | **−0.6** |
+| **Gilt stress ahead of the 28 Oct Budget.** The 30-year gilt touched ~6.03% on 1 Oct, its highest since 1998 and above v2's 5.89% reference, then fell back below 6% on 2 Oct [11]. Healey's conference speech committed to the fiscal rules "in lockstep" with Burnham [12]. Budget risk is up slightly. λ +0.01. The regime tail is unchanged because Polymarket "Burnham out by Dec 31" is flat at 6.3% [13] | ↓ | **−0.6** |
+| **Re-checked the cascade parameters** because Pro and gold put only 3–5% on `3 or more`, against my 11.5%. History: of ~10 single cabinet exits since 2017, 3–4 set off moves among the senior posts (Green 2017, Rudd 2018, Rayner 2025). So a cascade probability of ~0.30 per exit holds, and I keep the upper tail. I trimmed the cascade-adds-two share from 60% to 40%, which moves mass from 3+ to 2. I also trimmed the planned-reshuffle mass from 2% to 1.5%, with no reshuffle trailed five months into the government. That gives `0` a little | ↑ | **+0.3** (3+: −1.0 relative to the other rows) |
+| **New forecast (v3)** | | **59.0%** (1: 21.5 · 2: 9.0 · 3+: 10.5), IQR on `0` [52.5%, 65.5%] |
+
+**Construction.** Idiosyncratic departures follow a Poisson distribution with λ = 0.50 over the
+remaining 90 days. Each departure sets off a counted sideways cascade with probability 0.30. A
+cascade adds one more departure (60%) or two (40%). Before any regime event this gives 0: 60.7 ·
+1: 21.2 · 2: 9.2 · 3+: 8.9. Net λ change across the rows: −0.03 −0.03 +0.01 +0.01, from 0.54 to 0.50. That covers 95.5% of the mass. The other 4.5% is regime events:
+1.5% planned reshuffle (all 3+) and 3% PM change, truncated and split 40/30/15/15. Total: **0: 59.1 · 1:
+21.2 · 2: 9.2 · 3+: 10.5**, rounded to 59.0 / 21.5 / 9.0 / 10.5.
+
+### Tripwire check (v2 list)
+
+| # | Tripwire | Status | Evidence |
+|---|---|---|---|
+| 1 | Pro + gold agree on `0` above 68% or below 42% at CP reveal (by 30 Sep) | **Not fired** (expired). Pro 60.4%, gold 62.6% | [1], snapshot 2026-10-02 14:45 UTC |
+| 2 | A listed minister referred to the Independent Adviser, or publicly threatening to resign (by 30 Nov) | Not fired so far. Rayner kept publicly dissenting from Mahmood but denied any split. Powell contradicted Burnham on the triple lock but made no threat. No referral found | [7][9][14] |
+| 3 | 30-year gilt > 6.25% for 3 sessions, or 28 Oct Budget postponed / partly withdrawn (by 15 Nov) | Not fired, **approaching**. Intraday high ~6.03% on 1 Oct, back below 6% on 2 Oct. Budget still set for 28 Oct | [11][12] |
+| 4 | Polymarket "Burnham out by Dec 31" ≥ 15% for 48h (by 15 Dec) | Not fired. 6.3% (bid 5.7 / ask 6.9), ~$8k volume, unchanged since 26 Sep | [13] |
+| 5 | No listed minister leaves by 30 Nov | Not due. On track: 0 departures so far | [2][3] |
+| 6 | Admin clarifies that sideways moves do not count | Not fired. No clarification posted | [1] |
+
+### Outside view
+
+Unchanged from v1. v2 explains how the reference class maps onto the 18 named posts.
+
+### Inside view
+
+Unchanged from v2, apart from the drivers in the revision table. One addition is the cascade
+re-check. When a single exit sets off a vacancy chain among senior posts, the move is usually
+the Justice, Home or DWP holder going sideways (Green → Lidington → Gauke, 2017–18; Rudd →
+Javid, 2018). Replacements more often come from outside cabinet (Haigh → H. Alexander 2024;
+Kwarteng → Hunt 2022; Braverman → Shapps 2022; Raab → Chalk 2023). This is from memory of
+well-documented reshuffles and is not re-sourced this session.
+
+### Evidence (new since v2)
+
+| Evidence | Direction | Rough effect |
+|---|---|---|
+| All 18 in post on 2 Oct (GOV.UK, Wikipedia) [2][3] | ↓ departures | mechanical hazard decay |
+| Mahmood's settlement-rules retreat, 28 Sep; Burnham "Team Angela and Shabana" [5][6] | ↓ | defuses the most visible cabinet split |
+| Rayner: collective responsibility "not dead", "do politics differently" [7] | ↓ (small) | dissent tolerated rather than resigned over |
+| Triple lock to go in 2030; Powell had publicly committed to keeping it [8][9][10] | ↑ (small) | Powell is elected deputy leader, so she is hard to sack, and a resignation over a 2030 policy is unlikely |
+| 30y gilt intraday ~6.03% on 1 Oct, highest since 1998 [11] | ↑ (small) | Budget-week flashpoint |
+| Healey: fiscal rules "in lockstep" with PM [12] | ↓ (small) | no visible No 10–Treasury rift |
+| Polymarket "first to leave" (to end-2027): Healey 13.5%, Cooper 10.5% (up from 6.2), Fahnbulleh 10.5%, Miliband 6.7% [15] | — | Cooper's rise rests on $1.7k of volume. A search found no story behind it [16]. Ignored |
+| Manifold "any UK cabinet resignation in Q4 2026" 41% (9 bettors) [17] | — | unchanged; play money, discounted |
+
+### Other forecasters
+
+| Source | 0 | 1 | 2 | 3+ | As of | Note |
+|---|---|---|---|---|---|---|
+| Metaculus CP (recency-weighted) | 64.6 | 24.1 | 7.3 | 4.0 | 2026-10-02 14:45 UTC | n=68; IQR on `0` [59.7, 68.2] |
+| Metaculus Pro | 60.4 | 24.9 | 9.5 | 5.1 | same | n=8 |
+| Metaculus gold medalists | 62.6 | 25.3 | 9.1 | 3.0 | same | n=26 |
+| **Me (v3)** | **59.0** | **21.5** | **9.0** | **10.5** | 2026-10-02 | — |
+| Polymarket "Burnham out as PM by Dec 31" | — | — | — | — | 2026-10-02 | 6.3%, ~$8k volume, flat; I read ~3% for longshot bias |
+| Manifold Q4 2026 any cabinet resignation | — | — | — | — | 2026-10-02 | 41%, so P(0 resignations) ≈ 59%; resignations only |
+
+**Cohort disagreement.** The three cohorts agree with each other on `0` within 4pp: Pro 60.4,
+gold 62.6, CP 64.6. Pro and gold sit 1.4–3.6pp above me, which is not material. The CP is 5.6pp
+above, which implies a λ of ~0.42 against my 0.50. That is a modest difference in how much the
+Budget threatens anyone; it is not a missed fact. The material gap is on `3 or more`: the cohorts
+put 3–5% there, against my 10.5%. They seem to treat a single exit as filled from below, which is
+the DeRuina comment's base case. I keep a ~30% chance that a vacancy pulls another listed
+minister sideways, because the text counts that ("any reason"). If the cohorts are right that
+cascades are rare, my forecast becomes about 59 / 27 / 8 / 6. The `0` gap would stay; the 3+
+mass moves to `1`. I am not herding toward that without new evidence. A ruling on sideways moves
+would settle it (tripwire 6).
+
+### Scenarios
+
+| # | Scenario | Weight | Implies |
+|---|---|---|---|
+| 1 | No casualty: through the Budget and the immigration and triple-lock rows, and into Christmas | 0.59 | `0` |
+| 2 | One resignation or sacking, filled from outside the 18 | 0.215 | `1` |
+| 3 | One exit plus a sideways move to fill it, or two unrelated exits | 0.09 | `2` |
+| 4 | A vacancy chain, a mini-reshuffle after a senior exit, or a pre-handover wave | 0.105 | `3 or more` |
+
+### Sensitivity
+
+| Assumption | If instead | Forecast becomes (0 / 1 / 2 / 3+) |
+|---|---|---|
+| λ = 0.50 | 0.40 (honeymoon holds, Budget passes cleanly) | 65.2 / 18.8 / 7.6 / 8.4 |
+| λ = 0.50 | 0.65 (Budget casualty risk, as at v1) | 51.1 / 23.6 / 11.4 / 13.9 |
+| Cascade probability 0.30 | 0.10 (vacancies filled from below, the crowd's apparent view) | 59.1 / 27.0 / 8.1 / 5.9 |
+| Sideways moves count | Admin rules they do not (and a planned reshuffle no longer counts as 3+ automatically) | ~59.5 / 30.5 / 8 / 2 |
+
+### What would change my mind (tripwires)
+
+- [ ] **Metaculus Pro and gold both move `0` below 50% or above 72%**, by 2026-11-30 → re-derive before defending (either direction).
+- [ ] **A listed minister is referred to the Independent Adviser on Ministerial Standards, publicly threatens to resign, or is briefed by No 10 as "on manoeuvres" or facing the sack**, by 2026-11-30 → `0` down ~10pp.
+- [ ] **The 30-year gilt closes above 6.25% for 3 consecutive sessions, or the 28 Oct Budget is postponed or partly withdrawn**, by 2026-11-15 → `0` down ~8pp.
+- [ ] **Polymarket "Burnham out as PM by Dec 31" at or above 15% for 48h**, by 2026-12-15 → `0` down ~5pp.
+- [ ] **No listed minister leaves by 30 Nov** → `0` up ~15pp.
+- [ ] **An admin clarifies that sideways moves do not count** → shift ~6pp from 2/3+ to 1.
+- [ ] **Any listed minister leaves** → re-analyse: `0` to ~1%, then re-weight 1/2/3+ on whether the vacancy is filled sideways.
+
+### Sources
+
+1. Metaculus question 45250: criteria, fine print, cohort aggregations (CP / Pro / gold) and 3 comments — https://www.metaculus.com/questions/45250/ (accessed 2026-10-02 14:45 UTC; `raw/metaculus-2026-10-02.json`)
+2. Ministers — GOV.UK — https://www.gov.uk/government/ministers (accessed 2026-10-02): all 18 listed posts held by the fine-print incumbents, no vacancies
+3. Burnham ministry — Wikipedia — https://en.wikipedia.org/wiki/Burnham_ministry (accessed 2026-10-02): no changes since 20 July
+4. Institute for Government, "Six things we learned from Andy Burnham's government formation" (29 Jul 2026) — https://www.instituteforgovernment.org.uk/comment/six-things-learned-andy-burnhams-government-formation (accessed 2026-09-26) — carried forward from v2 [4], still relied on (new, untested cabinet)
+5. BBN Times, "Home Secretary Shabana Mahmood Signals Retreat on Settlement Reforms as Labour Conference Erupts" (28 Sep 2026) — https://www.bbntimes.com/politics/home-secretary-shabana-mahmood-signals-retreat-on-settlement-reforms-as-labour-conference-erupts (accessed 2026-10-02)
+6. BritBrief, "Rayner forces Mahmood climbdown as Burnham dithers" (29 Sep 2026) — https://britbrief.co.uk/politics/policymaking/rayner-draws-blood-in-cabinet-row-burnham-dithers.html (accessed 2026-10-02)
+7. HuffPost UK, "Rayner Insists There's No Cabinet Split After She Condemned Mahmood's Immigration Crackdown" — https://www.huffingtonpost.co.uk/entry/angela-rayner-shabana-mahmood-immigration_uk_6ab8c78ee4b07c8d2e68dd84 (search snippet, accessed 2026-10-02)
+8. City AM, "Burnham set to signal end of triple lock in conference speech" (29 Sep 2026) — https://www.cityam.com/burnham-set-to-signal-end-of-triple-lock-in-conference-speech/ (accessed 2026-10-02)
+9. LBC, "Andy Burnham announces end of Triple Lock…" (live blog, 29 Sep 2026) — https://www.lbc.co.uk/article/live-andy-burnham-labour-party-conference-speech-5HjdjCk_2/ ; LBC, "Labour rift looms over triple lock's future…" — https://www.lbc.co.uk/article/burnham-labour-conference-speech-5HjdjB9_2/ (search snippets, accessed 2026-10-02)
+10. AOL/Sky, "Labour's Deputy Leader skewered over triple lock question in awkward Sky interview" — https://www.aol.co.uk/articles/labours-deputy-leader-skewered-over-071400000.html (search snippet, accessed 2026-10-02)
+11. AOL, "UK 30-year gilt yields top 6% for the first time since 1998" — https://www.aol.com/articles/uk-30-gilt-yields-surge-074720000.html ; Trading Economics, UK 30Y — https://tradingeconomics.com/united-kingdom/30-year-bond-yield (search snippets, accessed 2026-10-02; the roic.ai write-up returned 403)
+12. Trustnet, "Chancellor Healey commits to fiscal rules as spending pledges mount ahead of Budget" — https://www.trustnet.com/news/13484821/chancellor-healey-commits-to-fiscal-rules-as-spending-pledges-mount-ahead-of-budget (search snippet, accessed 2026-10-02)
+13. Polymarket, "Andy Burnham out as UK PM by…?" — gamma API snapshot `raw/polymarket-burnham-out-as-pm-2026-10-02.json` (accessed 2026-10-02)
+14. Searches for Independent Adviser referrals or investigations of Burnham cabinet ministers (2026-10-02): none found. IfG, "Andy Burnham can make his immediate mark on ethics in public life" — https://www.instituteforgovernment.org.uk/comment/andy-burnham-immediate-mark-ethics-public-life (context only; accessed 2026-10-02)
+15. Polymarket, "Who will be the first to leave the Burnham Cabinet?" — https://polymarket.com/event/who-will-be-the-first-to-leave-the-burnham-cabinet-20260803162204 (gamma API snapshot `raw/polymarket-first-to-leave-burnham-cabinet-2026-10-02.json`, $126k volume, accessed 2026-10-02)
+16. Nursing Times, "Cooper prioritises public health, domestic abuse and care workforce" (30 Sep 2026) — https://www.nursingtimes.net/policies-and-guidance/cooper-prioritises-public-health-domestic-abuse-and-care-workforce-30-09-2026/ (search snippet, accessed 2026-10-02): routine coverage, no pressure story
+17. Manifold, "Will any UK cabinet ministers resign in Q1, Q2, Q3, or Q4 of 2026?" — https://manifold.markets/leaflitter/will-any-uk-cabinet-ministers-resig (API, `raw/manifold-2026-10-02.json`, accessed 2026-10-02)
+18. Inside Croydon, "Shadow of Starmer lingers over Labour Conference in Liverpool" (29 Sep 2026) — https://insidecroydon.com/2026/09/29/shadow-of-starmer-lingers-over-labour-conference-in-liverpool/ (accessed 2026-10-02): conference criticism came from ex-ministers (Kyle, Reed), not from the 18
+
+**Date**: 2026-10-02
+**Forecast**: 0: 59.0%, 1: 21.5%, 2: 9.0%, 3 or more: 10.5% — IQR on "0" [52.5%, 65.5%]
+**Thesis**: All 18 listed ministers are still in post after conference week [2][3], and the most visible split, Rayner against Mahmood, was defused by Mahmood's retreat [5][7]. Hazard decay therefore lifts `0` 2.5pp, while the triple-lock row and 6% gilts ahead of the 28 Oct Budget keep λ near 0.5 [8][11]. I stay below the Metaculus cohorts (CP 64.6, Pro 60.4, gold 62.6 on `0`) [1] because they put only 3–5% on `3 or more`, while the "any reason" wording makes a sideways vacancy chain count.
 
 ---
 

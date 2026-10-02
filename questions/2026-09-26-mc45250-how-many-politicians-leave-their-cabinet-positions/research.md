@@ -111,3 +111,51 @@ count = Poisson(λ_idio) + regime tail.
 - Budget reception 28 Oct: gilt moves, any cabinet dissent.
 - Why is Heidi Alexander priced 9% on Polymarket's first-to-leave? (Possible rumour I missed.)
 - Greater Manchester mayoral by-election — does any minister want the job?
+
+## Update log — 2026-10-02 (v3)
+
+Metaculus snapshot pre-fetched by the parent session (`raw/metaculus-2026-10-02.json`, 14:45 UTC);
+no Metaculus endpoint called from this run.
+
+| Date | Search / source | Finding | Effect |
+|---|---|---|---|
+| 2026-10-02 | Metaculus 45250 snapshot | Criteria unchanged; n=68. CP 0: 64.6 · 1: 24.1 · 2: 7.3 · 3+: 4.0 (IQR on 0 [59.7, 68.2]); Pro (n=8) 60.4/24.9/9.5/5.1; gold (n=26) 62.6/25.3/9.1/3.0. 3 comments (Koboh, DeRuina, Theomachado 63/20/12/5); DeRuina flags triple-lock split + mini-reshuffle path; no admin ruling on sideways moves | tripwire 1 not fired; cohorts lower on 3+ |
+| 2026-10-02 | GOV.UK ministers page | All 18 listed posts held by fine-print incumbents; no vacancies | count = 0 |
+| 2026-10-02 | Wikipedia Burnham ministry | No changes since 20 July; no scandals/investigations listed | count = 0 |
+| 2026-10-02 | Mahmood settlement reforms | 28 Sep: signalled retreat on retrospective 5→10/15y ILR (BBN Times); Rayner "un-British", forced climbdown (BritBrief 29 Sep); Burnham "Team Angela and Shabana"; Rayner: collective responsibility "not dead", "do politics differently" (HuffPost) | ↓ resignation risk |
+| 2026-10-02 | Triple lock | Burnham 29 Sep speech: scrap triple lock in 2030 to fund free social care; Powell (deputy leader, Education) told Sky/LBC party "absolutely committed" just before; D. Alexander equivocal; Phillipson (not on list) warned of "intergenerational warfare"; Unite hostile. No resignation threats | small ↑ |
+| 2026-10-02 | Gilts | 30y touched ~6.03% on 1 Oct (highest since 1998), back below 6% on 2 Oct (AOL / Trading Economics snippets; roic.ai 403) | tripwire 3 approaching, not fired |
+| 2026-10-02 | Healey conference speech | Fiscal rules "in lockstep" with PM; £6bn shipyard contracts; Budget 28 Oct confirmed | no Treasury rift |
+| 2026-10-02 | Defence funding row (The Lead) | Pressure over Defence Investment Plan funding into Budget; Burnham resisting welfare cuts to fund it | small ↑ (Streeting/Healey) |
+| 2026-10-02 | Conference commentary (Inside Croydon) | Criticism came from sacked ex-ministers (Kyle, Reed), not from the 18 | none |
+| 2026-10-02 | Fahnbulleh | Conference speech, devolving Warm Homes Plan; no row found | none |
+| 2026-10-02 | Cooper | Routine coverage (Sure Start, care workforce); no pressure story behind her Polymarket rise 6.2→10.5% ($1.7k vol) | ignored |
+| 2026-10-02 | Independent Adviser referrals | None found for any Burnham cabinet minister | tripwire 2 not fired |
+| 2026-10-02 | Reshuffle speculation | None found | ↓ planned-reshuffle mass 2%→1.5% |
+| 2026-10-02 | Polymarket gamma API | Burnham out by Dec 31: 6.3% (bid 5.7/ask 6.9, ~$8k) flat; first-to-leave (to end-2027, $126k): Healey 13.5, Cooper 10.5, Fahnbulleh 10.45, Miliband 6.65 | tripwire 4 not fired |
+| 2026-10-02 | Manifold API | Q4-2026 any cabinet resignation 41% (9 bettors); Burnham cabinet resignation in 2026 40% (5 bettors) | unchanged |
+
+### Cascade re-check (prompted by cohort 3+ at 3–5% vs my 11.5%)
+
+Single senior exits since 2017 and whether they triggered a sideways move among senior posts
+(from memory of well-documented events; not re-sourced this session — flag as recall):
+Fallon 2017 → Williamson from Chief Whip (not a "top 18"-equivalent post) — no; Patel 2017 →
+Mordaunt from outside cabinet — no; Green 2017 → Lidington (Justice→CDL), Gauke (DWP→Justice) —
+yes, 3 total; Rudd 2018 → Javid (Housing→Home), Brokenshire in — yes, 2 total; Rudd 2019 → Coffey
+from outside — no; Kwarteng 2022 → Hunt from backbenches — no; Braverman 2022 → Shapps from
+outside — no; Raab 2023 → Chalk from outside — no; Haigh 2024 → H. Alexander from outside — no;
+Rayner 2025 → full reshuffle — yes, 3+. So ~3/10 cascade, and cascades often reach 3+. Kept
+cascade p = 0.30, trimmed "adds two" share 60%→40%.
+
+### Model (v3)
+
+λ = 0.50 over 2–31 Oct–Dec (90 days); cascade p 0.30 (+1: 60%, +2: 40%) → 0: 60.7 · 1: 21.2 ·
+2: 9.2 · 3+: 8.9; regime 4.5% (1.5% planned reshuffle → 3+; 3% PM change split 40/30/15/15) →
+0: 59.1 · 1: 21.2 · 2: 9.2 · 3+: 10.5 → published 59.0 / 21.5 / 9.0 / 10.5.
+
+### Open questions to chase next time
+
+- Budget 28 Oct: gilt reaction, any cabinet dissent (Streeting on defence funding; Powell on
+  pensions), any post-Budget mini-reshuffle talk.
+- Mahmood's formal settlement consultation response (autumn) — does Burnham overrule her?
+- Any admin comment on whether sideways moves count.

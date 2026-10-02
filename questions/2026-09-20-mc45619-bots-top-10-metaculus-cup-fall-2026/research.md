@@ -173,3 +173,71 @@ the participation-risk weighting, and the model-averaging that widened the IQR f
    running a continuous-update loop on Cup questions.
 5. Fall 2026 FutureEval standings — laertes was reported to be leading it [S15]; a
    confirmation would firm up laertes' probability.
+
+---
+
+## Update log — 2026-10-02 (v2)
+
+### Live numbers (from `raw/metaculus-2026-10-02.json`, fetched by the parent session; no Metaculus calls made here)
+
+- Status `open`; n = 102 forecasters (103 on the post). CP reveal was 2026-09-26 17:00 UTC.
+- CP 5.08 [4.04, 6.13]; Pro 5.12 [4.03, 6.27] (n=10); gold 5.10 [4.01, 6.23] (n=31). Continuous-scale
+  values on bins centred on integers (range −0.5…10.5), so median bin 5, quartile bins 4 and 6.
+- History 2026-09-21 → 10-02: CP 4.58–5.12 (first 4.72); Pro 4.67–5.58 (peak 5.58 at 09-27 13:33);
+  gold 4.63–5.50. Stable around 5; no trend after the first week.
+- Resolution criteria / fine print / background unchanged from the 09-20 snapshot.
+
+### Comments (8 latest, 2026-09-29 → 10-02)
+
+- **tejvn**: score-noise argument — per-question sd ≈ 37.6 from the Spring 2026 FutureEval CI;
+  with sd 30 and 55 questions, season 1σ ≈ 222 peer points ≈ Summer gap between 1st and 12th.
+  Argues for more mass on 0–3.
+- **exmateriae** (top human): rebuts — rank changes at the top reflect time invested, the Summer
+  bot lead was "massive", bots improving; "shocked if only one bot in top 10". Also: some humans
+  not participating explains part of the top-10 shuffle.
+- **DeRuina**: churn — ACX said only 2 of 10 Spring top-10 humans repeated in Summer, both lead
+  bots held; Cup scoring favours bots → "floor of two or three"; in-house Metaculus bots count as
+  bots; Preseen-Chestnut slid to ~40th in Summer; "the live leaderboard in early November should
+  tell us a lot" (=> no live leaderboard yet).
+- **Capital**: building a bot since the Summer loss, self-estimates ~30th; competing in FutureEval.
+- **Theomachado**: also running a bot for the first time (FutureEval + mini-bench).
+- No admin reply on the `symbiosis` / unflagged-bot question in these eight.
+
+### Searches run (2026-10-02)
+
+- "Metaculus Cup Fall 2026 bots leaderboard" → Metaculus template PR #114 (template's
+  `--mode metaculus_cup` now targets `metaculus-cup-fall-2026`, tournament ID 33108; callout to
+  higher-ranked open-source bots) and Metaculus PR #5205 (Fall FutureEval $58k, start ~2026-09-28;
+  Spring 2026 Pro lead 1.25, CI [−2.37, 4.87]). No Fall leaderboard data anywhere.
+- "laertes forecasting bot Metaculus October 2026" → nothing post-09-20 beyond Summer recaps.
+- "Mantic AI forecasting news after $25M seed" → only seed-round coverage (Radical Ventures lead,
+  M12, Thinking Machines Lab, Balderton). Nothing about Mantic skipping or changing Cup activity.
+- `"Metaculus Cup" bots fall 2026 FutureSearch OR Preseen OR cassi` → BySergiMM/metac-bot-template
+  PR #11 (opened+merged 2026-10-01: auto-forecast new Cup questions each run); Dealroom note on
+  FutureSearch/Preseen monetising (Kalshi portfolio +6% since June). Nothing on cassi.
+- Market search (Manifold/Polymarket/Kalshi) → still no market on this question.
+- Coverage/criticism search → IBM Think 2026-09-28 (Mantic forecaster Yann Rivière; no Fall data),
+  Tapen 2026-09-27 and Exobrain 2026-09-18 (Summer recaps only). faintsignals post was 2024 — irrelevant.
+- ACX "The AI Superforecasters Are Here" re-read: dated **2026-07-02** (mid-Summer), not post-Summer;
+  source of the 2-of-10-humans-repeated figure and the 0.9 Elo/month trend.
+- Dead end: `gh api` on the Metaculus GitHub PRs → 403 (repo not attached to session); used WebFetch.
+- Not attempted by design (brief): Metaculus leaderboard/profile scraping.
+
+### Integration
+
+- Linear opinion pool: v1 PMF × 0.6 + cohort-implied PMF × 0.4. Cohort PMF reconstructed from the
+  CP quartiles (bin masses ≈ 0:0.3, 1:1, 2:3.5, 3:9.2, 4:20, 5:27, 6:22, 7:11, 8:4.5, 9:1, 10:0.5 %),
+  self-consistent with CDF(4.04)=0.25, CDF(5.08)=0.5, CDF(6.13)=0.75 under uniform-within-bin.
+- Result PMF: 0:0.2, 1:1.1, 2:5.0, 3:14.5, 4:26.7, 5:29.5, 6:15.0, 7:5.5, 8:1.9, 9:0.4, 10:0.2 (%).
+  Mean 4.58; P(≤4) 47.5% → median 5; IQR [4, 5].
+- Median flips back to 4 at crowd weight < ~0.29. Weight 0.4 chosen because Pro + gold agree
+  tightly with CP and new bot entrants add a little to the upper tail; not higher because the
+  crowd shares my public anchor (background "5 of 10") and cannot see a Fall leaderboard either.
+- Chart: `charts/forecast-v2.png` (script in session scratchpad, matplotlib via `uv run --with`).
+
+### Open questions for next time (2026-10-16)
+
+1. Is the Fall Cup live leaderboard public yet (expected early November)? Which bots are on it?
+2. Admin answer on `symbiosis`.
+3. Fall FutureEval early standings — are the elite five all active?
+4. Any statement by laertes (Jeffrey Liang) / Mantic / FutureSearch / Preseen about Fall Cup participation.

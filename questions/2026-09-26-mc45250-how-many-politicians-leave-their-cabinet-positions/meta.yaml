@@ -16,28 +16,34 @@ dates:
   resolves: '2027-01-01'
 status: open
 current:
-  version: 2
-  date: '2026-09-26'
-  median: 0.565
+  version: 3
+  date: '2026-10-02'
+  median: 0.59
   iqr:
-  - 0.495
-  - 0.635
+  - 0.525
+  - 0.655
   community:
-    cp: null
-    pro: null
-    gold: null
-    n_forecasters: 10
-    as_of: '2026-09-26'
-next_review: '2026-10-01'
+    cp: 0.646
+    pro: 0.604
+    gold: 0.626
+    n_forecasters: 68
+    as_of: '2026-10-02'
+next_review: '2026-10-16'
 tripwires:
 - signal: Metaculus Pro + gold agree on option '0' above 68% or below 42% at CP reveal - re-derive
   by: '2026-09-30'
   direction: either
   magnitude: 0
   magnitude_unit: pp
+  fired: false
+- signal: Metaculus Pro and gold both move option '0' below 50% or above 72% - re-derive
+  by: '2026-11-30'
+  direction: either
+  magnitude: 0
+  magnitude_unit: pp
   fired: null
-- signal: A listed cabinet minister is referred to the Independent Adviser on Ministerial Standards, or
-    publicly threatens to resign (moves option '0')
+- signal: A listed cabinet minister is referred to the Independent Adviser on Ministerial Standards, publicly
+    threatens to resign, or is briefed by No 10 as facing the sack (moves option '0')
   by: '2026-11-30'
   direction: down
   magnitude: 10
@@ -63,10 +69,17 @@ tripwires:
   magnitude: 15
   magnitude_unit: pp
   fired: null
-- signal: Admin clarifies that sideways moves do not count - shift ~4pp from '2'/'3 or more' back to '1'
+- signal: Admin clarifies that sideways moves do not count - shift ~6pp from '2'/'3 or more' to '1'
   by: '2026-12-31'
   direction: either
   magnitude: 0
+  magnitude_unit: pp
+  fired: null
+- signal: Any listed cabinet minister leaves - re-analyse ('0' to ~1%, re-weight 1/2/3+ on whether the
+    vacancy is filled sideways)
+  by: '2026-12-31'
+  direction: down
+  magnitude: 58
   magnitude_unit: pp
   fired: null
 resolution:

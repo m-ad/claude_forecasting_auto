@@ -1,0 +1,500 @@
+[
+ {
+  "id": "utly50SnPp",
+  "creatorId": "8tpyEuONEicPEGLBzBEPuvtHded2",
+  "creatorUsername": "leaflitter",
+  "creatorName": "leaf",
+  "createdTime": 1766356133238,
+  "creatorAvatarUrl": "https://storage.googleapis.com/mantic-markets.appspot.com/user-images/2zuhdSU8.png",
+  "closeTime": 1798761540000,
+  "question": "Will any UK cabinet ministers resign in Q1, Q2, Q3, or Q4 of 2026?",
+  "slug": "will-any-uk-cabinet-ministers-resig",
+  "url": "https://manifold.markets/leaflitter/will-any-uk-cabinet-ministers-resig",
+  "totalLiquidity": 125,
+  "outcomeType": "MULTIPLE_CHOICE",
+  "mechanism": "cpmm-multi-1",
+  "volume": 605.2970813477722,
+  "volume24Hours": 0,
+  "isResolved": false,
+  "uniqueBettorCount": 9,
+  "lastUpdatedTime": 1788272292320,
+  "lastBetTime": 1788272292320,
+  "lastCommentTime": 1788270207832,
+  "token": "MANA",
+  "shouldAnswersSumToOne": false,
+  "addAnswersMode": "DISABLED",
+  "answers": [
+   {
+    "id": "IEnl8PCIqt",
+    "index": 0,
+    "contractId": "utly50SnPp",
+    "userId": "8tpyEuONEicPEGLBzBEPuvtHded2",
+    "text": "Q1 (Jan 1st - Apr 1st)",
+    "createdTime": 1766356133238,
+    "totalLiquidity": 25,
+    "subsidyPool": 0,
+    "isOther": false,
+    "resolution": "NO",
+    "resolutionTime": 1778583972834,
+    "resolutionProbability": 0.010000000000000021,
+    "resolverId": "8tpyEuONEicPEGLBzBEPuvtHded2",
+    "probChanges": {
+     "day": 0,
+     "week": 0,
+     "month": 0
+    },
+    "volume": 373.7623733849805,
+    "pool": {
+     "YES": 248.74685927665507,
+     "NO": 2.5125945381480363
+    },
+    "probability": 0
+   },
+   {
+    "id": "8qN28ZhSZ8",
+    "index": 1,
+    "contractId": "utly50SnPp",
+    "userId": "8tpyEuONEicPEGLBzBEPuvtHded2",
+    "text": "Q2 (Apr 1st - Jul 1st)",
+    "createdTime": 1766356133238,
+    "totalLiquidity": 25,
+    "subsidyPool": 0,
+    "isOther": false,
+    "resolution": "YES",
+    "resolutionTime": 1778583974461,
+    "resolutionProbability": 0.6711740424677983,
+    "resolverId": "8tpyEuONEicPEGLBzBEPuvtHded2",
+    "probChanges": {
+     "day": 0,
+     "week": 0,
+     "month": 0
+    },
+    "volume": 54,
+    "pool": {
+     "YES": 17.498687664042,
+     "NO": 35.71696415179243
+    },
+    "probability": 1
+   },
+   {
+    "id": "Ip0IhUduIA",
+    "index": 2,
+    "contractId": "utly50SnPp",
+    "userId": "8tpyEuONEicPEGLBzBEPuvtHded2",
+    "text": "Q3 (Jul 1st - Oct 1st)",
+    "createdTime": 1766356133238,
+    "totalLiquidity": 25,
+    "subsidyPool": 0,
+    "isOther": false,
+    "probChanges": {
+     "day": 0,
+     "week": 0,
+     "month": 0
+    },
+    "volume": 79.53470796279167,
+    "pool": {
+     "YES": 7.434346643050915,
+     "NO": 84.06925719346235
+    },
+    "probability": 0.9187535099018216
+   },
+   {
+    "id": "Qzl5dICnsn",
+    "index": 3,
+    "contractId": "utly50SnPp",
+    "userId": "8tpyEuONEicPEGLBzBEPuvtHded2",
+    "text": "Q4 (Oct 1st - Jan 1st 2027)",
+    "createdTime": 1766356133238,
+    "totalLiquidity": 25,
+    "subsidyPool": 0,
+    "isOther": false,
+    "probChanges": {
+     "day": -5.551115123125783e-17,
+     "week": -5.551115123125783e-17,
+     "month": -5.551115123125783e-17
+    },
+    "volume": 35,
+    "pool": {
+     "YES": 29.981931750008815,
+     "NO": 20.845888290697474
+    },
+    "probability": 0.4101275300416722
+   },
+   {
+    "id": "sh2zRZRlR8",
+    "index": 4,
+    "contractId": "utly50SnPp",
+    "userId": "8tpyEuONEicPEGLBzBEPuvtHded2",
+    "text": "Any part of 2026",
+    "createdTime": 1766356133238,
+    "totalLiquidity": 25,
+    "subsidyPool": 0,
+    "isOther": false,
+    "resolution": "YES",
+    "resolutionTime": 1778583975852,
+    "resolutionProbability": 0.8855559683907082,
+    "resolverId": "8tpyEuONEicPEGLBzBEPuvtHded2",
+    "probChanges": {
+     "day": 0,
+     "week": 0,
+     "month": 0
+    },
+    "volume": 63,
+    "pool": {
+     "YES": 8.98728627794827,
+     "NO": 69.54268292682926
+    },
+    "probability": 1
+   }
+  ],
+  "description": {
+   "type": "doc",
+   "content": [
+    {
+     "type": "paragraph",
+     "content": [
+      {
+       "text": "Options resolve Yes if any UK cabinet minister resigns in the corresponding timeframe.",
+       "type": "text"
+      }
+     ]
+    },
+    {
+     "type": "paragraph"
+    },
+    {
+     "type": "paragraph",
+     "content": [
+      {
+       "text": "Multiple options can resolve Yes if ministers resign in more than one timeframe. Any option covers the (plausible) event that none resign in 2026.",
+       "type": "text"
+      }
+     ]
+    },
+    {
+     "type": "paragraph"
+    },
+    {
+     "type": "paragraph",
+     "content": [
+      {
+       "text": "If government dissolves this will be treated as a resignation.",
+       "type": "text"
+      }
+     ]
+    },
+    {
+     "type": "paragraph"
+    },
+    {
+     "type": "paragraph",
+     "content": [
+      {
+       "text": "Full list of cabinet ministers available here:",
+       "type": "text"
+      }
+     ]
+    },
+    {
+     "type": "paragraph",
+     "content": [
+      {
+       "text": "https://www.gov.uk/government/ministers",
+       "type": "text",
+       "marks": [
+        {
+         "type": "link",
+         "attrs": {
+          "href": "https://www.gov.uk/government/ministers",
+          "class": "break-anywhere hover:underline hover:decoration-primary-400 hover:decoration-2 active:underline active:decoration-primary-400",
+          "target": "_blank"
+         }
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  "groupSlugs": [
+   "europe",
+   "uk",
+   "politics-default",
+   "uk-conservative-party",
+   "uk-politics"
+  ],
+  "textDescription": "Options resolve Yes if any UK cabinet minister resigns in the corresponding timeframe.\n\nMultiple options can resolve Yes if ministers resign in more than one timeframe. Any option covers the (plausible) event that none resign in 2026.\n\nIf government dissolves this will be treated as a resignation.\n\nFull list of cabinet ministers available here:\n\nhttps://www.gov.uk/government/ministers"
+ },
+ {
+  "id": "QtQNdz0zUl",
+  "creatorId": "WwWLwDrleEhg9HjjMYCoXRkMkaf1",
+  "creatorUsername": "rodgerisoffline",
+  "creatorName": "rodgerisoffline",
+  "createdTime": 1784848116805,
+  "creatorAvatarUrl": "https://lh3.googleusercontent.com/a/ACg8ocJZEsVBMeRAmdiU-CXDRxnZB0goTPxoAOVDwHrTFDo3Q_A-Gw=s96-c",
+  "closeTime": 1798761540000,
+  "question": "Burnham recieves a cabinet minister resignation in 2026",
+  "slug": "burnham-recieves-a-cabinet-minister",
+  "url": "https://manifold.markets/rodgerisoffline/burnham-recieves-a-cabinet-minister",
+  "pool": {
+   "NO": 119.62311988513164,
+   "YES": 19.93718664752197
+  },
+  "probability": 0.3999999999999997,
+  "p": 0.10000000000000002,
+  "totalLiquidity": 100,
+  "outcomeType": "BINARY",
+  "mechanism": "cpmm-1",
+  "volume": 75.0606477389389,
+  "volume24Hours": 0,
+  "isResolved": false,
+  "uniqueBettorCount": 5,
+  "lastUpdatedTime": 1786284250734,
+  "lastBetTime": 1786284250734,
+  "token": "MANA",
+  "description": {
+   "type": "doc",
+   "content": [
+    {
+     "type": "heading",
+     "attrs": {
+      "level": 4
+     },
+     "content": [
+      {
+       "text": "Resolution criteria",
+       "type": "text"
+      }
+     ]
+    },
+    {
+     "type": "paragraph",
+     "content": [
+      {
+       "text": "This market resolves to ",
+       "type": "text"
+      },
+      {
+       "text": "YES",
+       "type": "text",
+       "marks": [
+        {
+         "type": "bold"
+        }
+       ]
+      },
+      {
+       "text": " if, between July 23, 2026, and December 31, 2026, at 11:59 PM UTC, any member of the UK Cabinet under Prime Minister Andy Burnham formally resigns from their Cabinet post.",
+       "type": "text"
+      }
+     ]
+    },
+    {
+     "type": "bulletList",
+     "content": [
+      {
+       "type": "listItem",
+       "content": [
+        {
+         "type": "paragraph",
+         "content": [
+          {
+           "text": "Cabinet Minister Definition:",
+           "type": "text",
+           "marks": [
+            {
+             "type": "bold"
+            }
+           ]
+          },
+          {
+           "text": " Any individual officially listed as a member of the Cabinet of the United Kingdom on ",
+           "type": "text"
+          },
+          {
+           "text": "GOV.UK",
+           "type": "text",
+           "marks": [
+            {
+             "type": "link",
+             "attrs": {
+              "href": "https://www.gov.uk/government/organisations/prime-ministers-office-10-downing-street",
+              "class": null,
+              "target": "_blank"
+             }
+            }
+           ]
+          },
+          {
+           "text": " or widely reported by major media outlets (e.g., BBC, The Guardian, Financial Times) as holding a full Cabinet-level role in the Burnham administration.",
+           "type": "text"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "type": "listItem",
+       "content": [
+        {
+         "type": "paragraph",
+         "content": [
+          {
+           "text": "Resignation Definition:",
+           "type": "text",
+           "marks": [
+            {
+             "type": "bold"
+            }
+           ]
+          },
+          {
+           "text": " The minister must voluntarily step down from their Cabinet post (including resignations in protest, for personal reasons, or when requested/pressured to do so by the Prime Minister, provided a formal resignation is submitted and accepted).",
+           "type": "text"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "type": "listItem",
+       "content": [
+        {
+         "type": "paragraph",
+         "content": [
+          {
+           "text": "Exclusions:",
+           "type": "text",
+           "marks": [
+            {
+             "type": "bold"
+            }
+           ]
+          }
+         ]
+        },
+        {
+         "type": "bulletList",
+         "content": [
+          {
+           "type": "listItem",
+           "content": [
+            {
+             "type": "paragraph",
+             "content": [
+              {
+               "text": "Being sacked, dismissed, or removed directly by the Prime Minister without resigning first.",
+               "type": "text"
+              }
+             ]
+            }
+           ]
+          },
+          {
+           "type": "listItem",
+           "content": [
+            {
+             "type": "paragraph",
+             "content": [
+              {
+               "text": "Being reassigned to a different Cabinet role during a reshuffle.",
+               "type": "text"
+              }
+             ]
+            }
+           ]
+          },
+          {
+           "type": "listItem",
+           "content": [
+            {
+             "type": "paragraph",
+             "content": [
+              {
+               "text": "Temporary leaves of absence (e.g., medical or parental leave) where the minister remains in office.",
+               "type": "text"
+              }
+             ]
+            }
+           ]
+          },
+          {
+           "type": "listItem",
+           "content": [
+            {
+             "type": "paragraph",
+             "content": [
+              {
+               "text": "Leaving office due to death or permanent medical incapacitation.",
+               "type": "text"
+              }
+             ]
+            }
+           ]
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "type": "paragraph",
+     "content": [
+      {
+       "text": "If no eligible Cabinet minister resigns by the end of December 31, 2026, this market resolves to ",
+       "type": "text"
+      },
+      {
+       "text": "NO",
+       "type": "text",
+       "marks": [
+        {
+         "type": "bold"
+        }
+       ]
+      },
+      {
+       "text": ".",
+       "type": "text"
+      }
+     ]
+    },
+    {
+     "type": "heading",
+     "attrs": {
+      "level": 4
+     },
+     "content": [
+      {
+       "text": "Background",
+       "type": "text"
+      }
+     ]
+    },
+    {
+     "type": "paragraph",
+     "content": [
+      {
+       "text": "Following the resignation of Keir Starmer in June 2026, Andy Burnham (the former Mayor of Greater Manchester) returned to Westminster as the MP for Makerfield, won the Labour leadership unopposed, and was appointed Prime Minister of the United Kingdom on July 20, 2026. Burnham quickly formed his new Cabinet, appointing veteran MP John Healey as Chancellor of the Exchequer, Louise Haigh as First Secretary of State, and shuffling various portfolios to construct his initial team.",
+       "type": "text"
+      }
+     ]
+    },
+    {
+     "type": "paragraph",
+     "content": [
+      {
+       "text": "Given the swift transition of power and the ongoing factional shifts within the Labour Party following the Starmer-to-Burnham transition, this market tracks the stability of the Burnham Cabinet through the remainder of 2026.",
+       "type": "text"
+      }
+     ]
+    }
+   ]
+  },
+  "groupSlugs": [
+   "uk-conservative-party"
+  ],
+  "textDescription": "Resolution criteria\n\nThis market resolves to YES if, between July 23, 2026, and December 31, 2026, at 11:59 PM UTC, any member of the UK Cabinet under Prime Minister Andy Burnham formally resigns from their Cabinet post.\n\nCabinet Minister Definition: Any individual officially listed as a member of the Cabinet of the United Kingdom on GOV.UK or widely reported by major media outlets (e.g., BBC, The Guardian, Financial Times) as holding a full Cabinet-level role in the Burnham administration.\n\nResignation Definition: The minister must voluntarily step down from their Cabinet post (including resignations in protest, for personal reasons, or when requested/pressured to do so by the Prime Minister, provided a formal resignation is submitted and accepted).\n\nExclusions:\n\nBeing sacked, dismissed, or removed directly by the Prime Minister without resigning first.\n\nBeing reassigned to a different Cabinet role during a reshuffle.\n\nTemporary leaves of absence (e.g., medical or parental leave) where the minister remains in office.\n\nLeaving office due to death or permanent medical incapacitation.\n\nIf no eligible Cabinet minister resigns by the end of December 31, 2026, this market resolves to NO.\n\nBackground\n\nFollowing the resignation of Keir Starmer in June 2026, Andy Burnham (the former Mayor of Greater Manchester) returned to Westminster as the MP for Makerfield, won the Labour leadership unopposed, and was appointed Prime Minister of the United Kingdom on July 20, 2026. Burnham quickly formed his new Cabinet, appointing veteran MP John Healey as Chancellor of the Exchequer, Louise Haigh as First Secretary of State, and shuffling various portfolios to construct his initial team.\n\nGiven the swift transition of power and the ongoing factional shifts within the Labour Party following the Starmer-to-Burnham transition, this market tracks the stability of the Burnham Cabinet through the remainder of 2026."
+ }
+]

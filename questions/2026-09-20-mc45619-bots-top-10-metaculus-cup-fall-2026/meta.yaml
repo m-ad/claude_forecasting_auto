@@ -17,59 +17,76 @@ dates:
   resolves: '2027-01-05'
 status: open
 current:
-  version: 1
-  date: '2026-09-20'
-  median: 4.0
+  version: 2
+  date: '2026-10-02'
+  median: 5.0
   iqr:
-  - 3.0
+  - 4.0
   - 5.0
   community:
-    cp: null
-    pro: null
-    gold: null
-    n_forecasters: null
-    as_of: '2026-09-20'
-next_review: '2026-09-27'
+    cp: 5.08
+    pro: 5.12
+    gold: 5.1
+    n_forecasters: 102
+    as_of: '2026-10-02'
+next_review: '2026-10-16'
 tripwires:
-- signal: Revealed community/Pro/gold aggregations after the 2026-09-26 CP reveal sit at or above 5
+- signal: 'Revealed community/Pro/gold aggregations after the 2026-09-26 CP reveal sit at or above 5 (FIRED:
+    2026-09-27 CP 5.02 / Pro 5.58 / gold 5.50; 2026-10-02 CP 5.08 / Pro 5.12 / gold 5.10; applied in v2
+    as a 40%-weight blend)'
   by: '2026-09-27'
   direction: up
   magnitude: 1
   magnitude_unit: bots
-  fired: null
-- signal: Live Fall 2026 Cup leaderboard (or bot profile activity) shows an elite incumbent absent or
-    covering under half the open Cup questions
+  fired: true
+- signal: Live Fall 2026 Cup leaderboard (or a bot operator's statement) shows an elite incumbent absent
+    or covering under half the open Cup questions
   by: '2026-10-15'
   direction: down
   magnitude: 1
   magnitude_unit: bots
-  fired: null
-- signal: A sixth bot (acm_bot, GreeneiBot2, future-perfect-hindsight, mmBot, ana, Preseen-Chestnut or
-    a newcomer) inside the interim Cup top 15
-  by: '2026-10-31'
+  fired: false
+- signal: First public interim Fall 2026 Cup leaderboard shows 3 or fewer bots (down) or 6 or more bots
+    (up) in the top 10 - move the median about 1 bot in that direction
+  by: '2026-11-10'
+  direction: either
+  magnitude: 0
+  magnitude_unit: bots
+  fired: false
+- signal: A sixth bot (acm_bot, GreeneiBot2, future-perfect-hindsight, mmBot, ana, Preseen-Chestnut, a
+    template bot or a newcomer) inside the interim Cup top 15 (deadline moved from 2026-10-31; leaderboard
+    expected early November)
+  by: '2026-11-15'
   direction: up
   magnitude: 1
   magnitude_unit: bots
-  fired: null
+  fired: false
 - signal: Admins rule that strong non-prize-eligible accounts such as symbiosis are not counted as bots
   by: '2026-11-15'
   direction: down
   magnitude: 1
   magnitude_unit: bots
-  fired: null
+  fired: false
+- signal: Metaculus Pro and gold-medalist medians both move below 4.5 or above 5.6 without a public trigger
+    (replaces the expired CP-reveal tripwire) - move about 0.5 bot toward them
+  by: '2026-11-15'
+  direction: either
+  magnitude: 0
+  magnitude_unit: bots
+  fired: false
 - signal: Two or more of laertes/manticAI/futuresearch/cassi/preseen outside the Fall 2026 FutureEval
     top 10
   by: '2026-11-30'
   direction: down
   magnitude: 1
   magnitude_unit: bots
-  fired: null
+  fired: false
 - signal: Metaculus announces a Cup rule change on bot eligibility or top-10 leaderboard construction
   by: '2026-12-15'
   direction: either
   magnitude: 0
   magnitude_unit: bots
-  fired: null
+  fired: false
 resolution:
   outcome: null
   date: null
