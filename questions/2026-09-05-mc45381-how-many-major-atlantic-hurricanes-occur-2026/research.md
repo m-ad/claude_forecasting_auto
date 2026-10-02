@@ -268,3 +268,27 @@ mixture can.
 2. Any NHC area in the Gulf/W Caribbean/W Atlantic at ≥ 50% 7-day?
 3. Did the Cabo Verde wave or the Mid-Atlantic frontal low become tropical, and how strong?
 4. Pros cohort level vs. my 67%.
+
+## v5 search log (2026-10-02)
+
+| Date | Query / source | Finding | Effect |
+|---|---|---|---|
+| 2026-10-02 | NHC TWO, 8 pm EDT 1 Oct | only Fay's remnant SE of Bermuda, 10%/10%, ending by Sunday; "formation not expected" otherwise | ↑↑ basin closed to ~8 Oct |
+| 2026-10-02 | Wikipedia 2026 season | 8 NS / 0 H / 0 MH, ACE 10.8; Gonzalo 50 mph, Hanna 45 mph | ↑ |
+| 2026-10-02 | Yahoo/USA Today 30 Sep | CSU two-week (30 Sep) 78% below normal, 2% above, through 13 Oct; Klotzbach ~50% hurricane-free season | ↑ (tripwire fired, below-normal side) |
+| 2026-10-02 | CPC GTH issued 29 Sep | week-2 20–40% genesis Bay of Campeche / western Caribbean; nothing week 3; MJO signal hard to discern | ↓ |
+| 2026-10-02 | Lowry, 1 Oct | DeepMind ensemble >50%, ECMWF ensemble 30–40% for TS in Bay of Campeche 7–9 Oct; record-warm southern Gulf; strong subtropical jet, "sprawling, sloppy subtropical-like system" | ↓ small |
+| 2026-10-02 | WeatherTiger 30 Sep | ~1/3 of ensemble members develop SW Gulf 7–10 Oct; El Niño cuts Oct–Nov activity ~60%; >5% US hurricane risk rest of season | ↑ on rate, ↓ small on window |
+| 2026-10-02 | Kalshi public API | T0 29/30¢ last 32¢, vol 18.3k (+0.8k); T1 11/14¢; T2 3/4¢ | ↑ anchor |
+| 2026-10-02 | metaculus-aggregations, post 45381 | CP 79.5 (n=143), Pros 84.5 (n=11), gold 82.2 (n=36); no comments returned | ↑ (Pros tripwire fired) |
+| 2026-10-02 | CNN 1 Oct (El Niño, hurricane-free September) | HTTP 451 to WebFetch | dead end |
+
+Yahoo's article lists Hanna's peak as 70 mph; Wikipedia gives 45 mph (Fay was 70 mph). I used
+Wikipedia.
+
+## Open questions to chase next time (2026-10-09)
+
+1. Did the 7–10 Oct southern-Gulf system form, and how strong did it get?
+2. CPC ENSO update (~8 Oct): OND RONI level and the peak timing.
+3. Any western-Caribbean signal for 14–31 Oct (CPC week 2/3, ECMWF weeklies)?
+4. CSU two-week forecast of 14 Oct.

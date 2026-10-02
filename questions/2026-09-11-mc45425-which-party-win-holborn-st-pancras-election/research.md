@@ -152,3 +152,20 @@ September poll with Greens at 15% or above was found.
 **Open for v3 (2026-10-01, T−7)**: any constituency poll; the Green national share in several
 pollsters; whether Polymarket and the books hold after the Green conference; Galloway's campaign
 traction.
+
+## v4 research log — 2026-10-02 (Update)
+
+| Date | Query / source | Finding | Effect |
+|---|---|---|---|
+| 2026-10-02 | Polymarket gamma API | Abdi-Wali 0.86 (0.85/0.87), Polanski 0.14 (0.13/0.15); event volume $66.0k (+$4k since v3) | flat |
+| 2026-10-02 | metaculus-aggregations, post 45425 (first attempt 403, retry 6 min later OK) | CP 82.4 (n=117), Pros 84.0 (n=11), gold 83.8 (n=34); DeRuina (30 Sep) argues the ward-level gap is ~3pt after adjusting for uncontested wards | cohorts +3; small pro-Green comment |
+| 2026-10-02 | search "voting intention ... 30 September 2026" | PollCheck 7-poll avg Lab 26.7 / Ref 23.3 / LD 10.4 / Grn 9.7; More in Common Sept MRP Grn 8 | small pro-Labour |
+| 2026-10-02 | Left Foot Forward (Oct) | Stats for Lefties model Lab 39 / Grn 32 / Con 10 / Ref 9 (locals + national polls; not a poll) | small pro-Labour |
+| 2026-10-02 | The Critic (1 Oct) | Polanski Bengali video in standard Bangla, not Sylheti; conference story leaked as dysfunction; Galloway "8–25%" estimate (implausible) | small pro-Labour |
+| 2026-10-02 | UnHerd, Bastani (Oct) | Labour campaign lacks energy; Abdi-Wali "cagey and lightweight"; Polanski not resident | small pro-Green |
+| 2026-10-02 | Wikipedia by-election page | Williamson resigned as Workers deputy leader over Galloway's candidacy, urged Polanski support; no polls section | small pro-Green |
+| 2026-10-02 | search Survation / Find Out Now / JL Partners + seat | no constituency poll found | none |
+| 2026-10-02 | The New World, Kellner (7 Sep) | 9 left-v-left by-elections in 60 years, Labour lost 5, avg −24pp; Southall 2007 the honeymoon exception | outside-view dissent, noted |
+
+**Open for v5 (T−1, 2026-10-06/07)**: any constituency poll; post-conference Green national
+share; Polymarket/bookmaker moves in the final 48h; Galloway campaign news.
