@@ -1,0 +1,711 @@
+{
+ "id": 21095,
+ "title": "Will the following years be the warmest year on record, according to NASA?",
+ "short_title": "Which of these years will be warmest on record?",
+ "url_title": "Which of these years will be warmest on record?",
+ "slug": "which-of-these-years-will-be-warmest-on-record",
+ "author_id": 131932,
+ "author_username": "freelancejosh93",
+ "coauthors": [
+  {
+   "id": 111743,
+   "username": "NathanpmYoung"
+  }
+ ],
+ "created_at": "2024-01-17T10:57:36.062671Z",
+ "published_at": "2024-01-25T19:44:00Z",
+ "edited_at": "2026-10-03T15:17:35.559810Z",
+ "curation_status": "approved",
+ "curation_status_updated_at": "2024-01-25T19:44:00Z",
+ "comment_count": 57,
+ "status": "open",
+ "resolved": false,
+ "actual_close_time": null,
+ "scheduled_close_time": "2040-01-01T12:00:00Z",
+ "scheduled_resolve_time": "2040-01-15T12:00:00Z",
+ "actual_resolve_time": null,
+ "open_time": "2024-01-25T19:44:00Z",
+ "nr_forecasters": 116,
+ "html_metadata_json": null,
+ "projects": {
+  "leaderboard_tag": [
+   {
+    "id": 32594,
+    "name": "2024 Leaderboard",
+    "slug": "2024_leaderboard",
+    "type": "leaderboard_tag"
+   },
+   {
+    "id": 32601,
+    "name": "2024-2025 Leaderboard",
+    "slug": "2024_2025_leaderboard",
+    "type": "leaderboard_tag"
+   },
+   {
+    "id": 32926,
+    "name": "2026-2027 Leaderboard",
+    "slug": "2026_2027_leaderboard",
+    "type": "leaderboard_tag"
+   }
+  ],
+  "topic": [
+   {
+    "id": 15867,
+    "name": "Environment & Climate",
+    "slug": "climate",
+    "emoji": "\ud83c\udf0e",
+    "type": "topic"
+   }
+  ],
+  "site_main": [
+   {
+    "id": 144,
+    "type": "site_main",
+    "name": "Metaculus Community",
+    "slug": null,
+    "header_image": null,
+    "prize_pool": null,
+    "start_date": null,
+    "close_date": null,
+    "forecasting_end_date": null,
+    "html_metadata_json": null,
+    "is_ongoing": null,
+    "user_permission": "forecaster",
+    "order": 0,
+    "created_at": "2023-11-08T16:55:29.484707Z",
+    "edited_at": "2026-04-03T12:10:54.728515Z",
+    "score_type": null,
+    "default_permission": "forecaster",
+    "visibility": "normal",
+    "show_on_homepage": false,
+    "is_current_content_translated": false,
+    "bot_leaderboard_status": "exclude_and_show",
+    "description_preview": "-"
+   }
+  ],
+  "default_project": {
+   "id": 144,
+   "type": "site_main",
+   "name": "Metaculus Community",
+   "slug": null,
+   "header_image": null,
+   "prize_pool": null,
+   "start_date": null,
+   "close_date": null,
+   "forecasting_end_date": null,
+   "html_metadata_json": null,
+   "is_ongoing": null,
+   "user_permission": "forecaster",
+   "order": 0,
+   "created_at": "2023-11-08T16:55:29.484707Z",
+   "edited_at": "2026-04-03T12:10:54.728515Z",
+   "score_type": null,
+   "default_permission": "forecaster",
+   "visibility": "normal",
+   "show_on_homepage": false,
+   "is_current_content_translated": false,
+   "bot_leaderboard_status": "exclude_and_show",
+   "description_preview": "-"
+  },
+  "category": [
+   {
+    "id": 3697,
+    "name": "Environment & Climate",
+    "slug": "environment-climate",
+    "emoji": "\ud83c\udf31",
+    "description": "Environment & Climate",
+    "type": "category"
+   }
+  ],
+  "question_series": [
+   {
+    "id": 32979,
+    "type": "question_series",
+    "name": "Bot benchmarking question list",
+    "slug": "bot-benchmarking-question-list",
+    "header_image": null,
+    "prize_pool": null,
+    "start_date": null,
+    "close_date": null,
+    "forecasting_end_date": null,
+    "html_metadata_json": null,
+    "is_ongoing": true,
+    "user_permission": "forecaster",
+    "order": 0,
+    "created_at": "2026-03-16T13:28:50.153193Z",
+    "edited_at": "2026-10-04T07:13:10.438827Z",
+    "score_type": "peer_tournament",
+    "default_permission": "forecaster",
+    "visibility": "unlisted",
+    "show_on_homepage": false,
+    "is_current_content_translated": false,
+    "bot_leaderboard_status": "exclude_and_show",
+    "description_preview": "This project holds questions for purposes of forecasting bot benchmarking. If you want access please get in touch using the form at the bott"
+   }
+  ]
+ },
+ "group_of_questions": {
+  "id": 21095,
+  "group_variable": "Year",
+  "graph_type": "fan_graph",
+  "subquestions_order": "MANUAL",
+  "description": "2023 was the [hottest year on record](https://www.nasa.gov/news-release/nasa-analysis-confirms-2023-as-warmest-year-on-record/), exacerbated by human-made climate change and El Ni\u00f1o. Despite setting new temperature highs in 2023, predictions for 2024 and beyond are uncertain due to the irregular behaviour of the current El Ni\u00f1o.",
+  "resolution_criteria": "Each sub-question resolves \"Yes\" if [NASA](https://www.nasa.gov/news-release/nasa-analysis-confirms-2023-as-warmest-year-on-record/) officially reports that the year is the hottest year on record to date. It resolves \"No\" otherwise.",
+  "fine_print": "",
+  "questions": [
+   {
+    "id": 21099,
+    "title": "Will the following years be the warmest year on record, according to NASA? (2030)",
+    "created_at": "2024-01-17T10:57:36.137273Z",
+    "open_time": "2024-01-25T19:44:00Z",
+    "cp_reveal_time": "2024-01-28T19:44:00Z",
+    "spot_scoring_time": "2024-01-28T19:44:00Z",
+    "scheduled_resolve_time": "2031-01-15T12:00:00Z",
+    "actual_resolve_time": null,
+    "resolution_set_time": null,
+    "scheduled_close_time": "2031-01-01T12:00:00Z",
+    "actual_close_time": "2031-01-01T12:00:00Z",
+    "type": "binary",
+    "options": null,
+    "all_options_ever": null,
+    "options_history": null,
+    "options_order": null,
+    "group_variable": "",
+    "status": "open",
+    "possibilities": null,
+    "resolution": null,
+    "include_bots_in_aggregates": false,
+    "question_weight": 1,
+    "default_score_type": "peer",
+    "default_aggregation_method": "recency_weighted",
+    "label": "2030",
+    "unit": "",
+    "open_upper_bound": false,
+    "open_lower_bound": false,
+    "inbound_outcome_count": null,
+    "scaling": {
+     "range_min": null,
+     "range_max": null,
+     "nominal_min": null,
+     "nominal_max": null,
+     "zero_point": null,
+     "open_upper_bound": false,
+     "open_lower_bound": false,
+     "inbound_outcome_count": null,
+     "continuous_range": null
+    },
+    "group_rank": 4,
+    "coherence_links": null,
+    "coherence_link_aggregations": null,
+    "description": "",
+    "resolution_criteria": "",
+    "fine_print": "",
+    "short_title": "Which of these years will be warmest on record?",
+    "post_id": 21095,
+    "aggregations": {
+     "recency_weighted": {
+      "history": null,
+      "latest": null,
+      "score_data": null,
+      "movement": null
+     },
+     "metaculus_prediction": null
+    },
+    "average_coverage": null,
+    "my_forecasts": {
+     "history": [],
+     "latest": null,
+     "score_data": {}
+    }
+   },
+   {
+    "id": 21097,
+    "title": "Will the following years be the warmest year on record, according to NASA? (2025)",
+    "created_at": "2024-01-17T10:57:36.137083Z",
+    "open_time": "2024-01-25T19:44:00Z",
+    "cp_reveal_time": "2024-01-28T19:44:00Z",
+    "spot_scoring_time": "2024-01-28T19:44:00Z",
+    "scheduled_resolve_time": "2026-01-15T12:00:00Z",
+    "actual_resolve_time": "2026-01-27T15:42:00Z",
+    "resolution_set_time": "2026-01-27T15:58:31.057005Z",
+    "scheduled_close_time": "2026-01-01T12:00:00Z",
+    "actual_close_time": "2026-01-01T12:00:00Z",
+    "type": "binary",
+    "options": null,
+    "all_options_ever": null,
+    "options_history": null,
+    "options_order": null,
+    "group_variable": "",
+    "status": "resolved",
+    "possibilities": null,
+    "resolution": null,
+    "include_bots_in_aggregates": false,
+    "question_weight": 1,
+    "default_score_type": "peer",
+    "default_aggregation_method": "recency_weighted",
+    "label": "2025",
+    "unit": "",
+    "open_upper_bound": false,
+    "open_lower_bound": false,
+    "inbound_outcome_count": null,
+    "scaling": {
+     "range_min": null,
+     "range_max": null,
+     "nominal_min": null,
+     "nominal_max": null,
+     "zero_point": null,
+     "open_upper_bound": false,
+     "open_lower_bound": false,
+     "inbound_outcome_count": null,
+     "continuous_range": null
+    },
+    "group_rank": 1,
+    "coherence_links": null,
+    "coherence_link_aggregations": null,
+    "description": null,
+    "resolution_criteria": null,
+    "fine_print": null,
+    "short_title": "Which of these years will be warmest on record?",
+    "post_id": 21095,
+    "aggregations": {
+     "recency_weighted": {
+      "history": null,
+      "latest": null,
+      "score_data": null,
+      "movement": null
+     },
+     "metaculus_prediction": null
+    },
+    "average_coverage": 0.5572863736918927,
+    "my_forecasts": {
+     "history": [],
+     "latest": null,
+     "score_data": {}
+    }
+   },
+   {
+    "id": 21101,
+    "title": "Will the following years be the warmest year on record, according to NASA? (2040)",
+    "created_at": "2024-01-17T10:57:36.137448Z",
+    "open_time": "2024-01-25T19:44:00Z",
+    "cp_reveal_time": "2024-01-28T19:44:00Z",
+    "spot_scoring_time": "2024-01-28T19:44:00Z",
+    "scheduled_resolve_time": "2040-01-15T12:00:00Z",
+    "actual_resolve_time": null,
+    "resolution_set_time": null,
+    "scheduled_close_time": "2040-01-01T12:00:00Z",
+    "actual_close_time": "2040-01-01T12:00:00Z",
+    "type": "binary",
+    "options": null,
+    "all_options_ever": null,
+    "options_history": null,
+    "options_order": null,
+    "group_variable": "",
+    "status": "open",
+    "possibilities": null,
+    "resolution": null,
+    "include_bots_in_aggregates": false,
+    "question_weight": 1,
+    "default_score_type": "peer",
+    "default_aggregation_method": "recency_weighted",
+    "label": "2040",
+    "unit": "",
+    "open_upper_bound": false,
+    "open_lower_bound": false,
+    "inbound_outcome_count": null,
+    "scaling": {
+     "range_min": null,
+     "range_max": null,
+     "nominal_min": null,
+     "nominal_max": null,
+     "zero_point": null,
+     "open_upper_bound": false,
+     "open_lower_bound": false,
+     "inbound_outcome_count": null,
+     "continuous_range": null
+    },
+    "group_rank": 6,
+    "coherence_links": null,
+    "coherence_link_aggregations": null,
+    "description": "",
+    "resolution_criteria": "",
+    "fine_print": "",
+    "short_title": "Which of these years will be warmest on record?",
+    "post_id": 21095,
+    "aggregations": {
+     "recency_weighted": {
+      "history": null,
+      "latest": null,
+      "score_data": null,
+      "movement": null
+     },
+     "metaculus_prediction": null
+    },
+    "average_coverage": null,
+    "my_forecasts": {
+     "history": [],
+     "latest": null,
+     "score_data": {}
+    }
+   },
+   {
+    "id": 45424,
+    "title": "Will the following years be the warmest year on record, according to NASA? (2027)",
+    "created_at": "2026-08-18T10:49:35.792152Z",
+    "open_time": "2026-08-18T11:00:00Z",
+    "cp_reveal_time": "2026-08-23T11:00:00Z",
+    "spot_scoring_time": "2026-08-23T11:00:00Z",
+    "scheduled_resolve_time": "2028-01-15T12:00:00Z",
+    "actual_resolve_time": null,
+    "resolution_set_time": null,
+    "scheduled_close_time": "2028-01-01T12:00:00Z",
+    "actual_close_time": "2028-01-01T12:00:00Z",
+    "type": "binary",
+    "options": null,
+    "all_options_ever": null,
+    "options_history": null,
+    "options_order": null,
+    "group_variable": "",
+    "status": "open",
+    "possibilities": null,
+    "resolution": null,
+    "include_bots_in_aggregates": false,
+    "question_weight": 1,
+    "default_score_type": "peer",
+    "default_aggregation_method": "recency_weighted",
+    "label": "2027",
+    "unit": "",
+    "open_upper_bound": false,
+    "open_lower_bound": false,
+    "inbound_outcome_count": null,
+    "scaling": {
+     "range_min": null,
+     "range_max": null,
+     "nominal_min": null,
+     "nominal_max": null,
+     "zero_point": null,
+     "open_upper_bound": false,
+     "open_lower_bound": false,
+     "inbound_outcome_count": null,
+     "continuous_range": null
+    },
+    "group_rank": 3,
+    "coherence_links": null,
+    "coherence_link_aggregations": null,
+    "description": "",
+    "resolution_criteria": "",
+    "fine_print": "",
+    "short_title": "Which of these years will be warmest on record?",
+    "post_id": 21095,
+    "aggregations": {
+     "recency_weighted": {
+      "history": null,
+      "latest": null,
+      "score_data": null,
+      "movement": null
+     }
+    },
+    "average_coverage": null,
+    "my_forecasts": {
+     "history": [],
+     "latest": null,
+     "score_data": {}
+    }
+   },
+   {
+    "id": 21098,
+    "title": "Will the following years be the warmest year on record, according to NASA? (2026)",
+    "created_at": "2024-01-17T10:57:36.137184Z",
+    "open_time": "2024-01-25T19:44:00Z",
+    "cp_reveal_time": "2024-01-28T19:44:00Z",
+    "spot_scoring_time": "2024-01-28T19:44:00Z",
+    "scheduled_resolve_time": "2027-01-15T12:00:00Z",
+    "actual_resolve_time": null,
+    "resolution_set_time": null,
+    "scheduled_close_time": "2027-01-01T12:00:00Z",
+    "actual_close_time": "2027-01-01T12:00:00Z",
+    "type": "binary",
+    "options": null,
+    "all_options_ever": null,
+    "options_history": null,
+    "options_order": null,
+    "group_variable": "",
+    "status": "open",
+    "possibilities": null,
+    "resolution": null,
+    "include_bots_in_aggregates": false,
+    "question_weight": 1,
+    "default_score_type": "peer",
+    "default_aggregation_method": "recency_weighted",
+    "label": "2026",
+    "unit": "",
+    "open_upper_bound": false,
+    "open_lower_bound": false,
+    "inbound_outcome_count": null,
+    "scaling": {
+     "range_min": null,
+     "range_max": null,
+     "nominal_min": null,
+     "nominal_max": null,
+     "zero_point": null,
+     "open_upper_bound": false,
+     "open_lower_bound": false,
+     "inbound_outcome_count": null,
+     "continuous_range": null
+    },
+    "group_rank": 2,
+    "coherence_links": null,
+    "coherence_link_aggregations": null,
+    "description": "",
+    "resolution_criteria": "",
+    "fine_print": "",
+    "short_title": "Which of these years will be warmest on record?",
+    "post_id": 21095,
+    "aggregations": {
+     "recency_weighted": {
+      "history": null,
+      "latest": null,
+      "score_data": null,
+      "movement": null
+     },
+     "metaculus_prediction": null
+    },
+    "average_coverage": null,
+    "my_forecasts": {
+     "history": [],
+     "latest": null,
+     "score_data": {}
+    }
+   },
+   {
+    "id": 21100,
+    "title": "Will the following years be the warmest year on record, according to NASA? (2035)",
+    "created_at": "2024-01-17T10:57:36.137362Z",
+    "open_time": "2024-01-25T19:44:00Z",
+    "cp_reveal_time": "2024-01-28T19:44:00Z",
+    "spot_scoring_time": "2024-01-28T19:44:00Z",
+    "scheduled_resolve_time": "2036-01-15T12:00:00Z",
+    "actual_resolve_time": null,
+    "resolution_set_time": null,
+    "scheduled_close_time": "2036-01-01T12:00:00Z",
+    "actual_close_time": "2036-01-01T12:00:00Z",
+    "type": "binary",
+    "options": null,
+    "all_options_ever": null,
+    "options_history": null,
+    "options_order": null,
+    "group_variable": "",
+    "status": "open",
+    "possibilities": null,
+    "resolution": null,
+    "include_bots_in_aggregates": false,
+    "question_weight": 1,
+    "default_score_type": "peer",
+    "default_aggregation_method": "recency_weighted",
+    "label": "2035",
+    "unit": "",
+    "open_upper_bound": false,
+    "open_lower_bound": false,
+    "inbound_outcome_count": null,
+    "scaling": {
+     "range_min": null,
+     "range_max": null,
+     "nominal_min": null,
+     "nominal_max": null,
+     "zero_point": null,
+     "open_upper_bound": false,
+     "open_lower_bound": false,
+     "inbound_outcome_count": null,
+     "continuous_range": null
+    },
+    "group_rank": 5,
+    "coherence_links": null,
+    "coherence_link_aggregations": null,
+    "description": "",
+    "resolution_criteria": "",
+    "fine_print": "",
+    "short_title": "Which of these years will be warmest on record?",
+    "post_id": 21095,
+    "aggregations": {
+     "recency_weighted": {
+      "history": null,
+      "latest": null,
+      "score_data": null,
+      "movement": null
+     },
+     "metaculus_prediction": null
+    },
+    "average_coverage": null,
+    "my_forecasts": {
+     "history": [],
+     "latest": null,
+     "score_data": {}
+    }
+   },
+   {
+    "id": 21096,
+    "title": "Will the following years be the warmest year on record, according to NASA? (2024)",
+    "created_at": "2024-01-17T10:57:36.136961Z",
+    "open_time": "2024-01-25T19:44:00Z",
+    "cp_reveal_time": "2024-01-28T19:44:00Z",
+    "spot_scoring_time": "2024-01-28T19:44:00Z",
+    "scheduled_resolve_time": "2025-01-15T12:00:00Z",
+    "actual_resolve_time": "2025-01-16T23:22:00Z",
+    "resolution_set_time": "2025-01-16T23:23:41.964143Z",
+    "scheduled_close_time": "2025-01-01T12:00:00Z",
+    "actual_close_time": "2025-01-01T12:00:00Z",
+    "type": "binary",
+    "options": null,
+    "all_options_ever": null,
+    "options_history": null,
+    "options_order": null,
+    "group_variable": "",
+    "status": "resolved",
+    "possibilities": null,
+    "resolution": null,
+    "include_bots_in_aggregates": false,
+    "question_weight": 1,
+    "default_score_type": "peer",
+    "default_aggregation_method": "recency_weighted",
+    "label": "2024",
+    "unit": "",
+    "open_upper_bound": null,
+    "open_lower_bound": null,
+    "inbound_outcome_count": null,
+    "scaling": {
+     "range_min": null,
+     "range_max": null,
+     "nominal_min": null,
+     "nominal_max": null,
+     "zero_point": null,
+     "open_upper_bound": null,
+     "open_lower_bound": null,
+     "inbound_outcome_count": null,
+     "continuous_range": null
+    },
+    "group_rank": 0,
+    "coherence_links": null,
+    "coherence_link_aggregations": null,
+    "description": null,
+    "resolution_criteria": null,
+    "fine_print": null,
+    "short_title": "Which of these years will be warmest on record?",
+    "post_id": 21095,
+    "aggregations": {
+     "recency_weighted": {
+      "history": null,
+      "latest": null,
+      "score_data": null,
+      "movement": null
+     },
+     "metaculus_prediction": null
+    },
+    "average_coverage": 0.637631820841554,
+    "my_forecasts": {
+     "history": [],
+     "latest": null,
+     "score_data": {}
+    }
+   }
+  ]
+ },
+ "user_permission": "forecaster",
+ "vote": {
+  "score": 13,
+  "user_vote": null
+ },
+ "forecasts_count": 2374,
+ "subscriptions": null,
+ "key_factors": [
+  {
+   "id": 2680,
+   "author": {
+    "id": 113983,
+    "username": "alt",
+    "is_bot": false,
+    "is_staff": false,
+    "metadata": null
+   },
+   "comment_id": 1072420,
+   "created_at": "2026-08-25T19:38:12.510157+00:00",
+   "vote": {
+    "score": 3,
+    "aggregated_data": [
+     {
+      "score": 5,
+      "count": 1
+     }
+    ],
+    "user_vote": null,
+    "user_vote_reason": null,
+    "count": 1
+   },
+   "question_id": 21098,
+   "question": {
+    "id": 21098,
+    "label": "2026",
+    "unit": ""
+   },
+   "question_option": "",
+   "freshness": 2.8742315324760175,
+   "driver": {
+    "text": "2026 chance increased to 69% for warmest year",
+    "impact_direction": 1,
+    "certainty": null
+   },
+   "base_rate": null,
+   "news": null,
+   "post": {
+    "id": 21095,
+    "question_type": "binary",
+    "unit": ""
+   }
+  },
+  {
+   "id": 2229,
+   "author": {
+    "id": 118276,
+    "username": "mmmeta",
+    "is_bot": false,
+    "is_staff": false,
+    "metadata": null
+   },
+   "comment_id": 850358,
+   "created_at": "2026-05-16T06:45:19.967673+00:00",
+   "vote": {
+    "score": 2,
+    "aggregated_data": [
+     {
+      "score": 2,
+      "count": 2
+     }
+    ],
+    "user_vote": null,
+    "user_vote_reason": null,
+    "count": 2
+   },
+   "question_id": null,
+   "question": null,
+   "question_option": "",
+   "freshness": 2,
+   "driver": null,
+   "base_rate": null,
+   "news": {
+    "itn_article_id": null,
+    "url": "https://berkeleyearth.org/march-2026-temperature-update/",
+    "title": "March 2026 Temperature Update - Berkeley Earth",
+    "img_url": "https://berkeley-earth-wp-offload.storage.googleapis.com/wp-content/uploads/2020/03/03233759/cropped-20200321-site-02_favicon-192x192.jpg",
+    "source": "berkeleyearth.org",
+    "published_at": "2026-04-24T15:53:21Z",
+    "impact_direction": -1,
+    "certainty": null
+   },
+   "post": {
+    "id": 21095,
+    "question_type": "binary",
+    "unit": ""
+   }
+  }
+ ],
+ "is_current_content_translated": false
+}

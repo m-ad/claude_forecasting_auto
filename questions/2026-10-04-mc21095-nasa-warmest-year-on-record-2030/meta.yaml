@@ -1,0 +1,73 @@
+slug: 2026-10-04-mc21095-nasa-warmest-year-on-record-2030
+title: Will 2030 be the warmest year on record, according to NASA?
+source: metaculus
+url: https://www.metaculus.com/questions/21095/will-the-following-years-be-the-warmest-year-on-record-according-to-nasa/?sub-question=21099
+post_id: 21095
+type: binary
+unit: null
+tags:
+- climate
+- global-temperature
+- nasa-gistemp
+- enso
+dates:
+  created: '2026-10-04'
+  opened: '2024-01-25'
+  closes: '2031-01-01'
+  resolves: '2031-01-15'
+status: open
+current:
+  version: 1
+  date: '2026-10-04'
+  median: 0.27
+  iqr:
+  - 0.19
+  - 0.34
+  community:
+    cp: null
+    pro: null
+    gold: null
+    n_forecasters: 116
+    as_of: '2026-10-04'
+next_review: '2027-01-20'
+tripwires:
+- signal: NASA annual 2027 value (mid-Jan 2028) >= 1.48 C - very high bar for 2028-2030
+  by: '2028-01-20'
+  direction: down
+  magnitude: 8
+  magnitude_unit: pp
+  fired: null
+- signal: NASA annual 2027 value <= 1.38 C
+  by: '2028-01-20'
+  direction: up
+  magnitude: 8
+  magnitude_unit: pp
+  fired: null
+- signal: 2028 or 2029 sets a new GISTEMP record (raises the bar 2030 must clear)
+  by: '2030-01-20'
+  direction: down
+  magnitude: 8
+  magnitude_unit: pp
+  fired: null
+- signal: CPC June 2030 outlook gives >= 60% El Nino for SON 2030 after an El Nino-onset spring
+  by: '2030-06-30'
+  direction: up
+  magnitude: 15
+  magnitude_unit: pp
+  fired: null
+- signal: CPC outlook shows La Nina persisting through 2030 (>= 60% for JJA and SON 2030)
+  by: '2030-06-30'
+  direction: down
+  magnitude: 12
+  magnitude_unit: pp
+  fired: null
+- signal: Stratospheric volcanic eruption injecting >= 10 Tg SO2 between 2029-07-01 and 2030-09-30
+  by: '2030-09-30'
+  direction: down
+  magnitude: 20
+  magnitude_unit: pp
+  fired: null
+resolution:
+  outcome: null
+  date: null
+  source: null
