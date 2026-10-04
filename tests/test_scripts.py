@@ -126,6 +126,21 @@ def test_fmt_forecast_numeric_does_not_go_scientific_on_large_units():
     assert _common.fmt_number(-1500000.4) == "-1,500,000"
 
 
+def test_fmt_forecast_date_renders_iso_dates_in_utc():
+    """Date questions store Unix timestamps; INDEX.md must show calendar dates."""
+    meta = {
+        "type": "date",
+        "current": {"median": 2069539200.0, "iqr": [2009145600.0, 2143238400.0]},
+    }
+    assert _common.fmt_forecast(meta) == "2035-08-01 [2033-09-01, 2037-12-01]"
+    # Midnight UTC must not slip to the previous day under a local-time conversion.
+    assert _common.fmt_date(0) == "1970-01-01"
+    # Community values carry seconds; the date is truncated, not rounded.
+    assert _common.fmt_value(2011139602.0, "date") == "2033-09-24"
+    assert _common.fmt_value(0.25, "binary") == "25.0%"
+    assert _common.fmt_value(87.8, "numeric") == "87.8"
+
+
 # ------------------------------------------------------------------ find_slug
 def test_find_slug_resolves_exact_slug_post_id_and_url():
     known = metas()
