@@ -6,11 +6,110 @@
 | **Type** | binary |
 | **Opened / Closes / Resolves** | 2024-01-25 / 2027-01-01 / 2027-01-15 (NASA's annual announcement, usually mid-January) |
 | **Status** | open |
-| **Current forecast** | **Median 51.0%, IQR [43.0%, 60.0%]** (v1, 2026-10-04) |
-| **Community (as of 2026-10-04)** | **not retrieved**: the aggregations fetcher got HTTP 403 (Cloudflare) twice and the scraper failed TLS. The API key returns post metadata only: 116 forecasters on the group, aggregations hidden from bot keys |
+| **Current forecast** | **Median 59.0%, IQR [49.0%, 68.0%]** (v2, 2026-10-04) |
+| **Community (as of 2026-10-04)** | **not retrieved**: three fetch attempts returned HTTP 403 (Cloudflare), and the bot API key hides aggregations (116 forecasters on the group). Operator-relayed comments cite the ERA5-based Climate Brink dashboard (85.5% → 37%; 20.6% on 2026-10-03) and Berkeley Earth's July update (69%) |
 | **Next review** | 2026-10-16 |
 
 <!-- Versions below, newest first. APPEND-ONLY: never edit or delete a past version. -->
+
+---
+
+## v2 — Update — 2026-10-04
+
+Trigger: the operator relayed three Metaculus community comments the same day. Mode: **Update**. v1 is hours old; the question structure is unchanged.
+
+### Revision
+
+| Driver | Direction | Effect |
+|---|---|---|
+| Prior (v1, 2026-10-04) | — | Median 51.0%, IQR [43.0%, 60.0%] |
+| **The Climate Brink dashboard is ERA5, not NASA.** Its header reads "ERA5 · daily", and the record values it ranks against (2024 = 1.5987, 2023 = 1.4823, 2025 = 1.4711 °C above pre-industrial) are ERA5's [20]. The quoted 85.5% → 37% → **20.6% (2026-10-03)** is the ERA5 record probability. Its projection history shows why: the 2026 annual peaked at 1.6275 on 09-08 and has fallen ~0.002 °C/day since, as late-September ERA5 cooled [21]. v1 already used ERA5 daily data through 10-02, so this decline is **not new information** for the GISTEMP estimate. For calibration: when Carbon Brief put GISTEMP at 65%, ERA5 stood at 13% [6]. ERA5's 20.6% now is not lower than then | → | 0 pp |
+| **New information: EC46 dynamical October forecast plus the dashboard's Oct–Dec projection.** The dashboard's ERA5 October projection is 1.81 °C above pre-industrial, i.e. ≈ 0.96 vs 1991–2020 (p05 0.77, p25 0.89, p75 1.04), from ECMWF's 50-member EC46 initialised 10-02 [22]. Its annual projection of 1.5826 against a YTD of 1.4930 implies **ERA5 Oct–Dec ≈ 0.97 (1991–2020)** [21]. That is a rebound from the 0.68–0.70 of 1–2 October, which v1 had treated as mildly bearish. Mapped with an **Oct–Dec-specific** GISS-on-ERA5 regression (2010–2025: GISS = 0.616 + 0.894·ERA5, residual sd 0.043; 2026 residuals running +0.03), that gives **GISS Oct–Dec ≈ 1.51**, against v1's 1.445 (which corresponds to ERA5 ≈ 0.89). I weight the dashboard 50%, because its daily projection has been revised down for 3½ weeks and EC46 skill fades after week 3. Blend: **Oct–Dec 1.475 ± 0.07** → annual 1.301 ± 0.020; buckets ≤1.28: 21% · =1.29: 17% · 1.30–31: 38% · ≥1.32: 25%; P(≥1.29) = 80%; P(Metaculus YES) = 64% | ↑ | **+13 pp** |
+| **Markets unchanged** at Kalshi 63.6/64.0 and Polymarket 70.5% on the same rules (ties count) [15][16]. My market-definition number is now 80%, 10–16 pp above them. That gap requires humility. A plausible mispricing story: traders anchoring on the falling ERA5 dashboard. That is speculation. I shade halfway toward the markets: market-definition ≈ 75% | ↓ | **−5 pp** |
+| Berkeley Earth July update (69%, published 2026-08-13; the commenter is "higher") [10] | → | 0 pp (already in v1) |
+| **New forecast** | | **Median 59.0%, IQR [49.0%, 68.0%]** |
+
+### Tripwire check
+
+| Tripwire from v1 | Fired? | Note |
+|---|---|---|
+| GISTEMP September ≥ 1.45 (up) / ≤ 1.33 (down), by 10-20 | not yet | release ~10-14 |
+| ERA5 October ≥ 0.85 (up) / ≤ 0.72 (down), by 11-10 | not yet | 1–2 Oct at 0.69; EC46 median 0.96 |
+| Nov–Dec required mean > 1.55 after the October print | not yet | — |
+| Metaculus or NASA statement on ties | not yet | comments relayed by the operator do not address ties |
+
+### What resolves YES
+
+unchanged from v1. Note the misconception in the relayed comments: neither the dashboard figure nor Berkeley Earth's is a NASA number. ERA5 is a **much harder** bar for 2026 than GISTEMP. 2026 so far trails 2024 by 0.10 °C in ERA5 (Jan–Sep 0.616 vs the 2024 annual 0.719), but by only 0.07 °C in GISTEMP (Jan–Aug 1.224 vs 1.29). So ERA5 needs Oct–Dec ≈ 1.02, while GISTEMP needs only the ERA5-equivalent of ≈ 0.86–0.90.
+
+### Outside view
+
+unchanged from v1
+
+### Inside view
+
+As v1, with the Oct–Dec input re-centred from 1.445 to **1.475 ± 0.07** (see Revision). Monte Carlo sensitivity at v2 settings: Oct–Dec 1.45 → 54%; 1.475 → 64%; 1.50 → 73%; dashboard-only 1.51 → 76%; September 1.37 instead of 1.40 → 60%. After the 5 pp shading toward the markets: **59%**.
+
+### Evidence
+
+v1 evidence stands, plus the dashboard data in the Revision table (raw CSVs snapshotted as `raw/climatebrink-*-2026-10-04.csv`). Absent: still no Metaculus admin ruling on ties.
+
+### Other forecasters
+
+| Source | Value | As of | Note |
+|---|---|---|---|
+| Metaculus CP / Pro / gold | **not retrieved** | 2026-10-04 | 3rd attempt: HTTP 403 |
+| Kalshi KXGTEMP-26 (LOTI > 1.28; ties count) | 63.6–64.0% | 2026-10-04 (re-fetched) | unchanged; 378,599 contracts [15] |
+| Polymarket (GISS graph.txt; tie = rank 1) | 70.5% | 2026-10-04 (re-fetched) | unchanged [16] |
+| Climate Brink dashboard, **ERA5** record probability | 20.6% | 2026-10-03 | peak ~90% around 09-08; different dataset [20] |
+| Berkeley Earth (own dataset) | 69% | 2026-08-13 | [10] |
+| Hausfather / Carbon Brief, GISTEMP | 65% | 2026-07-24 | ERA5 was 13% at the time [6] |
+
+### Scenarios
+
+| # | Scenario | Weight | Implies |
+|---|---|---|---|
+| 1 | October rebound fails (ERA5 Oct ≤ 0.80), Oct–Dec ≤ 1.40 → ≤ 1.28 | 24% | NO (~1%) |
+| 2 | Oct–Dec ~1.41–1.44 → exact 1.29 tie | 18% | ~55% |
+| 3 | EC46-like rebound, Oct–Dec ~1.45–1.52 → 1.30–1.31 | 37% | ~80% |
+| 4 | Dashboard-or-warmer, Oct–Dec ≥ 1.53 → ≥ 1.32 | 21% | ~97% |
+
+Weighted ≈ 0.24·0.01 + 0.18·0.55 + 0.37·0.80 + 0.21·0.97 ≈ **0.60** (rounded to 59 with the market shading).
+
+### Sensitivity
+
+| Assumption | If instead | Forecast becomes |
+|---|---|---|
+| Dashboard weight 50% | 100% (trust EC46 and the regression fully) / 0% (v1) | ~72% / ~52% |
+| Tie mapping 0.55 / 0.80 | any nominal ≥ 1.29 counts as YES | ~76% |
+| No market shading | — | ~64% |
+
+### What would change my mind (tripwires)
+
+- [ ] NASA GISTEMP September 2026 (release ~2026-10-14) ≥ 1.45 °C → up 8 pp; ≤ 1.33 °C → down 12 pp
+- [ ] ERA5 October month-to-date (Climate Pulse CSV) through 10-15 averages ≤ 0.78 °C, i.e. the EC46 rebound is not materialising → down 10 pp
+- [ ] Copernicus ERA5 October 2026 monthly anomaly (~2026-11-06) ≥ 0.90 °C → up 10 pp; ≤ 0.78 °C → down 15 pp
+- [ ] After the GISTEMP October print, the Nov–Dec mean needed for a 2-dp 1.30 exceeds 1.55 °C → down ~30 pp
+- [ ] Metaculus admin comment, or NASA wording, on tie treatment (by 2027-01-14) → re-analyse, ±15 pp
+
+### Sources
+
+Sources 1–19 as in v1; those re-used in this version are repeated, followed by the new ones:
+
+1. NASA GISS, GISTEMP v4 monthly table — https://data.giss.nasa.gov/gistemp/tabledata_v4/GLB.Ts+dSST.csv (accessed 2026-10-04)
+3. Copernicus Climate Pulse, ERA5 daily series — https://sites.ecmwf.int/data/climatepulse/data/series/era5_daily_series_2t_global.csv (accessed 2026-10-04)
+6. Carbon Brief, "State of the climate: Rapidly developing El Niño raises chance of record-warm 2026", 2026-07-24 — https://www.carbonbrief.org/state-of-the-climate-rapidly-developing-el-nino-raises-chance-of-record-warm-2026 (accessed 2026-10-04)
+10. Berkeley Earth, "July 2026 Temperature Update", 2026-08-13 — https://berkeleyearth.org/july-2026-temperature-update/ (accessed 2026-10-04)
+15. Kalshi API, KXGTEMP-26-P0 — https://api.elections.kalshi.com/trade-api/v2/markets/KXGTEMP-26-P0 (accessed 2026-10-04, re-fetched)
+16. Polymarket, "Where will 2026 rank among the hottest years on record?" — https://polymarket.com/event/where-will-2026-rank-among-the-hottest-years-on-record (accessed 2026-10-04, re-fetched)
+20. The Climate Brink climate dashboard (Z. Hausfather), "ERA5 · daily", rank probabilities regenerated 2026-10-03 — https://dashboard.theclimatebrink.com/assets/data/rank_probabilities.csv (accessed 2026-10-04; snapshot in `raw/`)
+21. Same dashboard, annual prediction and projection history — https://dashboard.theclimatebrink.com/assets/data/projection_history.csv (accessed 2026-10-04; snapshot in `raw/`)
+22. Same dashboard, October 2026 monthly projection (EC46 blend, init 2026-10-02) — https://dashboard.theclimatebrink.com/assets/data/monthly_projection.csv (accessed 2026-10-04; snapshot in `raw/`)
+23. Metaculus community comments on post 21095, relayed by the operator — https://www.metaculus.com/questions/21095/ (accessed 2026-10-04, relayed by the operator)
+
+**Date**: 2026-10-04
+**Forecast**: Median 59.0%, IQR [49.0%, 68.0%]
+**Thesis**: The relayed 85.5% → 37% → 20.6% figures come from Hausfather's ERA5 dashboard, not NASA. ERA5 is a much harder bar, and its late-September decline was already in v1. The genuinely new input is the dashboard's EC46 October forecast and Oct–Dec projection (ERA5 ≈ 0.97). Mapped to GISTEMP, that lifts the 2026 central estimate from 1.294 to ~1.30–1.31 °C. Blended 50/50 with v1, shaded toward unchanged markets (Kalshi 64%, Polymarket 70.5%), and with ~17% of the mass still an exact tie, the result is 59%.
 
 ---
 

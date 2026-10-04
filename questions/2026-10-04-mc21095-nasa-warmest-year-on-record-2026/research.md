@@ -72,3 +72,20 @@ learn what was already checked and what was already ruled out.
 - **Metaculus comments**: any admin ruling on ties? Retry the aggregations fetch at the next update.
 - GISTEMP Sep 2026 print (~10-14). Then ERA5 October from the Climate Pulse CSV (just recompute the monthly mean).
 - Does NASA's Jan-2027 release say "tied" or "warmest"? Watch for GISS staffing / budget news before then.
+
+## 2026-10-04 (v2): operator-relayed Metaculus comments
+
+| Date | Query / source | Finding | Effect on forecast |
+|---|---|---|---|
+| 2026-10-04 | Comments: Climate Brink dashboard 85.5% → 37% | The dashboard (https://dashboard.theclimatebrink.com) is a Plotly Dash app branded **"ERA5 · daily"**. WebFetch shows only "Loading…" and Playwright fails TLS, but its data CSVs are public under `/assets/data/*.csv` and `/_dash-layout` | identifies the dataset |
+| 2026-10-04 | rank_probabilities.csv (regenerated 2026-10-03) | ERA5: 2026 warmest 20.6%, 2nd 79.4%; holders 2024 1.5987, 2023 1.4823, 2025 1.4711 (pre-industrial) | not NASA; context only |
+| 2026-10-04 | projection_history.csv | annual projection 1.4675 (01-01) → 1.6275 peak (09-08, sigma 0.022, which is the ~85–90% era) → 1.5826 (10-01, sigma 0.020); ytd 1.4930 | the decline mirrors the late-Sep ERA5 cooling already in v1 |
+| 2026-10-04 | monthly_projection.csv | Oct 2026 projection 1.8129 pre-industrial (p05 1.6186, p25 1.7400, p75 1.8859, p95 2.0072); MTD 1.54; EC46 50-member, init 10-02. The October pre-industrial offset is ≈ 0.85 (Oct 2023: 1.6998 ↔ 0.850; Oct 2024: 1.6489 ↔ 0.799), so the projection ≈ 0.96 vs 1991–2020 | **new**: dynamical rebound forecast |
+| 2026-10-04 | Implied Oct–Dec | (1.5826·365 − 1.4930·273)/92 = 1.848 pre-industrial ≈ 0.97–1.00 vs 1991–2020 | GISS Oct–Dec ≈ 1.51 |
+| 2026-10-04 | Oct–Dec-specific GISS↔ERA5 map | GISS = 0.616 + 0.894·E (2010–25 OND, n = 48, sd 0.043); 2026 Jan–Aug residuals vs this map +0.02 to +0.23 (recent +0.03). The all-month map is biased for OND (GISS−ERA5 offset ≈ 0.50–0.58 in OND vs 0.63 in 2026 Jan–Aug) | v1's 1.445 ↔ ERA5 ≈ 0.89 |
+| 2026-10-04 | Kalshi / Polymarket re-fetch | unchanged 63.6/64.0; 70.5 | shade −5 pp |
+| 2026-10-04 | Metaculus aggregations, 3rd attempt | 403 | — |
+
+Monte Carlo at v2 (OND sd 0.07; P(YES | tie) 0.55): 1.445 → 0.515 / 0.671; 1.45 → 0.536 / 0.693; **1.475 → 0.637 / 0.795**; 1.50 → 0.725 / 0.872; 1.51 → 0.756 / 0.896; Sep 1.37 at 1.475 → 0.596 / 0.755 (P(Metaculus YES) / P(≥1.29)).
+
+Open: does the EC46 October rebound verify? Check the Climate Pulse CSV mid-October; it is the cheapest high-value check before the GISTEMP September print.
