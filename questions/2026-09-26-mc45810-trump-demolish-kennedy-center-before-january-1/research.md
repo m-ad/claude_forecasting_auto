@@ -57,3 +57,23 @@ Total ≈ 3.4% → median 3.5%, IQR [1.5, 6.0]
 - D.C. Circuit merits schedule in Beatty v. Trump (No. 26-5224) and the second name appeal.
 - Any 30-day notice filed in D.D.C.; DC Preservation League PI motion outcome.
 - CR/appropriations text: demolition-ban rider?
+
+## Update 2026-10-04 (v2)
+
+| Date | Query / source | Finding | Effect on forecast |
+|---|---|---|---|
+| 2026-10-04 | Metaculus aggregations 45810 (raw/metaculus-2026-10-04.json) | Open since 09-28. CP 7.0% [4.9,10] n=91 (opened 9–12.5%, down to 6–7% from 09-30); Pros 7.0% [7,12] n=9 (noisy 15→7); gold 10.0% [4,12] n=28. Comments list empty | ↑ partial weight (0.2 log-odds) |
+| 2026-10-04 | Kalshi API (raw/kalshi-2026-10-04.json) | KXKENNEDYDEMOLITION-27 bid 2/ask 4/last 5¢, vol 14.4k, OI 9.3k. **Rules: FULL demolition only; partial, component removal, strip-to-steel excluded.** KXKENNEDYDEMOVOTE-27 10/18 last 2, thin. Facade name before 2027: 22/28. Reopen markets thin | ↓ small; Kalshi YES ⊂ Metaculus YES |
+| 2026-10-04 | Kalshi events endpoint | Paginating /events trips 429 quickly; found tickers after ~70 pages. Next time hit /events/<ticker> directly | method |
+| 2026-10-04 | Lee objection (East Idaho/AP 09-29; Forbes 09-29) | Lee blocked UC Mon 09-28; bill reintroduced both chambers 09-29 (Merkley, Pingree); Lee office: "partisan scaremongering" (snippet, primary not seen) | ↑ tiny |
+| 2026-10-04 | ABC 10-01 internal email | Floca: remain temporarily closed; egress assessment (exits blocked during soffit repairs) 1–2 weeks; "not a reopening date"; court update due Fri 10-02 | path C slightly ↑; reopen tripwire dead |
+| 2026-10-04 | The Hill / WaPo 10-01, Time interview | Trump: "I'm not committing to anything. We're going to see how it plays out in court"; building in "terrible, terrible shape" | → |
+| 2026-10-04 | Deadline / CNN 10-02 | Kennedy Center Honors moved to Capital One Arena | closure through Dec |
+| 2026-10-04 | Washington Sun on 09-23 filing | ~150 lb plaster fell 60 ft; water in transformer vault; rigging problems; "no finding that the center needs to be demolished" | ↓ (already in v1) |
+| 2026-10-04 | CourtListener DCPL v. Board (snippet) | PI denied; relied on ED sworn testimony Center "would not be demolished or rebuilt". Opinion date not confirmed | ↓ small |
+| 2026-10-04 | Manifold API | "demolished during Trump's presidency" 32%, 15 traders, to 2029 | not comparable |
+| 2026-10-04 | Searches for contractor/permit/notice/SCOTUS/D.C. Cir. argument | nothing found | tripwires unfired |
+
+Dead ends: CNN (451), Deadline (402 tollbit), The Hill, WaPo, Forbes (403), CourtListener body empty.
+
+Open next time: content of the 10-02 court status report; egress assessment result (~10-08–10-15); D.C. Circuit 26-5224 argument date; any board meeting notice; CR text (Dec 11?) for a rider; Metaculus comments via browser.
