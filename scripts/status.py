@@ -23,7 +23,7 @@ from _common import (
     days_until,
     find_slug,
     fmt_forecast,
-    fmt_number,
+    fmt_value,
     today,
 )
 
@@ -130,11 +130,7 @@ def write_index() -> None:
         cur = meta.get("current") or {}
         com = cur.get("community") or {}
         cp = com.get("cp")
-        cp_s = (
-            f"{cp:.1%}"
-            if isinstance(cp, float) and meta.get("type") == "binary"
-            else (fmt_number(cp) if cp is not None else "—")
-        )
+        cp_s = fmt_value(cp, meta.get("type")) if cp is not None else "—"
         title = str(meta.get("title") or slug).replace("|", "\\|")
         lines.append(
             f"| [{title}](questions/{slug}/forecast.md) | {meta.get('type', '—')} | "
@@ -142,7 +138,11 @@ def write_index() -> None:
             f"{(meta.get('dates') or {}).get('resolves') or '—'} | "
             f"{meta.get('next_review') or '—'} | {meta.get('status', '—')} |"
         )
-    (REPO / "INDEX.md").write_text("\n".join(lines) + "\n", encoding="utf-8")
+    # newline="\n": write_text otherwise emits CRLF on Windows, and every
+    # regeneration from there would rewrite the whole committed file.
+    (REPO / "INDEX.md").write_text(
+        "\n".join(lines) + "\n", encoding="utf-8", newline="\n"
+    )
     print(f"wrote {REPO / 'INDEX.md'}")
 
 

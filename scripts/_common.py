@@ -216,23 +216,54 @@ def fmt_number(value: float) -> str:
     return f"{value:g}"
 
 
+def fmt_date(value: float) -> str:
+    """Render a Unix timestamp (seconds) as an ISO ``YYYY-MM-DD`` date in UTC.
+
+    Date questions store medians and quartiles as Unix timestamps, matching the
+    Metaculus API's own date scaling; this is the display side only. UTC
+    explicitly, because a naive ``fromtimestamp`` uses local time and would
+    shift a midnight-UTC value to the previous day west of Greenwich.
+    """
+    return _dt.datetime.fromtimestamp(value, tz=_dt.timezone.utc).date().isoformat()
+
+
+def fmt_value(value: float, qtype: str | None) -> str:
+    """Render one forecast-scale value (median, quartile, CP) for its question type.
+
+    Parameters
+    ----------
+    value : float
+        Probability for binary questions, Unix timestamp (s) for date
+        questions, native units otherwise.
+    qtype : str or None
+        ``meta['type']``.
+
+    Returns
+    -------
+    str
+        ``4.5%``, ``2035-08-01`` or ``87.8`` respectively.
+    """
+    if qtype == "binary":
+        return f"{value:.1%}"
+    if qtype == "date":
+        return fmt_date(value)
+    return fmt_number(value)
+
+
 def fmt_forecast(meta: dict[str, Any]) -> str:
     """Render a question's current forecast as a one-line human string."""
     cur = meta.get("current") or {}
     med, iqr = cur.get("median"), cur.get("iqr") or [None, None]
     if med is None:
         return "—"
-    if meta.get("type") == "binary":
-        lo, hi = iqr
-        band = f" [{lo:.1%}, {hi:.1%}]" if lo is not None and hi is not None else ""
-        return f"{med:.1%}{band}"
+    qtype = meta.get("type")
     lo, hi = iqr
     band = (
-        f" [{fmt_number(lo)}, {fmt_number(hi)}]"
+        f" [{fmt_value(lo, qtype)}, {fmt_value(hi, qtype)}]"
         if lo is not None and hi is not None
         else ""
     )
-    return f"{fmt_number(med)}{band}"
+    return f"{fmt_value(med, qtype)}{band}"
 
 
 # ------------------------------------------------------------ distributions
