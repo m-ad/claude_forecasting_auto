@@ -1,0 +1,78 @@
+slug: 2026-10-04-mc7218-germany-have-no-coal-fired-power-plants
+title: When will Germany have no coal-fired power plants in its electricity grid?
+source: metaculus
+url: https://www.metaculus.com/questions/7218/date-germany-stops-burning-coal/
+post_id: 7218
+type: date
+unit: null
+tags:
+- energy
+- coal
+- germany
+- climate-policy
+- eu-ets
+dates:
+  created: '2026-10-04'
+  opened: '2021-09-04'
+  closes: '2038-12-26'
+  resolves: null
+status: open
+current:
+  version: 1
+  date: '2026-10-04'
+  median: 2069539200.0
+  iqr:
+  - 2009145600.0
+  - 2143238400.0
+  community:
+    cp: 2011139602.0
+    pro: 2024394580.0
+    gold: 1999722502.0
+    n_forecasters: 46
+    as_of: '2026-10-04'
+next_review: '2026-11-05'
+tripwires:
+- signal: 'BNetzA first StromVKG capacity auction result (4.5 GW offered): < 3 GW awarded -> later; fully
+    subscribed -> earlier 1 month'
+  by: '2026-11-15'
+  direction: up
+  magnitude: 3
+  magnitude_unit: months
+  fired: null
+- signal: Energy-Charts 2026 annual coal public net generation < 85 TWh (earlier 4 months); > 95 TWh ->
+    later 3 months
+  by: '2027-01-15'
+  direction: down
+  magnitude: 4
+  magnitude_unit: months
+  fired: null
+- signal: Law/ordinance lets reserve coal plants return to the market to dampen power prices
+  by: '2027-03-31'
+  direction: up
+  magnitude: 6
+  magnitude_unit: months
+  fired: null
+- signal: KVBG s54/s56 coal-exit stocktake recommends advancing final coal exit to 2035 (RWE reserve-with-market-access
+    or softer east dates -> later 4 months)
+  by: '2027-07-31'
+  direction: down
+  magnitude: 12
+  magnitude_unit: months
+  fired: null
+- signal: 'EU ETS reform trilogue final: LRF/MSR weaker than July-2026 proposal or hard price ceiling
+    < EUR 120 (EUA Dec-27 > EUR 110 on 2027-06-30 -> earlier 6 months)'
+  by: '2027-12-31'
+  direction: up
+  magnitude: 9
+  magnitude_unit: months
+  fired: null
+- signal: LEAG/EPH announce early closure or reserve transfer of Boxberg Q/R, Schwarze Pumpe or Lippendorf
+  by: '2028-12-31'
+  direction: down
+  magnitude: 18
+  magnitude_unit: months
+  fired: null
+resolution:
+  outcome: null
+  date: null
+  source: null
