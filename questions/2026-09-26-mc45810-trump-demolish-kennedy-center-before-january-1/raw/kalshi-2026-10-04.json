@@ -1,0 +1,170 @@
+{
+ "retrieved": "2026-10-04",
+ "source": "api.elections.kalshi.com/trade-api/v2/events",
+ "events": {
+  "KXTRUMPKENNEDYFACADE-27": {
+   "title": "Will Trump\u2019s name return to the Kennedy Center facade?",
+   "markets": [
+    {
+     "ticker": "KXTRUMPKENNEDYFACADE-27-26OCT01",
+     "yes_sub_title": "Before Oct 1, 2026",
+     "yes_bid_dollars": "0.0000",
+     "yes_ask_dollars": "1.0000",
+     "last_price_dollars": "0.0100",
+     "volume_fp": "2728.74",
+     "open_interest_fp": "1576.02",
+     "close_time": "2026-10-01T03:59:00Z",
+     "rules_primary": "If Trump's name on the Kennedy Center facade is confirmed by any of the Source Agencies after Issuance and before Oct 1, 2026, then the market resolves to Yes.",
+     "rules_secondary": "Any signage on the exterior facade that includes President Donald J. Trump's name qualifies, whatever the full wording.\n\nThis must be confirmed, verified, or established as factual by at least one Source Agency.\n\nNews confirmation is defined as a published article, broadcast segment, or official news report by a Source Agency, that A) explicitly states the signage is in place, B) based on journalistic investigation, sources, or evidence, and C) presented as factual reporting rather than speculation, rumor, or unverified allegation."
+    },
+    {
+     "ticker": "KXTRUMPKENNEDYFACADE-27-27JAN01",
+     "yes_sub_title": "Before Jan 1, 2027",
+     "yes_bid_dollars": "0.2200",
+     "yes_ask_dollars": "0.2800",
+     "last_price_dollars": "0.2200",
+     "volume_fp": "543.67",
+     "open_interest_fp": "471.66",
+     "close_time": "2027-01-01T04:59:00Z",
+     "rules_primary": "If Trump's name on the Kennedy Center facade is confirmed by any of the Source Agencies after Issuance and before Jan 1, 2027, then the market resolves to Yes.",
+     "rules_secondary": "Any signage on the exterior facade that includes President Donald J. Trump's name qualifies, whatever the full wording.\n\nThis must be confirmed, verified, or established as factual by at least one Source Agency.\n\nNews confirmation is defined as a published article, broadcast segment, or official news report by a Source Agency, that A) explicitly states the signage is in place, B) based on journalistic investigation, sources, or evidence, and C) presented as factual reporting rather than speculation, rumor, or unverified allegation."
+    },
+    {
+     "ticker": "KXTRUMPKENNEDYFACADE-27-27JUL01",
+     "yes_sub_title": "Before Jul 1, 2027",
+     "yes_bid_dollars": "0.3200",
+     "yes_ask_dollars": "0.3800",
+     "last_price_dollars": "0.2500",
+     "volume_fp": "1659.74",
+     "open_interest_fp": "228.97",
+     "close_time": "2027-07-01T03:59:00Z",
+     "rules_primary": "If Trump's name on the Kennedy Center facade is confirmed by any of the Source Agencies after Issuance and before Jul 1, 2027, then the market resolves to Yes.",
+     "rules_secondary": "Any signage on the exterior facade that includes President Donald J. Trump's name qualifies, whatever the full wording.\n\nThis must be confirmed, verified, or established as factual by at least one Source Agency.\n\nNews confirmation is defined as a published article, broadcast segment, or official news report by a Source Agency, that A) explicitly states the signage is in place, B) based on journalistic investigation, sources, or evidence, and C) presented as factual reporting rather than speculation, rumor, or unverified allegation."
+    }
+   ]
+  },
+  "KXKENNEDYREOPEN-28": {
+   "title": "When will the Kennedy Center's main building reopen?",
+   "markets": [
+    {
+     "ticker": "KXKENNEDYREOPEN-28-26OCT08",
+     "yes_sub_title": "Before Oct 8, 2026",
+     "yes_bid_dollars": "0.0000",
+     "yes_ask_dollars": "0.0600",
+     "last_price_dollars": "0.0500",
+     "volume_fp": "208.00",
+     "open_interest_fp": "208.00",
+     "close_time": "2026-10-08T03:59:00Z",
+     "rules_primary": "If the Kennedy Center's main building reopens to the public after Issuance and before Oct 8, 2026, then the market resolves to Yes.",
+     "rules_secondary": "Only reporting from any of the Source Agencies qualifies for the purposes of this market. Reports that merely reference prior publications (from before Issuance) do not qualify. Republishing of content originally produced by other sources (e.g., wire services) only qualifies if the content is hosted on the outlet's official platform and the outlet is clearly identified as the publishing entity.\n\nThe main building is the Kennedy Center's original riverfront building, which houses the Concert Hall, Opera House, Eisenhower Theater, Terrace Theater and Grand Foyer. The REACH, the grounds, the plaza and the parking garage are not part of the main building. The name the building carries does not matter.\n\nThe main building reopens to the public when members of the general public are admitted inside it for a performance, event, tour or visit. Reopening any part of the main building is enough, and there is no minimum duration.\n\nThe following do NOT satisfy the Payout Criterion:\nProgramming at the REACH, on the grounds or at other venues\nAccess limited to staff, contractors, inspectors, officials, press, donors or invited guests\nA private or invitation-only event\nAn announcement, court order or decision that the main building will reopen, before it actually reopens"
+    },
+    {
+     "ticker": "KXKENNEDYREOPEN-28-26OCT22",
+     "yes_sub_title": "Before Oct 22, 2026",
+     "yes_bid_dollars": "0.0300",
+     "yes_ask_dollars": "0.4600",
+     "last_price_dollars": "0.0300",
+     "volume_fp": "20.47",
+     "open_interest_fp": "20.47",
+     "close_time": "2026-10-22T03:59:00Z",
+     "rules_primary": "If the Kennedy Center's main building reopens to the public after Issuance and before Oct 22, 2026, then the market resolves to Yes.",
+     "rules_secondary": "Only reporting from any of the Source Agencies qualifies for the purposes of this market. Reports that merely reference prior publications (from before Issuance) do not qualify. Republishing of content originally produced by other sources (e.g., wire services) only qualifies if the content is hosted on the outlet's official platform and the outlet is clearly identified as the publishing entity.\n\nThe main building is the Kennedy Center's original riverfront building, which houses the Concert Hall, Opera House, Eisenhower Theater, Terrace Theater and Grand Foyer. The REACH, the grounds, the plaza and the parking garage are not part of the main building. The name the building carries does not matter.\n\nThe main building reopens to the public when members of the general public are admitted inside it for a performance, event, tour or visit. Reopening any part of the main building is enough, and there is no minimum duration.\n\nThe following do NOT satisfy the Payout Criterion:\nProgramming at the REACH, on the grounds or at other venues\nAccess limited to staff, contractors, inspectors, officials, press, donors or invited guests\nA private or invitation-only event\nAn announcement, court order or decision that the main building will reopen, before it actually reopens"
+    },
+    {
+     "ticker": "KXKENNEDYREOPEN-28-26NOV05",
+     "yes_sub_title": "Before Nov 5, 2026",
+     "yes_bid_dollars": "0.0300",
+     "yes_ask_dollars": "0.4400",
+     "last_price_dollars": "0.2700",
+     "volume_fp": "341.84",
+     "open_interest_fp": "286.71",
+     "close_time": "2026-11-05T04:59:00Z",
+     "rules_primary": "If the Kennedy Center's main building reopens to the public after Issuance and before Nov 5, 2026, then the market resolves to Yes.",
+     "rules_secondary": "Only reporting from any of the Source Agencies qualifies for the purposes of this market. Reports that merely reference prior publications (from before Issuance) do not qualify. Republishing of content originally produced by other sources (e.g., wire services) only qualifies if the content is hosted on the outlet's official platform and the outlet is clearly identified as the publishing entity.\n\nThe main building is the Kennedy Center's original riverfront building, which houses the Concert Hall, Opera House, Eisenhower Theater, Terrace Theater and Grand Foyer. The REACH, the grounds, the plaza and the parking garage are not part of the main building. The name the building carries does not matter.\n\nThe main building reopens to the public when members of the general public are admitted inside it for a performance, event, tour or visit. Reopening any part of the main building is enough, and there is no minimum duration.\n\nThe following do NOT satisfy the Payout Criterion:\nProgramming at the REACH, on the grounds or at other venues\nAccess limited to staff, contractors, inspectors, officials, press, donors or invited guests\nA private or invitation-only event\nAn announcement, court order or decision that the main building will reopen, before it actually reopens"
+    },
+    {
+     "ticker": "KXKENNEDYREOPEN-28-26DEC03",
+     "yes_sub_title": "Before Dec 3, 2026",
+     "yes_bid_dollars": "0.0300",
+     "yes_ask_dollars": "0.9700",
+     "last_price_dollars": "0.0000",
+     "volume_fp": "0.00",
+     "open_interest_fp": "0.00",
+     "close_time": "2026-12-03T04:59:00Z",
+     "rules_primary": "If the Kennedy Center's main building reopens to the public after Issuance and before Dec 3, 2026, then the market resolves to Yes.",
+     "rules_secondary": "Only reporting from any of the Source Agencies qualifies for the purposes of this market. Reports that merely reference prior publications (from before Issuance) do not qualify. Republishing of content originally produced by other sources (e.g., wire services) only qualifies if the content is hosted on the outlet's official platform and the outlet is clearly identified as the publishing entity.\n\nThe main building is the Kennedy Center's original riverfront building, which houses the Concert Hall, Opera House, Eisenhower Theater, Terrace Theater and Grand Foyer. The REACH, the grounds, the plaza and the parking garage are not part of the main building. The name the building carries does not matter.\n\nThe main building reopens to the public when members of the general public are admitted inside it for a performance, event, tour or visit. Reopening any part of the main building is enough, and there is no minimum duration.\n\nThe following do NOT satisfy the Payout Criterion:\nProgramming at the REACH, on the grounds or at other venues\nAccess limited to staff, contractors, inspectors, officials, press, donors or invited guests\nA private or invitation-only event\nAn announcement, court order or decision that the main building will reopen, before it actually reopens"
+    },
+    {
+     "ticker": "KXKENNEDYREOPEN-28-27JAN01",
+     "yes_sub_title": "Before Jan 1, 2027",
+     "yes_bid_dollars": "0.0400",
+     "yes_ask_dollars": "0.9700",
+     "last_price_dollars": "0.0000",
+     "volume_fp": "0.00",
+     "open_interest_fp": "0.00",
+     "close_time": "2027-01-01T04:59:00Z",
+     "rules_primary": "If the Kennedy Center's main building reopens to the public after Issuance and before Jan 1, 2027, then the market resolves to Yes.",
+     "rules_secondary": "Only reporting from any of the Source Agencies qualifies for the purposes of this market. Reports that merely reference prior publications (from before Issuance) do not qualify. Republishing of content originally produced by other sources (e.g., wire services) only qualifies if the content is hosted on the outlet's official platform and the outlet is clearly identified as the publishing entity.\n\nThe main building is the Kennedy Center's original riverfront building, which houses the Concert Hall, Opera House, Eisenhower Theater, Terrace Theater and Grand Foyer. The REACH, the grounds, the plaza and the parking garage are not part of the main building. The name the building carries does not matter.\n\nThe main building reopens to the public when members of the general public are admitted inside it for a performance, event, tour or visit. Reopening any part of the main building is enough, and there is no minimum duration.\n\nThe following do NOT satisfy the Payout Criterion:\nProgramming at the REACH, on the grounds or at other venues\nAccess limited to staff, contractors, inspectors, officials, press, donors or invited guests\nA private or invitation-only event\nAn announcement, court order or decision that the main building will reopen, before it actually reopens"
+    },
+    {
+     "ticker": "KXKENNEDYREOPEN-28-27JUL01",
+     "yes_sub_title": "Before Jul 1, 2027",
+     "yes_bid_dollars": "0.0500",
+     "yes_ask_dollars": "0.9300",
+     "last_price_dollars": "0.6100",
+     "volume_fp": "500.00",
+     "open_interest_fp": "300.00",
+     "close_time": "2027-07-01T03:59:00Z",
+     "rules_primary": "If the Kennedy Center's main building reopens to the public after Issuance and before Jul 1, 2027, then the market resolves to Yes.",
+     "rules_secondary": "Only reporting from any of the Source Agencies qualifies for the purposes of this market. Reports that merely reference prior publications (from before Issuance) do not qualify. Republishing of content originally produced by other sources (e.g., wire services) only qualifies if the content is hosted on the outlet's official platform and the outlet is clearly identified as the publishing entity.\n\nThe main building is the Kennedy Center's original riverfront building, which houses the Concert Hall, Opera House, Eisenhower Theater, Terrace Theater and Grand Foyer. The REACH, the grounds, the plaza and the parking garage are not part of the main building. The name the building carries does not matter.\n\nThe main building reopens to the public when members of the general public are admitted inside it for a performance, event, tour or visit. Reopening any part of the main building is enough, and there is no minimum duration.\n\nThe following do NOT satisfy the Payout Criterion:\nProgramming at the REACH, on the grounds or at other venues\nAccess limited to staff, contractors, inspectors, officials, press, donors or invited guests\nA private or invitation-only event\nAn announcement, court order or decision that the main building will reopen, before it actually reopens"
+    },
+    {
+     "ticker": "KXKENNEDYREOPEN-28-28JAN01",
+     "yes_sub_title": "Before Jan 1, 2028",
+     "yes_bid_dollars": "0.0500",
+     "yes_ask_dollars": "0.9600",
+     "last_price_dollars": "0.8400",
+     "volume_fp": "700.00",
+     "open_interest_fp": "500.00",
+     "close_time": "2028-01-01T04:59:00Z",
+     "rules_primary": "If the Kennedy Center's main building reopens to the public after Issuance and before Jan 1, 2028, then the market resolves to Yes.",
+     "rules_secondary": "Only reporting from any of the Source Agencies qualifies for the purposes of this market. Reports that merely reference prior publications (from before Issuance) do not qualify. Republishing of content originally produced by other sources (e.g., wire services) only qualifies if the content is hosted on the outlet's official platform and the outlet is clearly identified as the publishing entity.\n\nThe main building is the Kennedy Center's original riverfront building, which houses the Concert Hall, Opera House, Eisenhower Theater, Terrace Theater and Grand Foyer. The REACH, the grounds, the plaza and the parking garage are not part of the main building. The name the building carries does not matter.\n\nThe main building reopens to the public when members of the general public are admitted inside it for a performance, event, tour or visit. Reopening any part of the main building is enough, and there is no minimum duration.\n\nThe following do NOT satisfy the Payout Criterion:\nProgramming at the REACH, on the grounds or at other venues\nAccess limited to staff, contractors, inspectors, officials, press, donors or invited guests\nA private or invitation-only event\nAn announcement, court order or decision that the main building will reopen, before it actually reopens"
+    }
+   ]
+  },
+  "KXKENNEDYDEMOVOTE-27": {
+   "title": "Will the Kennedy Center Board vote to demolish the Kennedy Center in 2026?",
+   "markets": [
+    {
+     "ticker": "KXKENNEDYDEMOVOTE-27-27JAN01",
+     "yes_sub_title": "Before Jan 1, 2027",
+     "yes_bid_dollars": "0.1000",
+     "yes_ask_dollars": "0.1800",
+     "last_price_dollars": "0.0200",
+     "volume_fp": "670.11",
+     "open_interest_fp": "630.55",
+     "close_time": "2027-01-01T04:59:00Z",
+     "rules_primary": "If a vote in 2026 by the Kennedy Center Board of Trustees approving demolition of the Kennedy Center's main building is confirmed by any of the Source Agencies after Issuance and before Jan 1, 2027, then the market resolves to Yes.",
+     "rules_secondary": "This must be confirmed, verified, or established as factual by at least one Source Agency.\n\nNews confirmation is defined as a published article, broadcast segment, or official news report by a Source Agency, that A) explicitly states the vote occurred, B) based on journalistic investigation, sources, or evidence, and C) presented as factual reporting rather than speculation, rumor, or unverified allegation.\n\nThe qualifying event is a formal vote or resolution by the Kennedy Center Board of Trustees expressly approving demolition or razing of the Kennedy Center's main building. A vote to close or renovate without demolition approval does not qualify. Statements that demolition is threatened or under consideration alone do not qualify."
+    }
+   ]
+  },
+  "KXKENNEDYDEMOLITION-27": {
+   "title": "Will the Kennedy Center be demolished in 2026?",
+   "markets": [
+    {
+     "ticker": "KXKENNEDYDEMOLITION-27-27JAN01",
+     "yes_sub_title": "Before Jan 1, 2027",
+     "yes_bid_dollars": "0.0200",
+     "yes_ask_dollars": "0.0400",
+     "last_price_dollars": "0.0500",
+     "volume_fp": "14359.75",
+     "open_interest_fp": "9288.08",
+     "close_time": "2027-01-01T04:59:00Z",
+     "rules_primary": "If a listed news source confirms, after Issuance and before Jan 1, 2027, that the Kennedy Center's main building was fully demolished during that period, then the market resolves to Yes.",
+     "rules_secondary": "This must be confirmed, verified, or established as factual by at least one Source Agency.\n\nNews confirmation is defined as a published article, broadcast segment, or official news report by a Source Agency, that A) explicitly states completed demolition of the Kennedy Center main building occurred, is true, or has been verified, B) based on journalistic investigation, sources, or evidence, and C) presented as factual reporting rather than speculation, rumor, or unverified allegation.\n\nDemolition means the above-ground main building, including its structural frame, has been fully torn down. Foundations, subsurface structures, and debris may remain. Interior gutting, partial demolition, removal of building components, or stripping the building to a retained steel frame do not qualify. Plans, announcements, beginning demolition, closure, fencing, and work on the REACH or other campus structures do not qualify."
+    }
+   ]
+  }
+ }
+}

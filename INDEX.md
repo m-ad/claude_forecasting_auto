@@ -1,26 +1,25 @@
 # Question index
 
-_Regenerated 2026-10-02 by `scripts/status.py --index`._
+_Regenerated 2026-10-04 by `scripts/status.py --index`._
 
 | Question | Type | Current | v | Community (CP) | Resolves | Next review | Status |
 |---|---|---|---|---|---|---|---|
 | [Who will be awarded the 2026 Nobel Peace Prize?](questions/2026-09-05-mc45383-who-awarded-2026-nobel-peace-prize/forecast.md) | multiple_choice | 0.43 [0.37, 0.5] | 3 | 0.401 | 2026-10-09 | 2026-10-04 | open |
-| [Which party will win the Holborn and St Pancras by-election?](questions/2026-09-11-mc45425-which-party-win-holborn-st-pancras-election/forecast.md) | multiple_choice | 0.795 [0.73, 0.85] | 4 | 0.824 | 2026-10-09 | 2026-10-06 | open |
 | [What first round vote share will Iliana Iotova win in the 2026 Bulgarian Presidential election?](questions/2026-09-05-mc45262-first-round-vote-share-iliana-iotova-win/forecast.md) | numeric | 46.5 [43.3, 49.7] | 2 | 45.45 | 2026-10-31 | 2026-10-03 | open |
+| [Which party will win the Holborn and St Pancras by-election?](questions/2026-09-11-mc45425-which-party-win-holborn-st-pancras-election/forecast.md) | multiple_choice | 0.795 [0.73, 0.85] | 4 | 0.824 | 2026-10-09 | 2026-10-06 | open |
+| [Which party will win the most seats in the 2026 Israeli election?](questions/2026-09-20-mc45670-which-party-win-most-seats-2026-israeli/forecast.md) | multiple_choice | 0.615 [0.555, 0.675] | 2 | 0.57 | 2026-11-10 | 2026-10-03 | open |
+| [Will Venezuela announce a presidential election before 2027?](questions/2026-09-20-mc45419-venezuela-announce-presidential-election-before-2027/forecast.md) | binary | 9.5% [6.5%, 14.0%] | 1 | — | 2027-01-01 | 2026-10-04 | open |
+| [Who will win the 2026 Ballon d'Or?](questions/2026-09-11-mc45617-ballon-dor-2026/forecast.md) | multiple_choice | 0.5 [0.4, 0.57] | 3 | 0.53 | 2026-10-26 | 2026-10-07 | open |
 | [Will Benjamin Netanyahu cease to be Prime Minister of Israel during 2026?](questions/2026-08-31-mc40966-benjamin-netanyahu-cease-prime-minister-israel-during/forecast.md) | binary | 28.0% [22.0%, 35.0%] | 2 | 22.0% | 2027-01-01 | 2026-10-05 | open |
+| [How many New World screwworm cases will be confirmed in Mexico in total before July 2027?](questions/2026-09-04-mc43507-how-many-new-world-screwworm-cases-confirmed/forecast.md) | numeric | 67000 [61500, 74000] | 1 | 60426 | 2027-07-01 | 2026-10-06 | open |
 | [Will the Save Our Bacon Act be enacted into law before July 2027?](questions/2026-09-05-mc43616-save-our-bacon-act-enacted-into-law/forecast.md) | binary | 3.0% [2.0%, 4.5%] | 1 | 5.0% | 2027-07-01 | 2026-10-05 | open |
 | [Will FEWS NET classify any area of Sudan as experiencing Famine before 2027?](questions/2026-09-05-mc45464-fews-net-classify-area-sudan-as-experiencing/forecast.md) | binary | 23.0% [16.0%, 31.0%] | 2 | 32.0% | 2026-12-31 | 2026-10-05 | open |
 | [Who will win the 2026 World Chess Championship?](questions/2026-09-11-mc45216-who-win-2026-world-chess-championship/forecast.md) | multiple_choice | 0.695 [0.64, 0.75] | 3 | 0.7 | 2026-12-14 | 2026-10-05 | open |
-| [Who will win the 2026 Ballon d'Or?](questions/2026-09-11-mc45617-ballon-dor-2026/forecast.md) | multiple_choice | 0.5 [0.4, 0.57] | 3 | 0.53 | 2026-10-26 | 2026-10-07 | open |
 | [What will be the US national debt on December 31, 2026?](questions/2026-09-20-mc45219-us-national-debt-december-31-2026/forecast.md) | numeric | 41,160,000,000,000 [41,070,000,000,000, 41,220,000,000,000] | 1 | — | 2027-01-04 | 2026-10-05 | open |
-| [Will Venezuela announce a presidential election before 2027?](questions/2026-09-20-mc45419-venezuela-announce-presidential-election-before-2027/forecast.md) | binary | 9.5% [6.5%, 14.0%] | 1 | — | 2027-01-01 | 2026-10-04 | open |
-| [Which party will win the most seats in the 2026 Israeli election?](questions/2026-09-20-mc45670-which-party-win-most-seats-2026-israeli/forecast.md) | multiple_choice | 0.615 [0.555, 0.675] | 2 | 0.57 | 2026-11-10 | 2026-10-03 | open |
-| [Will Trump demolish the Kennedy Center before January 1, 2027?](questions/2026-09-26-mc45810-trump-demolish-kennedy-center-before-january-1/forecast.md) | binary | 3.5% [1.5%, 6.0%] | 1 | — | 2027-01-01 | 2026-10-03 | open |
 | [Will an AI system autonomously cause a major breach of US personal data held by an organization other than its operator before 2028?](questions/2026-09-10-mc45427-major-us-personal-data-breach-external-misaligned-ai/forecast.md) | binary | 70.0% [61.0%, 78.0%] | 2 | 80.0% | 2028-01-01 | 2026-10-22 | open |
 | [Will there be a bilateral ceasefire in the Russo-Ukrainian conflict before 2027?](questions/2026-08-28-mc41138-bilateral-ceasefire-russo-ukrainian-conflict-before-2027/forecast.md) | binary | 6.0% [4.0%, 9.0%] | 2 | 6.0% | 2026-12-31 | 2026-10-08 | open |
 | [Will OpenAI file for an IPO during 2026?](questions/2026-08-28-mc41141-openai-file-ipo-during-2026/forecast.md) | binary | 3.0% [1.5%, 5.0%] | 2 | 2.0% | 2027-01-01 | 2026-10-16 | open |
 | [Will the FDA approve a psilocybin treatment during 2026?](questions/2026-08-31-mc41172-fda-approve-psilocybin-treatment-during-2026/forecast.md) | binary | 9.5% [7.0%, 13.0%] | 2 | 11.0% | 2026-12-31 | 2026-10-12 | open |
-| [How many New World screwworm cases will be confirmed in Mexico in total before July 2027?](questions/2026-09-04-mc43507-how-many-new-world-screwworm-cases-confirmed/forecast.md) | numeric | 67000 [61500, 74000] | 1 | 60426 | 2027-07-01 | 2026-10-06 | open |
 | [What will be the percentage change in funds raised by GiveWell between 2026 and the following years?](questions/2026-09-04-mc45386-givewell-funds-raised-pct-change-2027-2028/forecast.md) | numeric | 14.2 [-17.2, 67.1] | 2 | 78.2 | 2029-09-01 | 2026-11-30 | open |
 | [Will the United States attack Oman before 2027?](questions/2026-09-05-mc45230-united-states-attack-oman-before-2027/forecast.md) | binary | 5.5% [3.5%, 8.5%] | 3 | 4.0% | 2027-01-01 | 2026-10-16 | open |
 | [How many Major Atlantic Hurricanes will occur in the 2026 Atlantic hurricane season?](questions/2026-09-05-mc45381-how-many-major-atlantic-hurricanes-occur-2026/forecast.md) | multiple_choice | 0.8 [0.74, 0.85] | 5 | 0.795 | 2026-11-30 | 2026-10-09 | open |
@@ -42,6 +41,7 @@ _Regenerated 2026-10-02 by `scripts/status.py --index`._
 | [How much funding will Wild Animal Initiative receive in 2026?](questions/2026-09-21-mc43169-how-much-funding-wild-animal-initiative-receive/forecast.md) | numeric | 3.72 [2.91, 4.68] | 1 | 4.245 | 2027-11-15 | 2026-11-20 | open |
 | [What will be the total spending by all Senate candidates in the 2026 US election cycle?](questions/2026-09-26-mc45220-total-spending-all-senate-candidates-2026-us/forecast.md) | numeric | 1,675,000,000 [1,540,000,000, 1,835,000,000] | 3 | 1,694,104,698 | 2026-12-31 | 2026-10-17 | open |
 | [How many politicians will leave their cabinet positions in the UK government before 2027?](questions/2026-09-26-mc45250-how-many-politicians-leave-their-cabinet-positions/forecast.md) | multiple_choice | 0.59 [0.525, 0.655] | 3 | 0.646 | 2027-01-01 | 2026-10-16 | open |
+| [Will Trump demolish the Kennedy Center before January 1, 2027?](questions/2026-09-26-mc45810-trump-demolish-kennedy-center-before-january-1/forecast.md) | binary | 3.5% [1.5%, 6.5%] | 2 | 7.0% | 2027-01-01 | 2026-10-14 | open |
 | [What will be the highest intraday value of the VIX between October 1 and December 24, 2026?](questions/2026-09-28-mc45515-highest-intraday-value-vix-between-october-1/forecast.md) | numeric | 23.8 [20.4, 29] | 2 | 24.31 | 2026-12-25 | 2026-10-16 | open |
 | [Will a U.S. federal agency announce new or expanded model evaluation agreements with both OpenAI and Anthropic before September 3, 2026?](questions/2026-08-27-mc44708-u-s-federal-agency-announce-new-expanded/forecast.md) | binary | 1.5% [0.5%, 3.0%] | 2 | 1.0% | 2026-09-03 | — | resolved |
 | [Will Uber's takeover of Delivery Hero be approved by BaFin before September 2026?](questions/2026-08-27-mc44921-uber-delivery-hero-bafin-approval/forecast.md) | binary | 45.0% [32.0%, 58.0%] | 1 | 51.0% | 2026-09-01 | — | resolved |

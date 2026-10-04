@@ -4,13 +4,152 @@
 |---|---|
 | **Source** | Metaculus #45810 — https://www.metaculus.com/questions/45810/will-trump-demolish-the-kennedy-center-before-january-1-2027 |
 | **Type** | binary |
-| **Opened / Closes / Resolves** | — (upcoming; CP reveal 2026-09-29) / 2026-12-15 / 2027-01-01 |
+| **Opened / Closes / Resolves** | 2026-09-28 (CP revealed) / 2026-12-15 / 2027-01-01 |
 | **Status** | open |
-| **Current forecast** | **Median 3.5%, IQR [1.5%, 6.0%]** (v1, 2026-09-26) |
-| **Community (as of 2026-09-26)** | CP hidden until 2026-09-29 (n=16) · Pro — · Gold — |
-| **Next review** | 2026-10-03 |
+| **Current forecast** | **Median 3.5%, IQR [1.5%, 6.5%]** (v2, 2026-10-04) |
+| **Community (as of 2026-10-04)** | CP 7.0% IQR [4.9%, 10.0%] (n=91) · Pro 7.0% (n=9) · Gold 10.0% (n=28) · Kalshi (full demolition) ~3¢ |
+| **Next review** | 2026-10-14 |
 
 <!-- Versions below, newest first. APPEND-ONLY: never edit or delete a past version. -->
+
+---
+
+## v2 — Update — 2026-10-04
+
+Mode: **Update** (incremental). 8 of 96 days have passed since v1 (8%, well under 1/3).
+No question-structure change. The Metaculus cohorts sit 3.5–6.5 pp above me, under the
+10 pp re-analysis threshold, and I can name the likely reasons (see *Other forecasters*).
+
+### Revision table
+| Driver | Direction | Effect | Running |
+|---|---|---|---|
+| Prior (v1, 2026-09-26) | — | — | 3.5% |
+| Elapsed time: 8 of 96 days gone. 12% of the window for filing a 30-day notice in time (to ~2026-11-30) is used up, and no notice was filed. Paths A/B/D scaled by the remaining hazard | ↓ | −0.35 pp | 3.15% |
+| Trump, *Time* interview (published 2026-10-01): "I'm not committing to anything. We're going to see how it plays out in court" [6][7]. Not a denial, but it repeats his court-first sequencing, and the D.C. Circuit merits ruling is not expected before 2027 | → | 0 pp | 3.15% |
+| Floca's internal email (2026-09-30/10-01): building "remain[s] temporarily closed"; an egress assessment is under way because exits would be blocked during **soffit repairs**; "an assessment timeline, not a reopening date" [5]. Kennedy Center Honors moved off-site to Capital One Arena [8][9]. Repairs-first framing. Exterior repair work is coming, which nudges up the resolution-edge path C | ↑ | +0.1 pp | 3.25% |
+| Sen. Mike Lee blocked unanimous consent on the Merkley–Murkowski Protecting Presidential Memorials Act (2026-09-28). The bill was reintroduced in both chambers on 2026-09-29 [3][4]. A statutory ban before Jan 1 is now less likely | ↑ | +0.1 pp | 3.35% |
+| Kalshi "Kennedy Center demolished in 2026" fell from 11¢ (2026-09-18) to bid 2¢ / ask 4¢ / last 5¢ (2026-10-04; volume ≈14.4k contracts, open interest ≈9.3k) [2]. Its rules require **full** demolition, which is stricter than Metaculus. Still, the drop says money-weighted belief fell after the news peak | ↓ | −0.2 pp | 3.15% |
+| DC Preservation League v. Board: the preliminary injunction was denied partly on the Executive Director's sworn testimony that the Center "would not be demolished or rebuilt" [11]. This predates v1 but I missed it then. Reversing it would contradict the government's own sworn record | ↓ | −0.15 pp | 3.0% |
+| Metaculus cohorts revealed (first look): CP 7.0%, Pros 7.0%, gold 10.0% [1]. Pooled in log-odds with weight 0.2 on a cohort anchor of ~8% (discounted: anchored on Kalshi's stale 11%, CP is trending down 12.5% → 7%, no comments visible) | ↑ | +0.6 pp | 3.6% |
+| **New forecast** (rounded to 0.5 pp) | — | — | **3.5%** |
+
+Net: no change in the median. Time decay and the Kalshi collapse offset the newly visible,
+higher Metaculus cohorts. The IQR widens upward (6.0 → 6.5%) to reflect that better-calibrated
+cohorts disagree with me.
+
+### Tripwire check (v1 list)
+| Tripwire (v1) | By | Status | Evidence |
+|---|---|---|---|
+| 30-day notice of demolition/scope change filed in *Beatty* / DCPL | 2026-11-30 | **Not fired** | No reports through 2026-10-04. The court-ordered closure update was due Fri 2026-10-02 and is framed around safety/egress, not scope [5] |
+| Demolition contractor award, permit, or heavy demolition equipment on site | 2026-11-30 | **Not fired** | Nothing found. Fencing and hard-hat zones relate to the hazard closure [5] |
+| D.C. Circuit merits ruling on the name | 2026-12-15 | **Not fired** | No argument date found. Only the July stay denial is on record |
+| Merkley–Murkowski ban enacted | 2026-12-31 | **Not fired; moved away** | UC blocked by Lee on 2026-09-28; reintroduced in both chambers 2026-09-29 [3][4] |
+| Kennedy Center reopens after the safety closure | 2026-10-31 | **Not fired; effectively dead** | "Not a reopening date" [5]; Honors moved to Capital One Arena [8]. Retired below |
+| Supreme Court emergency application filed | 2026-12-15 | **Not fired** | None found |
+
+### What resolves YES
+Unchanged from v1. Note for comparison: Kalshi's market excludes partial demolition,
+removal of building components and stripping to the steel frame [2]. Metaculus is looser
+(more than *de minimis* of the structure), so Kalshi YES ⊂ Metaculus YES and Kalshi is a floor
+for this question, before adjusting for longshot bias.
+
+### Outside view
+Unchanged from v1 (~3–5% status-quo prior for the original 96-day window). Over the
+remaining 88 days, the prior scales to ~2.8–4.6%.
+
+### Inside view
+Path re-estimates (v1 → v2):
+- **A. Lawful notice → courts allow → wrecking starts**: 1.4% → **1.1%**. Less time is left
+  to file a notice, Trump again ties the next step to court outcomes [6], and the sworn
+  "not demolished" testimony [11] raises the cost of an about-face.
+- **B. Fait accompli**: 0.7% → **0.65%**. Time decay only.
+- **C. Repair work removes more than de minimis structure and is counted**: 0.8% → **0.95%**.
+  Soffit repairs are now explicitly planned [5]. Roof-terrace canopy and soffit corrosion
+  are the named hazards [10]. Most of this is cladding, not structure.
+- **D. Structural-emergency partial teardown**: 0.5% → **0.45%**. Hazards are documented
+  (a ~150 lb ceiling plaster fall, water in a transformer vault [10]), but the filings
+  describe repair, not collapse.
+
+Inside-view sum ≈ **3.15%**, before the cohort pooling in the revision table.
+
+### Evidence
+v1 table unchanged. Additions:
+
+| Evidence | Direction | Likelihood ratio (approx.) |
+|---|---|---|
+| Trump: "not committing to anything … see how it plays out in court" (2026-10-01) [6][7] | → | ~1.0 (non-denial, but court-sequenced) |
+| Closure continues; egress assessment for soffit repairs; Honors moved off-site [5][8] | ↑ path C only | ~1.03 overall |
+| Lee blocks UC on the demolition ban (2026-09-28) [3] | ↑ | ~1.03 |
+| Kalshi full-demolition contract: 11¢ → ~3¢ [2] | ↓ | ~0.94 |
+| Sworn testimony in DCPL: "would not be demolished or rebuilt" [11] | ↓ | ~0.95 |
+
+### Other forecasters
+| Source | Value | As of | Note |
+|---|---|---|---|
+| Metaculus CP (recency-weighted) | 7.0% IQR [4.9%, 10.0%], n=91 | 2026-10-04 | Opened at 9–12.5% on 2026-09-28, then fell to 6–7% from 2026-09-30 [1] |
+| Metaculus Pro | 7.0% IQR [7.0%, 12.0%], n=9 | 2026-10-04 | Noisy (small n): 15% → 8% → 12% → 7% across days |
+| Metaculus gold medalists | 10.0% IQR [4.0%, 12.0%], n=28 | 2026-10-04 | 6–15% range; 10% latest |
+| Kalshi KXKENNEDYDEMOLITION-27 (full demolition, before Jan 1 2027) | bid 2¢ / ask 4¢ / last 5¢; vol ≈14.4k; OI ≈9.3k | 2026-10-04 | Stricter criterion; down from 11¢ on 2026-09-18 [2][12] |
+| Kalshi KXKENNEDYDEMOVOTE-27 (board votes to demolish, 2026) | bid 10¢ / ask 18¢ / last 2¢; vol ≈670 | 2026-10-04 | Too thin to read [2] |
+| Kalshi KXTRUMPKENNEDYFACADE-27 (Trump name back on facade) | before 2027-01-01: 22¢/28¢; before 2027-07-01: 32¢/38¢ | 2026-10-04 | The name, Trump's real goal, is priced as a coin-flip-minus over 9 months [2] |
+| Manifold "demolished during Trump's presidency" | 32% | 2026-10-04 | Horizon to 2029-01-20; 15 traders, play money; not comparable [13] |
+| Polymarket, Sentinel, Mantic, GJOpen/INFER | not found | 2026-10-04 | |
+
+**Cohort disagreement flag.** All three Metaculus cohorts sit above me (7–10% vs 3.5%), and
+Pros and gold roughly agree with each other. I looked for a fact I might have missed and found
+none that points up: no notice, no contractor, no board vote, no Supreme Court move. The one
+missed fact (the DCPL sworn testimony) points down. Likely reasons for the gap:
+(1) the cohorts anchored on Kalshi's 11% at question open, and that price has since collapsed;
+(2) heavier weight on the East Wing precedent; (3) a looser reading of "structure". I do not
+dismiss (3); it is why path C was raised and why the upper quartile widened. Comments were not
+retrievable (empty list), so I cannot check their reasoning directly. I give them partial
+weight (log-odds weight 0.2) rather than herding.
+
+### Scenarios
+| # | Scenario | Weight | Implies |
+|---|---|---|---|
+| 1 | Status quo: litigation, safety closure, repairs; no notice, or none acted on | 87.35% | NO |
+| 2 | Notice filed; blocked or slips past Jan 1 | 9.1% | NO |
+| 3 | Notice filed; courts allow; wrecking starts before Jan 1 | 1.1% | YES |
+| 4 | Fait-accompli demolition despite the notice order | 0.65% | YES |
+| 5 | Repair/renovation removes more than de minimis structure and is counted, or an emergency partial teardown | 1.4% | YES |
+| | Cohort-pooling adjustment (spread across 3–5) | +0.4% | YES |
+
+P(YES) ≈ 3.6% → median **3.5%**. IQR **[1.5%, 6.5%]**.
+
+### Sensitivity
+Unchanged from v1, plus: if the resolver treats soffit/canopy removal during repairs as
+"structure", the forecast becomes ~6%.
+
+### What would change my mind (tripwires)
+- [ ] Administration files a 30-day notice of demolition or scope change in *Beatty* / DCPL by 2026-11-30 → up, +12pp
+- [ ] Demolition contractor award, demolition permit, or heavy demolition equipment staged on site by 2026-11-30 → up, +8pp
+- [ ] Kennedy Center board votes to demolish (or to pursue the "amphitheater" alternative) by 2026-11-30 → up, +8pp
+- [ ] Safety/egress assessment (expected ~2026-10-08 to 10-15) concludes the building is structurally unsound or not economically repairable by 2026-10-31 → up, +3pp
+- [ ] Repair work removes exterior structural elements (roof-terrace canopy, soffit framing, facade panels) and major outlets call it "demolition" by 2026-12-15 → up, +3pp (resolution edge; check Metaculus admin comments)
+- [ ] D.C. Circuit merits ruling on the name by 2026-12-15 → either, re-analyse
+- [ ] Supreme Court emergency application on Kennedy Center renovation/demolition filed by 2026-12-15 → up, +5pp
+- [ ] Merkley–Murkowski (or Pingree House companion) demolition ban enacted, standalone or as a CR/appropriations rider, by 2026-12-31 → down, 2pp
+- *Retired:* "Kennedy Center reopens by 2026-10-31". Not fired and effectively dead [5][8].
+
+### Sources
+1. Metaculus question #45810 aggregation snapshot (CP, Pros, gold, history) — raw/metaculus-2026-10-04.json (fetched 2026-10-04)
+2. Kalshi public API, events KXKENNEDYDEMOLITION-27, KXKENNEDYDEMOVOTE-27, KXKENNEDYREOPEN-28, KXTRUMPKENNEDYFACADE-27 incl. rules text — https://api.elections.kalshi.com/trade-api/v2/events/KXKENNEDYDEMOLITION-27; snapshot raw/kalshi-2026-10-04.json (accessed 2026-10-04)
+3. East Idaho News (AP), "Senator from Utah blocks bipartisan effort to prevent Trump from demolishing Kennedy Center" (2026-09-29) — https://www.eastidahonews.com/?p=872970 (accessed 2026-10-04)
+4. Forbes, "Bill To Prevent Kennedy Center Demolition Introduced In Both Houses After Earlier Effort Failed" (2026-09-29) — https://www.forbes.com/sites/conormurray/2026/09/29/bill-to-prevent-kennedy-center-demolition-introduced-in-both-houses-after-earlier-effort-failed/ (accessed 2026-10-04, search snippet; page 403)
+5. ABC News, "Internal email points to Kennedy Center's continued closure" (2026-10-01) — https://abcnews.com/Politics/internal-email-points-kennedy-centers-continued-closure/story?id=136925836 (accessed 2026-10-04)
+6. The Hill, "Trump refuses to rule out demolishing Kennedy Center" (*Time* interview) — https://thehill.com/homenews/administration/6123520-the-trump-kennedy-center-time-magazine-interview/ (accessed 2026-10-04, search snippet; page 403)
+7. Washington Post, "Trump does not rule out demolishing the Kennedy Center" (2026-10-01) — https://www.washingtonpost.com/politics/2026/10/01/trump-does-not-rule-out-demolishing-kennedy-center/ (accessed 2026-10-04, search snippet; page 403)
+8. Deadline, "Kennedy Center Honors To Move To D.C.'s Capital One Arena Amid Closure" (2026-10) — https://deadline.com/2026/10/kennedy-center-honors-capital-one-arena-1237145621 (accessed 2026-10-04, headline only; page 402)
+9. CNN, "This year's Kennedy Center Honors will be relocated amid ongoing legal battle" (2026-10-02) — https://cnn.com/2026/10/02/politics/kennedy-center-honors-relocated (accessed 2026-10-04, headline only; page 451)
+10. Washington Sun, "Court Filing Says Kennedy Center Hazards Prompted Closing, Not Trump's Threats" (on the 2026-09-23 filing) — https://www.washingtonsun.com/metro/kennedy-center-court-filing-safety-hazards (accessed 2026-10-04)
+11. CourtListener, *DC Preservation League v. Board of Trustees of the John F. Kennedy Center* (opinion; date not confirmed) — https://www.courtlistener.com/opinion/10866385/dc-preservation-league-v-board-of-trustees-of-the-john-f-kennedy-center/ (accessed 2026-10-04, search snippet; page body not retrievable)
+12. Kalshi News, "Will the Kennedy Center be demolished this year?" (2026-09-18) — https://news.kalshi.com/p/kennedy-center-2026-demolition-odds-at-11-percent (accessed 2026-09-26)
+13. Manifold, "Will the Kennedy Center be demolished during Trump's presidency?" — https://manifold.markets/Xiphias/will-the-kennedy-center-be-demolish (API, accessed 2026-10-04)
+
+**Date**: 2026-10-04
+**Forecast**: Median 3.5%, IQR [1.5%, 6.5%]
+**Thesis**: No change in the median. A quiet week means no 30-day notice, contractor, board vote or Supreme Court move. Trump again defers to the courts ("see how it plays out in court"), and the building is in a repairs-first safety closure, so time decay and Kalshi's fall from 11¢ to ~3¢ pull the number down [2][5][6]. Metaculus cohorts revealed at 7–10% pull it back up, partly weighted, and widen the upper quartile. The residual risk remains a fait accompli or repair work read as removing "structure" [1][10].
 
 ---
 
