@@ -1,0 +1,82 @@
+slug: 2026-10-04-mc21095-nasa-warmest-year-on-record-2026
+title: Will 2026 be the warmest year on record, according to NASA?
+source: metaculus
+url: https://www.metaculus.com/questions/21095/will-the-following-years-be-the-warmest-year-on-record-according-to-nasa/?sub-question=21098
+post_id: 21095
+type: binary
+unit: null
+tags:
+- climate
+- global-temperature
+- nasa-gistemp
+- enso
+dates:
+  created: '2026-10-04'
+  opened: '2024-01-25'
+  closes: '2027-01-01'
+  resolves: '2027-01-15'
+status: open
+current:
+  version: 2
+  date: '2026-10-04'
+  median: 0.59
+  iqr:
+  - 0.49
+  - 0.68
+  community:
+    cp: null
+    pro: null
+    gold: null
+    n_forecasters: 116
+    as_of: '2026-10-04'
+next_review: '2026-10-16'
+tripwires:
+- signal: NASA GISTEMP September 2026 (release ~mid-Oct) prints >= 1.45 C
+  by: '2026-10-20'
+  direction: up
+  magnitude: 8
+  magnitude_unit: pp
+  fired: null
+- signal: NASA GISTEMP September 2026 prints <= 1.33 C
+  by: '2026-10-20'
+  direction: down
+  magnitude: 12
+  magnitude_unit: pp
+  fired: null
+- signal: ERA5 October month-to-date (Climate Pulse CSV) through 10-15 averages <= 0.78 C - EC46 rebound
+    not materialising
+  by: '2026-10-16'
+  direction: down
+  magnitude: 10
+  magnitude_unit: pp
+  fired: null
+- signal: Copernicus ERA5 October 2026 monthly anomaly (vs 1991-2020) >= 0.90 C
+  by: '2026-11-10'
+  direction: up
+  magnitude: 10
+  magnitude_unit: pp
+  fired: null
+- signal: Copernicus ERA5 October 2026 monthly anomaly <= 0.78 C
+  by: '2026-11-10'
+  direction: down
+  magnitude: 15
+  magnitude_unit: pp
+  fired: null
+- signal: After the GISTEMP October print, the Nov-Dec mean needed to reach a 2-dp annual 1.30 C exceeds
+    1.55 C
+  by: '2026-11-20'
+  direction: down
+  magnitude: 30
+  magnitude_unit: pp
+  fired: null
+- signal: Metaculus admin comment or NASA statement on how a tie / 'effectively tied' 2026-vs-2024 result
+    is treated
+  by: '2027-01-14'
+  direction: either
+  magnitude: 0
+  magnitude_unit: pp
+  fired: null
+resolution:
+  outcome: null
+  date: null
+  source: null

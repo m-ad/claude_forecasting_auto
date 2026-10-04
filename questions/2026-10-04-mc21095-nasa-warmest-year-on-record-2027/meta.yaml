@@ -1,0 +1,67 @@
+slug: 2026-10-04-mc21095-nasa-warmest-year-on-record-2027
+title: Will 2027 be the warmest year on record, according to NASA?
+source: metaculus
+url: https://www.metaculus.com/questions/21095/will-the-following-years-be-the-warmest-year-on-record-according-to-nasa/?sub-question=45424
+post_id: 21095
+type: binary
+unit: null
+tags:
+- climate
+- global-temperature
+- nasa-gistemp
+- enso
+dates:
+  created: '2026-10-04'
+  opened: '2026-08-18'
+  closes: '2028-01-01'
+  resolves: '2028-01-15'
+status: open
+current:
+  version: 1
+  date: '2026-10-04'
+  median: 0.89
+  iqr:
+  - 0.84
+  - 0.93
+  community:
+    cp: null
+    pro: null
+    gold: null
+    n_forecasters: 116
+    as_of: '2026-10-04'
+next_review: '2026-11-04'
+tripwires:
+- signal: Stratospheric volcanic eruption injecting >= 10 Tg SO2 (Pinatubo-class) before 2027-09-30
+  by: '2027-09-30'
+  direction: down
+  magnitude: 40
+  magnitude_unit: pp
+  fired: null
+- signal: NASA annual 2026 value (mid-Jan 2027) >= 1.33 C - higher bar for 2027
+  by: '2027-01-20'
+  direction: down
+  magnitude: 4
+  magnitude_unit: pp
+  fired: null
+- signal: GISTEMP Jan-Mar 2027 mean >= 1.50 C
+  by: '2027-04-20'
+  direction: up
+  magnitude: 5
+  magnitude_unit: pp
+  fired: null
+- signal: GISTEMP Jan-Mar 2027 mean <= 1.36 C
+  by: '2027-04-20'
+  direction: down
+  magnitude: 15
+  magnitude_unit: pp
+  fired: null
+- signal: CPC discussion shows El Nino ended by AMJ 2027 and La Nina favoured (>= 50%) for JAS 2027
+  by: '2027-05-15'
+  direction: down
+  magnitude: 4
+  magnitude_unit: pp
+  fired: null
+resolution:
+  outcome: null
+  date: null
+  source: null
