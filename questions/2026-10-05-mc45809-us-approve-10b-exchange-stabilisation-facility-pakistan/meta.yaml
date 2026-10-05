@@ -1,0 +1,67 @@
+slug: 2026-10-05-mc45809-us-approve-10b-exchange-stabilisation-facility-pakistan
+title: Will the US approve a $10B exchange stabilisation facility for Pakistan before 2027?
+source: metaculus
+url: https://www.metaculus.com/questions/45809/will-the-us-approve-a-10b-exchange-stabilisation-facility-for-pakistan-before-2027
+post_id: 45809
+type: binary
+unit: null
+tags:
+- pakistan
+- us-treasury
+- exchange-stabilization-fund
+- metaculus-cup-fall-2026
+dates:
+  created: '2026-10-05'
+  opened: null  # scheduled 2026-10-06 17:00 UTC
+  closes: '2026-12-14'
+  resolves: '2027-01-01'
+status: open
+current:
+  version: 1
+  date: '2026-10-05'
+  median: 0.09
+  iqr:
+  - 0.05
+  - 0.14
+  community:
+    cp: null
+    pro: null
+    gold: null
+    n_forecasters: 4
+    as_of: '2026-10-05'
+next_review: '2026-10-12'
+tripwires:
+- signal: US Treasury/Bessent/Trump publicly confirms negotiating a currency swap with Pakistan (any size)
+  by: '2026-11-30'
+  direction: up
+  magnitude: 15
+  magnitude_unit: pp
+  fired: null
+- signal: Shehbaz or Munir White House visit with announced economic deliverables
+  by: '2026-12-15'
+  direction: up
+  magnitude: 5
+  magnitude_unit: pp
+  fired: null
+- signal: Aurangzeb's 'within two months' window passes with no US decision or US-side statement
+  by: '2026-11-17'
+  direction: down
+  magnitude: 4
+  magnitude_unit: pp
+  fired: null
+- signal: Argentina $20B ESF swap terminated or reduced
+  by: '2026-12-01'
+  direction: up
+  magnitude: 3
+  magnitude_unit: pp
+  fired: null
+- signal: Pakistan announces only DFC/EXIM financing or a sub-$10B US arrangement
+  by: '2026-12-31'
+  direction: down
+  magnitude: 6
+  magnitude_unit: pp
+  fired: null
+resolution:
+  outcome: null
+  date: null
+  source: null

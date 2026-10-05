@@ -1,0 +1,65 @@
+{
+  "post_id": 45809,
+  "question_id": 45990,
+  "title": "Will the US approve a $10B exchange stabilisation facility for Pakistan before 2027?",
+  "question_type": "binary",
+  "status": "upcoming",
+  "resolution": null,
+  "scheduled_close_time": "2026-12-14T19:00:00Z",
+  "cp_reveal_time": "2026-10-09T14:36:00Z",
+  "options": null,
+  "scaling": {
+    "range_min": null,
+    "range_max": null,
+    "nominal_min": null,
+    "nominal_max": null,
+    "zero_point": null,
+    "open_upper_bound": false,
+    "open_lower_bound": false,
+    "inbound_outcome_count": null,
+    "continuous_range": null
+  },
+  "resolution_criteria": null,
+  "fine_print": null,
+  "background": null,
+  "nr_forecasters": 4,
+  "methods": {
+    "recency_weighted": {
+      "method": "recency_weighted",
+      "status": 200,
+      "history_points": 0,
+      "latest": null,
+      "history": []
+    },
+    "metaculus_pros": {
+      "method": "metaculus_pros",
+      "status": 200,
+      "history_points": 0,
+      "latest": null,
+      "history": []
+    },
+    "gold_medalists": {
+      "method": "gold_medalists",
+      "status": 200,
+      "history_points": 0,
+      "latest": null,
+      "history": []
+    }
+  },
+  "comments": [
+    {
+      "author": "Russell-viper",
+      "created_at": "2026-10-04",
+      "text": "@(DaAdCh) Thank you &#x20;",
+      "prediction": null
+    },
+    {
+      "author": "DaAdCh",
+      "created_at": "2026-10-02",
+      "text": "@(Russell-viper) Thanks for the good question. I've tidied up the title, resolution criteria, and added fine print, some relevant links and background context. Hopefully this works fine for you. This will now be considered for an upcoming round of the Fall Cup.",
+      "prediction": null
+    }
+  ],
+  "label": null,
+  "subquestions": []
+}

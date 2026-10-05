@@ -1,0 +1,67 @@
+slug: 2026-10-05-mc45857-jos-mourinho-still-manager-real-madrid-december
+title: Will José Mourinho still be the manager for Real Madrid on December 31, 2026?
+source: metaculus
+url: https://www.metaculus.com/questions/45857/will-jose-mourinho-still-be-the-manager-for-real-madrid-on-december-31-2026
+post_id: 45857
+type: binary
+unit: null
+tags:
+- football
+- real-madrid
+- manager-tenure
+- metaculus-cup-fall-2026
+dates:
+  created: '2026-10-05'
+  opened: null  # scheduled 2026-10-06 17:00 UTC
+  closes: '2026-12-01'
+  resolves: '2026-12-31'
+status: open
+current:
+  version: 1
+  date: '2026-10-05'
+  median: 0.87
+  iqr:
+  - 0.82
+  - 0.91
+  community:
+    cp: null
+    pro: null
+    gold: null
+    n_forecasters: 8
+    as_of: '2026-10-05'
+next_review: '2026-10-12'
+tripwires:
+- signal: Real Madrid lose the Clásico at Camp Nou by 2+ goals
+  by: '2026-10-25'
+  direction: down
+  magnitude: 8
+  magnitude_unit: pp
+  fired: null
+- signal: Real Madrid 10+ points behind the La Liga leader at any point
+  by: '2026-11-30'
+  direction: down
+  magnitude: 10
+  magnitude_unit: pp
+  fired: null
+- signal: Marca/AS/El País/The Athletic report Pérez weighing a dismissal or sounding out replacements
+  by: '2026-12-15'
+  direction: down
+  magnitude: 25
+  magnitude_unit: pp
+  fired: null
+- signal: Real Madrid outside Champions League top 24 after league-phase matchday 5
+  by: '2026-11-30'
+  direction: down
+  magnitude: 5
+  magnitude_unit: pp
+  fired: null
+- signal: Real Madrid within 3 points of the La Liga lead on 2026-11-30
+  by: '2026-11-30'
+  direction: up
+  magnitude: 5
+  magnitude_unit: pp
+  fired: null
+resolution:
+  outcome: null
+  date: null
+  source: null
