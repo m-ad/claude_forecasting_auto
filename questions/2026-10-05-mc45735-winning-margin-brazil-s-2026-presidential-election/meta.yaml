@@ -1,0 +1,69 @@
+slug: 2026-10-05-mc45735-winning-margin-brazil-s-2026-presidential-election
+title: What will be the winning margin in Brazil’s 2026 presidential election runoff?
+source: metaculus
+url: https://www.metaculus.com/questions/45735/what-will-be-the-winning-margin-in-brazils-2026-presidential-election-runoff
+post_id: 45735
+type: numeric
+unit: percentage points
+tags:
+- brazil
+- elections
+- lula
+- flavio-bolsonaro
+- metaculus-cup-fall-2026
+dates:
+  created: '2026-10-05'
+  opened: null  # scheduled 2026-10-06 17:00 UTC
+  closes: '2026-10-25'
+  resolves: '2026-10-27'
+status: open
+current:
+  version: 1
+  date: '2026-10-05'
+  median: 3.6
+  iqr:
+  - 1.8
+  - 5.7
+  community:
+    cp: null
+    pro: null
+    gold: null
+    n_forecasters: 6
+    as_of: '2026-10-05'
+next_review: '2026-10-09'
+tripwires:
+- signal: First post-R1 runoff polls (Datafolha/Quaest/AtlasIntel) average a Flávio lead of 5+ pp of valid
+    votes
+  by: '2026-10-12'
+  direction: up
+  magnitude: 1.0
+  magnitude_unit: percentage points
+  fired: null
+- signal: First post-R1 runoff polls average within ±1 pp
+  by: '2026-10-12'
+  direction: down
+  magnitude: 0.8
+  magnitude_unit: percentage points
+  fired: null
+- signal: Caiado/PSD leadership or Cury endorses Lula
+  by: '2026-10-18'
+  direction: down
+  magnitude: 0.5
+  magnitude_unit: percentage points
+  fired: null
+- signal: Final AtlasIntel runoff poll shows |margin| >= 6
+  by: '2026-10-24'
+  direction: up
+  magnitude: 1.2
+  magnitude_unit: percentage points
+  fired: null
+- signal: Polymarket winner odds tighten to 60/40 or closer
+  by: '2026-10-20'
+  direction: down
+  magnitude: 1.0
+  magnitude_unit: percentage points
+  fired: null
+resolution:
+  outcome: null
+  date: null
+  source: null

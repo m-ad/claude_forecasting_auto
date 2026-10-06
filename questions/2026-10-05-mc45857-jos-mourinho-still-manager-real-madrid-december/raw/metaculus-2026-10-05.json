@@ -1,0 +1,52 @@
+{
+  "post_id": 45857,
+  "question_id": 46032,
+  "title": "Will José Mourinho still be the manager for Real Madrid on December 31, 2026?",
+  "question_type": "binary",
+  "status": "upcoming",
+  "resolution": null,
+  "scheduled_close_time": "2026-12-01T13:00:00Z",
+  "cp_reveal_time": "2026-10-10T17:00:00Z",
+  "options": null,
+  "scaling": {
+    "range_min": null,
+    "range_max": null,
+    "nominal_min": null,
+    "nominal_max": null,
+    "zero_point": null,
+    "open_upper_bound": false,
+    "open_lower_bound": false,
+    "inbound_outcome_count": null,
+    "continuous_range": null
+  },
+  "resolution_criteria": null,
+  "fine_print": null,
+  "background": null,
+  "nr_forecasters": 8,
+  "methods": {
+    "recency_weighted": {
+      "method": "recency_weighted",
+      "status": 200,
+      "history_points": 0,
+      "latest": null,
+      "history": []
+    },
+    "metaculus_pros": {
+      "method": "metaculus_pros",
+      "status": 200,
+      "history_points": 0,
+      "latest": null,
+      "history": []
+    },
+    "gold_medalists": {
+      "method": "gold_medalists",
+      "status": 200,
+      "history_points": 0,
+      "latest": null,
+      "history": []
+    }
+  },
+  "comments": [],
+  "label": null,
+  "subquestions": []
+}

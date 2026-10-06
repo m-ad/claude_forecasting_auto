@@ -1,0 +1,24 @@
+{
+ "post_id": 45809,
+ "retrieved": "2026-10-05",
+ "via": "browser /api-proxy/posts",
+ "title": "Will the US approve a $10B exchange stabilisation facility for Pakistan before 2027?",
+ "open_time": "2026-10-06T17:00:00Z",
+ "scheduled_close_time": "2026-12-14T19:00:00Z",
+ "scheduled_resolve_time": "2027-01-01T00:00:00Z",
+ "unit": "",
+ "scaling": {
+  "range_min": null,
+  "range_max": null,
+  "nominal_min": null,
+  "nominal_max": null,
+  "zero_point": null,
+  "open_upper_bound": false,
+  "open_lower_bound": false,
+  "inbound_outcome_count": null,
+  "continuous_range": null
+ },
+ "description": "Pakistan and the U.S. were allies during the Afghanistan War/War on Terror, during which the U.S. provided [significant funding to Pakistan](https://tribune.com.pk/story/1498815/war-terror-aid-pakistan-received-33-4bn-us) primarily to counter terrorism. However, following the U.S. withdrawal from Afghanistan, Pakistan lost much of its strategic importance to Washington.&#x20;\n\nThe ongoing war between the U.S. and Iran has presented Pakistan with an opportunity for mediation. Pakistan acted as a mediator between both sides, which led to the draft of [the Islamabad MoU](https://en.wikipedia.org/wiki/Islamabad_Memorandum). Although it was ultimately unsuccessful, it still managed to establish a 60-day ceasefire extension to negotiate a final peace deal. President Trump has on numerous occasions [praised Pakistan's leadership](https://tribune.com.pk/story/2630836/trump-praises-pm-shehbaz-as-terrific-man-recalls-india-pakistan-mediation-at-unga) with great fervor, particularly its prime minister and Army Chief.\n\nFollowing this, in July 2026, Pakistan officials sought [a \\$10 billion exchange stabilisation facility](https://www.reuters.com/world/asia-pacific/pakistan-seeks-10-billion-us-backstop-facility-boost-reserves-source-says-2026-07-21/), an arrangement to boost the South Asian country's reserve, ease the pressure on the rupee and reduce its reliance on multilateral financing. On September 17, Pakistan's Finance Minister Muhammad Aurangzeb said that he expects [a U.S. response within the next two months](https://www.reuters.com/world/asia-pacific/pakistan-eyes-bigger-china-swap-line-expects-us-financing-decision-soon-2026-09-17/).",
+ "resolution_criteria": "This question will resolve as **Yes** if, before January 1, 2027, [credible sources](https://www.reuters.com/world/asia-pacific/pakistan-eyes-bigger-china-swap-line-expects-us-financing-decision-soon-2026-09-17/) confirm that the U.S. government has formally approved an exchange stabilization support facility or equivalent currency swap of at least \\$10 billion for Pakistan.",
+ "fine_print": "A Yes resolution does not require the execution of the facility to happen within the question's time frame."
+}
