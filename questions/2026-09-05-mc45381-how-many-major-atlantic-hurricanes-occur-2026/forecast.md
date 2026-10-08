@@ -6,12 +6,167 @@
 | **Type** | multiple choice — options `0`, `1`, `2`, `3`, `4+` |
 | **Opened / Closes / Resolves** | 2026-09-07 / 2026-10-16 / 2026-11-30 (NHC data as of 2026-12-01) |
 | **Status** | open |
-| **Current forecast** | **0: 80.0% · 1: 16.0% · 2: 3.0% · 3: 0.8% · 4+: 0.2%** — leading option `0`, IQR [74.0%, 85.0%] (v5, 2026-10-02) |
-| **Community (as of 2026-10-02)** | CP **0: 79.5%** · Pro **84.5%** (n=11) · gold **82.2%** (n=36) — n=143 forecasters; cohorts within 5 pp |
-| **Market (as of 2026-10-02)** | **Kalshi `KXHURCTOTMAJ-26DEC01`: P(0) ≈ 70.5%** (`>0` strike 29/30¢, last 32¢, 18.3k contracts; ~800 fresh) |
-| **Next review** | 2026-10-09 |
+| **Current forecast** | **0: 48.4% · 1: 45.4% · 2: 5.4% · 3: 0.7% · 4+: 0.1%** — leading option `0`, IQR [40.0%, 57.0%] (v6, 2026-10-08) |
+| **Community (as of 2026-10-08)** | CP **0: 60.7%** · Pro **57.9%** (n=10) · gold **58.0%** (n=36) — n=152 forecasters; cohorts within 3 pp, all falling |
+| **Market (as of 2026-10-08)** | **Kalshi `KXHURCTOTMAJ-26DEC01`: P(0) ≈ 33%** (`>0` strike 65/69¢, last 66¢, 27.9k contracts; ~9.5k fresh) — 25 pp below Metaculus |
+| **Next review** | 2026-10-09 (Isaias peak, ~12Z Fri 9 Oct, then landfall) |
 
 <!-- Versions below, newest first. APPEND-ONLY: never edit or delete a past version. -->
+
+---
+
+## v6 — Update — 2026-10-08
+
+**Mode: Update** (incremental). Six days since v5. The question's structure has not changed. The
+v5 tripwire list held the event that happened. The southern-Gulf window that v5 priced at ~3–5%
+for a major produced **Hurricane Isaias**, the season's first hurricane. NHC forecasts a 95 kt
+peak, one 5-kt step short of Category 3. So this is not a hazard-rate update. The question now
+reduces to one conditional: does Isaias reach 100 kt in an NHC product before it makes landfall
+on Friday night? Kalshi is 47pp below my prior and Metaculus is 19pp below it. Both gaps are
+explained by the same storm, so I re-derived P(Isaias becomes a major) from the guidance rather
+than nudging. Written 2026-10-08 ~05:30Z, before the 09Z advisory.
+
+### Revision table
+
+| Driver | Direction | Effect on P(`0`) |
+|---|---|---|
+| **Prior (v5, 2026-10-02)** | — | **80.0%** (1: 16.0 · 2: 3.0 · 3: 0.8 · 4+: 0.2) |
+| **v5 tripwire 2 fired on both halves.** NHC took the Gulf low to 80% formation on 5 Oct [10]. It became TD 9 on 6 Oct, Tropical Storm Isaias on 7 Oct, and a hurricane at 03:30Z on 8 Oct, with 75 mph and a 982 mb dropsonde pressure [1][2]. NHC's forecast is Cat 2+, with a 95 kt peak at 12Z Fri [3]. v5 pre-committed −4 for the ≥50% outlook and −12 for a Cat 2+ forecast | down | **−16.0 pp** |
+| **NHC's peak is one step short of Cat 3, and NHC is leaning up.** OFCL (the official forecast) has 60 → 75 → 85 → 95 kt by 36 h. NHC writes "rapid intensification is a distinct possibility", "the NHC forecast lies on the high end of the intensity guidance", and "a strong hurricane when it approaches the northern Gulf Coast" [3]. The storm is running ahead of that track: 65 kt at 03:30Z, against ~62 kt interpolated from OFCL, and the pressure fell 988 → 982 mb between fixes [2][3]. The water is record-warm, 30–31°C, with very high ocean heat content on the path [8][9]. v5's tripwire magnitudes were set for a generic "Cat 2+" forecast. This one sits at the top edge of Cat 2 | down | **−10.0 pp** |
+| **The raw hurricane models and DeepMind straddle the threshold.** Peaks from the 18Z 7 Oct runs: HMON 108 kt, COAMPS-TC 102, HWRF 101, DeepMind ensemble mean (GDMN) 99, HAFS-A 90, HAFS-B 88 [6]. Over 60% of Google DeepMind's ensemble members reach major strength (Lowry and Masters/Henson, 7 Oct) [7][8]. It was 43% on 6 Oct [9]. Lowry: "ripe for Isaias to peak as a major … or near-major hurricane" [7] | down | **−6.0 pp** |
+| **The statistical aids, shear, and the 100-kt operational bar argue against it.** SHIPS 89 kt, LGEM 88, IVCN 84, HCCA 90 (00Z) [5][6]. SHIPS rapid-intensification (RI) odds from 60 kt at 00Z: +35 kt in 24 h 35% (consensus 14%); +40 kt in 24 h 8% (consensus 3%); +45 kt in 36 h 15% (consensus 6%, DTOPS 18%) [5]. Shear is 19–24 kt now, and SHIPS has 31 kt at 36 h and 46 kt at 48 h. Masters/Henson flag dry continental air [8]. **Operational rounding matters.** The question counts the 1 December operational record, and NHC reports winds in 5-kt steps. So 96 kt is not enough: the record must show **100 kt (115 mph)**. Model "major" counts that use ≥96 kt therefore overstate the resolving probability by roughly a few points | up | **+2.0 pp** |
+| **The rest of the season, 11 Oct – 30 Nov, has a slightly higher rate.** Isaias shows the Gulf can still support a hurricane under this El Niño. I lift λ (the expected number of further majors) from v5's ~0.12 (ex-window) to ~0.13, so P(no other major) ≈ 0.88. The CPC ENSO update is not out yet; the page still shows 10 Sep, ">90% chance of a very strong event" [13] | down | **−1.6 pp** |
+| **Cohorts and market bracket me, so they get no net weight.** Metaculus CP 79.5 → **60.7%** (n=152). Pros 84.5 → **57.9%** (n=10). Gold 82.2 → **58.0%** (n=36). All three are still falling at the last snapshot, 04:56Z, and largely predate the 03:30Z upgrade [11]. Kalshi `>0` 29/30¢ → **65/69¢, last 66¢**, so P(0) ≈ **33%**, on ~9.5k fresh contracts. It traded 56–79¢ in the last 18 h [12]. Kalshi has sat 7–13pp below the Metaculus cohorts on `0` in every version so far, which reads as a YES-side lean. Corrected for that, it lands at ~42%. I sit between the two | — | 0.0 pp |
+| **New forecast (v6)** | | **0: 48.4%** · 1: 45.4 · 2: 5.4 · 3: 0.7 · 4+: 0.1, IQR on `0` [40.0%, 57.0%] |
+
+**Rate construction.** Two independent pieces:
+
+- *p* = P(Isaias reaches 100 kt in an NHC product) = **0.45**. NHC's 36-h intensity error is
+  about 10–12 kt MAE (mean absolute error). It runs to a low bias in rapid-intensification
+  cases, and a storm's realised peak usually exceeds the peak of a smooth forecast. Centring on
+  a realised peak of ~95–96 kt with SD ≈ 12 kt gives P(≥97.5 kt, which rounds to 100) ≈
+  0.42–0.47. The statistical RI tools (6–18% for +45 kt/36 h) pull below that. The raw hurricane
+  models, the DeepMind ensemble and the storm's early run ahead of forecast pull above it.
+  *Judgement call. No calibrated "P(peak ≥ forecast + 5 kt)" table was found this session.*
+- The rest of the season: λ ≈ 0.13, overdispersed. P(0 / 1 / 2 / 3+ other majors) =
+  0.88 / 0.105 / 0.013 / 0.002.
+
+The mixture gives 0: 0.55 × 0.88 = 48.4%. 1: 0.45 × 0.88 + 0.55 × 0.105 = 45.4%. 2: 5.4%.
+3: 0.7%. 4+: 0.1%. **The IQR is wide on purpose, [40, 57].** It is my 25–75% band on *p*
+(0.35–0.55), propagated. Nearly all of this uncertainty resolves within ~40 h.
+
+![Isaias peak-intensity guidance: HMON 108, COAMPS-TC 102, HWRF 101, DeepMind ensemble mean 99, NHC 95, HCCA 90, HAFS 88–90, SHIPS/LGEM 88–89, IVCN 84 kt, against the 100-kt operational Cat 3 line](charts/isaias_guidance_v6.png)
+
+### Tripwire check (v5 list)
+
+| # | Tripwire | Status | Evidence |
+|---|---|---|---|
+| 1 | Any Atlantic system reaches Cat 3 | **Not fired (live)** | Isaias is at 65 kt / 982 mb at 03:30Z 8 Oct. NHC forecasts a 95 kt peak [2][3] |
+| 2 | NHC TWO ≥ 50% 7-day in the Gulf or western Caribbean → −4; NHC forecasts it to Cat 2+ → a further −12 | **Fired, both halves** | 80% on 5 Oct [10]. OFCL peak 95 kt (Cat 2) [3]. Applied as revision row 2, then extended in rows 3–5 |
+| 3 | The 7–10 Oct southern-Gulf window passes with no system or a sub-hurricane → +4 | **Failed (the opposite happened)** | Isaias formed in that window and became a hurricane [1][2] |
+| 4 | CPC ENSO update (~10-08): OND RONI below +2.0 or an early peak → −4 | **Not yet released** | The discussion page still shows the 10 Sep issue [13]. Release is due later today. It now matters only for 11 Oct – 30 Nov, so the trigger is cut to −2 |
+| 5 | CSU two-week forecast of 2026-10-14 favours near/above normal → −4 | Not due | — |
+| 6 | Kalshi `>0` outside 20–40¢ on more than 3k fresh contracts → re-check, do not nudge | **Fired** | 65/69¢, last 66¢. T0 volume 18.3k → 27.9k, 4.4k of it in the last 24 h [12]. Re-checked: the move is Isaias, not an unseen fact. See revision row 6 |
+| 7 | Metaculus Pros below 72% or above 90% | **Fired (below 72%)** | Pros **57.9%** (n=10) [11]. Re-checked; same storm. The Pros sit 9.5pp above me. Their implied p ≈ 0.34 matches the statistical-aid reading. Mine leans to NHC and the dynamical models |
+
+### What resolves YES
+
+Unchanged from v1. One point now bites: the operational value counts, and post-season upgrades
+are excluded. Zeta (2020) is the cautionary case. It was operationally 95 kt (Cat 2) at
+landfall and was upgraded to Cat 3 only in the post-season Tropical Cyclone Report (TCR).
+*I recall this case from memory and did not re-verify it this session.* For this question,
+Isaias must show **≥ 100 kt** in an NHC advisory or tropical cyclone update (TCU) by
+1 December.
+
+### Outside view
+
+v3's reference class (majors after a date, in super-El-Niño years) is superseded. The resolving
+event is now one storm's peak against its forecast peak. The relevant base rate is how often a
+Gulf hurricane forecast to peak at 95 kt verifies at ≥ 100 kt. I found no published
+conditional table for that. The nearest is NHC's verification reports: 36-h MAE ~10–12 kt, with
+under-forecasts more common in rapid-intensification cases. The recent October Gulf cases I
+recall split both ways. Michael (2018), Delta (2020) and Zeta (2020) beat their forecasts.
+Nate (2017) and Francine (2024) peaked at or below theirs. *I recalled these from memory and did
+not re-verify them this session.* I use them as direction only.
+
+### Scenarios
+
+| # | Scenario | Weight | Implies |
+|---|---|---|---|
+| 1 | Isaias peaks at 85–95 kt as shear rises Friday. Nothing else reaches Cat 3 | 0.484 | **0** |
+| 2 | Isaias reaches 100 kt+ before landfall (the RI case) and nothing else follows, **or** it falls short and one late Oct–Nov storm becomes a major | 0.454 | **1** |
+| 3 | Isaias becomes a major plus one late-season major, or two late majors | 0.054 | **2** |
+| 4–5 | Back-loading on top of that | 0.008 | **3 / 4+** |
+
+### Inside view
+
+Superseded by the revision table: Isaias's environment, guidance and recon trend.
+
+### Evidence
+
+New items are cited in the revision table. Unchanged otherwise.
+
+### Other forecasters (2026-10-08)
+
+| Source | P(0 majors) | As of | Note |
+|---|---|---|---|
+| **Kalshi `KXHURCTOTMAJ-26DEC01`** | **≈ 33%** (`>0` 65/69¢, last 66¢) | 2026-10-08 05:10Z | T0 27.9k contracts (was 18.3k). It ranged 56–79¢ in the last 18 h. `>1` 22/24¢, so P(≥2) ≈ 23%. `>2` 8/10¢ [12] |
+| **Metaculus CP** | **60.7%** (IQR 47.0–72.0) | 2026-10-08 04:56Z | n=152. 1: 36.0 · 2: 2.9 · 3: 0.3 · 4+: 0.1. Falling from 85.5% on 5 Oct [11] |
+| **Metaculus Pros** | **57.9%** | 2026-10-08 | n=10. 1: 38.2 · 2: 3.4 [11] |
+| **Metaculus gold medalists** | **58.0%** (IQR 51.7–65.8) | 2026-10-08 | n=36. 1: 38.3 · 2: 3.1 [11] |
+| Google DeepMind ensemble (via Lowry, Masters/Henson) | > 60% of members reach major | 2026-10-07 | It was 43% on 6 Oct. Model winds count as major at ≥ 96 kt; the operational record needs 100 kt [7][8][9] |
+| Masters/Henson (Yale Climate Connections) | "expect a Cat 2"; "could peak as a major Category 3" | 2026-10-07 | SHIPS/DTOPS 17–19% for a 35 mph RI at 12Z [8] |
+| Lowry (Eye on the Tropics) | "major … or near-major" | 2026-10-07 | HAFS "around Category 3" in the run he cited [7] |
+
+**Cohort agreement.** The three Metaculus cohorts sit within 3pp of one another (57.9–60.7).
+Kalshi is 25pp below them. That is the largest real-money/Metaculus gap this question has had.
+It is consistent in sign with every previous version, but four times their size. I sit 9.5pp
+below the Pros and 15pp above Kalshi. I looked for a fact behind the Pros/gold number and found
+one candidate: operational rounding plus the ho-hum statistical RI aids. I have priced it (row
+5) but weight it below NHC's own high-end call.
+
+### Sensitivity
+
+| Assumption | If instead | Forecast becomes |
+|---|---|---|
+| *p* = 0.45 | *p* = 0.35 (the Pros' implied value) | 0: ~57% |
+| — | *p* = 0.60 (Kalshi's implied value) | 0: ~35% |
+| — | the 09Z/15Z advisory raises the OFCL peak to 100–105 kt | 0: ~33% |
+| — | the 09Z/15Z advisory cuts the OFCL peak to ≤ 85 kt | 0: ~65% |
+| λ after Isaias ≈ 0.13 | 0.20 (Isaias signals a genuinely less hostile late season) | 0: ~45% |
+
+### What would change my mind (tripwires)
+
+- [ ] **Isaias reaches ≥ 100 kt (115 mph) in any NHC advisory or TCU**, by 2026-10-10 → `0` to ~0%; `1` to ~88%.
+- [ ] **Isaias makes landfall or weakens below hurricane strength with an operational peak ≤ 95 kt**, by 2026-10-11 → `0` to ~87%.
+- [ ] **An NHC advisory raises the forecast peak to ≥ 100 kt**, by 2026-10-09 → down ~13pp; **lowers it to ≤ 85 kt** → up ~15pp.
+- [ ] **Recon measures a central pressure ≤ 965 mb before 2026-10-09 18Z** → down ~10pp. For a small storm that pressure supports ~100 kt.
+- [ ] **CPC ENSO update (2026-10-08) puts OND RONI below +2.0 or shows El Niño peaking early** → down ~2pp (rest of season only).
+- [ ] **NHC TWO flags ≥ 50% 7-day formation in the Gulf, the western Caribbean or the SW Atlantic after Isaias**, by 2026-11-15 → down ~4pp (after Isaias resolves).
+- [ ] **CSU two-week forecast of 2026-10-14 favours near- or above-normal activity** → down ~3pp.
+- [ ] **Kalshi `>0` trades outside 50–80¢ on more than 3k fresh contracts** → re-check, do not nudge.
+- [ ] **Metaculus Pros fall below 45% or rise above 70%** → re-check.
+
+### Sources
+
+1. NHC — CurrentStorms.json, AL092026 Isaias, classification HU, 65 kt, 982 mb, last update 2026-10-08 03:30Z — https://www.nhc.noaa.gov/CurrentStorms.json (accessed 2026-10-08 05:10Z; `raw/nhc-currentstorms-2026-10-08.json`)
+2. NHC — Hurricane Isaias Tropical Cyclone Update, 1030 PM CDT Wed 7 Oct 2026 ("ISAIAS BECOMES A HURRICANE", 75 mph, 982 mb dropsonde) — https://www.nhc.noaa.gov/text/MIATCUAT4.shtml (accessed 2026-10-08; `raw/nhc-MIATCUAT4-2026-10-08.txt`)
+3. NHC — Tropical Storm Isaias Discussion Number 6 and Public Advisory 6, 1000 PM CDT Wed 7 Oct 2026 (OFCL 60/75/85/95/90 kt; "rapid intensification is a distinct possibility") — https://www.nhc.noaa.gov/text/MIATCDAT4.shtml (accessed 2026-10-08; `raw/nhc-MIATCDAT4-2026-10-08.txt`, `raw/nhc-MIATCPAT4-2026-10-08.txt`)
+4. NHC — Atlantic Tropical Weather Outlook, 800 PM EDT Wed 7 Oct 2026 (advisories on Isaias; no other formation expected in 7 days) — https://www.nhc.noaa.gov/gtwo.php?basin=atlc&fdays=7 (accessed 2026-10-08)
+5. NHC ATCF — SHIPS output, Isaias, 2026-10-08 00Z (RI matrix; SHIPS/LGEM peaks; shear 19–46 kt) — https://ftp.nhc.noaa.gov/atcf/stext/26100800AL0926_ships.txt (accessed 2026-10-08; `raw/nhc-ships-26100800AL0926.txt`)
+6. NHC ATCF — public a-deck `aal092026.dat` (model peak intensities, 7 Oct 00Z – 8 Oct 00Z cycles) — https://ftp.nhc.noaa.gov/atcf/aid_public/aal092026.dat.gz (accessed 2026-10-08; `raw/nhc-aal092026-2026-10-08.dat.gz`)
+7. Michael Lowry — "Isaias to Rapidly Strengthen to a Near-Major Hurricane, Forecast to Strike the Northern Gulf Coast Late Friday into Early Saturday", 2026-10-07 — https://michaelrlowry.substack.com/p/isaias-to-rapidly-strengthen-to-a (accessed 2026-10-08)
+8. Masters & Henson — "Strengthening Isaias expected to hit the U.S. Gulf coast Friday as a hurricane", Yale Climate Connections, 2026-10-07 — https://yaleclimateconnections.org/2026/10/strengthening-isaias-expected-to-hit-the-u-s-gulf-coast-friday-as-a-hurricane/ (accessed 2026-10-08)
+9. "Odds of a U.S. Gulf Coast hurricane landfall are rising", Yale Climate Connections, 2026-10-06 (DeepMind ensemble 43% Cat 3+; Gulf SST record-warm, 30–31°C) — https://yaleclimateconnections.org/2026/10/odds-of-a-u-s-gulf-coast-hurricane-landfall-are-rising/ (accessed 2026-10-08)
+10. "Forecasters monitor possible system in the Gulf with 80% chance of development", NBC Miami, 2026-10-05 — https://www.nbcmiami.com/weather/hurricane-season/forecasters-monitor-possible-system-in-the-gulf-that-could-become-named-storm/3868366/ (accessed 2026-10-08)
+11. Metaculus question 45381, three-cohort aggregations — https://www.metaculus.com/questions/45381/ (accessed 2026-10-08 04:56Z; `raw/metaculus-2026-10-08.json`; the fetch returned no comments)
+12. Kalshi `KXHURCTOTMAJ` series and T0 trades, public trade API — https://kalshi.com/markets/kxhurctotmaj (accessed 2026-10-08 05:10Z; `raw/kalshi-KXHURCTOTMAJ-2026-10-08.json`, `raw/kalshi-trades-T0-2026-10-08.json`)
+13. NOAA CPC — ENSO Diagnostic Discussion (the page still showed the 10 Sep 2026 issue) — https://www.cpc.ncep.noaa.gov/products/analysis_monitoring/enso_advisory/ensodisc.shtml (accessed 2026-10-08)
+14. "A tropical storm could form in Gulf of Mexico in coming days", Washington Post, 2026-10-05 (no Atlantic hurricane yet on 5 Oct; strengthening El Niño) — https://www.washingtonpost.com/weather/2026/10/05/tropical-storm-could-form-gulf-mexico-coming-days/ (accessed 2026-10-08, via search summary)
+
+**Date**: 2026-10-08
+**Forecast**: 0: 48.4%, 1: 45.4%, 2: 5.4%, 3: 0.7%, 4+: 0.1% — IQR on `0` [40.0%, 57.0%]
+**Thesis**: Down 31.6pp. The southern-Gulf window produced Hurricane Isaias (65 kt, 982 mb at 03:30Z 8 Oct) [1][2]. NHC forecasts a 95 kt peak with rapid intensification "a distinct possibility" [3], one 5-kt step short of the 100 kt the operational record needs. Raw hurricane models and the DeepMind ensemble straddle that line, and the statistical aids sit below it [5][6][7][8]. I put P(Isaias becomes a major) at 0.45 and P(no other major) at 0.88. That lands between Metaculus (58–61%) [11] and Kalshi (~33%) [12].
 
 ---
 

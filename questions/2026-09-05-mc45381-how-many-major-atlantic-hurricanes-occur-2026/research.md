@@ -292,3 +292,33 @@ Wikipedia.
 2. CPC ENSO update (~8 Oct): OND RONI level and the peak timing.
 3. Any western-Caribbean signal for 14–31 Oct (CPC week 2/3, ECMWF weeklies)?
 4. CSU two-week forecast of 14 Oct.
+
+## v6 search log (2026-10-08, ~05:00–05:40Z)
+
+| Date | Query / source | Finding | Effect |
+|---|---|---|---|
+| 2026-10-08 | Kalshi public API (first call, before any search) | T0 65/69¢, last 66¢, vol 18.3k → 27.9k (4.4k in 24 h); T1 22/24¢; T2 8/10¢ | ↓↓ prompted the storm search |
+| 2026-10-08 | Kalshi T0 trades (first call 429; retried once after 20 s) | ranged 56–79¢ over 7 Oct 10Z – 8 Oct 04Z; peak 75–79¢ at 14–15Z on 7 Oct | volatile, real volume |
+| 2026-10-08 | NHC TWO, 8 pm EDT 7 Oct | advisories on TS Isaias, SW Gulf; nothing else in 7 days | context |
+| 2026-10-08 | NHC CurrentStorms.json + TCU 03:28Z | Isaias HU, 65 kt, 982 mb (dropsonde) at 03:30Z | ↓ |
+| 2026-10-08 | NHC TCD/TCP #6, 03Z | OFCL 60/75/85/95/90 kt; peak 95 kt at 12Z 9 Oct; "RI is a distinct possibility"; "high end of the intensity guidance"; shear markedly increases Friday; landfall late Fri / early Sat, Ocean Springs MS – Bay/Gulf County line FL | ↓↓ |
+| 2026-10-08 | SHIPS 00Z (ftp atcf/stext) | SHIPS 89, LGEM 88 kt; RII +35/24h 35% (consensus 14%), +40/24h 8% (3%), +45/36h 15% (6%); DTOPS 20/11/18%; shear 19→31→46 kt; SST 30.6°C | ↑ small |
+| 2026-10-08 | a-deck aal092026 | 18Z raw peaks: HMON 108, CTCX 102, HWRF 101, GDMN 99, HFSA 90, HFSB 88. 00Z: GDMI 95, HCCA 90, CTCI 90, IVCN 84 | ↓ |
+| 2026-10-08 | Lowry, 7 Oct | "major or near-major"; >60% of DeepMind ensemble members reach major; HAFS ~Cat 3 | ↓ |
+| 2026-10-08 | Masters/Henson, Yale CC, 7 Oct | expect Cat 2, could peak Cat 3; SHIPS/DTOPS 17–19% for 35-mph RI; dry air; shear 20–30 kt by Friday | ↑ small |
+| 2026-10-08 | Yale CC, 6 Oct | DeepMind 43% Cat 3+ (Tue run); record-warm Gulf, 30–31°C | context |
+| 2026-10-08 | NBC Miami, 5 Oct | NHC 80% development | tripwire 2a fired |
+| 2026-10-08 | metaculus-aggregations, post 45381 | CP 60.7 (n=152), Pros 57.9 (n=10), gold 58.0 (n=36); still falling at 04:56Z; no comments | ↓, Pros tripwire fired |
+| 2026-10-08 | CPC ENSO discussion page | still shows the 10 Sep issue; October update not yet out | not fired |
+
+**Key structural point found this session.** The question uses the operational record, and NHC
+reports winds in 5-kt steps. A "major" therefore needs **100 kt** in an advisory or TCU. 96 kt
+is not enough. Model-ensemble "major" probabilities (≥ 96 kt) overstate the resolving
+probability.
+
+## Open questions to chase next time (2026-10-09)
+
+1. Isaias's 09Z / 15Z / 21Z advisories and the latest recon: peak forecast, pressure trend.
+2. Its operational peak and landfall intensity. Did any TCU say 100 kt+?
+3. The CPC ENSO update of 8 Oct.
+4. Any post-Isaias genesis signal for the western Caribbean, 15–31 Oct.
