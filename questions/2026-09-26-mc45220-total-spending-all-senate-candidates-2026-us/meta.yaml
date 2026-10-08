@@ -17,18 +17,18 @@ dates:
   resolves: '2026-12-31'
 status: open
 current:
-  version: 3
-  date: '2026-10-02'
-  median: 1675000000.0
+  version: 4
+  date: '2026-10-08'
+  median: 1625000000.0
   iqr:
-  - 1540000000.0
-  - 1835000000.0
+  - 1490000000.0
+  - 1790000000.0
   community:
-    cp: 1694104698.0
-    pro: 1815605548.0
-    gold: 1709091834.0
-    n_forecasters: 65
-    as_of: '2026-10-02'
+    cp: 1768421418.0
+    pro: 1628641312.0
+    gold: 1694468343.0
+    n_forecasters: 86
+    as_of: '2026-10-08'
 next_review: '2026-10-17'
 tripwires:
 - signal: 'Q3 filings: 2-year-class receipts of 2026 Senate candidates through 2026-09-30 above $1.30B
@@ -38,22 +38,30 @@ tripwires:
   magnitude: 0
   magnitude_unit: USD
   fired: null
-- signal: 'FEC full-period aggregate (office=S, 2026) after Q3 processing: disbursements above $1.30B
-    (up ~$80M) or below $1.10B (down ~$80M)'
+- signal: 'FEC headline (active-candidate aggregate, office=S, 2026) after Q3 processing: above $1.26B
+    (up ~$80M) or below $1.06B (down ~$80M)'
   by: '2026-10-25'
   direction: either
   magnitude: 0
   magnitude_unit: USD
   fired: null
-- signal: 'Metaculus CP/Pro/gold reveal: Pro or gold median more than $200M from $1.66B (re-analyse)'
-  by: '2026-10-02'
+- signal: 'Pre-general filings: FEC headline through 2026-10-14 above $1.41B (up ~$60M) or below $1.21B
+    (down ~$60M)'
+  by: '2026-10-30'
   direction: either
   magnitude: 0
   magnitude_unit: USD
-  fired: false
-- signal: 'Pre-general filings: aggregate disbursements through 2026-10-14 above $1.45B (up ~$60M) or
-    below $1.25B (down ~$60M)'
-  by: '2026-10-30'
+  fired: null
+- signal: 'FEC headline minus bulk 2-year class turns negative (down ~$20M) or stays >= +$26M after Q3
+    (up ~$10M)'
+  by: '2026-10-25'
+  direction: either
+  magnitude: 0
+  magnitude_unit: USD
+  fired: null
+- signal: 'Gold-medalist median still >= $1.70B two days after Q3 processing: re-check model for a missing
+    fact'
+  by: '2026-10-27'
   direction: either
   magnitude: 0
   magnitude_unit: USD
@@ -71,8 +79,8 @@ tripwires:
   magnitude: 20000000
   magnitude_unit: USD
   fired: null
-- signal: 'FEC aggregate on 2026-12-15 shows post-general reports processed (disbursements up >$250M vs
-    pre-general level): narrow IQR'
+- signal: 'FEC headline on 2026-12-15 shows post-general reports processed (up >$250M vs pre-general
+    level): narrow IQR'
   by: '2026-12-15'
   direction: either
   magnitude: 0
