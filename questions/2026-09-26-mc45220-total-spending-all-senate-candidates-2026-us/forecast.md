@@ -6,11 +6,211 @@
 | **Type** | numeric (USD; Metaculus range $1.0B–$3.0B, both bounds open) |
 | **Opened / Closes / Resolves** | opens 2026-09-28 / 2026-12-02 / 2026-12-02 scheduled, "may wait until 2026-12-31" (fine print); Cup ends 2027-01-04 |
 | **Status** | open |
-| **Current forecast** | **Median $1.675B, IQR [$1.540B, $1.835B]** (v3, 2026-10-02) |
-| **Community (as of 2026-10-02)** | CP $1.694B [$1.497B, $1.950B] (n=65) · Pro $1.816B (n=7) · Gold $1.709B (n=24) |
+| **Current forecast** | **Median $1.625B, IQR [$1.490B, $1.790B]** (v4, 2026-10-08) |
+| **Community (as of 2026-10-08)** | CP $1.768B [$1.565B, $2.001B] (n=86) · Pro $1.629B (n=7) · Gold $1.694B (n=28) |
 | **Next review** | 2026-10-17 |
 
 <!-- Versions below, newest first. APPEND-ONLY: never edit or delete a past version. -->
+
+---
+
+## v4 — Update — 2026-10-08
+
+Mode: **Update** (incremental), with one model correction. Six days since v3; the question
+text is unchanged and no FEC deadline has passed (Q3 reports are due 10-15). The new input is
+a definitional fact: the FEC "Spending: by the numbers" headline filters on
+`is_active_candidate=true`. I verified this myself, and it makes my add-on term too large.
+
+### Revision
+
+| Driver | Direction | Effect |
+|---|---|---|
+| Prior (v3, 2026-10-02) | — | Median $1.675B, IQR [$1.540B, $1.835B] |
+| **Resolution-series correction.** I rendered the FEC page and logged its network calls. The headline is `candidates/totals/aggregates?office=S&election_full=true&is_active_candidate=true`, and it reproduces the question's 2024/2022/2020 values to the dollar [36]. For 2026 it reads **$670,150,904**, whereas my unfiltered 09-26 pull read $711.3M. A $41M difference, and the mechanism is not verified. It is *not* simply primary losers: Krishnamoorthi ($31.5M, lost the IL primary) and Cornyn appear in the page's own active-candidate top-10 [36]. nightsky81's hypothesis (10-04) is that Krishnamoorthi + Kelly (≈$35M) are dropped from the aggregate by a null-district bug. It fits the size, but I haven't verified it. Either way, the headline sits only **+$26M above the 2-year class** ($644.0M). v2/v3 modelled that add-on as (P = U($60M, $110M)) × 0.994, i.e. ≈ +$75M. Replaced by D ~ N(+$20M, $15M): today's +$26M with a small downward drift. The Republican subtotal fell $261.0M → $257.5M between mid-August and 10-08 with almost no new filings, so exclusions or refunds can still grow | ↓ | MC median −$52M ($1.671B → $1.619B); IQR shifts down ~$50M |
+| Metaculus cohorts (10-08): CP $1.768B (+$74M), **Pro $1.629B (−$187M)**, gold $1.694B (−$15M). The Pro drop began on 10-03, after DeRuina's 09-30 comment citing ~$670M, and continued after nightsky81's 10-04 comment, so it is consistent with the correction above. I don't count it as an independent driver; it corroborates the correction. CP rise: 21 new forecasters, no new data I can find. Crowd nudge kept as in v3 (gold and CP still above me) | ↑ | +$10M median; upper quartile +$15M (same as v3) |
+| NRSC v. FEC coordinated spending shift (v3 driver) | ↓ | −$5M (same as v3) |
+| FEC bulk `weball26`/`cn26` regenerated 2026-10-07 05:41Z: 2026 class unchanged at $880.8M receipts / $644.0M disbursements; no Q3 data | → | none |
+| News: no Q3 topline announcements found for any major Senate campaign (Talarico, Ossoff, Brown, Cooper, Platner); GA polls unchanged (Ossoff +4 to +10), runoff ≈15% kept | → | none |
+| Elapsed time: not an event question; the quantity accrues mechanically and the next information arrives on 10-15 | → | none |
+| **New forecast** | | **Median $1.625B, IQR [$1.490B, $1.790B]** |
+
+### Tripwire check
+
+| Tripwire from v3 | Fired? | Note |
+|---|---|---|
+| Q3 filings: receipts through 09-30 above $1.30B / below $1.15B | Pending | due 10-15; bulk file of 10-07 has no Q3 data |
+| FEC full-period aggregate after Q3 processing: disbursements above $1.30B / below $1.10B | Pending | restated below in the active-candidate series (−$41M) |
+| Metaculus CP/Pro/gold reveal, Pro or gold > $200M from $1.66B | Not fired (closed in v3) | Pro now $1.629B, gold $1.694B |
+| Pre-general filings through 10-14: disbursements above $1.45B / below $1.25B | Pending | due 10-22; restated below |
+| Admin/author comment fixing resolution date | Not fired | no new admin comment since DaAdCh 09-28 |
+| Georgia 11-03 runoff | Pending | — |
+| FEC aggregate on 12-15 shows post-general reports processed | Pending | — |
+| *(unlisted)* Resolution series ≠ unfiltered API aggregate | **Fired (found)** | $41M gap; see revision table. This tripwire should have existed in v2: I matched the 2020/2024 ratios (0.993–0.995) but didn't check the 2026 ratio, which was 0.942 |
+
+### What resolves YES
+
+Unchanged from v3, with the series now pinned exactly: FEC
+`candidates/totals/aggregates`, office = S, election year 2026, `election_full=true`,
+**`is_active_candidate=true`**. Today this aggregate is $41M below the unfiltered one, for a
+reason I could not pin down (see revision table). Primary losers such as Krishnamoorthi and
+Cornyn still appear in the page's active-candidate list, so the gap is not simply
+primary losers being flagged inactive.
+nightsky81 (10-04, LLM-assisted) also reports a ~$32M Hovde double count in the 2024 figure.
+I have not verified this. If true, the 2024 comparator is inflated, and the like-for-like 2024
+headline is ≈$1.655B.
+
+### Outside view
+
+Unchanged from v2. Restated in the resolution series:
+
+| Cycle | Headline (active, full period) | 2-yr class final (bulk) | Headline − 2-yr |
+|---|---|---|---|
+| 2020 | $2.008B | $1.962B | +$46M |
+| 2022 | $1.708B | $1.666B | +$42M |
+| 2024 | $1.687B | $1.548B | +$139M (≈ +$107M ex-Hovde double count, unverified) |
+| 2026 (to date) | $0.670B | $0.644B | **+$26M** |
+
+The 2026 add-on is below every past cycle. One possible reason is a fixed ~$35M exclusion
+(nightsky81's null-district hypothesis, unverified).
+
+### Inside view
+
+`resolved = [F2 + D] × f + runoff`. F2, f and the runoff term are as in v3; the timing mix
+is 0.87/0.08/0.02/0.03. D ~ N(+$20M, $15M) replaces (P × 0.994 − 0.6%·F2). Monte Carlo
+(400k draws, seed 45220; the v3 model reproduces exactly as a check) gives 5th $1.30B · 10th
+$1.37B · 25th $1.485B · 50th $1.619B · 75th $1.77B · 90th $1.94B · 95th $2.07B. Hand
+adjustments as in v3 (crowd +$10M, upper quartile +$15M; NRSC −$5M) give **25th $1.490B ·
+50th $1.625B · 75th $1.790B**; 5th $1.310B · 10th $1.378B · 90th $1.960B · 95th $2.085B.
+P(< $1.5B) ≈ 26%; P(> 2022's $1.708B) ≈ 35%; P(> $2.0B) ≈ 7.5%.
+
+### Evidence
+
+- **FEC headline, rendered 2026-10-08** [36]: 2026 $670,150,904 (D $401.1M, R $257.5M,
+  other $11.6M). Mid-August per the question background: $666.3M (D $393.9M, R $261.0M,
+  other $11.4M).
+  - Two months of late filings added only $3.9M net.
+  - The Republican subtotal fell $3.5M. The cause could be a candidate flagged inactive or
+    refunds; I did not check which.
+  - The page's active-candidate top 10 (full period, 658 entries): Ossoff $59.7M,
+    Talarico $47.0M, Graham $31.7M, Krishnamoorthi $31.5M, Brown $22.3M, Platner $19.3M,
+    Booker $16.3M, Weil $15.9M, Cornyn $14.4M, Cooper $14.3M.
+  - Snapshot: `raw/fec-bythenumbers-senate-2026-10-08.json`.
+- **FEC bulk, 2026-10-07 file:** identical to 10-02 (`raw/fec-bulk-senate-totals-2026-10-08.csv`).
+  97 class-2026 candidates have coverage past 06-30 (pre-primary reports), 13 of them to
+  09-30. These are small filers; the totals are unchanged to $0.1M.
+- **FEC API (DEMO_KEY):** OVER_RATE_LIMIT again. I did not need it: the page's own query
+  gave the number.
+- **Metaculus comments** [38]:
+  - nightsky81 (10-04): CC-vs-outside table; Year-End reports ≈ $20M in 2022 and 2024. If
+    so, my 3.5% haircut (~$58M) may be too large. It is kept for now: the post-general
+    report covers 10-15 → 11-23 and is the binding one, and I have not verified the $20M
+    figure (see Sensitivity).
+  - DeRuina / matru exchange on AI-written comments: no information.
+
+### Other forecasters
+
+| Source | Value | As of | Note |
+|---|---|---|---|
+| Metaculus CP (recency-weighted) | $1.768B, IQR [$1.565B, $2.001B] (n=86) | 2026-10-08 00:36Z | 1.694 (10-02 14Z) → 1.685 (10-04) → 1.768; n 65 → 86 |
+| Metaculus Pro | $1.629B, IQR [$1.485B, $1.816B] (n=7) | 2026-10-08 00:36Z | 1.816 → 1.71 (10-03) → 1.624 (10-07); steady decline |
+| Metaculus gold medalists | $1.694B, IQR [$1.517B, $1.912B] (n=28) | 2026-10-08 00:36Z | flat ±$25M |
+| Kalshi / Polymarket / Manifold | no matching market | 2026-10-08 | unchanged |
+
+The cohorts now disagree the other way round. The Pros are the lowest at $1.63B and I sit
+$4M below them. Gold is $69M above me and the CP $143M above. The movement is the signal:
+the Pros fell ~$190M over five days, in the direction of the series correction I found
+independently. The CP rose while its forecaster count grew 32%, which looks like newcomers
+anchoring on "record spending" headlines. I find no data behind the rise. Gold is the cohort
+to watch. If gold stays ≥ $1.70B after the Q3 data, look for a fact I'm missing.
+
+### Scenarios
+
+Weights unchanged from v3. Scenario medians shift down ~$50M: (1) ≈$1.62B, (2) ≈$1.90B,
+(3) ≈$1.50B, (4) ≈$1.28B, (5) ≈$1.65B, wide.
+
+### Sensitivity
+
+| Assumption | If instead | Median becomes |
+|---|---|---|
+| D ~ N(+20, 15) | v3 add-on (+$75M) | $1.675B (v3) |
+| D ~ N(+20, 15) | D = −$20M (further exclusions) | ≈$1.585B |
+| D ~ N(+20, 15) | FEC fixes the ~$35M exclusion before resolution | ≈$1.66B |
+| Year-end share 3.5% | 1.2% (nightsky81's ~$20M) | ≈$1.665B |
+| Multiple 1.90 (receipts) | 2.3× 2-yr disbursements ($644M), the DeRuina/Pro view | ≈$1.48B |
+
+The receipts multiple vs the disbursement multiple is still the largest open model question.
+The Q3 data on 10-15 tests it directly: a cycle tracking the receipts view should show
+2-year-class disbursements through 09-30 of ≈$1.0B or more.
+
+### What would change my mind (tripwires)
+
+- [ ] Q3 filings (due 2026-10-15): 2-year-class receipts through 09-30 above $1.30B →
+  **up ~$100M**; below $1.15B → **down ~$80M**
+- [ ] FEC headline (active-candidate series) after Q3 processing (~2026-10-25): above
+  $1.26B → **up ~$80M**; below $1.06B → **down ~$80M**. (These are the v3 thresholds less
+  the $41M filter gap.)
+- [ ] Pre-general filings (due 10-22): headline through 10-14 above $1.41B → **up ~$60M**;
+  below $1.21B → **down ~$60M**
+- [ ] Headline minus bulk 2-year class turns negative (further exclusions) →
+  **down ~$20M**; stays ≥ +$26M after Q3 → **up ~$10M**
+- [ ] Gold-medalist median still ≥ $1.70B two days after Q3 processing → **re-check the
+  model**; look for the missing fact before defending
+- [ ] An admin or author comment fixing resolution on the 12-02 page (pre-general data
+  only) → **down ~$250M, re-analyse**; one confirming a data pull on or after 12-20 →
+  **up ~$10M, narrow the lower tail**
+- [ ] Georgia 2026-11-03 result forces a 2026-12-01 runoff → **up ~$20M**
+- [ ] FEC headline on 2026-12-15 shows post-general reports processed (up > $250M on the
+  pre-general level) → **narrow the IQR**, drop the partial-processing branch
+
+### Sources
+
+Carried forward from v3 (1–35), then new (36–41):
+
+1. Metaculus API, post 45220 / question 45413 (metadata, scaling, dates; criteria null) — https://www.metaculus.com/api/posts/45220/ (accessed 2026-09-26); snapshot `raw/metaculus-2026-09-26.json`
+2. FEC, Statistical Summary of 24-Month Campaign Activity of the 2023-2024 Election Cycle — https://www.fec.gov/updates/statistical-summary-of-24-month-campaign-activity-of-the-2023-2024-election-cycle/ (accessed 2026-09-26)
+3. FEC, 24-Month Summary 2021-2022 — https://www.fec.gov/updates/statistical-summary-of-24-month-campaign-activity-of-the-2021-2022-election-cycle/ (accessed 2026-09-26)
+4. FEC, 24-Month Summary 2019-2020 — https://www.fec.gov/updates/statistical-summary-24-month-campaign-activity-2019-2020-election-cycle/ (accessed 2026-09-26)
+5. FEC, 18-Month Summary 2023-2024 (incl. 2018–2024 comparison table) — https://www.fec.gov/updates/statistical-summary-of-18-month-campaign-activity-of-the-2023-2024-election-cycle/ (accessed 2026-09-26)
+6. FEC, 18-Month Summary 2021-2022 — https://www.fec.gov/updates/statistical-summary-of-18-month-campaign-activity-of-the-2021-2022-election-cycle/ (accessed 2026-09-26)
+7. FEC, 18-Month Summary 2019-2020 — https://www.fec.gov/updates/statistical-summary-18-month-campaign-activity-2019-2020-election-cycle/ (accessed 2026-09-26)
+8. FEC, 18-Month Summary 2017-2018 — https://www.fec.gov/updates/statistical-summary-18-month-campaign-activity-2017-2018-election-cycle/ (accessed 2026-09-26)
+9. FEC, 21-Month Summaries 2017-18, 2019-20, 2021-22, 2023-24 — https://www.fec.gov/updates/statistical-summary-21-month-campaign-activity-2017-2018-election-cycle/ · https://www.fec.gov/updates/statistical-summary-21-month-campaign-activity-2019-2020-election-cycle/ · https://www.fec.gov/updates/statistical-summary-of-21-month-campaign-activity-of-the-2021-2022-election-cycle/ · https://www.fec.gov/updates/statistical-summary-of-21-month-campaign-activity-of-the-2023-2024-election-cycle/ (accessed 2026-09-26)
+10. FEC, 15-Month Summaries 2025-26 and 2023-24 — https://www.fec.gov/updates/statistical-summary-of-15-month-campaign-activity-of-the-2025-2026-election-cycle/ · https://www.fec.gov/updates/statistical-summary-of-15-month-campaign-activity-of-the-2023-2024-election-cycle/ (accessed 2026-09-26)
+11. FEC bulk data, "All candidates" (weball) and candidate master (cn) files, 2018–2026 — https://www.fec.gov/files/bulk-downloads/2026/weball26.zip etc. (accessed 2026-09-26); derived snapshot `raw/fec-bulk-senate-totals-2026-09-26.csv`
+12. FEC API `candidates/totals/aggregates` (office=S) — https://api.open.fec.gov/v1/candidates/totals/aggregates/ (accessed 2026-09-26; 2024 snapshot in `raw/`)
+13. AdImpact, "2026 Election Cycle to Reach Record $11.6 Billion in Ad Spending" (2026-06-11) — https://adimpact.com/blogs/adimpact-reveals-2026-election-cycle-to-reach-record-11.6-billion-in-ad-spending (accessed 2026-09-26)
+14. Wesleyan Media Project, release 2026-09-17 — https://mediaproject.wesleyan.edu/releases-091726/ (accessed 2026-09-26)
+15. Wesleyan Media Project, release 2026-03-05 — https://mediaproject.wesleyan.edu/releases-030526 (accessed 2026-09-26)
+16. WSHU, "2026 midterm elections on track for record political ad spending" (2026-09-21) — https://www.wshu.org/connecticut-news/2026-09-21/2026-midterm-elections-political-ad-spending (accessed 2026-09-26)
+17. Carolina Public Press, NC Senate race expected to be most expensive ever — https://carolinapublicpress.org/73700/get-ready-for-most-expensive-senate-race-ever/ (accessed 2026-09-26)
+18. Roll Call, "Democratic candidates start 2026 with a fundraising bang" (2026-04-16) — https://rollcall.com/2026/04/16/democratic-candidates-start-2026-with-a-fundraising-bang/ (accessed 2026-09-26)
+19. Roll Call, "Democratic candidates sustain fundraising pace as GOP strains to keep up" (2026-07-16) — https://rollcall.com/2026/07/16/democratic-candidates-sustain-fundraising-pace-as-gop-strains-to-keep-up/ (accessed 2026-09-26)
+20. ABC News, "Democrats dominate fundraising in key Senate races, but Republicans still have ample resources" — https://abcnews.com/Politics/democrats-dominate-fundraising-key-senate-races-republicans-ample/story?id=134829415 (accessed 2026-09-26)
+21. Houston Public Media, Talarico record $27M Q1 (2026-04-15) — https://www.houstonpublicmedia.org/articles/news/politics/election-2026/2026/04/15/549140/james-talarico-texas-senate-democrat-fundraising-27-million/ (accessed 2026-09-26)
+22. Atlanta News First, YouGov poll Ossoff 51–41 (2026-09-23) — https://www.atlantanewsfirst.com/2026/09/23/new-poll-ossoff-holds-double-digit-lead-over-collins-governors-race-dead-heat/ ; Quantus 49–45 (2026-09-18) — https://www.atlantanewsfirst.com/2026/09/18/poll-ossoff-holds-4-point-lead-over-collins-tight-georgia-senate-race/ (accessed 2026-09-26)
+23. Statista (OpenSecrets data), total funds raised by Senate candidates 2021/22 — https://www.statista.com/statistics/1317762/total-funds-raised-running-senate-election-cycle-party (accessed 2026-09-26, via search snippet)
+24. CNN, "The 'first prediction-market election'…" (2026-09-24) — https://www.cnn.com/2026/09/24/politics/midterm-elections-prediction-markets-kalshi-polymarket (accessed 2026-09-26)
+25. Manifold, "Will the 2026 Texas Senate race be the most expensive Senate race in history" — https://manifold.markets/AutopoieticErgodicity/will-the-2026-texas-senate-race-be (accessed 2026-09-26)
+26. Operator-supplied resolution criteria, fine print and background for Metaculus #45220 (pasted 2026-09-26; not yet visible via API) — https://www.metaculus.com/questions/45220/what-will-be-the-total-spending-by-senate-candidates-in-2026-us-election-cycle/ (accessed 2026-09-26)
+27. FEC API `candidates/totals/aggregates`, office=S, election_full=true, 2020 / 2024 / 2026 — https://api.open.fec.gov/v1/candidates/totals/aggregates/?office=S&election_year=2026&election_full=true (accessed 2026-09-26); snapshots in `raw/fec-api-senate-aggregate-*-fetched-2026-09-26.json`
+28. FEC, 2026 quarterly filers' report dates (October Quarterly 09-30/10-15; Pre-General 10-14/10-22; Post-General 11-23/12-03; Year-End 12-31/2027-01-31) — https://www.fec.gov/help-candidates-and-committees/dates-and-deadlines/2026-reporting-dates/2026-quarterly-filers/ (accessed 2026-09-26)
+29. Metaculus post 45220, live aggregations (CP / Pro / gold), comments by DaAdCh (2026-09-28), Theomachado (2026-09-28) and DeRuina (2026-09-30) — https://www.metaculus.com/questions/45220/ (accessed 2026-10-02, pre-fetched); snapshot `raw/metaculus-2026-10-02.json`
+30. FEC bulk data, weball26.zip and cn26.zip (file last-modified 2026-10-02 05:37Z) — https://www.fec.gov/files/bulk-downloads/2026/weball26.zip (accessed 2026-10-02); derived snapshot `raw/fec-bulk-senate-totals-2026-10-02.csv`
+31. FEC API `candidates/totals/aggregates` office=S, 2026: OVER_RATE_LIMIT (DEMO_KEY) — https://api.open.fec.gov/v1/candidates/totals/aggregates/ (accessed 2026-10-02); `raw/fec-api-senate-aggregate-2026-fetched-2026-10-02.json`
+32. The Washington Sun, "The NRSC's Spending Surges for Key Midterm Races" (2026-09-20) — https://www.washingtonsun.com/2026-election/republican-senate-campaign-coordinated-spending-surges (accessed 2026-10-02)
+33. USAFacts, "How much are candidates spending for the 2026 midterm?" — https://usafacts.org/answers/how-much-are-candidates-spending-for-the-midterm/country/united-states/ (accessed 2026-10-02, via search snippet: Talarico $47.0M, Ossoff $39.7M spent; matches FEC bulk)
+34. FEC, 2026 quarterly filers' reporting dates (October Quarterly due 10-15, Pre-General 10-22, Post-General 12-03) — https://www.fec.gov/help-candidates-and-committees/dates-and-deadlines/2026-reporting-dates/2026-quarterly-filers/ (accessed 2026-10-02)
+35. OpenSecrets cost-of-election page — https://www.opensecrets.org/elections-overview/cost-of-election?cycle=2026 (accessed 2026-10-02; HTTP 403, no data)
+36. FEC, "Spending: by the numbers", rendered 2026-10-08 in headless Chromium. The page's own API query (`candidates/totals/aggregates`, office=S, election_full=true, is_active_candidate=true) was logged. Headlines 2018–2026 — https://www.fec.gov/data/spending-bythenumbers/ (accessed 2026-10-08); snapshot `raw/fec-bythenumbers-senate-2026-10-08.json`
+37. USAFacts, "How much are candidates spending for the 2026 midterm?" (data through August 2026; Krishnamoorthi $31.5M; its totals include primary losers) — https://usafacts.org/answers/how-much-are-candidates-spending-for-the-midterm/country/united-states (accessed 2026-10-08, via search snippet)
+38. Metaculus post 45220: live aggregations (CP / Pro / gold, history to 2026-10-08 00:36Z), comments by nightsky81 (2026-10-04), DeRuina and matru (2026-10-03) — https://www.metaculus.com/questions/45220/ (accessed 2026-10-08); snapshot `raw/metaculus-2026-10-08.json`
+39. FEC bulk data, weball26.zip and cn26.zip (Last-Modified 2026-10-07 05:41Z) — https://www.fec.gov/files/bulk-downloads/2026/weball26.zip (accessed 2026-10-08); derived snapshot `raw/fec-bulk-senate-totals-2026-10-08.csv`
+40. Texas Tribune / KSAT, Talarico–Paxton Q2 2026 money tracking (Q2: Talarico ~$31.6M, Paxton ~$9.3M; no Q3 yet) — https://www.ksat.com/news/texas/2026/07/20/tracking-the-money-raised-and-spent-in-the-us-senate-race-between-james-talarico-and-ken-paxton/ (accessed 2026-10-08, via search snippet)
+41. WTOC / Atlanta News First, GA Senate polls (YouGov 09-15–18 Ossoff 51–41; Quantus +4) — https://wtoc.com/2026/09/23/new-poll-ossoff-holds-double-digit-lead-over-collins-governors-race-dead-heat (accessed 2026-10-08, via search snippet)
+
+**Date**: 2026-10-08
+**Forecast**: Median 1,625,000,000, IQR [1,490,000,000, 1,790,000,000]
+**Thesis**: I corrected the series definition. The FEC headline that resolves this question is the `is_active_candidate=true` aggregate, and today it reads $670.15M, $41M below the unfiltered aggregate my v2/v3 model was built on. The cause is unverified; a null-district exclusion of ~$35M is possible. So the add-on over the 2-year class is ~+$20–26M, not ~+$75M, and the median moves down $50M. The rest of the model (mid-year receipts × ~1.9, minus ~3.5% for year-end reports that miss resolution) is unchanged until the Q3 filings on 10-15. The Metaculus Pros fell ~$190M to $1.63B in the same direction; the CP rose to $1.77B on no identifiable data.
 
 ---
 

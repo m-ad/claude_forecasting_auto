@@ -1,0 +1,13 @@
+{
+  "source": "https://www.fec.gov/data/spending-bythenumbers/ (rendered in headless Chromium, 2026-10-08)",
+  "underlying_api_query": "https://api.open.fec.gov/v1/candidates/totals/aggregates/?aggregate_by=office&election_full=true&election_year=<YYYY>&office=S&is_active_candidate=true",
+  "note": "Headline 'Total spending by all Senate candidates running in <YYYY>'. Values for 2024/2022/2020 equal the question background to the dollar, so this is the resolution series. 2026 unfiltered aggregate (no is_active_candidate) was $711,268,293 on 2026-09-26.",
+  "headline_usd": {
+    "2026": {"total": 670150904, "dem": 401100957, "rep": 257458204, "other": 11591743},
+    "2024": {"total": 1687323291, "dem": 1023734433, "rep": 583247605, "other": 80341254},
+    "2022": {"total": 1708197866, "dem": 976470783, "rep": 720241337, "other": 11485746},
+    "2020": {"total": 2007613859, "dem": 1183008801, "rep": 800761467, "other": 23843591},
+    "2018": {"total": 1056300414, "dem": 604338649, "rep": 423293990, "other": 28667776}
+  },
+  "top_spenders_2026_full_period": {"OSSOFF, T. JONATHAN [DEM]": 59730545.53, "TALARICO, JAMES [DEM]": 47012775.34}
+}

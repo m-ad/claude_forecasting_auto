@@ -189,3 +189,48 @@ few pre-primary reports run to Jul–Sep):
   NRSC −$5M → **$1.675B [$1.540B, $1.835B]**.
 - **Next:** re-download weball26 after ~10-16 (Q3) and ~10-24 (pre-general). Retry the FEC
   API in a fresh hour window.
+
+## 2026-10-08 (v4) — update
+
+- **Metaculus** (`raw/metaculus-2026-10-08.json`, 00:36Z):
+  - CP $1.768B [$1.565B, $2.001B], n=86.
+  - Pro $1.629B [$1.485B, $1.816B], n=7.
+  - Gold $1.694B [$1.517B, $1.912B], n=28.
+  - Pro trajectory: 1.816 (10-02) → 1.71 (10-03) → 1.624 (10-07).
+  - The aggregations call returned an empty comment list. I re-fetched the comments once
+    through the same `_Fetcher` and merged them into the snapshot.
+- **New comment, nightsky81 (10-04):** the headline is $670,150,455. Their LLM-assisted
+  audit claims:
+  - Hovde was double counted in 2024 (+$32M).
+  - Barrasso/Lee (2024) and Krishnamoorthi/Kelly (2026, −$35M) are missing from the
+    aggregate because their district is null.
+  - Year-end reports were ≈ $20M in each of 2022 and 2024.
+
+  None of this is verified by me.
+- **FEC page rendered (Playwright, /opt/pw-browsers/chromium)**, with network calls logged:
+  - The headline query is `candidates/totals/aggregates?aggregate_by=office&election_full=true&election_year=YYYY&office=S&is_active_candidate=true`.
+  - It reproduces the 2024, 2022 and 2020 values in the question to the dollar. 2018 is
+    $1,056,300,414.
+  - 2026: $670,150,904 (D 401.1 / R 257.5 / O 11.6).
+  - **My v2/v3 add-on term was calibrated on the unfiltered aggregate ($711.3M on 09-26),
+    which is $41M high.** I matched the 2020/2024 ratios but never checked the 2026 one
+    (0.942). Lesson: verify the exact query behind a dashboard number, not just
+    historical agreement.
+  - The page's active top 10 includes Krishnamoorthi ($31.5M) and Cornyn, both primary
+    losers. So the gap is not simply primary losers flagged inactive; the null-district
+    hypothesis fits the size.
+  - To render the year selector: `select#election-year` (the first `select` is
+    `top-category`).
+- **FEC bulk** 2026-10-07 05:41Z: unchanged ($880.8M receipts / $644.0M disbursements,
+  class 2026). Headline − 2-year class = +$26.2M.
+- **FEC API DEMO_KEY:** OVER_RATE_LIMIT. Not needed now: the page's own query gives the
+  number.
+- **News:** no Q3 toplines announced yet (Talarico, Ossoff, Brown, Cooper, Platner
+  searched). GA: no October polls; the debate is on 10-08.
+- **MC:**
+  - The v3 model reproduces exactly: 1.671 [1.536, 1.824].
+  - v4 replaces the add-on with D ~ N(+20, 15) → 1.619 [1.485, 1.773].
+  - Hand adjustments (crowd +10, upper quartile +15; NRSC −5) → **$1.625B [$1.490B, $1.790B]**.
+- **Next:** after 10-16, re-render the FEC page and re-download weball26 for Q3. Compare the
+  2-year-class disbursements through 09-30 with ≈$1.0B (receipts view) vs ≈$0.9B
+  (disbursement-multiple view).
