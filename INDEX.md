@@ -1,12 +1,13 @@
 # Question index
 
-_Regenerated 2026-10-05 by `scripts/status.py --index`._
+_Regenerated 2026-10-08 by `scripts/status.py --index`._
 
 | Question | Type | Current | v | Community (CP) | Resolves | Next review | Status |
 |---|---|---|---|---|---|---|---|
 | [Who will be awarded the 2026 Nobel Peace Prize?](questions/2026-09-05-mc45383-who-awarded-2026-nobel-peace-prize/forecast.md) | multiple_choice | 0.43 [0.37, 0.5] | 3 | 0.401 | 2026-10-09 | 2026-10-04 | open |
-| [What first round vote share will Iliana Iotova win in the 2026 Bulgarian Presidential election?](questions/2026-09-05-mc45262-first-round-vote-share-iliana-iotova-win/forecast.md) | numeric | 46.5 [43.3, 49.7] | 2 | 45.45 | 2026-10-31 | 2026-10-03 | open |
 | [Which party will win the Holborn and St Pancras by-election?](questions/2026-09-11-mc45425-which-party-win-holborn-st-pancras-election/forecast.md) | multiple_choice | 0.795 [0.73, 0.85] | 4 | 0.824 | 2026-10-09 | 2026-10-06 | open |
+| [What first round vote share will Iliana Iotova win in the 2026 Bulgarian Presidential election?](questions/2026-09-05-mc45262-first-round-vote-share-iliana-iotova-win/forecast.md) | numeric | 46.5 [43.3, 49.7] | 2 | 45.45 | 2026-10-31 | 2026-10-03 | open |
+| [Who will win the 2026 Ballon d'Or?](questions/2026-09-11-mc45617-ballon-dor-2026/forecast.md) | multiple_choice | 0.5 [0.4, 0.57] | 3 | 0.53 | 2026-10-26 | 2026-10-07 | open |
 | [Which party will win the most seats in the 2026 Israeli election?](questions/2026-09-20-mc45670-which-party-win-most-seats-2026-israeli/forecast.md) | multiple_choice | 0.615 [0.555, 0.675] | 2 | 0.57 | 2026-11-10 | 2026-10-03 | open |
 | [Will Venezuela announce a presidential election before 2027?](questions/2026-09-20-mc45419-venezuela-announce-presidential-election-before-2027/forecast.md) | binary | 9.5% [6.5%, 14.0%] | 1 | — | 2027-01-01 | 2026-10-04 | open |
 | [Will Benjamin Netanyahu cease to be Prime Minister of Israel during 2026?](questions/2026-08-31-mc40966-benjamin-netanyahu-cease-prime-minister-israel-during/forecast.md) | binary | 28.0% [22.0%, 35.0%] | 2 | 22.0% | 2027-01-01 | 2026-10-05 | open |
@@ -14,18 +15,17 @@ _Regenerated 2026-10-05 by `scripts/status.py --index`._
 | [Will FEWS NET classify any area of Sudan as experiencing Famine before 2027?](questions/2026-09-05-mc45464-fews-net-classify-area-sudan-as-experiencing/forecast.md) | binary | 23.0% [16.0%, 31.0%] | 2 | 32.0% | 2026-12-31 | 2026-10-05 | open |
 | [Who will win the 2026 World Chess Championship?](questions/2026-09-11-mc45216-who-win-2026-world-chess-championship/forecast.md) | multiple_choice | 0.695 [0.64, 0.75] | 3 | 0.7 | 2026-12-14 | 2026-10-05 | open |
 | [What will be the US national debt on December 31, 2026?](questions/2026-09-20-mc45219-us-national-debt-december-31-2026/forecast.md) | numeric | 41,160,000,000,000 [41,070,000,000,000, 41,220,000,000,000] | 1 | — | 2027-01-04 | 2026-10-05 | open |
-| [Who will win the 2026 Ballon d'Or?](questions/2026-09-11-mc45617-ballon-dor-2026/forecast.md) | multiple_choice | 0.5 [0.4, 0.57] | 3 | 0.53 | 2026-10-26 | 2026-10-07 | open |
-| [Will there be a bilateral ceasefire in the Russo-Ukrainian conflict before 2027?](questions/2026-08-28-mc41138-bilateral-ceasefire-russo-ukrainian-conflict-before-2027/forecast.md) | binary | 6.0% [4.0%, 9.0%] | 2 | 6.0% | 2026-12-31 | 2026-10-08 | open |
 | [How many New World screwworm cases will be confirmed in Mexico in total before July 2027?](questions/2026-09-04-mc43507-how-many-new-world-screwworm-cases-confirmed/forecast.md) | numeric | 67000 [61500, 74000] | 1 | 60426 | 2027-07-01 | 2026-10-06 | open |
+| [Will there be a bilateral ceasefire in the Russo-Ukrainian conflict before 2027?](questions/2026-08-28-mc41138-bilateral-ceasefire-russo-ukrainian-conflict-before-2027/forecast.md) | binary | 6.0% [4.0%, 9.0%] | 2 | 6.0% | 2026-12-31 | 2026-10-08 | open |
 | [How many barrels of crude oil will the Strategic Petroleum Reserve hold in December 2026?](questions/2026-09-07-mc15240-spr-crude-barrels-december-2026/forecast.md) | numeric | 283,100,000 [281,300,000, 286,400,000] | 2 | — | 2027-02-26 | 2026-10-08 | open |
 | [How many barrels of crude oil will the Strategic Petroleum Reserve hold in September 2026?](questions/2026-09-07-mc15240-spr-crude-barrels-september-2026/forecast.md) | numeric | 283,600,000 [283,300,000, 283,800,000] | 5 | 289,616,938 | 2026-11-30 | 2026-10-08 | open |
 | [What will be the winning margin in Brazil’s 2026 presidential election runoff?](questions/2026-10-05-mc45735-winning-margin-brazil-s-2026-presidential-election/forecast.md) | numeric | 3.6 [1.8, 5.7] | 1 | — | 2026-10-27 | 2026-10-09 | open |
+| [How many Major Atlantic Hurricanes will occur in the 2026 Atlantic hurricane season?](questions/2026-09-05-mc45381-how-many-major-atlantic-hurricanes-occur-2026/forecast.md) | multiple_choice | 0.484 [0.4, 0.57] | 6 | 0.607 | 2026-11-30 | 2026-10-09 | open |
 | [Will an AI system autonomously cause a major breach of US personal data held by an organization other than its operator before 2028?](questions/2026-09-10-mc45427-major-us-personal-data-breach-external-misaligned-ai/forecast.md) | binary | 70.0% [61.0%, 78.0%] | 2 | 80.0% | 2028-01-01 | 2026-10-22 | open |
 | [Will OpenAI file for an IPO during 2026?](questions/2026-08-28-mc41141-openai-file-ipo-during-2026/forecast.md) | binary | 3.0% [1.5%, 5.0%] | 2 | 2.0% | 2027-01-01 | 2026-10-16 | open |
 | [Will the FDA approve a psilocybin treatment during 2026?](questions/2026-08-31-mc41172-fda-approve-psilocybin-treatment-during-2026/forecast.md) | binary | 9.5% [7.0%, 13.0%] | 2 | 11.0% | 2026-12-31 | 2026-10-12 | open |
 | [What will be the percentage change in funds raised by GiveWell between 2026 and the following years?](questions/2026-09-04-mc45386-givewell-funds-raised-pct-change-2027-2028/forecast.md) | numeric | 14.2 [-17.2, 67.1] | 2 | 78.2 | 2029-09-01 | 2026-11-30 | open |
 | [Will the United States attack Oman before 2027?](questions/2026-09-05-mc45230-united-states-attack-oman-before-2027/forecast.md) | binary | 5.5% [3.5%, 8.5%] | 3 | 4.0% | 2027-01-01 | 2026-10-16 | open |
-| [How many Major Atlantic Hurricanes will occur in the 2026 Atlantic hurricane season?](questions/2026-09-05-mc45381-how-many-major-atlantic-hurricanes-occur-2026/forecast.md) | multiple_choice | 0.8 [0.74, 0.85] | 5 | 0.795 | 2026-11-30 | 2026-10-09 | open |
 | [What will be the open market US Dollar/Iranian Toman exchange rate on December 31, 2026?](questions/2026-09-11-mc45340-open-market-us-dollar-iranian-toman-exchange/forecast.md) | numeric | 288000 [255000, 322000] | 2 | 250000 | 2026-12-31 | 2026-10-16 | open |
 | [Will FURA introduce another cultivated meat dish on its menu before July 2027?](questions/2026-09-12-mc43281-fura-introduce-another-cultivated-meat-dish-its/forecast.md) | binary | 35.6% [28.0%, 45.0%] | 1 | 42.0% | 2027-07-01 | 2026-10-14 | open |
 | [How many additional US states will enact bans on cultivated meat before July 2027?](questions/2026-09-12-mc43329-how-many-additional-us-states-enact-bans/forecast.md) | multiple_choice | 0.28 [0.24, 0.32] | 2 | 0.265 | 2027-07-01 | 2026-12-15 | open |
