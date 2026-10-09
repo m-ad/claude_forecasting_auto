@@ -12,6 +12,7 @@ a rate-limited third party is a test that fails for the wrong reason.
 
 from __future__ import annotations
 
+import copy
 import importlib.util
 import itertools
 import re
@@ -507,6 +508,68 @@ def test_details_fall_back_to_the_browser_without_the_api(agg, monkeypatch):
     res = _collect_details(agg, _details_fetcher(captured))
     assert any("/posts/" in u for u in captured)
     assert res.resolution_criteria == "browser"
+
+
+# The bug: before a question opens (status "upcoming"), the bot-key /api/ endpoint
+# answers 200 with title, type, options and dates but description, resolution
+# criteria and fine print all null, while the anonymous /api-proxy/ post JSON
+# carries the full text (verified 2026-10-09, post 45255). The non-empty API post
+# was accepted as-is, so the criteria read as "not published".
+_UPCOMING_API_POST = {
+    "status": "approved",
+    "nr_forecasters": 1,
+    "question": {
+        "status": "upcoming",
+        "type": "multiple_choice",
+        "description": None,
+        "resolution_criteria": None,
+        "fine_print": None,
+    },
+}
+
+
+def test_textless_api_post_falls_back_to_the_browser_for_details(agg, monkeypatch):
+    monkeypatch.setattr(agg, "fetch_post_api", lambda _pid: _UPCOMING_API_POST)
+    captured: list[str] = []
+    res = _collect_details(agg, _details_fetcher(captured))
+    assert any("/posts/" in u for u in captured), "browser never fetched the text"
+    assert res.resolution_criteria == "browser"
+
+
+def test_textless_group_from_the_api_falls_back_to_the_browser(agg, monkeypatch):
+    textless = copy.deepcopy(_GROUP_POST)
+    for k in ("resolution_criteria", "fine_print", "description"):
+        textless["group_of_questions"][k] = None
+    monkeypatch.setattr(agg, "fetch_post_api", lambda _pid: textless)
+    f = _GroupFetcher(post_via_browser=True)
+    res = agg._collect(
+        f,
+        45386,
+        _url_for,
+        agg_methods(),
+        include_history=False,
+        n_comments=0,
+        include_details=True,
+    )
+    assert sum("/posts/" in u for u in f.captured) == 1
+    assert res.resolution_criteria == "group criteria"
+
+
+def test_textless_api_post_keeps_its_fields_if_the_browser_also_fails(
+    agg, monkeypatch
+):
+    # A failed browser fallback must not throw away what the API did return.
+    monkeypatch.setattr(agg, "fetch_post_api", lambda _pid: _UPCOMING_API_POST)
+
+    class F:
+        def get_json(self, url):
+            if "/posts/" in url:
+                return 403, {}
+            return 200, {"id": 45444, "type": "multiple_choice", "scaling": {}}
+
+    res = _collect_details(agg, F())
+    assert res.resolution_criteria is None
+    assert res.nr_forecasters == 1
 
 
 def test_scraper_prefers_api_text_over_the_page_parse(scrape, monkeypatch):

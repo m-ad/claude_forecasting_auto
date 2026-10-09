@@ -479,6 +479,7 @@ def test_group_post_via_the_browser_fallback_keeps_its_subquestions(monkeypatch)
         title="T",
         question_type="numeric",
         scheduled_close_time="2028-07-01T00:00:00Z",
+        cp_reveal_time=None,
         status="open",
         nr_forecasters=5,
         subquestions=[sub],
@@ -523,6 +524,65 @@ def test_group_post_is_scaffolded_with_its_real_type(monkeypatch, tmp_path, caps
     assert meta["dates"]["closes"] == "2028-07-01"
     assert "group of 2 subquestions" in err
     assert "2027: question 45575 (numeric)" in err
+
+
+# ------------------------------------- new_question.py: pre-open ("upcoming") posts
+# A question can be scaffolded in its pre-prediction phase, before open_time. The
+# post-level status then reads "approved" and only question.status says "upcoming";
+# the bot-key API also hides the question text until it opens (post 45255,
+# verified 2026-10-09), which the agent must not read as "criteria unpublished".
+_UPCOMING_POST = {
+    "title": "How many executions will be carried out in the US in 2026?",
+    "status": "approved",
+    "open_time": "2026-10-12T17:00:00Z",
+    "scheduled_close_time": "2026-12-02T23:59:00Z",
+    "scheduled_resolve_time": "2027-01-01T17:09:00Z",
+    "nr_forecasters": 1,
+    "question": {
+        "type": "multiple_choice",
+        "status": "upcoming",
+        "open_time": "2026-10-12T17:00:00Z",
+        "cp_reveal_time": "2026-10-15T17:00:00Z",
+        "resolution_criteria": None,
+    },
+}
+
+
+def test_api_post_carries_open_and_resolve_dates_and_the_question_status(monkeypatch):
+    import new_question
+
+    _fake_skill(monkeypatch, post=_UPCOMING_POST)
+    got = new_question.fetch_metaculus(45255)
+    assert (got["opens"], got["closes"], got["resolves"]) == (
+        "2026-10-12",
+        "2026-12-02",
+        "2027-01-01",
+    )
+    assert got["status"] == "upcoming", "the question status, not the post's 'approved'"
+    assert got["cp_reveal"] == "2026-10-15"
+
+
+def test_upcoming_question_is_scaffolded_with_dates_and_a_warning(
+    monkeypatch, tmp_path, capsys
+):
+    import new_question
+
+    monkeypatch.setattr(new_question, "REPO", tmp_path)
+    monkeypatch.setattr(new_question, "QUESTIONS", tmp_path / "questions")
+    _fake_skill(monkeypatch, post=_UPCOMING_POST)
+    monkeypatch.setattr(
+        sys,
+        "argv",
+        ["new_question.py", "--url", "https://www.metaculus.com/questions/45255/x/"],
+    )
+    new_question.main()
+    out, err = capsys.readouterr()
+    folder = tmp_path / "questions" / out.splitlines()[0]
+    meta = yaml.safe_load((folder / "meta.yaml").read_text(encoding="utf-8"))
+    assert meta["dates"]["opened"] == "2026-10-12"
+    assert meta["dates"]["resolves"] == "2027-01-01"
+    assert "not open yet" in err and "2026-10-12" in err
+    assert "metaculus_aggregations.py" in err, "must point at the browser text path"
 
 
 # ------------------------------------------------------- full distributions

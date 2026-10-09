@@ -4,13 +4,113 @@
 |---|---|
 | **Source** | Metaculus #45255 (Metaculus Cup Fall 2026) — https://www.metaculus.com/questions/45255/how-many-executions-will-be-carried-out-in-the-us-in-2026 |
 | **Type** | multiple_choice (Fewer than 39 / 39 / 40 / 41 / More than 41) |
-| **Opened / Closes / Resolves** | 2026-10-12 / 2026-12-02 / scheduled 2027-01-01 |
+| **Opened / Closes / Resolves** | opens 2026-10-12 / 2026-12-02 / scheduled 2027-01-01 |
 | **Status** | open |
-| **Current forecast** | **<39 13.5%, 39 13.0%, 40 18.0%, 41 19.5%, >41 36.0%** — IQR on ">41" (leading option) [28.0%, 45.0%]; implied count median 41, IQR [40, 42] (v1, 2026-10-09) |
+| **Current forecast** | **<39 13.5%, 39 13.0%, 40 18.0%, 41 19.5%, >41 36.0%** — IQR on ">41" (leading option) [28.0%, 45.0%]; implied count median 41, IQR [40, 42] (v2, 2026-10-09) |
 | **Community** | not yet visible — question opens 2026-10-12, CP reveal 2026-10-15 (API, 2026-10-09; n=1) |
 | **Next review** | 2026-10-16 |
 
 <!-- Versions below, newest first. APPEND-ONLY: never edit or delete a past version. -->
+
+---
+
+## v2 — Reanalysis: published resolution criteria — 2026-10-09
+
+### Revision
+
+| Driver | Direction | Effect |
+|---|---|---|
+| Prior (v1, 2026-10-09) | — | <39 13.5%, 39 13.0%, 40 18.0%, 41 19.5%, >41 36.0% |
+| Resolution text read (it was published; v1's fetch missed it) — DPIC count, military explicitly included | → | none: matches v1's assumption |
+| **New forecast** | | **<39 13.5%, 39 13.0%, 40 18.0%, 41 19.5%, >41 36.0%** |
+
+### Tripwire check
+
+| Tripwire from v1 | Fired? | Note |
+|---|---|---|
+| Resolution text uses a source/definition other than DPIC (e.g. excludes military) | No | DPIC, and the fine print adds military executions explicitly |
+| All other v1 tripwires | Not yet due | — |
+
+### What resolves YES
+
+**Correction to v1.** v1 said the criteria were "not yet published". That was wrong: they were
+published. The bot-key API returns them as `null` while a question is in its pre-prediction
+phase, and the fetcher accepted that. Fixed in `metaculus_aggregations.py` v4.4; re-fetched to
+`raw/metaculus-2026-10-09b.json`. The text:
+
+- **Resolution criteria:** the total number of people in the United States executed by state
+  and federal governmental authorities in 2026, according to the DPIC execution data.
+- **Fine print:** may also resolve on credible sources. **US military executions count even if
+  DPIC leaves them out of its total.**
+- **Background (question author):** 30 executions by Oct 7. "Nine more executions are scheduled
+  … between October 13 and December 31 … If they all go ahead, the total … would be 39."
+
+Implications: (a) Hasan (Dec 3) counts explicitly, as v1 assumed. (b) Pike's failed execution
+does not count — "executed" is the test. (c) The author built the options around the
+*current calendar* (39 = every scheduled date holds) and did not price in new Florida
+warrants. That explains why the options cluster on 39–41, and it is the main reason I sit
+above the option centre. Nothing here moves the numbers.
+
+### Outside view
+
+unchanged from v1
+
+### Inside view
+
+unchanged from v1
+
+### Evidence
+
+unchanged from v1, plus the resolution text above [1].
+
+### Other forecasters
+
+unchanged from v1 (Metaculus aggregations still hidden; CP reveal 2026-10-15).
+
+### Scenarios
+
+unchanged from v1
+
+### Sensitivity
+
+unchanged from v1
+
+### What would change my mind (tripwires)
+
+unchanged from v1, minus the resolution-text tripwire (checked: did not fire).
+
+### Sources
+
+1. Metaculus #45255 resolution criteria, fine print and background via `/api-proxy/posts/45255/` — https://www.metaculus.com/questions/45255/ (accessed 2026-10-09)
+
+Carried forward from v1 (the evidence v2 rests on), renumbered:
+
+2. DPIC — Executions in 2026 (30 executions, updated 2026-10-08) — https://deathpenaltyinfo.org/executions/2026 (accessed 2026-10-09)
+3. DPIC — Outcomes of Death Warrants in 2026 — https://deathpenaltyinfo.org/executions/upcoming-executions/outcomes-of-warrants/outcomes-of-death-warrants-in-2026 (accessed 2026-10-09)
+4. DPIC — Executions in 2025 (47) — https://deathpenaltyinfo.org/executions/2025 (accessed 2026-10-09)
+5. CBS Miami — DeSantis signs 20th death warrant of 2026 (Guardado) — https://www.cbsnews.com/miami/news/desantis-20th-death-warrant-jesse-guardado-florida-2026-execution-record/ (accessed 2026-10-09)
+6. DPIC — Upcoming Executions — https://deathpenaltyinfo.org/executions/upcoming-executions (accessed 2026-10-09)
+7. CBS Miami — DeSantis cancels execution of William Lee Thompson — https://cbsnews.com/miami/news/desantis-cancels-execution-william-lee-thompson (accessed 2026-10-09)
+8. Florida Death Penalty substack — Thompson warrant: execution stayed pending Commission review — https://fladeathpenalty.substack.com/p/thompson-warrant-execution-stayed (accessed 2026-10-09)
+9. OPB/AP — Tennessee governor halts executions after Christa Gail Pike survives lethal injection — https://www.opb.org/article/2026/10/01/tennessee-governor-halts-executions-after-christa-gail-pike-survives-lethal-injection/ (accessed 2026-10-09)
+10. Indiana Capital Chronicle — Indiana plans to proceed with execution after botched Tennessee attempt — https://indianacapitalchronicle.com/2026/10/02/indiana-plans-to-proceed-with-execution-after-botched-tennessee-attempt/ (accessed 2026-10-09)
+11. Indiana Capital Chronicle — Indiana high court orders Jeffrey Weisheit executed Nov. 5 — https://indianacapitalchronicle.com/2026/08/28/indiana-high-court-orders-jeffrey-weisheit-executed-nov-5/ (accessed 2026-10-09)
+12. NPR — Pentagon says firing squad execution of Fort Hood shooter will be livestreamed — https://www.npr.org/2026/10/09/g-s1-147419/fort-hood-shooter-execution (accessed 2026-10-09)
+13. Amnesty USA — World Day Against the Death Penalty — https://amnestyusa.org/blog/world-day-against-the-death-penalty-time-for-governor-newsom-to-commute-death-sentences-in-california (accessed 2026-10-09)
+14. Military Times — Army sets date, location for execution of Nidal Malik Hasan — https://www.militarytimes.com/news/your-military/2026/10/07/army-sets-date-location-for-execution-of-nidal-malik-hasan/ (accessed 2026-10-09)
+15. Washington Times/AP — As Army moves to execute Fort Hood shooter, questions about procedure linger — https://www.washingtontimes.com/news/2026/oct/7/questions-procedure-linger-army-moves-execute-fort-hood-shooter/ (accessed 2026-10-09)
+16. KGOU — Execution date set for Oklahoma County killer (Pavatt) — https://www.kgou.org/criminal-justice/2026-08-28/execution-date-set-for-oklahoma-county-killer (accessed 2026-10-09)
+17. KRGV — John Allen Rubio found competent to be executed — https://www.krgv.com/news/john-allen-rubio-found-competent-to-be-executed (accessed 2026-10-09)
+18. Alabama Reflector — Gov. Kay Ivey schedules November execution for Michael Taylor — https://alabamareflector.com/?p=22694 (accessed 2026-10-09)
+19. KJZZ — Arizona Supreme Court issues first 2026 execution warrant (McGill) — https://www.kjzz.org/politics/2026-03-26/arizona-supreme-court-issues-first-2026-execution-warrant (accessed 2026-10-09)
+20. TDCJ — Scheduled Executions (Rubio 11/12, Dennes 11/19; updated 2026-10-08) — https://www.tdcj.texas.gov/death_row/scheduled_executions.html (accessed 2026-10-09)
+21. Wikipedia — List of people scheduled to be executed in the United States — https://en.wikipedia.org/wiki/List_of_people_scheduled_to_be_executed_in_the_United_States (accessed 2026-10-09)
+22. Fox 13 — DeSantis signs death warrant for inmate featured in Netflix series, schedules double execution day — https://www.fox13news.com/news/desantis-signs-death-warrant-inmate-featured-netflix-series-schedules-double-execution-day (accessed 2026-10-09)
+23. AJC — Georgia man's scheduled execution will not take place (Humphreys) — https://www.ajc.com/news/2026/09/judge-weighs-halting-execution-under-new-georgia-law/ (accessed 2026-10-09)
+
+**Date**: 2026-10-09
+**Forecast**: Fewer than 39 13.5%, 39 13.0%, 40 18.0%, 41 19.5%, More than 41 36.0% (IQR on "More than 41" [28.0%, 45.0%]; implied count median 41, IQR [40, 42])
+**Thesis**: Unchanged. The published criteria use the DPIC count plus military executions, as assumed. The question author's 39 is the "every scheduled date holds" total and ignores new Florida warrants. With about 7 of 9 scheduled dates likely and about 3.4 more Florida executions, the median is 41.
 
 ---
 

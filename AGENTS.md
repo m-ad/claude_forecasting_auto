@@ -79,6 +79,9 @@ metadata (title, type, resolution criteria, fine print, forecaster count) over t
 official API; without it they fall back to the browser. The key is a **bot account**
 and is read-only here: Metaculus hides every aggregation from bot keys and restricts
 comments, so CP / Pro / gold numbers and comments still come from the browser path.
+Bot keys also see `null` question text before a question opens (`upcoming`); the script then
+falls back to the browser. Criteria are always published — empty criteria mean a failed
+fetch, never "not yet published".
 Never use the key to submit forecasts unless the operator explicitly says so. When they do,
 use the `metaculus-submit` skill (`scripts/submit_metaculus.py`). It is operator-invoked only
 and never a step of another workflow.

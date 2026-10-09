@@ -11,12 +11,12 @@ tags:
 - metaculus-cup-fall-2026
 dates:
   created: '2026-10-09'
-  opened: null
+  opened: '2026-10-12'
   closes: '2026-12-02'
   resolves: '2027-01-01'
 status: open
 current:
-  version: 1
+  version: 2
   date: '2026-10-09'
   median: 0.36
   iqr:
@@ -73,7 +73,7 @@ tripwires:
   direction: either
   magnitude: 0
   magnitude_unit: pp
-  fired: null
+  fired: false
 resolution:
   outcome: null
   date: null

@@ -195,16 +195,14 @@ def test_dates_run_in_the_right_order(slug, meta):
         for k, v in raw.items()
         if v is not None
     }
+    # No created-vs-opened check: a Metaculus question can be scaffolded in its
+    # pre-prediction phase ("upcoming"), so opened may legitimately postdate created.
     opened, closes = d.get("opened"), d.get("closes")
-    resolves, created = d.get("resolves"), d.get("created")
+    resolves = d.get("resolves")
     if opened and closes:
         assert opened <= closes, f"{slug}: opened is after closes"
     if closes and resolves:
         assert closes <= resolves, f"{slug}: closes is after resolves"
-    if created and opened:
-        assert opened <= created, (
-            f"{slug}: the question opened after the folder was created"
-        )
 
 
 @pytest.mark.parametrize("slug,meta", METAS, ids=IDS)
