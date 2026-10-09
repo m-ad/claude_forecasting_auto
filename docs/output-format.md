@@ -63,6 +63,7 @@ resolution source and its release schedule. Flag edge cases.>
 ### Sources
 1. <Title> — <URL> (accessed 2026-08-27)
 
+**Question**: [<question title>](<question url>)
 **Date**: 2026-08-27
 **Forecast**: Median 12.0%, IQR [8.0%, 18.0%]
 **Thesis**: <1–3 sentences: the thesis and the main drivers/sources it rests on>
@@ -90,6 +91,7 @@ revision table. Sections that did not change may be replaced by
 
 <...remaining sections as above, or "unchanged from v1"...>
 
+**Question**: [<question title>](<question url>)
 **Date**: 2026-09-30
 **Forecast**: Median 13.0%, IQR [9.0%, 19.0%]
 **Thesis**: ...
@@ -107,6 +109,15 @@ The summary block keeps native units:
 
 For multiple choice, give the full option vector (summing to 100%) and, if useful, an IQR
 on the leading option.
+
+## The question link
+
+The summary block's first line is always `**Question**: [<title>](<url>)`, taken from
+`title` and `url` in `meta.yaml`. It applies to **both** `/forecast` (initial versions) and
+`/update` (updates and re-analyses), and the chat reply opens with the same line followed by
+`Date` / `Forecast` / `Thesis`. Use the canonical question URL (Metaculus `/questions/<id>/`,
+or the market page for Kalshi/Polymarket/Manifold); for free-text questions with no URL, write
+the title as plain text. Versions written before this rule are append-only and stay as they are.
 
 ## Rounding
 

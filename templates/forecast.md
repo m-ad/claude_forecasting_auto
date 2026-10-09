@@ -47,6 +47,7 @@
 
 1. 
 
+**Question**: [{{TITLE}}]({{URL}})
 **Date**: {{TODAY}}
 **Forecast**: Median x.x%, IQR [y.y%, z.z%]
 **Thesis**: 

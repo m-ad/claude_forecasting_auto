@@ -124,7 +124,8 @@ uv run pytest -q
 ## Step 10 — Report
 
 Reply in chat with: the market-comparison table, the 3–5 line reasoning core, and the summary
-block. Give the path to `forecast.md`. A chart (probability decomposition or scenario weights)
+block — which opens with the clickable `**Question**: [title](url)` line (from `meta.yaml`),
+then Date / Forecast / Thesis. Give the path to `forecast.md`. A chart (probability decomposition or scenario weights)
 only if it aids understanding — horizontal bars, saved to `questions/<slug>/charts/`.
 
 ## Non-Metaculus questions

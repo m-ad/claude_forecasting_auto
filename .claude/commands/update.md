@@ -21,3 +21,6 @@ number alone. "No change" is a valid, publishable update.
 
 Prepend the new version with its revision table and tripwire-check table, rewrite the header
 block, update `meta.yaml`, log to the ledger, refresh `INDEX.md`.
+
+The version's closing summary block and your chat reply both open with the clickable
+`**Question**: [title](url)` line (from `meta.yaml`), then Date / Forecast / Thesis.

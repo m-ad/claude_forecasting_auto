@@ -146,9 +146,12 @@ Paywalled article (WSJ, FT, …): retry the URL prefixed with `https://archive.i
 ## 6. Output format
 
 Fixed. See `docs/output-format.md` for the full template. Every forecast and every
-update ends with exactly this block:
+update ends with exactly this block. It always **opens with a clickable link to the
+question** (`[title](url)`, from `meta.yaml`), and the chat reply opens with the same link
+line:
 
 ```
+**Question**: [<question title>](<question url>)
 **Date**: YYYY-MM-DD
 **Forecast**: Median xx.x%, IQR [yy.y%, zz.z%]
 **Thesis**: <1–3 sentences naming the main drivers and the sources they rest on>
