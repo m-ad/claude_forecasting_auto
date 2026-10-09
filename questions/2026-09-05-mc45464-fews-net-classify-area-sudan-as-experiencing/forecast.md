@@ -6,11 +6,136 @@
 | **Type** | binary |
 | **Opened / Closes / Resolves** | 2026-09-07 / 2026-10-31 / 2026-12-31 |
 | **Status** | open |
-| **Current forecast** | **Median 23.0%, IQR [16.0%, 31.0%]** (v2, 2026-09-24) |
-| **Community (as of 2026-09-24)** | CP 32.0% (n=112) · Pro 27.0% · Gold 28.7% |
-| **Next review** | 2026-10-05 |
+| **Current forecast** | **Median 25.0%, IQR [17.0%, 34.0%]** (v3, 2026-10-09) |
+| **Community (as of 2026-09-24; fresh CP unavailable 2026-10-09)** | CP 32.0% (n=112; n=141 on 2026-10-09) · Pro 27.0% · Gold 28.7% |
+| **Next review** | 2026-10-28 |
 
 <!-- Versions below, newest first. APPEND-ONLY: never edit or delete a past version. -->
+
+---
+
+## v3 — Update — 2026-10-09
+
+Mode: **Update** (incremental). v2 was a re-analysis 15 days ago. No market contradicts me by more
+than 10 pp, and less than a third of the window has passed since v2. Prior = v2 (23.0%).
+
+### Revision
+| Driver | Direction | Effect |
+|---|---|---|
+| Prior (v2, 2026-09-24) | — | Median 23.0%, IQR [16.0%, 31.0%] |
+| The **Sept 2026 KMU** (Key Message Update), the first map that counts for resolution, has published. It has **zero** Phase 5 area units: 171 units in Phase 4, 196 in Phase 3, 23 in Phase 2 (FEWS NET Data Warehouse, FDW, retrieved 2026-10-09) [33,34]. One of the ~4 qualifying shots is used up. KMUs were the low-hazard shots anyway | ↓ | −2.0 pp |
+| **New escalation in that KMU: risk of Famine extends to South Darfur, Sharg Aj-Jabal (East Jebel Marra).** In **2 of 4 IDP camps** surveyed in late Aug and early Sep, GAM (global acute malnutrition, weight-for-height) is **above the Famine threshold**. Food consumption and mortality are still at Phase 4. FEWS NET writes that more drought-driven displacement would make Famine "the most likely outcome" there [33]. IDP settlements are units that count for resolution. One of the three IPC outcome legs is already met there, so this is a new path (F) | ↑ | +3.5 pp |
+| September rainfall was "severely below average", and harvests will be below to severely below average across Greater Darfur and Kordofan, with localised crop failure. This confirms the harvest-failure leg of FEWS NET's conjunctive Famine scenario. HRP (Humanitarian Response Plan) funding is 41%, and 3.7M people were reached in August (<20% of need) [33] | ↑ | +1.0 pp |
+| Quiet elsewhere: no FRC (IPC Famine Review Committee), no FEWS NET Alert, no new mortality survey from the six named sites. No reported closure of El Obeid's eastern route and no announced WFP ration cut (searched 2026-10-09) [35,36,37] | ↓ | −0.5 pp |
+| Metaculus cohorts: no fresh aggregation (blocked by Cloudflare on 2026-10-09). Forecaster count rose from 112 to 141 [38]. Weighting is unchanged from v2 | → | 0 pp |
+| **New forecast** | | **Median 25.0%, IQR [17.0%, 34.0%]** |
+
+### Tripwire check
+| Tripwire from v2 | Fired? | Note |
+|---|---|---|
+| A FEWS NET Sudan map Reported Sept–Dec 2026 shows a current-period Phase 5 area | **Not fired** | The Sept KMU map has 0 Phase 5 units (FDW `reporting_date` 2026-09-01) [34] |
+| Sept KMU publishes with no Phase 5 area **and no escalation** | **Half fired** | No Phase 5 area, but there *is* escalation: the risk area expands to South Darfur, GAM is above the Famine threshold in 2 camps, and Famine is conditionally "most likely". The −2 pp tripwire therefore does not apply as written. The net is shown in the revision table |
+| Oct 2026 Food Security Outlook publishes with no current-period Phase 5 and no Famine-most-likely projection | Pending | Due ~early Nov |
+| IPC FRC convened for Sudan | Not fired | Nothing found. The last IPC round (May 2026) had no Famine classification [36] |
+| Mortality/SMART survey from Um Baru, Kernoi, At-Tine, Dilling, Kadugli or El Obeid with CDR (crude death rate) > 2/10,000/day | Not fired | The only new surveys are from South Darfur, with mortality at Phase 4 levels [33] |
+| FEWS NET Alert, or Famine projected most-likely for any period | **Partial** | No Alert. Famine is "most likely" only *conditional on* further displacement into Sharg Aj-Jabal. That is not the most-likely scenario on the map [33] |
+| El Obeid's eastern supply route closes | Not fired | No October reporting found. FEWS NET says Catastrophe (Phase 5) is likely for *populations* in and around El Obeid [33,37] |
+| WFP announces ration suspension or cuts for North Darfur, Tawila or Kordofan | Not fired | Only the 14 Sep "within weeks" warning. No announced cut found [35] |
+| Sudan suspended, or no Sudan map by 2026-10-31 | **Not fired (resolved NO side)** | The Sept KMU published, so the map tripwire can no longer fire |
+
+### What resolves YES
+Unchanged from v2. The Sept KMU now counts as one qualifying map, and it came out NO. Remaining
+shots: the **Oct Food Security Outlook** (the full re-analysis with a current-situation map,
+published ~early Nov), plus the Nov and Dec KMUs. Note the timing: the October Outlook
+usually publishes in the first half of November, so it is still inside the window.
+
+### Outside view
+Unchanged from v2. The FDW series now reads **9 straight maps with no Phase 5 unit (Feb–Sep 2026)** [34].
+
+### Inside view
+| Path | v2 p | v3 p | Why |
+|---|---|---|---|
+| A — NW/central North Darfur (Um Baru, Kernoi, At-Tine) | 0.13 | **0.12** | Still named, with Phase 5 populations. The Sept map did not convert. No new evidence |
+| B — El Obeid | 0.07 | **0.07** | FEWS NET now states Catastrophe is "likely" in El Obeid and its surroundings. No encirclement |
+| C — Kadugli / Dilling | 0.05 | **0.05** | Unchanged. No sign of re-siege found |
+| D — Q4 IPC/FRC round | 0.03 | **0.025** | Time decay |
+| E — Aid-withdrawal conversion | 0.02 | **0.02** | The cut is warned of but not yet announced |
+| **F — South Darfur, Sharg Aj-Jabal IDP camps** (new) | — | **0.05** | The GAM leg is already met in 2 camps. The October Outlook needs consumption deficits (≥ 20% of households) or CDR > 2 to cross the threshold on "reasonable" evidence. FEWS NET explicitly gives the trigger: displacement driven by crop failure, at harvest time, with poor September rains already observed [33] |
+
+`1 − (0.88 × 0.93 × 0.95 × 0.975 × 0.98 × 0.95) = 29.3%`. Structural adjustments as in v2: −4 pp
+for FEWS NET's own projection, now reaffirmed twice. The Sept KMU had the camp GAM data and still
+did not classify. Then −2 pp for the post-harvest window (smaller, because harvests are failing),
+and +1 pp for the low settlement bar. That gives an **inside view of ~24%**. I weight the stale
+(2026-09-24) Pro/gold numbers at ~28% lightly, as in v2, which lands at **25%**.
+
+### Evidence
+**Up:** For the first time since Jan 2026, FEWS NET reports a Famine-threshold *outcome
+indicator* in a specific population (GAM above 30% in 2 IDP camps, East Jebel Marra). It also
+names the mechanism that would complete the classification [33]. Independent early-warning
+reporting (Dabanga, 17 Sep) also flags Jebel Marra, El Malha, Buram and Tawila as fast-
+deteriorating [39]. NGOs launched a joint harvest-protection appeal on 2026-10-05 [40].
+**Down:** FEWS NET had these survey results in hand and wrote explicitly that they "do not
+establish a Famine classification". Mortality and food consumption were both Phase 4. The
+resolver has been conservative for 9 maps, and the conditional is a further step (*more*
+displacement) beyond the current state.
+
+### Other forecasters
+| Source | Value | As of | Note |
+|---|---|---|---|
+| Metaculus CP | 32.0% IQR [27, 36] | **2026-09-24 (stale)** | fresh CP unavailable 2026-10-09 (Cloudflare block). Forecaster count 141 per official API, 2026-10-09 [38] |
+| Metaculus Pro | 27.0% IQR [25, 35] | **2026-09-24 (stale)** | fresh CP unavailable 2026-10-09 (Cloudflare block) |
+| Metaculus gold | 28.7% IQR [27, 34.8] | **2026-09-24 (stale)** | fresh CP unavailable 2026-10-09 (Cloudflare block) |
+| Kalshi / Polymarket / Manifold | no matching market | 2026-10-09 | unchanged |
+| FEWS NET (implicit) | No Phase 5 area. Famine "most likely" only conditionally, in South Darfur | Sept 2026 KMU | [33] |
+
+On the stale numbers I am 2–7 pp below Pros, gold and the CP. The gap has narrowed since v2.
+
+### Scenarios
+| # | Scenario | Weight | Implies |
+|---|---|---|---|
+| 1 | Status quo holds through the Dec KMU | 0.54 | NO |
+| 2 | Deterioration without current-period classification (Alert, conditional or 2027 Famine projection) | 0.20 | NO |
+| 3 | October Outlook classifies a North Darfur area or IDP settlement (path A) | 0.10 | YES |
+| 4 | Sharg Aj-Jabal camps classified after displacement or consumption data (path F) | 0.05 | YES |
+| 5 | El Obeid / Kadugli / Dilling classification | 0.08 | YES |
+| 6 | Aid-cut conversion or an FRC elsewhere | 0.02 | YES |
+| 7 | Mechanical NO | 0.01 | NO |
+
+Weighted YES: 0.10 + 0.05 + 0.08 + 0.02 = **0.25**.
+
+### Sensitivity
+If the **October Outlook** publishes with no Phase 5 area → **~7–9%**. If it projects Famine as
+most-likely for Feb–May 2027 with no current-period Phase 5 → ~12% (the KMUs could still update
+the current period). If any camp in Sharg Aj-Jabal gets a mortality survey with CDR > 2 → ~50%.
+
+### What would change my mind (tripwires)
+- [ ] **A FEWS NET Sudan map Reported Oct–Dec 2026 shows a current-period Phase 5 area** — by 2026-12-31 → resolves YES
+- [ ] **The Oct 2026 Food Security Outlook publishes with no current-period Phase 5 area** — by 2026-11-20 → down 16 pp
+- [ ] **A mortality (CDR > 2/10,000/day) or food-consumption survey from Sharg Aj-Jabal camps, Um Baru, Kernoi, At-Tine, Dilling, Kadugli or El Obeid** — by 2026-12-15 → up 20 pp
+- [ ] **FEWS NET Alert, or Famine projected as the unconditional most-likely outcome anywhere** — by 2026-12-15 → up 12 pp
+- [ ] **IPC FRC convened for Sudan** — by 2026-11-30 → up 10 pp
+- [ ] **Reports of a major new displacement wave into East Jebel Marra (> 50,000 people, per OCHA or IOM DTM)** — by 2026-11-30 → up 6 pp
+- [ ] **El Obeid's eastern supply route closes** — by 2026-11-30 → up 8 pp
+- [ ] **WFP announces ration suspension or cuts for Darfur or Kordofan caseloads** — by 2026-11-15 → up 3 pp
+
+### Sources
+Numbering continues from v2. The earlier sources re-cited in this version are repeated here (unchanged from v2); the rest of 1–32 are as in v1/v2.
+
+25. FEWS NET — Sudan country page — https://fews.net/east-africa/sudan (accessed 2026-09-24)
+27. FEWS NET — Sudan Acute Food Insecurity Classification, August 2026 – January 2027 — https://fews.net/sudan-acute-food-insecurity-classification-august-2026-january-2027 (accessed 2026-09-24)
+32. Metaculus — question #45464, aggregation snapshot incl. cohort history and comments — https://www.metaculus.com/questions/45464/ ; cached in `raw/metaculus-2026-09-24.json` (accessed 2026-09-24)
+33. FEWS NET — Sudan Key Message Update, September 2026 – January 2027, "As drought compounds conflict, the risk of Famine expands to parts of South Darfur" — https://fews.net/east-africa/sudan/key-message-update/september-2026 (accessed 2026-10-09)
+34. FEWS NET Data Warehouse — IPC phase API, Sudan, 2026 — https://fdw.fews.net/api/ipcphase/?format=json&country_code=SD&start_date=2026-06-01&end_date=2026-12-31&fields=simple ; summary in `raw/fewsnet-fdw-phase-counts-2026-10-09.json` (accessed 2026-10-09)
+35. The National — "WFP warns Sudan food aid could be cut within weeks…" (14 Sep 2026) — https://www.thenationalnews.com/news/us/2026/09/14/wfp-warns-sudan-food-aid-could-be-cut-within-weeks-as-20-million-face-acute-hunger/ (accessed 2026-10-09 via search; no later cut announcement found)
+36. UNICEF/WFP/FAO — "Risk of Famine persists…" (May 2026 IPC) — https://www.unicef.ie/pr-news/risk-of-famine-persists-in-sudan/ (accessed 2026-10-09 via search)
+37. ACLED — "Can RSF seize El Obeid?" — https://acleddata.com/expert-comment/can-rsf-seize-el-obeid (accessed 2026-10-09 via search; no October 2026 encirclement reporting found)
+38. Metaculus — official API post JSON, #45464 (bot key; status open, closes 2026-10-31, nr_forecasters 141; aggregations hidden) — cached in `raw/metaculus-api-2026-10-09.json` (accessed 2026-10-09). Cohort numbers above come from `raw/metaculus-2026-09-24.json` [32]
+39. Dabanga via AllAfrica — "Urgent Report Underlines Sudan Famine Risk As Food Insecurity Worsens" (17 Sep 2026) — https://allafrica.com/stories/202609180010.html (accessed 2026-10-09)
+40. fundsforNGOs News — "Humanitarian groups issue joint call to protect Sudan's October 2026 to January 2027 harvest" (8 Oct 2026) — https://news.fundsforngos.org/2026/10/08/sudan-joint-call-protect-oct-2026-jan-2027-harvest-hunger-risk/ (accessed 2026-10-09 via search)
+
+**Date**: 2026-10-09
+**Forecast**: Median 25.0%, IQR [17.0%, 34.0%]
+**Thesis**: The Sept KMU, the first qualifying map, still has zero Phase 5 units (9 straight maps) [33,34]. But it expands the risk of Famine to East Jebel Marra IDP camps, where GAM already exceeds the Famine threshold, and it names displacement driven by crop failure as the trigger that would make Famine most likely [33]. A failing harvest makes that trigger plausible. The October Outlook (due ~early Nov) remains the main shot.
 
 ---
 

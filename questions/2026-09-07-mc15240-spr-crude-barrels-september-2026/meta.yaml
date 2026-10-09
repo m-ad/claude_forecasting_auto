@@ -17,68 +17,46 @@ dates:
   resolves: '2026-11-30'
 status: open
 current:
-  version: 5
-  date: '2026-10-02'
-  median: 283600000.0
+  version: 6
+  date: '2026-10-09'
+  median: 283400000.0
   iqr:
-  - 283300000.0
-  - 283800000.0
+  - 283200000.0
+  - 283700000.0
+  # Fresh Metaculus aggregations unavailable 2026-10-09 (Cloudflare block); the question closed
+  # 2026-09-30. cp/pro/gold/n_forecasters below are the final-at-close values (2026-09-30 04:55 UTC,
+  # fetched 2026-10-02, raw/metaculus-2026-10-02.json; 6 forecasters on subquestion 31307), kept
+  # because they match the v6 ledger record. as_of is null because the snapshot is not fresh.
+  # (raw/metaculus-api-2026-10-09.json nr_forecasters = 33 counts the whole #15240 group post.)
   community:
+    as_of: null
     cp: 289616938.0
     pro: 403880899.0
     gold: 301973733.0
     n_forecasters: 6
-    as_of: '2026-10-02'
-next_review: '2026-10-08'
+next_review: '2026-10-31'
 tripwires:
-- signal: EIA WPSR of 2026-09-30 (week ending 09-25) shows a draw of 0.25-0.60 Mb - flat trickle confirmed;
-    also tighten the IQR to +/-0.25 Mb
-  by: '2026-09-30'
-  direction: down
-  magnitude: 100000
-  magnitude_unit: barrels
-  fired: false
-- signal: EIA WPSR of 2026-09-30 (week ending 09-25) shows a build or a draw under 0.15 Mb - programme
-    done
-  by: '2026-09-30'
-  direction: up
-  magnitude: 350000
-  magnitude_unit: barrels
-  fired: false
-- signal: EIA WPSR of 2026-09-30 (week ending 09-25) shows a draw larger than 0.9 Mb - residual lifting
-    fast
-  by: '2026-09-30'
-  direction: down
-  magnitude: 600000
-  magnitude_unit: barrels
-  fired: false
-- signal: DOE issues any new SPR exchange RFP, award or re-offer before question close
-  by: '2026-09-30'
-  direction: down
-  magnitude: 500000
-  magnitude_unit: barrels
-  fired: '2026-09-29'
 - signal: EIA WPSR of 2026-10-07 (week ending 10-02) shows a draw under 0.30 Mb or a build - the 09-25
     lump was one-off
   by: '2026-10-07'
   direction: up
   magnitude: 150000
   magnitude_unit: barrels
-  fired: null
+  fired: false
 - signal: EIA WPSR of 2026-10-07 (week ending 10-02) shows a draw larger than 1.20 Mb - late-September
     lifting fast
   by: '2026-10-07'
   direction: down
   magnitude: 300000
   magnitude_unit: barrels
-  fired: null
+  fired: false
 - signal: October-2026 STEO prints COSQPUS for September 2026 at or below 282.5 Mb while the weekly series
     sits near 283.8 - investigate the delivery-paperwork gap
   by: '2026-10-14'
   direction: down
   magnitude: 400000
   magnitude_unit: barrels
-  fired: null
+  fired: false
 - signal: Petroleum Supply Monthly prints August 2026 MCSSTUS1 at or below 285.6 Mb (>=0.45 Mb under the
     weekly-implied 286.07) - bridge negative in this regime; widen
   by: '2026-10-31'
@@ -89,6 +67,32 @@ tripwires:
 - signal: WCSSTUS1 value for week ending 2026-09-25 revised by more than 0.1 Mb from 283,767 kb - shift
     one-for-one
   by: '2026-10-31'
+  direction: either
+  magnitude: 0
+  magnitude_unit: barrels
+  fired: false
+- signal: 'WPSR of 2026-10-07 (week ending 10-02) draw between 0.30 and 1.20 Mb - as modelled, tighten
+    IQR (fired: 0.784 Mb)'
+  by: '2026-10-07'
+  direction: either
+  magnitude: 0
+  magnitude_unit: barrels
+  fired: '2026-10-07'
+- signal: August 2026 PSM MCSSTUS1 at or below 285.70 Mb - bridge negative in this regime; widen
+  by: '2026-10-31'
+  direction: down
+  magnitude: 350000
+  magnitude_unit: barrels
+  fired: null
+- signal: August 2026 PSM MCSSTUS1 at or above 286.25 Mb - bridge confirmed positive; tighten
+  by: '2026-10-31'
+  direction: up
+  magnitude: 50000
+  magnitude_unit: barrels
+  fired: null
+- signal: WCSSTUS1 revision of the 09-25 or 10-02 value by more than 0.1 Mb - shift by revision x interpolation
+    weight
+  by: '2026-11-30'
   direction: either
   magnitude: 0
   magnitude_unit: barrels

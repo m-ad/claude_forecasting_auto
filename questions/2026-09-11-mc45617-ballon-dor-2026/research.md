@@ -156,3 +156,26 @@ matches the Metaculus comment by @Theomachado, 2026-09-29.
 - Final-week logistics: do Bayern or Barcelona schedule around 26 Oct, and do Kane or Yamal
   confirm attendance?
 - Any jurors publishing their ballots early (Theomachado noted some do after the ceremony).
+
+## v5 session — 2026-10-09 (cohort move; re-analysis)
+
+Trigger: fresh Metaculus aggregations (`raw/metaculus-2026-10-09.json`, fetched by the operator
+session, not re-fetched). Since 30 Sep: CP Kane 53.0 → 46.5 / Yamal 33.0 → 44.3 (n=123);
+Pros 49.0 → 44.1 / 37.0 → 45.0 (n=10); gold 55.7 → 45.6 / 30.4 → 45.6 (n=31).
+
+| Date | Search / fetch | Finding |
+|---|---|---|
+| 2026-10-09 | Metaculus comments (8, newest 8 Oct) | No leak cited. @sai_39 (2 Oct) quotes Polymarket at 58 and books at 7/10, and gives a World Cup-cycle table that includes **2023 Messi**. @DeRuina (30 Sep, 1 Oct) argues that on the journalist-only electorate every World Cup-year winner played in the final, and that Spain's vote has two homes (Rodri, Yamal). @Russell-viper (8 Oct) "had to agree with overall market's consensus", i.e. explicit market-following |
+| 2026-10-09 | Re-read of v1's outside view | **Error found**: the "0 of 4 (2010, 2014, 2018, 2022)" class assigned Qatar 2022 to the 2022 award (Benzema, 2021–22 season). Qatar fell in the 2023 window, and Messi won. Corrected: 1 of 4; Golden Ball → Ballon d'Or 2 of 4; journalist-only "winner played in the final" 6 of 6 |
+| 2026-10-09 | "2023 Ballon d'Or … eligibility … points" | Wikipedia/90min: window 1 Aug 2022 – 31 Jul 2023; Messi 462, Haaland 357; 65 vs 20 first-place votes |
+| 2026-10-09 | "2010 FIFA Ballon d'Or journalists … Sneijder" | Maxifoot / 90min: journalists alone would have elected Sneijder (293) over Xavi (229) and Iniesta (226); Messi 175. The Spanish split is the precedent for v1's fragmentation thesis |
+| 2026-10-09 | "Ballon d'Or 2026 … leak October" | French Football Weekly (9 Oct): *The Touchline* names the top two, Yamal and Kane, with no order; Canal+'s Garétier calls it "plausible". FullTime X "Yamal 1st, Mbappé 2nd" image reported as fabricated. No credible result report |
+| 2026-10-09 | Polymarket gamma + Kalshi API, 05:09 UTC | Polymarket Kane 52.25 / Yamal 40.1 / Messi 3.15 / Mbappé 2.25 / Rodri 1.05; $46.29M volume (flat since v4). Kalshi Kane 52 / Yamal 42 / Mbappé 5 / Messi 4 |
+| 2026-10-09 | Polymarket Yamal 6-hourly history | 54.75 (2 Oct 00:00) → 44.5 (5–7 Oct) → 44.05 (8 Oct) → 40.1 now. The Metaculus cohort move most likely began in the 1–5 Oct market spike, but the cohorts did not follow the market back down |
+| 2026-10-09 | "Harry Kane injury Bayern October 2026" | Nothing current, and irrelevant anyway now that ballots are closed |
+
+### Lesson
+
+The cohort disagreement was signal. The error had been in the file since v1, and three updates
+inherited it because each one wrote "Outside view: unchanged". Re-check the outside view when
+cohorts with good track records diverge, rather than only scanning for news.

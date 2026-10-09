@@ -4,13 +4,125 @@
 |---|---|
 | **Source** | Metaculus #45735 — https://www.metaculus.com/questions/45735/what-will-be-the-winning-margin-in-brazils-2026-presidential-election-runoff |
 | **Type** | numeric (percentage points of valid votes; range 0–8, closed lower / open upper bound) |
-| **Opened / Closes / Resolves** | 2026-10-06 (scheduled) / 2026-10-25 / 2026-10-27 |
+| **Opened / Closes / Resolves** | 2026-10-06 / 2026-10-25 / 2026-10-27 |
 | **Status** | open |
-| **Current forecast** | **Median 3.6, IQR [1.8, 5.7]** (v1, 2026-10-05) |
-| **Community (as of 2026-10-05)** | hidden: question opens 2026-10-06 17:00 UTC, CP reveal 2026-10-08 17:00 UTC (n=6 pre-open) |
-| **Next review** | 2026-10-09 |
+| **Current forecast** | **Median 4.0, IQR [2.2, 6.1]** (v2, 2026-10-09) |
+| **Community (as of 2026-10-09)** | fresh CP unavailable 2026-10-09 (Cloudflare block); API shows 57 forecasters, aggregations hidden from bot key |
+| **Next review** | 2026-10-11 |
 
 <!-- Versions below, newest first. APPEND-ONLY: never edit or delete a past version. -->
+
+---
+
+## v2 — Update — 2026-10-09
+
+### Revision table
+
+| Driver | Direction | Effect on median | Note |
+|---|---|---|---|
+| **Prior (v1, 2026-10-05)** | — | **3.6, IQR [1.8, 5.7]** | signed margin centre F +3.3, scale 3.1 |
+| First post-R1 runoff polls: Datafolha (6–8 Oct) F 52 / L 48 valid; PoderData (5–7 Oct) F 49 / L 44 total ≈ F +5.4 valid [1][2] | up | +0.3 | Average ≈ F +4.8 of valid votes. Above my +3.3 centre, but below the 5pp tripwire. The pollsters swung about 5pp toward Flávio, matching their R1 miss. |
+| Caiado (6 Oct) and Zema (5 Oct) endorse Flávio; Cury and Renan neutral; PSD frees state branches [3] | up | +0.1 | The pro-Lula endorsement tripwire did not fire, and the actual moves went the other way. Caiado's 2.18% already leaned 43/19 to Flávio, so the extra effect is small. |
+| Polymarket, Flávio: 82.65% → 85.7% ($178M event) [4] | up | +0.1 | Consistent with a signed mean of about +3.6 at a scale of 3. My centre of +3.9 puts about 2pp more probability on a Flávio win than the market does. |
+| Counterweight: post-R1 polls catch the winner's momentum, 16 days remain, and 2022 shows the trailing side closing 3–4pp; no AtlasIntel or Quaest post-R1 poll yet | down | −0.1 | Keeps the spread wide (scale 3.0, not 2.5) |
+| **New (v2)** | | **4.0, IQR [2.2, 6.1]** | signed centre F +3.9, scale 3.0, t(6). P(Flávio wins) 0.88; P(\|M\| > 8) 0.11 |
+
+### Tripwire check (from v1)
+
+| Tripwire | Status | Evidence |
+|---|---|---|
+| First post-R1 polls (Datafolha / Quaest / AtlasIntel) average a Flávio lead of ≥ 5pp of valid votes by 2026-10-12 | **partial** | Datafolha F +4.3 and PoderData F +5.4 (valid votes) average ≈ +4.8. AtlasIntel (due 9 Oct) and Quaest are not yet published [1][2][5]. Half of the +1.0 move applied. |
+| Same polls average within ±1pp by 2026-10-12 | not fired | — |
+| Caiado / PSD leadership or Cury endorses Lula before 2026-10-18 | not fired (reverse) | Caiado endorsed **Flávio** on 6 Oct. Cury is neutral and leaving politics. The PSD frees its state branches [3]. |
+| Final AtlasIntel runoff poll shows \|margin\| ≥ 6, by 2026-10-24 | pending | — |
+| Polymarket odds tighten to 60/40 or closer before 2026-10-20 | not fired | Widened to 85.7 / 13.5 [4] |
+
+### What resolves YES
+
+Unchanged from v1. The question is the absolute TSE margin in percentage points of valid votes in the 2026-10-25 runoff, on a 0–8 scale with an open upper bound. The API status was re-checked on 2026-10-09: open, scheduled close 2026-10-25 11:00 UTC, scaling unchanged [6].
+
+### Outside view
+
+Unchanged from v1.
+
+### Inside view (changes only)
+
+- **Polls now agree with the transfer model.** v1's mechanical transfer estimate was F +4.1, and the
+  first two post-R1 polls average F +4.8. After R1 the pollsters corrected toward the right, by
+  about 5pp in Datafolha's case (L +1 total on 3 Oct, F +4 total on 6–8 Oct). The open question is
+  whether they have now overcorrected. In 2022 the final runoff polls overstated Lula by about 2pp
+  (Datafolha's final poll had Lula at 52 valid; the result was 50.9). That error ran in the same
+  direction as the 2026 R1 miss, toward the right. I give no further credit for hidden right-wing
+  votes beyond what the polls now show. Instead I centre at +3.9, between the polls (+4.8), the
+  market-implied value (+3.6) and the prior (+3.3).
+- **The structure favours a small margin, not a blowout.** Rejection is high on both sides (46%
+  for Lula, 43% for Flávio; Datafolha [1]), and only about 6% of voters say they could change
+  their vote. That limits how far the margin can widen past 8. P(>8) is 11% (v1: 10%), which
+  reflects the shift in centre, not a heavier tail.
+- **Lula's route back:** debates and Northeast turnout. With 16 days left the scale stays at 3.0.
+  A comeback to a coin-flip (|M| < 2) still has about 23% probability.
+
+### Evidence (new since v1)
+
+- Datafolha, 6–8 Oct, n=2,520, ±2: Flávio 49 / Lula 45 total, **52 / 48 valid**. Blank, null or none 5%; undecided 1%. Rejection: Lula 46, Flávio 43 [1].
+- PoderData, 5–7 Oct, n=3,000, ±1.8: Flávio 49 / Lula 44 total, **≈ 52.7 / 47.3 valid**. Source is the Wikipedia polling table; I could not open the original Poder360 article [2].
+- An AtlasIntel post-R1 poll (n≈5,000, online, ±1) was scheduled for 9 Oct. It was not yet published when I searched [5]. No Quaest, Paraná Pesquisas or Real Time post-R1 poll was found.
+- Endorsements: Zema (5 Oct) and Caiado (6 Oct, with Tarcísio present) back Flávio. Cury and Renan stay neutral, though Renan says Flávio "already won". The PSD is neutral nationally [3].
+
+### Other forecasters
+
+| Source | Value | As of | Note |
+|---|---|---|---|
+| Metaculus CP (recency-weighted) | no cached value; last snapshot 2026-10-05 was pre-reveal (hidden) | 2026-10-05 | fresh CP unavailable 2026-10-09 (Cloudflare block). The API on 2026-10-09 shows 57 forecasters and 223 forecasts, with aggregations hidden from the bot key [6]. |
+| Metaculus Pro | unavailable | — | same |
+| Metaculus gold medalists | unavailable | — | same |
+| Polymarket, winner | Flávio 85.65% / Lula 13.5% | 2026-10-09 | $178M event volume; Flávio market ~$18.5M, Lula market ~$21.0M [4] |
+| Kalshi, winner | not retrieved (API rate-limited) | 2026-10-09 | v1: 82% Flávio (2026-10-05) |
+| Runoff margin market | none found (Polymarket search) | 2026-10-09 | — |
+
+### Scenarios
+
+| # | Scenario | Weight (v1 → v2) | Implies (abs. margin) |
+|---|---|---|---|
+| 1 | Flávio comfortable: polls hold or widen | 0.21 → 0.27 | ≥ 6 |
+| 2 | Flávio narrow: some reversion toward the 2022 pattern | 0.45 → 0.44 | 2–6 |
+| 3 | Coin-flip finish | 0.27 → 0.23 | 0–2 |
+| 4 | Lula clear comeback | 0.07 → 0.06 | 2–6 |
+
+### Sensitivity
+
+| Assumption | If instead | Forecast becomes |
+|---|---|---|
+| Centre +3.9 (blend) | Trust the post-R1 polls fully (+4.8) | median ≈ 4.9, IQR [2.9, 7.0] |
+| Centre +3.9 | Market-implied (+3.6) | median ≈ 3.8 |
+| Scale 3.0 | 2.3 (frozen electorate, high rejection) | median ≈ 3.9, IQR [2.4, 5.6] |
+
+### What would change my mind (tripwires)
+
+- [ ] AtlasIntel and Quaest post-R1 runoff polls (by 2026-10-13) both show Flávio ≥ +6 valid → up 0.8 pp
+- [ ] Those polls show Flávio ≤ +2 valid (or a Lula lead) → down 1.0 pp
+- [ ] Any major pollster shows a Lula gain of ≥ 3pp in margin between consecutive post-R1 waves, by 2026-10-20 → down 0.8 pp
+- [ ] Final AtlasIntel / Datafolha runoff polls (by 2026-10-24) show \|margin\| ≥ 7 valid → up 1.2 pp
+- [ ] Polymarket winner odds drop to 70/30 or closer before 2026-10-22 → down 1.0 pp; ≥ 93/7 → up 0.7 pp
+
+### Sources
+
+1. Brasil de Fato, "Datafolha, segundo turno: Flávio Bolsonaro 49%, Lula 45%", 2026-10-08 — https://www.brasildefato.com.br/2026/10/08/datafolha-segundo-turno-flavio-bolsonaro-49-lula-45/ (accessed 2026-10-09)
+2. Wikipedia, "Opinion polling for the 2026 Brazilian presidential election" (second-round table: PoderData 5–7 Oct; Datafolha 6–7 Oct) — https://en.wikipedia.org/wiki/Opinion_polling_for_the_2026_Brazilian_presidential_election (accessed 2026-10-09)
+3. Gazeta do Povo, "Candidatos derrotados no 1º turno começam a definir apoio a Flávio e Lula", 2026-10-06 — https://www.gazetadopovo.com.br/eleicoes/2026/candidatos-derrotados-no-1o-turno-comecam-a-definir-apoio-a-flavio-e-lula/ (accessed 2026-10-09)
+4. Polymarket Gamma API, event `brazil-presidential-election` — https://polymarket.com/event/brazil-presidential-election (accessed 2026-10-09; cached `raw/polymarket-winner-2026-10-09.json`)
+5. Brasil de Fato, "Datafolha, Quaest, AtlasIntel; quando saem as pesquisas de 2º turno", 2026-10-06 — https://www.brasildefato.com.br/2026/10/06/datafolha-quaest-atlasintel-quando-saem-as-pesquisas-de-2o-turno-entre-lula-e-flavio/ (accessed 2026-10-09)
+6. Metaculus API post 45735 (bot key; metadata only) — cached `raw/metaculus-api-2026-10-09.json` (retrieved 2026-10-09 by the parent session)
+7. CNN Brasil, Datafolha runoff page (3 Oct wave: Lula 47 / Flávio 46 total) — https://www.cnnbrasil.com.br/eleicoes/datafolha-2-turno/ (accessed 2026-10-09)
+8. Metaculus question #45735, text via /api-proxy/posts — https://www.metaculus.com/questions/45735/ (accessed 2026-10-05; cached `raw/question-text-2026-10-05.json`) — carried forward from v1 [1], still relied on for the resolution digest
+9. Wikipedia, 2014 / 2018 / 2022 Brazilian general election pages (TSE figures) — https://en.wikipedia.org/wiki/2014_Brazilian_general_election , https://en.wikipedia.org/wiki/2018_Brazilian_general_election , https://en.wikipedia.org/wiki/2022_Brazilian_general_election (accessed 2026-10-05) — carried forward from v1 [2], still relied on for the outside view and the 2022 comparison
+10. Terra, "Lula x Flávio no 2º turno: para onde vão os votos de Cury, Renan e Caiado?" (Quaest 3 Oct) — https://www.terra.com.br/noticias/brasil/lula-x-flavio-no-2-turno-para-onde-vao-os-votos-de-cury-renan-e-caiado,b7bbee5dbd3518dbdbf298eb4d751a5cuzttmjkm.html (accessed 2026-10-05) — carried forward from v1 [4], still relied on for the transfer model
+11. Rio Times, "Flávio and Lula head to Brazil runoff, 99.9% counted" — https://www.riotimesonline.com/brazil-election-first-round-results-lula-flavio-2026/ (accessed 2026-10-05) — carried forward from v1 [7], still relied on for the first-round baseline
+12. Rio Times, "What prediction markets say about Brazil's runoff", 2026-10-05 — https://www.riotimesonline.com/brazil-runoff-prediction-markets-polymarket-kalshi-odds/ (accessed 2026-10-05) — carried forward from v1 [12], the Kalshi 82% figure cited under Other forecasters
+
+**Date**: 2026-10-09
+**Forecast**: Median 4.0, IQR [2.2, 6.1]
+**Thesis**: The first post-R1 runoff polls (Datafolha F 52/48 valid; PoderData ≈ F +5.4) and the Caiado and Zema endorsements of Flávio confirm v1's transfer model (F +4.1). Polymarket has firmed to 86% Flávio. I centre the signed margin at F +3.9, between the polls and the market-implied value, with a wide 3.0pp spread, since AtlasIntel and Quaest have not yet reported and 16 days remain for a 2022-style comeback.
 
 ---
 

@@ -6,11 +6,177 @@
 | **Type** | numeric (%) — Metaculus range 35–55, **open at both bounds** |
 | **Opened / Closes / Resolves** | 2026-09-07 / 2026-10-24 / 2026-10-31 (election 2026-10-25) |
 | **Status** | open |
-| **Current forecast** | **Median 46.5%, IQR [43.3%, 49.7%]** (v2, 2026-09-24) |
-| **Community (as of 2026-09-24)** | CP 45.4 [42.2, 49.1] (n=110) · Pro 45.7 [42.8, 48.8] (n=10) · Gold 45.5 [42.5, 48.7] (n=32) |
-| **Next review** | 2026-10-03 |
+| **Current forecast** | **Median 48.6%, IQR [46.0%, 51.4%]** (v3, 2026-10-09) |
+| **Community (as of 2026-09-24 — stale; fresh CP unavailable 2026-10-09, Cloudflare block)** | CP 45.4 [42.2, 49.1] (n=110) · Pro 45.7 [42.8, 48.8] (n=10) · Gold 45.5 [42.5, 48.7] (n=32) · API n=133 on 2026-10-09 |
+| **Next review** | 2026-10-16 |
 
 <!-- Versions below, newest first. APPEND-ONLY: never edit or delete a past version. -->
+
+---
+
+## v3 — Re-analysis — 2026-10-09
+
+Mode: **Re-analysis**. The v2 tripwire for this case said "re-analyse", and it fired six times
+over: six named-agency campaign polls were published between 30 Sep and 8 Oct. Also, 15 of the
+31 days left at v2 have passed (more than 1/3). The anchor is now the poll average, not the
+July party-vote rescaling.
+
+### Revision
+| Driver | Direction | Effect |
+|---|---|---|
+| Prior (v2, 2026-09-24) | — | Median 46.5%, IQR [43.3%, 49.7%] |
+| **Six campaign polls** (fieldwork 23 Sep–6 Oct), decided-voter basis: Sova Harris 50.2, Market Links 51.6, Alpha 44.5, Trend 47.8, Myara 46.9, Gallup 47.8. **Mean 48.1, median 47.8**, sd ≈ 2.6 [1–6]. The tripwire rule was to move ~60% toward the poll; I take ~75% because there are six polls, not one | ↑ | +1.2 pp |
+| **April 2026 precedent**: final polls had PB at 30–35% and it took 44.6% of ballots; exit polls also undershot by 6–7 pp [7,8]. Credited at ~1/8 because a governing party is now better measured, and the 2021 Radev presidential polls were close to the result | ↑ | +0.9 pp |
+| More than 20 minor tickets plus "I support no one" usually beat their small poll shares in fragmented Bulgarian ballots, and the denominator includes NOTA (2.3–4.6% in polls) | ↓ | −0.3 pp |
+| Expected turnout 35–40% in every poll (below April's 50.7%) [2,4,5,6]. A low-turnout race favours PB's organised vote; already partly in the polls | ↑ | +0.3 pp |
+| No GERB or DPS endorsement; no new approval reading (last 42%) | → | none |
+| Metaculus cohorts: **no fresh reading** (Cloudflare block). The 24 Sep CP 45.4 / Pro 45.7 / Gold 45.5 came before any poll, so the polls supersede it as evidence | → | none |
+| Polls cut the uncertainty that remained without a named-candidate horse race; poll spread and the April-style miss keep the right tail fat | band | IQR 6.4 → 5.4 pp |
+| **New forecast** | | **Median 48.6%, IQR [46.0%, 51.4%]** |
+
+### Tripwire check
+| Tripwire from v2 | Fired? | Note |
+|---|---|---|
+| First named-candidate campaign poll by 2026-10-10 → move ~60% toward it | **Fired** (six polls) | Mean 48.1, decided basis [1–6]. Applied +1.2 and re-analysed (see above) |
+| GERB/Borissov informally backs Gyurov by 2026-10-18 | Not fired (as of 10-09) | No call to vote found. Borissov keeps attacking Iotova as an "ideological opponent" [9]. Pollsters put GERB's parliamentary vote at 14.2% (Trend), and its voters are already in the presidential splits |
+| DPS endorsement by 2026-10-15 | Not fired (as of 10-09) | No endorsement found. Peevski blames Iotova over the Gyurov caretaker appointment [10], which is criticism, not backing for Gyurov |
+| Govt approval < 40% by 2026-10-15 | Not fired | No reading after August found; the last ones were 42% (Gallup, Alpha, Market Links) [11] |
+| Expected turnout > 45% by 2026-10-20 | **Not fired** | Polls give 35.4–40% [2,4,5,6] |
+| Metaculus Pro/gold outside 43.5–48.5 by 2026-10-20 | **Unknown** | No aggregation was available on 2026-10-09 (Cloudflare block). The API shows 133 forecasters (110 on 24 Sep) [12] |
+
+### What resolves YES
+unchanged from v1. Resolves to Iotova's share of **valid votes, including "I support no one"**,
+in the 25 Oct first round, as declared by CIK. A v3 caveat: poll shares on the "decided" basis
+sometimes leave out NOTA, so they run slightly above the CIK-basis figure. The −0.3 row covers this.
+
+### Outside view
+unchanged from v1. First-round winners median 44.1; incumbents seeking a full term mean 48.3.
+PB took 43.91% of valid votes in April. The **poll average is now the dominant anchor**. The outside
+view is used only to set the width of the tails.
+
+### Inside view (re-derived)
+
+**Anchor: campaign polls.** Six polls of about 1,000 respondents each, all from established
+agencies, with fieldwork that overlaps in the first two weeks of the campaign. Iotova's share
+ranges from 44.5 (Alpha) to 51.6 (Market Links). Gyurov sits at 23.7–27.5 and Kostadinov at
+8–12.7. The ratio of Iotova to Gyurov is stable at about 1.7–2.2. Mean **48.1**.
+
+**Calibrating the polls.** Two Bulgarian precedents point in opposite directions:
+- *April 2026 parliamentary*: every final poll undershot PB, by 7–10 pp in pollster-level error
+  tables [7,8]. Plausible causes were late momentum for a new party, a "shy" protest vote, and
+  undecided voters breaking to Radev. Some of that persists, since the same coalition and machine
+  are behind Iotova. But PB is now the governing party with six months of record, which usually
+  removes the novelty surge.
+- *2021 presidential*: Radev's decided-voter polls ran about 48–52, and he took 49.42%. That is
+  roughly unbiased to slightly high for the incumbent.
+
+I treat the expected poll bias as **about +1 pp toward Iotova**, with a wide spread around it
+(σ ≈ 3.5–4 pp for the whole poll-to-result error, which is larger than sampling error alone).
+
+**Structural adjustments.** Fragmentation and NOTA −0.3. Low turnout (35–40%) favouring a
+disciplined vote +0.3, mostly already in the polls. The campaign has two weeks left. Undecideds
+(20.4% raw in Market Links; 12.5% of Gallup voters decide in the last days) have no clear lean.
+Alpha's Dimitrova says the race is "not predetermined". Gallup frames it as a duel in which
+"nothing is decided".
+
+→ 48.1 + 0.9 − 0.3 + 0.3 − (shrink ~0.4 toward the v2 prior / outside view) ≈ **48.6**.
+
+**Distribution:**
+
+| Bin | Mass | Cumulative |
+|---|---|---|
+| < 40% | 3% | 3 |
+| 40–43% | 7% | 10 |
+| 43–46% | 15% | 25 |
+| **46–49%** | **28%** | 53 |
+| 49–52% | 27% | 80 |
+| > 52% | 20% | 100 |
+
+→ p5 40.9 · p10 43.0 · **p25 46.0 · median 48.6 · p75 51.4** · p90 54.0 · p95 55.5.
+
+![Campaign polls vs v3 forecast band](charts/iotova_first_round_v3.png)
+
+### Evidence
+
+- **Polls** (all accessed 2026-10-09):
+  - Market Links/bTV (26–29 Sep, n=1,006): raw 41.4 / 21.9 / 6.4 with 20.4% undecided, which is
+    51.6 on the decided base. Turnout ~40% [3].
+  - Alpha Research (24 Sep–1 Oct, n=1,000): 44.5 / 26.1 / 10.5. Turnout 37–38% [4].
+  - Trend/24 Chasa (26 Sep–2 Oct, n=1,003): 47.8 / 24.6 / 9.7. 38% will "definitely" vote; "no
+    significant change over the past month" [1].
+  - Myara (26 Sep–4 Oct, n=1,000): 46.9 / 25.3 / 8.8, NOTA 2.3. Declared turnout 35.4% [5].
+  - Gallup International Balkan (26 Sep–6 Oct, n=987): 44.9 / 24.8 / 10.9 among those intending
+    to vote, 47.8 on the decided base. Turnout ~36%. 12.5% decide in the final days [6].
+  - Sova Harris (23–28 Sep): 50.2 / 23.7 / 12.7 on the decided base. Taken from the Wikipedia
+    table only, because I could not find the original release [2].
+- **The house spread is real.** Alpha is the lowest, as it was in April, when it was also the
+  most wrong about PB. Market Links is the highest. Even if both outliers are dropped, the mean
+  of the middle four is 48.2.
+- **Absent:** no GERB or DPS endorsement, and no fresh government-approval number. I searched
+  BTA, Capital and Bulgarian news in Bulgarian.
+- Polymarket's **winner** market (which includes the runoff) had Iotova at 71% on 23 Sep (PredScope,
+  about $561k traded in total) [13]. It is not a vote-share market and cannot be converted into one.
+
+### Other forecasters
+| Source | Value | As of | Note |
+|---|---|---|---|
+| Metaculus CP (recency-weighted) | 45.4, IQR [42.2, 49.1] (n=110) | **2026-09-24 (stale)** | fresh CP unavailable 2026-10-09 (Cloudflare block); predates every campaign poll |
+| Metaculus Pro | 45.7, IQR [42.8, 48.8] (n=10) | **2026-09-24 (stale)** | fresh CP unavailable 2026-10-09 (Cloudflare block) |
+| Metaculus gold medalists | 45.5, IQR [42.5, 48.7] (n=32) | **2026-09-24 (stale)** | fresh CP unavailable 2026-10-09 (Cloudflare block) |
+| Metaculus forecaster count (API) | 133 | 2026-10-09 | up from 110; activity since the polls is likely but its direction is unknown |
+| Campaign poll mean (6 polls, decided basis) | 48.1 (range 44.5–51.6) | fieldwork to 2026-10-06 | primary anchor |
+| Polymarket winner market | Iotova 71% / Gyurov 28% | 2026-09-23 | winner, not vote share; ~$561k total volume |
+| Manifold / Kalshi | no vote-share market found | 2026-10-09 | — |
+
+**Cohort disagreement:** the three cohorts agreed with each other (within 0.3 pp) on 24 Sep. I am
+now **~3 pp above that stale cluster**. The whole gap comes from evidence the cohorts did not have
+then, namely the six polls. If a fresh reading shows Pro/gold still at ~45.5 *after* the polls, I
+should look for the fact I missed (for example, a known house effect or a NOTA convention) before
+defending 48.6.
+
+### Scenarios
+| # | Scenario | Weight | Implies |
+|---|---|---|---|
+| 1 | Polls roughly right; low turnout; minor tickets slightly beat their polls | 0.45 | 46–50% |
+| 2 | April-style understatement repeats in part; PB machine plus a stay-home opposition | 0.25 | 50–55% |
+| 3 | Late swing against the government; anti-establishment voters break for Gyurov/Kostadinov | 0.20 | 43–46% |
+| 4 | Alpha-like low reading is the right one, plus a larger "others"/NOTA share | 0.10 | 40–44% |
+
+### Sensitivity
+| Assumption | If instead | Forecast becomes |
+|---|---|---|
+| Poll bias ≈ +1 toward Iotova | No bias (2021-style) | median ~47.9 |
+| Same | Half of April's miss (+4) | median ~51.5 |
+| Final-week polls ≈ 48 | Final polls average ≤ 45 | median ~46 |
+| No endorsements | GERB openly mobilises for Gyurov | −1.5 |
+
+### What would change my mind (tripwires)
+- [ ] **Final-week poll average** (Trend, Gallup, Alpha, Market Links, Myara, Sova Harris; releases ~18–23 Oct) — by 2026-10-23 → move ~70% of the way to the new decided-basis mean
+- [ ] **GERB or Borissov openly calls to vote for Gyurov** — by 2026-10-22 → −1.5 pp
+- [ ] **DPS endorsement** — by 2026-10-22 → for Iotova +0.7 pp; for Gyurov −0.7 pp
+- [ ] **Polls of record put expected turnout above 45%** — by 2026-10-22 → −1.0 pp
+- [ ] **Fresh Metaculus Pro/gold median below 46.0 after the polls** — by 2026-10-20 → re-examine for a missed fact (house effects, NOTA basis), not a nudge
+- [ ] **Major campaign scandal or debate collapse touching Iotova or the Radev government** (BTA/Capital headline) — by 2026-10-23 → −1 to −2 pp
+
+### Sources
+1. Mediapool — "„Тренд“: 47.8% за Йотова и 24.6% за Гюров" (6 Oct 2026) — https://www.mediapool.bg/prezidentski-izbori-2026/trend-478-za-yotova-i-246-za-gyurov/ (accessed 2026-10-09)
+2. Wikipedia — "2026 Bulgarian presidential election" (opinion-poll table, decided-voter basis; endorsements) — https://en.wikipedia.org/wiki/2026_Bulgarian_presidential_election (accessed 2026-10-09)
+3. Sofia Globe — "Bulgaria's 2026 presidential elections: Yotova 41.4%, Gyurov 21.9% – poll" (30 Sep 2026) — https://sofiaglobe.com/2026/09/30/bulgarias-2026-presidential-elections-yotova-41-4-gyurov-21-9-poll/ (accessed 2026-10-09)
+4. Novinite — "Bulgaria's 2026 presidential elections: Yotova 44.5%, Gyurov 26.1%" (Alpha Research, 5 Oct 2026) — https://balgarianovinite.com/en/bulgaria-2026-presidential-elections-yotova-gy-2/ (accessed 2026-10-09)
+5. Taralej (via BTA) — "Според проучване на „Мяра“: Йотова с убедителна преднина пред Гюров" — https://taralej.bg/politika/spored-prouchvane-na-mqra-yotova-s-ubeditelna-prednina-pred-gyurov-pri-prezidentski-vot ; Banker.bg (5 Oct) — https://banker.bg/2026/10/05/jotova-i-valchev-sa-s-469-podkrepa/ (accessed 2026-10-09)
+6. Taralej — "„Галъп“: Йотова води с над 20%, Гюров е втори, Костадинов - трети" — https://taralej.bg/politika/galap-interneshanal-bolkan-yotova-vodi-s-nad-20-gyurov-e-vtori-kostadinov-treti ; Banker.bg (8 Oct) — https://banker.bg/2026/10/08/jotova-valchev-gyurov-kandev-galup/ (accessed 2026-10-09)
+7. PolitPro — "Bulgaria's General Election: Official Results" (pollster error table, 19 Apr 2026) — https://politpro.eu/en/bulgaria/election/2026-04-19/parliamentary-election (accessed 2026-10-09)
+8. Sofia Globe — April 2026 exit polls (Alpha 37.5, Market Links 38.9 for PB) — https://sofiaglobe.com/?p=127307 ; Novinite final result — https://www.novinite.com/view_news.php?id=238115 (accessed 2026-10-09)
+9. BTA — "Илияна Йотова е мой идеологически противник…, каза Бойко Борисов в Пазарджик" — https://www.bta.bg/bg/news/1203237-iliyana-yotova-e-moy-ideologicheski-protivnik-sazdal-sam-gerb-za-da-pobedya-bs (accessed 2026-10-09)
+10. DPS — Peevski statement on Gyurov's caretaker appointment (undated page) — https://www.dpsbg.eu/en/news/delyan-peevski-leader-of-the-mrf-and-the-parliamentary-group-of-the-mrf-new-beginning-europe-confirms-the-appointment-of-interim-prime-minister-gyurov-is-illegal-iotova-is-responsible.html (accessed 2026-10-09)
+11. Intellinews — "Bulgarian PM Radev's approval falls for second straight month, poll shows" — https://www.intellinews.com/bulgarian-pm-radev-s-approval-falls-for-second-straight-month-poll-shows-456629/ ; Sofia Globe — Alpha Research 42% — https://sofiaglobe.com/?p=128501 (accessed 2026-10-09)
+12. Metaculus #45262 — official API post JSON (metadata only; aggregations hidden from bot key) — `raw/metaculus-api-2026-10-09.json`; prior aggregations `raw/metaculus-2026-09-24.json` (retrieved 2026-09-24)
+13. PredScope — Bulgaria Presidential Election (Polymarket mirror, updated 23 Sep 2026) — https://predscope.com/event/bulgaria-presidential-election (accessed 2026-10-09)
+14. Raw snapshot — `raw/news-2026-10-09.json`
+
+**Date**: 2026-10-09
+**Forecast**: Median 48.6%, IQR [46.0%, 51.4%]
+**Thesis**: Six campaign polls taken 23 Sep–6 Oct (Sova Harris, Market Links, Alpha, Trend, Myara, Gallup) put Iotova at 44.5–51.6% of decided voters, with a mean of 48.1 [1–6]. I add about +1 pp because Bulgarian polls understated PB by 7–10 pp in April [7,8], net of fragmentation/NOTA drag, which gives a median of 48.6. The band stays ~5.4 pp wide for house spread and poll error. I am ~3 pp above the 24 Sep Metaculus cluster (45.4–45.7). That cluster is stale and predates every poll; no fresh CP was available on 2026-10-09.
 
 ---
 

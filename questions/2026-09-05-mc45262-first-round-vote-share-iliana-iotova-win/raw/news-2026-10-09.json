@@ -1,0 +1,18 @@
+{
+  "retrieved": "2026-10-09",
+  "note": "Metaculus aggregations NOT fetched (Cloudflare block 2026-10-09); API metadata in metaculus-api-2026-10-09.json: status open, nr_forecasters 133, closes 2026-10-24T22:59Z",
+  "polls_decided_basis_wikipedia": [
+    {"pollster": "Sova Harris", "field": "2026-09-23..28", "n": 1000, "iotova": 50.2, "gyurov": 23.7, "kostadinov": 12.7},
+    {"pollster": "Market Links (bTV)", "field": "2026-09-26..29", "n": 1006, "iotova": 51.6, "gyurov": 27.5, "kostadinov": 8.0, "raw_incl_undecided": {"iotova": 41.4, "gyurov": 21.9, "kostadinov": 6.4, "undecided": 20.4}, "turnout_expected": "~40%"},
+    {"pollster": "Alpha Research", "field": "2026-09-24..10-01", "n": 1000, "iotova": 44.5, "gyurov": 26.1, "kostadinov": 10.5, "nota": 2.9, "turnout_expected": "37-38%"},
+    {"pollster": "Trend (24 Chasa)", "field": "2026-09-26..10-02", "n": 1003, "iotova": 47.8, "gyurov": 24.6, "kostadinov": 9.7, "nota": 4.6, "definitely_vote": "38%"},
+    {"pollster": "Myara", "field": "2026-09-26..10-04", "n": 1000, "iotova": 46.9, "gyurov": 25.3, "kostadinov": 8.8, "nota": 2.3, "turnout_declared": "35.4%"},
+    {"pollster": "Gallup International Balkan", "field": "2026-09-26..10-06", "n": 987, "iotova": 47.8, "gyurov": 26.4, "kostadinov": 11.6, "raw_among_intending": {"iotova": 44.9, "gyurov": 24.8, "kostadinov": 10.9}, "turnout_expected": "~36% (2.3-2.4m)", "late_deciders": "12.5%"}
+  ],
+  "poll_mean_iotova": 48.1,
+  "poll_median_iotova": 47.8,
+  "april_2026_polling_error": "final polls had PB 30-35% (Alpha 34.2% 13-15 Apr) vs result 44.59% of ballots; exit polls 37.5-38.9 (politpro.eu, Sofia Globe)",
+  "polymarket_winner": {"iotova": 0.71, "gyurov": 0.28, "as_of": "2026-09-23", "source": "PredScope", "volume_usd": 561000, "note": "winner market (incl. runoff), not vote share"},
+  "endorsements": "No GERB or DPS endorsement found as of 2026-10-09",
+  "govt_approval": "No post-August reading found; last 42% (Gallup Jul-Aug, Alpha Jul, Market Links Jul)"
+}

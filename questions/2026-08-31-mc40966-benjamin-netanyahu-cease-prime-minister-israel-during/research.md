@@ -213,3 +213,23 @@ the bloc-level polling average itself. v1 had a tripwire only for the Netanyahu 
    before the final lists are locked — worth ~1–2 opposition seats in expectation.
 4. Yashar's late-campaign trajectory (new-party deflation; cf. Yamina 2021).
 5. Whether any named Yashar candidate breaks publicly on the Arab-abstention question.
+
+---
+
+## 2026-10-09 — v3 research log (shared pass with #45670)
+
+- **Metaculus**: Cloudflare block. API JSON shows the question open with 849 forecasters. No cohorts.
+- **Markets** (all 2026-10-09, `raw/*-2026-10-09.json`): Polymarket out-by-Dec-31 37.5 (was 46.5);
+  next PM: Netanyahu 36.5, Eizenkot 43.7, Bennett 9.5; on-schedule 91.9 (was 96.5); hung
+  parliament 37.5 (thin). Kalshi KXISRAELPM: Netanyahu 36, Eizenkot 44, Bennett 8. Manifold ACX
+  mirror 28.2 (was 41.6).
+- **Bloc polls**: mainstream, latest per house: opposition Zionist 55.1 (was 56.1 mid-Sep),
+  Netanyahu incl. Amcha 51.9 (51.5), Arab 13.0 (12.4). Parsed from the sister question's
+  wikitext cache.
+- **Arab-route evidence**: Eisenkot (JPost, 24 Sep): Ra'am and the JL are not viable partners.
+  Liberman's "no 58-seat government" line dates from 17 Aug (already known at v1). Hadash's
+  conditions (26 Aug). No Arab-list recommendation statement found either way. The search
+  summary claim that "Bennett and Liberman refuse a minority government" could only be traced
+  to Liberman in August.
+- **Model**: `raw/scenario-model-2026-10-09.py` → 22.5%. The per-driver attribution was done
+  by stepping inputs from v2 to v3 one at a time (seeded, 400k draws).

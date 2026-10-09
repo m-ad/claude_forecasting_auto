@@ -352,3 +352,27 @@ zero September effect.
 2. October STEO (~10-06/07): September `COSQPUS`.
 3. PSM August (~10-30): first post-drawdown test of the bridge on a non-Friday month end (Mon 08-31).
 4. Resolution: PSM September, ~2026-11-30.
+
+---
+
+## 2026-10-09 — v6 update log
+
+| Date | Source | Result | Used for |
+|---|---|---|---|
+| 2026-10-09 | EIA `WCSSTUS1w.xls` (HTTP 200) | 10-02 = **282,983** kb (draw 0.784); 09-25 unrevised 283,767 | brackets 09-30; `raw/eia-weekly-wcsstus1-2026-10-09.xls` |
+| 2026-10-09 | EIA `MCSSTUS1m.xls` | still ends 2026-07 = 304,810 | no new bridge point; `raw/eia-monthly-mcsstus1-2026-10-09.xls` |
+| 2026-10-09 | EIA STEO Oct-2026 `STEO_m.xlsx`, 4atab `COSQPUS` | Aug 285.893 · Sep 283.347 · Oct 282.547 · Nov 262.547 · Dec 242.547; modelling done 2026-10-01 | confirm branch; snapshot in December sibling raw/ |
+| 2026-10-09 | Metaculus API JSON (parent, bot key) | 31307 closed, resolution null, scheduled resolve 2026-12-06 | status. Aggregations: fresh CP unavailable (Cloudflare block); final 09-30 CP carried from `raw/metaculus-2026-10-02.json` |
+| 2026-10-09 | Kalshi `KXSPR` | no open markets | — |
+| 2026-10-09 | DOE news listing | latest = 2026-09-29 RFP (40 Mb, Nov–Dec deliveries) | not September-relevant |
+
+Note on EIA's convention: the STEO August value 285.893 = 286.604 − 4 × (1.244/7). So EIA treats the
+Friday-07:00 weekly stock as end-of-Thursday and counts 4 days to Monday 08-31. The same convention
+for 09-30 gives 283.767 − 6/7 × 0.784 = 283.095 weekly basis. This is within the f-range of the
+v6 model. The August PSM (~10-30) will show whether the PSM follows the STEO convention (285.89) or
+the calendar interpolation plus bridge (286.07 + 0.18).
+
+Model: `raw/scenario-model-2026-10-09.py`. Weekly basis = 282.983 + 0.784·f, with f 60% U(0.10, 0.46) and
+40% U(0, 1); bridge N(+0.18, 0.28). Median 283.44, IQR [283.22, 283.67].
+
+Next: August PSM ~2026-10-30 (bridge test); September PSM ~2026-11-30 (resolution).

@@ -6,11 +6,164 @@
 | **Type** | binary |
 | **Opened / Closes / Resolves** | 2025-12-19 / 2026-12-31 / 2027-01-01 |
 | **Status** | open |
-| **Current forecast** | **Median 28.0%, IQR [22.0%, 35.0%]** (v2, 2026-09-18) |
-| **Community (as of 2026-09-17 15:45 UTC)** | CP 22.0% IQR[17%, 30%] (n=278) · Pro 22.0% IQR[20%, 28%] (n=24) · Gold 24.0% IQR[20%, 30%] (n=90) · 844 forecasters total |
-| **Next review** | 2026-10-05 |
+| **Current forecast** | **Median 23.0%, IQR [17.0%, 30.0%]** (v3, 2026-10-09) |
+| **Community** | CP 22.0% · Pro 22.0% · Gold 24.0% **as of 2026-09-17 (stale; fresh CP unavailable 2026-10-09, Cloudflare block)** · 849 forecasters (API, 2026-10-09) · Polymarket out-by-Dec-31 37.5% (2026-10-09) |
+| **Next review** | 2026-10-20 |
 
 <!-- Versions below, newest first. APPEND-ONLY: never edit or delete a past version. -->
+
+---
+
+## v3 — Update — 2026-10-09
+
+**Mode: Update** (incremental). Twenty-one days since v2, 83 days to resolution. v2's
+Monte-Carlo model is re-run with updated inputs (`raw/scenario-model-2026-10-09.py`); each
+input change is charged separately below. Fresh Metaculus aggregations are **not available
+today**: the browser path is blocked by Cloudflare. The official API post JSON confirms the
+question is open with 849 forecasters [1].
+
+### Revision
+
+| Driver | Direction | Effect |
+|---|---|---|
+| Prior (v2, 2026-09-18) | — | Median 28.0%, IQR [22.0%, 35.0%] (model 28.3, posted after a −0.3 shade) |
+| **Bloc polls.** In the seven mainstream houses, latest poll each, the anti-Netanyahu Zionist bloc slipped 56.1 → 55.1, the Netanyahu bloc including Amcha Yisrael went 51.5 → 51.9, and the Arab lists went 12.4 → 13.0 [2]. Model inputs: O 53 → 52, A 13 → 13.6 | ↓ | **−1.9 pp** |
+| **18 days to the vote rather than 40.** Poll-error sd falls from 6.0 to 5.0 seats. That shrinks the tail where the opposition reaches 61 outright (5.5% → 1.7%) | ↓ | **−0.7 pp** |
+| **Eisenkot hardens on Arab partners.** JPost interview, 2026-09-24: Ra'am and the Joint List are "not viable coalition partners"; "I do not see an Arab party that accepts my principles" [3]. The CEC disqualified both lists on 23 Sep; the High Court reversed this on 2 Oct, but Balad's Abu Shehadeh withdrew [4][5]. P(Ra'am recommends Eisenkot) 0.60 → 0.55; P(Joint List recommends) 0.35 → 0.30 | ↓ | **−1.0 pp** |
+| **Minority-route formation success 0.45 → 0.42.** If abstention is only tacit, it is harder to deliver inside the 42-day mandate when the leader has publicly ruled the parties out. Liberman's "no 58-seat government" line (17 Aug) still stands [6] | ↓ | **−1.4 pp** |
+| **Postponement risk.** IDF chief Zamir reportedly warned US generals that a strike on Iran in the coming weeks could delay the election (Channel 12, 8 Oct) [7]. Polymarket's on-schedule price fell from 96.5% to **91.9%** [8]. Trump has signalled no full-scale escalation before the 3 Nov midterms, and postponement needs 80 MKs, so I shade to **0.93** | ↓ | **−0.7 pp** |
+| Elapsed time: the non-electoral floor drops from 1.1% to 0.9% | ↓ | **−0.2 pp** |
+| **Unmodelled, up:** the 26 Sep pact among the five opposition leaders, committing them to "establish a government immediately after the elections" [9]. Also Avi Gil's Oct-7 allegations of 8 Oct, with Eisenkot calling for a criminal probe [7]. Separately, v2's −0.3 shade toward the gold cohort is dropped, because the cohort data is now three weeks old | ↑ | **+0.9 pp** |
+| **New forecast** | | **Median 23.0%, IQR [17.0%, 30.0%]** |
+
+### Tripwire check
+
+| Tripwire from v2 | Fired? | Note |
+|---|---|---|
+| By 10-15: Ra'am or the Joint List rules out recommending Eisenkot, or Eisenkot re-commits to "no deals with Arab parties" → −6 pp | **Partially fired** | Eisenkot, 24 Sep: neither is a viable coalition partner [3]. He did not rule out abstention or outside support, and neither Arab list has ruled out recommending him. Credited at about −2.4 pp (the Arab-recommendation and minority-formation rows) |
+| By 10-15: an Arab list commits to recommending Eisenkot → +6 pp | Not fired | Hadash/Joint List still states conditions only [10] |
+| By 10-20: two or more Yashar candidates refuse a minority government → −4 pp | Not fired | None found |
+| By 10-26: mainstream Netanyahu bloc (incl. Amcha) ≥ 57 → −7 pp | Not fired | 51.9 mainstream. Only Channel 14 (63) and i24 (60) are above 57 [2] |
+| By 10-26: mainstream Netanyahu bloc < 49 → +6 pp | Not fired | Lowest single house is Midgam at 49 [2] |
+| By 10-26: Ra'am below 3.25% in most final-week polls → −4 pp | Not fired | 5–6 seats in every October poll; Polymarket gives it a 94.2% chance of winning a seat [8] |
+| 10-28 result; 11-10 recommendation tally; 11-16 mandate; 11-20 mandate timing | Not due | — |
+| By 12-17: health event or pardon on retirement terms → +8 pp | Not fired | No new disclosure. Herzog's pardon decision is still deferred pending plea talks |
+
+### What resolves YES
+
+Unchanged from v1/v2. Netanyahu stays PM as caretaker until a successor is sworn in. YES
+therefore needs a new government sworn in by 2026-12-31 (or death, or ≥ 14 days of
+incapacity). **Postponement of the 27 Oct vote ≈ NO.**
+
+### Outside view
+
+Unchanged from v1.
+
+### Inside view
+
+Structure unchanged from v2. Re-run, 1,000,000 draws:
+
+| Quantity | v2 | v3 |
+|---|---|---|
+| P(anti-Netanyahu Zionist bloc ≥ 61 outright) | 5.5% | 1.7% |
+| P(anti-Netanyahu Zionist bloc > Netanyahu bloc) | 36.4% | 28.9% |
+| **P(Eisenkot receives the first mandate)** | 54.7% | **48.8%** |
+| P(YES \| electoral path) | 28.4% | 23.2% |
+| P(YES) total | 28.3% | **22.5%** → posted 23.0% |
+
+**Consistency with the sister question (#45670, largest party, v3 same day).** That forecast
+puts Yashar as largest party at 48.5% and Likud at 50.9%, with a 14% exact-tie branch split
+50/50 to match this model's P(Eisenkot first mandate) of 0.49. Required: P(YES here) ≤
+P(non-Netanyahu PM) and ≤ P(Yashar resolves there) plus a small allowance for Likud-largest
+worlds. 23.0 ≤ 48.5 holds. The implied P(YES | Yashar largest) is about 0.39, and P(YES |
+Likud largest) is about 0.08.
+
+### Evidence
+
+- **The bloc picture is flat, but the largest-party race has tightened sharply.** Likud has
+  closed on Yashar (−3.4 → −1.3 seats) mostly by taking voters from the Netanyahu bloc's
+  own satellites, Amcha Yisrael in particular, which is now below threshold in 3 of 7
+  houses. The bloc totals barely moved [2]. Bloc totals drive the mandate, so this
+  question moves much less than #45670.
+- **Real-money markets moved against YES more than the polls justify.** Polymarket "Netanyahu
+  out by Dec 31" fell from 46.5% to **37.5%**. Next-PM: Netanyahu 28.5 → **36.5**, Eizenkot
+  51.7 → **43.7**. Kalshi: Netanyahu 36, Eizenkot 44 [8][11]. The Polymarket Likud-seats
+  ladder (median ~24) shows traders weighting Channel 14 and i24 heavily. I treat the move as
+  mostly the same poll information plus that house weighting, and do not add it on top.
+  Cross-check: P(someone other than Netanyahu eventually) ≈ 63.5% implies a timing
+  conditional of 23.0 / 63.5 = **0.36**, against v2's 0.39.
+- **Absent:** no Arab-list commitment either way, no Yashar defections on record, no verdict
+  path, no pardon movement, no new health news.
+
+### Other forecasters
+
+| Source | Value | As of | Note |
+|---|---|---|---|
+| Metaculus CP (recency-weighted) | 22.0% IQR[17%, 30%] (n=278) | **2026-09-17 (stale)** | **Fresh CP unavailable 2026-10-09 (Cloudflare block)**. 849 forecasters on the post [1] |
+| Metaculus Pro | 22.0% (n=24) | **2026-09-17 (stale)** | fresh value unavailable 2026-10-09 (Cloudflare block) |
+| Metaculus gold | 24.0% (n=90) | **2026-09-17 (stale)** | fresh value unavailable 2026-10-09 (Cloudflare block) |
+| Polymarket, "Netanyahu out by Dec 31" | **37.5%** (0.37/0.38) | 2026-10-09 | was 46.5%. Looser criteria: an announcement counts. $2.66M on this leg [8] |
+| Polymarket, next PM after the election | Netanyahu 36.5, Eizenkot 43.7, Bennett 9.5, Lieberman 2.0 | 2026-10-09 | $44.5M volume. Horizon to Dec 2027 [8] |
+| Kalshi `KXISRAELPM-26OCT27` | Netanyahu 36 (35/36), Eizenkot 44 (44/45), Bennett 8 | 2026-10-09 | [11] |
+| Polymarket, hung parliament | 37.5% | 2026-10-09 | $14k, thin |
+| Polymarket, election on schedule | 91.9% | 2026-10-09 | was 96.5% [8] |
+| Manifold, ACX mirror of this question | **28.2%** (vol 24.8k) | 2026-10-09 | was 41.6%. Play money, discounted [12] |
+
+I sit about 1 pp above the stale Metaculus CP and gold, and well below Polymarket's
+looser-criteria market. The Polymarket gap is explained by the criteria, as before.
+
+### Scenarios
+
+Read off the v3 simulation (electoral weights × 0.93 on-schedule; non-electoral floor 0.9% on top):
+
+| # | Scenario | Weight | P(YES \| scenario) |
+|---|---|---|---|
+| A | Netanyahu bloc reaches 61 | 0.157 | 0.04 |
+| B | Anti-Netanyahu Zionist bloc reaches 61 outright | 0.016 | 0.82 |
+| C | Neither reaches 61; Eisenkot takes the first mandate on Arab recommendations | 0.439 | 0.42 |
+| D | Neither reaches 61; Netanyahu takes the first mandate | 0.318 | 0.04 |
+| E | Election postponed | 0.070 | ≈0 (floor only) |
+
+### Sensitivity
+
+| Assumption | If instead | Forecast becomes (model, before the +0.9 pp adjustment) |
+|---|---|---|
+| P(minority government sworn in by 12-31 \| Eisenkot mandate) = 0.42 | 0.30 | 17.3% |
+| same | 0.55 | 28.2% |
+| Election on schedule 0.93 | 0.85 (Iran escalation) | 20.7% |
+| Right-skew −1.6 | 0.0 | 27.2% |
+
+### What would change my mind (tripwires)
+
+- [ ] **By 2026-10-20:** Ra'am or the Joint List publicly commits to recommending Eisenkot → **+5 pp**; either publicly rules it out → **−5 pp**.
+- [ ] **By 2026-10-20:** the election is formally postponed past 27 Oct → **to ~2%**.
+- [ ] **By 2026-10-23 (final polls):** mainstream Netanyahu bloc (incl. Amcha) ≥ 55 → **−5 pp**; ≤ 49 → **+5 pp**.
+- [ ] **By 2026-10-23:** two or more named Yashar candidates refuse a minority government on Arab abstention → **−4 pp**.
+- [ ] **2026-10-28 (result known):** anti-Netanyahu Zionist bloc ≥ 61 without Arab lists → **to ~70%**; Netanyahu bloc ≥ 61 → **to ~3%**.
+- [ ] **By 2026-11-10:** the recommendation tally shows Eisenkot leading → **+15 pp**; Netanyahu leading → **to ~5%**.
+- [ ] **By 2026-11-16:** the first mandate goes to Eisenkot → **+15 pp**; to Netanyahu → **to ~5%**.
+- [ ] **By 2026-11-20:** the first mandate is assigned after 2026-11-16 → **−8 pp**.
+- [ ] **By 2026-12-17:** Netanyahu hospitalised with a transfer of powers > 5 days, a new serious diagnosis, or a pardon on retirement terms → **+8 pp**.
+
+### Sources
+
+1. Metaculus #40966, official API post JSON (bot key; aggregations hidden) — https://www.metaculus.com/questions/40966/ (accessed 2026-10-09; `raw/metaculus-api-2026-10-09.json`). Cohort values carried forward from `raw/metaculus-2026-09-18.json`
+2. Opinion polling for the 2026 Israeli legislative election — Wikipedia (raw wikitext), latest poll per house through 7–8 Oct — https://en.wikipedia.org/wiki/Opinion_polling_for_the_2026_Israeli_legislative_election (accessed 2026-10-09; cached in the sister question's `raw/wikipedia-polling-wikitext-2026-10-09.txt`)
+3. "Exclusive interview: Gadi Eisenkot lays out vision of change and repair for Israel" — The Jerusalem Post, 2026-09-24 — https://www.jpost.com/israel-election-2026/article-909543 (accessed 2026-10-09)
+4. "Central Elections Committee bars Arab Ra'am, Joint List parties from running in October elections" — The Jerusalem Post, 2026-09-23 — https://www.jpost.com/israel-news/politics-and-diplomacy/article-909454 (cited via the Wikipedia polling page, accessed 2026-10-09)
+5. The Times of Israel live blog, 2026-10-02 (the High Court reverses the bans; Abu Shehadeh withdraws) — https://www.timesofisrael.com/liveblog-october-02-2026/ (accessed 2026-10-09)
+6. JFeed, 2026-08-17 — Liberman: "There will be no minority government" — https://www.jfeed.com/news-israel/minority-government-coalition (accessed 2026-10-09)
+7. The Times of Israel live blog, 2026-10-08 (Avi Gil interview; Zamir/Iran postponement report; Ch13 poll) — https://www.timesofisrael.com/liveblog-october-08-2026/ (accessed 2026-10-09); "Eyal Zamir: Return to Iran war may postpone Israel election" — https://www.jpost.com/middle-east/iran-news/article-911125 (accessed 2026-10-09, via search summary)
+8. Polymarket gamma API: `netanyahu-out-before-2027`, `who-will-be-the-next-prime-minister-of-israel-after-the-next-election`, `israeli-election-results-in-a-hung-parliament`, `will-israel-election-happen-as-scheduled-20260720204824362`, `which-parties-will-win-a-seat-in-the-2026-knesset-elections` (accessed 2026-10-09; `raw/polymarket-*-2026-10-09.json`)
+9. "Israeli opposition leaders sign cooperation pact to oust Netanyahu" — JNS, 2026-09-27 — https://www.jns.org/news/israel-news/israeli-opposition-leaders-sign-cooperation-pact-to-oust-netanyahu (accessed 2026-10-09)
+10. "Hadash sets conditions for supporting Eisenkot bloc" — Arutz Sheva, 2026-08-26 — https://www.israelnationalnews.com/news/432244 (accessed 2026-10-09)
+11. Kalshi API, `KXISRAELPM-26OCT27` (accessed 2026-10-09; `raw/kalshi-KXISRAELPM-2026-10-09.json`)
+12. Manifold Markets API, "[ACX 2026] Will Benjamin Netanyahu cease to be Prime Minister of Israel during 2026?" (accessed 2026-10-09)
+13. v2 sources 13–15 (IDI government-formation explainer, Cabinet of Israel formation dates, ToI on the minority-government groundwork) carried forward, still relied on
+
+**Date**: 2026-10-09
+**Forecast**: Median 23.0%, IQR [17.0%, 30.0%]
+**Thesis**: The statutory clock still governs. Netanyahu stays caretaker PM until a successor is sworn in, so YES needs the first mandate to go to Eisenkot and a government to be sworn in by about 21–26 December. The bloc polls are flat (mainstream: opposition Zionist bloc 55, Netanyahu bloc 52, Arab lists 13) [2]. But Eisenkot's public rejection of Arab partners makes the recommendation and abstention route somewhat harder [3]. With the shorter horizon and a new postponement risk tied to Iran (Polymarket on-schedule 91.9%) [7][8], P(Eisenkot takes the first mandate) falls to 0.49 and the forecast to 23%. Real-money markets moved the same way (Polymarket out-by-Dec-31 46.5 → 37.5) [8].
 
 ---
 

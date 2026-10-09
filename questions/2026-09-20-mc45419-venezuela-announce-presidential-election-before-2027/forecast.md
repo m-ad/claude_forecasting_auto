@@ -4,11 +4,148 @@
 |---|---|
 | **Source** | Metaculus #45419 — https://www.metaculus.com/questions/45419/will-venezuela-announce-a-presidential-election-before-2027 |
 | **Type** | binary |
-| **Opened / Closes / Resolves** | upcoming (CP reveal 2026-09-23) / 2026-12-31 / 2027-01-01 |
+| **Opened / Closes / Resolves** | 2026-09-21 / 2026-12-31 / 2027-01-01 |
 | **Status** | open |
-| **Current forecast** | **Median 9.5%, IQR [6.5%, 14.0%]** (v1, 2026-09-20) |
-| **Community (as of 2026-09-20)** | no aggregation yet — question `upcoming`, n=6, CP reveal 2026-09-23 |
-| **Next review** | 2026-10-04 |
+| **Current forecast** | **Median 6.0%, IQR [4.0%, 9.0%]** (v2, 2026-10-09) |
+| **Community (as of 2026-10-09)** | fresh CP unavailable 2026-10-09 (Cloudflare block); no cached aggregation exists; n=120 forecasters (API, 2026-10-09) |
+| **Next review** | 2026-10-23 |
+
+---
+
+## v2 — Update — 2026-10-09
+
+Mode: **Update** (incremental). 19 of 102 days elapsed (~19% of the window); no market
+contradicts the prior by >10pp; question structure unchanged.
+
+### Revision table
+
+| Driver | Direction | Effect |
+|---|---|---|
+| Prior (v1, 2026-09-20) | — | Median 9.5%, IQR [6.5%, 14.0%] |
+| Rodríguez at UNGA (2026-09-23) promised elections with **no date, month or year**; Trump–Rodríguez meeting (2026-09-22) produced no public timetable [26][27][28] | ↓ | −1.0pp (the main near-term upside catalyst came and went empty) |
+| Reuters (2026-09-25): five sources say the vote may be **a year or more** away; two say unlikely before end-2027; CNE install + register update "up to a year" [29] | ↓ | −1.0pp (cuts A2 and A3) |
+| US posture: Rubio says institutions and economy first; administration sources point to a **summer/fall 2028** vote, 2027 "up in the air"; Sen. Moreno's 24 Jul 2027 called premature [28][30] | ↓ | −1.0pp (A3 0.80 → 0.65: a 2028 date is now the visible default) |
+| Sequencing made explicit: AN's TSJ timetable — nominations closed 2026-10-09, committee selection from 10-15, magistrates targeted for **November**, CNE rectors **December** (Dinorah Figuera, 2026-09-30) [31][32][33] | ↓ | −0.5pp (A1 ≈ 0.30; even on schedule a new CNE has only days in 2026 to publish a *cronograma*) |
+| Dialogue alive: round 2 closed 2026-09-25 with TSJ-renewal deal; round 3 set for mid-October, agenda on prisoners, exiles, disqualifications — still not electoral [31][34] | ↑/— | +0.0pp (keeps Path A breathing; no electoral item) |
+| Markets moved down in step: Polymarket Dec-31 leg 16.0% → 10.5%; Kalshi "held before 2027" 5.9¢ → 2.3¢; Manifold 14.8% → 8.1% (all 2026-10-09) | ↓ | −0.5pp (independent confirmation, partly the same news) |
+| Hazard decay: 19 quiet days of 102 elapsed | ↓ | absorbed in rows above |
+| **New forecast** | | **Median 6.0%, IQR [4.0%, 9.0%]** |
+
+### Tripwire check
+
+| Tripwire (v1) | Deadline | Status 2026-10-09 |
+|---|---|---|
+| TSJ declares Maduro's *falta absoluta* (Art. 233) → up 25pp | 2026-12-15 | **Not fired.** TSJ is being replaced, not ruling; no sign of a re-qualification |
+| Dialogue communiqué commits to a presidential date / dated calendar → up 12pp | 2026-11-15 | **Not fired.** Round 2 communiqué: TSJ renewal + candidate-credentials jurist committee only; round 3 mid-October |
+| New CNE rectors designated and sworn → up 8pp | 2026-11-30 | **Not fired.** Opposition target is now December, after TSJ (November) |
+| Trump/Rubio/State names a target year or quarter → up 6pp | 2026-10-15 | **Not fired.** Trump: "there must be elections", no date; a senior official called a date "an artificial deadline". Sen. Moreno's 2027-07-24 is a legislator's suggestion, not the administration's — does not count |
+| No new CNE by 2026-12-05 → down 5pp | 2026-12-05 | pending (now more likely: December is the stated *target*) |
+| Talks suspended / Machado faction repudiates → down 4pp | 2026-11-30 | **Not fired.** Machado still excluded and in exile; her supporters rallied (late Sept) for a 2027 timetable, but no formal repudiation |
+
+### What resolves YES
+
+unchanged from v1.
+
+### Outside view
+
+unchanged from v1, with the window now 83 days instead of 102: the slow-branch conditional
+hazard scales to ≈ 6.5% over the remaining window.
+
+### Inside view (re-weighted)
+
+| Step | v1 | v2 | Why |
+|---|---|---|---|
+| A1: new CNE seated by ~2026-12-20 | 0.40 | 0.30 | Opposition's own schedule puts it in December, after a November TSJ; these targets have slipped every round so far (TSJ-law reform was planned for late August, passed 1 Sept/mid-Sept) |
+| A2 \| A1: names a presidential date before 2027 | 0.21 | 0.15 | Reuters sources: after installing a CNE the authorities still must update rolls and settle manual vs electronic voting — "up to a year"; a CNE seated in mid-December has days, not weeks |
+| A3 \| A2: date before 2028 | 0.80 | 0.65 | US planning reportedly centres on 2028; a 2028 date is the natural stalling compromise |
+
+Path A: 0.30 × 0.15 × 0.65 ≈ **2.9%**. Path B (top-down bargain, legal shock, regime split):
+0.04 → **0.03** — the UNGA bargain window passed without a date, but Axios reported Trump
+pressing Rodríguez privately to call elections, so the tail is not dead.
+Combined: 1 − (0.971)(0.97) ≈ **5.8%** → median **6.0%**.
+
+### Evidence
+
+New since v1 (detail in the revision table and `research.md`):
+
+- Rodríguez at UNGA (2026-09-23) promised elections with no date, month or year; the Trump–Rodríguez meeting (2026-09-22) produced no public timetable [26][27][28].
+- Reuters (2026-09-25): five sources say the vote may be a year or more away; CNE installation plus register update could take up to a year [29].
+- US posture: Rubio puts institutions and economy first; administration sources reportedly point to a 2028 vote [28][30].
+- National Assembly sequencing: TSJ magistrates targeted for November, CNE rectors for December [31][32][33].
+- Dialogue round 2 closed 2026-09-25 with a TSJ-renewal deal; round 3 set for mid-October, agenda not electoral [31][34].
+- Polymarket, Kalshi and Manifold all moved down since 2026-09-20 [35][36][37].
+
+### Other forecasters
+
+| Source | Value | As of | Note |
+|---|---|---|---|
+| Metaculus CP / Pro / gold | **no cached aggregation** — last cached snapshot (`raw/metaculus-2026-09-20.json`) predates the 2026-09-23 CP reveal and has no history | 2026-09-20 | **fresh CP unavailable 2026-10-09 (Cloudflare block)**; official API (bot key) shows status `open`, **120 forecasters, 748 forecasts** (`raw/metaculus-api-2026-10-09.json`, 2026-10-09); aggregations hidden from bot keys. No cohort disagreement can be assessed |
+| Polymarket "Venezuela election scheduled by Dec 31, 2026?" | **10.5%** (bid 10 / ask 11) | 2026-10-09 | was 16.0% on 2026-09-20; $144k leg volume, $636k event. Looser criterion (any date before 2030). × P(date < 2028) ≈ 0.65 → **≈ 6.8%** on this question's criterion |
+| Kalshi KXELECTVENEZUELA-27JAN01 (election *held* before 2027) | last 2.3¢, bid 2.3 / ask 5.0 | 2026-10-09 | was 5.9¢ |
+| Kalshi KXELECTVENEZUELA-27JUN01 (*held* before 2027-06-01) | last 22¢, bid 23 / ask 28 | 2026-10-09 | thin, ~$20k volume; longshot-inflated; essentially unchanged |
+| Manifold "Presidential Election in Venezuela by EOY 2026?" | 8.1% | 2026-10-09 | 42 traders, play money — discounted (was 14.8%) |
+| Manifold "Free & Fair Presidential Election by EOY 2026?" | 8.4% | 2026-10-09 | 22 traders — discounted |
+
+Where I sit: 6.0% vs the criterion-adjusted Polymarket ≈ 6.8% — within 1pp. The Kalshi
+Jun-2027 leg at ~22–25% remains the one outlier I read as inflated: a vote held by June 2027
+would need a date announced within weeks of a December CNE and a <6-month run-up, against
+Machado's own 9–10-month estimate.
+
+### Scenarios
+
+| # | Scenario | Weight | Implies |
+|---|---|---|---|
+| 1 | Status-quo drift: TSJ renewal runs into Nov/Dec, CNE designation slips into 2027 | 77.0% | NO |
+| 2 | New CNE seated in December; registry audit / calendar deferred to 2027 | 14.0% | NO |
+| 3 | New CNE seated *and* publishes a *cronograma* with a 2027 presidential date before 2026-12-31 | 3.0% | **YES** |
+| 4 | Top-down announcement (Trump–Rodríguez bargain, legal shock, regime crisis) naming a pre-2028 date | 3.0% | **YES** |
+| 5 | A date is announced but for 2028+, or only for regional/legislative elections | 3.0% | NO |
+
+YES = 3.0 + 3.0 = **6.0%**. IQR [4.0%, 9.0%]: still skewed up because the remaining news
+is lumpy (round 3 in mid-October, TSJ designation in November) while the downside is mere
+silence.
+
+### Sensitivity
+
+| Assumption | If instead | Forecast becomes |
+|---|---|---|
+| A1 = 0.30 | 0.55 — TSJ and CNE packaged together in November | ~8% |
+| A2 = 0.15 | 0.40 — CNE designation comes bundled with a calendar as the deal's headline | ~10% |
+| A3 = 0.65 | 0.85 — US pushes for 2027 after debt talks | ~6.8% |
+| Path B = 0.03 | 0.08 — Trump publicly demands a 2027 date | ~11% |
+
+### What would change my mind (tripwires)
+
+- [ ] **Round-3 (or later) dialogue communiqué commits to a presidential election date or a dated electoral calendar**, by 2026-11-15 → **up, 10pp**
+- [ ] **New TSJ magistrates designated by the AN** by 2026-11-30 → **up, 2pp** (on-schedule precursor); not by then → **down, 2pp**
+- [ ] **New CNE rectors designated and sworn**, by 2026-12-10 → **up, 6pp**
+- [ ] **Trump, Rubio or the State Department publicly names a target year/quarter for the vote** (2027 → up 5pp; 2028 → down 2pp), by 2026-11-30
+- [ ] **TSJ declares *falta absoluta* under Art. 233**, by 2026-12-15 → **up, 25pp**
+- [ ] **No new CNE designated by 2026-12-10** → **down, 3pp** (Path A effectively dead; only Path B remains)
+- [ ] **Talks suspended or collapse, or Machado's faction formally repudiates the process**, by 2026-11-30 → **down, 2pp**
+
+### Sources
+
+Sources 1–25 as in v1; new in v2:
+
+
+26. MercoPress, "Delcy Rodríguez tells the UN there will be elections in Venezuela, without setting a date", 2026-09-24 — https://en.mercopress.com/2026/09/24/delcy-rodriguez-tells-the-un-there-will-be-elections-in-venezuela-without-setting-a-date (accessed 2026-10-09)
+27. US News / Reuters, "Venezuela's Rodriguez Promises Elections in Transition to 'Full Democracy'", 2026-09-23 — https://www.usnews.com/news/world/articles/2026-09-23/venezuelas-rodriguez-promises-elections (accessed 2026-10-09)
+28. CubaHeadlines, "Trump Discusses Venezuelan Elections with Delcy Rodríguez: Surprise Lies in Proposed Dates", 2026-09-24 — https://www.cubaheadlines.com/articles/341069 (accessed 2026-10-09; secondary reporting of administration sources — treat as indicative)
+29. Reuters via The Star, "Venezuela's promised elections face long delays, sources say", 2026-09-25/26 — https://www.thestar.com.my/news/world/2026/09/26/venezuela039s-promised-elections-face-long-delays-sources-say (accessed 2026-10-09)
+30. Moncloa.com, "Diálogo Venezuela presos políticos…" (Rubio: institutions and economy first), 2026-09-27 — https://www.moncloa.com/2026/09/27/dialogo-venezuela-presos-politicos-3438512/ (accessed 2026-10-09)
+31. eldiario.com, "Diputado Jorge Millán: Exigencias y retos para la democracia en Venezuela", 2026-10-08 — https://eldiario.com/2026/10/08/diputado-millan-negociacion-venezuela/ (accessed 2026-10-09)
+32. eldiario.com, "La Asamblea Nacional fijó un cronograma de trabajo para proceso de renovación del TSJ", 2026-09-30 — https://eldiario.com/2026/09/30/renovacion-tsj/ (accessed 2026-10-09)
+33. eldiario.com, "Dinorah Figuera prevé designación de nuevos magistrados del TSJ para noviembre", 2026-09-30 — https://eldiario.com/2026/09/30/dinorah-figuera-renovacion-tsj-noviembre/ (accessed 2026-10-09)
+34. Noticias SIN / EFE, "Gobierno venezolano y oposición retomarán diálogo en octubre", 2026-09-26 — https://noticiassin.com/mundo/venezuela/2026/09/26/gobierno-venezolano-y-oposicion-retomaran-dialogo-en-octubre-2128626 (accessed 2026-10-09)
+35. Polymarket gamma API, event `venezuela-presidential-election-scheduled-by` (`raw/polymarket-2026-10-09.json`) (accessed 2026-10-09)
+36. Kalshi trade API, KXELECTVENEZUELA-27JAN01 / -27JUN01 market endpoints (accessed 2026-10-09)
+37. Manifold search API, "Venezuela presidential election" (accessed 2026-10-09)
+38. Metaculus official API, post 45419 (`raw/metaculus-api-2026-10-09.json`, bot key, aggregations hidden) (accessed 2026-10-09)
+
+**Date**: 2026-10-09
+**Forecast**: Median 6.0%, IQR [4.0%, 9.0%]
+**Thesis**: The UNGA week passed without a date — Rodríguez promised elections with no year (2026-09-23), Trump set no timetable, and Reuters' sources (2026-09-25) put the vote a year or more out with US planning reportedly leaning to 2028. The reform sequence is TSJ in November then CNE in December (Figuera, 2026-09-30), leaving a new CNE days, not weeks, to publish a pre-2028 date; Polymarket's fall from 16% to 10.5% (≈6.8% on this question's stricter criterion) agrees.
 
 ---
 

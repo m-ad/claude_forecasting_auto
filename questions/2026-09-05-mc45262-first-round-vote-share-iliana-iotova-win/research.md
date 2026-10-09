@@ -183,3 +183,29 @@ Metaculus from pre-fetched `raw/metaculus-2026-09-24.json` (not re-fetched). New
 Dead ends: no DPS endorsement; no September named-candidate poll; Balkan Insight paywalled.
 
 Next time: first campaign poll (campaign starts 25 Sep); whether GERB tacitly helps Gyurov; DPS.
+
+---
+
+## 2026-10-09 — v3 re-analysis log
+
+Metaculus aggregations NOT fetched: browser path blocked by Cloudflare for this container's IP
+(verified by parent 3x). Official API metadata cached as `raw/metaculus-api-2026-10-09.json`
+(status open, nr_forecasters 133, closes 2026-10-24T22:59Z). News/polls snapshot in `raw/news-2026-10-09.json`.
+
+| Date | Source | Finding | Effect |
+|---|---|---|---|
+| 2026-10-09 | Sofia Globe / Novinite (Market Links, 26–29 Sep) | 41.4 / 21.9 / 6.4, undecided 20.4 → 51.6 decided; turnout ~40% | poll tripwire fired |
+| 2026-10-09 | Novinite (Alpha, 24 Sep–1 Oct) | 44.5 / 26.1 / 10.5; turnout 37–38% | lowest house |
+| 2026-10-09 | Mediapool (Trend, 26 Sep–2 Oct) | 47.8 / 24.6 / 9.7; 38% definitely vote | |
+| 2026-10-09 | Taralej/BTA (Myara, 26 Sep–4 Oct) | 46.9 / 25.3 / 8.8, NOTA 2.3; turnout 35.4 | |
+| 2026-10-09 | Taralej (Gallup, 26 Sep–6 Oct) | 44.9 raw / 47.8 decided; 24.8; 10.9; turnout ~36%; 12.5% late deciders | |
+| 2026-10-09 | Wikipedia poll table | Sova Harris 23–28 Sep: 50.2 / 23.7 / 12.7 (original release not found) | |
+| 2026-10-09 | PolitPro / Sofia Globe | April 2026: final polls PB 30–35 vs 44.6; exits 37.5–38.9 | +0.9 skew credit |
+| 2026-10-09 | PredScope | Polymarket winner Iotova 71% (23 Sep), ~$561k vol | winner market, not used |
+| 2026-10-09 | Searches GERB/DPS endorsement, govt approval Oct | none found | tripwires not fired |
+
+Poll mean 48.1, median 47.8 (n=6). v3: median 48.6, IQR [46.0, 51.4].
+
+Dead ends: banker.bg 403; no Sova Harris primary release; no Kalshi/Manifold vote-share market.
+
+Next time: final-week polls (~18–23 Oct); fresh Metaculus cohorts if the Cloudflare block lifts; GERB/DPS last-minute positioning.

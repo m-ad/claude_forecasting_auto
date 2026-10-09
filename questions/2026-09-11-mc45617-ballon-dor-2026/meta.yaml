@@ -16,51 +16,60 @@ dates:
   resolves: '2026-10-26'
 status: open
 current:
-  version: 3
-  date: '2026-09-30'
-  median: 0.5
+  version: 5
+  date: '2026-10-09'
+  median: 0.44
   iqr:
-  - 0.4
-  - 0.57
+  - 0.35
+  - 0.53
   community:
-    cp: 0.53
-    pro: 0.49
-    gold: 0.557
-    n_forecasters: 109
-    as_of: '2026-09-30'
-next_review: '2026-10-07'
+    cp: 0.465
+    pro: 0.441
+    gold: 0.456
+    n_forecasters: 123
+    as_of: '2026-10-09'
+next_review: '2026-10-16'
 tripwires:
-- signal: Credible report of the result (L'Equipe, RMC, The Athletic, Marca, AS, Mundo Deportivo, Bild) or of France
-    Football informing a player's camp
+- signal: Credible report of the result (L'Equipe, RMC, The Athletic, Marca, AS, Mundo
+    Deportivo, Bild) or of France Football informing a player's camp
   by: '2026-10-26'
   direction: either
   magnitude: 0
   magnitude_unit: pp
   fired: null
-- signal: Attendance/logistics tell - Bayern, Barcelona, FA or RFEF announce or leak that Kane or Yamal will or will
-    not travel to London (2024 template)
+- signal: Attendance/logistics tell - Bayern, Barcelona, FA or RFEF announce or leak
+    that Kane or Yamal will or will not travel to London (2024 template)
   by: '2026-10-26'
   direction: either
   magnitude: 0
   magnitude_unit: pp
   fired: null
-- signal: Polymarket Yamal above 0.62 or below 0.30 on at least $1M of fresh volume - move ~40% of the way after
-    checking the cause
+- signal: Polymarket Yamal above 0.55 or below 0.32 on at least $1M of fresh volume
+    - move ~40% of the way after checking the cause
   by: '2026-10-24'
   direction: either
   magnitude: 0
   magnitude_unit: pp
   fired: null
-- signal: At least 10 jurors publicly disclose their first-place vote before the ceremony - re-estimate from the sample
+- signal: At least 10 jurors publicly disclose their first-place vote before the ceremony
+    - re-estimate from the sample
   by: '2026-10-24'
   direction: either
   magnitude: 0
   magnitude_unit: pp
   fired: null
-- signal: Metaculus Pro and gold both more than 8pp from this vector on Kane
+- signal: Metaculus Pros and gold both move more than 8pp from this vector on Kane
+    or Yamal
   by: '2026-10-19'
   direction: either
   magnitude: 0
+  magnitude_unit: pp
+  fired: null
+- signal: Credible reporting that Rodri drew a large share of Spanish-bloc first places
+    (juror disclosures or a leak) - Kane +5pp, Yamal -5pp
+  by: '2026-10-26'
+  direction: up
+  magnitude: 5
   magnitude_unit: pp
   fired: null
 - signal: Ceremony postponed past 2026-10-26 or the official date is changed

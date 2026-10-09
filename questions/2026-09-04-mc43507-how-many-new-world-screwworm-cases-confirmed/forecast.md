@@ -6,9 +6,144 @@
 | **Type** | numeric — unit `cases` (cumulative animal cases, open both bounds, range 30,000–100,000, rounded to nearest 500) |
 | **Opened / Closes / Resolves** | ~2026-06-12 (CP revealed 2026-06-14) / 2027-07-01 / 2027-07-01, off the last USDA report before that date (~2027-06-29) |
 | **Status** | open |
-| **Current forecast** | **Median 67,000, IQR [61,500, 74,000]** (v1, 2026-09-04) |
-| **Community (as of 2026-09-03)** | CP 60,426 (n=29) · Pro 59,018 (n=5) · Gold 62,410 (n=15) · 43 forecasters total |
-| **Next review** | 2026-10-06 |
+| **Current forecast** | **Median 72,000, IQR [66,000, 79,000]** (v2, 2026-10-09) |
+| **Community (as of 2026-09-03, stale)** | CP 60,426 (n=29) · Pro 59,018 (n=5) · Gold 62,410 (n=15) — fresh CP unavailable 2026-10-09 (Cloudflare block); 47 forecasters per API 2026-10-09 |
+| **Next review** | 2026-11-03 |
+
+---
+
+## v2 — Update — 2026-10-09
+
+### What resolves YES
+
+Unchanged from v1 — see v1 below. Metaculus resolution criteria re-read from the API on 2026-10-09 and unchanged [B9].
+
+### Revision table
+
+| Driver | Direction | Effect on median | Evidence |
+|---|---|---|---|
+| **Prior (v1, 2026-09-04)** | — | **67,000, IQR [61,500, 74,000]** | — |
+| Realised path ahead of the v1 model: SENASICA 46,345 on 2026-10-06 vs ~45,000 the v1 baseline implied for that date | ↑ | +1,300 | [B1][B2] |
+| August "deceleration" (184 → 121/day) did not persist: USDA 35,402 (07-29) → 45,216 (09-30) = **156/day**; SENASICA 40,684 (09-02) → 46,345 (10-06) = 166/day. Sept-equivalent baseline raised 131 → 150/day | ↑ | +3,800 | [B1][B3][B4] |
+| Sterile-fly supply still ~100 M/week across Texas **and** Mexico (USDA, 2026-09-23); 500 M/week only "by next summer"; Texas outbreak (50 US cases) competes for flies. Scenario weight shifted 0.04 from suppression (B+D 0.42 → 0.38) to plateau/growth | ↑ | +500 | [B5][B3] |
+| Active cases flat ~1,900–2,050 through Sep–early Oct (no suppression signal, no surge); last 10 days at ~137/day consistent with the October seasonal index (0.95 × 150) | — | 0 | [B2][B4][B6] |
+| Rounding / shading toward the lower-baseline sensitivity (135/day → 70,000) given lumpy SENASICA cuts | ↓ | −600 | model runs |
+| **New forecast (v2)** | ↑ | **72,000, IQR [66,000, 79,000]** | — |
+
+### Tripwire check
+
+| Tripwire (v1) | Status 2026-10-09 | Note |
+|---|---|---|
+| SENASICA cumulative ≤ 45,500 by 2026-10-31 | **Not fired — effectively dead** | already 46,345 on 2026-10-06 |
+| SENASICA cumulative ≥ 48,500 by 2026-10-31 | **Partial / on track to fire** | needs +2,155 in 25 days = 86/day; current pace ~137–166/day projects ~49,800–50,500. Its +3,000–5,000 is already priced into v2 (baseline raise), do not double-count when it formally fires |
+| National active cases < 1,400 by 2026-11-30 | Not fired | 1,949 (10-06), 1,985 (10-08 cut) |
+| Metapa ≥ 90 M/week + southern dispersal by 2026-12-31 | Not fired (pending) | no production figure newer than 35 M/week (Aug); USDA describes Metapa as "ramping toward another 100 million" |
+| Metapa ≤ 60 M/week on 2026-12-31 | Pending | — |
+| First post-2027-03-01 cut > 57,000 | Pending | v2 now expects ~57–58k at 03-01 under the base path, so this tripwire is recalibrated to 60,000 below |
+| USDA stops publishing / SENASICA restates | Not fired | USDA cited 45,216 through 09-30 at a Texas House hearing (2026-10-02); APHIS page last modified 2026-10-07; Metaculus resolution criteria unchanged (API pull 2026-10-09) |
+| US-side escalation (border closure) | Not fired | Douglas AZ still open; Santa Teresa/Columbus NM under consideration (APHIS, 2026-10-07) |
+
+**Data quality note.** SENASICA cuts as reported in the press are lumpy and occasionally
+inconsistent (a "43,178 on 09-22" figure in one outlet contradicts 43,332 on 09-16 and is
+probably a typo for 44,178). The two independent long-span rates — USDA 156/day over 63 days,
+SENASICA 154/day from 08-18 to 10-06 — agree, which is why I trust the baseline revision
+more than any single interval.
+
+### Evidence — series update (cumulative animal cases, Mexico)
+
+| Cut date | Cumulative | Active | Source |
+|---|---|---|---|
+| 2026-09-02 | 40,684 | ~2,000 | v1 [11] |
+| 2026-09-13 | 42,871 | 1,880 | press via search index [B7] |
+| 2026-09-16 | 43,332 | 1,897 | press via search index [B7] |
+| 2026-09-26 | 44,974 | 1,917 | Tierra Fuerte, SENASICA cut [B4] |
+| 2026-09-30 | 45,216 (USDA) | 2,032 | The Texan, USDA figure [B3] |
+| 2026-10-06 | 46,121–46,345 | 1,949 | Periódico Correo [B6]; Tierra Fuerte [B2] |
+
+Implied daily incidence: Aug 18 → Oct 6 = **154/day**; Sep 26 → Oct 6 = 137/day.
+Staying at 60,426 (the stale CP) now needs (60,426 − 46,345)/266 = **53 cases/day** —
+a third of the realised September rate, sustained through June.
+
+### Outside view
+
+Unchanged from v1 — see v1 below.
+
+### Inside view
+
+Unchanged from v1 except: (a) the Sept-equivalent incidence baseline is 150/day, not 131;
+(b) the 2025 analogue cuts both ways — national active cases peaked on **2025-12-10**, not in
+September, so the winter brake may arrive later than my index assumes (Nov 0.80); against that,
+the active burden is now in the northern/highland states (Zacatecas 150, Puebla 144 active on
+10-03; Oaxaca 169) where the winter bites harder. I keep the v1 seasonal index.
+
+### Other forecasters
+
+| Source | Value | As of | Note |
+|---|---|---|---|
+| Metaculus CP | 60,426 · IQR [47,133, 75,217] | **2026-09-03 (stale)** | fresh CP unavailable 2026-10-09 (Cloudflare block); n=47 forecasters per API 2026-10-09 |
+| Metaculus Pro | 59,018 · IQR [48,343, 72,516] | 2026-09-03 (stale) | n=5 |
+| Metaculus gold | 62,410 · IQR [50,952, 75,945] | 2026-09-03 (stale) | n=15 |
+| Kalshi | — | 2026-10-09 | US-only screwworm contracts; no Mexico market (unchanged) |
+| Polymarket / Manifold / GJOpen / INFER | — | 2026-10-09 | no Mexico-count market found |
+
+The community's lower quartile (47,133) is now essentially history — the count passed it on
+~2026-10-12 at the current pace. If the CP has not moved, I am +11,600 above it; I attribute the
+gap to staleness, as in v1, and the September data strengthen that reading.
+
+### Scenarios
+
+Same structure as v1 (`raw/model-2026-10-09.py`), start 2026-10-06 at 46,345, Sept-equivalent
+baseline N(150, 15), 266 days, weights D 0.12 · B 0.26 · A 0.34 · C 0.20 · E 0.08.
+
+| # | Scenario | Weight | Median |
+|---|---|---|---|
+| D | Strong suppression | 0.12 | 62,000 |
+| B | Moderate suppression | 0.26 | 68,000 |
+| A | Flat plateau | 0.34 | 74,000 |
+| C | Renewed growth | 0.20 | 80,500 |
+| E | Autumn/spring surge | 0.08 | 88,000 |
+
+Model output: p5 59,500 · p10 62,000 · p25 66,500 · p50 72,500 · p75 79,500 · p90 86,500 ·
+p95 91,000. Adopted (shaded slightly toward the low-baseline run): **p5 59,000 · p10 61,500
+· p25 66,000 · p50 72,000 · p75 79,000 · p90 86,000 · p95 90,500**. P(< 60,426) ≈ 7%.
+
+### Sensitivity
+
+Baseline 135/day → 70,000 [64,500, 76,000]; 165/day → 75,000 [68,500, 82,500].
+
+### What would change my mind (tripwires, revised)
+
+- [ ] **SENASICA cumulative on/near 2026-11-30 ≤ 52,000** (≤ ~100/day from 10-06) → winter
+      brake early and deep; **−3,000**.
+- [ ] **SENASICA cumulative on/near 2026-11-30 ≥ 54,500** (≥ ~145/day, no autumn decline) →
+      **+3,000**.
+- [ ] **National active cases < 1,400 by 2026-11-30** → genuine suppression; **−5,000**.
+- [ ] **Metapa ≥ 90 M/week and southern dispersal by 2026-12-31** → **−4,000**; ≤ 60 M/week → **+2,000**.
+- [ ] **First cut after 2027-03-01 > 60,000** → shallow winter; **+4,000**. **< 56,000** → **−3,000**.
+- [ ] **USDA stops publishing / SENASICA restates the series** → annulment risk; re-read fine print.
+
+### Sources
+
+New in v2; v1 sources below remain valid.
+
+1. [B1] USDA APHIS Current Status of NWS (last modified 2026-10-07; Mexico total renders client-side, not readable here) — https://www.aphis.usda.gov/livestock-poultry-disease/stop-screwworm/current-status (accessed 2026-10-09); border-case CSV snapshotted to `raw/aphis-nws-weekly-status-2026-10-09.csv`
+2. [B2] "Chihuahua concentra 123 casos activos de gusano barrenador" — Tierra Fuerte (46,345 cumulative to 2026-10-06; 1,985 active to 2026-10-08) — https://www.tierrafuerte.mx/archivos/84201 (accessed 2026-10-09)
+3. [B3] "Texas House Agriculture Hearing Lauds New World Screwworm Response, Warns of Mexico Spread" — The Texan, 2026-10-05 (USDA: 45,216 Mexico cases through 2026-09-30, 2,032 active; 1.4 bn sterile flies released by 10-01) — https://thetexan.news/state/legislature/texas-state-house-news/texas-house-agriculture-hearing-lauds-new-world-screwworm-response-warns-of-mexico-spread/article_8fb0fe53-58a1-4fcf-8ab7-e66f1039239e.html (accessed 2026-10-09)
+4. [B4] "Reportan 388 afectaciones de gusano barrenador en Chihuahua" — Tierra Fuerte (44,974 cumulative, 1,917 active, cut 2026-09-26) — https://www.tierrafuerte.mx/archivos/83025 (accessed 2026-10-09)
+5. [B5] "USDA Tops 1 Billion Sterile Flies Released Against Screwworm as Eradication Remains Unfinished" — Nature World News, 2026-09-24 (~100 M/week across Texas and Mexico; 500 M/week "by next summer"; 50 US cases) — https://www.natureworldnews.com/articles/73357/20260924/usda-tops-1-billion-sterile-flies-released-against-screwworm-eradication-remains-unfinished.htm (accessed 2026-10-09)
+6. [B6] "Guanajuato suma 19 nuevos casos de gusano barrenador en dos días; hay 72 activos" — Periódico Correo, 2026-10-06 (46,121 cumulative; 1,949 active) — https://periodicocorreo.com.mx/vida-publica/2026/oct/06/guanajuato-suma-19-nuevos-casos-de-gusano-barrenador-en-dos-dias-hay-72-activos-168393.html (accessed 2026-10-09)
+7. [B6b] Periódico Correo, 2026-10-02 edition (2,032 active) — https://periodicocorreo.com.mx/vida-publica/2026/oct/02/con-inicio-de-octubre-guanajuato-vuelve-al-top-10-por-casos-activos-de-gusano-barrenador-168107.html (accessed 2026-10-09)
+8. [B7] Mid-September SENASICA cuts (42,871 @ 09-13; 43,332 @ 09-16) — read from web-search index summaries only, primary article not opened; treat as **unverified**. Sonora/Hermosillo, 1,880 active @ 09-15 — Excélsior — https://www.excelsior.com.mx/nacional/gusano-barrenador-hermosillo-sonora (accessed 2026-10-09)
+9. [B8] "Campeche rebasa los mil 200 casos…" — PorEsto, 2026-10-06 (state totals at 10-03 cut: Chiapas 7,944, Oaxaca 5,519, Veracruz 5,100) — https://www.poresto.com/campeche/2026/10/6/campeche-rebasa-mil-casos-gusano-barrenador-perros-afectados.html (accessed 2026-10-09)
+10. [B9] Metaculus API post JSON (bot key; aggregations hidden; criteria unchanged) — `raw/metaculus-api-2026-10-09.json` (retrieved 2026-10-09)
+
+**Date**: 2026-10-09
+**Forecast**: Median 72,000, IQR [66,000, 79,000]
+**Thesis**: Mexico reached 46,345 cumulative cases on 2026-10-06 (SENASICA) and USDA's own
+series ran at 156 cases/day from late July to end-September, so v1's August deceleration was
+noise; re-basing the seasonal model on ~150/day over the remaining 266 days, with sterile-fly
+supply still ~100 M/week shared with Texas, moves the median up 5,000. The winter brake
+(Dec–Mar) remains the main reason I sit below naive persistence (~80k+).
 
 ---
 

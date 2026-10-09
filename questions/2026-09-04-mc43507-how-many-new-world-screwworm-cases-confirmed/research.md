@@ -180,3 +180,17 @@ The community's lower quartile (47,133) implies +6,200 cases in ten months = 21/
 
 I sit ~11% above the CP in level terms, ~6,600 cases. Given the deceleration in the last
 four intervals I do **not** go as high as naive persistence (77k–83k) would suggest.
+
+---
+
+## Update log — 2026-10-09 (v2)
+
+- Metaculus: aggregation path Cloudflare-blocked; API JSON (bot key) cached at `raw/metaculus-api-2026-10-09.json`: status open, 47 forecasters, resolution criteria and fine print unchanged. Cohort numbers carried forward from 2026-09-04 and labelled stale.
+- SENASICA/USDA series extended to 2026-10-06: `raw/mexico-cumulative-series-2026-10-09.csv`. Key reads: USDA 45,216 through 09-30 (The Texan, 2026-10-05); SENASICA 44,974 @ 09-26 and 46,345 @ 10-06 (Tierra Fuerte). Long-span rate ~155/day; the v1 August deceleration did not persist.
+- Mid-September cuts (42,871 @ 09-13; 43,332 @ 09-16; "43,178 @ 09-22") come only from search-index summaries; the 09-22 value is internally inconsistent (likely 44,178). Not load-bearing.
+- APHIS current-status page: Mexico total renders client-side (not readable via WebFetch); last modified 2026-10-07; border-case CSV re-snapshotted (`raw/aphis-nws-weekly-status-2026-10-09.csv`, 450 rows; Sep-Oct near-border cases concentrated in Nuevo León and Coahuila).
+- Sterile flies: USDA ~100 M/week across Texas + Mexico (Rollins, 2026-09-23); 1.4 bn released by 10-01; 500 M/week target "by next summer". No Metapa production figure newer than August's 35 M/week found (searched Spanish and English).
+- US outbreak: 50 confirmed US animal cases by 2026-09-21 (48 TX, 2 NM) — relevant as competition for sterile flies.
+- Markets: no Mexico-count market on Kalshi/Polymarket/Manifold (searched 2026-10-09).
+- Model re-run: `raw/model-2026-10-09.py` (args: baseline). 150/day → median 72,500 [66,500, 79,500]; 135 → 70,000; 165 → 75,000.
+- Dead ends: "46 mil 345" exact-phrase search (index miss, but found via Tierra Fuerte fetch); APHIS Mexico total.
