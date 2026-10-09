@@ -1,0 +1,57 @@
+{
+  "post_id": 45330,
+  "question_id": 45519,
+  "title": "Which government will form after the 2026 New Zealand general election?",
+  "question_type": "multiple_choice",
+  "status": "upcoming",
+  "resolution": null,
+  "scheduled_close_time": "2026-11-06T23:59:00Z",
+  "cp_reveal_time": "2026-10-18T17:00:00Z",
+  "options": [
+    "Labour-led",
+    "National-led",
+    "None before January",
+    "Other"
+  ],
+  "scaling": {
+    "range_min": null,
+    "range_max": null,
+    "nominal_min": null,
+    "nominal_max": null,
+    "zero_point": null,
+    "open_upper_bound": false,
+    "open_lower_bound": false,
+    "inbound_outcome_count": null,
+    "continuous_range": null
+  },
+  "resolution_criteria": "This question will resolve according to the New Zealand government following the 2026 parliamentary elections based on the following criteria:\n\n* **Labour-led**, if the government formed is led by the Labour Party irrespective of which other parties are in coalition.\n* **National-led**, if the government formed is led by the National Party, irrespective of which other parties are in coalition.\n* **Other**, if the government formed is led by a party other than the Labour or National Party.\n\nIf no government is formed before January 2027, this question will resolve as **None before January**.\n\nThe New Zealand Government will be the primary source for resolution, such as the seating plan for the 55th Parliament.",
+  "fine_print": "Transitional/caretaker governments will not qualify for this question.",
+  "background": "New Zealand uses the [mixed-member proportional voting system](https://elections.nz/democracy-in-nz/what-is-new-zealands-system-of-government/what-is-mmp) to elect its House of Representatives. Voters can choose both a political party and a local candidate. Political parties that receive at least 5% of the party vote or at least one electorate seat receive seats in the House in proportion to the percentage of the party vote they receive. At this election, 71 of the 120 seats will be filled by the MPs elected from the electorate seats, determined by the first-past-the-post method. The remaining 49 seats will be filled by candidates from each party's closed party list. If a party wins more electorates than seats, extra seats may be filled to cover the \"overhang\".\n\nSince the introduction of this system in 1996, only once has a party won an outright majority of seats ([the Labour Party in 2020](https://archive.electionresults.govt.nz/electionresults_2020/)). Usually, parties negotiate to form a coalition or minority government. Pursuant to the [Government Formation](https://www.dpmc.govt.nz/our-business-units/cabinet-office/supporting-work-cabinet/cabinet-manual/6-elections-transitions-and-government-formation/government-formation) section of New Zealand’s Cabinet Manual, a government is formed when it is appointed by the Governor-General.&#x20;\n\nThe [current government](https://www3.parliament.nz/en/mps-and-electorates/house-seating-plan/) is led by the National Party with support from ACT and NZ First. The 2026 general election is expected to be [a tight race](https://election2026.nz/), with the National Party stating [they would not govern with the Opportunity Party](https://www.rnz.co.nz/news/politics/809555/national-rules-out-working-with-opportunity-party) and [the polls varying](https://en.wikipedia.org/wiki/Opinion_polling_for_the_2026_New_Zealand_general_election).&#x20;",
+  "nr_forecasters": 2,
+  "methods": {
+    "recency_weighted": {
+      "method": "recency_weighted",
+      "status": 200,
+      "history_points": 0,
+      "latest": null,
+      "history": []
+    },
+    "metaculus_pros": {
+      "method": "metaculus_pros",
+      "status": 200,
+      "history_points": 0,
+      "latest": null,
+      "history": []
+    },
+    "gold_medalists": {
+      "method": "gold_medalists",
+      "status": 200,
+      "history_points": 0,
+      "latest": null,
+      "history": []
+    }
+  },
+  "comments": [],
+  "label": null,
+  "subquestions": []
+}
