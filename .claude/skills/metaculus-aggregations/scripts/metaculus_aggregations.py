@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Metaculus Aggregation Explorer fetcher (v4.3, September 2026).
+Metaculus Aggregation Explorer fetcher (v4.4, October 2026).
 
 Pulls **structured numeric** aggregations straight from the JSON the Metaculus
 frontend consumes, for any aggregation method the Aggregation Explorer exposes:
@@ -95,6 +95,19 @@ Metaculus hides aggregations from bot accounts, so the token is never sent on
 the browser path: CP, Pros, gold medalists and comments stay anonymous-browser
 only. Python's default ``Python-urllib`` User-Agent is banned outright
 (Cloudflare error 1010); any honest custom UA passes.
+
+--------------------------------------------------------------------------
+PRE-OPEN QUESTIONS (v4.4)
+--------------------------------------------------------------------------
+In the pre-prediction phase (question ``status`` "upcoming", post ``status``
+"approved") the bot-key ``/api/posts/<id>/`` answers 200 with title, type,
+options and dates but ``description``, ``resolution_criteria`` and
+``fine_print`` all null -- no query parameter changes that -- while the
+anonymous ``/api-proxy/posts/<id>/`` JSON carries all three (verified
+2026-10-09, post 45255; an open post, 45670, returns full text on both).
+Before v4.4 the non-empty key response was accepted as-is, so the criteria of
+every upcoming question read as missing. A key response without any question
+text is now re-fetched through the browser, and kept only if that fails.
 
 --------------------------------------------------------------------------
 GROUP POSTS (v4.3)
@@ -754,11 +767,30 @@ def _group_questions(post: dict | None) -> list[dict]:
     return list(((post or {}).get("group_of_questions") or {}).get("questions") or [])
 
 
+_TEXT_KEYS = ("resolution_criteria", "fine_print", "description")
+
+
+def _has_text(post: dict | None) -> bool:
+    """Whether a post JSON carries any question text (criteria, fine print, background).
+
+    Before a question opens (status ``upcoming``) the bot-key ``/api/`` endpoint
+    returns the post with all three fields null, while the anonymous
+    ``/api-proxy/`` JSON has them -- so a non-empty post is not enough.
+    """
+    q = (post or {}).get("question") or (post or {}).get("group_of_questions") or {}
+    return any(q.get(k) for k in _TEXT_KEYS)
+
+
 def _lookup_post(fetcher: Any, post_id: int) -> dict:
-    """Post JSON via the API key, else via the browser; empty dict on failure."""
+    """Post JSON via the API key, else via the browser; empty dict on failure.
+
+    A key-path post without question text (see :func:`_has_text`) is re-fetched
+    through the browser, and kept only if the browser fails.
+    """
     post = fetch_post_api(post_id)
-    if not post:
-        _, post = fetcher.get_json(f"{_BASE}/posts/{post_id}/?with_cp=false")
+    if not _has_text(post):
+        _, browser_post = fetcher.get_json(f"{_BASE}/posts/{post_id}/?with_cp=false")
+        post = browser_post or post
     return post or {}
 
 
@@ -882,9 +914,7 @@ def _collect(
     if include_details:
         # A group's post JSON was already looked up; reuse it.
         if not post:
-            post = fetch_post_api(post_id)
-        if not post:
-            _, post = fetcher.get_json(f"{_BASE}/posts/{post_id}/?with_cp=false")
+            post = _lookup_post(fetcher, post_id)
         # A group keeps its criteria on the group, not on any one question.
         q = post.get("question") or post.get("group_of_questions") or {}
         result.resolution_criteria = q.get("resolution_criteria")

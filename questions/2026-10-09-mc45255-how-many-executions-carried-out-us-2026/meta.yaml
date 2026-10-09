@@ -1,0 +1,80 @@
+slug: 2026-10-09-mc45255-how-many-executions-carried-out-us-2026
+title: How many executions will be carried out in the US in 2026?
+source: metaculus
+url: https://www.metaculus.com/questions/45255/how-many-executions-will-be-carried-out-in-the-us-in-2026
+post_id: 45255
+type: multiple_choice
+unit: null
+tags:
+- death-penalty
+- us
+- metaculus-cup-fall-2026
+dates:
+  created: '2026-10-09'
+  opened: '2026-10-12'
+  closes: '2026-12-02'
+  resolves: '2027-01-01'
+status: open
+current:
+  version: 2
+  date: '2026-10-09'
+  median: 0.36
+  iqr:
+  - 0.28
+  - 0.45
+  community:
+    cp: null
+    pro: null
+    gold: null
+    n_forecasters: 1
+    as_of: '2026-10-09'
+next_review: '2026-10-16'
+tripwires:
+- signal: Robertson (FL, Oct 13) or Reaves (FL, Oct 20) not executed on schedule — moves "More than 41"
+  by: '2026-10-20'
+  direction: down
+  magnitude: 6
+  magnitude_unit: pp
+  fired: null
+- signal: DeSantis signs a new death warrant for a mid/late-November date — moves "More than 41"
+  by: '2026-10-24'
+  direction: up
+  magnitude: 5
+  magnitude_unit: pp
+  fired: null
+- signal: No new Florida death warrant signed after Oct 5 — moves "More than 41"
+  by: '2026-10-31'
+  direction: down
+  magnitude: 10
+  magnitude_unit: pp
+  fired: null
+- signal: Oklahoma Pardon and Parole Board recommends clemency for James Pavatt — moves "More than 41"
+  by: '2026-10-14'
+  direction: down
+  magnitude: 4
+  magnitude_unit: pp
+  fired: null
+- signal: Hasan files federal habeas petition with stay request — moves "More than 41"
+  by: '2026-11-20'
+  direction: down
+  magnitude: 4
+  magnitude_unit: pp
+  fired: null
+- signal: Weisheit (IN) stayed, granted clemency, or Indiana fails to obtain drugs — moves "More than
+    41"
+  by: '2026-11-04'
+  direction: down
+  magnitude: 4
+  magnitude_unit: pp
+  fired: null
+- signal: Published resolution text uses a source/definition other than DPIC calendar-year count (e.g.
+    excludes military)
+  by: '2026-10-12'
+  direction: either
+  magnitude: 0
+  magnitude_unit: pp
+  fired: false
+resolution:
+  outcome: null
+  date: null
+  source: null

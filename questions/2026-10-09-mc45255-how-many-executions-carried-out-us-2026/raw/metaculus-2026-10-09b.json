@@ -1,0 +1,58 @@
+{
+  "post_id": 45255,
+  "question_id": 45444,
+  "title": "How many executions will be carried out in the US in 2026?",
+  "question_type": "multiple_choice",
+  "status": "upcoming",
+  "resolution": null,
+  "scheduled_close_time": "2026-12-02T23:59:00Z",
+  "cp_reveal_time": "2026-10-15T17:00:00Z",
+  "options": [
+    "Fewer than 39",
+    "39",
+    "40",
+    "41",
+    "More than 41"
+  ],
+  "scaling": {
+    "range_min": null,
+    "range_max": null,
+    "nominal_min": null,
+    "nominal_max": null,
+    "zero_point": null,
+    "open_upper_bound": false,
+    "open_lower_bound": false,
+    "inbound_outcome_count": null,
+    "continuous_range": null
+  },
+  "resolution_criteria": "This question resolves as the total number of people in the United States who were executed by state and federal governmental authorities in 2026, according to the [Death Penalty Information Center](https://deathpenaltyinfo.org/facts-and-research/data/executions) (DPIC).&#x20;",
+  "fine_print": "This question may also resolve according to [credible sources](https://www.metaculus.com/faq/#definitions). Please note that US military executions count even if they are not included in the DPIC total.",
+  "background": "The US death-row population has declined for 20 consecutive years, with around 2,100 [prisoners currently facing execution](https://deathpenaltyinfo.org/death-row/overview). However, capital punishment remains in the headlines, in part due to [Florida's increasing numbers of executions](https://www.nytimes.com/2026/06/30/magazine/florida-death-penalty.html). In mid August, [Florida executed its 13th death row prisoner of the year](https://apnews.com/article/florida-execution-william-silvia-9ece9e5bba0484cdd83e53fd0918145a). Texas remains the state with the most executions since the reinstatement of the death penalty in the 1970s.\n\nNot all executions that are planned go ahead [on schedule](https://deathpenaltyinfo.org/executions/upcoming-executions/outcomes-of-warrants/outcomes-of-death-warrants-in-2026), either due to reprieves, appeals, executive orders, or in the case of [Christa Pike in Tennessee](https://deathpenaltyinfo.org/tag/christa-pike), a failed execution. A review was called for by the Governor and [the Department of Correction Commissioner resigned](https://www.nytimes.com/2026/10/03/us/tennessee-prison-commissioner-resigns-christa-pike.html). However, [the 30th person executed of the year](https://www.local10.com/news/2026/10/07/texas-carries-out-nations-first-execution-since-christa-pikes-failed-lethal-injection/) occurred a week later in Texas.&#x20;\n\n[Nine more executions are scheduled](https://deathpenaltyinfo.org/executions/upcoming-executions) to take place between October 13 and December 31, 2026. If they all go ahead, the total for the nation in 2026 would be 39.",
+  "nr_forecasters": 1,
+  "methods": {
+    "recency_weighted": {
+      "method": "recency_weighted",
+      "status": 200,
+      "history_points": 0,
+      "latest": null,
+      "history": []
+    },
+    "metaculus_pros": {
+      "method": "metaculus_pros",
+      "status": 200,
+      "history_points": 0,
+      "latest": null,
+      "history": []
+    },
+    "gold_medalists": {
+      "method": "gold_medalists",
+      "status": 200,
+      "history_points": 0,
+      "latest": null,
+      "history": []
+    }
+  },
+  "comments": [],
+  "label": null,
+  "subquestions": []
+}

@@ -40,6 +40,11 @@ Read resolution criteria, fine print, background, and the top comments (comments
 contain the resolution ambiguity everyone else already found). Write the "What resolves YES"
 digest into `forecast.md` now, before forming any opinion.
 
+Metaculus always publishes the criteria, including for questions still in the pre-prediction
+phase (`status: upcoming` — `new_question.py` warns). If they come back `null`, that is a fetch
+failure, not "not yet published": re-run once after ~3 min, and never forecast on an assumed
+resolution source while the real text is one fetch away.
+
 **Deliberately do not anchor yet**: note the CP but do your own Step 3–4 before reconciling.
 
 ## Step 3 — Outside view

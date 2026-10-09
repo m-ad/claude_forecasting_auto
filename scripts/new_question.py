@@ -41,6 +41,11 @@ def _shared_type(subqs: list[dict[str, Any]]) -> str | None:
     return types.pop() if len(types) == 1 else None
 
 
+def _day(ts: str | None) -> str | None:
+    """The ``YYYY-MM-DD`` part of an ISO timestamp, or None."""
+    return (ts or "")[:10] or None
+
+
 def fetch_metaculus(post_id: int) -> dict[str, Any]:
     """Pull title/type/close-time for a Metaculus post, tolerating failure.
 
@@ -67,8 +72,13 @@ def fetch_metaculus(post_id: int) -> dict[str, Any]:
                 # Without this a group came back typeless and was silently
                 # scaffolded as the --type default, "binary".
                 "type": q.get("type") or _shared_type(subqs),
-                "closes": (post.get("scheduled_close_time") or "")[:10] or None,
-                "status": post.get("status"),
+                "opens": _day(post.get("open_time") or q.get("open_time")),
+                "closes": _day(post.get("scheduled_close_time")),
+                "resolves": _day(post.get("scheduled_resolve_time")),
+                "cp_reveal": _day(q.get("cp_reveal_time")),
+                # The post reads "approved" before opening; only the question
+                # says "upcoming", which is what the pre-open warning keys on.
+                "status": q.get("status") or post.get("status"),
                 "nr_forecasters": post.get("nr_forecasters"),
                 "subquestions": subqs,
             }
@@ -79,7 +89,8 @@ def fetch_metaculus(post_id: int) -> dict[str, Any]:
     return {
         "title": res.title,
         "type": res.question_type,
-        "closes": (res.scheduled_close_time or "")[:10] or None,
+        "closes": _day(res.scheduled_close_time),
+        "cp_reveal": _day(res.cp_reveal_time),
         "status": res.status,
         "nr_forecasters": res.nr_forecasters,
         "subquestions": [
@@ -127,13 +138,27 @@ def main() -> None:
             post_id = int(m.group(1))
 
     source = args.source or ("metaculus" if post_id else "other")
-    title, qtype, closes = args.title, args.type, None
+    title, qtype = args.title, args.type
+    dates: dict[str, str | None] = {}
 
     if source == "metaculus" and post_id:
         meta_remote = fetch_metaculus(post_id)
         title = title or meta_remote.get("title")
         qtype = meta_remote.get("type") or qtype
-        closes = meta_remote.get("closes")
+        dates = {
+            "opened": meta_remote.get("opens"),
+            "closes": meta_remote.get("closes"),
+            "resolves": meta_remote.get("resolves"),
+        }
+        if meta_remote.get("status") == "upcoming":
+            print(
+                f"note: post {post_id} is not open yet (opens "
+                f"{meta_remote.get('opens') or '?'}, CP reveal "
+                f"{meta_remote.get('cp_reveal') or '?'}). Its resolution criteria "
+                "ARE published, but the API key's endpoint hides them before "
+                "opening; read them from metaculus_aggregations.py (browser path).",
+                file=sys.stderr,
+            )
         # Diagnostics go to stderr so stdout keeps its shape: slug, then path.
         subqs = meta_remote.get("subquestions") or []
         if subqs:
@@ -179,11 +204,11 @@ def main() -> None:
     for name in ("meta.yaml", "forecast.md", "research.md"):
         (folder / name).write_text(render(TEMPLATES / name, mapping), encoding="utf-8")
 
-    if closes:
-        text = (folder / "meta.yaml").read_text(encoding="utf-8")
-        (folder / "meta.yaml").write_text(
-            text.replace("  closes: null", f'  closes: "{closes}"'), encoding="utf-8"
-        )
+    text = (folder / "meta.yaml").read_text(encoding="utf-8")
+    for key, day in dates.items():
+        if day:
+            text = text.replace(f"  {key}: null", f'  {key}: "{day}"', 1)
+    (folder / "meta.yaml").write_text(text, encoding="utf-8")
 
     print(slug)
     print(f"created {folder.relative_to(REPO)}")

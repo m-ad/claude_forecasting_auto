@@ -40,6 +40,11 @@ resolution criteria, and comments — in ~20 s for a cold run.
   It does **not** replace the browser for the numbers: the key is a bot account, and
   Metaculus returns null aggregations to bots, 403s the Aggregation Explorer and restricts
   comments (verified 2026-09-26). `fetch_post_api(post_id)` exposes the raw post JSON.
+  **Before a question opens** (`status=upcoming`, the pre-prediction phase) the key's endpoint
+  also returns description, resolution criteria and fine print as `null`, although they are
+  published and the anonymous browser JSON carries them (verified 2026-10-09, post 45255).
+  Since v4.4 a text-less key response falls back to the browser automatically; call
+  `fetch_post_api` directly and you get the nulls.
 
 ## Finding the post ID
 
@@ -226,6 +231,7 @@ you fall back to it in a reset-prone environment, set `METACULUS_FORCE_TLS12=1` 
 | `Executable doesn't exist at .../chromium_headless_shell-<n>` | Playwright was upgraded past the Chromium build the image ships | The script pins `/opt/pw-browsers/chromium`; don't remove that, or override `PLAYWRIGHT_CHROMIUM_EXECUTABLE_PATH` |
 | `Looks like Playwright was just installed... run playwright install` | `PLAYWRIGHT_BROWSERS_PATH` unset | The script sets it when `/opt/pw-browsers` exists; don't remove that |
 | `latest` is `None` for all cohorts | Question is `upcoming` / CP not revealed | Expected — report "no community data yet" |
+| `resolution_criteria` / `fine_print` / `background` all `None` | Since v4.4 only when the browser fallback *also* failed (the key's endpoint hides them before opening). Metaculus always publishes criteria, also for `upcoming` questions | A fetch failure, never "criteria not published": wait ~3 min and re-run once |
 | `res.methods` is empty but `res.subquestions` is not | Group post | Expected — read each subquestion's `methods`; see "Group posts" |
 | `RuntimeError: ... last status 400` | Metaculus rejected the query; for a post that is *not* a group this is unexpected | Check the post id. Groups are handled automatically, so the post itself is the likely problem |
 | Only community shows, pros/gold `None` | Those cohorts genuinely have no forecasters on this question | Expected for low-traffic questions |
