@@ -6,11 +6,173 @@
 | **Type** | multiple choice — 7 options: Dembélé · **Kane** · Kvaratskhelia · Mbappé · Rodri · Yamal · **Other** |
 | **Opened / Closes / Resolves** | — / 2026-10-26 09:00 UTC / **2026-10-26** (ceremony, London) |
 | **Status** | open |
-| **Current forecast** | **Kane 51.0%, Yamal 32.0%, Mbappé 5.5%, Other 5.5%, Rodri 3.5%, Kvaratskhelia 1.5%, Dembélé 1.0%** — IQR on Kane [42.0%, 58.0%] (v4, 2026-10-09) |
-| **Community** | Metaculus: fresh CP unavailable 2026-10-09 (Cloudflare block); last cached (2026-09-30) Kane CP 53.0 / Pros 49.0 / gold 55.7; n=126 forecasters (API, 2026-10-09). Polymarket Kane 52.3 / Yamal 39.8; Kalshi 52 / 42 (2026-10-09) |
+| **Current forecast** | **Kane 44.0%, Yamal 43.0%, Other 4.5%, Mbappé 3.5%, Rodri 3.0%, Kvaratskhelia 1.0%, Dembélé 1.0%** — IQR on Kane [35.0%, 53.0%] (v5, 2026-10-09) |
+| **Community (as of 2026-10-09)** | Metaculus Kane / Yamal: CP 46.5 / 44.3 (n=123) · Pros 44.1 / 45.0 (n=10) · gold 45.6 / 45.6 (n=31). Polymarket 52.25 / 40.1; Kalshi 52 / 42 |
 | **Next review** | 2026-10-16 |
 
 <!-- Versions below, newest first. APPEND-ONLY: never edit or delete a past version. -->
+
+---
+
+## v5 — Re-analysis — 2026-10-09
+
+**Mode: Re-analysis** of the outside view; the inside view is carried from v2. Same day as
+v4. The trigger: fresh Metaculus aggregations, which v4 could not see because of a Cloudflare
+block. Since the 30 Sep snapshot, Pros moved Kane 49.0 → 44.1 / Yamal 37.0 → 45.0, and gold
+medalists moved 55.7 → 45.6 / 30.4 → 45.6 [1]. Both cohorts now sit ~13pp above v4 on Yamal.
+They agree with each other and disagree with me, so per AGENTS.md §4 I went looking for the
+fact I had missed before defending v4. **I found it in my own v1 outside view.** That counts as
+a structural change to the analysis, so this is a re-analysis, not an incremental update.
+
+**The missed fact: v1's World-Cup-year reference class used the wrong cycle.** v1 scored
+"Ballon d'Or goes to a player of the World-Cup-winning nation" as **0 of 4 (2010, 2014, 2018,
+2022)** and concluded that "a WC win alone has never been enough". But the 2022 Ballon d'Or
+(Benzema) covered the 2021–22 season, which ended before the Qatar World Cup. The Qatar World
+Cup (Nov–Dec 2022) fell inside the **2023** award's 1 Aug 2022 – 31 Jul 2023 window, and
+**Messi won it**: World Cup winner and Golden Ball, 462 points to Haaland's 357, with 65
+first-place votes, after Haaland's record-scoring treble season [7][8]. The corrected classes:
+
+| Class | v1 said | Corrected | Note |
+|---|---|---|---|
+| Winner is from the World-Cup-winning nation, in World Cup cycles since 2010 | 0 of 4 | **1 of 4** (2023 Messi) | 2010 and 2014 were decided by the merged FIFA ballot, with national-team coaches and captains voting alongside journalists |
+| World Cup Golden Ball winner takes the Ballon d'Or in the same cycle | 1 of 4 | **2 of 4** (Modrić 2018, Messi 2023) | helps Rodri, not Yamal |
+| **Journalist-only electorate: the winner played in that World Cup's final** | not computed | **6 of 6** (1998 Zidane, 2002 Ronaldo, 2006 Cannavaro, 2010 Sneijder on the journalists' sub-vote, 2018 Modrić, 2023 Messi) | Kane fails this screen (England finished 3rd); Yamal and Rodri pass. Zidane, Ronaldo and Cannavaro are recalled, not re-verified this session, and match the table in @sai_39's comment [1]. The 2010 journalists' sub-vote is from [9][10]. 2014's journalist split is unknown |
+| Journalist-only electorate: winner is from the World-Cup-winning nation | not computed | **4 of 6** | the misses are 2010 (Sneijder, Netherlands, finalist) and 2018 (Modrić, Croatia, finalist) |
+
+The closest analogue is **2023: Haaland vs Messi**, a record scoring season and a treble against
+a World Cup winner, and the World Cup won comfortably. 2023 differs in two ways. Messi also
+took the Golden Ball, which in 2026 went to Rodri, not Yamal. And Haaland's treble included the
+Champions League, which Kane's season did not. The **2010 journalists' sub-vote** is the
+precedent for v1's "Spain's vote fragments" thesis: Iniesta (226) and Xavi (229) together
+out-polled Sneijder (293), yet he won [10]. That precedent still needs a finalist to come
+through the middle, not a semi-finalist.
+
+So the outside view, corrected, **favours a Spanish winner, chiefly Yamal**. v1 had it pointing
+the other way, and every later version inherited that.
+
+### Revision table
+
+| Driver | Direction | Effect |
+|---|---|---|
+| **Prior (v4, 2026-10-09)** | — | Kane **51.0%** (IQR [42.0, 58.0]), Yamal 32.0, Mbappé 5.5, Other 5.5, Rodri 3.5, Kvaratskhelia 1.5, Dembélé 1.0 |
+| **Reference-class correction (v1 error).** The "0 of 4" World-Cup-year class was wrong: 2023 Messi belongs in it. The journalist-only "winner played in the final" screen is 6 of 6, and Kane fails it [7][8][9][10]. Small n, and the eligibility window is new: it closes on the day of the final. That is why I move only part of the way. Likelihood ratio Yamal:Kane ≈ 1.4. Mbappé also fails the screen, since Real Madrid went out in the quarter-final | Kane ↓, Yamal ↑, Mbappé ↓ | Kane −5.0, Yamal +6.0, Mbappé −1.0 |
+| **Metaculus Pros and gold medalists are level at ~45/45** [1], with tight cohort IQRs (Pros: Kane [44.1, 46.5], Yamal [43.7, 45.1]). That puts them ~5pp more pro-Yamal than the real-money markets. At least one Pro forecast was updated on 8 Oct, after the market fell back. Part of the cohort move is market-following: @sai_39 (2 Oct) cites Polymarket at 58, and @Russell-viper (8 Oct) "had to agree with overall market's consensus" [1]. So half weight; the other half is the same evidence counted twice | Kane ↓, Yamal ↑ | Kane −2.0, Yamal +3.0, Other −1.0 |
+| **Tails toward the cohorts and markets.** Mbappé: CP 3.1, Pros 3.6, gold 3.0, Polymarket 2.25, Kalshi 5. Rodri: 2.0 / 2.0 / 2.0 / 1.05 / ≤1. Kvaratskhelia: ~1.0 / 1.3 / 1.0 / 0.45 [1][2][3]. Rodri is trimmed less than the anchors suggest because he passes both corrected screens. The freed mass goes to Yamal, where both the cohorts and the markets put it | Mbappé ↓, Rodri ↓, Kvara ↓, Yamal ↑ | Mbappé −1.0, Rodri −0.5, Kvara −0.5, Yamal +2.0 |
+| **Markets unchanged since v4 (re-fetched 05:09 UTC).** Polymarket Kane 52.25 / Yamal 40.1 on $46.3M of volume; Kalshi 52 / 42 [2][3]. A $46M book still has Kane ahead and knows the same base rates. It is the main reason I stop at a near-tie and do not follow the corrected outside view further | — | 0 (holds Kane up) |
+| **"Leaks" since 30 Sep: no information.** *The Touchline* "confirms" only that Yamal and Kane are the top two, with no order; a Canal+ journalist (Garétier) calls that "plausible" on the strength of betting odds [5]. A viral FullTime X post ("Yamal 1st, Mbappé 2nd") was flagged as a fabricated image with inconsistent rankings [6]. Likelihood ratio ≈ 1 | — | 0 |
+| **New forecast (v5)** | | Kane **44.0%** (IQR [35.0, 53.0]), Yamal 43.0, Other 4.5, Mbappé 3.5, Rodri 3.0, Kvaratskhelia 1.0, Dembélé 1.0 |
+
+**Why not go all the way to the corrected outside view?** Taken alone, a 6-of-6 screen would put
+Kane near 25%. But n is six, and the eligibility window is new: in 2023, Qatar sat mid-season,
+whereas in 2026 the window *ends* on the day of the final. Kane's 61-goal, Golden Shoe season
+has no precedent among the losers in that class. And the $46M market and the Metaculus cohorts
+can see the same history I can, yet still have Kane level with or ahead of Yamal. Pros and gold
+hold Kane at 44–46. I land in the middle of my three anchors (markets 52, cohorts 45, corrected
+outside view ~25–35), weighted toward the anchors.
+
+**IQR on Kane** [42, 58] → [35, 53]. It widens because my own error shows the model was less
+reliable than its stated width implied.
+
+### Tripwire check (v4 list)
+
+| Tripwire | Status | Evidence |
+|---|---|---|
+| Credible report of the result (L'Équipe, RMC, *The Athletic*, Marca, AS, *Mundo Deportivo*, *Bild*) or France Football informing a camp (by 10-26) | **Not fired** | *The Touchline* gives the top two with no order; FullTime's image was fabricated; FF says the result stays secret until 26 Oct [5][6] |
+| Attendance/logistics tell (by 10-26) | **Not fired** (not yet due) | Nothing found |
+| Polymarket Yamal > 0.62 or < 0.30 on ≥ $1M fresh volume (by 10-24) | **Not fired** | 0.401 at 05:09 UTC; 0.4405 at 00:00 UTC on 8 Oct [2][4] |
+| ≥ 10 jurors disclose a first-place vote (by 10-24) | **Not fired** | None found |
+| Metaculus Pro and gold both > 8pp from the v4 vector on Kane (by 10-19) | **Partially fired** | On Kane: Pros −6.9, gold −5.4 (under the 8pp bar). On Yamal: Pros +13.0, gold +13.6 (both over it). Re-derivation done: it is what found the reference-class error |
+| Ceremony postponed past 2026-10-26 | **Not fired** | Still 26 Oct, London [11] |
+
+### What resolves YES
+
+Unchanged from v3: ballots closed 27–28 Sep, the result is fixed, and the question resolves on
+the 26 Oct ceremony. Messi still counts under Other.
+
+### Outside view
+
+**Re-derived; see the table at the top of this version.** It replaces v1's World-Cup-year rows.
+v1's other classes stand: the 12-of-12 Champions-League-semi-final screen (Kane passes,
+Mbappé fails), the trophy class, and the discarded Polymarket class. The two surviving screens
+now point in opposite directions: the CL-semi-final screen favours Kane, the World-Cup-final
+screen favours Yamal and Rodri. The World Cup screen is the more relevant one in a World Cup
+year, but it rests on n = 6.
+
+### Inside view
+
+Unchanged from v2: breadth on a ten-deep ballot from 100 journalists, and whether Spain's vote
+consolidates. One change of emphasis. The question is no longer whether Spain consolidates
+*enough to overcome a base rate against it*, but whether it fragments *enough to forfeit a base
+rate in its favour*. Rodri's Golden Ball is the main fragmentation risk; @DeRuina makes the same
+point [1].
+
+### Evidence
+
+Unchanged from v4. New today: the corrected reference class [7][8][9][10], the fresh
+Metaculus cohorts and comments [1], the re-fetched markets [2][3], and two non-informative
+"leak" items [5][6].
+
+### Scenarios
+
+Weights follow the new vector. Spain fragments or Kane's numbers carry (Kane) 0.44 · the World
+Cup screen holds and Yamal converts (Yamal) 0.43 · off-list, chiefly Messi (Other) 0.045 · raw
+numbers carry Mbappé 0.035 · the Golden Ball template (Rodri) 0.03 · Kvaratskhelia 0.01 ·
+Dembélé repeats 0.01.
+
+### Sensitivity
+
+| Assumption | If instead | Forecast becomes |
+|---|---|---|
+| Corrected outside view gets ~1/3 weight against the markets and cohorts | Full weight (6 of 6 taken at face value) | Kane ~30, Yamal ~55 |
+| Same | No weight (follow the markets) | Kane ~52, Yamal ~41 |
+| Cohort move is half market-following | Cohorts are fully independent judgement | Kane ~42, Yamal ~45 |
+| Rodri splits Spain's vote only modestly | Rodri took a large share of Spanish first places | Kane +5, Yamal −5 |
+
+### Other forecasters (2026-10-09)
+
+| Source | Kane | Yamal | Mbappé | Rodri | Other | Kvara | Dembélé | Note |
+|---|---|---|---|---|---|---|---|---|
+| **This (v5)** | **44.0** | **43.0** | **3.5** | **3.0** | **4.5** | **1.0** | **1.0** | |
+| Metaculus CP | 46.5 | 44.3 | 3.1 | 2.0 | 2.3 | 1.0 | 0.7 | n=123; as of 2026-10-09 02:48 UTC [1] |
+| Metaculus Pros | 44.1 | 45.0 | 3.6 | 2.0 | 3.0 | 1.3 | 1.0 | n=10 [1] |
+| Metaculus gold | 45.6 | 45.6 | 3.0 | 2.0 | 2.0 | 1.0 | 0.7 | n=31 [1] |
+| **Polymarket** (05:09 UTC) | 52.25 | 40.1 | 2.25 | 1.05 | ~5.3 (Messi 3.15, Olise 0.45) | 0.45 | 0.35 | $46.3M volume, $9.4M liquidity; book sums to 100.8% [2] |
+| Kalshi (05:09 UTC) | 52 | 42 | 5 | ≤1 | Messi 4 | ≤1 | ≤1 | last trade; Kane bid/ask 50/52 [3] |
+
+**Cohort vs market disagreement.** The three Metaculus cohorts now agree with one another,
+with all three within 2.4pp on both leaders. Together they sit 6–8pp more pro-Yamal than the
+real-money markets, which have not moved since v4. I sit between the two groups on Kane and
+just below the cohorts on Yamal. On the tails I am above both groups, mainly on Other (Messi)
+and Rodri.
+
+### What would change my mind (tripwires)
+
+- [ ] A credible report of the result (L'Équipe, RMC, *The Athletic*, Marca, AS, *Mundo Deportivo*, *Bild*) or of France Football informing a player's camp, by 2026-10-26 → ±30pp to whoever it names.
+- [ ] **Attendance/logistics tell**: Bayern, Barcelona, the FA or the RFEF announce or leak that Kane or Yamal will or will not travel to London, by 2026-10-26 → ±20pp.
+- [ ] Polymarket Yamal above 0.55 or below 0.32 on ≥ $1M fresh volume, by 2026-10-24 → move ~40% of the way, after checking the cause.
+- [ ] ≥ 10 jurors publicly disclose their first-place vote before the ceremony, by 2026-10-24 → re-estimate from the sample.
+- [ ] Metaculus Pros and gold both move more than 8pp from this vector on either Kane or Yamal, by 2026-10-19 → re-derive before defending.
+- [ ] Credible reporting that Rodri drew a large share of Spanish-bloc first places (juror disclosures, a 2024-style leak), by 2026-10-26 → Kane +5pp, Yamal −5pp.
+- [ ] The ceremony is postponed past 2026-10-26 → re-read the resolution window.
+
+### Sources
+
+1. Metaculus question 45617: three-cohort aggregations and eight comments (@tdeeno, @Russell-viper 2026-10-08; @sai_39 2026-10-02; @DeRuina, @exmateriae 2026-10-01; @DeRuina 2026-09-30; @Theomachado, @MaxA 2026-09-29) — https://www.metaculus.com/questions/45617/ (accessed 2026-10-09; `raw/metaculus-2026-10-09.json`)
+2. Polymarket, "Ballon d'Or Winner 2026" (gamma API) — https://polymarket.com/event/ballon-dor-winner-2026 (accessed 2026-10-09 05:09 UTC; `raw/polymarket-ballon-dor-winner-2026-2026-10-09T0509Z.json`)
+3. Kalshi trade API, series KXBALLONDOR — https://api.elections.kalshi.com/trade-api/v2/markets?series_ticker=KXBALLONDOR (accessed 2026-10-09 05:09 UTC; `raw/kalshi-ballondor-2026-10-09T0509Z.json`)
+4. Polymarket CLOB price history, Yamal token — https://clob.polymarket.com/prices-history (accessed 2026-10-09; `raw/polymarket-history-yamal-2026-10-09.json`)
+5. Ballon d'Or 2026: Leaks are confirmed, the identity of the first two revealed — French Football Weekly, 2026-10-09 — https://frenchfootballweekly.com/2026/10/09/ballon-dor-2026-leaks-are-confirmed-the-identity-of-the-first-two-revealed/ (accessed 2026-10-09). The headline overstates the body: *The Touchline* names the top two with no order
+6. FullTime Report on X, "Ballon d'Or winner has been leaked … Lamine Yamal" — https://x.com/FullTimeX_/status/2106301410291716456 (accessed 2026-10-09, via search summary, which reports fact-checkers calling the image fabricated)
+7. 2023 Ballon d'Or — Wikipedia — https://en.wikipedia.org/wiki/2023_Ballon_d%27Or (accessed 2026-10-09, via search summary): the 1 Aug 2022 – 31 Jul 2023 window includes the Qatar World Cup; Messi won with 462 points to Haaland's 357
+8. Ballon d'Or 2023 results released in full — 90min — https://www.90min.com/posts/ballon-dor-2023-results-released-in-full (accessed 2026-10-09, via search summary): Messi received 65 first-place votes, Haaland 20
+9. Ballon d'Or 2010: Sneijder would have won under the old formula — Maxifoot, January 2011 — https://m.maxifoot.fr/breve-130595_10/01.htm (accessed 2026-10-09, via search summary): journalists' share Sneijder 7.70%, Iniesta 7.53%, Xavi 5.96%, Messi 4.38%
+10. Remembering Lionel Messi's controversial 2010 Ballon d'Or win — 90min — https://www.90min.com/posts/lionel-messi-controversial-2010-ballon-dor-win (accessed 2026-10-09, via search summary): journalists' points Sneijder 293, Xavi 229, Iniesta 226, Messi 175
+11. Foot : la cérémonie du Ballon d'Or 2026 organisée à Londres le 26 octobre — Radio Algérie — https://news.radioalgerie.dz/fr/node/87107 (accessed 2026-10-09, via search summary)
+12. v1 Outside view table (this file, 2026-09-12): the row "0 of 4 (2010, 2014, 2018, 2022)" corrected above. The v1 text is left unedited, per rule 8
+
+**Date**: 2026-10-09
+**Forecast**: Kane 44.0%, Yamal 43.0%, Other 4.5%, Mbappé 3.5%, Rodri 3.0%, Kvaratskhelia 1.0%, Dembélé 1.0% — IQR on Kane [35.0%, 53.0%]
+**Thesis**: The fact I had missed was my own error. v1's "World Cup winners never take it (0 of 4)" class put the Qatar World Cup in the 2022 cycle, but it belongs to 2023, which Messi won over Haaland's record season. On the journalist-only electorate, every World Cup-cycle winner since 1998 played in the final (6 of 6), and Kane did not [7][8][9][10]. Correcting this, and giving half weight to Pros and gold now level at ~45/45 [1], makes it a near coin-flip. Kane stays narrowly ahead only because a $46M Polymarket book and Kalshi still price him at 52 [2][3].
 
 ---
 
