@@ -13,76 +13,67 @@ dates:
   resolves: '2026-12-31'
 status: open
 current:
-  version: 2
-  date: '2026-09-24'
-  median: 0.23
+  version: 3
+  date: '2026-10-09'
+  median: 0.25
   iqr:
-  - 0.16
-  - 0.31
+  - 0.17
+  - 0.34
   community:
     cp: 0.32
     pro: 0.27
     gold: 0.2868
-    n_forecasters: 112
-    as_of: '2026-09-24'
-next_review: '2026-10-05'
+    n_forecasters: 141
+    as_of: '2026-10-09'
+next_review: '2026-10-28'
 tripwires:
-- signal: A FEWS NET Sudan map with a Reported date in Sept-Dec 2026 shows any area in IPC Phase 5 (Famine)
-    for the current period
+- signal: A FEWS NET Sudan map Reported Oct-Dec 2026 shows a current-period Phase 5 area
   by: '2026-12-31'
   direction: up
-  magnitude: 77
+  magnitude: 75
   magnitude_unit: pp
   fired: null
-- signal: Sept 2026 FEWS NET Key Message Update publishes with no Phase 5 area and no escalation
-  by: '2026-10-10'
+- signal: Oct 2026 FEWS NET Food Security Outlook publishes with no current-period Phase 5 area
+  by: '2026-11-20'
   direction: down
-  magnitude: 2
+  magnitude: 16
   magnitude_unit: pp
   fired: null
-- signal: Oct 2026 FEWS NET Food Security Outlook publishes with no current-period Phase 5 and no Famine-most-likely
-    projection
-  by: '2026-11-15'
-  direction: down
-  magnitude: 13
+- signal: Mortality (CDR > 2/10,000/day) or food-consumption survey from Sharg Aj-Jabal camps, Um Baru,
+    Kernoi, At-Tine, Dilling, Kadugli or El Obeid
+  by: '2026-12-15'
+  direction: up
+  magnitude: 20
   magnitude_unit: pp
   fired: null
-- signal: An IPC Famine Review Committee is convened for Sudan
+- signal: FEWS NET Sudan Alert, or Famine projected as unconditional most-likely outcome anywhere
+  by: '2026-12-15'
+  direction: up
+  magnitude: 12
+  magnitude_unit: pp
+  fired: null
+- signal: IPC Famine Review Committee convened for Sudan
   by: '2026-11-30'
   direction: up
   magnitude: 10
   magnitude_unit: pp
   fired: null
-- signal: A mortality (CDR) or SMART survey published from Um Baru, Kernoi, At-Tine, Dilling, Kadugli
-    or El Obeid showing CDR > 2/10,000/day
-  by: '2026-12-15'
+- signal: Major new displacement wave (>50,000) into East Jebel Marra per OCHA/IOM DTM
+  by: '2026-11-30'
   direction: up
-  magnitude: 15
+  magnitude: 6
   magnitude_unit: pp
   fired: null
-- signal: FEWS NET issues a Sudan Alert, or projects Famine as the most-likely outcome for any period
-  by: '2026-12-15'
-  direction: up
-  magnitude: 12
-  magnitude_unit: pp
-  fired: null
-- signal: El Obeid eastern supply route closes (full encirclement), per OCHA, WFP or Yale HRL
+- signal: El Obeid eastern supply route closes (full encirclement)
   by: '2026-11-30'
   direction: up
   magnitude: 8
   magnitude_unit: pp
   fired: null
-- signal: WFP announces ration suspension or cuts for North Darfur, Tawila or Kordofan caseloads
-  by: '2026-10-31'
+- signal: WFP announces ration suspension or cuts for Darfur or Kordofan caseloads
+  by: '2026-11-15'
   direction: up
   magnitude: 3
-  magnitude_unit: pp
-  fired: null
-- signal: Sudan added to the State Department suspended-reporting list, or no Sudan FEWS NET map publishes
-    by 2026-10-31
-  by: '2026-10-31'
-  direction: down
-  magnitude: 12
   magnitude_unit: pp
   fired: null
 resolution:

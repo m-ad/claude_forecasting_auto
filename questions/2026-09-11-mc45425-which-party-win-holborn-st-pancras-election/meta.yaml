@@ -16,54 +16,34 @@ dates:
   resolves: '2026-10-09'
 status: open
 current:
-  version: 4
-  date: '2026-10-02'
-  median: 0.795
+  version: 5
+  date: '2026-10-09'
+  median: 0.99
   iqr:
-  - 0.73
-  - 0.85
+  - 0.985
+  - 0.995
+  # Fresh Metaculus aggregations could not be fetched 2026-10-09 (Cloudflare block);
+  # values carried forward from 2026-10-02 (raw/metaculus-2026-10-02.json), matching
+  # the v5 ledger record. The bot-key API showed 124 forecasters on 2026-10-09.
   community:
     cp: 0.824
     pro: 0.84
     gold: 0.838
     n_forecasters: 117
     as_of: '2026-10-02'
-next_review: '2026-10-06'
+next_review: '2026-10-16'
 tripwires:
-- signal: Constituency poll shows the Greens within 3pp of Labour or ahead
-  by: '2026-10-08'
-  direction: down
-  magnitude: 15
-  magnitude_unit: pp
-  fired: null
-- signal: Constituency poll shows Labour ahead by 10pp or more
-  by: '2026-10-08'
-  direction: up
-  magnitude: 5
-  magnitude_unit: pp
-  fired: null
-- signal: Polymarket Abdi-Wali below 75% or best bookmaker Green price 3/1 or shorter, sustained 12h
-  by: '2026-10-07'
-  direction: down
-  magnitude: 5
-  magnitude_unit: pp
-  fired: null
-- signal: Galloway endorses Polanski or withdraws from campaigning
-  by: '2026-10-08'
-  direction: down
-  magnitude: 3
-  magnitude_unit: pp
-  fired: null
-- signal: UK-wide Green voting intention at 13% or more in two polls published 2026-10-02 to 2026-10-06
-  by: '2026-10-06'
-  direction: down
-  magnitude: 2
-  magnitude_unit: pp
-  fired: null
-- signal: A general election is called or the poll is postponed, which annuls the question
-  by: '2026-10-08'
+- signal: Metaculus resolves other than Labour Party, or annuls; re-check official result
+  by: '2026-10-09'
   direction: either
   magnitude: 0
+  magnitude_unit: pp
+  fired: null
+# Petition window runs to ~2026-11-08, but tripwires cannot outlive dates.resolves.
+- signal: Election petition or correction to the official declaration
+  by: '2026-10-09'
+  direction: down
+  magnitude: 98
   magnitude_unit: pp
   fired: null
 resolution:

@@ -6,11 +6,123 @@
 | **Type** | binary |
 | **Opened / Closes / Resolves** | 2026-06-12 (CP reveal 2026-06-14) / 2027-04-01 / 2027-07-01 |
 | **Status** | open |
-| **Current forecast** | **Median 3.0%, IQR [2.0%, 4.5%]** (v1, 2026-09-05) |
-| **Community (as of 2026-09-04)** | CP 5.0% (n=37 recent, 61 total) · Pro 3.0% (n=6) · Gold 3.0% (n=16) |
-| **Next review** | 2026-10-05 |
+| **Current forecast** | **Median 2.8%, IQR [1.8%, 4.0%]** (v2, 2026-10-09) |
+| **Community (as of 2026-09-04; fresh CP unavailable 2026-10-09)** | CP 5.0% (n=37 recent, 61 total; 68 forecasters per API 2026-10-09) · Pro 3.0% (n=6) · Gold 3.0% (n=16) |
+| **Next review** | 2026-11-12 |
 
 <!-- Versions below, newest first. APPEND-ONLY: never edit or delete a past version. -->
+
+---
+
+## v2 — Update — 2026-10-09
+
+### Revision
+| Driver | Direction | Effect |
+|---|---|---|
+| Prior (v1, 2026-09-05) | — | Median 3.0%, IQR [2.0%, 4.5%] |
+| Senate Ag reported "Farm Bill 2.0" 12–11 on 2026-09-16, party-line after McConnell's return [2][3] — tripwire 1 fired | ↑ | +0.3 pp (not the +2 pp pre-registered: the vote was party-line, zero Democrats, so it did not move the 60-vote floor problem; Kalshi still prices a farm bill law before 2027-01-01 at ~20% [9], ≈ v1's 0.22 assumption) |
+| Ernst/Grassley Prop 12 amendment ruled out of order by Boozman (titles closed in August); SOB referred to House–Senate negotiations with "no guarantee" [4][5] | ↓ | −0.2 pp (the chairman actively kept it out rather than allowing a vote; conference stays the only route, and it is where 2014/2018 stripped the rider) |
+| House control: Kalshi R-hold 10% (2026-10-09) vs ~20% assumed in v1 [10] | ↓ | −0.2 pp (Path 3, Jan–Jun 2027, roughly halves) |
+| One month of elapsed window with no Democratic movement; no Senate floor time before 2026-11-09; 2018 Farm Bill lapsed 2026-09-30 with no extension [6][7] | ↓ | −0.1 pp |
+| Manifold "HR 7567 passes and preempts state animal welfare laws" at 3.2% (M$55.8k, 96 traders) [8] | → | none (consistent; play-money, discounted) |
+| **New forecast** | | **Median 2.8%, IQR [1.8%, 4.0%]** |
+
+### Tripwire check
+| Tripwire from v1 | Fired? | Note |
+|---|---|---|
+| Senate Ag reports a Farm Bill by 2026-10-15 | **Fired** (2026-09-16) | 12–11 party-line, text unchanged from the failed 2026-08-06 markup, no SOB [2][3]. Effect much smaller than pre-registered because no Democrat joined. |
+| Prop 12 / SOB amendment actually offered at Senate Ag markup or floor by 2026-12-11 | **Partial** | Ernst sought to add Prop 12 language (her side called it a "bipartisan compromise"); Boozman ruled it out of order, no vote [4][5]. May come back on the floor if the bill is taken up after 2026-11-09. Content of the Ernst text not public — if it is the "compromise" shape, it would resolve NO anyway. |
+| Named sitting Senate Democrat backs clean preemption | Not fired | None found; Schumer publicly opposed [8b]. |
+| Released Prop 12 text with grandfather / opt-out / prospective-only | Not fired | No text released; Boozman's grandfathering idea remains reported only via advocacy sources. |
+| Fourth extension enacted without reauthorisation | Not fired | The extension lapsed 2026-09-30 with no new extension; CR to 2026-12-11 [6][7]. December package remains the likely extension vehicle. |
+| Republicans hold the House on 2026-11-03 | Pending | Kalshi: D 90% / R 10% (2026-10-09) [10]. |
+| No Farm Bill enacted at sine die | Pending (2027-01-03) | — |
+
+### What resolves YES
+Unchanged from v1. Fresh API metadata (2026-10-09) confirms status open, close 2027-04-01,
+68 forecasters, no criteria change [1].
+
+### Outside view
+Unchanged from v1.
+
+### Inside view
+Path table re-run with today's inputs:
+
+| Path | Chain | P |
+|---|---|---|
+| 1. Farm bill in the 119th carrying clean SOB | P(farm bill law by 2027-01-03) ≈ 0.20 (Kalshi ~20%) × P(any Prop 12 provision) ≈ 0.10 × P(clean) ≈ 0.42 | 0.8% |
+| 2. December appropriations / NDAA rider | unchanged | 0.7% |
+| 3. 120th Congress, Jan–Jun 2027 | P(R House) 0.10 × ~0.02 + divided-government sliver | 0.3% |
+| 4. Reconciliation ("Reconciliation 3.0" talk exists) | unchanged | 0.3% |
+| 5. Model error | — | +0.5% (slightly widened: conference is opaque and Boozman explicitly handed SOB to the four corners) |
+| **Total** | | **≈ 2.6–2.8%** |
+
+The committee vote changed *where* the fight is (floor and conference), not the arithmetic: the
+bill still needs seven Democrats on the floor, and the Democrats' price is SNAP cost-share
+timing, which leaves no room to also make them swallow Prop 12 preemption. Boozman says he is
+"highly confident" of lame-duck passage [7]; the Kalshi ~20% for a farm bill law before 2027
+says the market does not share that.
+
+### Evidence
+See revision table. Absence of expected evidence still holds: no Democrat has moved, no SOB vote
+has been taken in the Senate, and pork-industry messaging (NPPC, 2026-09-18/20) has shifted to
+"could still be included in the version that is sent" via leadership reconciliation [11] —
+i.e. a conference insertion, which is the 2014/2018 failure mode.
+
+### Other forecasters
+| Source | Value | As of | Note |
+|---|---|---|---|
+| Metaculus CP (recency-weighted) | 5.0% (n=61) | 2026-09-04 (carried forward from `raw/metaculus-2026-09-05.json`) | **fresh CP unavailable 2026-10-09 (Cloudflare block)**; API shows 68 forecasters, 311 forecasts on 2026-10-09 |
+| Metaculus Pro | 3.0% (n=6) | 2026-09-04 (carried forward) | fresh unavailable 2026-10-09 |
+| Metaculus gold medalists | 3.0% (n=16) | 2026-09-04 (carried forward) | fresh unavailable 2026-10-09 |
+| Manifold — "Will the farm bill (HR 7567) pass and destroy / federally preempt state animal welfare laws?" | 3.2% (M$55.8k volume, 96 traders) | 2026-10-09 | play-money; resolves only on 119th Congress, so narrower window than ours; discounted but consistent |
+| Kalshi KXFARMBILL — farm bill becomes law before 2027-01-01 | ~20% (bid 17¢ / ask 24¢, last 22¢, ~4.1k contracts) | 2026-10-09 | input to Path 1, not a direct comparator |
+| Kalshi KXFARMBILL — before 2027-07-01 | bid 49¢ / ask 58¢, no trades | 2026-10-09 | illiquid; indicative only |
+| Polymarket | no market | 2026-10-09 | searched |
+
+No cohort disagreement can be assessed today (stale snapshot). I sit 0.2 pp below the stale
+Pro/gold 3.0% and 0.4 pp below Manifold — within noise.
+
+### Scenarios
+| # | Scenario | Weight | Implies |
+|---|---|---|---|
+| 1 | No Farm Bill in the 119th; extension in the December package; restart in a Democratic-House 120th | 55% | NO |
+| 2 | Farm Bill enacted in lame duck with no Prop 12 provision | 27% | NO |
+| 3 | Farm Bill with a negotiated (grandfathered / opt-out / prospective) Prop 12 provision | 10% | NO |
+| 4 | Total collapse / pure status quo | 5.2% | NO |
+| 5 | Clean preemption enacted via any vehicle before 2027-07-01 | 2.8% | YES |
+
+### Sensitivity
+Unchanged from v1, except the "Farm Bill reported in September" row has now happened without
+Democratic votes; the remaining upside sensitivity is the Senate Democrat defector row (12–18%).
+
+### What would change my mind (tripwires)
+- [ ] **A Prop 12 / SOB amendment receives a recorded Senate floor vote before 2026-12-31** → re-analyse; ≥ 60 yeas → +10 pp, < 50 → −1 pp.
+- [ ] **A named sitting Senate Democrat publicly supports clean preemption before 2027-03-31** → +8 pp.
+- [ ] **Released Prop 12 text (Ernst amendment or conference draft) has a grandfather / opt-out / prospective-only clause, before 2027-03-31** → −1.5 pp.
+- [ ] **House–Senate farm bill conference/"four corners" agreement announced including any Prop 12 language before 2026-12-31** → re-analyse on the text; clean text → +6 pp.
+- [ ] **A fourth extension enacted in the December package without a reauthorisation, by 2026-12-31** → −1 pp.
+- [ ] **Democrats win the House on 2026-11-03** → −0.2 pp (mostly priced); R hold → +1 pp.
+- [ ] **No Farm Bill enacted at sine die (2027-01-03)** → drop to ≈ 1%.
+
+### Sources
+1. Metaculus API post JSON, #43616 — `raw/metaculus-api-2026-10-09.json` (retrieved 2026-10-09; aggregations hidden to bot key)
+2. Senate Republicans manage to advance farm bill with McConnell's return — Washington Post, 2026-09-16 — https://www.washingtonpost.com/politics/2026/09/16/senate-republicans-manage-advance-farm-bill-with-mcconnells-return/ (accessed 2026-10-09, via search summary)
+3. Senate Farm Bill Reported Out of Committee, Ready for Floor Vote — DTN, 2026-09-17 — https://www.dtnpf.com/agriculture/web/ag/columns/washington-insider/article/2026/09/17/senate-farm-bill-reported-committee (accessed 2026-10-09, via search summary)
+4. Ag Matters: Prop 12, Packers Act Riders Await Farm Bill Floor Action — KCHA News, 2026-09-23 — https://kchanews.com/2026/09/23/ag-matters-prop-12-packers-act-riders-await-farm-bill-floor-action/ (accessed 2026-10-09)
+5. Boozman Eyes Post-Election Farm Bill Deal, Says Trump Backs More Farm Aid — Ag Bull Trading, 2026-09-29 — https://www.agbull.com/boozman-eyes-post-election-farm-bill-deal-says-trump-backs-more-farm-aid/ (accessed 2026-10-09)
+6. 2018 Farm Bill Extension Expires Sept. 30, 2026, No Replacement Passed — farmbill2.com, 2026-09-30 — https://farmbill2.com/news/2018-farm-bill-extension-expires-sept-30-2026-no-replacement-passed/ (accessed 2026-10-09; secondary aggregator, cross-checked with [7])
+7. Senate Ag leaders press for farm bill talks as SNAP feud threatens passage — Agri-Pulse, 2026-10-02 — https://www.agri-pulse.com/articles/25330-senate-ag-leaders-press-for-farm-bill-talks-as-snap-feud-threatens-passage (accessed 2026-10-09)
+8. Manifold market, Conflux — https://manifold.markets/Conflux/will-the-farm-bill-with-save-our-ba (API snapshot `raw/manifold-2026-10-09.json`, accessed 2026-10-09)
+8b. Farm Bill HR 7567 and the 'Save Our Bacon' Bet — Tech Insider, 2026-10-06 — https://tech-insider.org/farm-bill-hr-7567-save-our-bacon-prediction-market/ (accessed 2026-10-09; secondary, used only for the Schumer-opposition note)
+9. Kalshi KXFARMBILL-26MAY "When will a farm bill become law?" — API snapshot `raw/kalshi-farmbill-2026-10-09.json` (retrieved 2026-10-09)
+10. Kalshi CONTROLH-2026 House control — https://kalshi.com (API, accessed 2026-10-09)
+11. NPPC remains hopeful for a Prop 12 fix as Senate Farm Bill advances — Brownfield Ag News, 2026-09-18 — https://www.brownfieldagnews.com/news/nppc-remains-hopeful-for-a-prop-12-fix-as-senate-farm-bill-advances/ (accessed 2026-10-09)
+12. What's happening with California Prop 12, the Farm Bill and Save Our Bacon Act? — Humane World for Animals (updated 2026-09-16) — https://www.humaneworld.org/en/news/whats-happening-california-prop-12-farm-bill-save-our-bacon-act (accessed 2026-10-09)
+
+**Date**: 2026-10-09
+**Forecast**: Median 2.8%, IQR [1.8%, 4.0%]
+**Thesis**: The Senate Ag Committee did report a farm bill (12–11, 2026-09-16), but party-line and without SOB, and Boozman ruled the Ernst Prop 12 amendment out of order, leaving a conference insertion as the only route — the route where the same rider died in 2014 and 2018 [2][4][5]. The 60-vote floor still needs seven Democrats whose price is SNAP timing, Kalshi gives a farm bill law before 2027 only ~20% and the House flipping Democratic ~90% [9][10], so clean preemption by mid-2027 stays a low single-digit tail.
 
 ---
 

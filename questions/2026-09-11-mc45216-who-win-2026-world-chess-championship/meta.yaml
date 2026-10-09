@@ -15,28 +15,22 @@ dates:
   resolves: '2026-12-14'
 status: open
 current:
-  version: 3
-  date: '2026-09-26'
-  median: 0.695
+  version: 4
+  date: '2026-10-09'
+  median: 0.685
   iqr:
-  - 0.64
-  - 0.75
+  - 0.63
+  - 0.74
   community:
-    cp: 0.7
-    pro: 0.696
-    gold: 0.7
-    n_forecasters: 98
-    as_of: '2026-09-26'
-next_review: '2026-10-05'
+    cp: null
+    pro: null
+    gold: null
+    n_forecasters: 118
+    as_of: '2026-10-09'
+next_review: '2026-10-23'
 tripwires:
-- signal: October 2026 FIDE rating list moves the classical rating gap outside the 60-95 Elo band
-  by: '2026-10-05'
-  direction: either
-  magnitude: 0
-  magnitude_unit: pp
-  fired: null
-- signal: Either player withdraws, FIDE moves the match dates again, or no venue and sponsor are announced
-  by: '2026-11-01'
+- signal: Either player withdraws, FIDE moves the match dates, or a health issue is reported
+  by: '2026-11-23'
   direction: either
   magnitude: 0
   magnitude_unit: pp
@@ -47,15 +41,20 @@ tripwires:
   magnitude: 0
   magnitude_unit: pp
   fired: null
-- signal: Metaculus Pro or gold-medalist cohort diverges more than 5pp from the CP
+- signal: Metaculus Pro or gold cohort diverges more than 5pp from the CP, or CP more than 5pp from 68.5%
   by: '2026-11-24'
   direction: either
   magnitude: 0
   magnitude_unit: pp
   fired: null
-- signal: Official final Olympiad TPR data shows Gukesh at 2790 or above, or Sindarov (full 11 rounds)
-    at 2750 or below
-  by: '2026-10-05'
+- signal: Gukesh plays a classical event before the match and scores below 40% or above 65%
+  by: '2026-11-20'
+  direction: either
+  magnitude: 0
+  magnitude_unit: pp
+  fired: null
+- signal: November FIDE list moves the classical gap outside 60-85 Elo
+  by: '2026-11-05'
   direction: either
   magnitude: 0
   magnitude_unit: pp

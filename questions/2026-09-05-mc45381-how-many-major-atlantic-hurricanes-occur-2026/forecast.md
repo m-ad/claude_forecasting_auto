@@ -6,12 +6,148 @@
 | **Type** | multiple choice — options `0`, `1`, `2`, `3`, `4+` |
 | **Opened / Closes / Resolves** | 2026-09-07 / 2026-10-16 / 2026-11-30 (NHC data as of 2026-12-01) |
 | **Status** | open |
-| **Current forecast** | **0: 48.4% · 1: 45.4% · 2: 5.4% · 3: 0.7% · 4+: 0.1%** — leading option `0`, IQR [40.0%, 57.0%] (v6, 2026-10-08) |
-| **Community (as of 2026-10-08)** | CP **0: 60.7%** · Pro **57.9%** (n=10) · gold **58.0%** (n=36) — n=152 forecasters; cohorts within 3 pp, all falling |
-| **Market (as of 2026-10-08)** | **Kalshi `KXHURCTOTMAJ-26DEC01`: P(0) ≈ 33%** (`>0` strike 65/69¢, last 66¢, 27.9k contracts; ~9.5k fresh) — 25 pp below Metaculus |
-| **Next review** | 2026-10-09 (Isaias peak, ~12Z Fri 9 Oct, then landfall) |
+| **Current forecast** | **0: 30.3% · 1: 62.0% · 2: 6.8% · 3: 0.8% · 4+: 0.1%** — leading option `1`, IQR on `1` [53.3%, 69.2%], on `0` [22.5%, 35.5%] (v7, 2026-10-09) |
+| **Community (stale, as of 2026-10-08)** | CP **0: 60.7%** · Pro **57.9%** (n=10) · gold **58.0%** (n=36) — fresh CP unavailable 2026-10-09 (Cloudflare block); n=161 forecasters per API 2026-10-09 |
+| **Market (as of 2026-10-09 04:10Z)** | **Kalshi `KXHURCTOTMAJ-26DEC01`: P(0) ≈ 22%** (`>0` 77/79¢, last 77¢; 37.6k contracts, ~10.1k in 24 h) |
+| **Next review** | 2026-10-10 (Isaias peak ~12Z 9 Oct, landfall Fri night/early Sat) |
 
 <!-- Versions below, newest first. APPEND-ONLY: never edit or delete a past version. -->
+
+---
+
+## v7 — Update — 2026-10-09
+
+**Mode: Update** (incremental). Written about 04:30Z on 9 Oct, roughly 23 h after v6. The
+question's structure has not changed, and it still hinges on one conditional: does Isaias reach
+**100 kt (115 mph)** in an NHC advisory or tropical cyclone update (TCU) before landfall,
+expected Friday night or early Saturday? Isaias has strengthened faster than v6's official
+track. NHC now has it at 90 kt and **forecasts the 100 kt major threshold at 12Z today**, so
+v6's tripwire 3 has fired. The live intensity window is now about 12–15 h, so this version
+re-derives *p*, the probability that Isaias becomes a major, from the 03Z guidance rather than
+nudging the v6 number.
+
+### Revision table
+
+| Driver | Direction | Effect on P(`0`) |
+|---|---|---|
+| **Prior (v6, 2026-10-08)** | — | **48.4%** (1: 45.4 · 2: 5.4 · 3: 0.7 · 4+: 0.1) |
+| **v6 tripwire 3 fired: NHC raised the forecast peak to 100 kt.** Discussion 10 (03Z 9 Oct) puts the initial intensity at **90 kt** (best track 85 kt / 973 mb at 00Z; 969 mb at 03Z) and forecasts **100 kt at 12Z 9 Oct**, then 85 kt at 00Z 10 Oct as shear rises [1][2][3]. Its wording: "A majority of Google DeepMind ensemble members show Isaias briefly reaching major hurricane status early Friday … and this is now reflected in the NHC forecast" [2]. v6 committed −13pp in advance for this tripwire | down | **−13.0 pp** |
+| **The storm is running ahead of the forecast, its structure is improving, and the ensembles lean high.** v6's official track had ~85–88 kt for 03Z 9 Oct; the advisory has 90 kt. Discussion 10 reports an "emerging eye", a cooling central dense overcast (CDO, the solid cloud mass over the centre), Tail Doppler Radar winds above the satellite estimates, "high oceanic heat content and strong upper-level divergence", and shear still aligned with the storm's motion overnight [2]. Lowry (8 Oct): the DeepMind ensemble gives "an 85% chance that Isaias peaks as a major Category 3 hurricane" [5], up from >60% on 7 Oct (v6). Recon aircraft are scheduled overnight, so a peak should be sampled rather than missed [2] | down | **−7.0 pp** |
+| **The case against: the guidance stops just short, the window is short, and the operational bar is 100 kt.** Peaks in the 00Z 9 Oct a-deck: HAFS-A 99, COAMPS-TC 96, HCCA 96, NNIC 96, IVCN 95, LGEM 94, HAFS-B 93, SHIPS 90 kt [4]. None reaches 100, though they were initialised at 85 kt, 5 kt below the 03Z estimate. NHC calls the strengthening "short lived", and the trough's southwesterly shear "will increase considerably on Friday" [2]. The microwave eyewall was still open to the southwest and the vortex tilted [2]. Operational winds come in 5-kt steps, so 95 kt does not count | up | **+1.6 pp** |
+| **Rest of season (11 Oct – 30 Nov) is slightly quieter.** The 00Z TWO (tropical weather outlook) says "Tropical cyclone formation is not expected during the next 7 days" [6], which removes the next week of genesis. The CPC update (8 Oct) has El Niño still strengthening: Niño-3.4 at +2.1°C, and an 83% chance that October–December reaches a historic +2.5°C relative ONI (RONI) [7]. v6 tripwire 6 did not fire. λ (expected further majors) falls from 0.13 to ~0.12, so P(no other major) goes from 0.88 to 0.89 | up | **+0.3 pp** |
+| **Markets and cohorts: Kalshi jumped, Metaculus is stale.** Kalshi `>0` is at **77/79¢, last 77¢**, so P(0) ≈ **22%**. T0 volume rose from 27.9k to 37.6k contracts (~10.1k in 24 h). It traded 56–61¢ before the 03Z advisory and 72–81¢ after it [8]. Kalshi has sat 7–13pp below the Metaculus cohorts on `0` in every version, and correcting for that lean gives ~30–33%, close to my number. **Fresh Metaculus CP unavailable 2026-10-09 (Cloudflare block).** The last cached cohorts (2026-10-08 04:56Z: CP 60.7, Pros 57.9, gold 58.0) predate both the hurricane upgrade and the 100 kt forecast, so I give them no weight. The 9 Oct API metadata shows 161 forecasters, up from 152 [9][10] | — | 0.0 pp |
+| **New forecast (v7)** | | **0: 30.3%** · 1: 62.0 · 2: 6.8 · 3: 0.8 · 4+: 0.1, IQR on `0` [22.5%, 35.5%]; leading option is now `1`, IQR [53.3%, 69.2%] |
+
+**Rate construction.** The same two independent pieces as v6:
+
+- *p* = P(Isaias shows ≥ 100 kt in an NHC product) = **0.66**, up from 0.45. NHC's 12-h
+  intensity error is about 7–9 kt MAE (mean absolute error), so I take the realised peak as
+  ~100 kt with SD ≈ 8 kt. With 97.5 kt as the rounding cut-off, that gives P ≈ 0.62. The
+  storm running ahead of forecast and DeepMind's 85% pull this up. The 00Z dynamical peaks of
+  93–99 kt, the open SW eyewall and a window of only ~12 h pull it down. Kalshi, corrected for
+  its usual YES lean, implies p ≈ 0.63–0.66. *This is a judgement call: no calibrated table of
+  "P(operational peak ≥ OFCL peak)" was found.*
+- Rest of season: λ ≈ 0.12, overdispersed. P(0 / 1 / 2 / 3+ other majors) =
+  0.89 / 0.097 / 0.011 / 0.002.
+
+The mixture: `0` = 0.34 × 0.89 = 30.3%. `1` = 0.66 × 0.89 + 0.34 × 0.097 = 62.0%.
+`2` = 6.8%. `3` = 0.8%. `4+` = 0.1%. The IQR is my 25–75% band on *p*, 0.55–0.75, propagated
+through the mixture. Almost all of it resolves by about 18Z today.
+
+### Tripwire check (v6 list)
+
+| # | Tripwire | Status | Evidence |
+|---|---|---|---|
+| 1 | Isaias ≥ 100 kt in any NHC advisory/TCU → `0` to ~0% | **Not fired (live)** | 90 kt at 03Z 9 Oct [1][2] |
+| 2 | Landfall or weakening below hurricane with operational peak ≤ 95 kt → `0` to ~87% | Not fired | Still strengthening; landfall Fri night/early Sat [2] |
+| 3 | NHC raises the forecast peak to ≥ 100 kt by 10-09 → −13pp | **Fired** | Discussion 10, 03Z 9 Oct: 100 kt at 12Z [2]. Applied in revision row 2 |
+| 4 | NHC lowers the forecast peak to ≤ 85 kt → +15pp | Not fired | The opposite happened [2] |
+| 5 | Recon central pressure ≤ 965 mb before 10-09 18Z → −10pp | **Not yet** | 969 mb at the 03Z advisory, 973 mb in the 00Z best track; recon flights scheduled overnight [1][2][3] |
+| 6 | CPC ENSO update puts OND RONI below +2.0 or shows an early peak → −2pp | Not fired | 8 Oct update: still strengthening; 83% chance of a historic OND (RONI ≥ +2.5) [7] |
+| 7 | NHC TWO ≥ 50% 7-day formation after Isaias → −4pp | Not fired | "Formation is not expected during the next 7 days" [6] |
+| 8 | CSU two-week forecast of 10-14 | Not due | — |
+| 9 | Kalshi `>0` outside 50–80¢ on more than 3k fresh contracts → re-check | **Borderline (not fired)** | Quotes 77/79¢. Tick prints up to 81¢ on tiny size. Inside the band on volume [8] |
+| 10 | Metaculus Pros below 45% or above 70% → re-check | **Not checkable** | Fresh aggregations are blocked (Cloudflare, 2026-10-09) |
+
+### What resolves YES
+
+Unchanged from v6. For Isaias to count, **≥ 100 kt must appear in an operational NHC
+advisory or TCU**. A post-season upgrade in the Tropical Cyclone Report does not count. If the
+12Z intermediate or the 15Z advisory shows 100 kt, option `0` is effectively dead.
+
+### Outside view
+
+Unchanged from v6.
+
+### Scenarios
+
+| # | Scenario | Weight | Implies |
+|---|---|---|---|
+| 1 | Isaias peaks at 90–95 kt overnight as shear arrives, and nothing else reaches Cat 3 | 0.303 | **0** |
+| 2 | Isaias reaches ≥ 100 kt this morning and nothing follows, **or** it falls short and one late-season major forms | 0.620 | **1** |
+| 3 | Isaias becomes a major and one late major follows, or two late majors | 0.068 | **2** |
+| 4–5 | Further late-season tail | 0.009 | **3 / 4+** |
+
+### Inside view
+
+Superseded by the revision table.
+
+### Evidence
+
+New items are cited in the revision table.
+
+### Other forecasters (2026-10-09)
+
+| Source | P(0 majors) | As of | Note |
+|---|---|---|---|
+| **Kalshi `KXHURCTOTMAJ-26DEC01`** | **≈ 22%** (`>0` 77/79¢, last 77¢) | 2026-10-09 04:10Z | T0 volume 37.6k (~10.1k in 24 h). `>1` 24/26¢ → P(≥2) ≈ 25%. `>2` 8/10¢ [8] |
+| **Metaculus CP** | 60.7% — **STALE, retrieved 2026-10-08 04:56Z** | 2026-10-08 | Fresh CP unavailable 2026-10-09 (Cloudflare block). n=161 on 9 Oct per the API [9][10] |
+| **Metaculus Pros** | 57.9% — **STALE, retrieved 2026-10-08** | 2026-10-08 | n=10. Fresh value unavailable 2026-10-09 (Cloudflare block) [10] |
+| **Metaculus gold medalists** | 58.0% — **STALE, retrieved 2026-10-08** | 2026-10-08 | n=36. Fresh value unavailable 2026-10-09 (Cloudflare block) [10] |
+| Google DeepMind ensemble (via Lowry) | ~15% (85% of members peak as a major) | 2026-10-08 | Model "major" counts ≥ 96 kt, while the operational record needs 100 kt [5] |
+| NHC official forecast | Peak 100 kt at 12Z 9 Oct | 2026-10-09 03Z | "briefly reaching major hurricane status" [2] |
+
+**Cohort agreement.** I cannot assess it today because the Metaculus cohorts are stale. The
+cached cohorts, from before the upgrade, were 28pp above me. Kalshi is 8pp below me, about the
+size of its usual YES lean.
+
+### Sensitivity
+
+| Assumption | If instead | Forecast becomes |
+|---|---|---|
+| *p* = 0.66 | *p* = 0.50 (NHC 100 kt forecast as a coin flip) | 0: ~44.5% |
+| — | *p* = 0.80 (DeepMind-like, with the 100-kt haircut) | 0: ~18% |
+| — | the 09Z advisory holds at 90 kt and cuts the peak to 95 kt | 0: ~45% |
+| — | recon finds ≤ 965 mb or SFMR (stepped-frequency microwave radiometer, recon's surface-wind instrument) ≥ 95 kt overnight | 0: ~15–20% |
+| λ after Isaias ≈ 0.12 | 0.20 | 0: ~28% |
+
+### What would change my mind (tripwires)
+
+- [ ] **Isaias ≥ 100 kt (115 mph) in any NHC advisory or TCU**, by 2026-10-10 → `0` to ~0%; `1` to ~89%.
+- [ ] **Isaias makes landfall, or NHC reports that weakening has begun, with an operational peak ≤ 95 kt**, by 2026-10-11 → `0` to ~88%.
+- [ ] **The 09Z or 15Z advisory on 2026-10-09 removes 100 kt from the forecast** (peak ≤ 95 kt) → up ~15pp.
+- [ ] **Recon central pressure ≤ 965 mb, or SFMR ≥ 95 kt, before 2026-10-09 18Z** → down ~12pp.
+- [ ] **NHC TWO flags ≥ 50% 7-day formation in the Gulf, the western Caribbean or the SW Atlantic after Isaias**, by 2026-11-15 → down ~4pp.
+- [ ] **The CSU two-week forecast of 2026-10-14 favours near- or above-normal activity** → down ~3pp.
+- [ ] **Kalshi `>0` trades outside 60–90¢ on more than 3k fresh contracts** → re-check, do not nudge.
+- [ ] **Once fetchable, Metaculus Pros sit outside 20–50% on `0`** → re-check.
+
+### Sources
+
+1. NHC — CurrentStorms.json, AL092026 Isaias, HU, 90 kt, 969 mb, last update 2026-10-09 03:00Z — https://www.nhc.noaa.gov/CurrentStorms.json (accessed 2026-10-09 04:10Z; `raw/nhc-currentstorms-2026-10-09.json`)
+2. NHC — Hurricane Isaias Discussion Number 10, 1000 PM CDT Thu 8 Oct 2026 (OFCL 90/100/85/45 kt; "briefly reaching major hurricane status") — https://www.nhc.noaa.gov/text/MIATCDAT4.shtml (accessed 2026-10-09 04:15Z; `raw/nhc-MIATCDAT4-2026-10-09.txt`; also `nhc-MIATCPAT4/MIATCMAT4-2026-10-09.txt`)
+3. NHC ATCF — best track `bal092026.dat` (85 kt / 977 mb at 18Z 8 Oct; 85 kt / 973 mb at 00Z 9 Oct) — https://ftp.nhc.noaa.gov/atcf/btk/bal092026.dat (accessed 2026-10-09 04:15Z)
+4. NHC ATCF — public a-deck `aal092026.dat`, 18Z 8 Oct and 00Z 9 Oct cycle peaks — https://ftp.nhc.noaa.gov/atcf/aid_public/aal092026.dat.gz (accessed 2026-10-09 04:15Z; `raw/nhc-aal092026-2026-10-09.dat.gz`)
+5. Michael Lowry — "Isaias Becomes the Season's First Hurricane…", Eye on the Tropics, 2026-10-08 (DeepMind ensemble: 85% chance Isaias peaks as a major) — https://michaelrlowry.substack.com/p/isaias-becomes-the-seasons-first (accessed 2026-10-09)
+6. NHC — Atlantic Tropical Weather Outlook, 800 PM EDT Thu 8 Oct 2026 ("Tropical cyclone formation is not expected during the next 7 days") — https://www.nhc.noaa.gov/text/MIATWOAT.shtml (accessed 2026-10-09; `raw/nhc-MIATWOAT-2026-10-09.txt`)
+7. NOAA CPC — ENSO Diagnostic Discussion, 8 Oct 2026 (El Niño Advisory; Niño-3.4 +2.1°C; 83% historic-event odds for OND) — https://www.cpc.ncep.noaa.gov/products/analysis_monitoring/enso_advisory/ensodisc.shtml (accessed 2026-10-09)
+8. Kalshi `KXHURCTOTMAJ-26DEC01` markets and T0 trades, public trade API — https://kalshi.com/markets/kxhurctotmaj (accessed 2026-10-09 04:10Z; `raw/kalshi-KXHURCTOTMAJ-2026-10-09.json`, `raw/kalshi-trades-T0-2026-10-09.json`)
+9. Metaculus API post 45381, bot key (status open, 161 forecasters; aggregations hidden) — https://www.metaculus.com/questions/45381/ (accessed 2026-10-09 by the parent session; `raw/metaculus-api-2026-10-09.json`)
+10. Metaculus question 45381, three-cohort aggregations — https://www.metaculus.com/questions/45381/ (**accessed 2026-10-08 04:56Z**, carried forward; `raw/metaculus-2026-10-08.json`)
+
+**Date**: 2026-10-09
+**Forecast**: 0: 30.3%, 1: 62.0%, 2: 6.8%, 3: 0.8%, 4+: 0.1% — IQR on leading option `1` [53.3%, 69.2%]; on `0` [22.5%, 35.5%]
+**Thesis**: Down 18.1pp. Isaias is running ahead of forecast at 90 kt / 969 mb, and NHC now forecasts it to reach the 100 kt major threshold at 12Z 9 Oct before shear sets in [1][2]. DeepMind's ensemble gives an 85% chance of a major [5], while the 00Z dynamical guidance peaks at 93–99 kt [4]. I put P(Isaias reaches 100 kt operationally) at 0.66 and P(no other major) at 0.89. Kalshi (~22% on `0`) [8] is about 8pp below me, roughly its usual YES lean. Fresh Metaculus numbers were unavailable (Cloudflare block).
 
 ---
 

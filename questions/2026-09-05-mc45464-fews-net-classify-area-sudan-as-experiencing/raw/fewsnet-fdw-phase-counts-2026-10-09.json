@@ -1,0 +1,50 @@
+{
+ "source": "https://fdw.fews.net/api/ipcphase/?format=json&country_code=SD&start_date=2026-06-01&end_date=2026-12-31&fields=simple",
+ "accessed": "2026-10-09",
+ "note": "Count of Sudan area units by IPC area phase per reporting_date/scenario/document (Highest-household brief rows excluded). 5.0 = Famine. Sept 2026 KMU (reporting_date 2026-09-01) has zero Phase 5 units.",
+ "counts": {
+  "2026-02-01 | Medium Term Projection | Food Security Outlook, Sudan": {
+   "4.0": 162,
+   "3.0": 226,
+   "2.0": 2
+  },
+  "2026-03-01 | Medium Term Projection | Key Message Update, Sudan": {
+   "4.0": 162,
+   "3.0": 226,
+   "2.0": 2
+  },
+  "2026-04-01 | Medium Term Projection | Food Security Outlook Update, Sudan": {
+   "4.0": 166,
+   "3.0": 224
+  },
+  "2026-05-01 | Medium Term Projection | Key Message Update, Sudan": {
+   "4.0": 166,
+   "3.0": 224
+  },
+  "2026-06-01 | Current Situation | Food Security Outlook, Sudan": {
+   "4.0": 122,
+   "3.0": 232,
+   "2.0": 36
+  },
+  "2026-06-01 | Near Term Projection | Food Security Outlook, Sudan": {
+   "4.0": 174,
+   "3.0": 193,
+   "2.0": 23
+  },
+  "2026-07-01 | Near Term Projection | Key Message Update, Sudan": {
+   "4.0": 174,
+   "3.0": 193,
+   "2.0": 23
+  },
+  "2026-08-01 | Near Term Projection | Food Security Outlook Update, Sudan": {
+   "4.0": 167,
+   "3.0": 200,
+   "2.0": 23
+  },
+  "2026-09-01 | Near Term Projection | Key Message Update, Sudan": {
+   "4.0": 171,
+   "3.0": 196,
+   "2.0": 23
+  }
+ }
+}

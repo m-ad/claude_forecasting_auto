@@ -231,3 +231,20 @@ is above 25% on any exchange.
   2026-10-08 at 11:00 UTC, so the leak tripwire is most useful between 7 and 8 Oct.
 - Watch whether Kalshi's Nakate or Carney line follows the bookmakers.
 - Watch whether the Charity Commission escalates the MSF case to a statutory inquiry.
+
+## v4 update — 2026-10-09 (written ~04:00 UTC, announcement 09:00 UTC)
+
+### Live numbers fetched this session
+- Kalshi trade API, event KXNOBELPEACE-26 → `raw/kalshi-KXNOBELPEACE-2026-10-09.json` (03:57 UTC). Navalnaya 28/29¢ (291k contracts in 24h), Kuleba 15/16, Sudan ERRs 14/15, Tamim 4.3/6.4, StC 5/6, ICJ 3/4. 50 lines, mids sum 132%.
+- Polymarket gamma API → `raw/polymarket-nobel-peace-prize-winner-2026-2026-10-09.json` (03:57 UTC). Navalnaya 27.3 (+21.75/24h, $0.99M 24h vol), Kuleba 17.35, Sudan 12.4, Tamim 6.1, StC 5.2, ICJ 5.05, Tsikhanouskaya 4.6.
+- Polymarket CLOB prices-history (10-min fidelity, last 24h), not saved: Navalnaya 5.0 (23:20 UTC 8 Oct) → 54.2 (00:00) → 11.2 (01:00) → 27.3 (03:54). Tsikhanouskaya 0.9 → 20.0 (00:20) → 4.8. Tamim 0.6 → 6.1 from 01:30. Sudan 16.9 → 4.1 (00:00) → 12.4. Kuleba 8.5 → 5.5 (00:00) → 17.2.
+- Metaculus: aggregations NOT fetched (Cloudflare block, per parent brief). Official API JSON cached by parent: status closed (8 Oct 11:00 UTC), nr_forecasters 137.
+
+### Search log
+- "Nobel Peace Prize 2026 awarded": not yet announced as of 03:57 UTC.
+- "Navalnaya Nobel Peace Prize Polymarket surge leak": English coverage only of the 2025 Machado leak.
+- "fredsprisen 2026 lekkasje Navalnaja": Dagbladet "Skyter fart" (02:08 CEST) reports the spike (16 → 60+% between 01:30 and 02:00 CEST, peak 69, back to 11; ~11M NOK volume; many small bets; "trenger ikke å bety at det har vært en ny lekkasje"). Dagbladet/NTB 8 Oct: Harpviken on the 2025 leak and the new safeguards.
+- An odds roundup search turned up nothing beyond market trackers.
+
+### Judgement notes
+- The pattern (pump-and-dump, several names spiking at once, small tickets) looks like leak-chasing, not the 2025 Machado signature (steady, large tickets). But the 11 → 27 recovery is steady, and the two venues agree independently. Navalnaya 4 → 13; the tripwire rule implied ~11.

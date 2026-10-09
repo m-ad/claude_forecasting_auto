@@ -196,3 +196,37 @@ Dead ends: venezuelablog.org "Venezuela Weekly" hit is a 2019 article; venezuela
 substack "Cronograma electoral en 72h" is 2024; Kalshi web pages return HTTP 429 (used the
 API instead); Sentinel has no matching item; Kalshi's own January-2026 blog post (47% for a
 vote before 2027) is nine months stale and must not be used.
+
+---
+
+## v2 update log — 2026-10-09
+
+Metaculus: browser/aggregation path blocked by Cloudflare 2026-10-09; official API (bot key)
+cached at `raw/metaculus-api-2026-10-09.json`: status open (opened 2026-09-21), 120
+forecasters, 748 forecasts, aggregations hidden. No CP/Pro/gold available; none cached either.
+
+Markets (2026-10-09): Polymarket Dec-31 leg 10.5% (bid 10/ask 11; was 16.0% on 09-20),
+`raw/polymarket-2026-10-09.json`; Kalshi 27JAN01 last 2.3¢ (bid 2.3/ask 5.0; was 5.9),
+27JUN01 last 22¢ (bid 23/ask 28); Manifold EOY-2026 8.1% (42 traders; was 14.8%),
+free-and-fair 8.4%.
+
+News since 2026-09-20:
+- 09-22 Trump–Rodríguez meeting at UNGA; Axios: Trump pressed for elections; no date public.
+- 09-23 Rodríguez UNGA speech: elections promised, no date/month/year.
+- 09-24 CubaHeadlines: admin sources/Rubio plan → summer/fall 2028; Sen. Moreno floated
+  2027-07-24, admin calls it premature; "2027 or 2028 up in the air".
+- 09-25 Reuters: five sources — vote may be a year+ away; two say unlikely before end-2027;
+  CNE install + register update could take up to a year. Teneo: "neither is taking decisive
+  steps toward an electoral process."
+- 09-25/26 Round 2 closed: TSJ renewal agreed, jurist committee for candidate credentials;
+  round 3 mid-October (Jorge Rodríguez). Rubio: institutions + economy first.
+- 09-30 AN timetable for TSJ renewal; Figuera: TSJ magistrates target November, CNE December.
+- 10-08 Millán: nominations close 10-09, selection from 10-15; round 3 agenda prisoners,
+  exiles, disqualifications, party system — CNE not mentioned.
+- Late Sept: Machado supporters rallied for a 2027 timetable; Machado still in exile, excluded.
+
+Searches: "Venezuela CNE nuevo rectores octubre 2026" (only 2023 hits — dead end);
+"Venezuela presidential election date announcement October 2026 Delcy Rodríguez";
+"Venezuela diálogo tercera ronda…"; "Venezuela elections news Trump Rodríguez timetable
+October 2026"; Reuters long-delays headline; "…cronograma CNE Machado octubre 2026" (2024
+hits — dead end); "Venezuela TSJ magistrados postulaciones octubre 2026…".

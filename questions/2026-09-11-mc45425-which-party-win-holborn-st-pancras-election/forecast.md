@@ -6,11 +6,99 @@
 | **Type** | multiple choice — 3 options: **Labour Party** · **Green Party** · **Other** |
 | **Opened / Closes / Resolves** | — / 2026-10-07 23:00 UTC / **2026-10-09** (declaration; poll is Thursday 2026-10-08) |
 | **Status** | open |
-| **Current forecast** | **Labour 79.5%, Green 19.3%, Other 1.2%** — IQR on Labour [73.0%, 85.0%] (v4, 2026-10-02) |
-| **Community (as of 2026-10-02)** | Labour: CP **82.4%** (n=117) · Pros **84.0%** (n=11) · gold **83.8%** (n=34); Polymarket 86.0% |
-| **Next review** | 2026-10-06 |
+| **Current forecast** | **Labour 99.0%, Green 0.7%, Other 0.3%** — IQR on Labour [98.5%, 99.5%] (v5, 2026-10-09) |
+| **Community (as of 2026-10-02)** | Labour: CP **82.4%** (n=117) · Pros **84.0%** (n=11) · gold **83.8%** (n=34) — fresh CP unavailable 2026-10-09 (Cloudflare block); Polymarket 99.95% (2026-10-09) |
+| **Next review** | 2026-10-16 — result declared 2026-10-09 (Labour, Abdi-Wali); awaiting Metaculus resolution |
 
 <!-- Versions below, newest first. APPEND-ONLY: never edit or delete a past version. -->
+
+---
+
+## v5 — Update — 2026-10-09
+
+**Mode: Update** (incremental). The outcome is known. Polling day was Thursday 2026-10-08.
+After an overnight count, Camden's returning officer declared **Sagal Abdi-Wali (Labour Party)**
+elected. Camden Council published the result at 03:18 BST on 2026-10-09 [1]. The reported
+totals are Abdi-Wali 12,292, Polanski (Green) 8,928, Conservative 1,992 and Reform 1,612. That
+gives a majority of about 3,364 on a turnout of 38.76% [1][2][3]. Metaculus has **not resolved
+it yet**. The cached bot-key API record shows status `closed` and resolution `null`,
+retrieved 2026-10-09 [4]. This version records the near-certain outcome. It does not resolve
+the question; `/resolve` is the operator's call.
+
+### Revision table
+
+| Driver | Direction | Effect on P(Labour) |
+|---|---|---|
+| **Prior (v4, 2026-10-02)** | — | **79.5%**, IQR [73.0%, 85.0%] (Green 19.3, Other 1.2) |
+| **The returning officer declared the Labour candidate elected** (Camden Council, 2026-10-09 03:18) [1]. LBC and LADbible report that the Greens conceded before the declaration [2][3]. Under the resolution criteria, the question resolves to the party of the candidate officially declared elected. That is Labour, by a ~3.4k margin over the Greens. Polymarket's Abdi-Wali market is at 0.9995 with UMA (the oracle Polymarket uses to settle markets) resolution "proposed" [5] | up | +19.5 |
+| **Residual risk**: a Metaculus mis-resolution, an annulment or an error in the reported result. This is not zero, but it is well under 1% | — | (kept at 1.0) |
+| **New forecast (v5)** | | **99.0%**, IQR [98.5%, 99.5%] (Green 0.7, Other 0.3) |
+
+### Tripwire check (v4 list)
+
+| Tripwire | Status | Evidence |
+|---|---|---|
+| Constituency poll shows the Greens within 3pp or ahead, **−15** | Not fired | No constituency poll was found before polling day (search, 2026-10-09). It is moot now that the result is declared |
+| Constituency poll shows Labour ahead by 10pp+, **+5** | Not fired | as above |
+| Polymarket Abdi-Wali below 75%, or bookmaker Green price 3/1 or shorter, **−5** | Not fired | Oddschecker's late-September best prices were Labour 1/10 and Greens 7/1 [6]. Polymarket now stands at 0.9995 for Abdi-Wali [5] |
+| Galloway endorses Polanski or withdraws, **−3** | Not fired | No such report found. Galloway's name does not appear among the leading finishers [2] |
+| UK-wide Green VI ≥13% in two polls, 10-02 to 10-06, **−2** | Not checked | Superseded by the declared result |
+| General election called or poll postponed, **annul** | Not fired | The poll took place on 2026-10-08 and was declared [1] |
+
+### What resolves YES
+
+Unchanged from v2. The question resolves to the party of the candidate officially declared
+elected. That candidate is Sagal Abdi-Wali (Labour Party) [1], so the resolution should be
+**Labour Party**.
+
+### Outside view
+
+Unchanged from v4. Superseded by the declared result.
+
+### Inside view
+
+Unchanged from v4. Superseded by the declared result.
+
+### Evidence
+
+Unchanged from v4. Superseded by the declared result.
+
+### Scenarios
+
+Unchanged from v4. Superseded by the declared result.
+
+### Sensitivity
+
+Unchanged from v4. Superseded by the declared result.
+
+### Other forecasters (2026-10-09)
+
+| Source | Value | As of | Note |
+|---|---|---|---|
+| Metaculus CP / Pros / gold | Labour 82.4% / 84.0% / 83.8% | **2026-10-02** (carried forward, `raw/metaculus-2026-10-02.json`) | **Fresh CP unavailable 2026-10-09 (Cloudflare block).** The question closed on 2026-10-07 23:00 UTC and is not yet resolved [4] |
+| **Polymarket** | Abdi-Wali **99.95%**, Polanski 0.05% | 2026-10-09 | event volume $136.8k; UMA resolution "proposed" [5] |
+
+### What would change my mind (tripwires)
+
+- [ ] The Metaculus resolution is anything other than "Labour Party", or the question is annulled → re-check the official result (by 2026-10-09).
+- [ ] An election petition or a correction to the official declaration → re-open the question (by 2026-10-09; the statutory petition window runs longer, but tripwires cannot outlive the scheduled resolution date).
+
+### Sources
+
+1. Camden Council, "Holborn and St Pancras parliamentary by-election: Results", 2026-10-09 03:18 — https://news.camden.gov.uk/holborn-and-st-pancras-parliamentary-by-election-results/ (accessed 2026-10-09)
+2. LADbible, "Holborn and St Pancras by-election result sees Greens lose in 'blow to Polanski'", 2026-10-09 — https://www.ladbible.com/news/uk-news/holborn-st-pancras-by-election-result-greens-lose-polanski-511770-20261009 (accessed 2026-10-09; vote totals)
+3. LBC, "Greens concede to Labour in Holborn and St Pancras by-election" — https://www.lbc.co.uk/article/labour-win-holsborn-st-pancras-by-election-5Hjdjbs_2/ (accessed 2026-10-09, via search summary)
+4. Metaculus API, post 45425 (bot key; metadata only) — https://www.metaculus.com/questions/45425/ (accessed 2026-10-09; `raw/metaculus-api-2026-10-09.json`)
+5. Polymarket gamma API, "Holborn and St Pancras By-Election Winner" — https://polymarket.com/event/holborn-and-st-pancras-by-election-winner (accessed 2026-10-09; `raw/polymarket-holborn-and-st-pancras-by-election-winner-2026-10-09.json`)
+6. Oddschecker, "Holborn and St Pancras By-Election Odds: Labour Heavy Favourites to Hold", 2026-09-28 — https://www.oddschecker.com/insight/politics/20260928-holborn-and-st-pancras-by-election-odds-labour-heavy-favourites-to-hold (accessed 2026-10-09, via search summary)
+7. Metaculus question 45425, three-cohort aggregations and comments — https://www.metaculus.com/questions/45425/ (accessed 2026-10-02; `raw/metaculus-2026-10-02.json`) — carried forward from v4 [2], still relied on (Other forecasters)
+8. 2026 Holborn and St Pancras by-election — Wikipedia — https://en.wikipedia.org/wiki/2026_Holborn_and_St_Pancras_by-election (accessed 2026-10-02) — carried forward from v4 [7], still relied on
+9. "Labour projected to hold on to Holborn and St Pancras, projection shows" — Left Foot Forward, October 2026 — https://leftfootforward.org/2026/10/labour-projected-to-hold-on-to-holborn-and-st-pancras-poll-predicts/ (accessed 2026-10-02) — carried forward from v4 [4], still relied on
+10. Holborn and St Pancras By-Election: Candidates, Polls & Projection — PollCheck — https://www.pollcheck.co.uk/by-elections/holborn-and-st-pancras (accessed 2026-10-02, via search summary) — carried forward from v4 [8], still relied on
+
+**Date**: 2026-10-09
+**Forecast**: Labour 99.0%, Green 0.7%, Other 0.3% — IQR on Labour [98.5%, 99.5%]
+**Thesis**: The result has been declared. Labour's Sagal Abdi-Wali was elected on 2026-10-09 with 12,292 votes to Polanski's 8,928 [1][2]. Under the criteria the question resolves "Labour Party". The remaining 1% covers Metaculus mis-resolution or a correction. Metaculus is closed and has not yet resolved it [4]; Polymarket is at 99.95% with resolution proposed [5].
 
 ---
 

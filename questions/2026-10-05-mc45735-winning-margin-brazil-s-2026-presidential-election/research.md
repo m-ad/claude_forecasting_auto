@@ -63,3 +63,20 @@ p25 1.82, p50 3.58, p75 5.68, p90 7.89, p95 9.46. P(|M| > 8) 0.095.
 - First post-R1 Datafolha, Quaest and AtlasIntel runoff polls (expected ~Oct 8–12).
 - Metaculus CP reveal (Oct 8).
 - Debate schedule; any late endorsements (Caiado, Kassab/PSD, Cury); turnout campaigns.
+
+## 2026-10-09 update (v2)
+
+| Date | Query / source | Finding | Effect on forecast |
+|---|---|---|---|
+| 2026-10-09 | Brasil de Fato (Datafolha 6–8 Oct) | F 49 / L 45 total, 52/48 valid; rejection L 46, F 43; 6% could change vote | up (F +4.3 valid) |
+| 2026-10-09 | Wikipedia polling table | PoderData 5–7 Oct F 49 / L 44 (≈ F +5.4 valid); Datafolha 3 Oct pre-R1 L 47 / F 46 | up |
+| 2026-10-09 | Gazeta do Povo 6 Oct | Caiado endorsed Flávio (6 Oct, with Tarcísio); Zema voted Flávio (5 Oct); Cury/Renan neutral; PSD neutral and frees its branches | mild up |
+| 2026-10-09 | Polymarket Gamma | F 85.65 / L 13.5; $178M event | up slightly |
+| 2026-10-09 | AtlasIntel / Quaest search | AtlasIntel post-R1 poll scheduled 9 Oct but not found; no Quaest post-R1 poll | open |
+| 2026-10-09 | Kalshi API | 429 rate-limited; not retrieved | — |
+| 2026-10-09 | Metaculus | browser path Cloudflare-blocked; API: open, 57 forecasters, aggregations hidden | no CP |
+
+Model v2: signed margin ~ 3.9 + 3.0·t(6). P(F) 0.88; |M| p5 0.47, p10 0.92, p25 2.19, p50 4.05, p75 6.14, p90 8.3, p95 9.8; P(>8) 0.114; P(<2) 0.226.
+A "PoderData F 53 / L 47 valid" headline surfaced in search; probably the same 5–7 Oct wave (≈52.7/47.3). Not independently verified.
+
+Next: AtlasIntel (9 Oct+) and Quaest post-R1 waves; debate dates; Kalshi price.

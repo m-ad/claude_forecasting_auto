@@ -234,3 +234,34 @@ The residual +1.95 Mb vs v1's 281.9 is the September starting level net of the O
 2. Weekly prints through October: does the ~0.4 Mb/week trickle continue until the 2.61 Mb
    residual is gone, then stop?
 3. Any DOE document on the exchange return schedule (1 Nov Big Hill or not).
+
+---
+
+## 2026-10-09 — v3 re-analysis log
+
+| Date | Source | Result | Used for |
+|---|---|---|---|
+| 2026-10-09 | EIA `WCSSTUS1w.xls` | 09-25 283,767 → **10-02 282,983** (draws 0.785, 0.784) | starting anchor; `raw/eia-weekly-wcsstus1-2026-10-09.xls` |
+| 2026-10-09 | EIA STEO Oct-2026 (`raw/eia-steo-oct2026-base.xlsx`) | COSQPUS Nov 262.547, Dec 242.547, flat to Jun-27, Jul-27 259.747 (+17.2/mo) | full-40-Mb upper bound on the draw; returns not before Jul-27 |
+| 2026-10-09 | DOE article 2026-09-29 (energy.gov) | up to 40 Mb, Big Hill + Bryan Mound, bids due 10-06 11:00 CT, deliveries Nov–Dec 2026, 25% premium on earlier rounds | tranche branch → main driver |
+| 2026-10-09 | DOE Petroleum Reserves News listing | latest item = 09-29 RFP; no award | award pending |
+| 2026-10-09 | spr.doe.gov award PDFs (Release No. 3/4/5 URL pattern) | 302 → 404 | dead end; June award (Vitol 0.5 Mb) taken from search-result text |
+| 2026-10-09 | Rigzone 10-05, OilMonster/Reuters | same terms; June take-up ~0.5 Mb; repayment of exchange barrels to late 2028 | award prior; returns timing |
+| 2026-10-09 | CMB (commodity-board) | Brent Dec-26 102.63, Jan-27 99.02 (10-01); long end ~$62–63 by 2035 | backwardation argument |
+| 2026-10-09 | Manifold API | lowest-2026 markets (P<250 34.7%; hi-res P>275 34.7%), "increase before Dec 2026" 41%, "another drawdown before Nov 1" 81% | low-volume, discounted; `raw/manifold-spr-markets-2026-10-09.json` |
+| 2026-10-09 | Polymarket gamma | Venezuela→SPR by Dec 31: 7.5% ($5.0k) | refill branch |
+| 2026-10-09 | Kalshi `KXSPR` | no open markets | — |
+| 2026-10-09 | Metaculus | fresh CP unavailable (Cloudflare block); last cached 31308 CP 287.77 Mb [274.0, 333.3], gold 292.86, Pro 400.24 (2026-09-30 04:55, in September sibling's `raw/metaculus-2026-10-02.json`) | stale comparison only |
+
+Award-size reasoning: in an exchange, the borrower takes a barrel now (~$100 for Nov–Dec delivery) and
+returns 1.25 barrels around 2028 (curve ~$70s, my reading of a steeply backwardated long end; flagged as
+**speculation**, since I have no 2028 settlement). Before financing, that is roughly break-even to
+attractive. In June it was evidently unattractive. The mixture keeps 22% on a June repeat.
+
+Model: `raw/scenario-model-2026-10-09.py` (imports the September sibling's v6 sampler; asserts that the
+2 October anchor is identical). Median 271.69, IQR [260.46, 280.14].
+
+Driver attribution (one-at-a-time back to v2 inputs): start level −0.9, tranche −10.1, returns −1.4,
+escalation/mandated/refill +0.6; the actual move is −11.4.
+
+Next: award notice (~10-13 to 10-20); weekly prints of November lifts; August PSM (~10-30).

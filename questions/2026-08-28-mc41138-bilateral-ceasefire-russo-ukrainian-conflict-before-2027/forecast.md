@@ -6,11 +6,161 @@
 | **Type** | binary |
 | **Opened / Closes / Resolves** | 2025-12-19 (first CP point) / 2026-12-31 / 2026-12-31 |
 | **Status** | open |
-| **Current forecast** | **Median 6.0%, IQR [4.0%, 9.0%]** (v2, 2026-09-24) |
-| **Community (as of 2026-09-23)** | CP 6.0% (n=313) · Pro 6.0% (n=24) · Gold 6.0% (n=97) |
-| **Next review** | 2026-10-08 |
+| **Current forecast** | **Median 4.5%, IQR [3.0%, 7.0%]** (v3, 2026-10-09) |
+| **Community (as of 2026-09-23; stale)** | CP 6.0% (n=313) · Pro 6.0% (n=24) · Gold 6.0% (n=97). Fresh CP unavailable 2026-10-09 (Cloudflare block) |
+| **Next review** | 2026-10-23 |
 
 <!-- Versions below, newest first. APPEND-ONLY: never edit or delete a past version. -->
+
+---
+
+## v3 — Update — 2026-10-09
+
+Mode: **Update** (incremental). 15 of the 98 days left at v2 have passed (83 remain, about 15%
+of the window). The markets moved down a lot but toward me, not against me, and no tripwire
+fired upward, so a de-novo re-analysis is not warranted. **Fresh Metaculus aggregations were
+unavailable on 2026-10-09**: Cloudflare blocks the browser and aggregation path from this
+container. The official API (bot key) confirms the question is still `open` with no
+resolution, 984 forecasters all-time, and unchanged criteria [M1].
+
+### Revision
+
+| Driver | Direction | Effect |
+|---|---|---|
+| Prior (v2, 2026-09-24) | — | Median 6.0%, IQR [4.0%, 9.0%] |
+| 15 quiet days out of 98; the remaining-window outside view falls from ~5% to ~4.4% (class A 4.1%, class B 4.7% over 83 days) | ↓ | −0.5pp |
+| Putin at Valdai (1 Oct) calls even a limited refinery-for-shipping strike truce "simply ridiculous" [17]. The Russian MFA promises "mass retaliatory strikes" on Kyiv, and the bridge campaign began on 1–3 Oct [18][19]. The Kremlin is escalating, not moving toward ceasefire-first | ↓ | −0.75pp |
+| The US now proposes only a **technical-level** trilateral by end-October, with an agenda limited to an energy truce and the Black Sea corridor [20][21]. Moscow has not confirmed it as of 7 Oct [22]. Separately, Turkey and the UN are convening Black Sea talks [23]. Every live track is partial, and partial deals cannot resolve YES | ↓ | −0.25pp |
+| Markets fell sharply: Polymarket Dec-31 23% → 14.5%, Manifold 13.8% → 7.5% [15][16]. Polymarket stripped of its looser definition now implies ~4–6%, so it no longer supports keeping me at ≥6% (v2's stated reason for not going lower) | ↓ | −0.25pp |
+| No Russian mobilisation decree; the Kremlin denies a 300k call-up [24] | → | 0 |
+| **New forecast** | | **Median 4.5%, IQR [3.0%, 7.0%]** |
+
+The rows sum to −1.75pp, giving 4.25%. Rounded to 4.5% because the scenario table below gives
+4.5% and because a 1% "resolution surprise" floor sits inside a small number.
+
+### Tripwire check
+
+| Tripwire from v2 | Fired? | Note |
+|---|---|---|
+| Kremlin drops "settlement first" on the record (by 2026-11-30, +12pp) | **Not fired**. Opposite direction | Putin at Valdai on 1 Oct dismissed even a partial strike truce. He said he prefers to end the war "through talks" with a neutral Ukraine, which is the settlement-first line [17] |
+| Trilateral round convenes with a joint statement naming a ceasefire or territorial framework (by 2026-11-15, +4pp) | Not fired | The round is not yet scheduled. The US proposes technical level by end-October, Kyiv has agreed, and Moscow's answer is pending as of 7 Oct [20][22] |
+| Putin–Trump summit scheduled with a public date before 2026-12-15 (+5pp) | Not fired | No date. Trump instead urged Zelensky to meet Putin in Moscow, and Zelensky declined [25] |
+| Russia accepts an energy or air ceasefire (by 2026-10-31, +2pp) | **Not fired** (still open to 31 Oct) | Rejected outright at Valdai [17]. Trump privately doubts an energy truce before winter [20] |
+| No trilateral round convenes (by 2026-10-31, −1.5pp) | Pending | Not convened yet. Partly priced into the −0.25pp row above |
+| Russian mobilisation decree ≥100,000 (by 2026-11-30, −1.5pp) | Not fired | Peskov denies a 300k plan [24] |
+| Metaculus CP outside [3%, 12%] → re-analysis | **Unknown** | Fresh CP unavailable 2026-10-09 (Cloudflare block). Last seen 6.0% on 2026-09-23 |
+
+### What resolves YES
+
+Unchanged from v1/v2, re-read from the API on 2026-10-09 [M1]. A mutually agreed ceasefire
+covering all kinetic fighting must take effect in 2026, and must either last 30 days inside
+2026 or be stated (in the agreement text or a joint statement) to last ≥30 days or
+indefinitely. Branch (a), a 30-day hold, is reachable only for a ceasefire in effect by
+2026-12-01, which is now 53 days away. Energy, Black Sea and air moratoria do not count.
+
+### Outside view
+
+The classes are the same as in v2, scaled to the 83 days left (0.227 yr). A: 1 − 0.833^0.227 ≈
+**4.1%**. B: 1 − 0.9825^2.73 ≈ **4.7%**. **Outside-view prior ≈ 4.4%.**
+
+### Inside view
+
+v2's structure holds, with three changes since 24 Sep:
+- **Escalation, not de-escalation.** Russia opened a campaign against the Dnipro bridges in Kyiv
+  (Pivdennyi on 1–2 Oct, Northern on 3 Oct). The MFA has promised more "mass retaliatory
+  strikes" and told foreigners to leave [18][19]. Putin acknowledged that Ukraine's refinery strikes have cost Russia about 1%
+  of GDP. He chose to retaliate in kind rather than trade the strikes away [17].
+- **The US has scaled down what it is asking for.** The October proposal is a technical-level
+  meeting on an energy truce and the grain corridor [20][21]. It is not a framework
+  negotiation. Even if that round succeeds fully, it yields partial measures that resolve NO.
+- **Time.** For a framework deal with a comprehensive ceasefire in effect by 31 Dec, the
+  technical round would have to happen in late October and leaders would have to agree a
+  framework in November. That would make the fastest sequence of this war, against a stated
+  Russian refusal of ceasefire-first.
+
+### Evidence
+
+- Putin at Valdai, rejecting even a partial truce [17]: **LR ≈ 0.85**.
+- Strikes on the bridges in the capital, and the threat of "mass retaliatory strikes" [18][19]: **LR ≈ 0.95**.
+- A technical-level, partial-scope US proposal with no Russian reply [20][22]: **LR ≈ 0.95**.
+- Market repricing [15][16]: treated as corroboration rather than independent evidence,
+  **LR ≈ 0.95**.
+- **Absent:** a date for the trilateral, a summit, framework text, or any Russian statement
+  accepting a ceasefire of ≥30 days.
+
+### Other forecasters
+
+| Source | Value | As of | Note |
+|---|---|---|---|
+| Metaculus CP (recency-weighted) | 6.0% (n=313) — **stale** | 2026-09-23 (cached `raw/metaculus-2026-09-24.json`) | fresh CP unavailable 2026-10-09 (Cloudflare block). API: 984 forecasters all-time, status open [M1] |
+| Metaculus Pro | 6.0% (n=24) — **stale** | 2026-09-23 | fresh CP unavailable 2026-10-09 (Cloudflare block) |
+| Metaculus gold medalists | 6.0% (n=97) — **stale** | 2026-09-23 | fresh CP unavailable 2026-10-09 (Cloudflare block) |
+| Polymarket, "ceasefire agreement by Dec 31, 2026" | **14.5%** (bid 14 / ask 15; $2.75M vol) | 2026-10-09 | was 23% on 2026-09-24. Looser definition: any length, and an announcement counts |
+| Polymarket, same ladder: Oct 31 / Nov 30 / Jan 31 2027 / Mar 31 2027 | 4.15% / 8% / 22.5% / 32.5% | 2026-10-09 | was 8% / 14.5% / 29% on 2026-09-24 |
+| Manifold, "Russia x Ukraine ceasefire in 2026?" | **7.5%** (85 traders, M$15k) | 2026-10-09 | was 13.8%. Play money, discounted |
+
+Markets fell by about 40% in relative terms in 15 days. Polymarket's Dec-31 price of 14.5% includes
+short Christmas or New Year truces (~5–6pp, consistent with the April and May 2026 precedents)
+and deals announced but not yet in effect (~2–3pp). That leaves ~5–7% for "any general pause",
+and only part of it would be a ≥30-day or indefinite comprehensive ceasefire. That points to ~4–5% here.
+I sit at 4.5%, below the last-seen Metaculus cohorts (6%, 16 days stale). Given the market
+move, the CP has probably also drifted down, but I cannot verify that.
+
+### Scenarios
+
+| # | Scenario | Weight | Implies |
+|---|---|---|---|
+| 1 | Grinding continuation and escalation; talks at technical level or none | 74% | NO |
+| 2 | Partial measures only (energy truce, Black Sea corridor, strikes on capitals) | 14% | NO |
+| 3 | Short symbolic holiday truce | 6% | NO |
+| 4 | Framework deal or ≥30-day/indefinite comprehensive ceasefire in effect by 31 Dec | 3.5% | **YES** |
+| 5 | Framework agreed in December, effective 2027 | 1.5% | NO |
+| 6 | Resolution surprise | 1% | **YES** |
+
+YES mass = **4.5%**.
+
+### Sensitivity
+
+| Assumption | If instead | Forecast becomes |
+|---|---|---|
+| The October round stays technical and partial | It produces a joint text naming a comprehensive ceasefire | 10% |
+| Russia keeps settlement-first | Kremlin accepts ceasefire-first on the record | 15% |
+| Ceasefire must take effect by 31 Dec | Announcement alone sufficed | 6.5% |
+
+### What would change my mind (tripwires)
+
+- [ ] **Kremlin accepts ceasefire-first** on the record (Putin, Lavrov, Peskov or Ushakov), by
+      **2026-11-30** → **+10pp**.
+- [ ] **A trilateral round issues a joint statement naming a comprehensive ceasefire or a
+      territorial framework**, by **2026-11-20** → **+4pp**.
+- [ ] **A Putin–Trump summit is scheduled with a public date** before **2026-12-15** → **+4pp**.
+- [ ] **Russia accepts an energy or Black Sea ceasefire**, by **2026-11-15** → **+1.5pp**
+      (it signals movement but does not qualify itself).
+- [ ] **No trilateral round convenes** by **2026-10-31** → **−1pp**.
+- [ ] **Russian mobilisation decree of ≥100,000** by **2026-11-30** → **−1pp**.
+- [ ] **Polymarket Dec-31 contract goes above 25% or below 7%** → re-check the decomposition, ±1–2pp.
+- [ ] **Metaculus CP (when fetchable) outside [2%, 10%]** → de-novo re-analysis.
+
+### Sources
+
+New in v3 (sources [1]–[16] from v2 remain valid; [15] and [16] were re-fetched):
+
+17. Russia's Putin rules out ceasefire with Ukraine during speech in Moscow — Al Jazeera, 2026-10-01 — https://www.aljazeera.com/news/2026/10/1/russias-putin-rules-out-ceasefire-with-ukraine-during-speech-in-moscow (accessed 2026-10-09)
+18. Russia strikes Kyiv's Northern Bridge in a new tactic to disrupt life in the Ukrainian capital — AP via NY1, 2026-10-03 — https://ny1.com/nyc/all-boroughs/ap-top-news/2026/10/03/russia-strikes-kyivs-northern-bridge-in-a-new-tactic-to-disrupt-life-in-the-ukrainian-capital (accessed 2026-10-09; search-result summary)
+19. Russia ramps up attacks on Ukraine as U.S. pushes for peace talks — CNBC, 2026-10-05 — https://www.cnbc.com/2026/10/05/ukraine-war-russia-kyiv-putin-zelenskyy-trump.html (accessed 2026-10-09; 403 on fetch, search-result summary only)
+20. US proposes trilateral talks with Russia, Ukraine by end of October, Zelensky says — Kyiv Independent, 2026-10-04 — https://kyivindependent.com/us-proposes-trilateral-talks-with-russia-ukraine-by-end-of-october-zelensky-says/ (accessed 2026-10-09)
+21. U.S. wants to arrange new talks with Ukraine and Russia in Abu Dhabi in October (limited ceasefire) — Censor.net — https://censor.net/en/news/4025804/u-s-eyes-october-abu-dhabi-talks-on-limited-ukraine-ceasefire (accessed 2026-10-09; 403 on fetch, search-result summary only)
+22. Ukraine Wants to Hold Talks with Russia and the U.S. as Early as October — Tykhyi (MFA, 2026-10-07) — https://shelter.in.ua/en/viyna/ukrayina-khoche-provesty-perehovory-z-rf-ta-ssha-vze-u-zovtni-tykhyy (accessed 2026-10-09; search-result summary)
+23. Turkey and UN Broker Talks on Russia-Ukraine Black Sea Truce — Bloomberg, 2026-10-01 — https://www.bloomberg.com/news/articles/2026-10-01/turkey-and-un-broker-new-talks-on-russia-ukraine-black-sea-truce (accessed 2026-10-09; paywalled, search-result summary)
+24. Kremlin Rejects Reports of New 300,000-Troop Mobilization — Caspian Post — https://caspianpost.com/regions/kremlin-rejects-reports-of-new-300-000-troop-mobilization (accessed 2026-10-09; search-result summary)
+25. Trump Asked Zelenskyy to Meet Putin in Moscow for Peace Talks — Bloomberg, 2026-09-25 — https://www.bloomberg.com/news/articles/2026-09-25/trump-asked-zelenskyy-to-meet-putin-in-moscow-for-peace-talks (accessed 2026-10-09; paywalled, search-result summary)
+26. [cited as M1] Metaculus API post JSON for #41138 (bot key; aggregations hidden) — `raw/metaculus-api-2026-10-09.json` (fetched 2026-10-09)
+27. [cited as 15'; re-fetch of v2 source 15] Polymarket, "Russia x Ukraine ceasefire agreement by…?" (gamma API) — https://polymarket.com/event/russia-x-ukraine-ceasefire-agreement-by — `raw/polymarket-ceasefire-agreement-by-2026-10-09.json` (accessed 2026-10-09)
+28. [cited as 16'; re-fetch of v2 source 16] Manifold, "Russia x Ukraine ceasefire in 2026?" — https://manifold.markets/HillaryClinton/russia-x-ukraine-ceasefire-in-2026 — `raw/manifold-ceasefire-2026-2026-10-09.json` (accessed 2026-10-09)
+
+**Date**: 2026-10-09
+**Forecast**: Median 4.5%, IQR [3.0%, 7.0%]
+**Thesis**: Since v2 Moscow has escalated rather than softened. At Valdai, Putin rejected even a partial strike truce [17], and Russia opened a bridge-strike campaign on Kyiv [18][19]. Meanwhile the US has scaled its ask down to a technical-level, energy/Black-Sea-only trilateral that Russia has not yet accepted [20][22]. Neither development can yield a comprehensive ≥30-day ceasefire in effect within the 83 days left. Hazard decay (outside view ~4.4%) and a sharp market repricing (Polymarket 23% → 14.5%, Manifold 13.8% → 7.5% [15'][16']) take me below the last-seen, stale Metaculus cohorts (6%, 2026-09-23).
 
 ---
 

@@ -205,3 +205,41 @@ comes to ~6–9%. Final: 6.0%, IQR [4.0, 9.0].
 3. Is there any US deadline or sanctions threat (the Graham sanctions bill) with a date attached?
 4. Does a holiday truce proposal emerge for late December, and would its stated duration be
    ≥30 days?
+
+---
+
+## 2026-10-09 — v3 update session
+
+**Metaculus:** the browser/aggregation path is blocked by Cloudflare (verified by the parent
+agent). API JSON (bot key) cached as `raw/metaculus-api-2026-10-09.json`: status open, no
+resolution, 984 forecasters all-time, criteria unchanged. No fresh CP/Pro/gold; last seen
+6/6/6% on 2026-09-23.
+
+**Markets (2026-10-09):**
+- Polymarket ladder (gamma API): Oct 31 4.15%, Nov 30 8%, Dec 31 14.5% (bid 14 / ask 15,
+  $2.75M), Jan 31 2027 22.5%, Mar 31 2027 32.5%. Dec 31 was 23% on 09-24. Saved to
+  `raw/polymarket-ceasefire-agreement-by-2026-10-09.json`.
+- Manifold "ceasefire in 2026": 7.5% (85 traders), down from 13.8%. Saved to
+  `raw/manifold-ceasefire-2026-2026-10-09.json`.
+
+**News since 2026-09-24:**
+- 25 Sep: Bloomberg reports that Trump asked Zelensky to meet Putin in Moscow; Zelensky declined.
+- 1 Oct: Putin at Valdai calls a refinery-for-shipping strike truce "simply ridiculous", issues a
+  Kaliningrad nuclear warning, and says he prefers to end the war via talks with a neutral
+  Ukraine (Al Jazeera).
+- 1 Oct: Turkey and the UN, with the Centre for Humanitarian Dialogue, convene Black Sea truce
+  talks for early October (Bloomberg; Ukrainska Pravda). Partial in scope, so it cannot resolve
+  YES.
+- 1–3 Oct: Russia strikes the Pivdennyi and Northern bridges in Kyiv. The Russian MFA promises
+  "mass retaliatory strikes" and tells foreigners to leave.
+- 3–4 Oct: the US proposes a technical-level trilateral by end-October (UAE likely), with an
+  agenda of an energy truce and the grain corridor. Kyiv agrees. Moscow has not answered as of
+  7 Oct (Tykhyi, Ukrainian MFA). Sources say Trump privately doubts an energy truce before
+  winter (Kyiv Independent).
+- No mobilisation decree; Peskov denies a 300k plan.
+
+**Dead ends:** CNBC 10-05, Censor.net and Ukrainska Pravda returned 403 on fetch, so only
+search summaries were used. No October Peskov or Ushakov quote on the trilateral was found.
+
+**Integration:** outside view over 83 days ≈ 4.4%. Scenario YES mass 4.5%. Polymarket after
+stripping short truces and announce-only deals comes to ~4–6%. Final: 4.5%, IQR [3.0, 7.0].

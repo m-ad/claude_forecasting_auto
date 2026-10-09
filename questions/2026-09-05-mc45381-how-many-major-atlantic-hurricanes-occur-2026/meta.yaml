@@ -13,56 +13,43 @@ dates:
   resolves: '2026-11-30'
 status: open
 current:
-  version: 6
-  date: '2026-10-08'
-  median: 0.484
+  version: 7
+  date: '2026-10-09'
+  median: 0.62
   iqr:
-  - 0.4
-  - 0.57
+  - 0.533
+  - 0.692
   community:
-    cp: 0.607
-    pro: 0.579
-    gold: 0.58
-    n_forecasters: 152
+    cp: 0.36
+    pro: 0.382
+    gold: 0.383
+    n_forecasters: 161
     as_of: '2026-10-08'
-next_review: '2026-10-09'
+next_review: '2026-10-10'
 tripwires:
-- signal: Isaias reaches >= 100 kt (115 mph) in any NHC advisory or TCU - option `0` to ~0%, `1` to ~88%
+- signal: Isaias reaches >= 100 kt (115 mph) in any NHC advisory or TCU - option `0` to ~0%, `1` to ~89%
   by: '2026-10-10'
   direction: down
-  magnitude: 48
+  magnitude: 30
   magnitude_unit: pp
   fired: null
-- signal: Isaias makes landfall or weakens below hurricane strength with operational peak <= 95 kt - option
-    `0` to ~87%
+- signal: Isaias makes landfall or NHC reports weakening begun with operational peak <= 95 kt - option
+    `0` to ~88%
   by: '2026-10-11'
   direction: up
-  magnitude: 39
+  magnitude: 58
   magnitude_unit: pp
   fired: null
-- signal: An NHC advisory raises the Isaias forecast peak to >= 100 kt
-  by: '2026-10-09'
-  direction: down
-  magnitude: 13
-  magnitude_unit: pp
-  fired: null
-- signal: An NHC advisory lowers the Isaias forecast peak to <= 85 kt
+- signal: 09Z or 15Z NHC advisory on 2026-10-09 removes 100 kt from the forecast (peak <= 95 kt)
   by: '2026-10-09'
   direction: up
   magnitude: 15
   magnitude_unit: pp
   fired: null
-- signal: Recon central pressure <= 965 mb before 2026-10-09 18Z
+- signal: Recon central pressure <= 965 mb or SFMR >= 95 kt before 2026-10-09 18Z
   by: '2026-10-09'
   direction: down
-  magnitude: 10
-  magnitude_unit: pp
-  fired: null
-- signal: CPC ENSO update (2026-10-08) puts OND RONI below +2.0 or shows El Nino peaking early - rest
-    of season only
-  by: '2026-10-15'
-  direction: down
-  magnitude: 2
+  magnitude: 12
   magnitude_unit: pp
   fired: null
 - signal: NHC TWO flags 50%+ 7-day formation in the Gulf, western Caribbean or SW Atlantic after Isaias
@@ -77,14 +64,14 @@ tripwires:
   magnitude: 3
   magnitude_unit: pp
   fired: null
-- signal: Kalshi KXHURCTOTMAJ-26DEC01-T0 trades outside 50-80c on more than 3k fresh contracts - re-check,
+- signal: Kalshi KXHURCTOTMAJ-26DEC01-T0 trades outside 60-90c on more than 3k fresh contracts - re-check,
     do not nudge
   by: '2026-10-16'
   direction: either
   magnitude: 0
   magnitude_unit: pp
   fired: null
-- signal: Metaculus Pros on option `0` fall below 45% or rise above 70%
+- signal: Once fetchable, Metaculus Pros on option `0` sit outside 20-50%
   by: '2026-10-16'
   direction: either
   magnitude: 0

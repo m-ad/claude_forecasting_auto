@@ -210,3 +210,14 @@ Sharjah 2022**, when both were very different players); rapid **Gukesh 1–0** (
 - Whether a title sponsor and playing hall are announced, and whether FIDE moves the dates again.
 - Opening-preparation signals: seconds hired, training-camp reporting.
 - Whether Gukesh plays any classical chess at all between the Olympiad and 24 November.
+
+## 2026-10-09 — v4 update log
+
+- Metaculus: aggregations blocked (Cloudflare) — used API metadata only (`raw/metaculus-api-2026-10-09.json`: open, 118 forecasters). Cohorts carried forward from 2026-09-26.
+- Kalshi (API, 2026-10-09): JSIN 69/70¢ last 69¢, vol 297.6k (was 276.4k on 09-26); GDOM 29/30¢ last 30¢. First call hit `too_many_requests`; retried after backoff.
+- Polymarket (gamma, 2026-10-09): Sindarov 0.735 (0.73/0.74), event vol $118.7k (was $85.4k).
+- Manifold (2026-10-09): Sindarov 70%, 67 traders.
+- October FIDE list (Chess.com): Sindarov 2782 (+4, #4), Gukesh 2710 (+7, #28). Gap 72.
+- Olympiad final: Sindarov TPR 2797 over 10 games, board-2 bronze (Chess.com). Gukesh lost last round to Gleb Dudin (HUN); rating gain +14 → +7 (ChessBase India). No primary TPR for Gukesh found; K=10 inference puts it ~2730s.
+- Wikipedia WCC 2026: venue Fondation Martin Bodmer, Cologny; Salesforce main sponsor; Freedom Holding general partner; dates 24 Nov–12 Dec; no withdrawals.
+- Dead end: no news on Gukesh's seconds/training camp.

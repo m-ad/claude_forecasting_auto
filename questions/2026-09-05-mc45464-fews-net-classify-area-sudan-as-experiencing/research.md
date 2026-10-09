@@ -153,3 +153,25 @@ Haircuts applied to that 26.9%:
 - **Dead ends**: no FRC or new IPC Sudan round announced (searched "IPC Famine Review Committee Sudan
   September 2026", "IPC Sudan update October 2026"). No State Dept suspension of Sudan found. Could
   not retrieve the Aug map PNG or geojson links from the fews.net HTML (JS-rendered). Used FDW instead.
+
+---
+
+## 2026-10-09 — v3 update log
+
+- **Metaculus**: no fresh aggregation (Cloudflare block on browser path, 2026-10-09). The official API JSON
+  (`raw/metaculus-api-2026-10-09.json`) shows status open, closes 2026-10-31, nr_forecasters 141 (was 112).
+  Cohort numbers carried forward from `raw/metaculus-2026-09-24.json`, labelled stale.
+- **FDW API** (re-queried 2026-10-09, summary in `raw/fewsnet-fdw-phase-counts-2026-10-09.json`): new
+  `reporting_date` 2026-09-01, "Key Message Update, Sudan", near-term projection Sep: P4 171 / P3 196 / P2 23,
+  **0 Phase 5**. That is 9 straight maps without Phase 5. First qualifying map → NO.
+- **FEWS NET Sept KMU** (fews.net, no explicit pub date, cites events to ~24 Sep): headline "risk of Famine expands
+  to parts of South Darfur". Sharg Aj-Jabal (East Jebel Marra): GAM-WHZ above the Famine threshold in 2 of 4 IDP
+  camps (late Aug / early Sep). Food consumption and CDR/U5DR are at Phase 4. "do not establish a Famine
+  classification". Famine "would become the most likely outcome" if drought-driven displacement increases. North
+  Darfur: Dar As Salam and As Serief to stay in P4. Catastrophe likely among populations in Um Baru, Kernoi,
+  At-Tina, Dilling, Kadugli and El Obeid. September rains severely below average. HRP 41% funded. 3.7M reached in August.
+- **No Alert**. The fews.net Sudan page also lists a "Special Report, Global, 6 Oct 2026" (contents not retrieved).
+- **News**: Dabanga 17 Sep early-warning report (Jebel Marra, El Malha, Buram, Tawila). NGO joint harvest
+  appeal 5 Oct. Radio Tamazuj on Malha malnutrition (6,200 malnourished children). No October reporting found on El Obeid
+  encirclement or Kadugli/Dilling re-siege. No announced WFP ration cut after the 14 Sep warning.
+- **Dead ends**: Save the Children press release (403). No IPC/FRC Sudan announcement found.

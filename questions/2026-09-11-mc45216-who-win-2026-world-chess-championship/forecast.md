@@ -6,11 +6,131 @@
 | **Type** | multiple choice — 2 options: **Gukesh Dommaraju** · **Javokhir Sindarov** |
 | **Opened / Closes / Resolves** | — / 2026-12-14 17:30 UTC / **2026-12-14** (match ends 12 Dec — Game 14 on the 11th, tiebreaks on the 12th — or earlier if someone reaches 7½) |
 | **Status** | open |
-| **Current forecast** | **Sindarov 69.5%, Gukesh 30.5%** — IQR on Sindarov [64.0%, 75.0%] (v3, 2026-09-26) |
-| **Community (as of 2026-09-26)** | **CP 70.0%** (n=98) · **Pro 69.6%** (n=10) · **Gold medalists 70.0%** (n=29) Sindarov; Polymarket 71.5%, Kalshi 68/70¢ |
-| **Next review** | 2026-10-05 |
+| **Current forecast** | **Sindarov 68.5%, Gukesh 31.5%** — IQR on Sindarov [63.0%, 74.0%] (v4, 2026-10-09) |
+| **Community** | Metaculus cohorts last seen 2026-09-26: CP 70.0% (n=98) · Pro 69.6% · gold 70.0% Sindarov — **fresh CP unavailable 2026-10-09 (Cloudflare block)**; n=118 per API 2026-10-09. Polymarket 73.5%, Kalshi 69/70¢, Manifold 70% (all 2026-10-09) |
+| **Next review** | 2026-10-23 |
 
 <!-- Versions below, newest first. APPEND-ONLY: never edit or delete a past version. -->
+
+---
+
+## v4 — Update — 2026-10-09
+
+**Mode: Update** (incremental). 13 days since v3, ~16% of the time remaining to resolution,
+no structural change to the question, and the last two versions did not drift the same way
+(+2.5pp, then 0pp). The new information is the *final* Olympiad data and the October FIDE list,
+which together replace the partial (through Round 8/9) figures v2 used.
+
+### Revision table
+
+| | Median (Sindarov) | IQR | Driver |
+|---|---|---|---|
+| v3 (2026-09-26) | 69.5% | [64.0%, 75.0%] | — |
+| **Final Olympiad data shrinks Sindarov's over-performance.** v2 credited +3.0pp to his TPR 2864 through Round 8. The full event: TPR **2797 over 10 games**, individual bronze on board 2 [2] — +19 over his rating, not +86. Gukesh finished with a last-round loss to Gleb Dudin, halving his rating gain from +14 to +7 [2][3]. Net: the Olympiad now looks like both men played about 20–25 Elo above their ratings, i.e. roughly neutral, so I give back part of v2's net +1.0pp Olympiad lift and the small extra from the gap narrowing | −1.5pp | toward Gukesh |
+| **October FIDE list: Sindarov 2782 (#4, +4), Gukesh 2710 (#28, +7); gap 75 → 72** [2]. Inside the 60–95 tripwire band, so no model re-run; the 3-Elo narrowing is the same Olympiad evidence as the row above and is not counted twice | 0pp | — |
+| **Markets firmed slightly**: Polymarket Sindarov 71.5% → **73.5%** (bid 0.73/ask 0.74, event volume $85k → $119k) [4]; Kalshi 68¢ → **69¢** last (69/70¢; +21k contracts on the Sindarov leg since 2026-09-26) [5]; Manifold 70% (67 traders, play money) [6]. Weighted toward Kalshi (deepest), the real-money mid moved ~+1pp | +0.5pp | toward Sindarov |
+| **Venue and sponsor now settled**: Fondation Martin Bodmer, Cologny (Geneva); Salesforce main sponsor; dates 24 Nov – 12 Dec unchanged; no withdrawal or injury news for either player [7] | 0pp | removes annulment tail, does not move the split |
+| **v4 (2026-10-09)** | **68.5%** | **[63.0%, 74.0%]** | net **−1.0pp** |
+
+### Tripwire check (v3 list)
+
+| # | Tripwire | Status | Note |
+|---|---|---|---|
+| 1 | October FIDE list moves the classical gap outside 60–95 Elo (by 10-05) | **Not fired** | Gap 72 (2782 vs 2710) [2] |
+| 2 | Either player withdraws, dates move, or no venue/sponsor by 11-01 | **Not fired** | Venue (Bodmer Foundation, Cologny) and main sponsor (Salesforce) named; dates 24 Nov–12 Dec [7]. FIDE's July page still shows the stale 25 Nov–15 Dec window — known trap, see research.md |
+| 3 | Kalshi Sindarov outside $0.62–$0.78 on ≥ 20k fresh contracts | **Not fired** | 69/70¢, last 69¢; ~21k contracts since 09-26, all inside the band [5] |
+| 4 | Metaculus Pro or gold diverges > 5pp from the CP | **Not checkable** | Fresh aggregations unavailable 2026-10-09 (Cloudflare block on this container). Last seen 2026-09-26: max spread 0.4pp [1] |
+| 5 | Official final Olympiad TPR: Gukesh ≥ 2790 or Sindarov (full event) ≤ 2750 (by 10-05) | **Not fired** | Sindarov 2797 over 10 games [2]. Gukesh: no published TPR, but +7 rating points at K=10 implies about +0.7 points over expectation across ~10 games, i.e. TPR in the low-to-mid 2730s — well below 2790 (my inference, not a published figure) |
+| 6 | Gukesh leads after Game 4 | Not due | Match starts 2026-11-24 |
+
+### What resolves YES
+
+Unchanged from v1.
+
+### Outside view
+
+Unchanged from v1.
+
+### Inside view
+
+The v2 inside view leaned on a Sindarov Olympiad performance of 2864 through eight rounds. That
+figure did not survive the last three rounds: his full-event TPR was 2797 [2]. That is still a
+strong result — individual bronze on board 2, on the gold-medal team — but it no longer argues
+that his 2782 rating *understates* him. Gukesh, for his part, scored well after a slow start and
+then lost the final game [3]. On the cleanest summary statistic, the rating change, both men
+gained a handful of points (+4, +7). The Olympiad therefore leaves the rating-gap model almost
+exactly where it started, at a nominal gap of 72 Elo. Davidson at +72 sits at ~68.8% before any
+regression of either player's level, which is where v1's argument already had me.
+
+Carlsen's September remark — Sindarov "a pretty significant favorite", Gukesh's evaluations "way
+too optimistic" [7] — is commentary I already priced in v1. Sindarov himself told Reuters
+he prepares "for his strongest version" and credits Gukesh's match experience as a
+psychological and organisational edge [8]; that is a qualitative point for Gukesh that the
+champion-as-underdog base rate (0/2) already contests.
+
+### Evidence
+
+| Finding | Direction | Effect |
+|---|---|---|
+| Sindarov full-event Olympiad TPR 2797 / 10 games (was 2864 through R8) | ↓ toward Gukesh | −1.5pp (partial reversal of v2) |
+| Gukesh last-round loss to Dudin; rating gain cut from +14 to +7 | ↑ toward Sindarov | folded into the row above |
+| October list gap 72 (inside 60–95 band) | → | 0pp (same evidence as above) |
+| Polymarket 71.5 → 73.5, Kalshi 68 → 69¢, Manifold 70 | ↑ toward Sindarov | +0.5pp |
+| Venue and sponsor named, dates unchanged, no withdrawal news | → | 0pp |
+
+**Evidence I looked for and did not find**: Gukesh's exact Olympiad TPR or game-by-game score
+from a primary source; any news on Gukesh's seconds or training camp; any fresh Metaculus
+aggregation (blocked).
+
+### Other forecasters
+
+| Where | Sindarov | As of | Note |
+|---|---|---|---|
+| Metaculus CP | 70.0% | **2026-09-26** (carried forward) | **fresh CP unavailable 2026-10-09 (Cloudflare block)**; forecaster count 98 → 118 per the API on 2026-10-09 |
+| Metaculus Pro | 69.6% | **2026-09-26** (carried forward) | n=10; not re-checkable today |
+| Metaculus gold medalists | 70.0% | **2026-09-26** (carried forward) | n=29; not re-checkable today |
+| Kalshi `KXCHESSWORLDCHAMPION-CHESS26` | 69/70¢, last 69¢ (Gukesh 29/30¢) | 2026-10-09 | Sindarov leg 297.6k contracts lifetime, open interest 135k |
+| Polymarket | 73.5% (0.73/0.74) | 2026-10-09 | event volume $118.7k |
+| Manifold | 70% | 2026-10-09 | 67 traders, play money — discounted |
+
+No cohort disagreement can be assessed today. Real-money venues span 69–73.5; I sit 0.5pp under
+Kalshi and 5pp under Polymarket. Polymarket's 2-point rise came on thin volume (~$33k) and was
+not matched on the deeper Kalshi book, so I give it little weight.
+
+### Scenarios
+
+Same structure as v2. Weights at 68.5%: Sindarov classical ~0.575, Gukesh classical ~0.230,
+Sindarov tiebreak ~0.110, Gukesh tiebreak ~0.085.
+
+### Sensitivity
+
+Unchanged from v1.
+
+### What would change my mind (tripwires, v4)
+
+- [ ] Either player withdraws, FIDE moves the match dates, or a health issue is reported → re-read the annulment and replacement clauses. By 2026-11-23.
+- [ ] Kalshi's Sindarov contract closes outside $0.62–$0.78 on ≥ 20k contracts of fresh volume → re-anchor. By 2026-11-24.
+- [ ] Metaculus Pro or gold-medalist cohort diverges > 5pp from the CP, or the CP is > 5pp from 68.5%, once aggregations are fetchable again → investigate before defending. By 2026-11-24.
+- [ ] Gukesh plays any classical event before the match and scores below 40% or above 65% → revisit the regressed-strength estimate. By 2026-11-20.
+- [ ] November FIDE list (publishes ~2026-11-01) moves the classical gap outside 60–85 Elo → re-run the model. By 2026-11-05.
+- [ ] Gukesh leads after Game 4 → Carlsen's path-dependence claim; −25pp Sindarov. By 2026-12-01.
+
+### Sources
+
+1. Metaculus question 45216, three-cohort aggregations — https://www.metaculus.com/questions/45216/ (cohorts last accessed 2026-09-26 19:29 UTC; `raw/metaculus-2026-09-26-evening.json`); post metadata via official API, 2026-10-09 (`raw/metaculus-api-2026-10-09.json`: status open, 118 forecasters, aggregations hidden to bot key)
+2. "October 2026 FIDE Rating List: Abdusattorov, Erdogmus Climb After Starring In Samarkand" — Chess.com — https://www.chess.com/news/view/october-2026-fide-rating-list (accessed 2026-10-09; Sindarov 2782 #4, TPR 2797 over 10 games, board-2 bronze; Gukesh 2710 #28, +7)
+3. "FIDE Rating list October 2026: Savitha Shri Breaches 2400" — ChessBase India — https://chessbase.in/news/fide-rating-list-october-2026 (accessed 2026-10-09; Gukesh +7, gain was +14 before last-round loss)
+4. Polymarket, "2026 World Chess Championship Winner" (gamma API) — https://polymarket.com/event/2026-world-chess-championship-winner (accessed 2026-10-09; `raw/polymarket-2026-world-chess-championship-winner-2026-10-09.json`)
+5. Kalshi `KXCHESSWORLDCHAMPION-CHESS26`, trade API — https://kalshi.com/markets/kxchessworldchampion (accessed 2026-10-09; `raw/kalshi-KXCHESSWORLDCHAMPION-2026-10-09.json`)
+6. Manifold, "Who will win the 2026 World Chess Championship?" — https://manifold.markets/Weezing/who-will-win-the-2026-world-chess-c-qty9l85QZc (accessed 2026-10-09)
+7. "World Chess Championship 2026" — Wikipedia — https://en.wikipedia.org/wiki/World_Chess_Championship_2026 (accessed 2026-10-09; dates, venue, sponsor, Carlsen quote, Dudin loss)
+8. "Chess-Sindarov focuses on preparation over predictions ahead of Gukesh title clash" (Reuters) — The Star — https://www.thestar.com.my/sport/others/2026/09/02/chess-sindarov-focuses-on-preparation-over-predictions-ahead-of-gukesh-title-clash (accessed 2026-10-09)
+9. "Uzbekistan's dream finish: Olympiad gold in Samarkand" — FIDE — https://www.fide.com/?p=50321 (accessed 2026-10-09; team results)
+10. "Samarkand R8 (open): Germany stun Uzbekistan, join them in the lead" — ChessBase — https://en.chessbase.com/post/chess-olympiad-2026-8 (accessed 2026-09-26; source for Sindarov's TPR 2864 through Round 8, the figure this version revises) — carried forward from v3 [7], still relied on
+
+**Date**: 2026-10-09
+**Forecast**: Sindarov median 68.5%, IQR [63.0%, 74.0%] (Gukesh 31.5%, IQR [26.0%, 37.0%])
+**Thesis**: The final Olympiad data took back most of the edge v2 credited to Sindarov. His full-event TPR was 2797, not the 2864 he had through Round 8, and both players gained only a few rating points, leaving a 72-Elo gap on the October list [2][3]. Kalshi at 69¢ and Polymarket at 73.5% keep the market a touch above me [4][5]. Fresh Metaculus cohorts were unavailable (last seen 70% on 2026-09-26) [1].
 
 ---
 

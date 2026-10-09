@@ -18,47 +18,46 @@ dates:
   resolves: '2026-10-27'
 status: open
 current:
-  version: 1
-  date: '2026-10-05'
-  median: 3.6
+  version: 2
+  date: '2026-10-09'
+  median: 4.0
   iqr:
-  - 1.8
-  - 5.7
+  - 2.2
+  - 6.1
   community:
     cp: null
     pro: null
     gold: null
-    n_forecasters: 6
-    as_of: '2026-10-05'
-next_review: '2026-10-09'
+    n_forecasters: 57
+    as_of: '2026-10-09'
+next_review: '2026-10-11'
 tripwires:
-- signal: First post-R1 runoff polls (Datafolha/Quaest/AtlasIntel) average a Flávio lead of 5+ pp of valid
-    votes
-  by: '2026-10-12'
+- signal: AtlasIntel and Quaest post-R1 runoff polls both show Flávio >= +6 pp of valid votes
+  by: '2026-10-13'
   direction: up
+  magnitude: 0.8
+  magnitude_unit: percentage points
+  fired: null
+- signal: AtlasIntel and Quaest post-R1 runoff polls show Flávio <= +2 valid (or a Lula lead)
+  by: '2026-10-13'
+  direction: down
   magnitude: 1.0
   magnitude_unit: percentage points
   fired: null
-- signal: First post-R1 runoff polls average within ±1 pp
-  by: '2026-10-12'
+- signal: Any major pollster shows a Lula margin gain >= 3 pp between consecutive post-R1 waves
+  by: '2026-10-20'
   direction: down
   magnitude: 0.8
   magnitude_unit: percentage points
   fired: null
-- signal: Caiado/PSD leadership or Cury endorses Lula
-  by: '2026-10-18'
-  direction: down
-  magnitude: 0.5
-  magnitude_unit: percentage points
-  fired: null
-- signal: Final AtlasIntel runoff poll shows |margin| >= 6
+- signal: Final AtlasIntel/Datafolha runoff polls show |margin| >= 7 pp of valid votes
   by: '2026-10-24'
   direction: up
   magnitude: 1.2
   magnitude_unit: percentage points
   fired: null
-- signal: Polymarket winner odds tighten to 60/40 or closer
-  by: '2026-10-20'
+- signal: Polymarket winner odds 70/30 or closer (down 1.0) or >= 93/7 (up 0.7)
+  by: '2026-10-22'
   direction: down
   magnitude: 1.0
   magnitude_unit: percentage points

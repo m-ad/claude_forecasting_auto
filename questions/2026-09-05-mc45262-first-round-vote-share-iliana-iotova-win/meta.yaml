@@ -13,55 +13,58 @@ dates:
   resolves: '2026-10-31'
 status: open
 current:
-  version: 2
-  date: '2026-09-24'
-  median: 46.5
+  version: 3
+  date: '2026-10-09'
+  median: 48.6
   iqr:
-  - 43.3
-  - 49.7
+  - 46.0
+  - 51.4
   community:
-    cp: 45.45
-    pro: 45.73
-    gold: 45.52
-    n_forecasters: 110
-    as_of: '2026-09-24'
-next_review: '2026-10-03'
+    cp: null
+    pro: null
+    gold: null
+    n_forecasters: 133
+    as_of: null
+  # Fresh CP/Pro/gold unavailable 2026-10-09 (Cloudflare block); last cached 2026-09-24 CP 45.45,
+  # Pro 45.73, Gold 45.52. n_forecasters from the Metaculus API 2026-10-09
+  # (raw/metaculus-api-2026-10-09.json).
+next_review: '2026-10-16'
 tripwires:
-- signal: First named-candidate campaign poll (Trend, Gallup Int. Balkan, Alpha Research, Market Links,
-    Myara, Global Metrics) — move ~60% of the way to its Iotova share of valid votes (re-analyse; up to 5%)
-  by: '2026-10-10'
+- signal: Final-week campaign poll average (Trend, Gallup, Alpha, Market Links, Myara, Sova Harris) — move ~70%
+    of the way to the new decided-basis mean
+  by: '2026-10-23'
   direction: either
   magnitude: 0
   magnitude_unit: '%'
   fired: null
-- signal: GERB or Borissov informally backs Gyurov (joint event or call to vote)
-  by: '2026-10-18'
-  direction: down
-  magnitude: 2.0
-  magnitude_unit: '%'
-  fired: null
-- signal: DPS issues a presidential endorsement — for Iotova +1.0pp; for Gyurov -1.0pp
-  by: '2026-10-15'
-  direction: either
-  magnitude: 0
-  magnitude_unit: '%'
-  fired: null
-- signal: Radev-government approval published below 40 percent
-  by: '2026-10-15'
+- signal: GERB or Borissov openly calls to vote for Gyurov
+  by: '2026-10-22'
   direction: down
   magnitude: 1.5
+  magnitude_unit: '%'
+  fired: null
+- signal: DPS issues a presidential endorsement — for Iotova +0.7pp; for Gyurov -0.7pp
+  by: '2026-10-22'
+  direction: either
+  magnitude: 0
   magnitude_unit: '%'
   fired: null
 - signal: Polls of record put expected turnout above 45 percent
-  by: '2026-10-20'
+  by: '2026-10-22'
   direction: down
-  magnitude: 1.5
+  magnitude: 1.0
   magnitude_unit: '%'
   fired: null
-- signal: Metaculus Pro or gold median moves outside 43.5-48.5 — re-examine for a missed fact
+- signal: Fresh Metaculus Pro or gold median below 46.0 after the polls — re-examine for a missed fact
   by: '2026-10-20'
   direction: either
   magnitude: 0
+  magnitude_unit: '%'
+  fired: null
+- signal: Major campaign scandal or debate collapse touching Iotova or the Radev government
+  by: '2026-10-23'
+  direction: down
+  magnitude: 1.5
   magnitude_unit: '%'
   fired: null
 resolution:

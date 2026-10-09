@@ -6,11 +6,143 @@
 | **Type** | numeric (barrels) |
 | **Opened / Closes / Resolves** | 2025-01-20 / 2026-12-30 / ~2027-02-26 (EIA *Petroleum Supply Monthly* print) |
 | **Status** | open |
-| **Current forecast** | **Median 283,100,000 barrels, IQR [281,300,000, 286,400,000]** (v2, 2026-09-24) |
-| **Community** | **no snapshot taken for v2** — post 15240 returned HTTP 403 twice on 2026-09-24. Last good values (2026-08-27 vintage): CP 399,811,115 (n=4) · Pro 400,242,449 (n=1) · Gold 399,811,115, physically unreachable |
-| **Next review** | 2026-10-08 |
+| **Current forecast** | **Median 271,700,000 barrels, IQR [260,500,000, 280,100,000]** (v3, 2026-10-09) |
+| **Community** | Last cached (2026-09-30 04:55 UTC, fetched 2026-10-02): CP 287,770,298 IQR [274.0 Mb, 333.3 Mb] (5 forecasters) · gold 292,861,812 (4) · Pro 400,242,449 (1). Fresh CP unavailable 2026-10-09 (Cloudflare block) |
+| **Next review** | 2026-10-21 (after the expected award notice for the 2026-09-29 RFP) |
 
 <!-- Versions below, newest first. APPEND-ONLY: never edit or delete a past version. -->
+
+---
+
+## v3 — Re-analysis — 2026-10-09
+
+Mode: **re-analysis**. The question's structure changed. v2's "final tranche" was a 10% hypothetical. DOE then issued an actual RFP for it on 2026-09-29, with deliveries **scheduled for November–December 2026**, inside this question's window. The December model is rebuilt around the size of that award.
+
+### Revision
+
+| Driver | Direction | Effect |
+|---|---|---|
+| Prior (v2, 2026-09-24) | — | Median 283.1 Mb, IQR [281.3, 286.4] |
+| **Starting level is now observed, not projected**: WCSSTUS1 for the week ending 10-02 = **282.983 Mb** (draws 0.785 and 0.784 Mb in the last two weeks) [1]. v2 started from the sibling's v4 end-September (284.2 monthly). The leftover trickle after 10-02 is U(0.2, 2.5) Mb (award tally ~1.04 Mb left, plus the uncertainty in DOE's "more than 133 Mb" figure) | ↓ | **−0.9 Mb** |
+| **DOE RFP of 2026-09-29: up to 40 Mb from Big Hill and Bryan Mound, bids closed 2026-10-06, deliveries Nov–Dec 2026** [2][3]. Award size is the dominant unknown. Against a large take-up: the identical June offer placed **0.5 Mb** (one award, Vitol) [4][5]. For it: the front of the Brent curve is steeply backwardated again (Dec-26 $102.6 vs Jan-27 $99.0 on 2026-10-01 [6], with the long end in the $60s), and diesel is at a record, which makes borrowing now against ~2028 returns at a ~25% premium roughly break-even to attractive. EIA's October STEO assumes **all 40 Mb** lifts (Nov 262.5, Dec 242.5) [7]. Mixture: 22% ≈ nothing (< 1 Mb), 20% 1–8, 30% 8–25, 28% 25–40 Mb. Median award ~12.6 Mb, and 65–100% of the award is lifted by 31 Dec | ↓ | **−10.1 Mb** |
+| **Exchange returns in Nov–Dec: 38% → 18%.** The October STEO holds the SPR flat from December to June and starts returns in **July 2027** (+17.2 Mb/month) [7]. DOE is scheduling 40 Mb *out* of Big Hill in Nov–Dec, the same site that secondary sources said would receive returns from 1 November. Reporting on the RFP says returns of all exchange barrels run to late 2028 [5]. Manifold's thin "SPR starts increasing before Dec 2026" market is at 41% (7 traders) [8], discounted | ↓ | **−1.4 Mb** |
+| Escalation 8% → 5%, mandated sale 10% → 7%, refill 8% → 7%. The live 40 Mb RFP is now the policy response, so an extra release beyond 172 Mb is less likely before 31 Dec. Polymarket "Venezuelan oil added to SPR by Dec 31" is at 7.5% ($5.0k volume) [9] | ↑ | **+0.6 Mb** |
+| Bridge: N(+0.18, 0.38) kept for quiet Decembers. **N(+0.4, 0.6) when Nov–Dec carries > 5 Mb of lifts**, because the heavy-draw months (Mar–May 2026) had residuals of +0.5 to +1.1 Mb | → | ~0 on the median, widens tails |
+| **New forecast** | | **Median 271.7 Mb, IQR [260.5, 280.1]** |
+
+Effects are one-at-a-time switches of each input back to its v2 value in `raw/scenario-model-2026-10-09.py`. They sum to −11.8 against the actual −11.4 move, the gap being interaction.
+
+### Tripwire check (against v2)
+
+| Tripwire from v2 | Fired? | Note |
+|---|---|---|
+| WPSR weeks 09-25 to 10-09 show 0.3–0.5 Mb/week draws → down ~300,000 barrels; two flat/build weeks → up ~600,000 | **Partial (stronger)** | 0.785 and 0.784 Mb, above the band. Captured in the starting level (−0.9 Mb). The week ending 10-09 is not yet out (release slipped by the Columbus Day holiday) |
+| October STEO shows COSQPUS rising in Nov–Dec 2026 → up ~2 Mb; flat to mid-2027 → down ~300,000 | **Fired: down branch, in a stronger form** | The STEO falls by 40 Mb in Nov–Dec, stays flat to June 2027, and rises from July 2027 [7] |
+| **DOE issues an RFP for the remaining ~38 Mb by 2026-11-15 → down ~7 Mb** | **FIRED (2026-09-29)** | 40 Mb, deliveries Nov–Dec [2]. Applied as a full re-model: −10.1 Mb on the median |
+| Such an RFP awarded at > 15 Mb by 2026-11-30 → down ~15 Mb | Pending | Bids closed 10-06. No award notice by 2026-10-09: the DOE listing's latest item is the 09-29 RFP [10]. The June award took 12 days (06-10 → 06-22) |
+| First WCSSTUS1 build by week ending 11-13 → up ~4 Mb | Not yet due | — |
+| No build through week ending 12-04 → down ~1 Mb | Not yet due | — |
+| Hormuz re-closed or new IEA collective action by 12-15 → down ~10 Mb | Not fired | — |
+| Refill appropriations or Venezuela swap with 2026 delivery by 12-01 → up ~2 Mb | Not fired | Polymarket 7.5% [9] |
+
+The v2 review was due 2026-10-08 and was done one day late. The RFP fired on 09-29, ten days before this review. The September sibling had already logged it on 10-02.
+
+### What resolves YES
+
+Unchanged from v1: EIA *Petroleum Supply Monthly*, series MCSSTUS1, end-December 2026, thousand barrels × 1,000, printing around 2027-02-26. Metaculus schedules resolution for 2027-03-30 [11]. Sub-question 31308 is open and closes 2026-12-30.
+
+**Consistency constraint with the September sibling (v6).** December is computed as
+Dec = Sep_weekly − D(1–2 Oct) − trickle(after 10-02) − tranche lifted − escalation − mandated + returns + refill + bridge_Dec.
+Sep_weekly is the sibling's own v6 sampler, imported from its model file, and D is the part of the observed week-ending-10-02 draw that fell after 30 September. Sep_weekly − D is identically the observed 282.983 Mb, so the two forecasts share the same 2 October anchor and cannot disagree about it. On the monthly basis, December's median is 11.7 Mb below September's (283.4). P(Dec > Sept) = 5.5%, which requires exchange returns or refill barrels to outrun the new tranche and the trickle.
+
+### Outside view
+
+There are two reference classes. (1) The unconditional 3-month MCSSTUS1 change (median 0, IQR [−2.5, +3.9] Mb) is no longer the right prior, because a release with a scheduled delivery window falls inside the horizon. (2) **SPR exchange offers versus barrels placed** in 2026: six solicitations so far, about 133.5 Mb placed against about 212 Mb offered. That is ~63% overall, but bimodal: ~100% of what was offered in March–May, ~1% in June. The October offer is closer in market conditions to the spring rounds (Brent above $100, a steep prompt backwardation) than to June. The June failure is recent, and the design is the same. So I put the mass on "partial" and allow both modes.
+
+### Inside view
+
+Monte Carlo, 1,000,000 draws (`raw/scenario-model-2026-10-09.py`):
+
+Output: **median 271.69**, IQR **[260.46, 280.14]**, p5 249.6, p10 253.3, p90 282.1, p95 283.8. Mean 269.6. P(Dec < 275) = 57.5%; **P(Dec < 252.4 Mb, the statutory floor cited in coverage) = 8.6%**; P(Dec > Sept) = 5.5%.
+
+Posted as **median 271,700,000, IQR [260,500,000, 280,100,000]**. The distribution is wide and bimodal-ish: one mode near 281 (the award fails) and a broad shoulder from 245 to 270.
+
+### Evidence
+
+- **The RFP is real and specific.** DOE's own release: "up to 40 million barrels", Big Hill and Bryan Mound, bids due 11:00 CT on 2026-10-06, "deliveries under awarded exchanges are scheduled for November and December 2026", a 25% premium achieved on earlier exchanges [2]. Rigzone's 10-05 write-up gives the same terms [3].
+- **The June precedent is the strongest disconfirming fact.** The DOE award notice for RFP DE-RP96-26PO00005 lists a single 500,000-barrel award to Vitol (as of 2026-06-22) [4]. I found no explanation for the failure. My inference, flagged as **speculation**, is that the premium was too high relative to the curve at the time.
+- **The STEO's full-40-Mb path is a modelling convention, not a forecast of take-up.** EIA normally models announced volumes as executed. Weight it as an upper bound, not as a central estimate.
+- **The market is pricing tightness.** Brent December 2026 closed at $102.63 on 2026-10-01 and the January contract at $99.02 [6]. Diesel was about $6.50/gal in late September [5].
+- **Absent, and looked for:** any report of bid volumes received on 10-06, and any award notice (DOE listing and searches as of 2026-10-09 [10]). An award will likely post 10-13 to 10-20, which is the most important update for this question.
+
+### Other forecasters
+
+| Source | Value | As of | Note |
+|---|---|---|---|
+| Metaculus CP, q31308 | **287,770,298**, IQR [274.0, 333.3 Mb], 5 forecasters | **2026-09-30 04:55 UTC** (cached 2026-10-02 in the September sibling's `raw/metaculus-2026-10-02.json`) | **Fresh CP unavailable 2026-10-09 (Cloudflare block).** Stale: it predates the RFP's salience. The lower quartile (274) sits close to my median |
+| Metaculus gold medalists | 292,861,812, IQR [274.1, 378.1 Mb], 4 | same | same |
+| Metaculus Pros | 400,242,449 (1) | same | one stale forecast, ignored |
+| EIA STEO Oct-2026 `COSQPUS` Dec | **242.547 Mb** | modelling 2026-10-01 (downloaded 2026-10-09) | Full 40 Mb lifted; near my p2.5. An upper bound on the draw, not a central estimate |
+| Manifold — "SPR lowest value in 2026" | P(< 250 Mb) 34.7%; hi-res sibling P(> 275) 34.7%, P(> 250) 43.4% | 2026-10-09 | 12 and 8 traders, mutually inconsistent. Directionally agrees that a large draw is likely. Discounted |
+| Manifold — "US announces another SPR drawdown before Nov 1" | 81% | 2026-10-09 | 10 traders; the RFP arguably already qualifies |
+| Polymarket — "Venezuelan oil added to SPR by Dec 31" | 7.5% | 2026-10-09 | $5.0k volume; refill branch |
+| Kalshi `KXSPR` | no open markets | 2026-10-09 | — |
+
+The cohorts disagree with each other (CP 288 vs gold 293 vs Pro 400). All three are stale relative to the RFP, so no fact I might have missed explains the gap.
+
+### Scenarios
+
+| # | Scenario | Weight | Implies (Mb, monthly print) |
+|---|---|---|---|
+| 1 | RFP fails or nearly fails (< 1 Mb), trickle ends | 22% | 279–283 |
+| 2 | Small award (1–8 Mb) | 20% | 274–281 |
+| 3 | Medium award (8–25 Mb) | 30% | 258–275 |
+| 4 | Large award (25–40 Mb) lifted mostly by 31 Dec | 28% | 242–263 |
+| overlay | Returns in Nov–Dec (18%), escalation (5%), refill (7%), mandated sale (7%) | — | ± a few Mb |
+
+### Sensitivity
+
+| Assumption | If instead | Forecast becomes |
+|---|---|---|
+| Award mixture (median 12.6 Mb) | the June outcome repeats (award < 1 Mb certain) | median ≈ 281.6, IQR [280.7, 282.6] |
+| Award mixture | full 40 Mb awarded (STEO) | median ≈ 249.5, IQR [245.6, 253.2] |
+| Lifted share 65–100% | 100% | median ≈ 269.3 |
+| Returns 18% | 38% (v2) | median ≈ +1.4 Mb |
+
+### What would change my mind (tripwires)
+
+The award announcement partitions the outcome. The bands below cover the whole range.
+
+- [ ] **By 2026-10-23:** DOE award notice for the 2026-09-29 RFP (DOE news listing / spr.doe.gov award PDF), total awarded **A**:
+  - **A < 2 Mb** → **up ~9,000,000 barrels** (median → ~281), tighten IQR to ~±1.5 Mb.
+  - **2 ≤ A < 15 Mb** → median → ≈ 281.8 − 0.80·A (A = 8 → ~275.7). IQR ~±1.5 Mb plus the lift-share spread.
+  - **15 ≤ A ≤ 40 Mb** → same formula (A = 30 → ~257.8). IQR ~±3 Mb.
+  - **No notice by 2026-10-23** → nothing awarded yet, or a delay → **up ~2,000,000 barrels**.
+- [ ] **By 2026-11-25:** WCSSTUS1 weekly draws in November above 2 Mb/week → the award is lifting on schedule → confirm. Under 0.5 Mb/week despite a > 10 Mb award → slippage into 2027 → **up ~0.3 × A**.
+- [ ] **By 2026-12-05:** any week-on-week build through the week ending 12-04 → returns started → **up ~3,000,000 barrels**.
+- [ ] **By 2026-12-15:** Hormuz re-closed or a new IEA collective action → **down ~10,000,000 barrels**.
+- [ ] **By 2026-12-01:** refill appropriations enacted, or a Venezuela swap contract with 2026 delivery dates → **up ~2,000,000 barrels**.
+- [ ] **By 2026-10-31:** August PSM bridge test (shared with the September sibling): ≤ 285.70 → bridge negative → **down ~400,000 barrels**.
+
+### Sources
+
+1. EIA — *Weekly U.S. Ending Stocks of Crude Oil in the SPR* (WCSSTUS1) — https://www.eia.gov/dnav/pet/hist_xls/WCSSTUS1w.xls — 10-02 = 282,983 kb; 09-25 = 283,767. Snapshot `raw/eia-weekly-wcsstus1-2026-10-09.xls` (accessed 2026-10-09)
+2. DOE — *The United States Energy Department Continues Execution of Strategic Reserve Release Commitments* (2026-09-29) — https://www.energy.gov/articles/united-states-energy-department-continues-execution-strategic-reserve-release-commitments (accessed 2026-10-09)
+3. Rigzone — *USA Continues Strategic Petroleum Reserve Release* (2026-10-05) — https://www.rigzone.com/news/usa_continues_strategic_petroleum_reserve_release-05-oct-2026-184770-article/ (accessed 2026-10-09)
+4. DOE SPR — *FY26 SPR Oil Release No. 3 Award Information* — https://www.spr.doe.gov/posting/EXCHANGE/FY26%20SPR%20Oil%20Release%20No.%203/1-Request%20for%20Proposal/FY26%20SPR%20Oil%20Release%20No.%203%20Award%20Information.pdf — Vitol 500,000 barrels as of 2026-06-22; cited from search-result text, because a direct fetch on 2026-10-09 redirected to a 404 (accessed 2026-10-09)
+5. OilMonster (Reuters-sourced) — *US to loan up to 40 million barrels of oil from SPR, last batch from global deal* — https://www.oilmonster.com/article/us-to-loan-up-to-40-million-barrels-of-oil-from-spr-last-batch-from-global-deal/8642 — June take-up ~0.5 Mb; repayment of the exchange barrels not expected until late 2028; diesel ~$6.50 (accessed 2026-10-09)
+6. Commodity-Board (CMB) — *Crude oil rally steepens backwardation as Brent-WTI spread widens* — https://commodity-board.com/crude-oil-rally-steepens-backwardation-as-brent-wti-spread-widens — Brent Dec-26 $102.63, Jan-27 $99.02 (2026-10-01); cited from search-result text (accessed 2026-10-09)
+7. EIA — *Short-Term Energy Outlook*, October 2026, table 4a `COSQPUS` — https://www.eia.gov/outlooks/steo/xls/STEO_m.xlsx — modelling completed 2026-10-01; Sep 283.347, Oct 282.547, Nov 262.547, Dec 242.547, flat to Jun-27, Jul-27 259.747. Snapshot `raw/eia-steo-oct2026-base.xlsx` (accessed 2026-10-09)
+8. Manifold search API — https://api.manifold.markets/v0/search-markets?term=strategic%20petroleum%20reserve — snapshot `raw/manifold-spr-markets-2026-10-09.json`; market detail via https://api.manifold.markets/v0/market/<id> (accessed 2026-10-09)
+9. Polymarket gamma API — https://gamma-api.polymarket.com/public-search?q=strategic%20petroleum%20reserve — "Venezuelan oil added to SPR by December 31?" 7.5% / 92.5%, volume $5,046 (accessed 2026-10-09)
+10. DOE — *Petroleum Reserves News* listing — https://www.energy.gov/hgeo/opr/listings/petroleum-reserves-news — latest item 2026-09-29 RFP; no award (accessed 2026-10-09)
+11. Metaculus API, post 15240 (bot key; aggregations hidden) — `raw/metaculus-api-2026-10-09.json` — 31308 open, closes 2026-12-30, scheduled resolve 2027-03-30 (fetched by the parent session 2026-10-09)
+12. September sibling, v6 — `questions/2026-09-07-mc15240-spr-crude-barrels-september-2026/forecast.md` and its `raw/scenario-model-2026-10-09.py` (imported for the September leg)
+13. Kalshi trade API `KXSPR` — https://api.elections.kalshi.com/trade-api/v2/markets?series_ticker=KXSPR — no open markets (accessed 2026-10-09)
+
+**Date**: 2026-10-09
+**Forecast**: Median 271,700,000, IQR [260,500,000, 280,100,000]
+**Thesis**: DOE's 2026-09-29 RFP for up to 40 Mb from Big Hill and Bryan Mound, with deliveries scheduled for November–December 2026 [2], turns December into a question about award size. The identical June offer placed only 0.5 Mb [4]. Today's steep backwardation with Brent above $100 [6] argues for a larger take-up, and the October STEO assumes all 40 Mb (Dec 242.5) [7]. The forecast is a 22/20/30/28 mixture over ~0, 1–8, 8–25 and 25–40 Mb awards. It starts from the observed 282.98 Mb level at 10-02 [1], which is the same anchor the September sibling uses. Exchange returns before year-end are cut to 18% because the STEO starts them in July 2027.
 
 ---
 

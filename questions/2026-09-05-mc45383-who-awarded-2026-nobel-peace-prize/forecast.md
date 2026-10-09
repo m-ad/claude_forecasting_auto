@@ -6,11 +6,139 @@
 | **Type** | multiple choice — 11 options |
 | **Opened / Closes / Resolves** | 2026-09-07 / 2026-10-08 / 2026-10-09 |
 | **Status** | open |
-| **Current forecast** | **Other individual 43.0% · Other organization 16.5% · Sudan ERRs 13.5% · ICC/ICJ 5.5% · Save the Children 5.5% · MSF 4.5% · Navalnaya 4.0% · Kuleba/Save Ukraine 3.5% · UNRWA 2.5% · Pope Leo XIV 1.0% · Trump 0.5%** — leading option IQR [37.0%, 50.0%] (v3, 2026-10-02) |
-| **Community (as of 2026-10-02)** | Other individual: CP **40.1%** (n=125) · Pros **34.7%** (n=10) · gold **42.0%** (n=36); Other org: CP 20.2 · Pro 19.4 · gold 21.8; Sudan ERRs: CP 11.0 · Pro 14.3 · gold 11.3 · Kalshi 13/14¢ · Polymarket 15.65% |
-| **Next review** | 2026-10-04 |
+| **Current forecast** | **Other individual 37.0% · Other organization 15.0% · Navalnaya 13.0% · Sudan ERRs 12.0% · Kuleba/Save Ukraine 6.0% · ICC/ICJ 5.0% · Save the Children 5.0% · MSF 3.5% · UNRWA 2.0% · Pope Leo XIV 1.0% · Trump 0.5%** — leading option IQR [30.0%, 42.0%] (v4, 2026-10-09) |
+| **Community** | Metaculus closed 2026-10-08 11:00 UTC (n=137); fresh CP unavailable 2026-10-09 (Cloudflare block). Last cohort snapshot 2026-10-02: Other individual CP 40.1 · Pro 34.7 · gold 42.0. Markets 2026-10-09 04:00 UTC: Navalnaya Kalshi 28/29¢ · Polymarket 27.3% |
+| **Next review** | 2026-10-09 (after the 09:00 UTC announcement → /resolve; Metaculus closed to forecasts 2026-10-08) |
 
 <!-- Versions below, newest first. APPEND-ONLY: never edit or delete a past version. -->
+
+---
+
+## v4 — Update — 2026-10-09
+
+**Why an update, not a re-analysis:** this was written at 04:00 UTC on announcement day, five
+hours before the 09:00 UTC (11:00 CEST) announcement. The question has **not** been announced
+and has not resolved; a search at 03:57 UTC found no winner [3][4]. Metaculus closed the
+question to forecasts on 2026-10-08 at 11:00 UTC (status `closed`, n=137) [5], so this version
+only counts for the repo's own calibration record. One tripwire fired overnight: Navalnaya
+rose above 25% on both Kalshi and Polymarket. That is a single new driver, so the vector is
+updated from v3 rather than re-derived.
+
+### Revision table
+
+| Driver | Direction | Effect |
+|---|---|---|
+| **Prior (v3, 2026-10-02)** | — | Other individual **43.0%** (IQR [37.0, 50.0]); Other org 16.5; Sudan ERRs 13.5; ICC/ICJ 5.5; StC 5.5; MSF 4.5; Navalnaya 4.0; Kuleba 3.5; UNRWA 2.5; Pope 1.0; Trump 0.5 |
+| **Overnight Navalnaya spike (tripwire 2 fired).** On Polymarket she went from 5.0% (23:20 UTC, 8 Oct) to 54.2% (00:00 UTC), fell back to 11.2% (01:00 UTC), then climbed steadily to **27.3%** (03:54 UTC). Her 24-hour volume was ~$0.99M [1]. Kalshi shows her at **28/29¢**, on 291k contracts traded in 24h [2]. Dagbladet says the spike came from many small bets of a few thousand kroner each, and that it "does not necessarily mean there has been a new leak" [3]. I checked for a leak as the tripwire requires and found none: no NRK, VG or Aftenposten leak report. The pattern does not look like Machado's in 2025, which rose steadily from ~4% to ~73% on two large accounts ($50k and $70k) [6]. Here there was a pump, a dump and then a recovery. In the same hour, Tsikhanouskaya (0.9% → 20% → 4.8%) and Tamim Al Thani (0.6% → 6.1%) also spiked. That looks like traders chasing last year's leak, though this is **speculation**. Against that, the climb back from 11% to 27% has been steady, and the two venues agree independently. The tripwire rule says to move ~30% of the way if no leak is found (4.0 → ~11). I go slightly further because both real-money venues agree on high volume | ↑ | +9.0 → **13.0** |
+| **Kuleba rose on both venues.** Polymarket 8.5 → 17.2 (+8.9 in 24h), Kalshi 15/16¢ [1][2]. No news trigger found. It is below 25%, but it is the same overnight flow. I move about 20% of the way | ↑ | +2.5 → **6.0** |
+| **Sudan ERRs sold off.** Polymarket 16.9 → 12.4 overnight (low of 4.1 at 00:00 UTC), Kalshi 14/15¢ [1][2]. This is mostly the mirror image of the Navalnaya buying | ↓ | −1.5 → **12.0** |
+| **Funding the moves.** The +11.5 on Navalnaya and Kuleba (net of Sudan −1.5 and the trims below) comes mostly out of **Other individual**, the largest bucket and the one any "the insiders know" scenario takes from first. That bucket still holds Tamim (6.1 Polymarket / 6.3 Kalshi last) and Tsikhanouskaya (4.6 / 2.1) [1][2]. Other org 16.5 → 15.0: CPJ, IAJ, IPRA and UNHCR are each at 2–4% with no movement | ↓ | Other individual −6.0 → **37.0**; Other org −1.5 → **15.0** |
+| **Small trims.** MSF has fallen to 1–1.5% on both venues (Kalshi 1/2¢, Polymarket 1.45) [1][2]. ICJ is at 4–5 and ICC at 1–2. StC is at 5.2 / 5–6¢. UNRWA is at 1.3 / 2–3¢ | ↓ | MSF −1.0 → **3.5**; ICC/ICJ −0.5 → **5.0**; StC −0.5 → **5.0**; UNRWA −0.5 → **2.0** |
+| **Trump and the Pope** | → | 0 (0.5 / 1.0) |
+| **New forecast (v4)** | | Other individual **37.0%** (IQR [30.0, 42.0]); Other org 15.0; Navalnaya 13.0; Sudan ERRs 12.0; Kuleba 6.0; ICC/ICJ 5.0; StC 5.0; MSF 3.5; UNRWA 2.0; Pope 1.0; Trump 0.5 |
+
+The IQR shifts down and widens on the low side. The main uncertainty now is whether the
+overnight flow carries real information. If it does, Other individual collapses towards 5–10%.
+If it does not, the field-based ~43% from v3 is right.
+
+### Tripwire check (v3 list)
+
+| # | Tripwire | Status | Evidence |
+|---|---|---|---|
+| 1 | Norwegian media report a leak of the laureate's name | **Not fired** | Dagbladet (02:08 CEST, updated 04:19 CEST) reports the betting spike but explicitly says it need not be a leak [3]. Its 8 Oct NTB piece is about safeguards after the 2025 leak [6]. No named leak |
+| 2 | Kalshi or Polymarket moves a named option above 25% | **Fired** | Navalnaya: Polymarket 27.3% (peak 54.2%), Kalshi 28/29¢ [1][2]. No leak found, so I applied the partial move (revision table) |
+| 3 | US–Iran ceasefire or settlement signed | **Not fired** | No agreement found. Trump's Kalshi line is 0/1¢ |
+| 4 | A named option's principal becomes ineligible or is discredited | **Not fired** | Nothing new since the MSF Charity Commission case (26 Sep) |
+| 5 | Pros and gold converge on Other individual, >8pp from me | **Unknown** | Fresh cohort data was unavailable (Cloudflare block, see below). The question closed on 8 Oct, so the cohorts are frozen anyway |
+
+### What resolves YES
+
+Unchanged from v3. This version's main risk is Navalnaya. She is a named option, so if she is
+the sole laureate or one of several, the question resolves **Yulia Navalnaya**. The first-listed
+rule applies only if more than one named option is among the laureates, or none is.
+
+### Outside view
+
+Unchanged from v1. One relevant addition: overnight market spikes before announcements do not
+reliably signal the winner. In 2025, Navalnaya was the market favourite (~34%) two days
+before the announcement and did not win. Only the steady, late, large-ticket Machado move
+turned out to be informed [6].
+
+### Inside view
+
+Unchanged from v3, except for the overnight-flow judgement in the revision table.
+
+### Evidence
+
+Itemised in the revision table and the tripwire check above. The new evidence is the overnight
+Navalnaya and Kuleba flow on Polymarket and Kalshi [1][2], Dagbladet's report that it came from
+many small bets and need not be a leak [3], and the absence of any laureate in a 03:57 UTC search
+[3][4]. Absences matter: no NRK, VG or Aftenposten leak report was found.
+
+### Other forecasters (2026-10-09, 03:55–04:00 UTC)
+
+| Option | **This (v4)** | Metaculus CP / Pro / gold (**stale, as of 2026-10-02**) | Kalshi bid/ask (¢) | Polymarket |
+|---|---|---|---|---|
+| Other individual | **37.0** | 40.1 / 34.7 / 42.0 | Tamim 4.3/6.4, Tsikhanouskaya 3.1/9, Al-Saqqa 1.6/1.7, Carney 1.6/1.8, Egereva 1.4/1.8 | Tamim 6.1, Tsikhanouskaya 4.6, Abu Safiya 1.9, Jimmy Lai 1.85 |
+| Other organization | **15.0** | 20.2 / 19.4 / 21.8 | WCK 2.6/8.9, CPJ 2/3, ISS 2.0/2.7, IAJ 0.6/0.7 | UNHCR 4.15, IAJ 2.5, CPJ 2.5, WCK 2.25, IPRA 2.2 |
+| Yulia Navalnaya | **13.0** | 4.4 / 5.1 / 4.1 | **28/29** | **27.3** (+21.75 in 24h) |
+| Sudan ERRs | **12.0** | 11.0 / 14.3 / 11.3 | 14/15 | 12.4 |
+| Kuleba / Save Ukraine | **6.0** | 4.0 / 5.1 / 3.6 | 15/16 | 17.35 |
+| ICC / ICJ | **5.0** | 5.0 / 5.1 / 4.1 | ICJ 3/4, ICC 1/2 | ICJ 5.05, ICC 1.2 |
+| Save the Children | **5.0** | 5.8 / 6.6 / 4.1 | 5/6 | 5.2 |
+| MSF | **3.5** | 5.5 / 5.1 / 5.1 | 1/2 | 1.45 |
+| UNRWA | **2.0** | 2.6 / 2.3 / 2.7 | 2/3 | 1.3 |
+| Pope Leo XIV | **1.0** | 1.0 / 2.0 / 1.1 | 1/2 | <1 |
+| Donald J. Trump | **0.5** | 0.2 / 0.3 / 0.1 | 0/1 | <1 |
+
+**Metaculus: fresh CP unavailable 2026-10-09 (Cloudflare block).** The cohort numbers above are
+the 2026-10-02 snapshot (`raw/metaculus-2026-10-02.json`), carried forward and **not fresh**. The
+official API (bot key, aggregations hidden) confirms only that the question is `closed`
+(8 Oct 11:00 UTC) with 137 forecasters [5]. Kalshi: 50 lines with mids summing to 132%, and 1.66M
+contracts traded in 24h [2]. Polymarket: 42 open lines summing to 110%, $29.7M total volume,
+$2.75M in 24h [1]. The overround (prices summing above 100%) is wide, which fits a disorderly
+night.
+
+### Scenarios
+
+| # | Scenario | Weight | Implies |
+|---|---|---|---|
+| 1 | The overnight flow is real information about Navalnaya | ~0.09 | Navalnaya (~0.95) |
+| 2 | The flow is noise: the v3 field structure holds | ~0.91 | v3 vector, rescaled |
+
+Navalnaya's 13% ≈ 0.09 × 0.95 + 0.91 × 0.045. Kuleba is treated the same way with a smaller
+weight on the "real information" branch.
+
+### Sensitivity
+
+| Assumption | If instead | Forecast becomes |
+|---|---|---|
+| The overnight flow is mostly leak-chasing | the market is right (~27%) | Navalnaya 27, Other individual ~29, other options scaled down |
+| No leak report before 09:00 UTC | NRK/VG report a named leak | collapse onto that option |
+
+### What would change my mind (tripwires)
+
+- [ ] **The official announcement at 09:00 UTC on 2026-10-09.** It resolves the question. Run `/resolve` with the exact option label.
+- [ ] **Norwegian media (NRK, VG, Aftenposten, Dagbladet) name a leaked laureate before 09:00 UTC** → collapse the vector onto that option.
+- [ ] **Navalnaya above 60% sustained for 1h or more on both Kalshi and Polymarket before 09:00 UTC** → treat it as a Machado-pattern leak, and move to ≥50%.
+
+### Sources
+
+1. Polymarket, "Nobel Peace Prize Winner 2026" (gamma API + CLOB price history) — https://polymarket.com/event/nobel-peace-prize-winner-2026-139 (accessed 2026-10-09 03:57 UTC; `raw/polymarket-nobel-peace-prize-winner-2026-2026-10-09.json`)
+2. Kalshi, KXNOBELPEACE-26, trade API — https://kalshi.com/markets/kxnobelpeace/nobel-peace-prize/kxnobelpeace-26 (accessed 2026-10-09 03:57 UTC; `raw/kalshi-KXNOBELPEACE-2026-10-09.json`)
+3. "Skyter fart" — Dagbladet, 2026-10-09 02:08 CEST (updated 04:19) — https://www.dagbladet.no/nyheter/skyter-fart/85264318 (accessed 2026-10-09)
+4. 2026 Nobel Peace Prize — Wikipedia — https://en.wikipedia.org/wiki/2026_Nobel_Peace_Prize (search listing, accessed 2026-10-09; no laureate listed)
+5. Metaculus question 45383, official API post JSON (bot key; metadata only) — https://www.metaculus.com/questions/45383/ (accessed 2026-10-09; `raw/metaculus-api-2026-10-09.json`)
+6. "Nobelinstituttet frykter lekkasje før fredsprisen" — Dagbladet/NTB, 2026-10-08 11:13 — https://www.dagbladet.no/nyheter/skandale-for-utdelingen-noen-visste/85259965 (accessed 2026-10-09)
+7. Metaculus three-cohort aggregations, 2026-10-02 snapshot (stale; carried forward) — `raw/metaculus-2026-10-02.json`
+8. Nobel Peace Prize 2026: PRIO Director's updated list announced — PRIO, 2026-09-22 — https://www.prio.org/news/3746 (accessed 2026-09-26). Carried forward from v3 [11]; underlies the v3 field structure still relied on
+9. NobelPrize.org — "The 2026 Nobel Prize announcements" — https://www.nobelprize.org/press-release/the-2026-nobel-prize-announcements/ (accessed 2026-09-05). Carried forward from v3 [12]; announcement time
+10. Nobelkomiteen utelukker ikke statlig aktør bak mulig lekkasje rundt fredspristildelingen — NRK — https://www.nrk.no/nyheter/nobelkomiteen-utelukker-ikke-statlig-aktor-bak-mulig-lekkasje-rundt-fredspristildelingen-1.17749698 (accessed 2026-10-02, via search summary; concerns the 2025 leak). Carried forward from v3 [9]
+
+**Date**: 2026-10-09
+**Forecast**: Other individual 37.0% (leading option), IQR [30.0%, 42.0%]; Other organization 15.0% · Yulia Navalnaya 13.0% · Sudan ERRs 12.0% · Kuleba/Save Ukraine 6.0% · ICC/ICJ 5.0% · Save the Children 5.0% · MSF 3.5% · UNRWA 2.0% · Pope Leo XIV 1.0% · Trump 0.5%
+**Thesis**: Navalnaya jumped overnight from 5% to 27–29% on both Polymarket and Kalshi [1][2]. The move was a pump, a dump and a recovery, built from small bets, and no leak has been reported [3]. I treat it as partly informative and raise her from 4% to 13%, mostly at the expense of Other individual. Absent a real leak, the field structure from v3 still holds, with an individual off the lists as the single most likely outcome.
+
 
 ---
 

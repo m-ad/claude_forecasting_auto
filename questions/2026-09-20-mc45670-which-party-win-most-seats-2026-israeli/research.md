@@ -204,3 +204,26 @@ none. Nothing else in the analysis changed.
    recapture pool, is settled.
 6. **Israel Elects pollster scorecard** — retry via archive.is or a subscription route; it is
    the right empirical basis for the house weights this forecast sets by judgement.
+
+---
+
+## 2026-10-09 — v3 research log (shared pass with #40966)
+
+- **Metaculus**: browser/aggregation path blocked by Cloudflare. Used the parent's API JSON
+  (`raw/metaculus-api-2026-10-09.json`): open, 111 forecasters, close 2026-10-27 06:00Z,
+  scheduled resolve 2026-10-28. No fresh CP, Pro or gold.
+- **Polls**: re-pulled the Wikipedia wikitext (`raw/wikipedia-polling-wikitext-2026-10-09.txt`)
+  and parsed it with `parse_polls.py` (path swapped). Latest poll per mainstream house:
+  Likud−Yashar −1, 0, −2, −2, 0, −2, −2 → mean −1.29 (was −3.38 as of 24 Sep). Ch14 +8, i24 +6.
+  Bloc (mainstream): Netanyahu incl. Amcha 51.9, opposition Zionist 55.1, Arab 13.0. Amcha is
+  below threshold in Kantar ×2 and Midgam.
+- **Polymarket**: largest party Likud 52.5 / Yashar 48.5 (`raw/polymarket-largest-party-2026-10-09.json`).
+  CLOB history shows a single jump on 2 Oct (Likud 0.445 → 0.58), the day of the High Court
+  ruling and the 30 Sep–1 Oct poll batch. Likud-seats ladder median ~24.
+- **News**: CEC bars Ra'am and the Joint List (23 Sep); High Court reverses (2 Oct); Abu
+  Shehadeh withdraws. Five-leader opposition pact (26 Sep). Likud–RZP surplus deal (6 Oct).
+  Avi Gil interview (8 Oct). Zamir warns an Iran strike could delay the election (8 Oct);
+  Polymarket on-schedule 91.9%.
+- **Model**: `raw/gap-model-2026-10-09.py` (closed-form normal). Central: Yashar 47.7.
+- **Dead end**: the i24 article on Abbas's statehood speech was empty to the fetcher, and its
+  date is unclear (probably early September). Not used.
