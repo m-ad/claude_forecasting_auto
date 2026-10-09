@@ -2,7 +2,7 @@
 slug: "{{SLUG}}"
 title: "{{TITLE}}"
 source: "{{SOURCE}}"          # metaculus | kalshi | polymarket | manifold | other
-url: "{{URL}}"
+url: {{URL_YAML}}                # null for free-text questions with no URL
 post_id: {{POST_ID}}          # null for non-Metaculus
 type: "{{TYPE}}"              # binary | numeric | date | multiple_choice
 unit: null                    # e.g. "USD bn", "°C"; null for binary

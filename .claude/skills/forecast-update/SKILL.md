@@ -62,6 +62,10 @@ table (one driver per row, prior in the first row, new forecast in the last) and
 check table. Sections that did not change: `unchanged from v<N-1>`. Rewrite the header block.
 Update `meta.yaml`: `current`, `next_review`, revised `tripwires`.
 
+The version's closing summary block, and your chat reply, open with the clickable
+`**Question**: [title](url)` line (from `meta.yaml`), then Date / Forecast / Thesis — see
+`docs/output-format.md`.
+
 ```bash
 uv run scripts/log_forecast.py add <slug> --median ... --lower ... --upper ... \
     --cp ... --pro ... --gold ... --thesis "..." --next-review YYYY-MM-DD \

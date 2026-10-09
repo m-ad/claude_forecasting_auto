@@ -56,9 +56,11 @@ scripts/                  new_question · log_forecast · status · calibration
 
 ## Output format
 
-Fixed, so that forecasts stay comparable across months. Every version ends with:
+Fixed, so that forecasts stay comparable across months. Every version ends with the block
+below, which always opens with a clickable link to the question (the chat reply opens with it too):
 
 ```
+**Question**: [Will X happen by 2027?](https://www.metaculus.com/questions/12345/)
 **Date**: 2026-08-27
 **Forecast**: Median 12.0%, IQR [8.0%, 18.0%]
 **Thesis**: One to three sentences naming the drivers and the sources they rest on.

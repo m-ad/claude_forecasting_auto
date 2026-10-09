@@ -13,68 +13,49 @@ dates:
   resolves: '2026-11-30'
 status: open
 current:
-  version: 7
+  version: 8
   date: '2026-10-09'
-  median: 0.62
+  median: 0.869
   iqr:
-  - 0.533
-  - 0.692
+  - 0.845
+  - 0.895
   community:
-    cp: 0.36
-    pro: 0.382
-    gold: 0.383
-    n_forecasters: 161
-    as_of: '2026-10-08'
-next_review: '2026-10-10'
+    cp: 0.886
+    pro: 0.879
+    gold: 0.859
+    n_forecasters: 164
+    as_of: '2026-10-09'
+next_review: '2026-10-16'
 tripwires:
-- signal: Isaias reaches >= 100 kt (115 mph) in any NHC advisory or TCU - option `0` to ~0%, `1` to ~89%
-  by: '2026-10-10'
-  direction: down
-  magnitude: 30
-  magnitude_unit: pp
-  fired: null
-- signal: Isaias makes landfall or NHC reports weakening begun with operational peak <= 95 kt - option
-    `0` to ~88%
-  by: '2026-10-11'
-  direction: up
-  magnitude: 58
-  magnitude_unit: pp
-  fired: null
-- signal: 09Z or 15Z NHC advisory on 2026-10-09 removes 100 kt from the forecast (peak <= 95 kt)
-  by: '2026-10-09'
-  direction: up
-  magnitude: 15
-  magnitude_unit: pp
-  fired: null
-- signal: Recon central pressure <= 965 mb or SFMR >= 95 kt before 2026-10-09 18Z
-  by: '2026-10-09'
-  direction: down
-  magnitude: 12
-  magnitude_unit: pp
-  fired: null
-- signal: NHC TWO flags 50%+ 7-day formation in the Gulf, western Caribbean or SW Atlantic after Isaias
+- signal: NHC TWO flags >= 50% 7-day formation in the Gulf, western Caribbean or SW Atlantic
   by: '2026-11-15'
   direction: down
-  magnitude: 4
+  magnitude: 5
   magnitude_unit: pp
   fired: null
-- signal: CSU two-week forecast of 2026-10-14 favours near- or above-normal activity
-  by: '2026-10-14'
+- signal: NHC forecasts >= 100 kt for any new named storm - option `2` to ~60%
+  by: '2026-11-30'
+  direction: down
+  magnitude: 45
+  magnitude_unit: pp
+  fired: null
+- signal: CSU two-week forecasts (10-14, 10-28) favour near- or above-normal activity
+  by: '2026-10-28'
   direction: down
   magnitude: 3
   magnitude_unit: pp
   fired: null
-- signal: Kalshi KXHURCTOTMAJ-26DEC01-T0 trades outside 60-90c on more than 3k fresh contracts - re-check,
-    do not nudge
-  by: '2026-10-16'
-  direction: either
-  magnitude: 0
+- signal: NHC monthly summary or advisory archive lists Isaias below 111 mph, or retracts the 105 kt estimate
+    - option `0` to ~15%
+  by: '2026-11-30'
+  direction: up
+  magnitude: 15
   magnitude_unit: pp
   fired: null
-- signal: Once fetchable, Metaculus Pros on option `0` sit outside 20-50%
-  by: '2026-10-16'
-  direction: either
-  magnitude: 0
+- signal: Quiet through 2026-11-01 with no outlook area - option `1` to ~93%
+  by: '2026-11-01'
+  direction: up
+  magnitude: 6
   magnitude_unit: pp
   fired: null
 resolution:

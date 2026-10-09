@@ -17,5 +17,6 @@ Reminders that are easy to skip and expensive to skip:
 - Tripwires must be dated and observable.
 - Write `questions/<slug>/forecast.md`, log to the ledger, refresh `INDEX.md`.
 
-End your chat reply with the fixed summary block (Date / Forecast / Thesis) and the path to
+End your chat reply with the fixed summary block (Question link / Date / Forecast / Thesis; the clickable
+`**Question**: [title](url)` line comes first) and the path to
 the forecast file.
