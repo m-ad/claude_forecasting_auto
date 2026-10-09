@@ -135,11 +135,14 @@ def test_title_url_type_and_tags(slug, meta):
     title = meta.get("title")
     assert isinstance(title, str) and title.strip(), f"{slug}: empty title"
     url = meta.get("url")
-    assert isinstance(url, str) and url.startswith(("http://", "https://")), (
-        f"{slug}: url {url!r} is not an absolute URL"
-    )
+    if url is None and meta.get("source") == "other" and not meta.get("post_id"):
+        pass  # free-text question: no canonical page exists
+    else:
+        assert isinstance(url, str) and url.startswith(("http://", "https://")), (
+            f"{slug}: url {url!r} is not an absolute URL"
+        )
     if meta.get("source") == "metaculus" and meta.get("post_id"):
-        assert str(meta["post_id"]) in url, (
+        assert str(meta["post_id"]) in (url or ""), (
             f"{slug}: url does not contain post id {meta['post_id']}"
         )
     assert meta.get("type") in QUESTION_TYPES, (
@@ -469,6 +472,7 @@ def test_template_meta_renders_to_the_same_schema():
         "TITLE": "Demo?",
         "SOURCE": "other",
         "URL": "https://example.org/",
+        "URL_YAML": "\"https://example.org/\"",
         "POST_ID": "null",
         "TYPE": "binary",
         "TODAY": "2026-01-01",

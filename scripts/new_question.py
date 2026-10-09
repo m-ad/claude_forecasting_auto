@@ -191,12 +191,23 @@ def main() -> None:
     (folder / "raw").mkdir(parents=True)
     (folder / "charts").mkdir()
 
+    clean_title = title.replace('"', "'")
+    url = args.url or (
+        f"https://www.metaculus.com/questions/{post_id}/" if post_id else ""
+    )
+    # Free-text questions have no URL: meta.yaml gets null and the link line
+    # degrades to the plain title, never an empty ``[title]()`` link.
+    link_title = clean_title.replace("[", "\\[").replace("]", "\\]")
     mapping = {
         "SLUG": slug,
-        "TITLE": title.replace('"', "'"),
+        "TITLE": clean_title,
         "SOURCE": source,
-        "URL": args.url
-        or (f"https://www.metaculus.com/questions/{post_id}/" if post_id else ""),
+        "URL": url,
+        "URL_YAML": f'"{url}"' if url else "null",
+        "QUESTION_LINK": f"[{link_title}]({url})" if url else clean_title,
+        "SOURCE_LINE": f"{source} — {url}"
+        if url
+        else f"{source} — no URL (free-text question)",
         "POST_ID": str(post_id) if post_id else "null",
         "TYPE": qtype,
         "TODAY": today(),

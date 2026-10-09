@@ -2,7 +2,7 @@
 
 | | |
 |---|---|
-| **Source** | {{SOURCE}} — {{URL}} |
+| **Source** | {{SOURCE_LINE}} |
 | **Type** | {{TYPE}} |
 | **Opened / Closes / Resolves** | — / — / — |
 | **Status** | open |
@@ -47,7 +47,7 @@
 
 1. 
 
-**Question**: [{{TITLE}}]({{URL}})
+**Question**: {{QUESTION_LINK}}
 **Date**: {{TODAY}}
 **Forecast**: Median x.x%, IQR [y.y%, z.z%]
 **Thesis**: 

@@ -116,8 +116,10 @@ The summary block's first line is always `**Question**: [<title>](<url>)`, taken
 `title` and `url` in `meta.yaml`. It applies to **both** `/forecast` (initial versions) and
 `/update` (updates and re-analyses), and the chat reply opens with the same line followed by
 `Date` / `Forecast` / `Thesis`. Use the canonical question URL (Metaculus `/questions/<id>/`,
-or the market page for Kalshi/Polymarket/Manifold); for free-text questions with no URL, write
-the title as plain text. Versions written before this rule are append-only and stay as they are.
+or the market page for Kalshi/Polymarket/Manifold); for free-text questions with no URL, `url` in
+`meta.yaml` is `null` (allowed only for `source: other` with no `post_id`) and the line is the
+plain title, `**Question**: <title>` — never an empty `[title]()` link. The header `Source` row
+then reads `other — no URL (free-text question)`. `new_question.py` does both for you. Versions written before this rule are append-only and stay as they are.
 
 ## Rounding
 
