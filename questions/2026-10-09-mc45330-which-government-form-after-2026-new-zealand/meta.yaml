@@ -1,0 +1,72 @@
+slug: 2026-10-09-mc45330-which-government-form-after-2026-new-zealand
+title: Which government will form after the 2026 New Zealand general election?
+source: metaculus
+url: https://www.metaculus.com/questions/45330/which-government-will-form-after-the-2026-new-zealand-general-election
+post_id: 45330
+type: multiple_choice
+unit: null
+tags:
+- new-zealand
+- election
+- coalition
+dates:
+  created: '2026-10-09'
+  opened: '2026-10-12'
+  closes: '2026-11-06'
+  resolves: '2027-01-01'
+status: open
+current:
+  version: 1
+  date: '2026-10-09'
+  median: 0.465
+  iqr:
+  - 0.395
+  - 0.535
+  community:
+    cp: null
+    pro: null
+    gold: null
+    n_forecasters: 2
+    as_of: '2026-10-09'
+next_review: '2026-10-16'
+tripwires:
+- signal: Final-week poll average (polls ending by 2026-11-05) has Opportunity < 5.0% (National-led up)
+  by: '2026-11-05'
+  direction: up
+  magnitude: 8
+  magnitude_unit: pp
+  fired: null
+- signal: Opportunity publicly commits to supporting a Labour-led government (National-led down)
+  by: '2026-11-07'
+  direction: down
+  magnitude: 6
+  magnitude_unit: pp
+  fired: null
+- signal: National/Luxon softens the Opportunity rule-out (e.g. won't rule out C&S)
+  by: '2026-11-07'
+  direction: up
+  magnitude: 5
+  magnitude_unit: pp
+  fired: null
+- signal: 'Election-night count: right bloc >= 63 seats without TOP (National-led to ~85%)'
+  by: '2026-11-08'
+  direction: up
+  magnitude: 38
+  magnitude_unit: pp
+  fired: null
+- signal: 'Election-night count: TOP >= 5.3% and left+TOP >= 63 (Labour-led to ~75%)'
+  by: '2026-11-08'
+  direction: down
+  magnitude: 30
+  magnitude_unit: pp
+  fired: null
+- signal: No coalition / C&S agreement announced by 2026-12-18 (None before January +20pp)
+  by: '2026-12-18'
+  direction: either
+  magnitude: 0
+  magnitude_unit: pp
+  fired: null
+resolution:
+  outcome: null
+  date: null
+  source: null

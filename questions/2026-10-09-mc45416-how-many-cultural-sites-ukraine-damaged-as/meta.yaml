@@ -1,0 +1,73 @@
+slug: 2026-10-09-mc45416-how-many-cultural-sites-ukraine-damaged-as
+title: How many cultural sites in Ukraine will be damaged as of December 31, 2026, according to UNESCO?
+source: metaculus
+url: https://www.metaculus.com/questions/45416/how-many-cultural-sites-in-ukraine-will-be-damaged-as-of-december-31-2026-according-to-unesco
+post_id: 45416
+type: discrete
+unit: sites
+tags:
+- ukraine
+- war
+- cultural-heritage
+- unesco
+dates:
+  created: '2026-10-09'
+  opened: '2026-10-13'
+  closes: '2026-12-31'
+  resolves: '2027-01-01'
+status: open
+current:
+  version: 1
+  date: '2026-10-09'
+  median: 575.0
+  iqr:
+  - 569.0
+  - 582.0
+  community:
+    cp: null
+    pro: null
+    gold: null
+    n_forecasters: 2
+    as_of: '2026-10-09'
+next_review: '2026-10-23'
+tripwires:
+- signal: UNESCO tracker update with an October as-of date (published by 2026-11-15) showing >= 575
+  by: '2026-11-15'
+  direction: up
+  magnitude: 6
+  magnitude_unit: sites
+  fired: null
+- signal: UNESCO tracker update with an October as-of date (published by 2026-11-15) showing <= 566
+  by: '2026-11-15'
+  direction: down
+  magnitude: 3
+  magnitude_unit: sites
+  fired: null
+- signal: No tracker update between 2026-10-07 and 2026-12-10
+  by: '2026-12-10'
+  direction: down
+  magnitude: 5
+  magnitude_unit: sites
+  fired: null
+- signal: 'Tracker update published 2026-12-01..2026-12-31: re-centre on its value + 0-4'
+  by: '2026-12-31'
+  direction: either
+  magnitude: 0
+  magnitude_unit: sites
+  fired: null
+- signal: Ceasefire/truce in force in Ukraine before 2026-11-30
+  by: '2026-11-30'
+  direction: down
+  magnitude: 2
+  magnitude_unit: sites
+  fired: null
+- signal: UNESCO announces a year-end/anniversary Ukraine heritage report for December 2026
+  by: '2026-12-15'
+  direction: up
+  magnitude: 4
+  magnitude_unit: sites
+  fired: null
+resolution:
+  outcome: null
+  date: null
+  source: null
