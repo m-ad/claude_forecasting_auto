@@ -663,7 +663,7 @@ market's top price and a PRIO listing.
 
 ## Resolution — 2026-10-10
 
-**Outcome: Other individual.** The Norwegian Nobel Committee awarded the 2026 Nobel Peace Prize to Navanethem "Navi" Pillay, South African jurist and former UN High Commissioner for Human Rights, "for her efforts to promote peace and international law", announced 2026-10-09 in Oslo. Source: the official NobelPrize.org summary page, https://www.nobelprize.org/prizes/peace/2026/summary/ (fetched 2026-10-10; lists Pillay as sole laureate). Pillay is not one of the ten named options and is an individual, so by the resolution criteria the question resolves **Other individual**. Metaculus had not posted its own resolution at the time of writing (`resolved: false` in the 2026-10-09 API pull).
+**Outcome: Other individual.** The Norwegian Nobel Committee awarded the 2026 Nobel Peace Prize to Navanethem "Navi" Pillay, South African jurist and former UN High Commissioner for Human Rights, "for her efforts to promote peace and international law", announced 2026-10-09 in Oslo. Source: the official NobelPrize.org summary page, https://www.nobelprize.org/prizes/peace/2026/summary/ (fetched 2026-10-10; lists Pillay as sole laureate). Pillay is not one of the ten named options and is an individual, so by the resolution criteria the question resolves **Other individual**. **Metaculus official resolution (bot-key API, fetched 2026-10-10): `Other individual`, set 2026-10-09T11:46:05Z.** This is the binding source; the Nobel page above is context.
 
 ### Score per version
 
