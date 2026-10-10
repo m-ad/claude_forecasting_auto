@@ -8,6 +8,7 @@ from __future__ import annotations
 
 import codecs
 import datetime as _dt
+import json
 import math
 import re
 import sys
@@ -144,6 +145,32 @@ def save_meta(slug: str, meta: dict[str, Any]) -> None:
     """Write ``questions/<slug>/meta.yaml``, preserving key order."""
     with (QUESTIONS / slug / "meta.yaml").open("w", encoding="utf-8") as fh:
         yaml.safe_dump(meta, fh, sort_keys=False, allow_unicode=True, width=100)
+
+
+def ledger_records(path: Path = LEDGER) -> list[dict[str, Any]]:
+    """Every parseable ledger record, in file order.
+
+    Blank and malformed lines are skipped rather than raised on: the ledger is
+    append-only, so one bad line must not cost the ability to append or score.
+    ``tests/test_ledger.py`` is what fails on a malformed line.
+
+    Parameters
+    ----------
+    path : Path, optional
+        The ledger file. Callers pass their own module-level ``LEDGER`` so tests
+        can point a single script at a scratch ledger.
+    """
+    if not path.exists():
+        return []
+    out: list[dict[str, Any]] = []
+    for line in path.read_text(encoding="utf-8").splitlines():
+        try:
+            rec = json.loads(line)
+        except json.JSONDecodeError:
+            continue
+        if isinstance(rec, dict):
+            out.append(rec)
+    return out
 
 
 def all_questions() -> list[tuple[str, dict[str, Any]]]:

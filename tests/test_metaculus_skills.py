@@ -15,7 +15,6 @@ from __future__ import annotations
 import copy
 import importlib.util
 import itertools
-import re
 import sys
 from pathlib import Path
 
@@ -251,13 +250,7 @@ def test_user_agent_never_advertises_headless(agg, scrape):
     # Cloudflare challenges the "HeadlessChrome" token outright, including on
     # ordinary HTML pages, so neither script may send it.
     assert "Headless" not in agg._UA
-    # The scraper builds its UA inline, so pull the literal it passes rather than
-    # scanning the file, which names the token in a comment explaining the rule.
-    src = (SKILLS / "metaculus-scraper" / "scripts" / "metaculus_scrape.py").read_text()
-    uas = re.findall(r'"(Mozilla/5\.0[^"]*)"\s*\n?\s*"?([^"]*)"?', src)
-    assert uas, "no User-Agent literal found in the scraper"
-    for parts in uas:
-        assert "Headless" not in "".join(parts)
+    assert "Headless" not in scrape._UA
 
 
 # --------------------------------------------------------- scaling / formatting
@@ -584,7 +577,7 @@ def test_scraper_prefers_api_text_over_the_page_parse(scrape, monkeypatch):
             "question": {"resolution_criteria": "api text", "fine_print": "fp"},
         },
     )
-    res = scrape.scrape_metaculus_question(41138, max_comments=0)
+    res = scrape.scrape_metaculus_question(41138)
     assert (res.title, res.resolution_criteria, res.fine_print) == (
         "API T",
         "api text",
@@ -597,7 +590,7 @@ def test_scraper_keeps_the_page_parse_without_the_api(scrape, monkeypatch):
     page = "Title\n12 forecasters\nResolution Criteria\npage text\nComments\n"
     monkeypatch.setattr(scrape, "_render_page", lambda _pid, _w: ("Page T", page))
     monkeypatch.setattr(scrape, "_api_post", lambda _pid: None)
-    res = scrape.scrape_metaculus_question(41138, max_comments=0)
+    res = scrape.scrape_metaculus_question(41138)
     assert (res.title, res.resolution_criteria) == ("Page T", "page text")
     assert res.num_forecasters == "12"
 

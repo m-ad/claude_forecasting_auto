@@ -19,6 +19,7 @@ from conftest import (
     CURRENT_KEYS,
     DATE_KEYS,
     DATE_UNITS,
+    DIRECTIONS,
     META_KEYS,
     NATIVE_UNIT_TYPES,
     PROBABILITY_TYPES,
@@ -213,9 +214,10 @@ def test_next_review_is_a_date_and_consistent_with_status(slug, meta):
     nxt = meta.get("next_review")
     if nxt is not None:
         assert as_date(nxt) is not None, f"{slug}: next_review {nxt!r} is not ISO"
-    if meta.get("status") == "resolved":
+    if meta.get("status") in ("resolved", "dropped"):
         assert nxt is None, (
-            f"{slug}: a resolved question keeps next_review null (log_forecast clears it)"
+            f"{slug}: a {meta['status']} question keeps next_review null "
+            "(log_forecast clears it on resolution; clear it by hand when dropping)"
         )
     elif (meta.get("current") or {}).get("version"):
         assert nxt is not None, (
@@ -340,7 +342,7 @@ def test_tripwire_entries_are_well_formed(slug, meta):
             f"{where}: signal must be a concrete observable statement"
         )
         assert as_date(tw["by"]) is not None, f"{where}: by={tw['by']!r} is not a date"
-        assert tw["direction"] in {"up", "down", "either"}, (
+        assert tw["direction"] in DIRECTIONS, (
             f"{where}: direction {tw['direction']!r} must be up/down/either"
         )
         mag = tw["magnitude"]
@@ -514,7 +516,7 @@ def test_template_tripwire_examples_match_the_tripwire_schema():
             f"{sorted(TRIPWIRE_KEYS)}"
         )
         assert as_date(tw["by"]) is not None
-        assert tw["direction"] in {"up", "down", "either"}
+        assert tw["direction"] in DIRECTIONS
         assert is_number(tw["magnitude"]) and tw["magnitude"] >= 0
         assert isinstance(tw["magnitude_unit"], str) and tw["magnitude_unit"].strip()
     units = {tw["magnitude_unit"] for tw in examples}

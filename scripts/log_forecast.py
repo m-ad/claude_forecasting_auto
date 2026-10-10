@@ -13,6 +13,7 @@ Examples
         --distribution '{"probabilities": {"Likud": 0.381, "Yashar": 0.61, "Other": 0.009}}' ...
     uv run scripts/log_forecast.py resolve <slug> --outcome yes
     uv run scripts/log_forecast.py resolve <slug> --outcome "Yashar"   # multiple choice
+    uv run scripts/log_forecast.py resolve <slug> --outcome 2031-03-31 # date -> Unix seconds
 
 ``--distribution`` records the full forecast next to the median and IQR, which
 alone are the whole forecast only for a binary question. It is **required** for
@@ -26,6 +27,7 @@ from __future__ import annotations
 import argparse
 import datetime as dt
 import json
+import math
 import re
 import sys
 from pathlib import Path
@@ -37,6 +39,7 @@ from _common import (
     QUESTIONS,
     distribution_problems,
     find_slug,
+    ledger_records,
     load_meta,
     save_meta,
     today,
@@ -50,6 +53,18 @@ def _append(record: dict[str, Any]) -> None:
         fh.write(json.dumps(record, ensure_ascii=False) + "\n")
 
 
+def _forecast_records(slug: str) -> list[dict[str, Any]]:
+    """The ledger's ``forecast`` records for ``slug``, in file order.
+
+    A record with no ``event`` key predates that field and is a forecast.
+    """
+    return [
+        rec
+        for rec in ledger_records(LEDGER)
+        if rec.get("slug") == slug and rec.get("event", "forecast") == "forecast"
+    ]
+
+
 def _count_forecasts(slug: str) -> int:
     """Number of ``forecast`` records already in the ledger for ``slug``.
 
@@ -57,25 +72,8 @@ def _count_forecasts(slug: str) -> int:
     versions-are-1..N-without-gaps invariant intact even if some record carries a
     wrong version number: a stray v3 in a two-record slug would otherwise make the
     next entry v4 and leave a permanent hole.
-
-    A malformed line is skipped rather than raised on: the ledger is append-only
-    and losing the ability to append because of one bad line elsewhere in the file
-    is the worse failure.
     """
-    if not LEDGER.exists():
-        return 0
-    n = 0
-    for line in LEDGER.read_text(encoding="utf-8").splitlines():
-        line = line.strip()
-        if not line:
-            continue
-        try:
-            rec = json.loads(line)
-        except json.JSONDecodeError:
-            continue
-        if rec.get("slug") == slug and rec.get("event", "forecast") == "forecast":
-            n += 1
-    return n
+    return len(_forecast_records(slug))
 
 
 def cached_options(slug: str, post_id: int | None) -> list[str] | None:
@@ -116,16 +114,8 @@ def _parse_distribution(raw: str) -> Any:
 
 def _last_forecast(slug: str) -> dict[str, Any] | None:
     """The latest ``forecast`` record for ``slug``, or None."""
-    last = None
-    if LEDGER.exists():
-        for line in LEDGER.read_text(encoding="utf-8").splitlines():
-            try:
-                rec = json.loads(line)
-            except json.JSONDecodeError:
-                continue
-            if rec.get("slug") == slug and rec.get("event", "forecast") == "forecast":
-                last = rec
-    return last
+    recs = _forecast_records(slug)
+    return recs[-1] if recs else None
 
 
 def _outcome_value(raw: str) -> float | str:
@@ -139,6 +129,61 @@ def _outcome_value(raw: str) -> float | str:
         return float(raw)
     except ValueError:
         return raw
+
+
+# The median of a multiple-choice record is its leading option's probability.
+PROBABILITY_TYPES = {"binary", "multiple_choice"}
+
+
+def _forecast_problems(
+    qtype: str | None, median: float, lower: float, upper: float
+) -> list[str]:
+    """Reasons a median/IQR triple must not enter the ledger; empty if fine.
+
+    Checked before the append because the ledger is append-only: a bad line
+    that ``tests/test_ledger.py`` catches afterwards can never be removed.
+    """
+    out = []
+    if not all(math.isfinite(v) for v in (median, lower, upper)):
+        return ["median and IQR must be finite numbers"]
+    if not lower <= median <= upper:
+        out.append(f"median {median} lies outside the IQR [{lower}, {upper}]")
+    if not lower < upper:
+        out.append(f"IQR [{lower}, {upper}] is degenerate: lower must be < upper")
+    if qtype in PROBABILITY_TYPES and not all(
+        0 <= v <= 1 for v in (median, lower, upper)
+    ):
+        out.append(
+            f"{qtype} values must be probabilities in [0, 1], not percent "
+            f"(got median {median}, IQR [{lower}, {upper}])"
+        )
+    return out
+
+
+def _resolution_outcome(slug: str, qtype: str | None, raw: str) -> float | str:
+    """The outcome to record for a non-multiple-choice question, or exit.
+
+    Binary outcomes must be yes/no: anything else (``annulled``, ``ambiguous``)
+    would crash ``calibration.py`` and could never be removed from the ledger.
+    Date outcomes are stored as Unix seconds, the unit their median and IQR use,
+    so an ISO date is converted; left as a string it would go unscored.
+    """
+    outcome = _outcome_value(raw)
+    if qtype == "binary" and outcome not in (0.0, 1.0):
+        sys.exit(
+            f"! {slug}: binary outcome must be yes or no, got {raw!r}. An annulled "
+            "or ambiguous question is not a resolution: set status: dropped "
+            "instead (docs/update-protocol.md)"
+        )
+    if qtype == "date" and isinstance(outcome, str):
+        try:
+            day = dt.date.fromisoformat(outcome.strip()[:10])
+        except ValueError:
+            sys.exit(f"! {slug}: date outcome must be YYYY-MM-DD, got {raw!r}")
+        return dt.datetime(
+            day.year, day.month, day.day, tzinfo=dt.timezone.utc
+        ).timestamp()
+    return outcome
 
 
 def cmd_add(args: argparse.Namespace) -> None:
@@ -159,6 +204,9 @@ def cmd_add(args: argparse.Namespace) -> None:
         )
 
     qtype = meta.get("type")
+    problems = _forecast_problems(qtype, args.median, args.lower, args.upper)
+    if problems:
+        sys.exit(f"! {slug}: forecast rejected:\n  " + "\n  ".join(problems))
     dist = _parse_distribution(args.distribution) if args.distribution else None
     if dist is None and qtype == "multiple_choice":
         sys.exit(
@@ -187,7 +235,7 @@ def cmd_add(args: argparse.Namespace) -> None:
         "version": version,
         "source": meta.get("source"),
         "post_id": meta.get("post_id"),
-        "type": meta.get("type"),
+        "type": qtype,
         "median": args.median,
         "iqr": [args.lower, args.upper],
         **({"distribution": dist} if dist is not None else {}),
@@ -237,7 +285,7 @@ def cmd_resolve(args: argparse.Namespace) -> None:
         if labels and outcome not in labels:
             sys.exit(f"! {slug}: {outcome!r} is not an option; one of {labels}")
     else:
-        outcome = _outcome_value(args.outcome)
+        outcome = _resolution_outcome(slug, meta.get("type"), args.outcome)
     _append(
         {
             "ts": dt.datetime.now(dt.timezone.utc).isoformat(timespec="seconds"),
@@ -297,7 +345,7 @@ def main() -> None:
     r.add_argument(
         "--outcome",
         required=True,
-        help="yes|no|<numeric value>|<exact option label>",
+        help="yes|no|<numeric value>|<YYYY-MM-DD>|<exact option label>",
     )
     r.add_argument("--date", help="resolution date, defaults to today")
     r.add_argument("--source", help="the resolution source consulted")

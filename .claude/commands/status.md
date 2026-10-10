@@ -100,4 +100,4 @@ Then integrate, yourself:
    questions, two updates drifting the same direction, a tripwire that fired in one question and
    should be added to another.
 3. Run once, in the repo root: `uv run scripts/status.py --index`, then
-   `uv run ruff check --fix .` and `uv run pytest -q`. Fix failures before any commit.
+   `uv run ruff check .` and `uv run pytest -q`. Fix failures before any commit.

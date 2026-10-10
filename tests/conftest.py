@@ -145,10 +145,6 @@ def metas() -> list[tuple[str, dict[str, Any]]]:
     return out
 
 
-def meta_of(slug: str) -> dict[str, Any]:
-    return dict(metas()).get(slug, {})
-
-
 # -------------------------------------------------------------------- helpers
 def as_date(value: Any) -> dt.date | None:
     """Coerce a YAML/JSON date-ish value to ``datetime.date``, or ``None``.
@@ -199,18 +195,3 @@ def ids_for(pairs) -> list[str]:
 # ------------------------------------------------------------ pytest plumbing
 def pytest_configure(config: pytest.Config) -> None:
     config.addinivalue_line("markers", "git: needs a working git checkout")
-
-
-@pytest.fixture(scope="session")
-def repo() -> Path:
-    return REPO
-
-
-@pytest.fixture(scope="session")
-def all_metas() -> dict[str, dict[str, Any]]:
-    return dict(metas())
-
-
-@pytest.fixture(scope="session")
-def all_records() -> list[dict[str, Any]]:
-    return [r for _, r in ledger_records()]

@@ -88,7 +88,7 @@ and never a step of another workflow.
 
 ```bash
 uv run .claude/skills/metaculus-aggregations/scripts/metaculus_aggregations.py <POST_ID> \
-    --comments 8 --history --json > questions/<slug>/raw/metaculus.json
+    --comments 8 --history --json > questions/<slug>/raw/metaculus-<YYYY-MM-DD>.json
 ```
 
 Always pull all three cohorts:
@@ -110,7 +110,8 @@ cohort split, no IQR, and **no comments**.
 Metaculus rate-limits by IP, and a tripped limit blocks *everything* — the API surface
 and ordinary HTML pages alike — for ~2 minutes. The scripts back off across ~3 min on
 their own, so a single slow call is normal and is not a reason to retry it yourself. Do
-fetch each post **once** and cache the JSON to `questions/<slug>/raw/metaculus.json`;
+fetch each post **once** and cache the JSON to `questions/<slug>/raw/metaculus-<YYYY-MM-DD>.json` (every `raw/` file
+name carries its retrieval date; `tests/test_meta.py` enforces it);
 re-running the fetcher in a loop is what trips the limit in the first place.
 
 ---

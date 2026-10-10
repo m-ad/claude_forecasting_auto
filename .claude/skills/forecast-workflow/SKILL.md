@@ -23,7 +23,7 @@ uv run scripts/new_question.py --url "<metaculus url>"     # or --title "..." --
 ```
 
 It creates `questions/<YYYY-MM-DD>-<src><id>-<slug>/` with `meta.yaml`, `forecast.md`,
-`research.md` and `raw/`, pre-filled from the templates. It prints the slug — use it below.
+`research.md`, `raw/` and `charts/`, pre-filled from the templates. It prints the slug — use it below.
 
 For a Metaculus question it also pre-fills the title, type, and resolution dates by calling
 the aggregations script. Verify the fields; do not trust the slug it derived from a truncated
@@ -130,7 +130,7 @@ only if it aids understanding — horizontal bars, saved to `questions/<slug>/ch
 
 ## Non-Metaculus questions
 
-Same workflow, minus Steps 2's Metaculus fetch. Use `--title/--type` on `new_question.py`,
+Same workflow, minus Step 2's Metaculus fetch. Use `--title/--type` on `new_question.py`,
 `src` = `ks`/`pm`/`mf`/`x`. Write your own resolution criteria into `forecast.md` and make them
 explicit and falsifiable — an unfalsifiable question cannot be scored, and a forecast that
 cannot be scored does not belong in the ledger.

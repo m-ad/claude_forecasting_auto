@@ -28,6 +28,12 @@ from _common import (
 )
 
 
+def resolves_on(meta: dict[str, Any]) -> str | None:
+    """The date the outcome is due: ``resolves``, else ``closes`` when unknown."""
+    dates = meta.get("dates") or {}
+    return dates.get("resolves") or dates.get("closes")
+
+
 def urgency(meta: dict[str, Any]) -> tuple[int, str]:
     """Score a question's need for attention.
 
@@ -37,8 +43,9 @@ def urgency(meta: dict[str, Any]) -> tuple[int, str]:
         ``(score, reason)`` where a higher score is more urgent. Scores are
         additive so that "overdue AND resolving next week" outranks either alone.
     """
-    if meta.get("status") == "resolved":
-        return (-1, "resolved")
+    # A dropped (annulled) question has no outcome to wait for, like a resolved one.
+    if meta.get("status") in ("resolved", "dropped"):
+        return (-1, str(meta["status"]))
 
     score, reasons = 0, []
     cur = meta.get("current") or {}
@@ -54,10 +61,7 @@ def urgency(meta: dict[str, Any]) -> tuple[int, str]:
         score += 15
         reasons.append(f"review in {d_review}d")
 
-    d_res = days_until(
-        (meta.get("dates") or {}).get("resolves")
-        or (meta.get("dates") or {}).get("closes")
-    )
+    d_res = days_until(resolves_on(meta))
     if d_res is not None and 0 <= d_res <= 7:
         score += 35
         reasons.append(f"resolves in {d_res}d")
@@ -107,7 +111,7 @@ def print_table(include_resolved: bool = False) -> None:
     for score, slug, meta, reason in data:
         cur = meta.get("current") or {}
         age = days_until(cur.get("date"))
-        d_res = days_until((meta.get("dates") or {}).get("resolves"))
+        d_res = days_until(resolves_on(meta))
         print(
             f"{score:>4}  {fmt_forecast(meta):<22} {cur.get('version') or 0:>2} "
             f"{(str(-age) + 'd') if age is not None else '—':>6} "
@@ -150,7 +154,9 @@ def main() -> None:
     ap = argparse.ArgumentParser(
         description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter
     )
-    ap.add_argument("--all", action="store_true", help="include resolved questions")
+    ap.add_argument(
+        "--all", action="store_true", help="include resolved and dropped questions"
+    )
     ap.add_argument("--index", action="store_true", help="regenerate INDEX.md")
     ap.add_argument("--find", help="resolve a slug/url/id/title fragment to a slug")
     ap.add_argument(

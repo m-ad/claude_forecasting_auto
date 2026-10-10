@@ -2,9 +2,10 @@
 """
 Metaculus question scraper using Playwright (HTML fallback).
 
-Extracts community prediction and comments by rendering the public question
-page. This is the **fallback** path: prefer the ``metaculus-aggregations`` skill,
-which returns structured numbers for all three cohorts. This script only ever
+Extracts the community prediction and resolution criteria by rendering the
+public question page -- no comments (see ``scrape_metaculus_question``). This
+is the **fallback** path: prefer the ``metaculus-aggregations`` skill, which
+returns structured numbers for all three cohorts and comment text. This script only ever
 sees the single headline figure the page renders.
 
 Works in sandboxed/containerised environments by routing through the egress
@@ -51,11 +52,11 @@ headline prediction still comes from the page: Metaculus returns null
 aggregations to bot-account keys. See the ``metaculus-aggregations`` docstring.
 
 Usage:
-    python metaculus_scrape.py <post_id> [--comments N] [--json]
+    python metaculus_scrape.py <post_id> [--wait SECONDS] [--json]
 
 Examples:
     python metaculus_scrape.py 578
-    python metaculus_scrape.py 578 --comments 10 --json
+    python metaculus_scrape.py 578 --json
     python metaculus_scrape.py 3479 --json
 """
 
@@ -65,7 +66,7 @@ import os
 import re
 import time
 import urllib.request
-from dataclasses import asdict, dataclass, field
+from dataclasses import asdict, dataclass
 from typing import Any
 from urllib.parse import unquote, urlparse
 
@@ -74,6 +75,11 @@ from urllib.parse import unquote, urlparse
 # exists -- on a normal workstation Playwright must keep its own location.
 if os.path.isdir("/opt/pw-browsers"):
     os.environ.setdefault("PLAYWRIGHT_BROWSERS_PATH", "/opt/pw-browsers")
+
+# Must NOT contain "HeadlessChrome": Cloudflare challenges that token outright.
+_UA = (
+    "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 Chrome/122.0.0.0 Safari/537.36"
+)
 
 # Chromium flag that makes the handshake survive a TLS-1.3-intolerant MITM proxy.
 _TLS12_ARG = "--ssl-version-max=tls1.2"
@@ -99,15 +105,6 @@ _RESET_MARKERS = (
 
 
 @dataclass
-class MetaculusComment:
-    author: str
-    text: str
-    author_prediction: str | None = None
-    date: str | None = None
-    votes: int | None = None
-
-
-@dataclass
 class MetaculusQuestion:
     post_id: int
     title: str
@@ -118,7 +115,6 @@ class MetaculusQuestion:
     num_comments: str | None = None
     resolution_criteria: str | None = None
     fine_print: str | None = None
-    comments: list = field(default_factory=list)
 
 
 def _parse_proxy() -> dict:
@@ -229,14 +225,7 @@ def _render_page(post_id: int, wait_seconds: int) -> tuple[str, str]:
                 kwargs["executable_path"] = exe
             browser = p.chromium.launch(**kwargs)
             try:
-                page = browser.new_page(
-                    user_agent=(
-                        # Must NOT say "HeadlessChrome": Cloudflare challenges
-                        # that token outright.
-                        "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 "
-                        "Chrome/122.0.0.0 Safari/537.36"
-                    )
-                )
+                page = browser.new_page(user_agent=_UA)
                 for wait in (0, *_BACKOFF):
                     if wait:
                         time.sleep(wait)
@@ -336,145 +325,21 @@ def _detect_question_type(lines: list[str]) -> tuple[str, str | None]:
     return "unknown", None
 
 
-def _parse_comments(lines: list[str], max_comments: int) -> list[MetaculusComment]:
-    """
-    Parse comments from the body text lines.
-
-    Comment blocks follow this pattern:
-        username
-        ·
-        [username's Prediction]  (optional)
-        [prediction value]       (optional)
-        [date]                   (optional)
-        <blank line>
-        comment text (one or more lines)
-        <blank line>
-        [number]                 (votes, optional)
-        Reply
-    """
-    comments = []
-    # Find the "Comments" section
-    comments_start = None
-    for i, line in enumerate(lines):
-        if line.strip() == "Comments":
-            comments_start = i
-            break
-
-    if comments_start is None:
-        return comments
-
-    # Walk through lines after "Comments"
-    i = comments_start + 1
-    while i < len(lines) and len(comments) < max_comments:
-        line = lines[i].strip()
-
-        # Skip empty lines and navigation elements
-        if (
-            not line
-            or line
-            in (
-                "Log in",
-                "Recent",
-                "Load more comments",
-                "Oldest",
-                "Changed my mind",
-                "IMPACT",
-                "STRENGTH",
-                "Increases Likelihood",
-                "Decreases Likelihood",
-                "Earlier",
-                "later",
-            )
-            or line.startswith(("Changed my mind", "hide "))
-        ):
-            i += 1
-            continue
-
-        # A comment block starts with "username\n·"
-        if i + 1 < len(lines) and lines[i + 1].strip() == "·":
-            author = line
-            i += 2  # skip past "·"
-
-            # Check for optional prediction line: "username's Prediction"
-            author_pred = None
-            date = None
-            if i < len(lines) and "'s Prediction" in lines[i]:
-                i += 1
-                # Next line is the prediction value
-                if i < len(lines):
-                    pred_line = lines[i].strip()
-                    if pred_line and pred_line not in ("Reply",):
-                        author_pred = pred_line
-                        i += 1
-                # Next might be the date
-                if i < len(lines):
-                    date_candidate = lines[i].strip()
-                    if re.match(
-                        r"(?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)\s+\d{1,2},\s+\d{4}",
-                        date_candidate,
-                    ):
-                        date = date_candidate
-                        i += 1
-
-            # Now collect the comment text until we hit "Reply" or a vote count
-            text_lines = []
-            while i < len(lines):
-                cl = lines[i].strip()
-                if cl == "Reply":
-                    i += 1
-                    break
-                # Vote count is a lone number before "Reply"
-                if (
-                    cl.isdigit()
-                    and i + 1 < len(lines)
-                    and lines[i + 1].strip() == "Reply"
-                ):
-                    i += 1  # skip the vote count
-                    continue
-                if cl.startswith("Changed my mind"):
-                    i += 1
-                    continue
-                # Another comment starting (username\n·)
-                if (
-                    i + 1 < len(lines)
-                    and lines[i + 1].strip() == "·"
-                    and cl
-                    and not cl.startswith("@")
-                ):
-                    break
-                text_lines.append(lines[i])
-                i += 1
-
-            text = "\n".join(text_lines).strip()
-            if text:
-                comments.append(
-                    MetaculusComment(
-                        author=author,
-                        text=text,
-                        author_prediction=author_pred,
-                        date=date,
-                    )
-                )
-        else:
-            i += 1
-
-    return comments
-
-
 def scrape_metaculus_question(
     post_id: int,
-    max_comments: int = 5,
     wait_seconds: int = 10,
 ) -> MetaculusQuestion:
     """
-    Scrape a Metaculus question page for community prediction and comments.
+    Scrape a Metaculus question page for its community prediction and criteria.
+
+    Comment text is not extractable from the rendered page (it sits behind a
+    lazy-loaded tab that does not survive a scripted click); use the
+    ``metaculus-aggregations`` skill for comments.
 
     Parameters
     ----------
     post_id : int
         The numeric post ID from the Metaculus question URL.
-    max_comments : int
-        Maximum number of comments to extract (default 5).
     wait_seconds : int
         Seconds to wait for JS rendering (default 10).
 
@@ -525,9 +390,6 @@ def scrape_metaculus_question(
                 break
         fine_print = "\n".join(lines[fp_start:end]).strip()
 
-    # Parse comments
-    comments = _parse_comments(lines, max_comments)
-
     num_forecasters = num_forecasters_match.group(1) if num_forecasters_match else None
 
     # The text parse above depends on section headings in the rendered page and
@@ -551,16 +413,12 @@ def scrape_metaculus_question(
         num_comments=num_comments_match.group(1) if num_comments_match else None,
         resolution_criteria=res_criteria,
         fine_print=fine_print,
-        comments=[asdict(c) for c in comments],
     )
 
 
 def main():
     parser = argparse.ArgumentParser(description="Scrape a Metaculus question")
     parser.add_argument("post_id", type=int, help="Metaculus post/question ID")
-    parser.add_argument(
-        "--comments", type=int, default=5, help="Max comments to extract (default: 5)"
-    )
     parser.add_argument(
         "--json", action="store_true", help="Output as JSON instead of human-readable"
     )
@@ -574,7 +432,6 @@ def main():
 
     result = scrape_metaculus_question(
         post_id=args.post_id,
-        max_comments=args.comments,
         wait_seconds=args.wait,
     )
 
@@ -590,23 +447,12 @@ def main():
         if result.resolution_criteria:
             print("\n--- Resolution Criteria ---")
             print(result.resolution_criteria[:500])
-        if args.comments and not result.comments:
-            # Comments now live behind a lazy-loaded tab that does not survive a
-            # scripted click, so the HTML path cannot see them at all. Say so,
-            # rather than letting an empty list read as "no discussion".
-            print(
-                f"\n(note: {result.num_comments or '?'} comments exist but are not "
-                "extractable from the rendered page; use the metaculus-aggregations "
-                "skill with --comments N for comment text)"
-            )
-        if result.comments:
-            print(f"\n--- Top {len(result.comments)} Comments ---")
-            for c in result.comments:
-                pred = (
-                    f" [{c['author_prediction']}]" if c.get("author_prediction") else ""
-                )
-                print(f"\n  @{c['author']}{pred}:")
-                print(f"  {c['text'][:300]}")
+        # Say so explicitly, rather than letting silence read as "no discussion".
+        print(
+            f"\n(note: {result.num_comments or '?'} comments exist but are not "
+            "extractable from the rendered page; use the metaculus-aggregations "
+            "skill with --comments N for comment text)"
+        )
 
 
 if __name__ == "__main__":

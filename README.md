@@ -49,8 +49,10 @@ questions/<slug>/
   raw/                    dated snapshots of Metaculus aggregations and market prices
   charts/                 generated figures
 ledger/forecasts.jsonl    append-only scoreable record of every forecast and resolution
-scripts/                  new_question · log_forecast · status · calibration
-.claude/skills/           forecast-workflow · forecast-update · metaculus-aggregations · metaculus-scraper
+scripts/                  new_question · log_forecast · status · calibration · … (all: SKILLS.md)
+templates/                what new_question.py renders into each question folder
+tests/                    data and unit tests (see tests/README.md)
+.claude/skills/           forecast-workflow · forecast-update · metaculus-aggregations · … (all: SKILLS.md)
 .claude/commands/         the slash commands above
 ```
 
