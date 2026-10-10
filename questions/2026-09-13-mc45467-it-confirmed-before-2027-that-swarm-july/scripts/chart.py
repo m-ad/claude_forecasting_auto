@@ -11,7 +11,7 @@ Metaculus cohorts moved, and that claim is only legible against the trajectory:
 from __future__ import annotations
 
 import json
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 from pathlib import Path
 
 import matplotlib
@@ -57,7 +57,7 @@ def _history(data: dict, method: str) -> tuple[list[datetime], list[float]]:
     """
     points = data["methods"][method]["history"]
     xs = [
-        datetime.strptime(p[0], "%Y-%m-%d %H:%M").replace(tzinfo=timezone.utc)
+        datetime.strptime(p[0], "%Y-%m-%d %H:%M").replace(tzinfo=UTC)
         for p in points
     ]
     ys = [p[1] * 100 for p in points]
@@ -111,18 +111,18 @@ def main() -> None:
     ax_traj.axhline(5.5, color=MINE, lw=1.6, ls="--", label="This forecast, v2 (5.5%)")
     ax_traj.axhline(3.5, color=GREY, lw=1.2, ls=":", label="v1, superseded (3.5%)")
 
-    senate = datetime(2026, 9, 10, 16, 55, tzinfo=timezone.utc)
+    senate = datetime(2026, 9, 10, 16, 55, tzinfo=UTC)
     ax_traj.annotate(
         "Sep 10: Hawley/Blumenthal probes\nreported (no weights question)",
-        xy=(senate, 15), xytext=(datetime(2026, 9, 4, 16, 0, tzinfo=timezone.utc), 24.0),
+        xy=(senate, 15), xytext=(datetime(2026, 9, 4, 16, 0, tzinfo=UTC), 24.0),
         fontsize=8.2, color=GREY,
         arrowprops={"arrowstyle": "->", "color": GREY, "lw": 0.9},
     )
-    lw_post = datetime(2026, 9, 12, 21, 33, tzinfo=timezone.utc)
+    lw_post = datetime(2026, 9, 12, 21, 33, tzinfo=UTC)
     ax_traj.annotate(
         "Sep 11-12: RubyGems scoop (external\ntargets) + LessWrong roundup quoting\n"
         '"12%" — the CP *mean*, not its median',
-        xy=(lw_post, 9.6), xytext=(datetime(2026, 9, 4, 16, 0, tzinfo=timezone.utc), 34.5),
+        xy=(lw_post, 9.6), xytext=(datetime(2026, 9, 4, 16, 0, tzinfo=UTC), 34.5),
         fontsize=8.2, color=INK,
         arrowprops={"arrowstyle": "->", "color": INK, "lw": 0.9},
     )

@@ -137,7 +137,7 @@ def test_timestamps_are_non_decreasing_in_file_order():
 
 
 def test_no_timestamp_is_in_the_future():
-    now = dt.datetime.now(dt.timezone.utc) + dt.timedelta(minutes=5)  # clock slack
+    now = dt.datetime.now(dt.UTC) + dt.timedelta(minutes=5)  # clock slack
     future = [
         n
         for n, r in RECORDS

@@ -484,7 +484,7 @@ def _iso(ts: float | None) -> str | None:
     """Unix seconds -> UTC ISO 'YYYY-MM-DD HH:MM' string, or None."""
     if ts is None:
         return None
-    return _dt.datetime.fromtimestamp(ts, _dt.timezone.utc).strftime("%Y-%m-%d %H:%M")
+    return _dt.datetime.fromtimestamp(ts, _dt.UTC).strftime("%Y-%m-%d %H:%M")
 
 
 def _num(v: Any) -> str:
@@ -507,7 +507,7 @@ def _fmt_display(qtype: str, center, lower, upper, per_option) -> str:
 
     def dt_str(v):
         return (
-            _dt.datetime.fromtimestamp(v, _dt.timezone.utc).strftime("%Y-%m-%d")
+            _dt.datetime.fromtimestamp(v, _dt.UTC).strftime("%Y-%m-%d")
             if isinstance(v, (int, float))
             else "n/a"
         )

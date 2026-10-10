@@ -805,7 +805,7 @@ def test_log_resolve_stores_a_date_outcome_in_unix_seconds(binary_question):
     ns = argparse.Namespace(slug="s", outcome="2031-03-31", date=None, source="x")
     log_forecast.cmd_resolve(ns)
     outcome = _records(ledger)[-1]["outcome"]
-    assert outcome == dt.datetime(2031, 3, 31, tzinfo=dt.timezone.utc).timestamp()
+    assert outcome == dt.datetime(2031, 3, 31, tzinfo=dt.UTC).timestamp()
     with pytest.raises(SystemExit, match="YYYY-MM-DD"):
         log_forecast.cmd_resolve(argparse.Namespace(**{**vars(ns), "outcome": "soon"}))
 

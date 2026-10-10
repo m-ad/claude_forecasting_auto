@@ -251,7 +251,7 @@ def fmt_date(value: float) -> str:
     explicitly, because a naive ``fromtimestamp`` uses local time and would
     shift a midnight-UTC value to the previous day west of Greenwich.
     """
-    return _dt.datetime.fromtimestamp(value, tz=_dt.timezone.utc).date().isoformat()
+    return _dt.datetime.fromtimestamp(value, tz=_dt.UTC).date().isoformat()
 
 
 def fmt_value(value: float, qtype: str | None) -> str:

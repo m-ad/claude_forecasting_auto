@@ -180,9 +180,7 @@ def _resolution_outcome(slug: str, qtype: str | None, raw: str) -> float | str:
             day = dt.date.fromisoformat(outcome.strip()[:10])
         except ValueError:
             sys.exit(f"! {slug}: date outcome must be YYYY-MM-DD, got {raw!r}")
-        return dt.datetime(
-            day.year, day.month, day.day, tzinfo=dt.timezone.utc
-        ).timestamp()
+        return dt.datetime(day.year, day.month, day.day, tzinfo=dt.UTC).timestamp()
     return outcome
 
 
@@ -229,7 +227,7 @@ def cmd_add(args: argparse.Namespace) -> None:
             sys.exit(f"! {slug}: --distribution rejected:\n  " + "\n  ".join(problems))
 
     record = {
-        "ts": dt.datetime.now(dt.timezone.utc).isoformat(timespec="seconds"),
+        "ts": dt.datetime.now(dt.UTC).isoformat(timespec="seconds"),
         "event": "forecast",
         "slug": slug,
         "version": version,
@@ -288,7 +286,7 @@ def cmd_resolve(args: argparse.Namespace) -> None:
         outcome = _resolution_outcome(slug, meta.get("type"), args.outcome)
     _append(
         {
-            "ts": dt.datetime.now(dt.timezone.utc).isoformat(timespec="seconds"),
+            "ts": dt.datetime.now(dt.UTC).isoformat(timespec="seconds"),
             "event": "resolution",
             "slug": slug,
             "type": meta.get("type"),
