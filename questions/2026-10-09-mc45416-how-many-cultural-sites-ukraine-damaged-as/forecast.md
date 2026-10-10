@@ -145,6 +145,7 @@ No cohort data to compare. Re-check after the CP reveal (17 Oct).
 15. Kyiv Independent — UNESCO grants protection to two Ukrainian cultural sites — https://www.kyivindependent.com/unesco-grants-protection-to-two-ukrainian-cultural-sites (accessed 2026-10-09)
 16. Manifold API market search "UNESCO Ukraine" — https://api.manifold.markets/v0/search-markets?term=UNESCO%20Ukraine (accessed 2026-10-09; no relevant market)
 
+**Question**: [How many cultural sites in Ukraine will be damaged as of December 31, 2026, according to UNESCO?](https://www.metaculus.com/questions/45416/how-many-cultural-sites-in-ukraine-will-be-damaged-as-of-december-31-2026-according-to-unesco)
 **Date**: 2026-10-09
 **Forecast**: Median 575, IQR [569, 582]
 **Thesis**: The UNESCO tracker stood at 563 as of 29 Sep 2026 [1]. It has grown 4–8 sites a month, faster since mid-2026 [1,3–6], and Russia's winter strike campaign keeps damage coming [12,13]. About 2 more months of verification to the last 2026 update adds roughly +12 (range 0 to +35). The main downside risk is no further update in 2026 (8%, resolves 563).

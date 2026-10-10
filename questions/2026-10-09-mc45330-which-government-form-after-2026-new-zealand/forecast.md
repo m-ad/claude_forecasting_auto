@@ -178,6 +178,7 @@ PM market. That is within noise for $41k of volume. No Metaculus cohorts yet. Re
 20. Newsroom — It's the sixth Labour government (2017 formation timeline) — https://www.newsroom.co.nz/2017/10/19/54406/its-the-sixth-labour-government (accessed 2026-10-09)
 21. Newsroom — Despite Polymarket ban, Kiwi punters can still bet on Luxon's fate (13 Aug 2026) — https://newsroom.co.nz/2026/08/13/six-months-after-polymarket-ban-kiwis-are-betting-on-luxons-fate/ (accessed 2026-10-09)
 
+**Question**: [Which government will form after the 2026 New Zealand general election?](https://www.metaculus.com/questions/45330/which-government-will-form-after-the-2026-new-zealand-general-election)
 **Date**: 2026-10-09
 **Forecast**: National-led 46.5%, Labour-led 44.5%, None before January 8.0%, Other 1.0%. IQR on National-led [39.5%, 53.5%]
 **Thesis**: A dead heat. The right bloc (48.6%) leads the left (44.1%), but the Opportunity Party sits at ~5.9% around the 5% threshold [2,16,17]. If it clears, it probably makes Labour PM, because National has ruled it out and its bottom lines fit the left [9,10]. If it misses, National–ACT–NZ First is likely re-elected. A 7 Nov election, official results on 27 Nov and Christmas leave about 8% for no government sworn in before January [3,19]. Markets agree (Polymarket coalition ≈ 45/46; PM market Luxon 55.5%) [13,14].
