@@ -195,6 +195,43 @@ def test_all_cohorts_are_requested_in_a_single_call(agg):
         assert res.methods[m].latest.center == pytest.approx(0.09)
 
 
+def test_comments_are_read_from_the_api_proxy_json(agg):
+    # The only comment path left: the scraper cannot see comments in the
+    # rendered page, so this one has to keep working.
+    comments = {
+        "results": [
+            {
+                "author": {"username": "alice"},
+                "created_at": "2026-10-01T12:00:00Z",
+                "text": "  Resolution hinges on the fine print.  ",
+            },
+            {"author": None, "created_at": None, "text": "anonymous"},
+            {"author": {"username": "carol"}, "text": "beyond the limit"},
+        ]
+    }
+
+    class FakeFetcher:
+        def get_json(self, url):
+            if "/comments/" in url:
+                assert "post=41138" in url and "limit=2" in url, url
+                return 200, comments
+            return 200, {"id": 40839, "type": "binary", "scaling": {}}
+
+    res = agg._collect(
+        FakeFetcher(),
+        41138,
+        lambda methods, qid=None: "agg",
+        agg.DEFAULT_METHODS,
+        include_history=False,
+        n_comments=2,
+        include_details=False,
+    )
+    assert [(c.author, c.created_at, c.text) for c in res.comments] == [
+        ("alice", "2026-10-01", "Resolution hinges on the fine print."),
+        ("?", "", "anonymous"),
+    ]
+
+
 def test_a_cohort_missing_from_the_combined_response_gets_its_own_request(agg):
     # The combined form is an optimisation, not a guarantee: if Metaculus omits a
     # cohort, it must be re-requested with question_id pinned rather than

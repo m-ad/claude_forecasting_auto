@@ -83,7 +83,7 @@ lack it, and that is fine: the ledger is append-only and they stay as they are.
 `CLAUDE.md`'s Git section:
 
 ```bash
-uv run ruff check .
+uv run ruff check --fix .
 uv run pytest -q
 ```
 
