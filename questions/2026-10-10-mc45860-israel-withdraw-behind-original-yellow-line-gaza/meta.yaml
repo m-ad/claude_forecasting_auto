@@ -13,12 +13,12 @@ dates:
   resolves: '2027-01-01'
 status: open
 current:
-  version: 1
+  version: 2
   date: '2026-10-10'
-  median: 0.04
+  median: 0.02
   iqr:
-  - 0.02
-  - 0.08
+  - 0.01
+  - 0.04
   community:
     cp: null
     pro: null
@@ -27,13 +27,13 @@ current:
     as_of: '2026-10-10'
 next_review: '2026-10-17'
 tripwires:
-- signal: Metaculus criteria read and CP/Pro/gold visible (re-analyse)
+- signal: Metaculus CP/Pro/gold visible; CP or Pro above 10% (re-analyse)
   by: '2026-10-17'
   direction: either
   magnitude: 0
   magnitude_unit: pp
   fired: null
-- signal: Israeli cabinet/PMO approves Board of Peace roadmap with pullback schedule
+- signal: Israeli cabinet/PMO approves roadmap with withdrawal schedule reaching behind the original line
   by: '2026-11-30'
   direction: up
   magnitude: 10
@@ -42,13 +42,13 @@ tripwires:
 - signal: Reuters/OCHA/ICG maps show Israeli control at or below 55% of Gaza
   by: '2026-12-01'
   direction: up
-  magnitude: 15
+  magnitude: 10
   magnitude_unit: pp
   fired: null
 - signal: ISF first contingent deploys or NCAG enters Gaza
   by: '2026-11-30'
   direction: up
-  magnitude: 4
+  magnitude: 2
   magnitude_unit: pp
   fired: null
 - signal: Successor government sworn in after 2026-10-27 election
