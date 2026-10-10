@@ -6,7 +6,7 @@ The point of the picture: between v2 and v3 every estimate converged into a
 hazard-rate decay that drives this update.
 """
 import json
-from datetime import UTC, datetime
+from datetime import datetime, timezone
 from pathlib import Path
 
 import matplotlib
@@ -17,7 +17,7 @@ import matplotlib.pyplot as plt
 
 def ts(s: str) -> datetime:
     """Parse the fetcher's 'YYYY-MM-DD HH:MM' timestamps as UTC."""
-    return datetime.strptime(s, "%Y-%m-%d %H:%M").replace(tzinfo=UTC)
+    return datetime.strptime(s, "%Y-%m-%d %H:%M").replace(tzinfo=timezone.utc)
 
 
 raw = json.loads(Path("raw/metaculus-2026-09-23.json").read_text())
@@ -31,15 +31,15 @@ for method, label, colour in [
     ax.plot([ts(p[0]) for p in hist], [p[1] * 100 for p in hist],
             color=colour, lw=1.7, label=label)
 
-kalshi_t = [datetime(2026, 9, 17, 3, tzinfo=UTC),
-            datetime(2026, 9, 23, 5, tzinfo=UTC)]
+kalshi_t = [datetime(2026, 9, 17, 3, tzinfo=timezone.utc),
+            datetime(2026, 9, 23, 5, tzinfo=timezone.utc)]
 ax.plot(kalshi_t, [65.5, 69.5], "s--", color="#b2182b", lw=1.2, label="Kalshi mid")
 
 # Own versions drawn as a step: each number holds until the next version.
-mine_t = [datetime(2026, 9, 5, tzinfo=UTC),
-          datetime(2026, 9, 17, 5, tzinfo=UTC),
-          datetime(2026, 9, 23, 6, tzinfo=UTC),
-          datetime(2026, 9, 24, tzinfo=UTC)]
+mine_t = [datetime(2026, 9, 5, tzinfo=timezone.utc),
+          datetime(2026, 9, 17, 5, tzinfo=timezone.utc),
+          datetime(2026, 9, 23, 6, tzinfo=timezone.utc),
+          datetime(2026, 9, 24, tzinfo=timezone.utc)]
 ax.step(mine_t, [47.0, 63.0, 67.0, 67.0], where="post", color="#2166ac",
         lw=2.2, label="This forecast (v1→v2→v3)")
 

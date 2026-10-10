@@ -6,7 +6,7 @@ P(zero major hurricanes) has moved up since 5 September, and the Metaculus
 community is the last one still climbing toward the others.
 """
 import json
-from datetime import UTC, datetime
+from datetime import datetime, timezone
 from pathlib import Path
 
 import matplotlib
@@ -48,7 +48,7 @@ ax1.grid(axis="x", alpha=0.25, zorder=1)
 # --- panel B: CP trajectory on option `0` --------------------------------
 raw = json.loads(Path("raw/metaculus-2026-09-17.json").read_text())
 hist = raw["methods"]["recency_weighted"]["history"]
-xs = [datetime.strptime(p[0], "%Y-%m-%d %H:%M").replace(tzinfo=UTC)
+xs = [datetime.strptime(p[0], "%Y-%m-%d %H:%M").replace(tzinfo=timezone.utc)
       for p in hist]
 ys = [p[1] * 100 for p in hist]
 ax2.plot(xs, ys, color="#5aae61", lw=1.9, label="Metaculus CP, option `0`", zorder=3)
@@ -60,7 +60,7 @@ ax2.axhline(40.0, color="#8c6bb1", ls="-.", lw=1.2, label="WeatherTiger (9 Sep)"
 
 # CP reveal is where the tripwire was checked: 27.3% on option `0`, below the
 # 30% threshold v1 set, which is what forced a re-analysis rather than a nudge.
-reveal = datetime(2026, 9, 10, 17, 1, tzinfo=UTC)
+reveal = datetime(2026, 9, 10, 17, 1, tzinfo=timezone.utc)
 ax2.scatter([reveal], [27.3], s=48, color="#5aae61", edgecolor="black", zorder=5)
 ax2.annotate("CP reveal 27.3%\n(tripwire fired)", (reveal, 27.3),
              textcoords="offset points", xytext=(8, -26), fontsize=8.2)

@@ -204,8 +204,8 @@ def test_group_posts_are_refused_rather_than_guessed():
 def test_no_other_workflow_invokes_the_submit_script():
     """Submitting is operator-invoked only: no workflow may reference the script.
 
-    Allowed: the script itself, its own skill, its tests and the indexes that
-    document it.
+    Allowed: the script itself, its own skill, its tests and the indexes and
+    README that document it.
     """
     allowed = {
         "scripts/submit_metaculus.py",
@@ -213,6 +213,7 @@ def test_no_other_workflow_invokes_the_submit_script():
         ".claude/skills/metaculus-submit/SKILL.md",
         "SKILLS.md",
         "AGENTS.md",
+        "README.md",
     }
     offenders = []
     for path in [

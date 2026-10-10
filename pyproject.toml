@@ -15,7 +15,9 @@ package = false
 [dependency-groups]
 dev = [
     "pytest>=9.1.1",
-    "ruff>=0.16.5",
+    # Pinned: ruff changes its default rule set between releases, and an
+    # unpinned upgrade can turn CI red on code nobody touched.
+    "ruff==0.17.0",
 ]
 
 [tool.pytest.ini_options]
@@ -29,6 +31,13 @@ addopts = "-q --strict-markers"
 # red squiggle in the editor.
 include = ["scripts", "tests"]
 extraPaths = ["scripts", "tests"]
+
+[tool.ruff]
+# Question folders hold one-off helper scripts (charts, scenario models) that are
+# part of a forecast's evidence trail, not maintained tooling.
+extend-exclude = ["questions"]
+# Honour the exclusion even when an editor or hook passes file paths explicitly.
+force-exclude = true
 
 [tool.ruff.lint]
 ignore = [
