@@ -1,17 +1,16 @@
 # Question index
 
-_Regenerated 2026-10-09 by `scripts/status.py --index`._
+_Regenerated 2026-10-10 by `scripts/status.py --index`._
 
 | Question | Type | Current | v | Community (CP) | Resolves | Next review | Status |
 |---|---|---|---|---|---|---|---|
-| [Who will be awarded the 2026 Nobel Peace Prize?](questions/2026-09-05-mc45383-who-awarded-2026-nobel-peace-prize/forecast.md) | multiple_choice | 0.37 [0.3, 0.42] | 4 | — | 2026-10-09 | 2026-10-09 | open |
-| [Which party will win the Holborn and St Pancras by-election?](questions/2026-09-11-mc45425-which-party-win-holborn-st-pancras-election/forecast.md) | multiple_choice | 0.99 [0.985, 0.995] | 5 | 0.824 | 2026-10-09 | 2026-10-16 | open |
 | [What will be the winning margin in Brazil’s 2026 presidential election runoff?](questions/2026-10-05-mc45735-winning-margin-brazil-s-2026-presidential-election/forecast.md) | numeric | 4 [2.2, 6.1] | 2 | — | 2026-10-27 | 2026-10-11 | open |
 | [Will the FDA approve a psilocybin treatment during 2026?](questions/2026-08-31-mc41172-fda-approve-psilocybin-treatment-during-2026/forecast.md) | binary | 9.5% [7.0%, 13.0%] | 2 | 11.0% | 2026-12-31 | 2026-10-12 | open |
 | [What first round vote share will Iliana Iotova win in the 2026 Bulgarian Presidential election?](questions/2026-09-05-mc45262-first-round-vote-share-iliana-iotova-win/forecast.md) | numeric | 48.6 [46, 51.4] | 3 | — | 2026-10-31 | 2026-10-16 | open |
 | [Who will win the 2026 Ballon d'Or?](questions/2026-09-11-mc45617-ballon-dor-2026/forecast.md) | multiple_choice | 0.44 [0.35, 0.53] | 5 | 0.465 | 2026-10-26 | 2026-10-16 | open |
 | [Will an open weight AI model achieve Mythos-level cyber capabilities before July 2027?](questions/2026-09-12-mc45465-open-weight-ai-model-achieve-mythos-level/forecast.md) | binary | 92.0% [87.0%, 95.0%] | 1 | 91.0% | 2027-07-01 | 2026-10-12 | open |
 | [Which party will win the most seats in the 2026 Israeli election?](questions/2026-09-20-mc45670-which-party-win-most-seats-2026-israeli/forecast.md) | multiple_choice | 0.509 [0.434, 0.584] | 3 | — | 2026-10-28 | 2026-10-16 | open |
+| [What will be the total OpenRouter token usage December 21-27, 2026?](questions/2026-10-05-mc45689-total-openrouter-token-usage-december-21-27/forecast.md) | numeric | 330,000,000,000,000 [250,000,000,000,000, 430,000,000,000,000] | 1 | — | 2026-12-29 | 2026-10-13 | open |
 | [Will the US approve a $10B exchange stabilisation facility for Pakistan before 2027?](questions/2026-10-05-mc45809-us-approve-10b-exchange-stabilisation-facility-pakistan/forecast.md) | binary | 9.0% [5.0%, 14.0%] | 1 | — | 2027-01-01 | 2026-10-12 | open |
 | [Will José Mourinho still be the manager for Real Madrid on December 31, 2026?](questions/2026-10-05-mc45857-jos-mourinho-still-manager-real-madrid-december/forecast.md) | binary | 87.0% [82.0%, 91.0%] | 1 | — | 2026-12-31 | 2026-10-12 | open |
 | [Will an AI system autonomously cause a major breach of US personal data held by an organization other than its operator before 2028?](questions/2026-09-10-mc45427-major-us-personal-data-breach-external-misaligned-ai/forecast.md) | binary | 70.0% [61.0%, 78.0%] | 2 | 80.0% | 2028-01-01 | 2026-10-22 | open |
@@ -50,7 +49,8 @@ _Regenerated 2026-10-09 by `scripts/status.py --index`._
 | [Will 2027 be the warmest year on record, according to NASA?](questions/2026-10-04-mc21095-nasa-warmest-year-on-record-2027/forecast.md) | binary | 89.0% [84.0%, 93.0%] | 1 | — | 2028-01-15 | 2026-11-04 | open |
 | [Will 2030 be the warmest year on record, according to NASA?](questions/2026-10-04-mc21095-nasa-warmest-year-on-record-2030/forecast.md) | binary | 27.0% [19.0%, 34.0%] | 1 | — | 2031-01-15 | 2027-01-20 | open |
 | [When will Germany have no coal-fired power plants in its electricity grid?](questions/2026-10-04-mc7218-germany-have-no-coal-fired-power-plants/forecast.md) | date | 2035-08-01 [2033-09-01, 2037-12-01] | 1 | 2033-09-24 | — | 2026-11-05 | open |
-| [What will be the total OpenRouter token usage December 21-27, 2026?](questions/2026-10-05-mc45689-total-openrouter-token-usage-december-21-27/forecast.md) | numeric | 330,000,000,000,000 [250,000,000,000,000, 430,000,000,000,000] | 1 | — | 2026-12-29 | 2026-10-13 | open |
 | [How many executions will be carried out in the US in 2026?](questions/2026-10-09-mc45255-how-many-executions-carried-out-us-2026/forecast.md) | multiple_choice | 0.36 [0.28, 0.45] | 2 | — | 2027-01-01 | 2026-10-16 | open |
 | [Will a U.S. federal agency announce new or expanded model evaluation agreements with both OpenAI and Anthropic before September 3, 2026?](questions/2026-08-27-mc44708-u-s-federal-agency-announce-new-expanded/forecast.md) | binary | 1.5% [0.5%, 3.0%] | 2 | 1.0% | 2026-09-03 | — | resolved |
 | [Will Uber's takeover of Delivery Hero be approved by BaFin before September 2026?](questions/2026-08-27-mc44921-uber-delivery-hero-bafin-approval/forecast.md) | binary | 45.0% [32.0%, 58.0%] | 1 | 51.0% | 2026-09-01 | — | resolved |
+| [Who will be awarded the 2026 Nobel Peace Prize?](questions/2026-09-05-mc45383-who-awarded-2026-nobel-peace-prize/forecast.md) | multiple_choice | 0.37 [0.3, 0.42] | 4 | — | 2026-10-09 | — | resolved |
+| [Which party will win the Holborn and St Pancras by-election?](questions/2026-09-11-mc45425-which-party-win-holborn-st-pancras-election/forecast.md) | multiple_choice | 0.99 [0.985, 0.995] | 5 | 0.824 | 2026-10-09 | — | resolved |

@@ -5,10 +5,10 @@
 | **Source** | Metaculus #45383 — https://www.metaculus.com/questions/45383/ |
 | **Type** | multiple choice — 11 options |
 | **Opened / Closes / Resolves** | 2026-09-07 / 2026-10-08 / 2026-10-09 |
-| **Status** | open |
+| **Status** | resolved |
 | **Current forecast** | **Other individual 37.0% · Other organization 15.0% · Navalnaya 13.0% · Sudan ERRs 12.0% · Kuleba/Save Ukraine 6.0% · ICC/ICJ 5.0% · Save the Children 5.0% · MSF 3.5% · UNRWA 2.0% · Pope Leo XIV 1.0% · Trump 0.5%** — leading option IQR [30.0%, 42.0%] (v4, 2026-10-09) |
 | **Community** | Metaculus closed 2026-10-08 11:00 UTC (n=137); fresh CP unavailable 2026-10-09 (Cloudflare block). Last cohort snapshot 2026-10-02: Other individual CP 40.1 · Pro 34.7 · gold 42.0. Markets 2026-10-09 04:00 UTC: Navalnaya Kalshi 28/29¢ · Polymarket 27.3% |
-| **Next review** | 2026-10-09 (after the 09:00 UTC announcement → /resolve; Metaculus closed to forecasts 2026-10-08) |
+| **Next review** | — |
 
 <!-- Versions below, newest first. APPEND-ONLY: never edit or delete a past version. -->
 
@@ -658,3 +658,34 @@ market's top price and a PRIO listing.
 **Date**: 2026-09-05
 **Forecast**: Other individual 47.0%, Sudan Emergency Response Rooms 15.0%, Other organization 12.0%, ICC/ICJ 6.5%, Doctors Without Borders 5.0%, Yulia Navalnaya 3.5%, Save the Children 3.5%, Mykola Kuleba/Save Ukraine 2.5%, UNRWA 2.5%, Pope Leo XIV 1.5%, Donald J. Trump 1.0% — leading option IQR [40.0%, 54.0%]
 **Thesis**: In the last ten years the eventual laureate was among the visible pre-announcement favourites only about four or five times and the outright favourite won once or twice, so the two "Other" buckets deserve ~59% — Kalshi's three organisational favourites summing to 50% would imply P(organisation) above 50% against a 30% base rate under this question's first-listed-recipient rule [3,10]. Sudan's Emergency Response Rooms get the largest named slot at 15% because they are the one candidate carrying both the market's top price and a PRIO listing, and PRIO's five-item shortlist has contained the same-year laureate in roughly 6 of the last 11 years [7,9]. Trump falls to 1%: he was odds-on at 55% before Christmas, but the United States has been bombing and blockading Iran since 28 February, Gaza's Phase 2 has been stalled since January, and the 2026 Ukraine "truces" lasted 32 hours and three days — there is no peacemaker narrative left to reward [10,15,20,24].
+
+---
+
+## Resolution — 2026-10-10
+
+**Outcome: Other individual.** The Norwegian Nobel Committee awarded the 2026 Nobel Peace Prize to Navanethem "Navi" Pillay, South African jurist and former UN High Commissioner for Human Rights, "for her efforts to promote peace and international law", announced 2026-10-09 in Oslo. Source: the official NobelPrize.org summary page, https://www.nobelprize.org/prizes/peace/2026/summary/ (fetched 2026-10-10; lists Pillay as sole laureate). Pillay is not one of the ten named options and is an individual, so by the resolution criteria the question resolves **Other individual**. **Metaculus official resolution (bot-key API, fetched 2026-10-10): `Other individual`, set 2026-10-09T11:46:05Z.** This is the binding source; the Nobel page above is context.
+
+### Score per version
+
+Multi-class Brier (0 best, 2 worst) and log score (−ln p of the winning option, 0 best). The CP column is the community prediction for the winning option only (the cohort vector for the other options was not recorded), shown as the one-option squared error (1−p)², which is the same quantity for my vector's winner. Compare the last two columns, not the Brier column against them.
+
+| Version | Date | P(Other individual) | Brier | Log | (1−p)² mine | CP p / (1−p)² | Gold p / (1−p)² | Pro p / (1−p)² |
+|---|---|---|---|---|---|---|---|---|
+| v1 | 2026-09-05 | 0.470 | 0.329* | 0.755* | 0.281 | no CP (n=13) | – | – |
+| v2 | 2026-09-26 | 0.440 | 0.364 | 0.821 | 0.314 | 0.394 / 0.367 | 0.413 / 0.344 | 0.337 / 0.439 |
+| v3 | 2026-10-02 | 0.430 | 0.382 | 0.844 | 0.325 | 0.401 / 0.359 | 0.420 / 0.336 | 0.347 / 0.426 |
+| v4 | 2026-10-09 | 0.370 | 0.461 | 0.994 | 0.397 | none (closed); v3 CP 0.401 / 0.359 | 0.420 / 0.336 | 0.347 / 0.426 |
+
+\* v1 was logged without an option vector; I rebuilt it from the vector printed in its thesis, so `calibration.py` does not score it.
+
+**Vs the crowd:** I beat the CP at v2 and v3 (0.314 vs 0.367; 0.325 vs 0.359) and lost to it at v4 on the last CP snapshot (0.397 vs 0.359). I lost to gold medalists at v2–v3 (0.344 and 0.336) and beat Pros. The best version was v1, and every update after it made the score worse. All four versions put the single most likely outcome on the right bucket, so a coarse "leading option won" check hides how little each moved.
+
+### The tripwire that should have existed and did not
+
+v4 cut Other individual from 43% to 37% and raised Navalnaya from 4% to 13% on an overnight 5%→27–29% spike on Kalshi and Polymarket, which I had myself classed as "a pump, a dump and a recovery on small bets" with no leak reported. She did not win. The missing rule was a **negative tripwire on a spike**: "a price spike without a named Norwegian-media leak or sustained large-ticket flow moves Navalnaya at most to her pre-spike price plus 3 pp". The 2025 episode in the same file (Navalnaya was favourite two days out and lost; only the Machado move was steady and large-ticket) said exactly this, but the tripwire list contained only upside triggers. The cost was about 0.08 Brier at v4.
+
+Second, speculative: a tripwire for "candidate already honoured by a major human-rights prize in 2025–26" would have flagged Pillay. She received the 2025 Sydney Peace Prize, and the Palme Foundation lists her and John Dugard for its 2026 Olof Palme Prize (search results 2026-10-10; I did not check the Palme announcement date or whether it preceded 2026-10-09). I cannot show this would have moved me above 43%, since it is one of 208 nominated individuals.
+
+### Calibration
+
+Not over- or under-confident in the bucket sense: 37–47% on the "unlisted individual" bucket, which came in. But v2→v4 drifted away from the right answer by 7 pp on a signal I rated as weak at the time, so the error here is **reacting to noise**, not miscalibration of the base rate.

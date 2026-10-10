@@ -7,6 +7,10 @@ Resolve: **$ARGUMENTS**
 
 1. Verify the resolution against the **question's own resolution source**, not against news
    coverage of it. Quote the value/decision and its publication date.
+   **For Metaculus questions the source is Metaculus's own posted resolution** (the `resolution`
+   field / resolved banner), not the underlying event. Look it up there and use it verbatim; do
+   not resolve from the event yourself. If Metaculus has not resolved it yet, say so and stop —
+   do not log a resolution. Cite the underlying event only as context.
 2. `uv run scripts/log_forecast.py resolve <slug> --outcome <outcome>`. For multiple choice the
    outcome is the exact option label, quoted.
 3. Append a `## Resolution — <date>` section to `questions/<slug>/forecast.md` containing:

@@ -11,7 +11,7 @@ dates:
   opened: null
   closes: '2026-10-08'
   resolves: '2026-10-09'
-status: open
+status: resolved
 current:
   version: 4
   date: '2026-10-09'
@@ -25,7 +25,7 @@ current:
     gold: null
     n_forecasters: 137
     as_of: '2026-10-09'
-next_review: '2026-10-09'
+next_review: null
 tripwires:
 - signal: Official announcement 2026-10-09 09:00 UTC - run /resolve with the exact option label
   by: '2026-10-09'
@@ -48,6 +48,6 @@ tripwires:
   magnitude_unit: pp
   fired: false
 resolution:
-  outcome: null
-  date: null
-  source: null
+  outcome: Other individual
+  date: '2026-10-10'
+  source: "NobelPrize.org summary, Nobel Peace Prize 2026 awarded to Navi Pillay (announced 2026-10-09): https://www.nobelprize.org/prizes/peace/2026/summary/"

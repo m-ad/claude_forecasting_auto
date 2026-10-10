@@ -63,6 +63,9 @@ scheduled release (then just review shortly before the release).
 
 When a question resolves:
 
+**Metaculus questions resolve only on Metaculus's own posted resolution.** Look it up; do not
+infer it from the event. If it is not posted yet, do not run `log_forecast.py resolve`.
+
 ```bash
 uv run scripts/log_forecast.py resolve <slug> --outcome yes        # binary
 uv run scripts/log_forecast.py resolve <slug> --outcome 87.4       # numeric/date
