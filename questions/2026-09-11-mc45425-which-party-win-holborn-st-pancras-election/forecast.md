@@ -5,10 +5,10 @@
 | **Source** | Metaculus #45425 — https://www.metaculus.com/questions/45425/ |
 | **Type** | multiple choice — 3 options: **Labour Party** · **Green Party** · **Other** |
 | **Opened / Closes / Resolves** | — / 2026-10-07 23:00 UTC / **2026-10-09** (declaration; poll is Thursday 2026-10-08) |
-| **Status** | open |
+| **Status** | resolved |
 | **Current forecast** | **Labour 99.0%, Green 0.7%, Other 0.3%** — IQR on Labour [98.5%, 99.5%] (v5, 2026-10-09) |
 | **Community (as of 2026-10-02)** | Labour: CP **82.4%** (n=117) · Pros **84.0%** (n=11) · gold **83.8%** (n=34) — fresh CP unavailable 2026-10-09 (Cloudflare block); Polymarket 99.95% (2026-10-09) |
-| **Next review** | 2026-10-16 — result declared 2026-10-09 (Labour, Abdi-Wali); awaiting Metaculus resolution |
+| **Next review** | — |
 
 <!-- Versions below, newest first. APPEND-ONLY: never edit or delete a past version. -->
 
@@ -714,3 +714,35 @@ not happened yet.
 **Date**: 2026-09-12
 **Forecast**: Labour 68.0%, Green 29.5%, Other 2.5% — IQR on Labour [61.0%, 75.0%]
 **Thesis**: The right baseline is the May 2026 locals in this seat's own wards — Labour 38.8, Green 28.8 — and the Greens need a five-point swing from it. Against them: Labour has gone 18%→23% nationally since Burnham became PM while the Greens fell 15%→12%, Labour gained a Camden ward off the Greens on 9 July, Abdi-Wali is the rooted local candidate against a leader facing carpetbagger attacks, and Reform's Zia Yusuf handed Labour an anti-racist mobilisation frame in a 21.7%-Muslim seat. For them: Feinstein's 18.9% from 2024 is unowned and endorsed to Polanski, a party leader on the ballot at 35–45% turnout, and Gorton & Denton proved a swing twice this size is achievable in this parliament. I sit 10pp under Polymarket because that market is on candidates, opened on 2 September and repriced 0.235→0.64→0.78 as Labour's selection resolved — still finding its level — while Betfair (72.5%) and a normalised bet365 book (67%) bracket me. No constituency poll exists yet; nominations close 15 September.
+
+---
+
+## Resolution — 2026-10-10
+
+**Outcome: Labour Party.** Sagal Abdi-Wali (Labour) won the Holborn and St Pancras by-election held 2026-10-08: Abdi-Wali 12,292 (45.2%), Zack Polanski (Green) 8,928 (32.8%), Cameron (Con) 1,922, Newman (Reform) 1,612, Stillman (LD) 924; majority 3,364 (12.4%), turnout 38.8%. Source: Camden Council, "2026 Holborn and St Pancras by-election result", dated 2026-10-08 (https://www.camden.gov.uk/holborn-and-st-pancras-by-election-2026-results). **Caveat:** I could not open Camden's page (HTTP 403 from this environment on 2026-10-10), so the figures above are as reproduced by Wikipedia, "2026 Holborn and St Pancras by-election" (fetched 2026-10-10), which cites that page. Checkable by the operator on the Camden page. The v5 entry of 2026-10-09 recorded the same 12,292 to 8,928 from the declaration. Metaculus had not posted its own resolution at the time of writing.
+
+### Score per version
+
+Multi-class Brier (0 best, 2 worst) and log score (−ln P(Labour)).
+
+| Version | Date | P(Labour) | Brier | Log | CP P(Labour) / (1−p)² | Mine (1−p)² |
+|---|---|---|---|---|---|---|
+| v1 | 2026-09-12 | 0.680 | 0.190* | 0.386* | no CP (n=6) | 0.102 |
+| v2 | 2026-09-24 | 0.760 | 0.108* | 0.274* | 0.798 / 0.041 | 0.058 |
+| v3 | 2026-09-26 | 0.780 | 0.091 | 0.249 | 0.790 / 0.044 | 0.048 |
+| v4 | 2026-10-02 | 0.795 | 0.079 | 0.229 | 0.824 / 0.031 | 0.042 |
+| v5 | 2026-10-09 | 0.990 | 0.0002 | 0.010 | stale 0.824 | – |
+
+\* v1 and v2 were logged without an option vector; rebuilt from the vectors in their theses (Labour/Green/Other 68/29.5/2.5 and 76/22.5/1.5). `calibration.py` does not score them.
+
+**v5 carries no skill.** It was logged at 03:58 UTC on 2026-10-09 after the result was declared, so its 0.0002 is bookkeeping, and it makes the aggregate record look better than the forecasting was. Judge the record on v1–v4.
+
+**Vs the crowd:** the CP beat me at every version where it existed (0.041 vs 0.058 at v2, 0.044 vs 0.048 at v3, 0.031 vs 0.042 at v4). Pros (0.85 → 0.815 → 0.84) and gold medalists (0.808 → 0.81 → 0.838) were also ahead of me at v4. Polymarket at 86–87% from 2026-09-26 was ahead of me for the whole second half.
+
+### The tripwire that should have existed and did not
+
+v1–v4 treated the two seat-level models (Labour +3.9 and +7 pp) as the ceiling on Labour's lead and held 3–8 pp below the money; the actual lead was 12.4 pp. The missing tripwire was a **market-convergence rule**: "if Polymarket, bookmakers and all three Metaculus cohorts sit at ≥ 85% for 5+ days and no constituency poll shows a Green lead, move to within 3 pp of them unless I can name the specific fact they miss." I named only a model I trusted, never a fact, and v3 and v4 both say so.
+
+### Calibration
+
+**Under-confident** by roughly 10–15 pp across v1–v4 (mean P(Labour) ≈ 76% against an outcome the crowd priced at ~82% and the result put at a 12-point win), with the error shrinking as I moved toward the markets. Single event, so the evidence on my calibration is weak.
