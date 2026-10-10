@@ -1,0 +1,19 @@
+warning: The `UV_NATIVE_TLS` environment variable is deprecated and will be removed in a future release. Use `UV_SYSTEM_CERTS` instead.
+Traceback (most recent call last):
+  File "/home/user/claude_forecasting/.claude/skills/metaculus-scraper/scripts/metaculus_scrape.py", line 613, in <module>
+    main()
+    ~~~~^^
+  File "/home/user/claude_forecasting/.claude/skills/metaculus-scraper/scripts/metaculus_scrape.py", line 575, in main
+    result = scrape_metaculus_question(
+        post_id=args.post_id,
+        max_comments=args.comments,
+        wait_seconds=args.wait,
+    )
+  File "/home/user/claude_forecasting/.claude/skills/metaculus-scraper/scripts/metaculus_scrape.py", line 487, in scrape_metaculus_question
+    title, body = _render_page(post_id, wait_seconds)
+                  ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/claude_forecasting/.claude/skills/metaculus-scraper/scripts/metaculus_scrape.py", line 261, in _render_page
+    raise RuntimeError(
+    ...<4 lines>...
+    )
+RuntimeError: Cloudflare was still challenging post 45860 after 170s of backoff. Metaculus rate-limits by IP and a shared sandbox egress IP trips it easily; wait a few minutes and retry.

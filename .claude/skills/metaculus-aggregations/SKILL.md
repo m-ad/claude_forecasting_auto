@@ -45,6 +45,10 @@ resolution criteria, and comments — in ~20 s for a cold run.
   published and the anonymous browser JSON carries them (verified 2026-10-09, post 45255).
   Since v4.4 a text-less key response falls back to the browser automatically; call
   `fetch_post_api` directly and you get the nulls.
+  Since v4.5 a challenged Aggregation Explorer no longer loses an upcoming question's
+  criteria: the post is looked up anyway, and if it is `upcoming` the result carries
+  metadata, criteria and comments with `methods` empty and `aggregation_note` saying why
+  (there is no CP before the reveal). An open question still raises.
 
 ## Finding the post ID
 
@@ -232,6 +236,7 @@ you fall back to it in a reset-prone environment, set `METACULUS_FORCE_TLS12=1` 
 | `Looks like Playwright was just installed... run playwright install` | `PLAYWRIGHT_BROWSERS_PATH` unset | The script sets it when `/opt/pw-browsers` exists; don't remove that |
 | `latest` is `None` for all cohorts | Question is `upcoming` / CP not revealed | Expected — report "no community data yet" |
 | `resolution_criteria` / `fine_print` / `background` all `None` | Since v4.4 only when the browser fallback *also* failed (the key's endpoint hides them before opening). Metaculus always publishes criteria, also for `upcoming` questions | A fetch failure, never "criteria not published": wait ~3 min and re-run once |
+| `res.methods` is empty and `res.aggregation_note` is set | Upcoming question whose explorer request was challenged (v4.5) | Expected — criteria are valid; the CP is pulled after the reveal (`cp_reveal_time`) |
 | `res.methods` is empty but `res.subquestions` is not | Group post | Expected — read each subquestion's `methods`; see "Group posts" |
 | `RuntimeError: ... last status 400` | Metaculus rejected the query; for a post that is *not* a group this is unexpected | Check the post id. Groups are handled automatically, so the post itself is the likely problem |
 | Only community shows, pros/gold `None` | Those cohorts genuinely have no forecasters on this question | Expected for low-traffic questions |
