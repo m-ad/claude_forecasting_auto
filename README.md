@@ -49,8 +49,11 @@ questions/<slug>/
   raw/                    dated snapshots of Metaculus aggregations and market prices
   charts/                 generated figures
 ledger/forecasts.jsonl    append-only scoreable record of every forecast and resolution
-scripts/                  new_question · log_forecast · status · calibration
-.claude/skills/           forecast-workflow · forecast-update · metaculus-aggregations · metaculus-scraper
+scripts/                  new_question · log_forecast · status · calibration · submit_metaculus
+templates/                what new_question.py renders into each question folder
+tests/                    data and unit tests (see tests/README.md)
+.claude/skills/           forecast-workflow · forecast-update · metaculus-aggregations
+                          · metaculus-scraper · metaculus-submit
 .claude/commands/         the slash commands above
 ```
 
@@ -108,6 +111,29 @@ Brier score, log score, calibration by bucket, interquartile coverage for numeri
 and — the number that actually matters — whether you are beating the Metaculus community
 prediction at the same points in time. A forecasting setup that never checks this is a
 diary, not a discipline.
+
+## Submitting to Metaculus
+
+The ledger can be posted to Metaculus under the bot account behind `METACULUS_API_KEY`.
+This is a publishing step, so **only the operator starts it** — ask for it explicitly or run
+`/metaculus-submit`. No other workflow (`/forecast`, `/update`, `/resolve`, `/status --act`)
+submits anything, and a test fails if one ever references the script.
+
+```bash
+uv run scripts/submit_metaculus.py <slug|post id|url> [...] --dry-run   # show, do not post
+uv run scripts/submit_metaculus.py --all --project "Metaculus Cup Fall 2026"
+```
+
+It submits the **latest ledger version** of each question and writes nothing back to the repo:
+
+- binary: the median, clipped to Metaculus' [0.1%, 99.9%];
+- multiple choice: the recorded option vector (`distribution.probabilities`);
+- numeric/date/discrete: the recorded `percentiles`/`pmf`, or — flagged in the output — a
+  CDF extrapolated from the quartiles when the version has no `distribution`.
+
+Questions whose live bot forecast already matches are skipped (`--force` resubmits). Details,
+including the spec file for versions logged before the `distribution` field existed, are in
+`.claude/skills/metaculus-submit/SKILL.md`.
 
 ## Tests
 

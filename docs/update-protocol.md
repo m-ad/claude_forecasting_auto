@@ -68,13 +68,17 @@ infer it from the event. If it is not posted yet, do not run `log_forecast.py re
 
 ```bash
 uv run scripts/log_forecast.py resolve <slug> --outcome yes        # binary
-uv run scripts/log_forecast.py resolve <slug> --outcome 87.4       # numeric/date
+uv run scripts/log_forecast.py resolve <slug> --outcome 87.4       # numeric
+uv run scripts/log_forecast.py resolve <slug> --outcome 2031-03-31 # date, stored as Unix seconds
 uv run scripts/log_forecast.py resolve <slug> --outcome "Labour Party"  # multiple choice
 ```
 
 A multiple-choice outcome is the **exact option label**, stored verbatim (an option named `"0"`
 stays the string `"0"`). `log_forecast.py` refuses a label that is not among the question's
 options.
+
+A binary outcome must be yes or no; `log_forecast.py` refuses anything else. An annulled
+question is dropped, not resolved — see [below](#annulled-or-ambiguous-questions).
 
 Then append a short **post-mortem** section to `forecast.md`:
 
@@ -89,6 +93,19 @@ questions: Brier score, log score, calibration-by-bucket, and skill relative to 
 community prediction at the same timestamps. Multiple-choice versions are scored with the
 multi-class Brier score and the log score from their recorded option vector; versions logged
 without one (before the ledger had a `distribution` field) are listed as not scored.
+
+## Annulled or ambiguous questions
+
+An annulled question (Metaculus "annulled" or "ambiguous") has no outcome to score, so it is
+**not** a resolution: do not run `log_forecast.py resolve`. Instead:
+
+1. In `meta.yaml` set `status: dropped` and `next_review: null`, and leave the `resolution`
+   block null.
+2. Append an `## Annulled — <date>` note to `forecast.md`, citing Metaculus's annulment, and
+   set the header's Status row to `dropped`.
+3. Leave the ledger alone. The forecast versions stay as they are and go unscored:
+   `calibration.py` scores only slugs with a resolution record, and `status.py` stops
+   listing the question.
 
 ## Automating the cadence
 

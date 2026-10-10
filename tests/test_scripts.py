@@ -21,6 +21,7 @@ import _common
 import calibration
 import log_forecast
 import pytest
+import status
 import yaml
 from conftest import QUESTION_TYPES, REPO, SCRIPTS, SOURCES, SRC_ABBREV, metas
 
@@ -312,6 +313,18 @@ def test_buckets_cover_the_whole_unit_interval():
     assert sum(b[1] for b in calibration.buckets(pairs)) == len(pairs)
 
 
+# ------------------------------------------------------------------- triage
+def test_status_skips_dropped_questions_like_resolved_ones():
+    assert status.urgency({"status": "dropped", "current": {"version": 2}})[0] < 0
+
+
+def test_status_resolution_column_falls_back_to_the_close_date():
+    """The table must show the date the urgency score was computed from."""
+    assert status.resolves_on({"dates": {"closes": "2027-01-01"}}) == "2027-01-01"
+    meta = {"dates": {"closes": "2027-01-01", "resolves": "2027-02-01"}}
+    assert status.resolves_on(meta) == "2027-02-01"
+
+
 # --------------------------------------------------------------- ledger reads
 def test_read_ledger_groups_by_slug_and_keeps_resolutions_apart():
     forecasts, resolutions = calibration.read_ledger()
@@ -337,6 +350,16 @@ def test_read_ledger_tolerates_trailing_blank_lines(tmp_path, monkeypatch):
     monkeypatch.setattr(calibration, "LEDGER", path)
     forecasts, resolutions = calibration.read_ledger()
     assert list(forecasts) == ["s"] and not resolutions
+
+
+def test_read_ledger_skips_a_malformed_line_instead_of_crashing(tmp_path, monkeypatch):
+    """Scoring shares log_forecast's tolerance; test_ledger.py flags the bad line."""
+    path = tmp_path / "forecasts.jsonl"
+    rec = {"event": "forecast", "slug": "s", "version": 1, "median": 0.5}
+    path.write_text("{ not json\n" + json.dumps(rec) + "\n", encoding="utf-8")
+    monkeypatch.setattr(calibration, "LEDGER", path)
+    forecasts, _ = calibration.read_ledger()
+    assert [r["version"] for r in forecasts["s"]] == [1]
 
 
 def test_read_ledger_on_a_missing_file_returns_empty(tmp_path, monkeypatch):
@@ -723,6 +746,68 @@ def test_log_resolve_keeps_a_multiple_choice_label_verbatim(mc_question):
     assert _records(mc_question)[-1]["outcome"] == "Yashar"
     with pytest.raises(SystemExit, match="not an option"):
         log_forecast.cmd_resolve(argparse.Namespace(**{**vars(ns), "outcome": "Kadima"}))
+
+
+@pytest.fixture
+def binary_question(tmp_path, monkeypatch):
+    """A throwaway question wired into log_forecast; set ``meta["type"]`` to taste."""
+    meta = {"type": "binary", "source": "metaculus", "post_id": 7, "current": {}}
+    ledger = tmp_path / "forecasts.jsonl"
+    monkeypatch.setattr(log_forecast, "LEDGER", ledger)
+    monkeypatch.setattr(log_forecast, "find_slug", lambda s: s)
+    monkeypatch.setattr(log_forecast, "load_meta", lambda s: meta)
+    monkeypatch.setattr(log_forecast, "save_meta", lambda s, m: None)
+    return ledger, meta
+
+
+@pytest.mark.parametrize(
+    "median,lower,upper,match",
+    [
+        (12.0, 8.0, 18.0, "not percent"),  # percent typed for a probability
+        (0.5, 0.6, 0.7, "outside the IQR"),
+        (0.5, 0.5, 0.5, "degenerate"),
+        (float("nan"), 0.1, 0.9, "finite"),
+    ],
+)
+def test_log_add_refuses_a_bad_forecast_before_it_reaches_the_ledger(
+    binary_question, median, lower, upper, match
+):
+    """The ledger is append-only, so a bad line caught afterwards stays forever."""
+    ledger, _ = binary_question
+    with pytest.raises(SystemExit, match=match):
+        log_forecast.cmd_add(_add_args(median=median, lower=lower, upper=upper))
+    assert not ledger.exists()
+
+
+def test_log_add_accepts_native_units_outside_the_unit_interval(binary_question):
+    ledger, meta = binary_question
+    meta["type"] = "numeric"
+    log_forecast.cmd_add(_add_args(median=87.8, lower=80.4, upper=97.0))
+    assert _records(ledger)[0]["median"] == 87.8
+
+
+@pytest.mark.parametrize("raw", ["annulled", "ambiguous", "0.5"])
+def test_log_resolve_refuses_a_binary_outcome_that_is_not_yes_or_no(
+    binary_question, raw
+):
+    """An annulled question is dropped, not resolved: calibration.py cannot score it."""
+    ledger, _ = binary_question
+    ns = argparse.Namespace(slug="s", outcome=raw, date=None, source="x")
+    with pytest.raises(SystemExit, match="dropped"):
+        log_forecast.cmd_resolve(ns)
+    assert not ledger.exists()
+
+
+def test_log_resolve_stores_a_date_outcome_in_unix_seconds(binary_question):
+    """Date IQRs are Unix seconds; an ISO-string outcome could never be scored."""
+    ledger, meta = binary_question
+    meta["type"] = "date"
+    ns = argparse.Namespace(slug="s", outcome="2031-03-31", date=None, source="x")
+    log_forecast.cmd_resolve(ns)
+    outcome = _records(ledger)[-1]["outcome"]
+    assert outcome == dt.datetime(2031, 3, 31, tzinfo=dt.UTC).timestamp()
+    with pytest.raises(SystemExit, match="YYYY-MM-DD"):
+        log_forecast.cmd_resolve(argparse.Namespace(**{**vars(ns), "outcome": "soon"}))
 
 
 # ------------------------------------------------------ multiple-choice scoring

@@ -105,12 +105,13 @@ gate above before committing.
   post-mortem that improves future forecasts.
 - One line for the calibration record: over- or under-confident, and by how much.
 
-Set `status: resolved` in `meta.yaml`.
+`log_forecast.py resolve` already sets `status: resolved`, the `resolution` block and
+`next_review: null` in `meta.yaml`; rewrite the `forecast.md` header to match.
 
 ## Triage
 
 `uv run scripts/status.py` lists open questions by urgency (review overdue, resolution imminent,
-tripwire-heavy, stale). Use it at the start of any "what should I look at" session.
+last version stale, wide gap to the CP). Use it at the start of any "what should I look at" session.
 
 When acting on the triage (`/status --act`) and **more than 2** questions are due, fan out: one
 subagent per question, each running this skill end to end for a single slug, with the Metaculus

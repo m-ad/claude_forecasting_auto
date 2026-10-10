@@ -1,14 +1,12 @@
 ---
 name: metaculus-scraper
-description: >
-  Scrape Metaculus questions to extract community predictions, resolution criteria, and comments
-  using Playwright. Use this skill whenever the user asks about a Metaculus question, wants to
-  look up a Metaculus prediction, needs the community forecast for a specific question ID, wants
-  to compare Metaculus predictions, or references a metaculus.com URL. Also trigger when the user
-  mentions "community prediction", "Metaculus question", "forecasting question", or provides a
-  Metaculus post ID. This skill is required because the Metaculus API requires authentication and
-  direct curl/fetch returns 403; Playwright with proxy is the only working access method in the
-  Claude.ai sandbox.
+description: >-
+  FALLBACK ONLY for Metaculus: render a question page with Playwright to read the headline
+  community prediction and the resolution criteria / fine print. Use only when the primary
+  metaculus-aggregations skill has failed (its api-proxy hard-blocked despite retries) or the
+  user explicitly asks for this scraper. It returns no Pro/gold-medalist cohorts, no IQR, no
+  per-option multiple-choice data and no comments. For any ordinary Metaculus lookup use
+  metaculus-aggregations instead.
 ---
 
 # Metaculus Scraper
@@ -42,8 +40,8 @@ Run the script at `scripts/metaculus_scrape.py` (relative to this skill's direct
 # Human-readable output
 python <skill_dir>/scripts/metaculus_scrape.py <POST_ID>
 
-# JSON output with more comments
-python <skill_dir>/scripts/metaculus_scrape.py <POST_ID> --comments 10 --json
+# JSON output
+python <skill_dir>/scripts/metaculus_scrape.py <POST_ID> --json
 
 # Faster if you know the page loads quickly
 python <skill_dir>/scripts/metaculus_scrape.py <POST_ID> --wait 8
@@ -58,24 +56,22 @@ The post ID is the number in a Metaculus URL: `https://www.metaculus.com/questio
 | Field | Description |
 |---|---|
 | `title` | Question title (from page `<title>`) |
-| `question_type` | `binary`, `date`, `numeric`, or `unknown` |
+| `question_type` | `binary`, `date`, `numeric`, `multiple_choice`, or `unknown` |
 | `community_prediction` | e.g. `"2%"` for binary, `"17 Mar 2028"` for date |
 | `num_forecasters` | e.g. `"1.7k"` |
-| `num_comments` | e.g. `"378"` |
+| `num_comments` | e.g. `"378"` — the count only; comment text is not extractable |
 | `resolution_criteria` | Full resolution text |
 | `fine_print` | Fine print section (if present) |
-| `comments` | List of `{author, text, author_prediction, date}` |
 
 ## Programmatic Usage (from Python)
 
 ```python
 from metaculus_scrape import scrape_metaculus_question
 
-result = scrape_metaculus_question(post_id=578, max_comments=5)
+result = scrape_metaculus_question(post_id=578)
 print(result.community_prediction)  # "2%"
 print(result.question_type)  # "binary"
-for c in result.comments:
-    print(f"@{c['author']}: {c['text'][:100]}")
+print(result.resolution_criteria)
 ```
 
 ## How It Works
@@ -107,13 +103,14 @@ for c in result.comments:
 | Binary | `<N>%\nCHANCE` in body text | `"42%"` |
 | Date | `Current estimate\n<date>` | `"17 Mar 2028"` |
 | Numeric | `Current estimate\n<number>` | `"1,234"` |
+| Multiple choice (resolved) | `<option>\nResult: ...` | `"A: Result: Yes; B: Result: No"` |
 
 ## Limitations
 
 - **Comments are not available from this path.** Metaculus moved them behind a lazy-loaded tab
-  that does not survive a scripted click, so `comments` comes back empty and the CLI says so
-  explicitly. Use `metaculus-aggregations --comments N` for comment text. Don't report an empty
-  list here as "no discussion".
+  that does not survive a scripted click, so the script reports only their count and the CLI
+  says so explicitly. Use `metaculus-aggregations --comments N` for comment text. Never read
+  their absence here as "no discussion".
 - **Only the headline number.** No pro/gold-medalist split, no per-option multiple-choice data,
   no IQR. Those need `metaculus-aggregations`.
 - **~25s latency** per scrape (Playwright launch + JS render wait + the Question Info click);
@@ -132,5 +129,4 @@ for c in result.comments:
 | `Executable doesn't exist at .../chromium_headless_shell-<n>` | Playwright upgraded past the Chromium build the image ships | The script pins `/opt/pw-browsers/chromium`; override with `PLAYWRIGHT_CHROMIUM_EXECUTABLE_PATH` if needed |
 | `Looks like Playwright was just installed... run playwright install` | `PLAYWRIGHT_BROWSERS_PATH` unset | The script sets it when `/opt/pw-browsers` exists; don't remove that |
 | Empty `resolution_criteria` | The "Question Info" tab was renamed or didn't mount | Dump `inner_text("body")` and update the tab label / section markers |
-| Empty `comments` | Expected — see Limitations | Use `metaculus-aggregations --comments N` |
 | `question_type: unknown` | New page layout or unsupported type | Check body text manually, update detection patterns |

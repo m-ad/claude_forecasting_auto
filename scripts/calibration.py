@@ -22,7 +22,6 @@ Examples
 from __future__ import annotations
 
 import argparse
-import json
 import math
 import sys
 from collections import defaultdict
@@ -30,7 +29,7 @@ from pathlib import Path
 from typing import Any
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from _common import LEDGER
+from _common import LEDGER, ledger_records
 
 EPS = 1e-6  # keeps the log score finite when a forecast sits at 0 or 1
 
@@ -39,13 +38,7 @@ def read_ledger() -> tuple[dict[str, list[dict]], dict[str, dict]]:
     """Split the ledger into per-slug forecast lists and per-slug resolutions."""
     forecasts: dict[str, list[dict]] = defaultdict(list)
     resolutions: dict[str, dict] = {}
-    if not LEDGER.exists():
-        return forecasts, resolutions
-    for line in LEDGER.read_text(encoding="utf-8").splitlines():
-        line = line.strip()
-        if not line:
-            continue
-        rec = json.loads(line)
+    for rec in ledger_records(LEDGER):
         if rec.get("event") == "resolution":
             resolutions[rec["slug"]] = rec
         else:
@@ -225,7 +218,9 @@ def main() -> None:
                     continue
                 coverage.append((slug, inside))
 
-    for stats in (summarise(mine, "you"), summarise(community, "Metaculus community")):
+    mine_stats = summarise(mine, "you")
+    cp_stats = summarise(community, "Metaculus community")
+    for stats in (mine_stats, cp_stats):
         if not stats:
             continue
         print(f"\n== {stats['label']} ==")
@@ -239,7 +234,6 @@ def main() -> None:
         )
         print(f"  skill vs base rate: {stats['skill_vs_base_rate']:.3f}")
 
-    mine_stats, cp_stats = summarise(mine, "you"), summarise(community, "cp")
     if mine_stats and cp_stats:
         bm, bc = mine_stats["brier"], cp_stats["brier"]
         verdict = "beating" if bm < bc else "losing to"

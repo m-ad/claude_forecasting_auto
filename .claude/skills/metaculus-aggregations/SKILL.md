@@ -226,6 +226,45 @@ Note the sibling `metaculus-scraper` skill does **not** have trigger 2 — it ra
 unclassified error instead of burning a backoff, so its message is immediate and actionable. If
 you fall back to it in a reset-prone environment, set `METACULUS_FORCE_TLS12=1` up front.
 
+## Version history
+
+Moved here from the script's docstring; the measurements are the reason each piece exists.
+
+- **v4 (2026-09-11) — browser transport.** v3 fetched over `context.request.get()` and
+  spoofed `Sec-Fetch-*` headers. Once the challenge keyed on the TLS fingerprint, every such
+  call came back `403 cf-mitigated: challenge` (see the table under "How it works"). v4 issues
+  every request as a navigation or an in-page `fetch()`. It also parses `HTTPS_PROXY` and
+  passes it to Playwright's `proxy=` itself, credentials optional, because Chromium does not
+  read the shell environment reliably. The TLS 1.3 reset was verified with n=1 per cell,
+  deterministically: default flags, `--disable-features=PostQuantumKyber` and
+  `...,EncryptedClientHello` all gave `ERR_CONNECTION_RESET`; `--ssl-version-max=tls1.2`
+  gave 200.
+- **v4.1 — status-0 downgrade.** A status-0 attempt also triggers the TLS 1.2 relaunch (see
+  "The environment can break this independently of Metaculus").
+- **v4.2 (2026-09-26) — `METACULUS_API_KEY`.** What the bot key sees, verified with the
+  workbench's key:
+
+  | Endpoint | Result |
+  |---|---|
+  | `/api/posts/<id>/?with_cp=true` | 200, but every aggregation `null` |
+  | `/api/aggregation_explorer/` | 403 "Use of this endpoint is restricted" |
+  | `/api/posts/<id>/download-data/` | 403, same |
+  | `/api/comments/?post=<id>` | 403 unless filtered to own/staff authors |
+  | `/api-proxy/...` with the token | 403 Cloudflare challenge, as without |
+
+  So the token is never sent on the browser path. The stdlib `Python-urllib` User-Agent is
+  banned outright (Cloudflare error 1010); any honest custom UA passes.
+- **v4.3 (2026-09-27) — group posts.** Before, the explorer's 400 for a group was retried like
+  a rate limit (~3 min) and then reported as "403 / post does not exist".
+- **v4.4 (2026-10-09) — text-less key responses.** For an upcoming question the key returned
+  `null` criteria (post 45255), while an open post (45670) returned full text on both paths.
+  Before v4.4 the non-empty key response was accepted as-is.
+- **v4.5 (2026-10-10) — challenged explorer on upcoming posts.** On post 45860 the explorer was
+  challenged twice from a warmed page while `/api-proxy/posts/<id>/` answered 200. Before v4.5
+  the failed explorer raised before the post was ever looked up. An open question, or an
+  upcoming one whose text cannot be fetched either, still raises: a missing CP or missing
+  criteria must never read as "none".
+
 ## Troubleshooting
 
 | Symptom | Cause | Fix |

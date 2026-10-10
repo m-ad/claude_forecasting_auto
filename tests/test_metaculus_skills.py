@@ -15,7 +15,6 @@ from __future__ import annotations
 import copy
 import importlib.util
 import itertools
-import re
 import sys
 from pathlib import Path
 
@@ -196,6 +195,43 @@ def test_all_cohorts_are_requested_in_a_single_call(agg):
         assert res.methods[m].latest.center == pytest.approx(0.09)
 
 
+def test_comments_are_read_from_the_api_proxy_json(agg):
+    # The only comment path left: the scraper cannot see comments in the
+    # rendered page, so this one has to keep working.
+    comments = {
+        "results": [
+            {
+                "author": {"username": "alice"},
+                "created_at": "2026-10-01T12:00:00Z",
+                "text": "  Resolution hinges on the fine print.  ",
+            },
+            {"author": None, "created_at": None, "text": "anonymous"},
+            {"author": {"username": "carol"}, "text": "beyond the limit"},
+        ]
+    }
+
+    class FakeFetcher:
+        def get_json(self, url):
+            if "/comments/" in url:
+                assert "post=41138" in url and "limit=2" in url, url
+                return 200, comments
+            return 200, {"id": 40839, "type": "binary", "scaling": {}}
+
+    res = agg._collect(
+        FakeFetcher(),
+        41138,
+        lambda methods, qid=None: "agg",
+        agg.DEFAULT_METHODS,
+        include_history=False,
+        n_comments=2,
+        include_details=False,
+    )
+    assert [(c.author, c.created_at, c.text) for c in res.comments] == [
+        ("alice", "2026-10-01", "Resolution hinges on the fine print."),
+        ("?", "", "anonymous"),
+    ]
+
+
 def test_a_cohort_missing_from_the_combined_response_gets_its_own_request(agg):
     # The combined form is an optimisation, not a guarantee: if Metaculus omits a
     # cohort, it must be re-requested with question_id pinned rather than
@@ -251,13 +287,7 @@ def test_user_agent_never_advertises_headless(agg, scrape):
     # Cloudflare challenges the "HeadlessChrome" token outright, including on
     # ordinary HTML pages, so neither script may send it.
     assert "Headless" not in agg._UA
-    # The scraper builds its UA inline, so pull the literal it passes rather than
-    # scanning the file, which names the token in a comment explaining the rule.
-    src = (SKILLS / "metaculus-scraper" / "scripts" / "metaculus_scrape.py").read_text()
-    uas = re.findall(r'"(Mozilla/5\.0[^"]*)"\s*\n?\s*"?([^"]*)"?', src)
-    assert uas, "no User-Agent literal found in the scraper"
-    for parts in uas:
-        assert "Headless" not in "".join(parts)
+    assert "Headless" not in scrape._UA
 
 
 # --------------------------------------------------------- scaling / formatting
@@ -584,7 +614,7 @@ def test_scraper_prefers_api_text_over_the_page_parse(scrape, monkeypatch):
             "question": {"resolution_criteria": "api text", "fine_print": "fp"},
         },
     )
-    res = scrape.scrape_metaculus_question(41138, max_comments=0)
+    res = scrape.scrape_metaculus_question(41138)
     assert (res.title, res.resolution_criteria, res.fine_print) == (
         "API T",
         "api text",
@@ -597,7 +627,7 @@ def test_scraper_keeps_the_page_parse_without_the_api(scrape, monkeypatch):
     page = "Title\n12 forecasters\nResolution Criteria\npage text\nComments\n"
     monkeypatch.setattr(scrape, "_render_page", lambda _pid, _w: ("Page T", page))
     monkeypatch.setattr(scrape, "_api_post", lambda _pid: None)
-    res = scrape.scrape_metaculus_question(41138, max_comments=0)
+    res = scrape.scrape_metaculus_question(41138)
     assert (res.title, res.resolution_criteria) == ("Page T", "page text")
     assert res.num_forecasters == "12"
 

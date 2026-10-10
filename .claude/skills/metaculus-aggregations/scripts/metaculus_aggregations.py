@@ -13,133 +13,24 @@ frontend consumes, for any aggregation method the Aggregation Explorer exposes:
 Also fetches question metadata (resolution criteria / fine print / background)
 and comments, both of which the ``/api-proxy/`` surface exposes anonymously.
 
---------------------------------------------------------------------------
-WHY v3 FAILED, AND WHAT v4 DOES INSTEAD
---------------------------------------------------------------------------
-v3 fetched over ``context.request.get()`` -- Playwright's own HTTP stack, not
-Chromium's -- on the theory that a Cloudflare Managed Challenge on
-``/api-proxy/*`` was purely a header problem, curable by adding ``Sec-Fetch-*``
-headers. That stopped being true. As of 2026-09-11 every such call comes back
-``403`` with ``cf-mitigated: challenge`` and a "Just a moment..." interstitial,
-regardless of headers, because the challenge is now keyed on the *TLS/JA3
-fingerprint* as well. Verified in this session:
+Design, in one paragraph each -- the measurements behind every point, and the
+version history (v3 -> v4.5), live in ``../SKILL.md`` ("How it works",
+"Group posts", "Version history"):
 
-    ctx.request.get(), with Sec-Fetch-* headers         -> 403 challenge
-    ctx.request.get(), replaying browser cookies        -> 403 challenge
-    curl, spoofed Chrome UA + Sec-Fetch-*               -> 403 challenge
-    Chromium page navigation to the same URL            -> 200 JSON
-    same-origin fetch() inside a loaded Metaculus page  -> 200 JSON
-
-So v4 stops trying to imitate a browser and uses one: every request is either a
-page navigation or an in-page ``fetch()``, both of which go through Chromium's
-own network stack and therefore carry a genuine browser fingerprint. The
-challenge does not fire at all on that path -- no cf_clearance handling, no
-warm-up, no settle wait is needed in the normal case.
-
-A second, independent failure lives in the *environment*, not on Metaculus, and
-broke browser access for both Metaculus skills:
-
-**Chromium's TLS 1.3 ClientHello is reset by the session's egress proxy.**
-Through the agent proxy, Chromium could not reach *any* host -- example.com
-included -- and failed with ``net::ERR_CONNECTION_RESET`` after the ClientHello
-(~1.8 kB sent, 39 B received, tunnel closed). The MITM proxy cannot complete
-Chromium's TLS 1.3 handshake, most likely the post-quantum key share splitting
-the ClientHello across records. Verified (n=1 per cell, deterministic):
-
-    default flags                                       -> ERR_CONNECTION_RESET
-    --disable-features=PostQuantumKyber                 -> ERR_CONNECTION_RESET
-    --disable-features=...,EncryptedClientHello         -> ERR_CONNECTION_RESET
-    --ssl-version-max=tls1.2                            -> 200 OK
-
-v4 therefore retries the launch with ``--ssl-version-max=tls1.2`` and keeps the
-downgraded browser for the rest of the run. Two things trigger that downgrade:
-a navigation dying with a connection-reset-class error, and -- since v4.1 -- any
-attempt that comes back with **status 0**, i.e. no HTTP response at all. The
-second trigger matters because the reset does not always surface as a
-classifiable exception: ``goto`` can resolve with no response, or raise a
-message carrying none of :data:`_RESET_MARKERS`. Before v4.1 those cases burned
-the whole ~3 min backoff at status 0 and then told the caller to set the
-environment variable by hand. TLS 1.2 to a public read-only endpoint through an
-already-MITM'd proxy costs nothing in practice; ``METACULUS_FORCE_TLS12=1``
-remains available to skip the failing probe up front, but it is now an
-optimisation rather than a requirement. Note this is *not* a Metaculus property
--- it is the local proxy -- so on a normal workstation the TLS 1.3 attempt
-succeeds and the fallback never runs.
-
-Chromium also does not read ``HTTPS_PROXY`` reliably, so v4 parses it and passes
-it explicitly via Playwright's ``proxy=`` option, with credentials when the URL
-carries them.
-
-Note: browsing Metaculus still requires the spoofed Chrome UA below. With the
-honest ``HeadlessChrome`` UA, Cloudflare challenges the HTML pages themselves.
-
---------------------------------------------------------------------------
-METACULUS_API_KEY (v4.2)
---------------------------------------------------------------------------
-When ``METACULUS_API_KEY`` is set, question metadata (resolution criteria, fine
-print, background, forecaster count) is read from the official token-authed
-``/api/posts/<id>/`` endpoint over plain HTTPS instead of through the browser:
-no Cloudflare challenge, no rate-limit exposure, one browser request fewer.
-Without the key, or if that call fails, the browser path is used as before.
-
-The key does **not** replace the browser for the numbers. Verified 2026-09-26
-with the workbench's key, which belongs to a *bot* account:
-
-    /api/posts/<id>/?with_cp=true         -> 200, but every aggregation null
-    /api/aggregation_explorer/            -> 403 "Use of this endpoint is restricted"
-    /api/posts/<id>/download-data/        -> 403, same
-    /api/comments/?post=<id>              -> 403 unless filtered to own/staff authors
-    /api-proxy/... with the token         -> 403 Cloudflare challenge (as without)
-
-Metaculus hides aggregations from bot accounts, so the token is never sent on
-the browser path: CP, Pros, gold medalists and comments stay anonymous-browser
-only. Python's default ``Python-urllib`` User-Agent is banned outright
-(Cloudflare error 1010); any honest custom UA passes.
-
---------------------------------------------------------------------------
-PRE-OPEN QUESTIONS (v4.4)
---------------------------------------------------------------------------
-In the pre-prediction phase (question ``status`` "upcoming", post ``status``
-"approved") the bot-key ``/api/posts/<id>/`` answers 200 with title, type,
-options and dates but ``description``, ``resolution_criteria`` and
-``fine_print`` all null -- no query parameter changes that -- while the
-anonymous ``/api-proxy/posts/<id>/`` JSON carries all three (verified
-2026-10-09, post 45255; an open post, 45670, returns full text on both).
-Before v4.4 the non-empty key response was accepted as-is, so the criteria of
-every upcoming question read as missing. A key response without any question
-text is now re-fetched through the browser, and kept only if that fails.
-
-A second pre-open failure (v4.5): Cloudflare can challenge the Aggregation
-Explorer on every retry while ``/api-proxy/posts/<id>/`` still answers -- seen
-2026-10-10 on post 45860, the post 200 and the explorer 403 twice from the same
-warmed page; the explorer itself does answer upcoming posts when not challenged.
-Before v4.5 a failed explorer raised before the post was ever looked up, so the
-criteria were lost although they were one request away. Now a failed explorer
-triggers one post lookup: if the question is upcoming, the result carries its
-metadata, criteria and comments with ``methods`` empty and ``aggregation_note``
-saying why -- nothing is lost, as there is no CP before the reveal. An open
-question, or an upcoming one whose text cannot be fetched either, still raises:
-a missing CP or missing criteria must never read as "none".
-
---------------------------------------------------------------------------
-GROUP POSTS (v4.3)
---------------------------------------------------------------------------
-A "group of questions" post (e.g. one numeric subquestion per year) has no
-single question for the Aggregation Explorer to aggregate. Queried by
-``post_id`` alone it answers **HTTP 400** with ``{"non_field_errors": ["Post
-with id 45386 has no question, please submit a subquestion."]}`` (verified
-2026-09-27).
-Before v4.3 that 400 was retried like a rate limit -- ~3 min of backoff that
-spent rate-limit budget -- and then reported as "403 / post does not exist".
-
-v4.3 still asks the explorer first, so a single-question post makes exactly the
-requests it always did. Only on a 400 does it look the post up (API key first,
-then browser) and, if the JSON carries ``group_of_questions``, fetch every
-subquestion with its
-``question_id`` pinned -- one request per subquestion, all cohorts
-comma-joined -- and returns them in ``result.subquestions``, each labelled
-with its group label (e.g. "2027"). A 400 is never retried: it is Metaculus
-rejecting the request, and waiting does not change the answer.
+- **Every request goes through a real Chromium** (a navigation or a same-origin
+  ``fetch()``), because Cloudflare's challenge on ``/api-proxy/*`` keys on the
+  TLS fingerprint and rejects every non-browser client.
+- **TLS 1.2 fallback.** A MITM egress proxy can reset Chromium's TLS 1.3
+  ClientHello; a reset-class error or any status-0 attempt relaunches the
+  browser with ``--ssl-version-max=tls1.2`` (``METACULUS_FORCE_TLS12=1`` skips
+  the probe). ``HTTPS_PROXY`` is passed to Playwright explicitly.
+- **METACULUS_API_KEY** reads post metadata over plain HTTPS. It never replaces
+  the browser for numbers or comments: Metaculus hides them from bot keys.
+  A text-less key response (an upcoming question) falls back to the browser.
+- **Group posts** answer the explorer with HTTP 400; the post is then looked
+  up and every subquestion fetched with its ``question_id`` pinned.
+- **Upcoming posts** whose explorer request is challenged still return their
+  criteria, with ``methods`` empty and ``aggregation_note`` saying why.
 
 Usage
 -----
@@ -221,7 +112,7 @@ _BASE = "https://www.metaculus.com/api-proxy"
 _AGG = f"{_BASE}/aggregation_explorer/"
 
 # Official token-authed API. Reached over plain HTTPS, not the browser; see the
-# METACULUS_API_KEY section of the module docstring for what it can and cannot see.
+# "Version history" (v4.2) in ../SKILL.md for what it can and cannot see.
 _API = "https://www.metaculus.com/api"
 # Cloudflare bans the stdlib default "Python-urllib/x.y" outright (error 1010).
 _API_UA = "claude-forecasting/0.1 (metaculus-aggregations)"
@@ -283,7 +174,6 @@ class Comment:
     author: str
     created_at: str | None
     text: str
-    prediction: str | None = None
 
 
 @dataclass
@@ -400,7 +290,7 @@ class _Fetcher:
     Requests go through the browser's own network stack -- as a navigation, or
     as a same-origin ``fetch()`` from a loaded Metaculus page -- because
     Cloudflare's managed challenge keys on the TLS fingerprint and rejects every
-    non-browser client. See the module docstring.
+    non-browser client. See "How it works" in ../SKILL.md.
 
     Parameters
     ----------
@@ -746,7 +636,7 @@ def fetch_aggregations(
 
         A **comma**-separated ``aggregation_methods`` list returns every cohort
         in a single response, which matters a lot: Metaculus rate-limits by IP
-        and a tripped limit costs ~2 minutes (see the module docstring), so the
+        and a tripped limit costs ~2 minutes (see ../SKILL.md), so the
         request count is the binding constraint, not the payload size. v3 sent
         one request per cohort because the page's own ``methods=a|b`` form was
         seen to come back empty for some cohorts -- that is the *pipe*
@@ -1090,12 +980,6 @@ def main() -> None:
         "--no-details",
         action="store_true",
         help="Skip resolution criteria / fine print / background",
-    )
-    parser.add_argument(
-        "--wait",
-        type=int,
-        default=0,
-        help="Deprecated no-op; v3 needs no Cloudflare settle wait",
     )
     parser.add_argument("--json", action="store_true", help="Emit JSON")
     args = parser.parse_args()
