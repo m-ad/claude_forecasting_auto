@@ -42,3 +42,4 @@ learn what was already checked and what was already ruled out.
 - Rafah ISF pilot (Al Jazeera 2026-07-27): about 200 troops, foreign forces "strictly outside the Yellow Line", so it's not a candidate for a local behind-the-line handover.
 - UN News 2026-09-12: Palestinians on <40% of Gaza's land.
 - Forecast corrected 4.0% [2,8] → 2.0% [1,4]. The operator asked for v1 to be edited, but the append-only ledger test (Rule 8) and the version-count tests block an in-place edit, so the correction is logged as v2 and v1 stays as committed.
+- Correction to the line above: the explorer *does* answer upcoming posts (probe 2026-10-10: 200 for 45860 with `open_time` set). The earlier failure was Cloudflare challenging the explorer while `/posts/` passed from the same warmed page. Fixed in `metaculus_aggregations.py` v4.5: a failed explorer on an upcoming post now still returns its criteria and comments.

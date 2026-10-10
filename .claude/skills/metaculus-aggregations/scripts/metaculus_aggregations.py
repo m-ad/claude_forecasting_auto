@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Metaculus Aggregation Explorer fetcher (v4.4, October 2026).
+Metaculus Aggregation Explorer fetcher (v4.5, October 2026).
 
 Pulls **structured numeric** aggregations straight from the JSON the Metaculus
 frontend consumes, for any aggregation method the Aggregation Explorer exposes:
@@ -108,6 +108,18 @@ anonymous ``/api-proxy/posts/<id>/`` JSON carries all three (verified
 Before v4.4 the non-empty key response was accepted as-is, so the criteria of
 every upcoming question read as missing. A key response without any question
 text is now re-fetched through the browser, and kept only if that fails.
+
+A second pre-open failure (v4.5): Cloudflare can challenge the Aggregation
+Explorer on every retry while ``/api-proxy/posts/<id>/`` still answers -- seen
+2026-10-10 on post 45860, the post 200 and the explorer 403 twice from the same
+warmed page; the explorer itself does answer upcoming posts when not challenged.
+Before v4.5 a failed explorer raised before the post was ever looked up, so the
+criteria were lost although they were one request away. Now a failed explorer
+triggers one post lookup: if the question is upcoming, the result carries its
+metadata, criteria and comments with ``methods`` empty and ``aggregation_note``
+saying why -- nothing is lost, as there is no CP before the reveal. An open
+question, or an upcoming one whose text cannot be fetched either, still raises:
+a missing CP or missing criteria must never read as "none".
 
 --------------------------------------------------------------------------
 GROUP POSTS (v4.3)
@@ -300,6 +312,9 @@ class AggregationResult:
     # question to aggregate.
     label: str | None = None
     subquestions: list = field(default_factory=list)
+    # Set when the Aggregation Explorer was skipped (an upcoming question whose
+    # explorer request failed): says why ``methods`` is empty.
+    aggregation_note: str | None = None
 
 
 # --------------------------------------------------------------------------- #
@@ -781,6 +796,34 @@ def _has_text(post: dict | None) -> bool:
     return any(q.get(k) for k in _TEXT_KEYS)
 
 
+def _is_upcoming(post: dict | None) -> bool:
+    """Whether a post's question (every subquestion, for a group) is not open yet."""
+    subqs = _group_questions(post)
+    qs = subqs or [(post or {}).get("question") or {}]
+    return all(q.get("status") == "upcoming" for q in qs)
+
+
+def _from_upcoming_post(post_id: int, post: dict, status: int) -> AggregationResult:
+    """Metadata-only result for an upcoming post whose explorer request failed."""
+    q = post.get("question") or {}
+    return AggregationResult(
+        post_id=post_id,
+        question_id=q.get("id"),
+        title=post.get("title"),
+        question_type=q.get("type"),
+        status=q.get("status"),
+        resolution=None,
+        scheduled_close_time=post.get("scheduled_close_time"),
+        cp_reveal_time=q.get("cp_reveal_time"),
+        options=q.get("options"),
+        scaling=q.get("scaling"),
+        aggregation_note=(
+            f"Aggregation Explorer failed (last status {status}); skipped because "
+            "the question is upcoming and has no aggregations before its CP reveal."
+        ),
+    )
+
+
 def _lookup_post(fetcher: Any, post_id: int) -> dict:
     """Post JSON via the API key, else via the browser; empty dict on failure.
 
@@ -862,10 +905,11 @@ def _collect(
     """
     # The explorer goes first, exactly as for every post before group support:
     # an IP-level rate limit also covers the API-key surface, so a lookup ahead
-    # of it could spend the request the explorer needs. Only its 400 -- which a
-    # single-question post never gets -- costs the extra post lookup.
+    # of it could spend the request the explorer needs. Only its failure -- a
+    # 400 (group post) or a block (upcoming fallback) -- costs an early lookup.
     post: dict = {}
     subqs: list[dict] = []
+    result: AggregationResult | None = None
     status, base = fetcher.get_json(_url(methods))
     if not base:
         if status == 400:
@@ -873,7 +917,13 @@ def _collect(
             # itself before treating it as one.
             post = _lookup_post(fetcher, post_id)
             subqs = _group_questions(post)
-        if not subqs:
+        else:
+            # A challenged explorer costs nothing on an upcoming question, which
+            # has no aggregations yet; one post lookup decides.
+            post = _lookup_post(fetcher, post_id)
+            if _is_upcoming(post) and (_has_text(post) or not include_details):
+                result = _from_upcoming_post(post_id, post, status)
+        if not subqs and result is None:
             raise RuntimeError(
                 f"No aggregation JSON for post {post_id} (last status {status}). "
                 "403 means the post does not exist or Cloudflare challenged every "
@@ -882,7 +932,10 @@ def _collect(
                 "egress: check HTTPS_PROXY and that www.metaculus.com is allowlisted."
             )
 
-    if subqs:
+    if result is not None:
+        # The upcoming fallback above: no explorer data to parse.
+        pass
+    elif subqs:
         types = {q.get("type") for q in subqs}
         result = AggregationResult(
             post_id=post_id,
@@ -990,6 +1043,8 @@ def _print_human(res: AggregationResult) -> None:
             f"resolution={sub.resolution})"
         )
         _print_methods(sub)
+    if res.aggregation_note:
+        print(f"\nNOTE: {res.aggregation_note}")
 
     if res.resolution_criteria:
         print("\n--- Resolution Criteria ---")

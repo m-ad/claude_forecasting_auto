@@ -836,3 +836,114 @@ def test_a_single_question_post_asks_the_explorer_before_the_api(agg, monkeypatc
         include_details=True,
     )
     assert order == ["browser:agg", "api"]
+
+
+# The bug: with the Aggregation Explorer challenged on every retry while the
+# /api-proxy/posts/ endpoint still answered (seen 2026-10-10, post 45860, from
+# one warmed page), _collect raised before it ever looked the post up -- so an
+# upcoming question's criteria were lost although they were one request away,
+# and the explorer has nothing to add before the CP reveal anyway.
+_UPCOMING_BROWSER_POST = {
+    "id": 45860,
+    "title": "Upcoming title",
+    "status": "approved",
+    "nr_forecasters": 1,
+    "scheduled_close_time": "2026-12-15T13:00:00Z",
+    "question": {
+        "id": 46035,
+        "status": "upcoming",
+        "type": "binary",
+        "cp_reveal_time": "2026-10-16T17:00:00Z",
+        "resolution_criteria": "rc",
+        "fine_print": "fp",
+        "description": "bg",
+    },
+}
+
+
+class _BlockedExplorer:
+    """Explorer challenged on every retry; the post endpoint answers as given."""
+
+    def __init__(self, post: dict | None):
+        self.captured: list[str] = []
+        self.post = post
+
+    def get_json(self, url):
+        self.captured.append(url)
+        if "/posts/" in url:
+            return (200, self.post) if self.post else (403, {})
+        if "/comments/" in url:
+            return 200, {"results": [{"author": {"username": "u"}, "text": "hi"}]}
+        return 403, {}
+
+
+def _collect_blocked(agg, fetcher, n_comments=0):
+    return agg._collect(
+        fetcher,
+        45860,
+        _url_for,
+        agg_methods(),
+        include_history=False,
+        n_comments=n_comments,
+        include_details=True,
+    )
+
+
+def test_blocked_explorer_on_an_upcoming_post_still_returns_its_criteria(
+    agg, monkeypatch
+):
+    monkeypatch.setattr(agg, "fetch_post_api", lambda _pid: _UPCOMING_API_POST)
+    f = _BlockedExplorer(_UPCOMING_BROWSER_POST)
+    res = _collect_blocked(agg, f, n_comments=1)
+    assert (res.resolution_criteria, res.fine_print, res.background) == (
+        "rc",
+        "fp",
+        "bg",
+    )
+    assert res.methods == {}, "no cohort may be invented for a skipped explorer"
+    assert res.aggregation_note and "upcoming" in res.aggregation_note
+    assert (res.question_id, res.question_type, res.status) == (
+        46035,
+        "binary",
+        "upcoming",
+    )
+    assert res.cp_reveal_time == "2026-10-16T17:00:00Z"
+    assert [c.text for c in res.comments] == ["hi"]
+
+
+def test_blocked_explorer_on_an_open_post_still_raises(agg, monkeypatch):
+    # An open question's missing CP must stay an error, never a silent gap.
+    open_post = copy.deepcopy(_UPCOMING_BROWSER_POST)
+    open_post["question"]["status"] = "open"
+    monkeypatch.setattr(agg, "fetch_post_api", lambda _pid: open_post)
+    f = _BlockedExplorer(open_post)
+    with pytest.raises(RuntimeError, match="last status 403"):
+        _collect_blocked(agg, f)
+    # The key answered with text, so no browser request was spent on the post.
+    assert not any("/posts/" in u for u in f.captured)
+
+
+def test_blocked_explorer_on_an_upcoming_post_without_text_still_raises(
+    agg, monkeypatch
+):
+    # Null criteria read as "not published"; a failed fetch must say it failed.
+    monkeypatch.setattr(agg, "fetch_post_api", lambda _pid: _UPCOMING_API_POST)
+    with pytest.raises(RuntimeError, match="last status 403"):
+        _collect_blocked(agg, _BlockedExplorer(None))
+
+
+def test_an_answering_explorer_leaves_no_aggregation_note(agg):
+    class F:
+        def get_json(self, url):
+            return 200, _explorer_json(40839, 0.5)
+
+    res = agg._collect(
+        F(),
+        40839,
+        _url_for,
+        agg_methods(),
+        include_history=False,
+        n_comments=0,
+        include_details=False,
+    )
+    assert res.aggregation_note is None
