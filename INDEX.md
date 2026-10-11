@@ -1,6 +1,6 @@
 # Question index
 
-_Regenerated 2026-10-10 by `scripts/status.py --index`._
+_Regenerated 2026-10-11 by `scripts/status.py --index`._
 
 | Question | Type | Current | v | Community (CP) | Resolves | Next review | Status |
 |---|---|---|---|---|---|---|---|
@@ -8,11 +8,14 @@ _Regenerated 2026-10-10 by `scripts/status.py --index`._
 | [Will the FDA approve a psilocybin treatment during 2026?](questions/2026-08-31-mc41172-fda-approve-psilocybin-treatment-during-2026/forecast.md) | binary | 9.5% [7.0%, 13.0%] | 2 | 11.0% | 2026-12-31 | 2026-10-12 | open |
 | [What first round vote share will Iliana Iotova win in the 2026 Bulgarian Presidential election?](questions/2026-09-05-mc45262-first-round-vote-share-iliana-iotova-win/forecast.md) | numeric | 48.6 [46, 51.4] | 3 | — | 2026-10-31 | 2026-10-16 | open |
 | [Who will win the 2026 Ballon d'Or?](questions/2026-09-11-mc45617-ballon-dor-2026/forecast.md) | multiple_choice | 0.44 [0.35, 0.53] | 5 | 0.465 | 2026-10-26 | 2026-10-16 | open |
+| [Will FURA introduce another cultivated meat dish on its menu before July 2027?](questions/2026-09-12-mc43281-fura-introduce-another-cultivated-meat-dish-its/forecast.md) | binary | 35.6% [28.0%, 45.0%] | 1 | 42.0% | 2027-07-01 | 2026-10-14 | open |
 | [Will an open weight AI model achieve Mythos-level cyber capabilities before July 2027?](questions/2026-09-12-mc45465-open-weight-ai-model-achieve-mythos-level/forecast.md) | binary | 92.0% [87.0%, 95.0%] | 1 | 91.0% | 2027-07-01 | 2026-10-12 | open |
 | [Which party will win the most seats in the 2026 Israeli election?](questions/2026-09-20-mc45670-which-party-win-most-seats-2026-israeli/forecast.md) | multiple_choice | 0.509 [0.434, 0.584] | 3 | — | 2026-10-28 | 2026-10-16 | open |
+| [Will Trump demolish the Kennedy Center before January 1, 2027?](questions/2026-09-26-mc45810-trump-demolish-kennedy-center-before-january-1/forecast.md) | binary | 3.5% [1.5%, 6.5%] | 2 | 7.0% | 2027-01-01 | 2026-10-14 | open |
 | [What will be the total OpenRouter token usage December 21-27, 2026?](questions/2026-10-05-mc45689-total-openrouter-token-usage-december-21-27/forecast.md) | numeric | 330,000,000,000,000 [250,000,000,000,000, 430,000,000,000,000] | 1 | — | 2026-12-29 | 2026-10-13 | open |
 | [Will the US approve a $10B exchange stabilisation facility for Pakistan before 2027?](questions/2026-10-05-mc45809-us-approve-10b-exchange-stabilisation-facility-pakistan/forecast.md) | binary | 9.0% [5.0%, 14.0%] | 1 | — | 2027-01-01 | 2026-10-12 | open |
 | [Will José Mourinho still be the manager for Real Madrid on December 31, 2026?](questions/2026-10-05-mc45857-jos-mourinho-still-manager-real-madrid-december/forecast.md) | binary | 87.0% [82.0%, 91.0%] | 1 | — | 2026-12-31 | 2026-10-12 | open |
+| [Will the Trump administration or a GOP state governor deploy armed officers or troops to a polling or early voting site in 2026?](questions/2026-10-11-mc46051-trump-administration-gop-state-governor-deploy-armed/forecast.md) | binary | 26.0% [17.0%, 36.0%] | 1 | — | 2026-11-06 | 2026-10-16 | open |
 | [Will an AI system autonomously cause a major breach of US personal data held by an organization other than its operator before 2028?](questions/2026-09-10-mc45427-major-us-personal-data-breach-external-misaligned-ai/forecast.md) | binary | 70.0% [61.0%, 78.0%] | 2 | 80.0% | 2028-01-01 | 2026-10-22 | open |
 | [Will there be a bilateral ceasefire in the Russo-Ukrainian conflict before 2027?](questions/2026-08-28-mc41138-bilateral-ceasefire-russo-ukrainian-conflict-before-2027/forecast.md) | binary | 4.5% [3.0%, 7.0%] | 3 | — | 2026-12-31 | 2026-10-23 | open |
 | [Will OpenAI file for an IPO during 2026?](questions/2026-08-28-mc41141-openai-file-ipo-during-2026/forecast.md) | binary | 3.0% [1.5%, 5.0%] | 2 | 2.0% | 2027-01-01 | 2026-10-16 | open |
@@ -27,7 +30,6 @@ _Regenerated 2026-10-10 by `scripts/status.py --index`._
 | [How many barrels of crude oil will the Strategic Petroleum Reserve hold in September 2026?](questions/2026-09-07-mc15240-spr-crude-barrels-september-2026/forecast.md) | numeric | 283,400,000 [283,200,000, 283,700,000] | 6 | 289,616,938 | 2026-11-30 | 2026-10-31 | open |
 | [Who will win the 2026 World Chess Championship?](questions/2026-09-11-mc45216-who-win-2026-world-chess-championship/forecast.md) | multiple_choice | 0.685 [0.63, 0.74] | 4 | — | 2026-12-14 | 2026-10-23 | open |
 | [What will be the open market US Dollar/Iranian Toman exchange rate on December 31, 2026?](questions/2026-09-11-mc45340-open-market-us-dollar-iranian-toman-exchange/forecast.md) | numeric | 288000 [255000, 322000] | 2 | 250000 | 2026-12-31 | 2026-10-16 | open |
-| [Will FURA introduce another cultivated meat dish on its menu before July 2027?](questions/2026-09-12-mc43281-fura-introduce-another-cultivated-meat-dish-its/forecast.md) | binary | 35.6% [28.0%, 45.0%] | 1 | 42.0% | 2027-07-01 | 2026-10-14 | open |
 | [How many additional US states will enact bans on cultivated meat before July 2027?](questions/2026-09-12-mc43329-how-many-additional-us-states-enact-bans/forecast.md) | multiple_choice | 0.28 [0.24, 0.32] | 2 | 0.265 | 2027-07-01 | 2026-12-15 | open |
 | [Will it be confirmed before 2027 that the "swarm" in the July 2026 Hugging Face incident exfiltrated any OpenAI model weights?](questions/2026-09-13-mc45467-it-confirmed-before-2027-that-swarm-july/forecast.md) | binary | 5.0% [3.0%, 10.5%] | 3 | 4.0% | 2027-01-01 | 2026-10-16 | open |
 | [What percentage of companies globally will fulfill their pre-2026 cage-free commitments in 2026 and 2027?](questions/2026-09-17-mc43277-percentage-companies-globally-fulfill-their-pre-2026/forecast.md) | discrete | 11.9 [9.6, 15.3] | 1 | — | 2028-01-01 | 2026-11-15 | open |
@@ -43,7 +45,6 @@ _Regenerated 2026-10-10 by `scripts/status.py --index`._
 | [How much funding will Wild Animal Initiative receive in 2026?](questions/2026-09-21-mc43169-how-much-funding-wild-animal-initiative-receive/forecast.md) | numeric | 3.72 [2.91, 4.68] | 1 | 4.245 | 2027-11-15 | 2026-11-20 | open |
 | [What will be the total spending by all Senate candidates in the 2026 US election cycle?](questions/2026-09-26-mc45220-total-spending-all-senate-candidates-2026-us/forecast.md) | numeric | 1,625,000,000 [1,490,000,000, 1,790,000,000] | 4 | 1,768,421,418 | 2026-12-31 | 2026-10-17 | open |
 | [How many politicians will leave their cabinet positions in the UK government before 2027?](questions/2026-09-26-mc45250-how-many-politicians-leave-their-cabinet-positions/forecast.md) | multiple_choice | 0.59 [0.525, 0.655] | 3 | 0.646 | 2027-01-01 | 2026-10-16 | open |
-| [Will Trump demolish the Kennedy Center before January 1, 2027?](questions/2026-09-26-mc45810-trump-demolish-kennedy-center-before-january-1/forecast.md) | binary | 3.5% [1.5%, 6.5%] | 2 | 7.0% | 2027-01-01 | 2026-10-14 | open |
 | [What will be the highest intraday value of the VIX between October 1 and December 24, 2026?](questions/2026-09-28-mc45515-highest-intraday-value-vix-between-october-1/forecast.md) | numeric | 23.8 [20.4, 29] | 2 | 24.31 | 2026-12-25 | 2026-10-16 | open |
 | [Will 2026 be the warmest year on record, according to NASA?](questions/2026-10-04-mc21095-nasa-warmest-year-on-record-2026/forecast.md) | binary | 59.0% [49.0%, 68.0%] | 2 | — | 2027-01-15 | 2026-10-16 | open |
 | [Will 2027 be the warmest year on record, according to NASA?](questions/2026-10-04-mc21095-nasa-warmest-year-on-record-2027/forecast.md) | binary | 89.0% [84.0%, 93.0%] | 1 | — | 2028-01-15 | 2026-11-04 | open |

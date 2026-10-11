@@ -1,0 +1,53 @@
+{
+  "post_id": 46051,
+  "question_id": 46289,
+  "title": "Will the Trump administration or a GOP state governor deploy armed officers or troops to a polling or early voting site in 2026?",
+  "question_type": "binary",
+  "status": "upcoming",
+  "resolution": null,
+  "scheduled_close_time": "2026-11-02T13:00:00Z",
+  "cp_reveal_time": "2026-10-15T17:00:00Z",
+  "options": null,
+  "scaling": {
+    "range_min": null,
+    "range_max": null,
+    "nominal_min": null,
+    "nominal_max": null,
+    "zero_point": null,
+    "open_upper_bound": false,
+    "open_lower_bound": false,
+    "inbound_outcome_count": null,
+    "continuous_range": null
+  },
+  "resolution_criteria": "This question resolves as **Yes** if active duty United States military personnel, National Guard members, federal officers, or state troopers are deployed by the U.S. federal government or a Republican state governor to any polling or early-voting site, while that site is open for in-person voting for the [2026 general elections](https://en.wikipedia.org/wiki/2026_United_States_elections).\n\nIn order to count, the personnel or troops must be armed with firearms and must be either inside the voting site or within 250 feet of its entrance.",
+  "fine_print": "For purposes of this question, deliberate deployment for any stated reason counts regardless of stated purpose (e.g., ICE officers enforcing immigration laws or National Guard with the stated purpose of protecting voters).\n\nState troopers are defined as law enforcement officers working for state-level law enforcement agencies. Officers of sub-state level agencies such as county sheriff’s departments or municipal police departments do not count.\n\nA deployment by a Republican state governor counts if it is ordered by the governor or, in cases where the deployment order is issued by another state official, when it is specifically authorized by the governor.&#x20;\n\nPersonnel present in a personal capacity (such as voting or serving as poll workers) do not count.\n\nPersonnel whose physical closeness to a polling location is incidental to their other duties, including personnel passing through an area, would not count, as long as their presence is coincidental and unrelated to that site or there is a lack of uncontroversial credible reporting that they were deliberately deployed there.\n\nThis question will resolve based upon reporting from [credible sources](https://www.metaculus.com/faq/#definitions).\n\nLocations used solely as drop boxes for mail-in or absentee ballots do not count.",
+  "background": "*This question is contributed by Bright Line Watch. See also the* [*U.S. Democracy Threat Index*](https://www.metaculus.com/index/us-democracy-threat/)*.*&#x20;\n\nFor several months the [Former JAG Working Group](https://www.formerjagworkinggroup.org/) has been submitting memoranda to members of the U.S. Congress and staff members [warning](https://www.formerjagworkinggroup.org/post/sixth-memorandum-to-members-of-congress-and-staff) of possible plans to deploy troops to voting sites to intimidate voters. Federal [law](https://www.law.cornell.edu/uscode/text/18/592) prohibits deployment of \"any troops or armed men at any place where a general or special election is held, unless such force be necessary to repel armed enemies of the United States.\" In a recent [interview](https://time.com/article/2026/10/01/donald-trump-2026-interview-transcript/) with Time Magazine, Donald Trump replied, \"I don't rule anything out or in\" in response to questions about plans to declare a state of emergency in the days leading up to the election or the deployment of ICE agents to polling stations.\n\nIn October 2026 there were sightings of National Guard troops standing by an official ballot dropbox in Washington, DC, posted on social media ([example](https://x.com/YourAnonCentral/status/2108874736122171883)). However, subsequent to the social media footage, there were [reported](https://www.washingtonpost.com/dc-md-va/2026/10/09/troops-were-loitering-by-dc-ballot-box-by-mistake-national-guard-says/) denials that the deployment was deliberate.&#x20;\n\nSee also from The Conversation: [What the law says about armed officers at polling places](https://theconversation.com/what-the-law-says-about-armed-officers-at-polling-places-293150)",
+  "nr_forecasters": 4,
+  "methods": {
+    "recency_weighted": {
+      "method": "recency_weighted",
+      "status": 200,
+      "history_points": 0,
+      "latest": null,
+      "history": []
+    },
+    "metaculus_pros": {
+      "method": "metaculus_pros",
+      "status": 200,
+      "history_points": 0,
+      "latest": null,
+      "history": []
+    },
+    "gold_medalists": {
+      "method": "gold_medalists",
+      "status": 200,
+      "history_points": 0,
+      "latest": null,
+      "history": []
+    }
+  },
+  "comments": [],
+  "label": null,
+  "subquestions": [],
+  "aggregation_note": null
+}
