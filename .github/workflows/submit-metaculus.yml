@@ -1,0 +1,124 @@
+name: submit-metaculus
+
+# Posts forecasts to Metaculus under the bot account -- but only after a human
+# merged the pull request that carries them. The merge is the operator's approval:
+# routines and other unattended sessions open PRs, they never submit themselves.
+#
+# Which questions: those with a new `forecast` record in ledger/forecasts.jsonl
+# between the PR's base and its merge commit (scripts/changed_forecasts.py).
+# The submit script skips any question whose live bot forecast already matches,
+# so over-inclusion (e.g. another PR merged in between) costs nothing.
+#
+# Setup: add METACULUS_API_KEY as a secret, either repository-wide or on the
+# `metaculus` environment (Settings -> Environments) if you want protection
+# rules such as required reviewers. Until it exists, runs warn and do nothing.
+
+on:
+  pull_request:
+    types: [closed]
+    branches: [main]
+  workflow_dispatch:
+    inputs:
+      targets:
+        description: "Space-separated slugs, post ids or URLs to submit"
+        required: true
+      dry_run:
+        description: "Build and show only, do not POST"
+        type: boolean
+        default: true
+
+permissions:
+  contents: read
+
+# One submission run at a time; never cancel one mid-POST.
+concurrency:
+  group: submit-metaculus
+  cancel-in-progress: false
+
+jobs:
+  submit:
+    if: github.event_name == 'workflow_dispatch' || github.event.pull_request.merged == true
+    runs-on: ubuntu-latest
+    environment: metaculus
+    env:
+      METACULUS_API_KEY: ${{ secrets.METACULUS_API_KEY }}
+    steps:
+      - name: Check the API key is configured
+        id: key
+        run: |
+          if [ -z "$METACULUS_API_KEY" ]; then
+            echo "::warning::METACULUS_API_KEY is not set; nothing submitted."
+            echo "ok=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "ok=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - uses: actions/checkout@v5
+        if: steps.key.outputs.ok == 'true'
+        with:
+          # The merge commit is what landed on main; full history so the PR's
+          # base sha is available to diff the ledger against.
+          ref: ${{ github.event.pull_request.merge_commit_sha || github.sha }}
+          fetch-depth: 0
+
+      - name: Install uv
+        if: steps.key.outputs.ok == 'true'
+        uses: astral-sh/setup-uv@v7
+        with:
+          python-version: "3.13"
+          enable-cache: true
+          cache-dependency-glob: "pyproject.toml"
+
+      - name: Sync dependencies
+        if: steps.key.outputs.ok == 'true'
+        run: uv sync
+
+      - name: Pick the questions to submit
+        id: pick
+        if: steps.key.outputs.ok == 'true'
+        env:
+          # Passed through env, never interpolated into the script: dispatch
+          # input is free text.
+          TARGETS: ${{ inputs.targets }}
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+          HEAD_SHA: ${{ github.event.pull_request.merge_commit_sha }}
+        run: |
+          if [ "$GITHUB_EVENT_NAME" = "workflow_dispatch" ]; then
+            targets="$TARGETS"
+          else
+            targets="$(uv run scripts/changed_forecasts.py "$BASE_SHA" "$HEAD_SHA" | tr '\n' ' ')"
+          fi
+          for t in $targets; do
+            if ! [[ "$t" =~ ^[A-Za-z0-9:/._-]+$ ]]; then
+              echo "::error::refusing target with unexpected characters: $t"
+              exit 1
+            fi
+          done
+          targets="$(echo $targets)"
+          echo "targets=$targets" >> "$GITHUB_OUTPUT"
+          if [ -z "$targets" ]; then
+            echo "No Metaculus forecast changed in this merge; nothing to submit." >> "$GITHUB_STEP_SUMMARY"
+          fi
+
+      - name: Submit
+        if: steps.key.outputs.ok == 'true' && steps.pick.outputs.targets != ''
+        env:
+          TARGETS: ${{ steps.pick.outputs.targets }}
+          DRY_RUN: ${{ github.event_name == 'workflow_dispatch' && inputs.dry_run }}
+        run: |
+          flags=()
+          [ "$DRY_RUN" = "true" ] && flags+=(--dry-run)
+          # The default shell is `bash -eo pipefail`; keep going on failure so the
+          # log still reaches the job summary, then exit with the script's status.
+          set +e
+          # shellcheck disable=SC2086  # word-splitting TARGETS is intended
+          uv run scripts/submit_metaculus.py $TARGETS "${flags[@]}" 2>&1 | tee submit.log
+          status=${PIPESTATUS[0]}
+          set -e
+          {
+            echo '### Metaculus submission'
+            echo '```'
+            cat submit.log
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
+          exit "$status"

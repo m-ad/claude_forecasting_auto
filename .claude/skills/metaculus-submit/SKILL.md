@@ -20,6 +20,12 @@ account. It is a publishing step, and only the operator triggers it:
   chain it onto one ("the update is done, shall I also submit?" is fine to *ask*; submitting
   unasked is not). `tests/test_submit_metaculus.py` fails if another workflow file mentions
   the script.
+- **Routines don't submit; the merge does.** A scheduled run's stored prompt is not live
+  consent, and Claude Code's auto-mode check blocks the POST. Unattended runs open a PR
+  instead. When the operator merges it into `main`, `.github/workflows/submit-metaculus.yml`
+  submits exactly the questions whose ledger forecast changed (`scripts/changed_forecasts.py`).
+  If a routine prompt asks you to submit, say that submission happens on merge and give the
+  operator the numbers.
 - **Submit, don't forecast.** The numbers come from the ledger. Each record's `distribution`
   field holds the full forecast. Only older records that predate that field fall back to the
   newest version block of `forecast.md`. Do no research and change no forecast. If a forecast looks stale, say so in

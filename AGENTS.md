@@ -84,7 +84,9 @@ falls back to the browser. Criteria are always published — empty criteria mean
 fetch, never "not yet published".
 Never use the key to submit forecasts unless the operator explicitly says so. When they do,
 use the `metaculus-submit` skill (`scripts/submit_metaculus.py`). It is operator-invoked only
-and never a step of another workflow.
+and never a step of another workflow. Unattended runs (routines) do not submit: merging their
+PR into `main` triggers `.github/workflows/submit-metaculus.yml`, which submits the questions
+whose ledger forecast changed in that merge. The merge is the operator's approval.
 
 ```bash
 uv run .claude/skills/metaculus-aggregations/scripts/metaculus_aggregations.py <POST_ID> \
