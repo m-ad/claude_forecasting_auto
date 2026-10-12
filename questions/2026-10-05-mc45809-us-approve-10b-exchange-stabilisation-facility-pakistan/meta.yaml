@@ -12,29 +12,36 @@ tags:
 - metaculus-cup-fall-2026
 dates:
   created: '2026-10-05'
-  opened: null  # scheduled 2026-10-06 17:00 UTC
+  opened: '2026-10-06'
   closes: '2026-12-14'
   resolves: '2027-01-01'
 status: open
 current:
-  version: 1
-  date: '2026-10-05'
-  median: 0.09
+  version: 2
+  date: '2026-10-12'
+  median: 0.08
   iqr:
-  - 0.05
-  - 0.14
+  - 0.045
+  - 0.13
   community:
     cp: null
     pro: null
     gold: null
-    n_forecasters: 4
-    as_of: '2026-10-05'
-next_review: '2026-10-12'
+    n_forecasters: 69
+    as_of: '2026-10-12'
+next_review: '2026-10-19'
 tripwires:
 - signal: US Treasury/Bessent/Trump publicly confirms negotiating a currency swap with Pakistan (any size)
   by: '2026-11-30'
   direction: up
   magnitude: 15
+  magnitude_unit: pp
+  fired: null
+- signal: Bessent-Aurangzeb/Treasury meeting at Bangkok Annual Meetings (12-18 Oct) with facility named
+    in a readout
+  by: '2026-10-18'
+  direction: up
+  magnitude: 3
   magnitude_unit: pp
   fired: null
 - signal: Shehbaz or Munir White House visit with announced economic deliverables

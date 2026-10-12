@@ -80,3 +80,22 @@ Model v2: signed margin ~ 3.9 + 3.0·t(6). P(F) 0.88; |M| p5 0.47, p10 0.92, p25
 A "PoderData F 53 / L 47 valid" headline surfaced in search; probably the same 5–7 Oct wave (≈52.7/47.3). Not independently verified.
 
 Next: AtlasIntel (9 Oct+) and Quaest post-R1 waves; debate dates; Kalshi price.
+
+## 2026-10-12 update (v3)
+
+| Date | Query / source | Finding | Effect on forecast |
+|---|---|---|---|
+| 2026-10-12 | Metrópoles / InfoMoney (AtlasIntel 3–8 Oct, n=5,026) | F 51.1 / L 45.7 total; 52.8 / 47.2 valid (F +5.6) | up |
+| 2026-10-12 | CNN Brasil (Ipespe 6–8 Oct, n=1,500) | F 52.7 / L 47.3 valid (F +5.4) | up |
+| 2026-10-12 | Portal Tela / Wikipedia (Vox Brasil 5–7 Oct, n=2,100) | L 44.2 / F 42.7 total, 13.1% BNU; ≈ L +1.7 valid; outlier, half weight | down slightly |
+| 2026-10-12 | CartaCapital | Quaest first post-R1 national runoff poll due 14 Oct (n≈2,154, face-to-face) | pending |
+| 2026-10-12 | Kalshi API (KXBRPRES2MOV etc.) | margin brackets imply abs median ≈ 4.4, IQR ≈ [2.5, 6.4]; winner F 87.5; F≥52% valid ≈ 0.68 | mild up, confirms shape |
+| 2026-10-12 | Polymarket Gamma | F 86.05 / L 12.5 (v2: 85.65 / 13.5); $180M | none |
+| 2026-10-12 | Gazeta do Povo / Correio Braziliense | Record debate (11 Oct) cancelled; Band 18 Oct, Globo 23 Oct; attendance unconfirmed | none |
+| 2026-10-12 | Search for Lula comeback / scandal | nothing beyond Vox Brasil | none |
+| 2026-10-12 | Metaculus | browser path Cloudflare 403; API: 78 forecasters, 406 forecasts; criteria/scaling unchanged. Stale 2026-10-09 cohorts: CP 3.74 [2.14, 5.51], Pro 3.78 [2.18, 5.65], Gold 3.43 [1.91, 5.16] | — |
+| 2026-10-12 | Poder360 aggregator page | 403 on fetch | dead end |
+
+Model v3: signed margin ~ 4.2 + 2.9·t(6). P(F) 0.90; |M| p5 0.54, p10 1.06, p25 2.42, p50 4.30, p75 6.34, p90 8.43, p95 9.89; P(>8) 0.122; P(<2) 0.200; P(<3) 0.32 (Kalshi 0.31).
+
+Next: Quaest 14 Oct; second Datafolha/AtlasIntel waves; Band debate 18 Oct; Kalshi margin brackets.

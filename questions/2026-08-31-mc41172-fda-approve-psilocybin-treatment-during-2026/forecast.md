@@ -6,11 +6,176 @@
 | **Type** | binary |
 | **Opened / Closes / Resolves** | 2025-12-19 / 2026-12-31 / 2026-12-31 |
 | **Status** | open |
-| **Current forecast** | **Median 9.5%, IQR [7.0%, 13.0%]** (v2, 2026-09-18) |
-| **Community (as of 2026-09-18 16:26 UTC)** | CP 11.0% IQR[9%, 15%] (n=245) · Pro 12.0% IQR[9.5%, 14%] (n=24) · Gold 11.0% IQR[8%, 12.2%] (n=80) · 756 forecasters total |
-| **Next review** | 2026-10-12 |
+| **Current forecast** | **Median 7.0%, IQR [5.0%, 10.0%]** (v3, 2026-10-12) |
+| **Community (as of 2026-10-12)** | CP / Pro / Gold not retrievable 2026-10-12 (Cloudflare 403); stale 2026-09-18: CP 11.0% (n=245) · Pro 12.0% (n=24) · Gold 11.0% (n=80) · 759 forecasters total (bot API, 2026-10-12) |
+| **Next review** | 2026-11-01 |
 
 <!-- Versions below, newest first. APPEND-ONLY: never edit or delete a past version. -->
+
+---
+
+## v3 — Update — 2026-10-12
+
+Incremental update. No tripwire fired. The content of this version is the same as v2's, one step
+further along: **twelve days of October have passed with no NDA-completion announcement**, and that
+is where most of the probability lived. Mode check: this is the second consecutive downward move
+(the protocol's anchoring warning), so the number was also re-derived from scratch rather than
+nudged from 9.5% — see the cross-check under *Inside view*. Both routes land at ~7%.
+
+### Revision
+
+| Driver | Direction | Effect |
+|---|---|---|
+| Prior (v2, 2026-09-18) | — | Median 9.5%, IQR [7.0%, 13.0%] |
+| **No NDA-completion announcement in 2026-10-01 → 10-12.** The 2026-10-05 Jersey City office release still speaks of "the timing of our rolling submission" and a "potential U.S. launch in the first half of 2027" [1]; no 8-K filed since 2026-08-10 [2]. The Oct 1–15 branch (v2: P = 0.06, contribution 3.4 pp) is now ~0.018 (3 days left plus a small allowance for a completion not yet disclosed) | ↓ | **−2.4 pp** |
+| **2026-09-24 TD Cowen Neuropsychiatry Summit: CEO Nath reiterated "Q4", again with no month, and stressed "the FDA could take up to 60 days to accept the completed filing" and that the 30–60-day approval goal "is a target, not a commitment"** [3]. Third investor event in a row without sharpening; and management, unprompted, leaning on the slow-filing branch. LR ≈ 0.9 on the late-October branch | ↓ | **−0.4 pp** |
+| **Still no Psychopharmacologic Drugs Advisory Committee notice** — Federal Register API searched 2026-08-01 → 2026-10-12: only committee renewals (Antimicrobial, Dermatologic, Oncologic, Cardio-Renal, Endocrine), nothing for PDAC or COMP360; FDA adcomm calendar empty as of 2026-10-01 [4][5]. An adcomm compatible with any 2026 decision now has to be noticed within weeks | ↑ | **+0.2 pp** |
+| **CNPV track record extended**: Lipfendra approved 24 days after the complete submission was received (2026-07-15), Rasonque approved 2026-08-26; only one CRL (bitopertin) in ~11 decisions [6]. Also CCO Englebert: Compass "expects to be launch-ready by the end of the year" [3]. Supports the fast-review conditional; already inside v1's Class B range (24–61 days), so small | ↑ | **+0.2 pp** |
+| Usona: voucher still "unused", filing date unknown; uAspire ongoing [6][7]. Residual path unchanged | → | **0** |
+| Metaculus: forecaster count 756 → 759; CP/Pro/gold **not retrievable 2026-10-12** (Cloudflare 403). Manifold mirror 15.8%, no bet since 2026-09-05 [8] | → | **0** |
+| **New forecast** | | **Median 7.0%, IQR [5.0%, 10.0%]** |
+
+### Tripwire check
+
+| Tripwire from v2 | Fired? | Note |
+|---|---|---|
+| Completion of rolling NDA announced in **first half of October** (by 2026-10-15) → +14 pp | **Not fired (3 days left)** | Nothing through 2026-10-12; 2026-10-05 release still describes the submission as rolling [1]; no 8-K [2]. Treated as ~70% expired |
+| Completion announced in **second half of October** (by 2026-10-31) → +7 pp | **Not due** | |
+| No completion announcement at all by 2026-10-31 → −5 pp | **Not due — tracking toward firing** | Partly priced in here (the −2.4 pp row) |
+| FDA filing acceptance with a stated 2026 goal/PDUFA date (by 2026-11-30) → +25 pp | **Not fired** | No submission complete, so no acceptance possible yet |
+| PDAC adcomm noticed for COMP360 (by 2026-12-31; before 10-31 → ~1.5%) → −8 pp | **Not fired** | Federal Register + calendar checked 2026-10-12 [4][5] |
+| Q3 call reiterates Q4 without date (by 2026-11-15) → −4 pp | **Not due** | Q3 results date not yet announced; last year 2025-11-04. The 2026-09-24 summit was another pre-emptive instance, charged −0.4 pp |
+| Q3 call shifts NDA completion into 2027 (by 2026-11-15) → −8 pp | **Not due** | No sign of slippage: Q4 reiterated 2026-09-24 [3] |
+| FDA or Makary names a 2026 decision date (by 2026-11-30) → +10 pp | **Not fired** | Nothing found |
+| CRL issued to COMP360 → resolves NO | **Not fired** | Not possible yet |
+
+Score: **none fired**; the first is near-expired without firing; the "nothing by 10-31" downside
+is on track to fire.
+
+### What resolves YES
+
+Unchanged from v1. Re-checked against the bot-key API snapshot (`raw/metaculus-api-2026-10-12.json`):
+resolution criteria and fine print are **byte-identical** to the 2026-09-18 snapshot (the post's
+`edited_at` of 2026-10-11 is not a criteria change). FDA approval (incl. EUA) during 2026 of a drug
+whose active ingredient is psilocybin.
+
+### Outside view
+
+Unchanged from v1. Class B (CNPV filing→decision) gains two data points [6], both inside the
+existing 24–61-day range.
+
+### Inside view
+
+Structure unchanged: `P(YES) ≈ Σ_C P(C) × P(decision by 2026-12-31 | C) × P(approval | decision)`.
+
+| Completion window | P(C) v2 → v3 | Days to 12-31 | P(decision in 2026 \| C) v2 → v3 | Contribution |
+|---|---|---|---|---|
+| Oct 1–15 (incl. undisclosed) | 0.06 → **0.018** | ~80 | 0.56 → **0.53** | 0.95 pp |
+| Oct 16–31 | 0.11 → **0.103** | ~68 | 0.39 → **0.39** | 4.02 pp |
+| Nov 1–15 | 0.14 → **0.146** | ~53 | 0.15 → 0.15 | 2.19 pp |
+| Nov 16–30 | 0.16 → **0.167** | ~38 | 0.04 → 0.04 | 0.67 pp |
+| Dec 1–15 | 0.17 → **0.178** | ~23 | 0.005 → 0.005 | 0.09 pp |
+| Dec 16–31 | 0.20 → **0.209** | ~7 | ~0 | 0.00 pp |
+| slips to 2027 | 0.16 → **0.179** | — | 0 | 0.00 pp |
+
+(Mass removed from early October renormalised across the remaining windows, then the late-October
+branch shaded by LR 0.9 for the 2026-09-24 reiteration; the shaved mass goes to 2027.)
+
+P(FDA decision inside 2026) ≈ **7.9%**. P(approval | decision) held at **0.85**. ⇒ 6.7 pp from
+COMP360, plus ≈0.3 pp for Usona/other ⇒ **7.0%**.
+
+**De-novo cross-check** (ignoring v2's table): P(completion by 2026-10-31) ≈ 0.12; P(2026 decision
+| October completion) ≈ 0.4 (needs ≤ ~14-day filing step, as the CNPV hearing notice proposes and
+Lipfendra's 24 days suggests, but management itself flags "up to 60 days"); P(November completion
+and 2026 decision) ≈ 0.03; × 0.85 ⇒ ≈ 6.6% + 0.3% ≈ **6.9%**. Agrees.
+
+### Evidence
+
+| Finding | Direction | Rough LR / effect |
+|---|---|---|
+| 2026-10-05 Compass press release (Jersey City office): submission still described as "rolling", launch "potential … first half of 2027" [1] | ↓ | Confirms no completion as of 10-05 |
+| SEC EDGAR: no Compass 8-K since 2026-08-05/-10 [2] | ↓ mild | Compass 8-K'd the CNPV award; a completion or acceptance would probably be disclosed |
+| 2026-09-24 TD Cowen summit: "Q4"; "up to 60 days to accept"; 30–60 days "a target, not a commitment"; "launch-ready by the end of the year" [3] | ↓ mild | LR ≈ 0.9 on late October; management expectation-setting toward the slow branch |
+| Federal Register / FDA calendar: no PDAC meeting [4][5] | ↑ mild | Adcomm risk keeps shrinking |
+| CNPV tracker: 24-day Lipfendra review from complete submission; one CRL in ~11 decisions [6] | ↑ mild | Fast-filing mechanism is real, not hypothetical |
+| Usona: voucher unused, filing date unknown [6][7] | → | Residual ≈0.3 pp |
+
+**Searched for and not found:** any statement narrowing "Q4" to a month (third session running);
+any October submission-completion announcement; any FDA/Makary statement on a psilocybin decision
+date since spring.
+
+**Speculation, flagged.** The ~0.4 conditional for an October completion still rests on FDA
+compressing the filing step; the only hard evidence is Lipfendra's 24 days and a *proposed*
+14–21-day filing review in the CNPV hearing notice (seen only via search summary — the Federal
+Register page was bot-blocked, so not verified first-hand).
+
+### Other forecasters
+
+| Source | Value | As of | Note |
+|---|---|---|---|
+| Metaculus CP (recency-weighted) | **not retrievable 2026-10-12 (Cloudflare 403)** — stale: 11.0% IQR[9%, 15%] (n=245) | stale, 2026-09-18 | from `raw/metaculus-2026-09-18.json`; 759 forecasters total per bot API 2026-10-12 |
+| Metaculus Pro | not retrievable 2026-10-12 — stale: 12.0% (n=24) | stale, 2026-09-18 | |
+| Metaculus gold medalists | not retrievable 2026-10-12 — stale: 11.0% (n=80) | stale, 2026-09-18 | |
+| Manifold — [ACX 2026] mirror | **15.8%** | 2026-10-12 | $22.4k volume, 31 bettors, **last bet 2026-09-05**; dormant, discounted [8] |
+| Polymarket — "FDA approves a psychedelic for medical use in 2026?" | closed, resolved YES | 2026-10-12 | definitional artifact (counts DXM/ANDAs); no signal [9] |
+| Kalshi / Sentinel / GJOpen / INFER | no matching question | 2026-10-12 | Kalshi open events searched |
+
+I cannot check the cohorts today. Against the last known values I sit ~4–5 pp below; v2 predicted
+that gap would widen through October if the cohorts decayed linearly. Unverifiable this session —
+check at the next review.
+
+### Scenarios
+
+| # | Scenario | Weight | Implies |
+|---|---|---|---|
+| 1 | Completes in October; compressed filing step; no adcomm; ~50-day review; approval | 0.055 | **YES** |
+| 1b | Completes early November; very fast filing + review; approval | 0.012 | **YES** |
+| 2 | Completes in October but FDA takes the traditional 60-day acceptance → decision 2027 | 0.07 | NO |
+| 3 | Completes mid-November–December → decision 2027 | 0.52 | NO |
+| 4 | Slips into 2027 | 0.18 | NO |
+| 5 | Adcomm noticed for a Q1-2027 meeting | 0.15 | NO |
+| 6 | Filed and decided in 2026, but a CRL | 0.01 | NO |
+| 7 | Usona / other psilocybin route in 2026 | 0.003 | **YES** |
+
+### Sensitivity
+
+| Assumption | If instead | Forecast becomes |
+|---|---|---|
+| P(completion Oct 16–31) ≈ 0.10 | completion announced in the next week | **≈ 14%** |
+| same | nothing by 2026-10-31 | **≈ 3.5%** |
+| Compressed filing step | FDA takes the full 60 days | **≈ 1.5%** |
+| No adcomm | PDAC notice in October | **≈ 1%** |
+| P(approval \| decision) = 0.85 | 0.70 | **≈ 5.8%** |
+
+### What would change my mind (tripwires)
+
+- [ ] **By 2026-10-31:** Compass announces completion of the rolling NDA submission → **+7 pp (to ~14%)**.
+- [ ] **By 2026-10-31:** no completion announcement at all → **−3.5 pp (to ~3.5%)**.
+- [ ] **By 2026-11-30:** FDA filing acceptance with a stated 2026 goal date → **+25 pp**.
+- [ ] **By 2026-12-31:** PDAC meeting noticed for COMP360 → **to ~1%**.
+- [ ] **By 2026-11-15:** Q3 2026 results reiterate "Q4" with no completion → **−2 pp**; move completion into 2027 → **to ~0.5%**.
+- [ ] **By 2026-11-30:** FDA or Makary publicly names a 2026 decision date → **+10 pp**.
+- [ ] **By 2026-12-31:** CRL issued to COMP360 → **resolves NO**.
+
+### Sources
+
+1. Compass Pathways — "Compass Pathways Celebrates Opening of New U.S. Office in Jersey City, New Jersey" (2026-10-05) — https://ir.compasspathways.com/News--Events-/news/news-details/2026/Compass-Pathways-Celebrates-Opening-of-New-U-S--Office-in-Jersey-City-New-Jersey-2026-IF7TAw8tpv/default.aspx (accessed 2026-10-12); coverage: ROI-NJ, https://www.roi-nj.com/2026/10/06/healthcare/london-based-biotech-compass-pathways-marks-opening-of-u-s-office-in-jersey-city/ (accessed 2026-10-12)
+2. SEC EDGAR submissions API, COMPASS Pathways plc (CIK 0001816590) — https://data.sec.gov/submissions/CIK0001816590.json — latest 8-K 2026-08-05 (accessed 2026-10-12)
+3. MarketBeat via TradingView — "Compass Pathways Targets Q4 COMP360 NDA Completion, Eyes 2027 Launch" (TD Cowen 6th Annual Neuropsychiatry Summit, 2026-09-24) — https://www.tradingview.com/news/marketbeat:2cf7f6fc6094b:0-compass-pathways-targets-q4-comp360-nda-completion-eyes-2027-launch/ (accessed 2026-10-12)
+4. Federal Register API — documents mentioning "Psychopharmacologic Drugs Advisory Committee", and "psilocybin", published since 2026-08-01 — https://www.federalregister.gov/api/v1/documents.json (accessed 2026-10-12)
+5. FDA — Advisory Committee Calendar — https://www.fda.gov/advisory-committees/advisory-committee-calendar — no meetings listed, content current as of 2026-10-01 (accessed 2026-10-12)
+6. PRV Watch — CNPV Dashboard — https://prvwatch.com/cnpv-dashboard — third-party tracker (accessed 2026-10-12)
+7. Search summary of Usona coverage (Managed Healthcare Executive, 2026-04-24) — https://www.managedhealthcareexecutive.com/view/fda-grants-priority-vouchers-to-3-psychedelic-medications (accessed 2026-10-12)
+8. Manifold Markets API — https://api.manifold.markets/v0/market/tCgO9uL0ql ; snapshot `raw/markets-2026-10-12.json` (accessed 2026-10-12)
+9. Polymarket gamma API — https://gamma-api.polymarket.com/events?slug=fda-approves-a-psychedelic-for-medical-use-in-2026 ; snapshot `raw/markets-2026-10-12.json` (accessed 2026-10-12)
+10. Metaculus #41172, bot-key API (status, 759 forecasters, criteria; no aggregations) — `raw/metaculus-api-2026-10-12.json`; cohort values stale from `raw/metaculus-2026-09-18.json` (accessed 2026-10-12)
+11. Federal Register — CNPV Pilot Program; Public Hearing; Request for Comments (2026-03-23) — https://www.federalregister.gov/documents/2026/03/23/2026-05573/commissioners-national-priority-voucher-cnpv-pilot-program-public-hearing-request-for-comments — proposed 14–21-day filing review, per search summary only; page bot-blocked (accessed 2026-10-12)
+
+**Question**: [Will the FDA approve a psilocybin treatment during 2026?](https://www.metaculus.com/questions/41172/will-the-fda-approve-a-psilocybin-treatment-during-2026/)
+**Date**: 2026-10-12
+**Forecast**: Median 7.0%, IQR [5.0%, 10.0%]
+**Thesis**: No tripwire fired, and the silence is the update: twelve days of October have passed with Compass still describing the COMP360 NDA as a rolling submission (2026-10-05 release, no 8-K since August) [1][2], which removes most of the early-October branch that carried a third of v2's probability. At the 2026-09-24 TD Cowen summit management again said only "Q4" and stressed FDA "could take up to 60 days to accept" the filing [3]; continued adcomm silence and a fast CNPV track record (24-day Lipfendra review) offset only slightly [4][6]. Net −2.5 pp to 7.0%; Metaculus cohorts unretrievable today (Cloudflare 403), last seen at 11–12% on 2026-09-18.
+
 
 ---
 

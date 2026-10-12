@@ -57,3 +57,35 @@ Argentina $20B line is still open (only $2.5B drawn, then repaid). SDRs are ~$17
   Bank annual meetings in October 2026, where he may meet Treasury again.
 - Status of the Argentina ESF line (capacity).
 - Whether Pakistan announces DFC refinery financing or EXIM Boeing deals instead (the substitute path).
+
+---
+
+## Update 2026-10-12 (v2)
+
+### Search log
+
+| Date | Query / source | Finding | Effect on forecast |
+|---|---|---|---|
+| 2026-10-12 | Metaculus bot-key API (parent-fetched) | open since 06 Oct; n=69; criteria/fine print identical to 05 Oct; CP/Pro/gold hidden (bot key) and browser path 403 | — |
+| 2026-10-12 | "Pakistan US exchange stabilisation facility October 2026" (web + Pakistani outlets) | nothing newer than 17 Sep "within two months" | ↓ hazard decay |
+| 2026-10-12 | Bessent comment on Pakistan swap | none since 22 Jul readout; Treasury "declined to comment" | ↓ slight |
+| 2026-10-12 | APP 08 Oct: IMF SLA 4th EFF review | ~.2B; gross reserves ~1.5B end-Sep; rating upgrades, market access | ↓ (less need) |
+| 2026-10-12 | EXIM framework (Digital Pakistan 25 Jul; ProPakistani 24 Sep) | UNGA signing target slipped; talks on PIA/refinery/Reko Diq continue | → |
+| 2026-10-12 | Argentina ESF line status | no termination reported; Warren letter Feb 2026 only | → |
+| 2026-10-12 | White House visit Shehbaz/Munir Oct 2026 | none announced | → |
+| 2026-10-12 | IMF/WB Annual Meetings 2026 | Bangkok, 12-18 Oct; possible Treasury meeting | new tripwire |
+| 2026-10-12 | Manifold API, Polymarket gamma search, Kalshi open events | no matching market (raw/markets-search-2026-10-12.json) | — |
+
+### Dead ends
+- The aaj.tv "staff-level agreement" hit is from Mar 2026 (3rd review), not October. The October SLA comes from APP (08 Oct).
+- No October 2026 Pakistani or US article on the ESF request at all.
+
+### Open questions to chase next time
+- Metaculus CP / Pro / gold, if the browser path works again.
+- Bangkok Annual Meetings readouts (Treasury and Pakistan MoF), 12-18 Oct.
+- The ~17 Nov "two months" deadline.
+
+
+### Addendum 2026-10-12 (sources added to the v2 block)
+- Treasury ESF statement, 31 Aug 2026: $24.9B Treasury securities, $4.9B FX, $218.8B total (mostly SDR). BCRA $20B ESA still in force with no drawings; Mexico $9B ESA. Confirms the Argentina tripwire has not fired. → no change.
+- SBP reserves $21.45B in the week to 2 Oct (total liquid $26.8B). Dawn 18 Sep and Tribune 20 Aug re-read for timeline and "not a loan" framing. CRS IF13200 re-read for the six-month rule. → no change.

@@ -1,0 +1,28 @@
+{
+  "retrieved": "2026-10-12",
+  "manifold": {
+    "id": "tCgO9uL0ql",
+    "question": "[ACX 2026] Will the FDA approve a psilocybin treatment during 2026?",
+    "url": "https://manifold.markets/DaftPunkRock/acx-2026-will-the-fda-approve-a-psi",
+    "probability": 0.15827267721728,
+    "volume": 22406.93037483859,
+    "totalLiquidity": 5100,
+    "lastBetTime": 1788638017378,
+    "isResolved": false,
+    "uniqueBettorCount": 31,
+    "lastBetTime_iso": "2026-09-05T19:53:37.378000"
+  },
+  "polymarket": {
+    "slug": "fda-approves-a-psychedelic-for-medical-use-in-2026",
+    "closed": true,
+    "markets": [
+      {
+        "question": "FDA approves a psychedelic for medical use in 2026?",
+        "outcomePrices": "[\"1\", \"0\"]",
+        "closed": true,
+        "umaResolutionStatus": "resolved",
+        "volume": "46130.429729999996"
+      }
+    ]
+  }
+}

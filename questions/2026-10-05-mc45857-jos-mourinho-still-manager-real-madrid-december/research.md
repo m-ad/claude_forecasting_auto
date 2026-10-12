@@ -57,3 +57,27 @@ NO = P(crisis) 0.30 × P(act before Dec 31 | crisis) 0.35 + other exits 0.02 + n
 - Metaculus CP / Pro / gold after reveal (2026-10-10).
 - Results vs Villarreal (~Oct 10), Roma (Oct 14), Clásico (Oct 25). Gap to the leader after MD10.
 - Any Spanish press (Marca, AS, El País, The Athletic) on Pérez's patience or on candidates being sounded out.
+
+---
+
+## 2026-10-12 — v2 update
+
+Metaculus: browser path Cloudflare-blocked (403); bot-key API only (`raw/metaculus-api-2026-10-12.json`):
+status open, n=70, criteria unchanged, fine print empty, aggregations hidden. No CP/Pro/gold today.
+
+| Date | Query / source | Finding | Effect on forecast |
+|---|---|---|---|
+| 2026-10-12 | Wikipedia 2026–27 RM season; ESPN report | W 1–0 Villarreal 10 Oct (Diomande 62'); Vinícius red 72'; 18 pts | → |
+| 2026-10-12 | laliga.com standings | MD8: Barça 24, Atleti 19, Betis 19, RM 18; gap still 6 | → |
+| 2026-10-12 | Mundiario 8 Oct | dressing-room order "not yet imposed"; Tchouaméni–Valverde feud patched | small ↓ |
+| 2026-10-12 | beIN 9 Oct; Yahoo/Marca | Mourinho backs Vinícius publicly; Marca says patience with Vini near limit | small ↓ |
+| 2026-10-12 | EN/ES searches "Pérez patience/destitución/sustituto Mourinho" | nothing on board weighing dismissal | ↑ (absence) |
+| 2026-10-12 | Manifold API search | Prop bets: "Mourinho sacked before end of season" 24% (15 traders, M$844) | consistent; discounted |
+| 2026-10-12 | Polymarket gamma public-search "Mourinho" | only closed markets | none |
+| 2026-10-12 | Kalshi events API | no matching market | none |
+| 2026-10-12 | sack-race odds search | only 2018–19 PL pages | none |
+
+Dead ends: a laopinion.com "Mourinho ordena silencio" result is from March 2012, not relevant.
+
+Next time: Metaculus CP/Pro/gold if the browser path works; results vs Roma, Sevilla, Leipzig and
+Barcelona (25 Oct); Vinícius suspension length; any Pérez statement.

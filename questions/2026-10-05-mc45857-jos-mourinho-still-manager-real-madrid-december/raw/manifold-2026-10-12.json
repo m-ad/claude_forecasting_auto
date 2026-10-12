@@ -1,0 +1,51 @@
+{
+ "retrieved": "2026-10-12",
+ "source": "Manifold API /v0/slug/real-madrid-2627-season-prop-bets",
+ "url": "https://manifold.markets/Bernard/real-madrid-2627-season-prop-bets",
+ "outcomeType": "MULTIPLE_CHOICE",
+ "volume": 844.3325459321761,
+ "uniqueBettorCount": 15,
+ "answers": [
+  {
+   "text": "Jose Mourinho is sacked before end of season",
+   "probability": 0.24008862643047543
+  },
+  {
+   "text": "Madrid wins UCL",
+   "probability": 0.12
+  },
+  {
+   "text": "Madrid wins LaLiga",
+   "probability": 0.17999999999999997
+  },
+  {
+   "text": "Madrid wins Copa del Rey",
+   "probability": 0.25999999999999995
+  },
+  {
+   "text": "Madrid wins Supercopa",
+   "probability": 0.4046759358967173
+  },
+  {
+   "text": "Madrid leads LaLiga at any point",
+   "probability": 1
+  },
+  {
+   "text": "Madrid wins 1+ El Clasico",
+   "probability": 0.29418045328767917
+  },
+  {
+   "text": "Jose Mourinho gets sent off",
+   "probability": 0.8178554365697708
+  },
+  {
+   "text": "Jose Mourinho falls out with a player",
+   "probability": 0.7381782126244877
+  },
+  {
+   "text": "Jose Mourinho blames a ref or VAR for losing",
+   "probability": 0.8512150871927437
+  }
+ ],
+ "polymarket_search_mourinho": "only closed markets (Next Real Madrid manager? resolved; volume ~573k); no open Mourinho-exit market"
+}

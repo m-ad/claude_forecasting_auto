@@ -320,3 +320,52 @@ the CP's own trajectory, and worth checking at the next review.
 4. Q3 2026 earnings call date and content (~mid-November).
 5. Whether any published CNPV case ever documents the submission-completion → "filing" gap.
    That single number carries ~7 of the 9.5 points and is currently pure mechanism-reasoning.
+
+---
+
+# v3 working log — 2026-10-12
+
+## Tooling note
+
+Metaculus browser path Cloudflare-blocked today (parent session: aggregations script and scraper
+both 403 after full backoff). Only the bot-key API snapshot exists (`raw/metaculus-api-2026-10-12.json`):
+status open, 759 forecasters, criteria + fine print byte-identical to 2026-09-18. **No CP / Pro /
+gold today** — header and ledger carry nulls; stale 2026-09-18 values cited as such.
+Federal Register article pages redirect to a bot-unblock page; the JSON API works (`curl -g`).
+
+## Searches run
+
+- "Compass Pathways COMP360 NDA submission complete October 2026" → nothing; latest is
+  2026-09-24 TD Cowen Neuropsychiatry Summit (MarketBeat/TradingView): "Q4"; "FDA could take up
+  to 60 days to accept the completed filing"; 30–60-day goal "a target, not a commitment";
+  CCO "launch-ready by the end of the year". Also a Stifel note "remains on-track … 4Q" (StreetInsider, undated, not read).
+- "Compass Pathways" October 2026 → 2026-10-01 inducement grants; 2026-10-05 Jersey City office
+  release (fetched): NDA still "rolling submission", launch "potential … first half of 2027".
+- SEC EDGAR submissions JSON: last 8-K 2026-08-05 (Q2 results). No 8-K for completion.
+- Federal Register API since 2026-08-01: "Psychopharmacologic Drugs Advisory Committee" → 6 hits,
+  all other committees' renewals / nominations; "psilocybin" → 8 hits, all DEA registrations /
+  scheduling of other tryptamines. No PDAC meeting.
+- FDA adcomm calendar → empty table, current as of 2026-10-01.
+- FDA/Makary psilocybin decision October 2026 → nothing new since spring.
+- CNPV approvals timing → PRV Watch dashboard: 11 approvals; Lipfendra 24 days from complete
+  submission (2026-07-15); Rasonque 2026-08-26; one CRL (bitopertin). Psilocybin-TRD voucher
+  "Redeemed — rolling submission to be completed by Q4 2026"; psilocybin-MDD (Usona) "Unused".
+- CNPV public-hearing notice (FR 2026-03-23) reportedly proposes 14–21-day filing review —
+  seen via search summary only, page blocked. Flagged unverified.
+- Usona NDA 2026 → no filing; one tracker guesses Q4 2026 submission (low quality). Residual unchanged.
+- Q3 2026 results date → not announced; 2025 pattern was 2025-11-04 (announced 10-28).
+- Markets: Manifold ACX mirror 15.8%, 31 bettors, last bet 2026-09-05 (dormant). Polymarket
+  psychedelic market closed/resolved YES (artifact). Kalshi open events: no psilocybin/psychedelic
+  market. Snapshot `raw/markets-2026-10-12.json`.
+
+## Result
+
+7.0%, IQR [5.0%, 10.0%] (from 9.5%). Driver: elapsed early-October window without completion.
+De-novo cross-check gives 6.9%.
+
+## Open questions for next review (2026-11-01)
+
+1. Did completion get announced in late October? (Single biggest swing.)
+2. Q3 results date/content.
+3. Re-fetch Metaculus cohorts to test v2's "gap widens through October" prediction.
+4. Verify the CNPV 14–21-day filing-review proposal first-hand (archive.is on the FR page).
