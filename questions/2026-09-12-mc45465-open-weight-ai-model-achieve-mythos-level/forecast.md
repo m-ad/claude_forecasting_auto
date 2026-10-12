@@ -6,11 +6,198 @@
 | **Type** | binary |
 | **Opened / Closes / Resolves** | ~2026-09-04 / 2027-06-30 22:00 UTC / on or shortly after **2027-07-01** |
 | **Status** | open |
-| **Current forecast** | **Median 92.0%, IQR [87.0%, 95.0%]** (v1, 2026-09-12) |
-| **Community (as of 2026-09-12)** | CP 91.0% (n=25 in aggregation, 31 forecasters) · Pro 82.0% (n=5) · Gold 92.0% (n=12) |
-| **Next review** | 2026-10-12 |
+| **Current forecast** | **Median 97.0%, IQR [94.0%, 98.5%]** (v2, 2026-10-12) |
+| **Community (as of 2026-10-12)** | CP / Pro / Gold not retrievable (Cloudflare 403); 43 forecasters. Last cached 2026-09-12: CP 91.0% · Pro 82.0% · Gold 92.0% |
+| **Next review** | 2026-10-26 |
 
 <!-- Versions below, newest first. APPEND-ONLY: never edit or delete a past version. -->
+
+---
+
+## v2 — Update — 2026-10-12
+
+### Revision
+
+| Driver | Direction | Effect |
+|---|---|---|
+| Prior (v1, 2026-09-12) | — | Median 92.0%, IQR [87.0%, 95.0%] |
+| **Tripwire 1 fired**: benchlm's ExploitGym page (updated 2026-10-10) lists **MiMo-V2.6-Pro (Xiaomi, MIT open weights, ~2026-09-21) at 17.8%**, above Mythos Preview's 17.5% [22][23][24] | ↑ | +7 pp (the tripwire's pre-registered size → ~99%) |
+| The crossing is the **narrow, self-reported** kind from v1 scenario 2: a 0.3 pp margin (≈ 3 tasks of 898), sourced to Xiaomi's own report with no stated budget/harness, on a benchmark whose answer key leaked in July [19][25]; Metaculus has not resolved as of 2026-10-12 [1] | ↓ | −3 pp |
+| Xiaomi's harness is not obviously generous: it scores GPT-5.6 Sol 30.3 vs benchlm's 33.7 [24][25], so the 17.8% is unlikely to be a harness artefact | ↑ | +0.5 pp |
+| **Correction to v1's "Route C is a cliff"**: Anthropic's matched run puts open-weight GLM-5.3 at 50/410 vs Mythos Preview 56/410 end-to-end on ExploitBench [26] — a second route is now near-parity, not out of reach | ↑ | +1 pp |
+| Policy pressure rising: Anthropic (2026-09-29) and NIST CAISI (2026-09-17) call for government testing of GLM-5.3 successors; abliteration of GLM-5.3 confirmed 2026-10-09 [26][27][28] — no formal measure yet | ↓ | −0.5 pp |
+| DeepSeek V4.1 Pro still undated; ~1 month of the window gone | → | none (Route A no longer depends on it) |
+| **New forecast** | | **Median 97.0%, IQR [94.0%, 98.5%]** |
+
+### Tripwire check
+
+| Tripwire from v1 | Fired? | Note |
+|---|---|---|
+| Any open-weight model ≥ 17.5% on benchlm ExploitGym by 2027-05-31 (↑7) | **Fired** (2026-10-10 page update) | MiMo-V2.6-Pro 17.8%, open/MIT; self-reported by Xiaomi; narrow [22][23][24] |
+| DeepSeek V4.1 Pro released open and < 17.5% by 2027-01-31 (↓6) | Not fired | still announced-but-undated [29] |
+| No new open-weight row on benchlm ExploitGym by 2027-01-31 (↓8) | Not fired — **retired** | two new open rows (MiMo-V2.6-Pro, -Flash) since 2026-09-10 [22] |
+| UK AISI reports an open-weight model ≥ 68.6% expert CTF by 2027-03-31 (↑4) | Not fired | no new AISI open-weight publication found since 2026-07-17 [2] |
+| Z.ai / DeepSeek / Alibaba / Moonshot withholds next flagship on cyber grounds by 2027-01-31 (↓6) | Not fired | Xiaomi shipped full MIT weights *and* its RL stack [23] |
+| Formal US/EU/PRC cyber threshold on open-weight releases by 2027-03-31 (↓8) | Not fired | only calls for testing (Anthropic, CAISI) [26][27] |
+
+### What resolves YES
+
+Unchanged from v1. Re-checked against the bot-key API snapshot of 2026-10-12
+(`raw/metaculus-api-2026-10-12.json`): resolution criteria and fine print are word-for-word
+identical to 2026-09-12. The post shows `edited_at` 2026-10-12 01:01 UTC but status `open`,
+resolution `null`; 43 forecasters (31 on 2026-09-12). The relevant fine-print clauses now carry
+the weight: "matches **any published scores** by Mythos or Mythos Preview", and "the benchmark
+itself need not characterize a model as open weight". Neither clause requires the score to be
+independently run, which is what makes a self-reported row on the named benchlm page a
+plausible YES trigger.
+
+### Outside view
+
+Unchanged from v1 (4–7-month measured open/closed cyber lag vs a 14.8-month window). The lag
+estimate has now been confirmed in the field: Mythos Preview was announced 2026-04-07 and the
+first open-weight row above it appeared ~5.5 months later — inside the predicted band. NIST
+CAISI independently put GLM-5.3 at ~4 months behind the US frontier [27].
+
+### Inside view
+
+**Route A — ExploitGym: crossed on paper.** BenchLM, updated 2026-10-10 [22]:
+
+| Model | Score | Weights |
+|---|---|---|
+| GPT-6 Astra | 42.4% | closed |
+| GPT-6.1 Sol | 35.1% | closed |
+| GPT-5.6 Sol | 33.7% | closed |
+| GPT-5.6 Terra | 23.2% | closed |
+| GPT-6 Sol | 22.1% | closed |
+| **MiMo-V2.6-Pro (Xiaomi)** | **17.8%** | **open (MIT)** |
+| **Claude Mythos Preview** | **17.5%** | closed — the bar |
+| DeepSeek V4.1 Flash | 15.3% | open |
+| GLM-5.3 | 15.0% | open |
+
+MiMo-V2.6-Pro is a 1.02T-total / 42B-active mixture-of-experts model; weights at
+`XiaomiMiMo/MiMo-V2.6-Pro-RL` on Hugging Face under MIT, released ~2026-09-21 [23]. benchlm
+lists it as "Open Weight" and cites Xiaomi's technical report as the source [24]; that report
+(arXiv 2610.11959, Table 3) gives ExploitGym 17.8 without a harness, budget or solve count
+[25]. So the question is no longer whether capability crosses, but **whether Metaculus
+credits this row**.
+
+Reasons a resolver could hesitate: (a) self-reported, not run by benchlm or the ExploitGym
+authors; (b) margin 0.3 pp ≈ 3 tasks, inside run-to-run noise; (c) the answer key leaked in
+July 2026 [19]; (d) the "-RL" repo name leaves a small doubt whether the released checkpoint is
+exactly the one scored (secondary sources treat them as the same model [30]). Reasons it
+probably will: the fine print explicitly makes methodology immaterial and counts any published
+Mythos score; the resolution link *is* the benchlm page; and Mythos Preview's own 17.5% is not
+from a budget-matched run either (v1). Xiaomi's harness scores GPT-5.6 Sol *lower* than benchlm
+does (30.3 vs 33.7), which argues against inflation.
+
+**Route C — ExploitBench: v1 was wrong to call it a cliff.** On exploitbench.ai's own board
+the open models still sit far down (Xiaomi self-reports MiMo-V2.6-Pro at 47.9 there vs Mythos
+Preview 72–78%) [3][25], but Anthropic's 2026-09-29 report ran GLM-5.3 and Mythos Preview on
+ExploitBench end-to-end under matched conditions: **50/410 vs 56/410** (~12% vs ~14%) [26]. That
+is a "methodologically similar comparison to Mythos" by a credible source, 6 exploits short. It
+does not qualify today, but the next GLM/DeepSeek/MiMo flagship plausibly closes it.
+
+**Route B — AISI**: unchanged from v1; nothing new published.
+
+Decomposition:
+
+| Path | Probability |
+|---|---|
+| Metaculus credits the MiMo-V2.6-Pro row (now or at close) | 0.80 |
+| Not credited, but a later open-weight model clears ExploitGym or ExploitBench clearly before 2027-07-01 | 0.20 × 0.85 = 0.17 |
+| **P(YES)** | **≈ 0.97** |
+
+The 0.85 conditional reflects 8.5 remaining months, ~1 new open row per month on benchlm since
+September, and the residual policy-clampdown / stall risk.
+
+### Evidence
+
+Likelihood ratios relative to the v1 prior (odds 11.5:1):
+
+| Evidence | Dir. | LR |
+|---|---|---|
+| Open-weight row above the bar on the named leaderboard [22][24] | ↑ | ~4 |
+| Self-reported, 0.3 pp margin, leaked answer key, not yet resolved [19][25][1] | ↓ | ~0.6 |
+| ExploitBench matched near-parity (50 vs 56 of 410) [26] | ↑ | ~1.2 |
+| Calls for government testing of successors; abliteration confirmed [26][27][28] | ↓ | ~0.9 |
+
+Net LR ≈ 2.6 → odds ≈ 30:1 → ~96.8%.
+
+**Disconfirming evidence searched for:** an independent ExploitGym run of MiMo-V2.6-Pro below
+17.5% (none found); a benchlm note flagging the row as unverified (none on the page); any
+Metaculus statement rejecting the row (not visible — comments not retrievable today); any
+formal regulatory measure (none found). **Absent:** no Metaculus resolution despite ~3 weeks
+since the tech report and 2 days since the benchlm row — mild evidence that admins are either
+not yet aware or not satisfied; this is the main reason I stay below 99%.
+
+### Other forecasters
+
+| Source | Value | As of | Note |
+|---|---|---|---|
+| Metaculus CP (recency-weighted) | **not retrievable 2026-10-12 (Cloudflare 403)** | 2026-10-12 | last cached: 91.0% IQR [82.0%, 92.0%] (n=25) on 2026-09-12 — **stale** |
+| Metaculus Pro | not retrievable 2026-10-12 (Cloudflare 403) | 2026-10-12 | last cached: 82.0% (n=5) on 2026-09-12 — **stale** |
+| Metaculus gold medalists | not retrievable 2026-10-12 (Cloudflare 403) | 2026-10-12 | last cached: 92.0% (n=12) on 2026-09-12 — **stale** |
+| Metaculus forecaster count | 43 | 2026-10-12 | bot-key API; was 31 |
+| Kalshi / Polymarket | — | 2026-10-12 | no matching contract found |
+| Manifold "Mythos-tier-at-cybersecurity open-source model before end of 2027?" | 75%, 12 holders, Ṁ884 | 2026-10-12 | harder bar (real-world exploits + near Mythos 5 on both benchmarks); play money, thin — discounted [31] |
+| Manifold (S. Casper) "comparable system available by EOY 2026" | ~90% | 2026-10-12 | search snippet only; includes API access, not open-weight-specific [32] |
+| NIST CAISI | GLM-5.3 ~4 months behind US frontier on cyber aggregate | 2026-09-17 | [27] |
+| Anthropic | GLM-5.3 "similar rate" to Mythos Preview on ExploitBench | 2026-09-29 | competitor-run, matched conditions [26] |
+
+No cohort comparison possible today. My 97% sits above the stale CP (91%) and well above the
+stale Pro number (82%); the gap is explained by a fact that post-dates those numbers (the
+2026-10-10 benchlm row), not by a disagreement about the same evidence.
+
+### Scenarios
+
+| # | Scenario | Weight | Implies |
+|---|---|---|---|
+| 1 | Metaculus credits the MiMo-V2.6-Pro row (now or at close) | 0.80 | YES |
+| 2 | Row not credited; a clearer open-weight crossing (DeepSeek V4.1 Pro, GLM-6, Kimi, Qwen, MiMo-V2.7) on ExploitGym or ExploitBench follows before close | 0.17 | YES |
+| 3 | Admins reject self-reported rows, and no independently run open-weight score clears any bar by 2027-06-30 | 0.02 | NO |
+| 4 | Regulatory or coordinated clampdown before a credited crossing, and the MiMo row not credited | 0.01 | NO |
+
+Weighted YES = 0.80 + 0.17 = **0.97**, matching the chain decomposition above (the scenarios
+are the same split, with the 0.03 NO mass assigned to its two causes).
+
+### Sensitivity
+
+| Assumption | If instead | Forecast becomes |
+|---|---|---|
+| Metaculus treats a self-reported benchlm row as qualifying | Requires independent / budget-matched run | ~88% |
+| New open-weight flagships keep arriving monthly | Pause of 6+ months | ~93% |
+| No formal open-weight cyber measure before a credited crossing | US/PRC measure in Q4 2026 | ~90% |
+
+### What would change my mind (tripwires)
+
+- [ ] **Metaculus resolves question 45465 YES before 2026-11-30** → up to ~100% (resolve the slug)
+- [ ] **An independent ExploitGym run (benchlm-verified, ExploitGym authors, AISI, CAISI) of MiMo-V2.6-Pro reporting < 17.5%, published before 2027-01-31** → down, 5 pp
+- [ ] **A Metaculus admin comment stating the MiMo-V2.6-Pro row does not count, before 2026-12-31** → down, 6 pp
+- [ ] **Any open-weight model ≥ 19.0% on benchlm ExploitGym, or ≥ 56/410 on ExploitBench in a matched Mythos comparison, before 2027-05-31** → up, 2 pp (clear-margin crossing)
+- [ ] **No Metaculus resolution and no new open-weight ExploitGym row ≥ 17.5% by 2027-03-31** → down, 6 pp
+- [ ] **A formal US, EU or PRC measure imposing a cyber-capability threshold on open-weight releases before 2027-03-31** → down, 5 pp
+
+### Sources
+
+Sources 1–21 as in v1. Accessed 2026-10-12 unless noted; [1] re-read via the bot-key API
+(`raw/metaculus-api-2026-10-12.json`), aggregations not retrievable (Cloudflare 403).
+
+22. BenchLM, ExploitGym leaderboard, page updated 2026-10-10 — https://benchlm.ai/benchmarks/exploitgym (accessed 2026-10-12; snapshot `raw/benchlm-exploitgym-2026-10-12.json`)
+23. Xiaomi, MiMo-V2.6-Pro-RL model card (MIT) — https://huggingface.co/XiaomiMiMo/MiMo-V2.6-Pro-RL (accessed 2026-10-12); release coverage: https://pandaily.com/xiaomi-mimo-v2-6-pro-flash-open-weights-rl-environments , https://www.timesofai.com/news/xiaomi-mimo-v2-6-pro-open-weights/ (accessed 2026-10-12)
+24. BenchLM, MiMo-V2.6-Pro model page ("Open Weight"; ExploitGym 17.8% sourced to Xiaomi technical report) — https://benchlm.ai/models/mimo-v2-6-pro (accessed 2026-10-12)
+25. Xiaomi MiMo team, "MiMo-V2.6: Scaling Reinforcement Learning Towards Self-Improvement", arXiv 2610.11959, Table 3 — https://arxiv.org/html/2610.11959v1 (accessed 2026-10-12)
+26. Anthropic, "GLM-5.3 and the spread of advanced cyber capabilities", 2026-09-29 — https://www.anthropic.com/research/glm-5-3-and-the-spread-of-advanced-cyber-capabilities (accessed 2026-10-12); coverage: https://the-decoder.com/anthropic-says-zhipus-open-weight-glm-5-3-nearly-matches-claude-mythos-preview-at-building-exploits/ (accessed 2026-10-12)
+27. NIST CAISI assessment of GLM-5.3, 2026-09-17, as reported in [26] and https://www.bankinfosecurity.com/chinese-open-weight-models-closing-in-anthropic-warns-a-33009 (accessed 2026-10-12)
+28. TechTimes, "Abliteration Method Permanently Strips GLM-5.3 AI Guardrails: Three Institutions Confirm", 2026-10-09 — https://www.techtimes.com/articles/328823/20261009/abliteration-method-permanently-strips-glm-53-ai-guardrails-three-institutions-confirm.htm (accessed 2026-10-12)
+29. Yotta Labs, "DeepSeek V4.1 Pro: Release Date, What's Confirmed" — https://www.yottalabs.ai/post/deepseek-v4-1-pro-release-date-what-is-known-how-to-prepare-2026 (accessed 2026-10-12)
+30. MindStudio, "MiMo-V2.6-Pro-RL: Xiaomi's 1T-Parameter Agentic Model, Explained", 2026-09-25 — https://www.mindstudio.ai/blog/mimo-v2-6-pro-rl-release (accessed 2026-10-12)
+31. Manifold, "Will a Mythos-tier-at-cybersecurity open-source model be released before end of 2027?" — https://manifold.markets/Interrobang/will-a-mythostieratcybersecurity-op (accessed 2026-10-12; snapshot `raw/manifold-2026-10-12.json`)
+32. Manifold, Stephen Casper EOY2026 cyber-capability market — https://manifold.markets/event/stephen-casper-by-eoy2026-a-system (accessed 2026-10-12; search snippet only)
+
+**Question**: [Will an open weight AI model achieve Mythos-level cyber capabilities before July 2027?](https://www.metaculus.com/questions/45465/will-an-open-weight-ai-model-achieve-mythos-level-cyber-capabilities-before-july-2027/)
+**Date**: 2026-10-12
+**Forecast**: Median 97.0%, IQR [94.0%, 98.5%]
+**Thesis**: The v1 headline tripwire fired: benchlm's ExploitGym page, the resolution source, now lists open-weight (MIT) MiMo-V2.6-Pro at 17.8%, above Mythos Preview's 17.5% [22][24], and Anthropic's matched run puts GLM-5.3 at 50 vs Mythos's 56 of 410 on ExploitBench [26], so a second route is close too. I stop short of 99% because the crossing is narrow (0.3 pp), self-reported by Xiaomi [25], on a benchmark whose answer key leaked, and Metaculus had not resolved as of 2026-10-12.
 
 ---
 

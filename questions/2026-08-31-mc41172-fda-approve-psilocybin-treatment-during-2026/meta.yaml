@@ -18,36 +18,30 @@ dates:
   resolves: '2026-12-31'
 status: open
 current:
-  version: 2
-  date: '2026-09-18'
-  median: 0.095
+  version: 3
+  date: '2026-10-12'
+  median: 0.07
   iqr:
-  - 0.07
-  - 0.13
+  - 0.05
+  - 0.1
   community:
-    cp: 0.11
-    pro: 0.12
-    gold: 0.11
-    n_forecasters: 245
-    as_of: '2026-09-18'
-next_review: '2026-10-12'
+    cp: null
+    pro: null
+    gold: null
+    n_forecasters: 759
+    as_of: '2026-10-12'
+next_review: '2026-11-01'
 tripwires:
-- signal: Compass announces completion of the COMP360 rolling NDA submission in the first half of October
-  by: '2026-10-15'
-  direction: up
-  magnitude: 14
-  magnitude_unit: pp
-  fired: null
-- signal: Compass announces completion of the COMP360 rolling NDA submission in the second half of October
+- signal: Compass announces completion of the COMP360 rolling NDA submission by 2026-10-31 (to ~14%)
   by: '2026-10-31'
   direction: up
   magnitude: 7
   magnitude_unit: pp
   fired: null
-- signal: No rolling-NDA completion announcement at all by 2026-10-31
+- signal: No rolling-NDA completion announcement at all by 2026-10-31 (to ~3.5%)
   by: '2026-10-31'
   direction: down
-  magnitude: 5
+  magnitude: 3.5
   magnitude_unit: pp
   fired: null
 - signal: FDA filing acceptance confirmed with a stated 2026 goal/PDUFA date for COMP360 — highest-leverage
@@ -58,22 +52,22 @@ tripwires:
   magnitude_unit: pp
   fired: null
 - signal: Psychopharmacologic Drugs Advisory Committee meeting noticed for COMP360 (Federal Register /
-    FDA adcomm calendar); a notice before 2026-10-31 carries the full move to ~1.5%
+    FDA adcomm calendar) — moves forecast to ~1%
   by: '2026-12-31'
   direction: down
-  magnitude: 8
+  magnitude: 6
   magnitude_unit: pp
   fired: null
-- signal: Q3 2026 earnings call reiterates Q4 filing without naming a date
+- signal: Q3 2026 results reiterate Q4 NDA completion without having completed it
   by: '2026-11-15'
   direction: down
-  magnitude: 4
+  magnitude: 2
   magnitude_unit: pp
   fired: null
-- signal: Q3 2026 earnings call shifts NDA-completion guidance into 2027
+- signal: Q3 2026 results shift NDA-completion guidance into 2027 (to ~0.5%)
   by: '2026-11-15'
   direction: down
-  magnitude: 8
+  magnitude: 6.5
   magnitude_unit: pp
   fired: null
 - signal: FDA or Commissioner Makary publicly names a 2026 decision date for psilocybin
@@ -85,7 +79,7 @@ tripwires:
 - signal: Complete Response Letter issued to COMP360 — resolves NO
   by: '2026-12-31'
   direction: down
-  magnitude: 9
+  magnitude: 7
   magnitude_unit: pp
   fired: null
 resolution:

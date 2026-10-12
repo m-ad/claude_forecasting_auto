@@ -4,7 +4,9 @@
 **Operator-invoked only.** This script posts to a live tournament under the bot
 account behind ``METACULUS_API_KEY``. Run it only when the operator explicitly
 asks for a submission; no other workflow (``/forecast``, ``/update``,
-``/resolve``, ``/status --act``) calls it. It never writes to the repository:
+``/resolve``, ``/status --act``) calls it. CI calls it after a pull request is
+merged into ``main`` (``.github/workflows/submit-metaculus.yml``): the merge is
+the operator's approval. It never writes to the repository:
 the ledger, ``meta.yaml`` and ``forecast.md`` stay untouched.
 
 What gets submitted is the latest ``forecast`` record in the ledger for each

@@ -1,0 +1,24 @@
+{
+ "retrieved": "2026-10-12",
+ "searches": [
+  {
+   "venue": "Manifold",
+   "query": [
+    "Pakistan swap",
+    "Pakistan stabilization"
+   ],
+   "matching_market": null
+  },
+  {
+   "venue": "Polymarket",
+   "query": "Pakistan (gamma public-search)",
+   "matching_market": null,
+   "note": "only military/political Pakistan markets"
+  },
+  {
+   "venue": "Kalshi",
+   "query": "open events containing 'Pakistan' (first page)",
+   "matching_market": null
+  }
+ ]
+}

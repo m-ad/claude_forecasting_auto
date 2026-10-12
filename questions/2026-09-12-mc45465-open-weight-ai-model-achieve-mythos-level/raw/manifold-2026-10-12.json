@@ -1,0 +1,7 @@
+{
+  "retrieved": "2026-10-12",
+  "markets": [
+    {"url": "https://manifold.markets/Interrobang/will-a-mythostieratcybersecurity-op", "title": "Will a Mythos-tier-at-cybersecurity open-source model be released before end of 2027?", "prob": 0.75, "holders": 12, "trades": 26, "volume_mana": 884, "note": "harder bar: real-world exploitation + close to Mythos 5 on ExploitBench and ExploitGym"},
+    {"url": "https://manifold.markets/event/stephen-casper-by-eoy2026-a-system", "title": "Stephen Casper: by EOY2026 a system with comparable cyber capabilities to Mythos publicly/commercially available", "prob": 0.90, "note": "search-snippet value, not verified on page; includes API availability, so not open-weight specific"}
+  ]
+}

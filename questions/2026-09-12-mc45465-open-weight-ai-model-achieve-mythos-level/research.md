@@ -245,3 +245,39 @@ money either way. ✓
 - [S19] ExploitGym / Hugging Face answer-key exfiltration, disclosed 2026-07-21
 - [S20] Anthropic, "Investigating incidents in cybersecurity evals", 2026-07-30
 - [S21] Manifold, "High score on ExploitGym ≥ 70% by EOY 2026" — 44%, 22 trades
+
+---
+
+## Update v2 — 2026-10-12
+
+**Metaculus.** Browser path Cloudflare-blocked today (parent's aggregations script and scraper
+both 403 after full backoff); no fresh CP/Pro/gold. Bot-key API snapshot
+`raw/metaculus-api-2026-10-12.json`: status open, resolution null, 43 forecasters (31 on
+2026-09-12), `edited_at` 2026-10-12 01:01 UTC; resolution criteria and fine print identical to
+the 2026-09-12 cached text (diffed). Comment count 10 (was 8) — content not retrievable.
+
+**Tripwire searches**
+
+| Search / fetch | Result |
+|---|---|
+| benchlm.ai/benchmarks/exploitgym (WebFetch) | page updated 2026-10-10; 15 rows; **MiMo-V2.6-Pro 17.8% > Mythos Preview 17.5%** → tripwire 1 fired. Snapshot `raw/benchlm-exploitgym-2026-10-12.json` |
+| benchlm.ai/models/mimo-v2-6-pro | "Open Weight"; ExploitGym score sourced to Xiaomi technical report; no harness/budget |
+| HF XiaomiMiMo/MiMo-V2.6-Pro-RL | MIT; Table: ExploitGym 17.8 / ExploitBench 47.9 / CyberGym 94.0; Opus 5 22.1, GPT-5.6 Sol 30.3, Fable 5 28.4 on ExploitGym |
+| arXiv 2610.11959 (MiMo-V2.6 tech report), both halves | Table 3 only; no ExploitGym budget, solve count, or contamination handling; baselines run at max reasoning effort |
+| "MiMo-V2.6 open weights release" | weights ~2026-09-21/22, MIT, 1.02T/42B-active, RL stack + 7k environments released too |
+| "DeepSeek V4.1 Pro release" | still undated → tripwire 2 not fired |
+| Anthropic 2026-09-29 GLM-5.3 report | **ExploitBench end-to-end GLM-5.3 50/410 vs Mythos Preview 56/410**; internal binary exploitation 4% vs 6%; DeepSeek V4.1 Flash, Kimi K3, GLM-5.2 ~0% on ExploitBench. Corrects v1's "Route C cliff" |
+| exploitbench.ai | top 7 of 20 visible: Mythos Preview 78/72%, GPT-5.5 72%…; no GLM-5.3/MiMo row visible in first 100k chars |
+| AISI open-weight cyber, Oct 2026 | nothing new since 2026-07-17 → tripwire 4 not fired |
+| Withholding announcements | none; Xiaomi released full weights → tripwire 5 not fired |
+| Policy: open-weight cyber restriction Oct 2026 | none formal; CAISI (2026-09-17) and Anthropic call for testing successors; TechTimes 2026-10-09 abliteration confirmed → tripwire 6 not fired |
+| Manifold | Interrobang "Mythos-tier open-source model before end 2027" 75% (12 holders, Ṁ884); Casper EOY2026 ~90% (snippet). Snapshot `raw/manifold-2026-10-12.json` |
+| Polymarket / Kalshi | no matching contract |
+| Search for Metaculus resolution / admin comment on MiMo | **dead end** — nothing found |
+| Search for independent ExploitGym rerun of MiMo-V2.6-Pro | **dead end** — none found (disconfirming search) |
+
+**Integration.** Capability question is effectively answered on the named leaderboard; residual
+is adjudication (self-reported, 0.3 pp ≈ 3 of 898 tasks, leaked key). P(credited) ~0.80; if not,
+P(later clear crossing) ~0.85 → 0.97. Xiaomi scores GPT-5.6 Sol lower than benchlm (30.3 vs
+33.7), arguing against harness inflation. Next review shortened to 2026-10-26 to catch a
+Metaculus resolution.

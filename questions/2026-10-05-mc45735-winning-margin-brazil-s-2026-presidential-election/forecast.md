@@ -6,11 +6,121 @@
 | **Type** | numeric (percentage points of valid votes; range 0–8, closed lower / open upper bound) |
 | **Opened / Closes / Resolves** | 2026-10-06 / 2026-10-25 / 2026-10-27 |
 | **Status** | open |
-| **Current forecast** | **Median 4.0, IQR [2.2, 6.1]** (v2, 2026-10-09) |
-| **Community (as of 2026-10-09)** | fresh CP unavailable 2026-10-09 (Cloudflare block); API shows 57 forecasters, aggregations hidden from bot key |
-| **Next review** | 2026-10-11 |
+| **Current forecast** | **Median 4.3, IQR [2.4, 6.3]** (v3, 2026-10-12) |
+| **Community (as of 2026-10-12)** | CP not retrievable 2026-10-12 (Cloudflare 403); n=78 forecasters (API). Stale 2026-10-09: CP 3.74 · Pro 3.78 · Gold 3.43 |
+| **Next review** | 2026-10-15 |
 
 <!-- Versions below, newest first. APPEND-ONLY: never edit or delete a past version. -->
+
+---
+
+## v3 — Update — 2026-10-12
+
+### Revision table
+
+| Driver | Direction | Effect on median | Note |
+|---|---|---|---|
+| **Prior (v2, 2026-10-09)** | — | **4.0, IQR [2.2, 6.1]** | signed centre F +3.9, scale 3.0, t(6) |
+| AtlasIntel/Bloomberg poll (3–8 Oct, n=5,026, ±1): F 52.8 / L 47.2 valid, so **F +5.6** [1][2] | up | +0.2 | AtlasIntel was the most accurate pollster in 2022 and has the largest sample. Its result sits at the top of the v2 poll range. |
+| Ipespe poll (6–8 Oct, n=1,500): F 52.7 / L 47.3 valid, so **F +5.4** [3] | up | +0.1 | Four of the five post-R1 polls now cluster at F +4.3 to +5.6 valid, averaging +5.2 |
+| Vox Brasil poll (5–7 Oct, n=2,100): L 44.2 / F 42.7 total, so **L +1.7 valid**, with 13% blank or undecided [4][5] | down | −0.1 | The one outlier. It is a lower-reputation pollster with a high share of undecideds, so I give it half weight. The house average including it is about F +4.6. |
+| Kalshi runoff margin market (KXBRPRES2MOV, about $73k across its brackets): implied absolute margin median ≈ 4.4, IQR ≈ [2.5, 6.4]. Kalshi winner F 87.5%; Polymarket F 86.05% (unchanged) [6][7] | up | +0.1 | First direct market on the target quantity. It agrees with my shape: P(\|M\| < 3) is 0.31 on Kalshi vs 0.32 in my model, and P(6–9) is 0.21 vs 0.21. Volume is thin, so it is weighted as a check, not an anchor. |
+| Fewer days remain (13, down from 16), but the debate calendar is still in flux (Record cancelled; Band on 18 Oct, Globo on 23 Oct) [8] | narrower | — | Scale 3.0 → 2.9. Debates are still Lula's main route back. |
+| **New (v3)** | | **4.3, IQR [2.4, 6.3]** | signed centre F +4.2, scale 2.9, t(6). P(Flávio wins) 0.90; P(\|M\| > 8) 0.12; P(\|M\| < 2) 0.20 |
+
+### Tripwire check (from v2)
+
+| Tripwire | Status | Evidence |
+|---|---|---|
+| AtlasIntel and Quaest post-R1 polls both show F ≥ +6 valid by 2026-10-13 → up 0.8 | **not fired (partial)** | AtlasIntel showed F +5.6, just under the threshold. Quaest's first post-R1 national poll (n≈2,154, face-to-face) is scheduled for 14 Oct and was not out yet [1][9]. Partial credit is folded into the AtlasIntel row. |
+| Those polls show F ≤ +2 valid or a Lula lead → down 1.0 | not fired | AtlasIntel F +5.6. The Vox Brasil L +1.7 poll is not one of the named pollsters, but it is reflected at half weight. |
+| Any major pollster shows a Lula margin gain ≥ 3pp between consecutive post-R1 waves by 2026-10-20 → down 0.8 | not fired (pending) | No pollster has published a second post-R1 wave yet |
+| Final AtlasIntel / Datafolha polls show \|margin\| ≥ 7 by 2026-10-24 → up 1.2 | pending | — |
+| Polymarket 70/30 or closer (down 1.0), or ≥ 93/7 (up 0.7), by 2026-10-22 | not fired | Polymarket F 86.05 / L 12.5 on 2026-10-12, vs 85.65 / 13.5 on 2026-10-09 [6] |
+
+### What resolves YES
+
+Unchanged from v1. On 2026-10-12 the API shows an edit timestamp of 2026-10-12 02:24 UTC, but resolution criteria, fine print and scaling (0–8, open upper bound) are byte-identical to the 2026-10-09 snapshot [10].
+
+### Outside view
+
+Unchanged from v1.
+
+### Inside view (changes only)
+
+- **The polls have converged.** Four of five post-R1 polls fall inside a 1.3pp band of F +4.3 to +5.6 valid (mean +5.2). The fifth, Vox Brasil, is an outlier with a large share of undecideds. A pollster herding in one direction right after a right-leaning R1 miss is a real risk: they may be overcorrecting. That is why I still centre below the polls, at +4.2, between the poll average (+5.2 ex-Vox, +4.6 with Vox at half weight), the transfer model (+4.1), the winner markets (P(F) ≈ 0.87, which at scale 2.9 implies about +3.6 to +3.8) and Kalshi's margin market (a median of 4.4 in absolute terms).
+- **My P(Flávio) of 0.90 sits slightly above the markets' 0.87.** The gap is about 3pp and partly reflects the t(6) tails. I accept it because the outcome is the absolute margin: a narrow Lula win and a narrow Flávio win both resolve low, so the winner probability barely moves the median.
+- **Debates:** the Record debate (11 Oct) was cancelled. Band (18 Oct) and Globo (23 Oct) remain, and neither candidate has confirmed. If Flávio skips them, that is mildly favourable to Lula on the margin. *Speculative.*
+
+### Evidence (new since v2)
+
+- AtlasIntel/Bloomberg, 3–8 Oct, n=5,026, ±1: F 51.1 / L 45.7 total; 52.8 / 47.2 valid. Lula disapproval is 53.4% [1][2].
+- Ipespe, 6–8 Oct, n=1,500, ±2.6: F 49 / L 44 total; 52.7 / 47.3 valid [3].
+- Vox Brasil, 5–7 Oct, n=2,100, ±2.15: L 44.2 / F 42.7, with 13.1% blank, null or undecided [4][5].
+- Quaest: its first post-R1 national runoff poll is due 14 Oct. Its last pre-R1 wave (2–3 Oct) had F 44 / L 42 total [9][11].
+- Kalshi KXBRPRES2MOV bracket mids on 2026-10-12: F ≥9 0.065; F 6–9 0.21; F 3–6 0.40; F 0–3 0.22; L 0–3 0.085; L 3–6 0.015; L 6–9 0.005; L ≥9 0.005. KXVOTEBR2 has Flávio ≥52% at about 0.68 and ≥53% at about 0.34 [7].
+- I searched for disconfirming evidence: for a Lula recovery, scandals and a debate effect. I found nothing beyond the Vox Brasil poll.
+
+### Other forecasters
+
+| Source | Value | As of | Note |
+|---|---|---|---|
+| Metaculus CP (recency-weighted) | not retrievable 2026-10-12 (Cloudflare 403) | 2026-10-12 | **Stale** cached value: median 3.74, IQR [2.14, 5.51] (n=55), as of 2026-10-09 02:48 UTC, from `raw/metaculus-2026-10-09.json`. The API on 2026-10-12 shows 78 forecasters and 406 forecasts [10]. |
+| Metaculus Pro | not retrievable 2026-10-12 | 2026-10-09 | **Stale**: 3.78, IQR [2.18, 5.65] (n=6) |
+| Metaculus gold medalists | not retrievable 2026-10-12 | 2026-10-09 | **Stale**: 3.43, IQR [1.91, 5.16] (n=22). This was slightly below the CP and the Pros; it predates the AtlasIntel and Ipespe polls. |
+| Kalshi, runoff margin (KXBRPRES2MOV) | implied \|M\| median ≈ 4.4, IQR ≈ [2.5, 6.4] | 2026-10-12 | Thin: about $7k–17k per bracket [7] |
+| Kalshi, winner | F 87.5% / L 12.5% | 2026-10-12 | about $5.4M combined volume [7] |
+| Polymarket, winner | F 86.05% / L 12.5% | 2026-10-12 | $180M event volume [6] |
+
+The stale Metaculus cohorts (3.4–3.8) sat below my v2 forecast, and v3 moves further away from them, to 4.3. They predate the AtlasIntel and Ipespe releases (9–10 Oct), which plausibly account for the gap. The gold medalists' lower centre is the main reason I stop at +4.2 and do not follow the polls to +5.
+
+### Scenarios
+
+| # | Scenario | Weight (v2 → v3) | Implies (abs. margin) |
+|---|---|---|---|
+| 1 | Flávio comfortable: polls hold or widen | 0.27 → 0.29 | ≥ 6 |
+| 2 | Flávio narrow: some reversion | 0.44 → 0.45 | 2–6 |
+| 3 | Coin-flip finish | 0.23 → 0.20 | 0–2 |
+| 4 | Lula clear comeback | 0.06 → 0.06 | 2–6 |
+
+### Sensitivity
+
+| Assumption | If instead | Forecast becomes |
+|---|---|---|
+| Centre +4.2 | Poll average ex-Vox (+5.2) | median ≈ 5.3, IQR [3.3, 7.3] |
+| Centre +4.2 | Winner-market-implied (+3.7) | median ≈ 3.9, IQR [2.1, 5.9] |
+| Scale 2.9 | 2.3 (frozen electorate) | median ≈ 4.2, IQR [2.7, 5.9] |
+
+### What would change my mind (tripwires)
+
+- [ ] Quaest (14 Oct) **and** the next Datafolha wave both show F ≥ +7 valid by 2026-10-17 → up 0.8 pp
+- [ ] Any of Datafolha / Quaest / AtlasIntel shows F ≤ +2 valid, or a Lula margin gain of ≥ 3pp between consecutive post-R1 waves, by 2026-10-20 → down 1.0 pp
+- [ ] Final AtlasIntel / Datafolha polls (by 2026-10-24) show \|margin\| ≥ 7 valid → up 1.2 pp; ≤ 2 valid → down 1.2 pp
+- [ ] Polymarket or Kalshi winner odds at 75/25 or closer before 2026-10-22 → down 0.8 pp; ≥ 93/7 → up 0.6 pp
+- [ ] Kalshi margin-market implied median moves outside [3.5, 5.5] by 2026-10-22 → move halfway toward it
+
+### Sources
+
+1. Metrópoles, "AtlasIntel: Flávio tem 52,8% no 2º turno em votos válidos; Lula soma 47,2%" — https://www.metropoles.com/brasil/atlasintel-flavio-tem-528-e-lula-472-no-2o-turno-em-votos-validos (accessed 2026-10-12, search snippet)
+2. InfoMoney, "AtlasIntel: Flávio abre 5,4 pontos sobre Lula no 2º turno e vai a 51% dos votos" — https://www.infomoney.com.br/politica/atlasintel-flavio-abre-54-pontos-sobre-lula-no-2o-turno-e-vai-a-51-dos-votos/ (accessed 2026-10-12, search snippet)
+3. CNN Brasil, "Ipespe: Flávio tem 52,7% dos votos válidos no 2º turno; Lula, 47,3%" — https://www.cnnbrasil.com.br/eleicoes/ipespe-flavio-tem-527-dos-votos-validos-no-2o-turno-lula-473/ (accessed 2026-10-12, search snippet)
+4. Portal Tela, "Vox Brasil: Lula tem 44,2% e Flávio 42,7% no segundo turno", 2026-10-09 — https://www.portaltela.com/politica/2026/10/09/vox-brasil-lula-tem-442-e-flavio-427-no-segundo-turno/ (accessed 2026-10-12, search snippet)
+5. Wikipedia, "Opinion polling for the 2026 Brazilian presidential election" (October post-R1 runoff table) — https://en.wikipedia.org/wiki/Opinion_polling_for_the_2026_Brazilian_presidential_election (accessed 2026-10-12)
+6. Polymarket Gamma API, event `brazil-presidential-election` — https://polymarket.com/event/brazil-presidential-election (accessed 2026-10-12; cached `raw/polymarket-winner-2026-10-12.json`)
+7. Kalshi trade API, series KXBRPRES2MOV, KXBRPRES2MOVD, KXBRPRES and KXVOTEBR2 — https://kalshi.com/markets/kxbrpres2mov (accessed 2026-10-12; cached `raw/kalshi-2026-10-12.json`)
+8. Gazeta do Povo, "Record cancela debate entre Flávio e Lula" — https://www.gazetadopovo.com.br/eleicoes/2026/record-cancela-debate-entre-flavio-e-lula/ ; Correio Braziliense, debate calendar — https://www.correiobraziliense.com.br/politica/2026/10/7516372-flavio-bolsonaro-x-lula-calendario-de-debates-do-2-turno-e-atualizado.html (accessed 2026-10-12, search snippets)
+9. CartaCapital, "A 1ª pesquisa nacional da Quaest sobre Lula x Flávio Bolsonaro no 2º turno" — https://www.cartacapital.com.br/cartaexpressa/a-1a-pesquisa-nacional-da-quaest-sobre-lula-x-flavio-bolsonaro-no-2o-turno/ (accessed 2026-10-12, search snippet)
+10. Metaculus API post 45735 (bot key; metadata only) — cached `raw/metaculus-api-2026-10-12.json` (retrieved 2026-10-12 by the parent session). Stale cohort values come from `raw/metaculus-2026-10-09.json` (retrieved 2026-10-09).
+11. CNN Brasil, "Quaest: Flávio tem 44% em votos totais no 2º turno; Lula, 42%" — https://www.cnnbrasil.com.br/eleicoes/quaest-2-turno/ (accessed 2026-10-12, search snippet)
+12. Brasil de Fato, Datafolha 6–8 Oct — https://www.brasildefato.com.br/2026/10/08/datafolha-segundo-turno-flavio-bolsonaro-49-lula-45/ (accessed 2026-10-09) — carried forward from v2 [1], still relied on for the Datafolha F +4.3 figure
+13. Metaculus question #45735 text (cached `raw/question-text-2026-10-05.json`, accessed 2026-10-05) — carried forward from v1 [1], still relied on for the resolution digest
+14. Wikipedia, 2014 / 2018 / 2022 Brazilian general election pages — https://en.wikipedia.org/wiki/2022_Brazilian_general_election (accessed 2026-10-05) — carried forward from v1 [2], still relied on for the outside view
+15. Terra, Quaest 3 Oct transfer breakdown — https://www.terra.com.br/noticias/brasil/lula-x-flavio-no-2-turno-para-onde-vao-os-votos-de-cury-renan-e-caiado,b7bbee5dbd3518dbdbf298eb4d751a5cuzttmjkm.html (accessed 2026-10-05) — carried forward from v1 [4], still relied on for the transfer model
+
+**Question**: [What will be the winning margin in Brazil’s 2026 presidential election runoff?](https://www.metaculus.com/questions/45735/what-will-be-the-winning-margin-in-brazils-2026-presidential-election-runoff)
+**Date**: 2026-10-12
+**Forecast**: Median 4.3, IQR [2.4, 6.3]
+**Thesis**: Four of the five post-R1 runoff polls cluster at Flávio +4.3 to +5.6 of valid votes (AtlasIntel +5.6, Ipespe +5.4, PoderData +5.4, Datafolha +4.3), against one outlier (Vox Brasil, Lula +1.7). The new Kalshi margin market implies a median of about 4.4. I centre the signed margin at F +4.2 with a 2.9pp spread, below the poll average because of overcorrection risk after the R1 miss and the stale, lower Metaculus gold-medalist view (3.4). Quaest (14 Oct) and the debates are still to come.
 
 ---
 

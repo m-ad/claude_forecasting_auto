@@ -4,13 +4,120 @@
 |---|---|
 | **Source** | Metaculus #45857 — https://www.metaculus.com/questions/45857/will-jose-mourinho-still-be-the-manager-for-real-madrid-on-december-31-2026 |
 | **Type** | binary |
-| **Opened / Closes / Resolves** | 2026-10-06 (scheduled) / 2026-12-01 / 2026-12-31 |
+| **Opened / Closes / Resolves** | 2026-10-06 / 2026-12-01 / 2026-12-31 |
 | **Status** | open |
-| **Current forecast** | **Median 87.0%, IQR [82.0%, 91.0%]** (v1, 2026-10-05) |
-| **Community (as of 2026-10-05)** | hidden: question opens 2026-10-06 17:00 UTC, CP reveal 2026-10-10 17:00 UTC (n=8 pre-open) |
-| **Next review** | 2026-10-12 |
+| **Current forecast** | **Median 88.0%, IQR [83.0%, 92.0%]** (v2, 2026-10-12) |
+| **Community (as of 2026-10-12)** | CP / Pro / Gold not retrievable (Cloudflare 403) · n=70 |
+| **Next review** | 2026-10-26 |
 
 <!-- Versions below, newest first. APPEND-ONLY: never edit or delete a past version. -->
+
+---
+
+## v2 — Update — 2026-10-12
+
+### Revision
+| Driver | Direction | Effect |
+|---|---|---|
+| Prior (v1, 2026-10-05) | — | Median 87.0%, IQR [82.0%, 91.0%] |
+| Elapsed quiet week: 7 of 87 window days gone with no exit, no leak (hazard decay, ~8% of the NO mass) | ↑ | +1.0pp |
+| Real Madrid 1–0 Villarreal (10 Oct); 18 pts, 4th, gap to leader Barcelona unchanged at 6 [1][2] | → | 0pp |
+| Vinícius red card in that game plus continuing "unfixed dressing room" press (Mundiario 8 Oct; Marca via Yahoo on Mourinho's patience with Vinícius) [3][4][5] | ↓ | −0.5pp |
+| No Marca/AS/El País/Athletic report of Pérez weighing a dismissal or sounding out candidates (searched EN + ES) | ↑ | +0.5pp |
+| Manifold prop "Mourinho sacked before end of season" 24% (15 traders, M$844 volume): play-money, low volume, discounted; implies roughly 8–12% before Dec 31, consistent with me [6] | → | 0pp |
+| Metaculus CP not retrievable today (Cloudflare 403); n=70 forecasters per bot-key API [7] | → | 0pp |
+| **New forecast** | | **Median 88.0%, IQR [83.0%, 92.0%]** |
+
+### Tripwire check
+| Tripwire from v1 | Fired? | Note |
+|---|---|---|
+| Lose Clásico at Camp Nou by ≥ 2 goals (by 2026-10-25) | not yet | Match is 25 Oct |
+| ≥ 10 pts behind La Liga leader (by 2026-11-30) | not fired | 6 pts behind Barcelona (24 v 18) after MD8, laliga.com, 2026-10-12 [2] |
+| Major outlet reports Pérez weighing dismissal / sounding out replacements (by 2026-12-15) | not fired | No such report in EN/ES searches on 2026-10-12. Criticism is about players (Vinícius) and dressing-room order, not the coach's position |
+| Outside UCL top 24 after league-phase MD5 (by 2026-11-30) | not yet | 1 match played (W 2–1 Inter). Roma away 14 Oct, Leipzig 21 Oct |
+| Within 3 pts of La Liga lead on 2026-11-30 (up) | not yet | Currently 6 behind |
+
+### What resolves YES
+Unchanged from v1. Resolution criteria re-read on 2026-10-12 from the bot-key API [7]: still
+"continuously from the time this question opens until 12:00 noon, UTC, December 31, 2026", with
+empty fine print. The post was edited 2026-10-12 02:27 UTC, but the criteria text matches v1.
+
+### Outside view
+Unchanged from v1 (85–90% stay; blend ~86–88%). Mechanical time decay: if the hazard were spread
+evenly over the window, 80/87 of the v1 NO mass (13%) is left, ≈ 12.0%. It is not even. The
+Clásico (25 Oct) and November concentrate the risk, so I count less than the full decay.
+
+### Inside view
+Unchanged structure from v1. Updated inputs:
+- **Results:** W 1–0 Villarreal (10 Oct, Diomande 62', Vinícius sent off 72') [1][8]. League
+  record 6W–0D–2L, 18 pts, 4th. Barcelona 24, Atlético 19, Betis 19 [2]. The six-point gap to the
+  top is unchanged. Atlético and Betis are within a point.
+- **Next decision points:** Roma (A, UCL, 14 Oct), Sevilla (H, 18 Oct), Leipzig (UCL, 21 Oct),
+  **Barcelona (A, 25 Oct)** [9]. Vinícius may be suspended for some of the league games. That is
+  a minor negative for the Clásico. Speculation: suspension length not checked.
+- **Dressing room:** Mundiario (8 Oct) says Mourinho has not yet imposed the order Pérez hired him
+  for. The Tchouaméni–Valverde feud is patched up [3]. Mourinho is publicly backing Vinícius
+  (beIN, 9 Oct) [4]. This is narrative pressure, not board pressure.
+- Decomposition of NO: P(crisis) 0.29 × P(act before Dec 31 | crisis) 0.33 ≈ 9.6%, plus non-results exit
+  2%, plus no-crisis sacking 0.4% ≈ **12%**.
+
+### Evidence
+See Revision and Tripwire tables. The key absence is unchanged: no leak of a board-level review
+or of replacement candidates. The odds come from Manifold only. No bookmaker "next manager out"
+price for Mourinho could be retrieved. A sack-race search returned only 2018–19 Premier League
+pages.
+
+### Other forecasters
+| Source | Value | As of | Note |
+|---|---|---|---|
+| Metaculus CP (recency-weighted) | not retrievable 2026-10-12 (Cloudflare 403) | 2026-10-12 | n=70 forecasters (bot-key API) [7]. Last cached value: hidden pre-reveal (2026-10-05, `raw/metaculus-2026-10-05.json`), so there is no stale number to cite |
+| Metaculus Pro | not retrievable 2026-10-12 (Cloudflare 403) | 2026-10-12 | |
+| Metaculus gold medalists | not retrievable 2026-10-12 (Cloudflare 403) | 2026-10-12 | |
+| Manifold "Real Madrid 26-27 Season Prop Bets" | Mourinho sacked before end of season: 24% | 2026-10-12 | 15 traders, M$844, play-money, discounted. Full-season (to ~June 2027), so not directly comparable [6] |
+| Polymarket | no open matching market | 2026-10-12 | Only the closed "Next Real Madrid manager?" (resolved, ~$573k volume) |
+| Kalshi | no matching market found | 2026-10-12 | |
+| Bookmakers (sack race) | not found | 2026-10-12 | |
+
+No cohort comparison is possible yet. That is the first item for the next review again.
+
+### Scenarios
+| # | Scenario | Weight | Implies |
+|---|---|---|---|
+| 1 | Season stabilises; Mourinho stays | 0.71 | YES |
+| 2 | Rocky autumn but Pérez waits for January | 0.17 | YES |
+| 3 | Crisis plus quick dismissal before Dec 31 (Lopetegui path) | 0.10 | NO |
+| 4 | Non-results exit | 0.02 | NO |
+
+P(YES) = 0.88. IQR [83%, 92%].
+
+### Sensitivity
+Unchanged from v1.
+
+### What would change my mind (tripwires)
+- [ ] Real Madrid lose the Clásico at Camp Nou on 2026-10-25 by ≥ 2 goals → down 8pp
+- [ ] Real Madrid fail to win any of Roma (14 Oct), Sevilla (18 Oct), Leipzig (21 Oct) → down 4pp
+- [ ] Real Madrid ≥ 10 points behind the La Liga leader at any point before 2026-11-30 → down 10pp
+- [ ] Marca / AS / El País / The Athletic report that Pérez is weighing a dismissal or sounding out replacements, before 2026-12-15 → down 25pp
+- [ ] Real Madrid outside the Champions League top 24 after league-phase matchday 5 (late Nov 2026) → down 5pp
+- [ ] Real Madrid within 3 points of the top of La Liga on 2026-11-30 → up 5pp
+
+### Sources
+1. ESPN, Real Madrid 1-0 Villarreal (Oct 10, 2026) — https://www.espn.com/soccer/report/_/gameId/401882848 (accessed 2026-10-12)
+2. LaLiga EA Sports standings 2026/27 after matchday 8 — https://www.laliga.com/en-GB/laliga-easports/standing (accessed 2026-10-12)
+3. Mundiario, "¿Qué ha arreglado Mourinho en el Real Madrid?", 2026-10-08 — https://www.mundiario.com/articulo/deportes/que-ha-arreglado-mourinho-real-madrid/20261008170238445619.html (accessed 2026-10-12)
+4. beIN Sports, "Mourinho Stands by Vinicius During Difficult Spell", 2026-10-09 — https://beinsports.com/en-us/soccer/la-liga/articles/mourinho-rallies-around-vinicius-it-breaks-my-heart-2026-10-09 (accessed 2026-10-12)
+5. Yahoo Sports (citing Marca), "José Mourinho's patience with Real Madrid star is 'reaching its limit'" — https://sports.yahoo.com/articles/jos-mourinho-patience-real-madrid-195500314.html (accessed 2026-10-12)
+6. Manifold, Real Madrid 26-27 Season Prop Bets — https://manifold.markets/Bernard/real-madrid-2627-season-prop-bets (accessed 2026-10-12; cached `raw/manifold-2026-10-12.json`)
+7. Metaculus #45857 via bot-key API (status, n_forecasters, criteria; aggregations hidden) — https://www.metaculus.com/questions/45857/ (accessed 2026-10-12; cached `raw/metaculus-api-2026-10-12.json`)
+8. Goal, "Real Madrid vs Villarreal: The tactics board – Mourinho's defensive masterclass survives Vinicius Junior red card" — https://www.goal.com/en-us/news/real-madrid-vs-villarreal-the-tactics-board-mourinho-s-defensive-masterclass-survives-vinicius-junior-red-card/blt030075ef0c423ca4 (accessed 2026-10-12)
+9. YSScores, "5 matches that will determine Mourinho's future project with Real Madrid", 2026-09-24 — https://www.ysscores.com/en/news/14054372/5-matches-that-will-determine-mourinhos-future-project-with-real-madrid (accessed 2026-10-12)
+10. 2026–27 Real Madrid CF season — https://en.wikipedia.org/wiki/2026%E2%80%9327_Real_Madrid_CF_season (accessed 2026-10-12)
+11. Polymarket public search "Mourinho" (gamma API) — https://polymarket.com/event/next-real-madrid-manager (accessed 2026-10-12)
+
+**Question**: [Will José Mourinho still be the manager for Real Madrid on December 31, 2026?](https://www.metaculus.com/questions/45857/will-jose-mourinho-still-be-the-manager-for-real-madrid-on-december-31-2026)
+**Date**: 2026-10-12
+**Forecast**: Median 88.0%, IQR [83.0%, 92.0%]
+**Thesis**: A quiet week with no tripwire fired. The 1–0 win over Villarreal held the six-point gap to Barcelona, and there are still no reports of Pérez reviewing the coach. The small hazard decay outweighs the Vinícius red card and the dressing-room narrative. The Clásico on 25 Oct remains the main NO route. Manifold's thin 24% full-season sack price is consistent with this, and the Metaculus CP was unretrievable today.
 
 ---
 

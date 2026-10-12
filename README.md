@@ -119,6 +119,14 @@ This is a publishing step, so **only the operator starts it** — ask for it exp
 `/metaculus-submit`. No other workflow (`/forecast`, `/update`, `/resolve`, `/status --act`)
 submits anything, and a test fails if one ever references the script.
 
+**On merge, automatically.** `.github/workflows/submit-metaculus.yml` runs when a pull request
+is merged into `main`. `scripts/changed_forecasts.py` lists the Metaculus questions with a new
+`forecast` record in the ledger between the PR's base and its merge commit, and only those are
+submitted. The merge is the human approval, so a routine's PR is reviewed before anything is
+posted. It needs a `METACULUS_API_KEY` secret (repository-wide or on the `metaculus`
+environment); without one it warns and does nothing. **Run workflow** (`workflow_dispatch`)
+submits named targets by hand and defaults to a dry run.
+
 ```bash
 uv run scripts/submit_metaculus.py <slug|post id|url> [...] --dry-run   # show, do not post
 uv run scripts/submit_metaculus.py --all --project "Metaculus Cup Fall 2026"
