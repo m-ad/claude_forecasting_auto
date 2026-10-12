@@ -1,0 +1,77 @@
+slug: 2026-10-11-mc46051-trump-administration-gop-state-governor-deploy-armed
+title: Will the Trump administration or a GOP state governor deploy armed officers or troops to a polling
+  or early voting site in 2026?
+source: metaculus
+url: https://www.metaculus.com/questions/46051/
+post_id: 46051
+type: binary
+unit: null
+tags:
+- us-politics
+- elections
+- midterms-2026
+- democracy
+- bright-line-watch
+dates:
+  created: '2026-10-11'
+  opened: '2026-10-12'
+  closes: '2026-11-02'
+  resolves: '2026-11-06'
+status: open
+current:
+  version: 1
+  date: '2026-10-11'
+  median: 0.26
+  iqr:
+  - 0.17
+  - 0.36
+  community:
+    cp: null
+    pro: null
+    gold: null
+    n_forecasters: 4
+    as_of: '2026-10-11'
+next_review: '2026-10-16'
+tripwires:
+- signal: Credible report of armed federal agents inside or within 250 ft of an open early-voting/polling
+    site
+  by: '2026-11-03'
+  direction: up
+  magnitude: 35
+  magnitude_unit: pp
+  fired: null
+- signal: Federal court preliminary injunction (LULAC v. DHS / DSCC v. DHS) barring armed agents at polling
+    places
+  by: '2026-10-30'
+  direction: down
+  magnitude: 6
+  magnitude_unit: pp
+  fired: null
+- signal: DHS/ICE written field guidance keeping agents away from polling sites published or leaked
+  by: '2026-10-30'
+  direction: down
+  magnitude: 5
+  magnitude_unit: pp
+  fired: null
+- signal: Trump declares election-related national emergency or invokes Insurrection Act
+  by: '2026-11-03'
+  direction: up
+  magnitude: 25
+  magnitude_unit: pp
+  fired: null
+- signal: A Republican governor announces state police or Guard deployment to polling/early-vote sites
+  by: '2026-11-02'
+  direction: up
+  magnitude: 20
+  magnitude_unit: pp
+  fired: null
+- signal: Metaculus CP/Pro/gold revealed; CP <10% or >45%, or Pro+gold agree >10pp from 26% (re-analyse)
+  by: '2026-10-16'
+  direction: either
+  magnitude: 0
+  magnitude_unit: pp
+  fired: null
+resolution:
+  outcome: null
+  date: null
+  source: null
