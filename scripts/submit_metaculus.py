@@ -46,6 +46,7 @@ Examples
 from __future__ import annotations
 
 import argparse
+import datetime as dt
 import json
 import math
 import os
@@ -191,10 +192,24 @@ def cdf_from_knots(x: float, knots: list[tuple[float, float]]) -> float:
     raise AssertionError("unreachable")
 
 
+def _as_seconds(v: float | str) -> float:
+    """A grid point as a float; date questions serve ISO timestamps, not numbers.
+
+    The ledger stores date forecasts in Unix seconds, the unit ``range_min`` and
+    ``range_max`` already use, so ISO points are converted to match.
+    """
+    if isinstance(v, str):
+        try:
+            return float(v)
+        except ValueError:
+            return dt.datetime.fromisoformat(v).timestamp()
+    return float(v)
+
+
 def _grid(scaling: dict[str, Any]) -> list[float]:
     """The ``inbound_outcome_count + 1`` real-valued CDF evaluation points."""
     if scaling.get("continuous_range"):
-        return [float(v) for v in scaling["continuous_range"]]
+        return [_as_seconds(v) for v in scaling["continuous_range"]]
     n = int(scaling["inbound_outcome_count"])
     rmin, rmax = float(scaling["range_min"]), float(scaling["range_max"])
     zero = scaling.get("zero_point")
