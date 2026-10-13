@@ -54,3 +54,20 @@ learn what was already checked and what was already ruled out.
 - Week of Oct 5 total (available Oct 12) vs the Polymarket ~169T.
 - Status of space-bunny-alpha (paid/unmasked?) and new stealth models.
 - Metaculus CP after reveal (Oct 10).
+
+## 2026-10-13 update (v2)
+
+| Date | Query / source | Finding | Effect on forecast |
+|---|---|---|---|
+| 2026-10-13 | model-rankings-chart JSON | Oct 5–11 = 171.84T (+3.6% w/w); space-bunny-alpha out of top 9; DeepSeek V4.1 Flash 41.0T; partial Oct 12 bar 29.8T at 03:00 UTC Oct 13 | base 172T, haircut removed (↑) |
+| 2026-10-13 | /api/v1/models | no stealth/space-bunny id listed — delisted | confirms exit |
+| 2026-10-13 | search "Space Bunny Alpha" | suspected MiniMax M3.1-Flash; listing expiry 2026-10-05; no official reveal | — |
+| 2026-10-13 | Metaculus aggregations | CP 340T [268,402] n=65; Pro 329T [263,404]; gold 351T [283,406]; no comments | confirms |
+| 2026-10-13 | Polymarket Sep 28–Oct 25 | 675–725T 47%, 725T+ 31.5% ($15.5k) → ≈190T/wk for Oct 12–25 | slight ↓ on momentum |
+| 2026-10-13 | Polymarket weekly | no week-of-Oct-12 total market found (only lab-share markets) | — |
+| 2026-10-13 | Kalshi KXTOKENUSEM | illiquid above 575T | — |
+
+Lesson: a 23%-share stealth exit produced no drop — users migrated to cheap paid flash models.
+Stealth-exit risk is smaller than v1 assumed while cheap substitutes exist.
+
+Next: Oct 12–18 week total (Oct 19); watch StepFun Step-5 Preview (8.8T in 4 days) as the next transient.
