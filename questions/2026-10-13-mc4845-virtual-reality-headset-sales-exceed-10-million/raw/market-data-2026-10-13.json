@@ -1,0 +1,16 @@
+{
+  "retrieved": "2026-10-13",
+  "note": "Hand-collected from web search results / fetched pages on 2026-10-13. Units are shipments (sell-in), not sell-through, unless stated. 'AR/VR' totals include non-qualifying devices (3DoF, AR).",
+  "annual": {
+    "2021": {"idc_arvr_headsets_m": 11.2, "idc_meta_share": 0.78, "idc_dpvr_share": 0.051, "idc_pico_share": 0.045, "idc_top5_also": ["HTC", "iQIYI"], "counterpoint_quest2_cumulative_end2021_m": 10.4, "counterpoint_quest2_cumulative_end_q1_2021_m": 4.6},
+    "2022": {"ccs_insight_vr_plus_ar_m": 9.6, "idc_forecast_made_mar2022_for_2026_m": ">50"},
+    "2024": {"counterpoint_vr_yoy": -0.12, "counterpoint_meta_share": 0.77, "idc_meta_quest_m": 5.6, "idc_vision_pro_m": 0.39},
+    "2025": {"counterpoint_vr_yoy": -0.28, "counterpoint_q4_vr_yoy": -0.44, "idc_meta_q1_q3_m": 1.7, "idc_vision_pro_m": 0.045, "meta_reality_labs_revenue_usd_m": 2207},
+    "2026": {"counterpoint_q1_vr_yoy": -0.17, "counterpoint_q2_vr_yoy": -0.18, "counterpoint_q2_vr_qoq": -0.16, "counterpoint_q2_meta_share_of_arvr": 0.54, "idc_mr_vr_headset_forecast_m": 3.2, "idc_mr_vr_headset_forecast_2030_m": 10.4, "reality_labs_q2_revenue_usd_m": 431, "quest_price_hike_2026_04_19": {"quest3s_128": 349.99, "quest3s_256": 449.99, "quest3_512": 599.99}}
+  },
+  "products": {
+    "steam_frame": {"launch": "2026-09 (reservation queue)", "price_usd": [1059, 1299], "controllers": "bundled"},
+    "meta_vr_glasses": {"announced": "2026-09-23 Connect", "price_usd": 1299.99, "launch": "spring 2027", "controllers": "Touch Plus sold separately"},
+    "quest_4_griffin": {"status": "unannounced; reported late 2027 at earliest"}
+  }
+}

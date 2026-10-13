@@ -1,0 +1,69 @@
+slug: 2026-10-13-mc4845-virtual-reality-headset-sales-exceed-10-million
+title: When will virtual reality headset sales exceed 10 million units per year?
+source: metaculus
+url: https://www.metaculus.com/questions/4845/
+post_id: 4845
+type: date
+unit: null
+tags:
+- virtual-reality
+- consumer-electronics
+- meta
+- technology-adoption
+dates:
+  created: '2026-10-13'
+  opened: '2020-07-20'
+  closes: '2030-01-01'
+  resolves: '2030-01-01'
+status: open
+current:
+  version: 1
+  date: '2026-10-13'
+  median: 2303596800.0
+  iqr:
+  - 2114294400.0
+  - 2713824000.0
+  community:
+    cp: 1832747504.0
+    pro: 1893283200.0
+    gold: 1856748967.0
+    n_forecasters: 17
+    as_of: '2026-10-13'
+next_review: '2027-01-13'
+tripwires:
+- signal: Metaculus admin comment/clarification that 2021 (or another past year) meets the 10M qualifying
+    bar -> resolves 2021-12-31
+  by: '2027-06-30'
+  direction: down
+  magnitude: 252
+  magnitude_unit: months
+  fired: null
+- signal: Counterpoint/IDC Q3 2026 VR shipments YoY >= +30% (another decline -> no change)
+  by: '2026-12-15'
+  direction: down
+  magnitude: 24
+  magnitude_unit: months
+  fired: null
+- signal: Full-year 2026 VR shipments (Counterpoint/IDC) >= 6M -> earlier 36 months; <= 4M -> later 12
+    months
+  by: '2027-03-31'
+  direction: either
+  magnitude: 0
+  magnitude_unit: months
+  fired: null
+- signal: Quest 4 / Griffin announced at <= $399 with 6DoF controllers
+  by: '2027-10-31'
+  direction: down
+  magnitude: 60
+  magnitude_unit: months
+  fired: null
+- signal: Reported Steam Frame first-year sales >= 2M
+  by: '2027-09-30'
+  direction: down
+  magnitude: 12
+  magnitude_unit: months
+  fired: null
+resolution:
+  outcome: null
+  date: null
+  source: null
