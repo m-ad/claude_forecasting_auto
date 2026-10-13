@@ -6,11 +6,77 @@
 | **Type** | date (range 2020-07-15 … 2029-12-30, open upper bound) |
 | **Opened / Closes / Resolves** | 2020-07-20 / 2030-01-01 / on the event, or ">2029-12-30" |
 | **Status** | open |
-| **Current forecast** | **Median >2029-12-30 (above upper bound), IQR [>2029-12-30, >2029-12-30]**; P(resolves ≤ 2029-12-30) ≈ 11.5% (v1, 2026-10-13) |
+| **Current forecast** | **Median >2029-12-30 (above upper bound), IQR [>2029-12-30, >2029-12-30]**; P(resolves ≤ 2029-12-30) ≈ 11.5% (v2, 2026-10-13) |
 | **Community (as of 2026-10-13)** | CP 2028-01-29 [2025-03-18, ≥2029-12-30] (n=17) · Pro ≥2029-12-30 [2027-10-29, ≥2029-12-30] (n=4) · Gold 2028-11-02 [2026-03-29, ≥2029-12-30] (n=14) |
 | **Next review** | 2027-01-13 |
 
 <!-- Versions below, newest first. APPEND-ONLY: never edit or delete a past version. -->
+
+---
+
+## v2 — Update — 2026-10-13
+
+Shape-only correction, same day as v1. **No new evidence, no re-fetch, no change in judgement**:
+the median, IQR, P(in range) and scenario weights are those of v1. The community snapshot is
+v1's (2026-10-13).
+
+### Revision
+| Driver | Direction | Effect |
+|---|---|---|
+| Prior (v1, 2026-10-13) | — | Median >2029-12-30, IQR [>2029-12-30, >2029-12-30]; P(in range) ≈ 11.5% |
+| Lowest percentile knot moved from p6 = 2021-12-31 to p1 = 2021-12-01 (p6 kept) | → | none on median/IQR; S1 mass in the submitted CDF ≈1.3% → ≈5.6% by 2022-01-03 |
+| **New forecast** | | **Median >2029-12-30, IQR [>2029-12-30, >2029-12-30]; P(in range) ≈ 11.5%** |
+
+Why: the v1 percentile set started at p6 = 2021-12-31, so the exponential lower tail built by
+`scripts/submit_metaculus.py` put ~5% of mass before the range start (2020-07-15); the closed
+lower bound then dropped it and spread it proportionally over later dates. The submitted CDF
+would have shown ~1.3% by end-2021 instead of the intended ~6% for S1 (admins accept 2021).
+With the added p1 knot, the CDF of the ledger distribution reads ≈0.1% at 2021-06-01, ≈5.6% at
+2022-01-03, ≈7.3% at 2025-01-01, ≈8.4% at 2028-01-01, ≈10.0% at 2029-01-01 and 11.5% at
+2029-12-30 — matching S1–S4. v1's distribution was never submitted: the merge-triggered
+submission crashed on a date-grid parsing bug (fixed in the same change).
+
+### Tripwire check
+| Tripwire from v1 | Fired? | Note |
+|---|---|---|
+| Admin ruling that 2021 (or another past year) meets the bar (by 2027-06-30) | no | not checked again; same day as v1 |
+| Q3 2026 VR shipments YoY ≥ +30% (≈2026-12-15) | not yet due | — |
+| Full-year 2026 VR shipments ≥ 6M / ≤ 4M (≈2027-03-31) | not yet due | — |
+| Quest 4 at ≤ $399 announced (by 2027-10-31) | not yet due | — |
+| Steam Frame first-year sales ≥ 2M (by 2027-09-30) | not yet due | — |
+
+### What resolves YES
+unchanged from v1
+
+### Outside view
+unchanged from v1
+
+### Inside view
+unchanged from v1
+
+### Evidence
+unchanged from v1
+
+### Other forecasters
+unchanged from v1 (snapshot 2026-10-13: CP 2028-01-29, Pro ≥2029-12-30, gold 2028-11-02)
+
+### Scenarios
+unchanged from v1. Percentile knots (ledger): **p1 2021-12-01**, p6 2021-12-31, p7.5 2024-12-31,
+p8.3 2027-12-31, p10 2028-12-31, p11 2029-09-30, p25 2036-12-31, p50 2042-12-31, p75 2055-12-31.
+
+### Sensitivity
+unchanged from v1
+
+### What would change my mind (tripwires)
+unchanged from v1
+
+### Sources
+1. Unchanged from v1; no new sources. The CDF figures above were computed locally with `scripts/submit_metaculus.py` (`build_payload`) against the cached `raw/metaculus-2026-10-13.json` scaling (accessed 2026-10-13).
+
+**Question**: [When will virtual reality headset sales exceed 10 million units per year?](https://www.metaculus.com/questions/4845/)
+**Date**: 2026-10-13
+**Forecast**: Median >2029-12-30 (above upper bound), IQR [>2029-12-30, >2029-12-30]; P(resolves ≤ 2029-12-30) ≈ 11.5% (6% retroactive 2021, 1.5% other retroactive, 3.5% a future year)
+**Thesis**: Unchanged from v1; this version only fixes the distribution's lower tail so the 6% retroactive-2021 scenario survives conversion to a Metaculus CDF. Qualifying VR has never clearly reached 10M/yr, has shrunk four years running, and has no mass-market headset coming before late 2027; the Metaculus cohorts look stale.
 
 ---
 

@@ -164,6 +164,42 @@ def test_log_scaled_grid_matches_metaculus_unscaling():
     assert sm._grid(scaling) == pytest.approx([1.0, 10.0, 100.0])
 
 
+# ------------------------------------------------------------------ date
+# Metaculus serves a date question's ``continuous_range`` as ISO timestamps,
+# while ``range_min``/``range_max`` are Unix seconds (seen on post 4845).
+DATE_SCALING = {
+    "range_min": 1594771200.0,  # 2020-07-15
+    "range_max": 1893283200.0,  # 2029-12-30
+    "zero_point": None,
+    "open_lower_bound": False,
+    "open_upper_bound": True,
+    "inbound_outcome_count": 2,
+    "continuous_range": [
+        "2020-07-15T00:00:00Z",
+        "2025-04-07T12:00:00Z",
+        "2029-12-30T00:00:00Z",
+    ],
+}
+
+
+def test_date_grid_parses_iso_timestamps_to_unix_seconds():
+    assert sm._grid(DATE_SCALING) == pytest.approx(
+        [1594771200.0, 1744027200.0, 1893283200.0]
+    )
+
+
+def test_date_question_submits_the_ledgers_percentiles():
+    pct = {"10": 1640908800, "25": 1767139200, "50": 1830211200, "75": 1924905600}
+    rec = _record(
+        "date", 1830211200, (1767139200, 1924905600), distribution={"percentiles": pct}
+    )
+    p = sm.build_payload("s", rec, _post("date", scaling=DATE_SCALING), None)
+    cdf = p.values["continuous_cdf"]
+    sm.validate_cdf(cdf, DATE_SCALING)
+    assert len(cdf) == 3
+    assert 0.6 < cdf[-1] < 0.75  # mass above the open upper bound survives
+
+
 # ------------------------------------------------------------------ discrete
 def test_discrete_pmf_gives_every_outcome_the_minimum_step():
     pmf = {"3": 0.2, "4": 0.5, "5": 0.3}
