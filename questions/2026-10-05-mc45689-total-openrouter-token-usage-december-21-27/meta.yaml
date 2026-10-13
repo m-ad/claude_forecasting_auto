@@ -13,39 +13,39 @@ tags:
 - metaculus-cup-fall-2026
 dates:
   created: '2026-10-05'
-  opened: null  # scheduled 2026-10-06 17:00 UTC
+  opened: null
   closes: '2026-12-01'
   resolves: '2026-12-29'
 status: open
 current:
-  version: 1
-  date: '2026-10-05'
-  median: 330000000000000.0
+  version: 2
+  date: '2026-10-13'
+  median: 350000000000000.0
   iqr:
-  - 250000000000000.0
-  - 430000000000000.0
+  - 270000000000000.0
+  - 445000000000000.0
   community:
-    cp: null
-    pro: null
-    gold: null
-    n_forecasters: 5
-    as_of: '2026-10-05'
-next_review: '2026-10-13'
+    cp: 339700000000000.0
+    pro: 329200000000000.0
+    gold: 350700000000000.0
+    n_forecasters: 65
+    as_of: '2026-10-13'
+next_review: '2026-10-27'
 tripwires:
-- signal: Chart total for week of Oct 5-11 below 155T
-  by: '2026-10-12'
+- signal: Chart total for week of Oct 12-18 below 170T
+  by: '2026-10-19'
   direction: down
-  magnitude: 30000000000000.0
+  magnitude: 25000000000000.0
   magnitude_unit: tokens
   fired: null
-- signal: Chart total for week of Oct 5-11 above 185T
-  by: '2026-10-12'
+- signal: Chart total for week of Oct 12-18 above 200T
+  by: '2026-10-19'
   direction: up
-  magnitude: 30000000000000.0
+  magnitude: 25000000000000.0
   magnitude_unit: tokens
   fired: null
-- signal: stealth/space-bunny-alpha leaves free/stealth status and weekly total falls >15% w/w
-  by: '2026-11-15'
+- signal: A free stealth/preview model with >15% share exits and weekly total falls >15% w/w
+  by: '2026-11-30'
   direction: down
   magnitude: 40000000000000.0
   magnitude_unit: tokens
@@ -53,7 +53,13 @@ tripwires:
 - signal: Any weekly chart total >= 250T
   by: '2026-11-30'
   direction: up
-  magnitude: 60000000000000.0
+  magnitude: 50000000000000.0
+  magnitude_unit: tokens
+  fired: null
+- signal: Any weekly chart total below 160T
+  by: '2026-11-30'
+  direction: down
+  magnitude: 50000000000000.0
   magnitude_unit: tokens
   fired: null
 - signal: OpenRouter changes chart binning, the Others bucket, or rounding
