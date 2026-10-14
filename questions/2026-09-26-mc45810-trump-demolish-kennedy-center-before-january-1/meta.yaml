@@ -17,19 +17,19 @@ dates:
   resolves: '2027-01-01'
 status: open
 current:
-  version: 2
-  date: '2026-10-04'
-  median: 0.035
+  version: 3
+  date: '2026-10-14'
+  median: 0.03
   iqr:
   - 0.015
-  - 0.065
+  - 0.055
   community:
-    cp: 0.07
-    pro: 0.07
-    gold: 0.1
-    n_forecasters: 91
-    as_of: '2026-10-04'
-next_review: '2026-10-14'
+    cp: 0.044
+    pro: 0.08
+    gold: 0.044
+    n_forecasters: 110
+    as_of: '2026-10-14'
+next_review: '2026-10-28'
 tripwires:
 - signal: Administration files 30-day notice of demolition or scope change in Beatty v. Trump / DC Preservation
     League case
@@ -52,6 +52,12 @@ tripwires:
   fired: null
 - signal: Safety/egress assessment concludes building structurally unsound or not economically repairable
   by: '2026-10-31'
+  direction: up
+  magnitude: 3
+  magnitude_unit: pp
+  fired: null
+- signal: Unsealed JLL renovation plan shows removal of facade, roof or structural frame
+  by: '2026-11-15'
   direction: up
   magnitude: 3
   magnitude_unit: pp

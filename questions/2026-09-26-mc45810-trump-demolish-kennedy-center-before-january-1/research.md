@@ -77,3 +77,18 @@ Total ≈ 3.4% → median 3.5%, IQR [1.5, 6.0]
 Dead ends: CNN (451), Deadline (402 tollbit), The Hill, WaPo, Forbes (403), CourtListener body empty.
 
 Open next time: content of the 10-02 court status report; egress assessment result (~10-08–10-15); D.C. Circuit 26-5224 argument date; any board meeting notice; CR text (Dec 11?) for a rider; Metaculus comments via browser.
+
+## 2026-10-14 — v3 update log
+
+| Search / fetch | Result | Use |
+|---|---|---|
+| "Kennedy Center demolition notice court October 2026" | only Sept 17 order coverage | notice tripwire unfired |
+| Beatty v. Trump status report Oct 2026 | motion to compel (10-05); PowerPoint + 163-p JLL plan unsealing, redactions due 10-14, reply 10-19 | litigation focus is closure |
+| CourtListener RECAP doc 94 (snippet) | 10-02 status report: Walter P Moore final soffit report 9-25, 46/278 panels severe; egress procedures under JLL/ATSR assessment | repairs framing |
+| Newsweek 10-08 | JLL plan described as renovation; no demolition | path C watch |
+| Kalshi API (raw/kalshi-2026-10-14.json) | demolition 2/3¢, no trades since 10-04; reopen before 2028 21/30¢ | flat |
+| Metaculus (raw/metaculus-2026-10-14.json) | CP 4.4, Pro 8 (n=8), gold 4.4; comments at 4–5% | pooling anchor ~5% |
+
+Dead ends: CourtListener API throttled (125/day), docket page 403.
+
+Open next time: egress assessment result; unsealed JLL plan contents after 10-19; any board meeting notice; D.C. Circuit argument date.

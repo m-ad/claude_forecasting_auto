@@ -6,11 +6,123 @@
 | **Type** | binary |
 | **Opened / Closes / Resolves** | 2026-09-28 (CP revealed) / 2026-12-15 / 2027-01-01 |
 | **Status** | open |
-| **Current forecast** | **Median 3.5%, IQR [1.5%, 6.5%]** (v2, 2026-10-04) |
-| **Community (as of 2026-10-04)** | CP 7.0% IQR [4.9%, 10.0%] (n=91) · Pro 7.0% (n=9) · Gold 10.0% (n=28) · Kalshi (full demolition) ~3¢ |
-| **Next review** | 2026-10-14 |
+| **Current forecast** | **Median 3.0%, IQR [1.5%, 5.5%]** (v3, 2026-10-14) |
+| **Community (as of 2026-10-14)** | CP 4.4% IQR [3.0%, 6.0%] (n=107) · Pro 8.0% (n=8) · Gold 4.4% (n=29) · Kalshi (full demolition) 2¢/3¢ |
+| **Next review** | 2026-10-28 |
 
 <!-- Versions below, newest first. APPEND-ONLY: never edit or delete a past version. -->
+
+---
+
+## v3 — Update — 2026-10-14
+
+Mode: **Update** (incremental). 18 of 96 days of the v1 window have now passed (19%). No
+question-structure change. The cohorts moved toward me (CP 7.0% → 4.4%, gold 10.0% → 4.4%),
+so the gap that v2 flagged has mostly closed.
+
+### Revision
+| Driver | Direction | Effect |
+|---|---|---|
+| Prior (v2, 2026-10-04) | — | Median 3.5%, IQR [1.5%, 6.5%] |
+| Elapsed time: 10 more days with no 30-day notice of demolition or scope change. The window for a notice that allows work before Jan 1 (to ~2026-11-30) shrank from 57 to 47 days. Path A 1.1% → 0.9%, B 0.65% → 0.6%, D 0.45% → 0.4% | ↓ | −0.3 pp |
+| Litigation is about the closure, not demolition: Beatty's motion to compel (filed 2026-10-05) over ~100 documents; Judge Cooper ordered the board's PowerPoint and the 163-page JLL renovation plan unsealed, with government redaction proposals due 2026-10-14 and Beatty's reply 2026-10-19 [3][4]. Coverage of the plan describes a two-year renovation, not demolition [4] | → | 0 pp |
+| Building still closed; the 2026-10-02 sworn status report cites the Walter P Moore soffit report (46 of 278 panels severely corroded) and an egress assessment; no reopening, no structural-unsoundness finding [5][6]. Path C (repairs read as removing structure) 0.95% → 0.9%: soffit repair has not visibly started | → | −0.05 pp |
+| Kalshi full-demolition contract flat at bid 2¢ / ask 3¢ / last 2¢; volume unchanged at ≈14.4k since 2026-10-04 (no trades) [2]. Kalshi also prices "main building reopens before 2028" at only 21–30¢: the market expects a long closure, but closure is not demolition | → | 0 pp |
+| Metaculus cohorts converged down: CP 4.4% IQR [3.0%, 6.0%] (n=107), gold 4.4% IQR [4.0%, 8.0%] (n=29), Pro 8.0% (n=8) [1]. Pooled in log-odds with weight 0.2 on a cohort anchor of ~5% (was ~8%). Recent comments cluster at 4–5% and cite the same 30-day-notice constraint [1] | → | +0.35 pp (pooling, smaller than v2's +0.6) |
+| **New forecast** (3.15% rounded to 0.5 pp) | | **Median 3.0%, IQR [1.5%, 5.5%]** |
+
+### Tripwire check
+| Tripwire (v2) | By | Fired? | Evidence |
+|---|---|---|---|
+| 30-day notice of demolition or scope change in *Beatty* / DCPL | 2026-11-30 | **Not fired** | No report through 2026-10-14; latest docket news is the motion to compel and the unsealing order [3][4] |
+| Demolition contractor award, permit, or heavy demolition equipment on site | 2026-11-30 | **Not fired** | Nothing found |
+| Board votes to demolish (or amphitheater alternative) | 2026-11-30 | **Not fired** | No vote reported; Kalshi board-vote market 9¢/16¢, thin [2] |
+| Safety/egress assessment concludes building unsound or not economically repairable | 2026-10-31 | **Not fired (pending)** | Assessment ongoing (JLL, ATSR); the 2026-10-02 status report frames it as repairs and evacuation procedures [5] |
+| Repair work removes exterior structural elements and outlets call it "demolition" | 2026-12-15 | **Not fired** | No repair start reported |
+| D.C. Circuit merits ruling on the name | 2026-12-15 | **Not fired** | None found |
+| Supreme Court emergency application | 2026-12-15 | **Not fired** | None found |
+| Merkley–Murkowski / Pingree demolition ban enacted | 2026-12-31 | **Not fired** | No movement since the 2026-09-29 reintroduction |
+
+### What resolves YES
+Unchanged from v1.
+
+### Outside view
+Unchanged from v1. Over the remaining 78 days, the ~3–5% status-quo prior scales to ~2.4–4.1%.
+
+### Inside view
+Paths (v2 → v3): A 1.1% → **0.9%**, B 0.65% → **0.6%**, C 0.95% → **0.9%**, D 0.45% → **0.4%**.
+Sum ≈ **2.8%** before cohort pooling; pooled ≈ 3.15%.
+
+### Evidence
+v2 table unchanged. Additions:
+
+| Evidence | Direction | Likelihood ratio (approx.) |
+|---|---|---|
+| 10 quiet days, no notice [3][4] | ↓ | ~0.9 on paths A/B/D (mechanical) |
+| Litigation focused on closure documents and the renovation plan [3][4] | → | ~1.0 |
+| Kalshi flat, no trades [2] | → | 1.0 |
+| Cohorts converge to ~4.4% [1] | ↓ vs v2's pooling anchor | — |
+
+### Other forecasters
+| Source | Value | As of | Note |
+|---|---|---|---|
+| Metaculus CP (recency-weighted) | 4.4% IQR [3.0%, 6.0%], n=107 (110 on post) | 2026-10-14 | Down from 7.0% on 2026-10-04 [1] |
+| Metaculus Pro | 8.0% IQR [4.4%, 9.0%], n=8 | 2026-10-14 | Up from 7.0%; small n |
+| Metaculus gold medalists | 4.4% IQR [4.0%, 8.0%], n=29 | 2026-10-14 | Down from 10.0% |
+| Kalshi KXKENNEDYDEMOLITION-27 (full demolition) | bid 2¢ / ask 3¢ / last 2¢; vol ≈14.4k; OI ≈9.3k | 2026-10-14 | Stricter criterion; no trades since 2026-10-04 [2] |
+| Kalshi KXKENNEDYDEMOVOTE-27 | bid 9¢ / ask 16¢ / last 8¢; vol ≈680 | 2026-10-14 | Thin [2] |
+| Kalshi KXKENNEDYREOPEN-28 | reopen before 2027-01-01: 12¢/22¢; before 2028-01-01: 21¢/30¢ | 2026-10-14 | Long closure expected [2] |
+| Kalshi KXTRUMPKENNEDYFACADE-27 | before 2027-01-01: 20¢/28¢; before 2027-07-01: 30¢/38¢ | 2026-10-14 | Unchanged [2] |
+| Metaculus comments | 4% (VectorWright, 10-11), 5% (Vlad25, 10-13), 15% (Koboh, 10-04) | 2026-10-14 | All cite the 30-day notice as the binding constraint [1] |
+
+**Cohort disagreement.** Pros (8%, n=8) now sit above CP and gold (both 4.4%). With n=8 and
+an IQR of [4.4%, 9.0%], this is not a strong signal; I weight the larger gold cohort. Gap to
+me: 1.4 pp (CP, gold), 5 pp (Pro). No material disagreement.
+
+### Scenarios
+| # | Scenario | Weight | Implies |
+|---|---|---|---|
+| 1 | Status quo: litigation, safety closure, repairs; no notice, or none acted on | 88.2% | NO |
+| 2 | Notice filed; blocked or slips past Jan 1 | 9.0% | NO |
+| 3 | Notice filed; courts allow; wrecking starts before Jan 1 | 0.9% | YES |
+| 4 | Fait-accompli demolition despite the notice order | 0.6% | YES |
+| 5 | Repair work removes more than de minimis structure and is counted, or emergency partial teardown | 1.3% | YES |
+| | Cohort-pooling adjustment | +0.35% | YES |
+
+P(YES) ≈ 3.15% → median **3.0%**. IQR **[1.5%, 5.5%]**.
+
+### Sensitivity
+Unchanged from v2.
+
+### What would change my mind (tripwires)
+- [ ] Administration files a 30-day notice of demolition or scope change in *Beatty* / DCPL by 2026-11-30 → up, +12pp
+- [ ] Demolition contractor award, demolition permit, or heavy demolition equipment staged on site by 2026-11-30 → up, +8pp
+- [ ] Kennedy Center board votes to demolish (or to pursue the "amphitheater" alternative) by 2026-11-30 → up, +8pp
+- [ ] Safety/egress assessment concludes the building is structurally unsound or not economically repairable by 2026-10-31 → up, +3pp
+- [ ] Unsealed JLL renovation plan (after the 2026-10-19 briefing) shows removal of facade, roof or structural frame by 2026-11-15 → up, +3pp (resolution edge: path C)
+- [ ] Repair work removes exterior structural elements (roof-terrace canopy, soffit framing, facade panels) and major outlets call it "demolition" by 2026-12-15 → up, +3pp
+- [ ] D.C. Circuit merits ruling on the name by 2026-12-15 → either, re-analyse
+- [ ] Supreme Court emergency application on Kennedy Center renovation/demolition filed by 2026-12-15 → up, +5pp
+- [ ] Merkley–Murkowski (or Pingree) demolition ban enacted by 2026-12-31 → down, 2pp
+
+### Sources
+1. Metaculus #45810 aggregation snapshot (CP, Pros, gold, history, comments) — raw/metaculus-2026-10-14.json (fetched 2026-10-14)
+2. Kalshi public API, events KXKENNEDYDEMOLITION-27, KXKENNEDYDEMOVOTE-27, KXKENNEDYREOPEN-28, KXTRUMPKENNEDYFACADE-27 — https://api.elections.kalshi.com/trade-api/v2/events/KXKENNEDYDEMOLITION-27; snapshot raw/kalshi-2026-10-14.json (accessed 2026-10-14)
+3. The Washington Sun, "Rep. Beatty Asks a Judge to Compel Evidence in Kennedy Center Lawsuit" (2026-10-05) — https://www.washingtonsun.com/whitehouse/beatty-kennedy-center-lawsuit-evidence-motion-evidence (accessed 2026-10-14)
+4. Newsweek, "Kennedy Center Construction Plans Revealed In Trump Legal Battle: What It Shows" (2026-10-08) — https://www.newsweek.com/kennedy-center-construction-donald-trump-lawsuit-joyce-beatty-12542698 (accessed 2026-10-14)
+5. CourtListener RECAP, *Beatty v. Trump*, No. 25-cv-04480 (D.D.C.), docket entry 94 (status report and declaration) — https://storage.courtlistener.com/recap/gov.uscourts.dcd.287972/gov.uscourts.dcd.287972.94.0.pdf (search snippet, accessed 2026-10-14)
+6. ABC News, "Internal email points to Kennedy Center's continued closure" (2026-10-01) — https://abcnews.com/Politics/internal-email-points-kennedy-centers-continued-closure/story?id=136925836 (search snippet, accessed 2026-10-14)
+7. WVTF/NPR, "The Kennedy Center names new artistic director, amid concerns" (2026-10-10) — https://wvtf.org/2026-10-10/the-kennedy-center-names-new-artistic-director-amid-concerns (search snippet, accessed 2026-10-14)
+8. Axios, "Kennedy Center demolition requires 30-day notice, judge rules" (2026-09-17) — https://www.axios.com/2026/09/17/kennedy-center-demolition-30-days-notice-ruling (search snippet, accessed 2026-10-14)
+9. PBS NewsHour, "Judge orders Kennedy Center to provide 30 days' notice before making any major physical changes" — https://www.pbs.org/newshour/arts/judge-orders-kennedy-center-to-provide-30-days-notice-before-making-any-major-physical-changes (search snippet, accessed 2026-10-14)
+10. CP24, "Kennedy Center put off planned repairs despite known structural issues, former employees allege" (2026-09-26) — https://www.cp24.com/news/world/2026/09/26/kennedy-center-put-off-planned-repairs-despite-known-structural-issues-former-employees-allege/ (search snippet, accessed 2026-10-14)
+11. NBC Washington, "Kennedy Center to remain closed to public as safety assessments continue" — https://www.nbcwashington.com/news/local/kennedy-center-to-remain-closed-to-public-as-safety-assessments-continue/4161921/ (search snippet, accessed 2026-10-14)
+12. Kalshi News, "Will the Kennedy Center be demolished this year?" (2026-09-18) — https://news.kalshi.com/p/kennedy-center-2026-demolition-odds-at-11-percent (search snippet, accessed 2026-10-14)
+
+**Question**: [Will Trump demolish the Kennedy Center before January 1, 2027?](https://www.metaculus.com/questions/45810/will-trump-demolish-the-kennedy-center-before-january-1-2027)
+**Date**: 2026-10-14
+**Forecast**: Median 3.0%, IQR [1.5%, 5.5%]
+**Thesis**: Another quiet 10 days: no 30-day demolition notice, contractor, board vote or Supreme Court move. The court fight is now about closure documents and a two-year renovation plan, not demolition [3][4]. Time decay takes the inside view to ~2.8%. Metaculus cohorts fell to 4.4% (CP and gold), so the upward pull from pooling shrinks [1]. Kalshi's full-demolition contract is flat at 2–3¢ [2].
 
 ---
 
