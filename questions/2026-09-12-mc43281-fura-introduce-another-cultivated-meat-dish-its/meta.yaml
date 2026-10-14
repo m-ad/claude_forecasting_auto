@@ -17,19 +17,19 @@ dates:
   resolves: '2027-07-01'
 status: open
 current:
-  version: 1
-  date: '2026-09-12'
-  median: 0.356
+  version: 2
+  date: '2026-10-14'
+  median: 0.335
   iqr:
-  - 0.28
-  - 0.45
+  - 0.26
+  - 0.43
   community:
-    cp: 0.42
+    cp: 0.38
     pro: 0.4
-    gold: 0.42
-    n_forecasters: 43
-    as_of: '2026-09-12'
-next_review: '2026-10-14'
+    gold: 0.44
+    n_forecasters: 50
+    as_of: '2026-10-14'
+next_review: '2026-11-14'
 tripwires:
 - signal: Parima/Gourmey announces a commercial Singapore launch (named distributor, date or venue)
   by: '2027-02-28'
@@ -60,6 +60,12 @@ tripwires:
   by: '2027-02-28'
   direction: up
   magnitude: 3
+  magnitude_unit: pp
+  fired: null
+- signal: Question author re-dates close to 2027-01-01 (answering the open 2026-07-28 comment)
+  by: '2027-01-01'
+  direction: down
+  magnitude: 24
   magnitude_unit: pp
   fired: null
 - signal: FURA announces closure, sale or a change of concept (annulment risk)

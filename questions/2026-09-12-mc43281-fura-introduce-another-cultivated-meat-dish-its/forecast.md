@@ -6,11 +6,133 @@
 | **Type** | binary |
 | **Opened / Closes / Resolves** | 2026-06-12 / 2027-06-30 / on observation, any time before 2027-07-01 |
 | **Status** | open |
-| **Current forecast** | **Median 35.6%, IQR [28.0%, 45.0%]** (v1, 2026-09-12) |
-| **Community (as of 2026-09-12)** | CP 42.0% (n=27, 43 forecasters total) · Pro 40.0% (n=5) · Gold 42.0% (n=15) |
-| **Next review** | 2026-10-14 |
+| **Current forecast** | **Median 33.5%, IQR [26.0%, 43.0%]** (v2, 2026-10-14) |
+| **Community (as of 2026-10-13)** | CP 38.0% IQR [28.0%, 42.0%] (n=30, 50 forecasters total) · Pro 40.0% (n=3) · Gold 44.0% (n=13) |
+| **Next review** | 2026-11-14 |
 
 <!-- Versions below, newest first. APPEND-ONLY: never edit or delete a past version. -->
+
+---
+
+## v2 — Update — 2026-10-14
+
+Mode: **Update** (incremental). 32 of 292 days of the window have passed since v1 (11%, well
+under 1/3). No question-structure change. The Metaculus cohorts sit 4.5–10.5 pp above me;
+the gap is the same one named in v1 (I discount Parima's execution harder) and I re-searched
+for a missed fact before holding it (see *Other forecasters*).
+
+### Revision
+| Driver | Direction | Effect |
+|---|---|---|
+| Prior (v1, 2026-09-12) | — | Median 35.6%, IQR [28.0%, 45.0%] |
+| Elapsed quiet time on the main path: one month of the 6.6-month "Parima live by 2027-03-31" sub-window is gone with no launch announcement, no named distributor or partner, and no new item on Parima's news page since 2026-07-02 [2][3]. Remaining-window hazard: P(Parima live early) 0.40 → 0.36; late-Parima sub-window renormalised 0.15 → 0.16 | ↓ | −1.8 pp |
+| Aleph Farms: no change to the H1 2027 Singapore line target (Cell Agritech), no restaurant partners named [4] | → | 0 pp |
+| "Other" path (Hoxton cultivated fat, Eat Just return, surprise): Hoxton still awaiting SFA decision ("late 2026 to early 2027") [5]; time decay 0.050 → 0.047 | ↓ | −0.3 pp |
+| FURA menu re-checked 2026-10-14: still exactly two cultivated items, both cultured Japanese quail; no Volume Three [1] | → | 0 pp (confirms not yet resolved) |
+| Metaculus cohorts: CP 42% → 38%, Pro 40% → 40% (n=3), gold 42% → 44% (n=13, IQR widened to [40%, 82%]) [6]. Net movement ≈ 0 and no comments with new facts (one comment total, on the close date) | → | 0 pp |
+| **New forecast** (model output 33.5%) | | **Median 33.5%, IQR [26.0%, 43.0%]** |
+
+### Tripwire check
+| Tripwire from v1 | By | Fired? | Note |
+|---|---|---|---|
+| Parima/Gourmey announces a commercial Singapore launch (distributor, date or venue) | 2027-02-28 | **Not fired** | Parima news page: latest item 2026-07-02 (multi-tonne production with Vow); Gourmey news page unchanged; no trade-press coverage found [2][3] |
+| No Parima Singapore launch announcement at all | 2027-01-31 | Not yet due | Running toward firing: 12 months since the chicken approval, 6 since the duck approval |
+| Aleph Farms confirms Cell Agritech Singapore line operational and names restaurant partners | 2027-03-31 | **Not fired** | Latest coverage still the August approval: "first half of 2027", "select restaurant partners" [4] |
+| FURA publishes Journal of Future Food Volume Three with no non-quail cultivated item | 2027-04-30 | **Not fired** | Live menu still Volume Two-era; no Volume Three announced [1] |
+| Hoxton Farms cultivated pork fat receives SFA approval | 2027-02-28 | **Not fired** | No approval reported; company guidance late 2026 – early 2027 [5] |
+| FURA closure, sale or change of concept | 2027-07-01 | **Not fired** | Menu live; no closure news |
+
+### What resolves YES
+Unchanged from v1. The 2026-07-28 comment asking whether the close date should be 2027-01-01
+is still unanswered; the API still shows scheduled close 2027-06-30T20:00Z [6].
+
+### Outside view
+Unchanged from v1.
+
+### Inside view
+Path table re-run (`scripts/model.py` structure, updated inputs):
+
+| Path | P(supply) | P(FURA lists in time) | Contribution |
+|---|---|---|---|
+| Parima live by 2027-03-31 | 0.36 (was 0.40) | 0.60 | 21.6pp |
+| Parima live 2027-04-01 … 06-15 | 0.16 (was 0.15) | 0.33 | 5.3pp |
+| Aleph Farms Thin-Cut Steak live before 2027-06-15 | 0.28 | 0.16 | 4.5pp |
+| Other (Hoxton fat, Eat Just, surprise) | 1.00 | 0.047 (was 0.05) | 4.7pp |
+| **P(YES), raw** | | | **32.4%** |
+| **P(YES \| not annulled)** (closure risk 5%) | | | **33.5%** |
+
+The Parima-early renormalisation assumes v1's 0.40 was spread evenly over 2026-09-12 …
+2027-03-31: P(launch in the remaining 5.6 months | none in the first) = (0.40 × 5.6/6.6) /
+(1 − 0.40 × 1/6.6) ≈ 0.36. A launch announcement can still come with no visible run-up
+(Vow's 2024 launch went from announcement to plate in the same month), so the decay is
+mechanical, not a judgement that Parima has failed.
+
+### Evidence
+v1 table unchanged. Additions:
+
+| Evidence | Direction | Likelihood ratio (approx.) |
+|---|---|---|
+| A further month with no Parima Singapore launch signal [2][3] | ↓ | ~0.93 on the Parima-early leg |
+| Aleph Farms: still H1 2027, no partners named [4] | → | 1.0 |
+| Hoxton Farms: no SFA decision yet [5] | → | 1.0 |
+| FURA menu unchanged, two quail items only [1] | → | 1.0 |
+
+### Other forecasters
+| Source | Value | As of | Note |
+|---|---|---|---|
+| Metaculus CP (recency-weighted) | 38.0%, IQR [28.0%, 42.0%] (n=30; 50 forecasters on the post) | 2026-10-13 | Down from 42% on 2026-09-12; 38–40% since 2026-10-04 [6] |
+| Metaculus Pro | 40.0%, IQR [40.0%, 42.0%] (n=3) | 2026-10-13 | Unchanged; tiny n |
+| Metaculus gold medalists | 44.0%, IQR [40.0%, 82.0%] (n=13) | 2026-10-13 | Up 2 pp; upper quartile jumped to 82% (mean 51%) |
+| Kalshi / Polymarket / Manifold | none | 2026-10-14 | No comparable market |
+
+**Cohort disagreement flag.** The cohorts now spread (CP 38%, Pro 40%, gold 44% with a fat
+upper tail). Gold sits 10.5 pp above me, at the re-search threshold. The 82% upper quartile
+suggests at least a few gold medalists believe something qualifying is imminent or already
+happened. I re-checked the live menu (two quail items only), Parima's and Gourmey's news
+pages, Aleph and Hoxton coverage, and FURA news since July: nothing. With n=13 and no
+explanatory comments, I read the tail as a few high forecasts rather than a fact I missed.
+The CP, the larger cohort, moved *toward* me (42% → 38%). I hold my number and do not herd.
+
+### Scenarios
+| # | Scenario | Weight | Implies |
+|---|---|---|---|
+| 1 | Parima launches in Singapore by March 2027; FURA among the first venues | 0.22 | YES |
+| 2 | Parima launches late or narrowly; FURA misses or is not chosen | 0.18 | mostly NO |
+| 3 | Aleph hits H1 2027 at steakhouses; FURA an unlikely early partner | 0.10 | mostly NO (≈4.5pp of YES) |
+| 4 | Nothing non-quail reaches a Singapore plate before July 2027 | 0.45 | NO |
+| 5 | FURA ceases operations | 0.05 | ANNULLED |
+
+### Sensitivity
+Unchanged from v1. Each further quiet month on Parima removes ~2 pp until the 2027-01-31
+"no announcement" tripwire, which removes ~10 pp at once.
+
+### What would change my mind (tripwires)
+- [ ] **Parima/Gourmey announces a commercial Singapore launch** (named distributor, date or venue) by 2027-02-28 → **up, +15pp** (up to +30pp if FURA is named; resolves YES if on the menu).
+- [ ] **No Parima Singapore launch announcement by 2027-01-31** → **down, −10pp**.
+- [ ] **Aleph Farms confirms its Cell Agritech Singapore line is operational and names restaurant partners** by 2027-03-31 → **up, +6pp**; slippage to H2 2027 announced → **down, −4pp**.
+- [ ] **FURA publishes Journal of Future Food Volume Three** before 2027-04-30 without a non-quail cultivated item → **down, −8pp**. With one → resolves YES.
+- [ ] **Hoxton Farms cultivated pork fat receives SFA approval** by 2027-02-28 → **up, +3pp**; re-check whether cultivated fat counts as "a cultured meat".
+- [ ] **Question author re-dates the close to 2027-01-01** (answering the open comment) → **down, to ≈9%**; re-analyse.
+- [ ] **FURA announces closure, sale or change of concept** before 2027-07-01 → annulment risk, re-analyse.
+
+### Sources
+1. FURA, menu — https://www.fura.space/menu (accessed 2026-10-14)
+2. PARIMA, news — https://parima.bio/news (accessed 2026-10-14; latest item 2026-07-02)
+3. Gourmey, news index — https://gourmey.com/news (search snippet, accessed 2026-10-14)
+4. AgFunderNews, "Aleph Farms plans 2027 cultivated beef launch in Singapore after securing green light from regulators" — https://agfundernews.com/aleph-farms-plans-2027-cultivated-beef-launch-in-singapore-after-securing-green-light-from-regulators (search snippet, accessed 2026-10-14)
+5. Green Queen, "Exclusive: Hoxton Farms Files for Singapore Approval of Cultivated Pork Fat" — https://www.greenqueen.com.hk/hoxton-farms-lab-grown-meat-cultivated-pork-fat-singapore-approval/ (search snippet, accessed 2026-10-14)
+6. Metaculus #43281 aggregation snapshot (CP, Pro, gold, history, comments) — raw/metaculus-2026-10-14.json (fetched 2026-10-14)
+7. Time Out, "Singapore's Fura Named World's Best Bar at Spirited Awards 2026" — https://www.timeout.com/singapore/news/singapores-fura-is-officially-the-worlds-best-bar-according-to-the-spirited-awards-072726 (accessed 2026-10-14)
+8. Protein Production Technology, "PARIMA and Vow's 22,000L breakthrough signals cultivated meat's next commercial chapter" (2026-07) — https://www.proteinproductiontechnology.com/post/parima-and-vows-22-000l-breakthrough-signals-cultivated-meats-next-commercial-chapter (search snippet, accessed 2026-10-14)
+9. Food Ingredients First, "Parima secures regulatory clearance to sell cultivated duck in Singapore" — https://www.foodingredientsfirst.com/news/parima-secures-regulatory-clearance-to-sell-cultivated-duck-in-singapore.html (search snippet, accessed 2026-10-14)
+10. Green Queen, "Aleph Farms Earns Singapore Approval for Lab-Grown Beef, Targets 2027 Launch" (2026-08-04) — https://www.greenqueen.com.hk/aleph-farms-lab-grown-meat-cultivated-beef-singapore-approval-launch/ (search snippet, accessed 2026-10-14)
+11. GFI APAC, "Why Singapore's World-First Cultivated Beef and Duck Approvals Matter" — https://gfi-apac.org/why-singapores-world-first-cultivated-beef-and-duck-approvals-matter/ (search snippet, accessed 2026-10-14)
+12. The Star, "Singapore restaurants Bricolage and Fura are building the menus of the future" (2026-04-11) — https://www.thestar.com.my/lifestyle/living/2026/04/11/singapore-restaurants-bricolage-and-fura-are-building-the-menus-of-the-future (search snippet, accessed 2026-10-14)
+
+**Question**: [Will FURA introduce another cultivated meat dish on its menu before July 2027?](https://www.metaculus.com/questions/43281/will-fura-add-a-new-cultivated-meat-dish-before-july-2027/)
+**Date**: 2026-10-14
+**Forecast**: Median 33.5%, IQR [26.0%, 43.0%]
+**Thesis**: A quiet month. FURA's menu still lists only cultured quail [1], and no non-quail supplier moved: Parima has announced nothing about a Singapore launch since July [2], Aleph still targets H1 2027 [4], Hoxton awaits approval [5]. Time decay on the Parima path takes ~2 pp off. The cohorts (CP 38%, Pro 40%, gold 44%) sit above me for the same reason as in v1: I discount Parima's execution harder [6].
 
 ---
 

@@ -142,3 +142,17 @@ Reasoning behind the two load-bearing numbers:
 - Has Hoxton Farms' pork fat been approved, and would the resolver count cultivated fat?
 - Has FURA published "Journal of Future Food, Volume Three", and what is in it?
 - Did the question author answer dendron's 2026-07-28 comment about the close date?
+
+## 2026-10-14 — v2 update log
+
+| Search / fetch | Result | Use |
+|---|---|---|
+| fura.space/menu (live) | two cultivated items, both cultured Japanese quail; "Forged tallow" in bread service (quail by-product) | not resolved |
+| Parima news page | latest 2026-07-02 (multi-tonne production with Vow); no Singapore launch | Parima-early hazard decay |
+| "Parima Gourmey Singapore launch restaurant" / "Parima news Sept Oct 2026" | nothing after July | absence of evidence |
+| Aleph Farms Singapore Oct 2026 | still the August approval coverage; H1 2027 target | unchanged |
+| Hoxton Farms SFA approval | still pending, late 2026 – early 2027 guidance | unchanged |
+| FURA news 2026 / Volume Three | only July World's Best Bar coverage | unchanged |
+| Metaculus (raw/metaculus-2026-10-14.json) | CP 38, Pro 40 (n=3), gold 44 (n=13, IQR 40–82); one comment (close-date query, unanswered) | cohort table |
+
+Open next time: same list as above; also whether the gold cohort's 82% upper quartile reflects a fact (check comments again).

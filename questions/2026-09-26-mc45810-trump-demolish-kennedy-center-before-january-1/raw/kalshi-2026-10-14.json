@@ -1,0 +1,158 @@
+{
+ "retrieved": "2026-10-14",
+ "source": "api.elections.kalshi.com/trade-api/v2/events",
+ "events": {
+  "KXKENNEDYDEMOLITION-27": [
+   {
+    "ticker": "KXKENNEDYDEMOLITION-27-27JAN01",
+    "yes_sub_title": "Before Jan 1, 2027",
+    "status": "active",
+    "yes_bid_dollars": "0.0200",
+    "yes_ask_dollars": "0.0300",
+    "last_price_dollars": "0.0200",
+    "volume_fp": "14425.82",
+    "open_interest_fp": "9320.08",
+    "close_time": "2027-01-01T04:59:00Z",
+    "result": ""
+   }
+  ],
+  "KXKENNEDYDEMOVOTE-27": [
+   {
+    "ticker": "KXKENNEDYDEMOVOTE-27-27JAN01",
+    "yes_sub_title": "Before Jan 1, 2027",
+    "status": "active",
+    "yes_bid_dollars": "0.0900",
+    "yes_ask_dollars": "0.1600",
+    "last_price_dollars": "0.0800",
+    "volume_fp": "680.96",
+    "open_interest_fp": "641.40",
+    "close_time": "2027-01-01T04:59:00Z",
+    "result": ""
+   }
+  ],
+  "KXKENNEDYREOPEN-28": [
+   {
+    "ticker": "KXKENNEDYREOPEN-28-26OCT08",
+    "yes_sub_title": "Before Oct 8, 2026",
+    "status": "finalized",
+    "yes_bid_dollars": "0.0000",
+    "yes_ask_dollars": "1.0000",
+    "last_price_dollars": "0.0300",
+    "volume_fp": "212.63",
+    "open_interest_fp": "212.63",
+    "close_time": "2026-10-08T03:59:00Z",
+    "result": "no"
+   },
+   {
+    "ticker": "KXKENNEDYREOPEN-28-26OCT22",
+    "yes_sub_title": "Before Oct 22, 2026",
+    "status": "active",
+    "yes_bid_dollars": "0.0300",
+    "yes_ask_dollars": "0.0800",
+    "last_price_dollars": "0.0500",
+    "volume_fp": "26.47",
+    "open_interest_fp": "26.47",
+    "close_time": "2026-10-22T03:59:00Z",
+    "result": ""
+   },
+   {
+    "ticker": "KXKENNEDYREOPEN-28-26NOV05",
+    "yes_sub_title": "Before Nov 5, 2026",
+    "status": "active",
+    "yes_bid_dollars": "0.0700",
+    "yes_ask_dollars": "0.0800",
+    "last_price_dollars": "0.0700",
+    "volume_fp": "784.84",
+    "open_interest_fp": "703.71",
+    "close_time": "2026-11-05T04:59:00Z",
+    "result": ""
+   },
+   {
+    "ticker": "KXKENNEDYREOPEN-28-26DEC03",
+    "yes_sub_title": "Before Dec 3, 2026",
+    "status": "active",
+    "yes_bid_dollars": "0.0900",
+    "yes_ask_dollars": "0.1700",
+    "last_price_dollars": "0.1600",
+    "volume_fp": "210.00",
+    "open_interest_fp": "210.00",
+    "close_time": "2026-12-03T04:59:00Z",
+    "result": ""
+   },
+   {
+    "ticker": "KXKENNEDYREOPEN-28-27JAN01",
+    "yes_sub_title": "Before Jan 1, 2027",
+    "status": "active",
+    "yes_bid_dollars": "0.1200",
+    "yes_ask_dollars": "0.2200",
+    "last_price_dollars": "0.0000",
+    "volume_fp": "0.00",
+    "open_interest_fp": "0.00",
+    "close_time": "2027-01-01T04:59:00Z",
+    "result": ""
+   },
+   {
+    "ticker": "KXKENNEDYREOPEN-28-27JUL01",
+    "yes_sub_title": "Before Jul 1, 2027",
+    "status": "active",
+    "yes_bid_dollars": "0.1900",
+    "yes_ask_dollars": "0.2800",
+    "last_price_dollars": "0.6100",
+    "volume_fp": "500.00",
+    "open_interest_fp": "300.00",
+    "close_time": "2027-07-01T03:59:00Z",
+    "result": ""
+   },
+   {
+    "ticker": "KXKENNEDYREOPEN-28-28JAN01",
+    "yes_sub_title": "Before Jan 1, 2028",
+    "status": "active",
+    "yes_bid_dollars": "0.2100",
+    "yes_ask_dollars": "0.3000",
+    "last_price_dollars": "0.3000",
+    "volume_fp": "701.58",
+    "open_interest_fp": "500.00",
+    "close_time": "2028-01-01T04:59:00Z",
+    "result": ""
+   }
+  ],
+  "KXTRUMPKENNEDYFACADE-27": [
+   {
+    "ticker": "KXTRUMPKENNEDYFACADE-27-26OCT01",
+    "yes_sub_title": "Before Oct 1, 2026",
+    "status": "finalized",
+    "yes_bid_dollars": "0.0000",
+    "yes_ask_dollars": "1.0000",
+    "last_price_dollars": "0.0100",
+    "volume_fp": "2728.74",
+    "open_interest_fp": "1576.02",
+    "close_time": "2026-10-01T03:59:00Z",
+    "result": "no"
+   },
+   {
+    "ticker": "KXTRUMPKENNEDYFACADE-27-27JAN01",
+    "yes_sub_title": "Before Jan 1, 2027",
+    "status": "active",
+    "yes_bid_dollars": "0.2000",
+    "yes_ask_dollars": "0.2800",
+    "last_price_dollars": "0.2800",
+    "volume_fp": "548.67",
+    "open_interest_fp": "466.66",
+    "close_time": "2027-01-01T04:59:00Z",
+    "result": ""
+   },
+   {
+    "ticker": "KXTRUMPKENNEDYFACADE-27-27JUL01",
+    "yes_sub_title": "Before Jul 1, 2027",
+    "status": "active",
+    "yes_bid_dollars": "0.3000",
+    "yes_ask_dollars": "0.3800",
+    "last_price_dollars": "0.3000",
+    "volume_fp": "1663.24",
+    "open_interest_fp": "225.57",
+    "close_time": "2027-07-01T03:59:00Z",
+    "result": ""
+   }
+  ]
+ }
+}
