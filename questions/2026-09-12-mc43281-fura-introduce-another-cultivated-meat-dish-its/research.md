@@ -156,3 +156,13 @@ Reasoning behind the two load-bearing numbers:
 | Metaculus (raw/metaculus-2026-10-14.json) | CP 38, Pro 40 (n=3), gold 44 (n=13, IQR 40–82); one comment (close-date query, unanswered) | cohort table |
 
 Open next time: same list as above; also whether the gold cohort's 82% upper quartile reflects a fact (check comments again).
+
+## 2026-10-14 — v3 (model revision after operator red-team review)
+
+| Search / fetch | Result | Use |
+|---|---|---|
+| Green Queen, Parima–Vow production (2026-07-02) | collaboration since 2025; tonne-scale duck run on Vow's 22,000 L Sydney line; FSANZ approval pending; no Singapore supply statement | Vow↔Parima link, FURA-adoption leg ↑ |
+| "Parima Vow partnership Singapore supply" | no supply/distribution deal found | caveat: SFA approval is product/process-specific |
+| "Fura guest shift / collaboration / pop-up" | none found (2023 Tales residency only) | event path is structural, not observed |
+
+Review findings adopted (about two-thirds of the red-team's full parameter move): event menus count; Vow link; production underweighted in v1. Cohort pooling deliberately not applied (would double-count).

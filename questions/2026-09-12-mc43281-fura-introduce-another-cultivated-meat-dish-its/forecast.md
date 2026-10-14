@@ -6,11 +6,124 @@
 | **Type** | binary |
 | **Opened / Closes / Resolves** | 2026-06-12 / 2027-06-30 / on observation, any time before 2027-07-01 |
 | **Status** | open |
-| **Current forecast** | **Median 33.5%, IQR [26.0%, 43.0%]** (v2, 2026-10-14) |
+| **Current forecast** | **Median 38.0%, IQR [27.0%, 50.0%]** (v3, 2026-10-14) |
 | **Community (as of 2026-10-13)** | CP 38.0% IQR [28.0%, 42.0%] (n=30, 50 forecasters total) · Pro 40.0% (n=3) · Gold 44.0% (n=13) |
 | **Next review** | 2026-11-14 |
 
 <!-- Versions below, newest first. APPEND-ONLY: never edit or delete a past version. -->
+
+---
+
+## v3 — Update — 2026-10-14
+
+Mode: **Update** (model revision, same day as v2). Triggered by the operator's red-team
+review of v2, which found two mechanisms neither v1 nor v2 modelled and one production fact v1
+had underweighted. No new news since v2. The Metaculus snapshot is the same one fetched for v2
+(`raw/metaculus-2026-10-14.json`), not re-fetched. This version corrects model structure. It
+does not react to new events.
+
+### Revision
+| Driver | Direction | Effect |
+|---|---|---|
+| Prior (v2, 2026-10-14) | — | Median 33.5%, IQR [26.0%, 43.0%] |
+| **Vow ↔ Parima link.** Parima's 2026 tonne-scale duck run was made on **Vow's** 22,000 L line in Sydney; the CEO calls Vow one of "the best manufacturing partners" [1]. Vow is FURA's existing cultivated-meat supplier. FURA's supplier relationship and Parima's manufacturing now overlap. Not modelled before. Caveat: SFA approval is specific to product and process, so Vow-made duck may need an amended dossier before Singapore sale [1][3]. P(FURA lists \| Parima live early) 0.60 → 0.66 | ↑ | +2.3 pp |
+| **Event and pop-up menus count.** "At least one item on its menu" at any time, and it stays YES even if the item is removed. A launch-event dish, collaboration night or guest shift would plausibly count. Singapore cultivated launches have been venue events (Eat Just at 1880, Vow at Mandala Club, Vital Meat's tasting at Hue) [2]. This bypasses FURA's roughly annual menu cadence, which mattered most for late arrivals. Late Parima 0.33 → 0.42; Aleph 0.16 → 0.18 | ↑ | +2.0 pp |
+| **Production underweighted in v1.** v1 cited a 2,000 L pilot plant. Parima has since shown multi-tonne runs at ~99% lower cost [1][4], which removes the cost and volume excuse that sank earlier Singapore approvals. Still no launch signal after 12 months, so the shift is small: P(Parima live by 2027-03-31) 0.36 → 0.38 | ↑ | +0.6 pp |
+| Remaining-window hazard and "other" path: unchanged from v2 (no new time elapsed) | → | 0 pp |
+| Cohort pooling: **not applied.** Both new mechanisms are plausible explanations of the cohort gap. Pooling on top would count the same information twice. The model now lands within 0–6 pp of all three cohorts | → | 0 pp |
+| **New forecast** (model output 38.2%, rounded) | | **Median 38.0%, IQR [27.0%, 50.0%]** |
+
+### Tripwire check
+Unchanged from v2: all v2 tripwires checked on 2026-10-14, none fired. No new search since.
+
+### What resolves YES
+Unchanged from v1, with one added reading. A dish on a special-event, collaboration or
+guest-shift menu at FURA is "an item on its menu" and should count. A strict resolver
+might count only the standing menu; I put about 25% on that reading, priced into the
+event-path effect above (not its full value).
+
+### Outside view
+v1 classes unchanged. Added rival class (red-team): *approved companies with tonne-scale,
+low-cost production and stated near-term Singapore intent*. n≈1 (Parima), so it gets no
+standalone base rate. It argues that v1's "2 of 6 approvals reached sale" class
+overstates the supply constraint for Parima, because the failures were cost- and
+funding-driven.
+
+### Inside view
+| Path | P(supply) | P(FURA lists in time) | Contribution |
+|---|---|---|---|
+| Parima live by 2027-03-31 | 0.38 (v2 0.36) | 0.66 (v2 0.60) | 25.1pp |
+| Parima live 2027-04-01 … 06-15 | 0.16 | 0.42 (v2 0.33) | 6.7pp |
+| Aleph Farms Thin-Cut Steak live before 2027-06-15 | 0.28 | 0.18 (v2 0.16) | 5.0pp |
+| Other (Hoxton fat, Eat Just, event with any supplier, surprise) | 1.00 | 0.05 (v2 0.047) | 5.0pp |
+| **P(YES), raw** | | | **37.0%** |
+| **P(YES \| not annulled)** (closure risk 5%) | | | **38.2%** |
+
+Inputs are tempered, not the red-team's full case. Taking every lever at its
+suggested value (0.40 / 0.68 / 0.45 / 0.20) gives 40.6%. I take about two-thirds of that
+move because neither mechanism has a concrete FURA–Parima signal behind it yet.
+
+### Evidence
+v2 table unchanged. Additions:
+
+| Evidence | Direction | Likelihood ratio (approx.) |
+|---|---|---|
+| Parima–Vow manufacturing collaboration, Sydney, 22,000 L line (2026-07-02) [1] | ↑ | ~1.10 on the FURA-adoption leg |
+| Launch-event pattern for Singapore cultivated products; event menus count [2] | ↑ | ~1.25 on late paths |
+| Tonne-scale production at ~99% lower cost [1][4] | ↑ | ~1.05 on Parima supply |
+| Parima still awaiting FSANZ (Australia/NZ) approval; timeline slipped [1] | → | ~1.0 (Singapore approval is separate) |
+
+### Other forecasters
+Unchanged from v2 (same snapshot): CP 38.0%, Pro 40.0% (n=3), gold 44.0% (n=13, IQR [40%, 82%]).
+Gap now: CP 0 pp, Pro 2 pp, gold 6 pp. **No material disagreement.**
+
+### Scenarios
+| # | Scenario | Weight | Implies |
+|---|---|---|---|
+| 1 | Parima launches in Singapore by March 2027; FURA is a launch venue or standing-menu adopter (possibly via Vow) | 0.25 | YES |
+| 2 | Parima launches late or narrowly; FURA gets it only via an event, or not at all | 0.16 | ~40% YES |
+| 3 | Aleph launches at steakhouses; FURA an unlikely partner | 0.10 | ~18% YES |
+| 4 | Nothing non-quail reaches a Singapore plate before July 2027 | 0.44 | NO |
+| 5 | FURA ceases operations | 0.05 | ANNULLED |
+
+### Sensitivity
+| Assumption | If instead | Forecast becomes |
+|---|---|---|
+| Event-menu items count | Resolver counts the standing menu only | ≈ 35% |
+| Vow-made Parima duck can be sold in Singapore under the existing approval | Needs a new dossier (12+ months) | ≈ 36% (link reverts to a soft relationship benefit) |
+| P(Parima live early) = 0.38 | 0.20 (another quiet quarter) | ≈ 27% |
+| Close date 2027-06-30 | Re-dated to 2027-01-01 | ≈ 10% |
+
+### What would change my mind (tripwires)
+- [ ] **Parima/Gourmey announces a commercial Singapore launch** (named distributor, date or venue) by 2027-02-28 → **up, +15pp** (up to +30pp if FURA is named).
+- [ ] **No Parima Singapore launch announcement by 2027-01-31** → **down, −12pp** (the event and Vow paths also depend on Parima supply).
+- [ ] **FURA hosts a cultivated-meat event, collaboration or guest shift** with any non-quail supplier, announced by 2027-05-31 → **up, +10pp**, or resolves YES if served.
+- [ ] **Vow–Parima commercial or distribution deal for Asia, or SFA clearance for Vow-manufactured Parima product**, by 2027-03-31 → **up, +6pp**.
+- [ ] **Parima funding round closes** by 2027-03-31 → **up, +6pp**.
+- [ ] **Parima layoffs or distress reported** by 2027-03-31 → **down, −6pp**.
+- [ ] **Aleph Farms confirms its Cell Agritech Singapore line is operational and names restaurant partners** by 2027-03-31 → **up, +6pp**; slippage to H2 2027 → **down, −4pp**.
+- [ ] **FURA publishes Journal of Future Food Volume Three** before 2027-04-30 without a non-quail cultivated item → **down, −8pp**.
+- [ ] **Hoxton Farms cultivated pork fat receives SFA approval** by 2027-02-28 → **up, +3pp**.
+- [ ] **Question author re-dates the close to 2027-01-01** → **down, to ≈10%**; re-analyse.
+- [ ] **FURA announces closure, sale or change of concept** → annulment risk, re-analyse.
+
+### Sources
+1. Green Queen, "Parima Validates Commercial-Scale Cultivated Meat Production with Vow" (2026-07-02, updated 2026-07-09) — https://www.greenqueen.com.hk/parima-gourmey-vital-meat-lab-grown-cultivated-production-vow/ (accessed 2026-10-14)
+2. Green Queen, "Ahead of Singapore Approval, French Startup Gives Diners A Taste of Cultivated Chicken" (Vital Meat tasting at Hue) — https://www.greenqueen.com.hk/vital-meat-lab-grown-chicken-cultivated-meat-singapore-tasting-approval/ (search snippet, accessed 2026-10-14)
+3. Singapore Food Agency, "Overview of Pre-Market Approval Framework for Novel Food" — https://www.sfa.gov.sg/regulatory-standards-frameworks-guidelines/novel-food-framework/overview-of-pre-market-approval-framework-for-novel-food (carried from v1; accessed 2026-09-12)
+4. Protein Production Technology, "PARIMA and Vow's 22,000L breakthrough signals cultivated meat's next commercial chapter" — https://www.proteinproductiontechnology.com/post/parima-and-vows-22-000l-breakthrough-signals-cultivated-meats-next-commercial-chapter (search snippet, accessed 2026-10-14)
+5. PARIMA, news — https://parima.bio/news (accessed 2026-10-14; latest item 2026-07-02)
+6. FURA, menu — https://www.fura.space/menu (accessed 2026-10-14)
+7. Green Queen, "BREAKING: Eat Just Makes First-Ever Commercial Sale Of Cultured Meat In Singapore" (1880, 2020) — https://www.greenqueen.com.hk/eat-just-makes-first-ever-commercial-sale-of-cultured-meat-in-singapore/ (search snippet, accessed 2026-10-14)
+8. Green Queen, "Vow Earns Singapore Greenlight for Cultivated Quail, Debuts at Mandala Club" (2024-04) — https://www.greenqueen.com.hk/vow-food-singapore-regulatory-approval-cultivated-quail-forged-parfait/ (carried from v1; accessed 2026-09-12)
+9. Food Business MEA, "Parima secures second cultivated meat approval in Singapore for duck product" — https://www.foodbusinessmea.com/parima-secures-second-cultivated-meat-approval-in-singapore-for-duck-product/ (search snippet, accessed 2026-10-14)
+10. World's 50 Best Bars, FURA — https://www.theworlds50best.com/bars/asia/the-list/fura.html (search snippet, accessed 2026-10-14)
+11. Metaculus #43281 aggregation snapshot — raw/metaculus-2026-10-14.json (accessed 2026-10-14)
+
+**Question**: [Will FURA introduce another cultivated meat dish on its menu before July 2027?](https://www.metaculus.com/questions/43281/will-fura-add-a-new-cultivated-meat-dish-before-july-2027/)
+**Date**: 2026-10-14
+**Forecast**: Median 38.0%, IQR [27.0%, 50.0%]
+**Thesis**: Model revision after a red-team review, with no new news. Parima's tonne-scale duck is made on the line of Vow, FURA's existing cultivated-meat supplier [1]. Launch-event and collaboration menus count, which bypasses FURA's menu cadence [2]. Together they raise P(FURA lists it | supply). The binding constraint is still Parima: 12 months with no Singapore launch signal [5]. The forecast now sits with the Metaculus cohorts (CP 38%, Pro 40%, gold 44%) [11].
 
 ---
 
