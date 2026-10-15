@@ -1,0 +1,16 @@
+gap0 -1.16
+v3 inputs re-run on v3 gap0 (-0.46) [check] {'Yashar': 0.4772, 'Likud': 0.5168, 'Other': 0.006, 'P(Y out)': 0.4098, 'P(tie)': 0.1407, 'P(L out)': 0.4496, 'E[G]': 0.14, 'sd[G]': 2.82}
+step 1: new polls only (v3 drift/sd/tie) {'Yashar': 0.5744, 'Likud': 0.4196, 'Other': 0.006, 'P(Y out)': 0.5088, 'P(tie)': 0.1381, 'P(L out)': 0.3531, 'E[G]': -0.56, 'sd[G]': 2.82}
+step 2: + horizon sd 2.3 {'Yashar': 0.5793, 'Likud': 0.4147, 'Other': 0.006, 'P(Y out)': 0.5094, 'P(tie)': 0.1468, 'P(L out)': 0.3438, 'E[G]': -0.56, 'sd[G]': 2.64}
+step 3: + tie split 0.55 {'Yashar': 0.5866, 'Likud': 0.4074, 'Other': 0.006, 'P(Y out)': 0.5094, 'P(tie)': 0.1468, 'P(L out)': 0.3438, 'E[G]': -0.56, 'sd[G]': 2.64}
+step 4: + Iran tail +0.2 {'Yashar': 0.5577, 'Likud': 0.4363, 'Other': 0.006, 'P(Y out)': 0.4792, 'P(tie)': 0.1487, 'P(L out)': 0.372, 'E[G]': -0.36, 'sd[G]': 2.64}
+v4 central: + Urich -0.2 (net drift +0.6) {'Yashar': 0.5866, 'Likud': 0.4074, 'Other': 0.006, 'P(Y out)': 0.5094, 'P(tie)': 0.1468, 'P(L out)': 0.3438, 'E[G]': -0.56, 'sd[G]': 2.64}
+--- sensitivity (on v4 central) ---
+no remaining drift (0.0) {'Yashar': 0.67, 'Likud': 0.324, 'Other': 0.006, 'P(Y out)': 0.599, 'P(tie)': 0.1364, 'P(L out)': 0.2646, 'E[G]': -1.16, 'sd[G]': 2.64}
+full v1 drift again (+1.2) {'Yashar': 0.4989, 'Likud': 0.4951, 'Other': 0.006, 'P(Y out)': 0.4194, 'P(tie)': 0.1501, 'P(L out)': 0.4305, 'E[G]': 0.04, 'sd[G]': 2.64}
+Filber weight 0 {'Yashar': 0.7167, 'Likud': 0.2773, 'Other': 0.006, 'P(Y out)': 0.651, 'P(tie)': 0.1273, 'P(L out)': 0.2217, 'E[G]': -1.52, 'sd[G]': 2.64}
+Filber weight 0.25 {'Yashar': 0.3764, 'Likud': 0.6176, 'Other': 0.006, 'P(Y out)': 0.3006, 'P(tie)': 0.1421, 'P(L out)': 0.5574, 'E[G]': 0.88, 'sd[G]': 2.64}
+Lazar as one house (Walla only) {'Yashar': 0.6073, 'Likud': 0.3867, 'Other': 0.006, 'P(Y out)': 0.5312, 'P(tie)': 0.1449, 'P(L out)': 0.3239, 'E[G]': -0.71, 'sd[G]': 2.64}
+tie split 0.45 {'Yashar': 0.572, 'Likud': 0.422, 'Other': 0.006, 'P(Y out)': 0.5094, 'P(tie)': 0.1468, 'P(L out)': 0.3438, 'E[G]': -0.56, 'sd[G]': 2.64}
+drift sd 3.2 (v1) {'Yashar': 0.5663, 'Likud': 0.4277, 'Other': 0.006, 'P(Y out)': 0.5072, 'P(tie)': 0.1136, 'P(L out)': 0.3792, 'E[G]': -0.56, 'sd[G]': 3.45}
+Polymarket-equivalent (tie on votes, 0.50) {'Yashar': 0.5793, 'Likud': 0.4147, 'Other': 0.006, 'P(Y out)': 0.5094, 'P(tie)': 0.1468, 'P(L out)': 0.3438, 'E[G]': -0.56, 'sd[G]': 2.64}

@@ -179,3 +179,74 @@ Pros 49.0 → 44.1 / 37.0 → 45.0 (n=10); gold 55.7 → 45.6 / 30.4 → 45.6 (n
 The cohort disagreement was signal. The error had been in the file since v1, and three updates
 inherited it because each one wrote "Outside view: unchanged". Re-check the outside view when
 cohorts with good track records diverge, rather than only scanning for news.
+
+## v6 session — 2026-10-15 (Polymarket tripwire fired; re-analysis)
+
+Trigger: scheduled review, which was due 2026-10-16. Metaculus aggregations were unavailable:
+the parent session's single fetch returned 403 (Cloudflare). Only the bot-key API was readable
+(`raw/metaculus-api-2026-10-15.json`): n 126 → 134, forecasts 1,823 → 2,005, comments 13 → 17,
+criteria unchanged. No Metaculus endpoint was called from this session.
+
+| Date | Search / fetch | Finding |
+|---|---|---|
+| 2026-10-15 | Polymarket gamma event (05:24 UTC) | Kane **63.05**, Yamal **29.7**, Mbappé 3.85, Messi 2.65, Rodri 0.65, Kvara 0.45, Dembélé 0.25; volume $50.25M (+$3.96M since v5; Kane + Yamal markets +$0.81M), liquidity $9.94M, book sum 101.7%. One-week change Kane +13.6, Yamal −14.35 |
+| 2026-10-15 | Polymarket CLOB hourly history since 8 Oct | Kane drifted 0.49 → 0.56 on 8–9 Oct, then **jumped 0.56 → 0.63 between 17:00 and 18:00 UTC on 9 Oct**. Yamal 0.37 → 0.30. Since then Kane 0.59–0.67, Yamal 0.27–0.34 |
+| 2026-10-15 | Polymarket data-api trades (taker), 9 Oct 16:00–20:00 UTC | ~$27k Kane and ~$29k Yamal taker flow. First aggressive prints at 17:42:41 UTC: one wallet bought Kane Yes and Yamal No (~$17k in total over the window), and five other wallets joined within four minutes. Yamal went 0.362 → 0.187 by 18:03. Cached to `raw/polymarket-trades-kane-yamal-2026-10-15.json` |
+| 2026-10-15 | Polymarket comments | No trader cites a cause: "why is yamal dumping like a mf" (9 Oct 21:04 UTC); "I refuse to believe there are no leaks" (10 Oct); an unsourced "insiders revealed Kane, Mbappé, Yamal", whose author then says "follow the money", i.e. the price itself |
+| 2026-10-15 | Kalshi markets + hourly candlesticks | Kane 64 (bid/ask 64/65), Yamal 31, Mbappé 6, Messi 4. Hourly candle ending 18:00 UTC on 9 Oct: Kane 0.56 → 0.64, Yamal 0.40 → 0.23 (~52k / 26k contracts), so the move was simultaneous with Polymarket |
+| 2026-10-15 | "Ballon d'Or 2026 Kane Yamal odds October 9", "bookmakers … Kane gamble" | William Hill (12 Oct, updated 14 Oct): Kane 1/2 from 5/4, Yamal 7/4; Phelps credits Kane's six Nations League goals. OLBG (14 Oct): bet365 Kane 1/2, Yamal 2/1, Mbappé and Messi 22/1, Rodri and Olise 40/1. World Soccer Talk (10 Oct): attributes the shift to Kane's brace against Czechia (6 Oct) and Yamal's blank against Croatia, both out of window |
+| 2026-10-15 | "Ballon d'Or 2026 leak winner Kane", "Balón de Oro 2026 filtración", "fuite L'Équipe", "Kane Ballon d'Or Gewinner Bericht" | No credible-outlet result report. New fake list via Vermouth Deportivo / Yahoo Noticias (9 Oct 16:42 UTC): Yamal 670, Messi 546, Mbappé 401, Kane 342. Defensa Central: 4,051 of 6,700 points unallocated, so impossible. It names Yamal first, so it cannot explain the move against him |
+| 2026-10-15 | "Messi present Ballon d'Or Yamal" | "Juan Jesus" (via sportstiger) claimed Messi would present the trophy, read as pointing to Yamal. Romano: Messi "has not received an invitation" (Goal 13 Oct; Lente Desportiva 14 Oct). Lente's "Yamal 10/11 favourite" odds line is stale or recycled |
+| 2026-10-15 | Infobae 29 Sep (citing L'Équipe) | **Only Vincent García and, in the final hours, the producer Marc Las know the result.** Winners are no longer called in advance; photo shoots happen on the night. Las: "Este año, quien diga saberlo miente" |
+| 2026-10-15 | "jury Ballon d'Or 2026 … mon vote / reveals vote" (EN/FR) | No juror disclosures |
+| 2026-10-15 | "Rodri Balón de Oro votos periodistas España" | Nothing on a Spanish-bloc split |
+| 2026-10-15 | L'Équipe readers' poll (COPE, Record, Vardeportivo, 12–13 Oct) | Mbappé 34.2%, Kvaratskhelia 24.3%, Kane 8.6%. Readers, not jurors; ignored |
+| 2026-10-15 | Ceremony logistics | Still Monday 26 Oct, London Palladium, 20:00 London / 21:00 CET (callmepower.be; Goal; William Hill). Nothing on Kane or Yamal travel. Barcelona beat Galatasaray 4–1 in the CL on 13 Oct, which is irrelevant |
+| 2026-10-15 | Manifold API search | No 2026 Ballon d'Or market; only a 2027 market with 11 bettors |
+| 2026-10-15 | Outside-view re-verification | 1998 Zidane, 2002 Ronaldo, 2006 Cannavaro confirmed (France Football list via Ahram; Daily Star 2006). v5's 6-of-6 "winner played in the WC final" screen now rests on verified rows |
+
+### Dead ends
+
+- **The 9 Oct 17:42 UTC trigger was not found.** I searched in EN, FR, ES and DE and checked
+  X-status timing for TouchlineX: the Ballon d'Or posts that search surfaced decode to
+  2026-10-06 13:30 and 2026-10-08 11:02 UTC, both before the move. Polymarket's own commenters are equally
+  puzzled. The candidates are: (a) private information (weight 6%); (b) one large trader moving
+  a thin book, with cross-venue arbitrage carrying it to Kalshi; (c) a salience move on
+  October international form, which is the bookmakers' story. None is verified.
+- oddspedia, bookies.com and X status pages returned 403/402; they are known only through
+  search summaries.
+
+### Lesson
+
+The pre-registered "move ~40% of the way after checking the cause" rule worked as an anchor.
+The cause check, though, is where the work is. A move that no one, including the traders
+making it, can explain, and that two venues repeat within the hour, is more likely one book
+being pushed than a leak, especially when the organiser has restricted who can know.
+Moved ~1/3 of the way, not 40%.
+
+### Open questions for next time (T−7d 2026-10-19, T−1d 2026-10-25)
+
+- Does the Kane ~63 level hold, or round-trip as the 1 Oct Yamal spike did?
+- Ceremony-week logistics: Bayern's and Barcelona's fixtures on 24–25 Oct, and any camp that
+  skips London.
+- Fresh Metaculus cohorts: did Pros and gold follow the 9 Oct market move?
+
+## 2026-10-15 (afternoon) — v7 after fresh Metaculus cohorts
+
+The aggregation script worked again at ~13:15 UTC (blocked at 05:00 UTC when v6 was written).
+Cached as `raw/metaculus-2026-10-15.json`. Reading as of 10:55 UTC, Kane / Yamal: CP 54.4 / 40.2
+(n=127), Pros 53.8 / 38.2 (n=10), gold 53.3 / 40.0 (n=30). On the five minor options together:
+Pros 7.9, gold 6.7, CP 5.4, against v6's 12.5. The protocol trigger "CP moved > 5pp" fired (Kane
++7.9 since 2026-10-09), so v7 was written.
+
+Markets re-pulled at 13:17 UTC (`raw/polymarket-ballon-dor-winner-2026-2026-10-15T1317Z.json`,
+`raw/kalshi-ballondor-2026-10-15T1317Z.json`): Polymarket Kane 63.35 / Yamal 27.95, on +$0.17M
+of event volume since 05:24 UTC; Kalshi 64 / 30. Unchanged in substance.
+
+Searches (EN "Ballon d'Or 2026 Kane Yamal winner leak October 15", extended; ES "Balón de Oro 2026
+ganador filtración Lamine Yamal Kane"; "Rafael Leão Ballon d'Or 2026 trophy Lamine Yamal"): no
+credible leak. A viral FullTime Report image ("Yamal wins, Mbappé 2nd") was flagged as fabricated
+by readers. A Foot Africa "Leão hands the trophy to Yamal" item could not be fetched (403) and
+is unverified. Metaculus comments cite the market flip and Kane's stats, not new facts.
+
+Dead ends: x.com (402), foot-africa.com (403).

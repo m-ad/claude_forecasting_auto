@@ -6,11 +6,214 @@
 | **Type** | multiple_choice (Likud / Yashar / Other) |
 | **Opened / Closes / Resolves** | ~2026-09-17 / 2026-10-27 / scheduled 2026-10-28 (annulled if no result before 2027-01-01) |
 | **Status** | open |
-| **Current forecast** | **Likud 50.9%, Yashar 48.5%, Other 0.6%** — IQR on Likud (leading option) [43.4%, 58.4%] ≡ Yashar [41.0%, 56.0%] (v3, 2026-10-09) |
-| **Community** | Yashar: CP 57.0% · Pros 57.9% · gold 57.9% **as of 2026-09-26 (stale; fresh CP unavailable 2026-10-09, Cloudflare block)**; 111 forecasters (API, 2026-10-09); Polymarket Yashar 48.5% / Likud 52.5% (2026-10-09) |
-| **Next review** | 2026-10-16 |
+| **Current forecast** | **Yashar 58.7%, Likud 40.7%, Other 0.6%** — IQR on Yashar (leading option) [51.7%, 65.7%] ≡ Likud [33.7%, 47.7%] (v4, 2026-10-15) |
+| **Community (as of 2026-10-15 07:31 UTC, fetched 13:15 UTC after v4)** | Yashar / Likud / Other: CP 55.0 / 44.0 / 1.0 (n=117) · Pros 54.8 / 44.1 / 1.0 (n=10) · gold 54.7 / 44.3 / 1.0 (n=34); 119 forecasters. ~4pp below v4, inside its IQR: no new version, see research.md. Polymarket Yashar 61.75% / Likud 38.5% (mid, 2026-10-15) |
+| **Next review** | 2026-10-20 (T−7d); then 2026-10-24, after the last pre-blackout polls of 22–23 Oct |
 
 <!-- Versions below, newest first. APPEND-ONLY: never edit or delete a past version. -->
+
+---
+
+## v4 — Update — 2026-10-15
+
+**Mode: Update** (incremental). Six days since v3, 12 days to the 27 Oct vote. I checked the
+re-analysis triggers. On a like-for-like tie rule, Polymarket is 3.8pp from me, which is under
+the 10pp trigger. Six of the 18 days left at v3 have passed: exactly one third, not more. v2
+and v3 moved in opposite directions. The parent session diffed the 2026-10-15 API JSON
+against 2026-10-09: criteria, fine print, options and dates are unchanged. Every model input
+is still re-derived from today's data (`raw/gap-model-2026-10-15.py`, output in
+`raw/gap-model-output-2026-10-15.txt`). Fresh Metaculus aggregations are **unavailable today**:
+every aggregation call returned 403 (Cloudflare managed challenge). The bot-key API JSON shows
+the question open with **119 forecasters** (111 on 10-09), closing 2026-10-27 06:00 UTC [1].
+
+### Revision table
+
+| Driver | Direction | Effect on P(Yashar) |
+|---|---|---|
+| **Prior (v3, 2026-10-09)** | — | **48.5%**, IQR [41.0%, 56.0%] (Likud 50.9, IQR [43.4%, 58.4%]; Other 0.6) |
+| **v3's +0.8 overlay is retired.** v3 posted 0.8 above its own model (47.7) for two reasons. First, the Avi Gil interview (8 Oct) was not yet in any poll; six mainstream polls fielded after it are now in [2]. Second, Amcha Yisrael's (Ofer Winter's party) sub-threshold readings risked being counted twice; it is below threshold in 3 of 8 latest mainstream polls, against 3 of 7 then. Posted number returns to the model | ↓ | **−0.8** |
+| **The mainstream gap widened again, from −1.29 to −2.13 seats.** Latest poll per publisher: Channel 13 18–20 (14 Oct; was 20–20), Midgam/Ch12 20–23 (12 Oct; was 21–23), Kantar/Kan 20–22 (11 Oct; was 21–23), Lazar/Walla 20–22 (13 Oct; new), Lazar/Maariv 20–21 (7–8 Oct; was 19–21), Tatika/Zman Yisrael **20–24** (7–8 Oct; was 21–21), Kantar/Israel Hayom 21–22 (7–8 Oct), Maagar Mochot 19–21 (29 Sep) [2][3][4][5][7][17]. **Both of v3's dead heats (Channel 13, Zman Yisrael) are Yashar leads again.** The Filber houses did not move: Channel 14 29–20 (+9, 12 Oct), i24/Direct Polls 27–21 (+6, 13 Oct) [6][7]. gap₀ moves from −0.46 to **−1.16**. This row uses v3's drift, variance and tie split | ↑ | **+9.7** |
+| **Shorter horizon:** 12 days instead of 18, so drift sd falls from 2.5 to 2.3. Remaining drift stays at +0.6 seats to Likud. Half of the early-October move toward Likud (+2.1) has reversed (−0.8), so the mainstream gap is ~1.1 seats above its 20 Sep level (−3.2). That is about v1's whole expected 5-week drift (+1.2). What is left is the error between final polls and the result: +0.4 seats without 2015, shrunk from ~+2 with it | ↑ | **+0.5** |
+| **Tie split 0.50 → 0.55.** P(exact tie) is now 14.7%. A tie resolves to the party of the PM of the first government formed, else the tied party with a minister, else the tied party with more votes [1]. On Polymarket's next-PM market ($46.5M volume), Netanyahu fell from 35.5% to 27.5% between 9 and 15 Oct. Eisenkot rose 43.6 → 46.8 and Bennett 9.5 → 15.5 [8]. A Bennett-led government that includes Yashar also resolves Yashar. Conditioning on a tie lifts Netanyahu to ~0.33. The ~0.2 of no-government or unity outcomes fall back to votes (~50/50). That gives 0.57, which I shade to 0.55 | ↑ | **+0.7** |
+| **Iran strike before the vote** (speculative mixture term). Channel 12 and Axios (13 Oct) report that Netanyahu and Trump discussed resuming strikes before the Israeli and US elections; the PMO and the White House deny it [9]. Polymarket has the Israel–Iran ceasefire holding through 21 Oct at 90.5% and through 31 Oct at 84.5% [8], so ~12% for a strike before 27 Oct. In that branch I assume a ~+1.7-seat rally for Likud. In June 2025, a Channel 12 poll during the war had Likud up 4 (22 → 26) [19]. I shade that for war fatigue and because a strike would be read as electioneering. E[G] +0.2 | ↓ | **−2.9** |
+| **Urich–Qatar report, not yet polled.** Channel 12 (14 Oct): PM aide Jonatan Urich met Qatari minister Ali al-Thawadi twice in Europe in July 2024. Bennett called it "the gravest case of treason in Israeli history" [10]. Polymarket's Likud price fell 0.415 → 0.295 within the hour, then recovered to 0.375 [8]. Qatargate has been public since 2025 and scandal effects on Likud's vote have been small since 2019, so E[G] −0.2. It cancels the Iran row, which is a coincidence of two judgement calls, not a plug | ↑ | **+2.9** |
+| **New forecast (v4)** | | **58.7%**, IQR [51.7%, 65.7%] (Likud 40.7, IQR [33.7%, 47.7%]; Other 0.6) |
+
+The rows are rounded and sum to 58.6. The model's unrounded output is 58.66. Other stays at
+0.6 (Polymarket Together 0.45%).
+
+**Market move, and why I do not follow it all the way.** Polymarket's largest-party market
+moved from Yashar 48.5 / Likud 52.5 to **61.75 / 38.5** (mid; Yashar 0.61/0.63, last 0.64)
+[8]. The CLOB history is flat through 12 Oct, then moves in two steps:
+
+- **13 Oct, 07:00–19:00 UTC:** Yashar 0.485 → 0.575. This came after the 12 Oct Midgam 20–23 poll, on the day of the Walla poll and the Iran-strike report.
+- **14 Oct, ~22:00 UTC:** the Urich report.
+
+Event volume rose by only about $60k ($619k → $679k). The market moved 13pp; my model moves
+10pp on the polls alone. I add no market row, because the move rests on the same polls plus
+the Urich story, which has its own row. There is also a reason not to herd: **Polymarket's own
+seat markets do not agree with its winner market.** The Likud-seats market ($516k) has its
+median near 23 (20–24: 42.5%, 25–29: 25.5%). The thin Yashar-seats market ($19k) has its median
+near 22–23. Together they imply a near coin flip, while the winner market says 62/38.
+
+### Tripwire check (v3 list)
+
+| # | Tripwire | Status | Evidence |
+|---|---|---|---|
+| 1 | By 10-23: mainstream-house average (Channel 14 and i24 excluded) has Likud ahead by ≥ 1 seat → −8pp | **Not fired; moved away** | −1.29 → −2.13. No mainstream house has Likud ahead; Maariv and Israel Hayom are the closest at −1 [2] |
+| 2 | By 10-23: mainstream gap back to ≥ 3 seats for Yashar → +10pp | **Not fired; half-way** | −2.13, which is 0.84 of the 1.71 seats needed. The model charges the actual move (+9.7) rather than waiting for the threshold. Not due until 10-23 |
+| 3 | By 10-23: Amcha Yisrael below 3.25% in a majority of final-week polls while the gap holds → −3pp | **Not due** (final week = 17–23 Oct); not a majority today | Below threshold in 3 of 8 latest mainstream polls: Midgam 1.8% (12 Oct), Walla 2.8% (13 Oct), Kantar/Israel Hayom 2.9% (7–8 Oct). Four seats in Channel 13, Kan, Maariv and Zman Yisrael. Also below in Channel 14 (2.9%) and i24 (3.1%) [2][4][6]. Ben Gvir ruled out a surplus-vote deal with Winter (13 Oct) [16]. Polymarket puts Amcha below 3.25% at 67.5% [8] |
+| 4 | By 10-20: election formally postponed → re-analyse | **Not fired** | No postponement bill has been tabled. Netanyahu says he hopes the vote proceeds but warned of enemy attacks [11]. Polymarket "as scheduled" 92.15% (91.9% on 10-09) [8] |
+| 5 | When cohort data returns: Pros and gold both ≥ 8pp from Yashar 48.5 in the same direction | **Cannot check** | 403 on 2026-10-15. The last reading (2026-09-26: Pros and gold 57.9) predates the October swing and is stale |
+
+### What resolves YES
+
+Re-read on 2026-10-15 against the API JSON [1]; unchanged from v3. The question resolves to
+the party with **more seats than any other** in the 27 Oct 2026 Knesset election.
+
+- A plurality for a third list resolves `Other`. No results before 2027-01-01 means **annulled**.
+- **Exact seat tie:**
+  1. the party of the PM of the *first government formed* after the election;
+  2. else, if the PM is from another party, the tied party with at least one other minister;
+  3. else (both tied parties in government, neither, or **no government formed**), the tied party with more official votes.
+- "The party" is the list as filed. Likud runs as Likud (New Hope merged into it in 2025) and Yashar runs alone. Surplus-vote agreements (Yashar–Democrats, Likud–RZP, Shas–UTJ) do not merge lists.
+- Options: `Likud`, `Yashar`, `Other`.
+- Polymarket and Kalshi break ties on votes, not on the next PM, so their prices are not exactly comparable to this question.
+- Coalition talks can run past January, so a tie could leave the question open for a long time.
+
+### Outside view
+
+Unchanged from v1.
+
+### Inside view
+
+```
+G = gap₀ (−1.16)  +  remaining drift N(+0.6, 2.3)  +  house error N(0, 1.3)
+    [Iran-strike tail +0.2 and Urich report −0.2 on E[G]: they cancel]
+E[G] = −0.56 seats,  sd[G] = 2.64 seats
+P(Yashar outright) 50.9% · P(tie) 14.7% · P(Likud outright) 34.4%
+→ Yashar 58.7, Likud 40.7, Other 0.6
+```
+
+What moved in early October was mostly **Yashar**, which dipped to 20–21 seats. Mainstream
+Likud has sat at 18–21 for six weeks (mean 19.9 across the latest poll per house). Yashar is
+now back at 20–24.
+
+**The bloc picture and the largest-party picture are moving in opposite directions.** Kan has
+the Netanyahu bloc ahead 53–50 (11 Oct) and Channel 13 has it ahead 51–50 (14 Oct).
+Jewish Insider's ex-outlier average for the first week of October was 52–53 [3][5][12]. Those
+bloc gains come from Otzma, Shas and Amcha Yisrael, not from Likud. Votes that stay with
+Likud's satellites help Netanyahu form a government without making Likud the largest list.
+Late recapture of those votes is the mechanism the drift term prices. The polls do not show it
+yet: Likud is flat while its satellites hold.
+
+Head-to-head PM suitability also favours Eisenkot: 45–38 in Channel 13 (14 Oct) and 43–38 in
+Kan (11 Oct) [5][3].
+
+### Evidence
+
+New since v3 (detail in the revision table and `research.md`):
+
+- **Seven new mainstream polls.** The mean gap is −2.13 (8 publishers), and none has Likud ahead [2][3][4][5][7][17].
+- **Filber houses steady.** Channel 14 +9 (29–20) and i24 +6 (27–21). Both lowered Likud over the fortnight (Channel 14 32 → 29, i24 28 → 27), but their gaps to Yashar moved by at most 2 seats [6][7].
+- **Blocs moved toward Netanyahu**, while Likud's own seat count did not [3][12][15].
+- **Urich–Qatar report** (Channel 12, 14 Oct) [10]. Not yet polled.
+- **Iran-strike report** (Channel 12 and Axios, 13 Oct). The PMO and White House deny it. Trump says no US strikes before the 3 Nov midterms [9][11].
+- **Surplus-vote agreements** are due 16 Oct. Shas–UTJ signed on 11 Oct, and Ben Gvir refuses one with Winter [2][16].
+- **Poll blackout:** under the election-silence law, no poll may be published from the end of Friday 23 Oct until the polls close at 22:00 on 27 Oct [2]. The last poll evidence is the Thursday 22 Oct TV polls and the Friday 23 Oct newspaper polls, so the review after them is 2026-10-24.
+
+![Gap by pollster, v3 vs v4, and the forecast path against Polymarket](charts/gap-shift-2026-10-15.png)
+
+### Scenarios
+
+| # | Scenario | Weight | Resolves |
+|---|---|---|---|
+| A | Yashar outright largest | 0.506 | Yashar |
+| B | Exact tie; next PM's government or the votes fallback goes to Yashar | 0.080 | Yashar |
+| C | Exact tie; Netanyahu forms the government, or the votes fallback goes to Likud | 0.066 | Likud |
+| D | Likud outright largest | 0.342 | Likud |
+| E | A third list is largest (Together) | 0.006 | Other |
+
+### Sensitivity
+
+| Assumption | If instead | P(Yashar) becomes |
+|---|---|---|
+| Remaining drift +0.6 | 0.0 (no late consolidation) | 67.0% |
+| same | +1.2 (v1's full drift still to come) | 49.9% |
+| Filber-house weight 10% | 0% | 71.7% |
+| same | 5% | 65.4% |
+| same | 15% | 51.6% |
+| same | 25% | 37.6% |
+| Lazar counted per publisher (Walla + Maariv) | Lazar counted once (Walla only) | 60.7% |
+| Tie split 0.55 | 0.45 | 57.2% |
+| Drift sd 2.3 | 3.2 (v1) | 56.6% |
+| Iran tail and Urich both on | Iran tail on, Urich off | 55.8% |
+
+The house weight is still the most load-bearing judgement. The winner market at 62 is roughly
+where a 7–8% Filber weight lands. Polymarket's Likud-seats ladder has its median near 23,
+against a mainstream average of 19.9. That implies Likud beating its mainstream polls by ~3
+seats, which in this model is close to a coin flip. The two markets disagree with each other,
+and I stay at 10%.
+
+### Other forecasters (2026-10-15)
+
+| Source | Yashar | Likud | Other | As of | Note |
+|---|---|---|---|---|---|
+| **This (v4)** | **58.7** | **40.7** | **0.6** | 2026-10-15 | |
+| Metaculus CP | 57.0 | 42.0 | 1.0 | **2026-09-26 (stale)** | 119 forecasters now [1]. **Fresh value unavailable 2026-10-15 (Cloudflare 403)** |
+| Metaculus Pros | 57.9 | 40.9 | 1.2 | **2026-09-26 (stale)** | fresh value unavailable 2026-10-15 |
+| Metaculus gold | 57.9 | 40.9 | 1.2 | **2026-09-26 (stale)** | fresh value unavailable 2026-10-15 |
+| Polymarket, largest party | 61.75 (0.61/0.63, last 0.64) | 38.5 (0.37/0.40) | 0.45 (Together) | 2026-10-15 | event volume $679k (+$60k since 10-09); ties broken on votes [8] |
+| Polymarket, Likud seats | — | <20: 19.2 · 20–24: 42.5 · 25–29: 25.5 · 30–34: 10.5 · 35+: 1.5 | — | 2026-10-15 | $516k; median ~23 seats (10-09: 25+ at 43%) [8] |
+| Polymarket, Yashar seats | <20: 17.1 · 20–21: 21 · 22–23: 21.5 · 24–25: 16.5 · 26–27: 15.5 · 28–29: 4.4 · 30+: 6.8 | — | — | 2026-10-15 | $19k, thin [8] |
+| Polymarket, next PM | Eisenkot 46.8 · Bennett 15.5 | Netanyahu 27.5 | — | 2026-10-15 | $46.5M; Netanyahu 35.5 on 10-09 [8] |
+| Kalshi `KXISRAELKNESSET-26` | 0.56/0.59 (last 0.60) | 0.32/0.37 (last 0.33) | — | 2026-10-15 | thin (Yashar ~10k contracts); two-way ≈ 62/38 [13] |
+| Manifold, "Will the Likud win the next Israeli election" | — | 30.2 | — | 2026-10-15 | no trades since 10-09; ambiguous wording (could mean forming the government); play money, discounted [14] |
+| Manifold, PM after the next election | Eisenkot 46.9 | Netanyahu 32.0 | — | 2026-10-15 | play money; agrees with Polymarket's PM market [14] |
+
+**Cohort disagreement**: cannot be assessed; there is no fresh cohort data. The stale 26 Sep
+CP (57.0) happens to sit close to v4. **Me vs markets**: 3.0pp below Polymarket on Yashar
+(3.8pp like-for-like on the votes tie-break), and about the same against Kalshi. Three reasons:
+
+- I give the Urich report less weight than traders did.
+- I add an Iran-strike tail.
+- The market's own Likud-seats ladder argues against its winner price.
+
+### What would change my mind (tripwires)
+
+- [ ] **By 2026-10-23 (last pre-blackout polls): the mainstream average gap is −0.5 or narrower** (latest poll per publisher, Channel 14 and i24 excluded; from −2.13 today) → **down 10pp** on P(Yashar).
+- [ ] **By 2026-10-23: the mainstream average gap is −3.5 or wider** → **up 7pp**.
+- [ ] **By 2026-10-23: Amcha Yisrael is below 3.25% in a majority of the 17–23 Oct mainstream polls *and* mainstream Likud averages ≥ 21 seats** (19.9 today) → **down 3pp**. This is satellite recapture finally showing up in Likud's own number.
+- [ ] **By 2026-10-26: Israel or Iran strikes the other's territory** (Polymarket's ceasefire definition) → **down ~5pp** on P(Yashar), and re-check the annulment risk.
+- [ ] **By 2026-10-26: the Knesset passes a postponement** (80 MKs) → **re-analyse**. If there is no result before 2027-01-01, the question is annulled.
+- [ ] **Any time before close (2026-10-27 06:00 UTC): cohort data returns with Pros and gold both ≥ 8pp from Yashar 58.7 in the same direction** → re-derive before defending.
+
+### Sources
+
+1. Metaculus question 45670, official API post JSON (bot key; aggregations hidden): criteria, fine print, options, 119 forecasters, close 2026-10-27T06:00Z. Cohort values carried forward from `raw/metaculus-2026-09-26.json`. https://www.metaculus.com/questions/45670/ (accessed 2026-10-15; `raw/metaculus-api-2026-10-15.json`)
+2. Opinion polling for the 2026 Israeli legislative election — Wikipedia (raw wikitext, `action=raw`; includes the election-silence note citing the Elections (Propaganda Methods) Law §16E) — https://en.wikipedia.org/wiki/Opinion_polling_for_the_2026_Israeli_legislative_election (accessed 2026-10-15; `raw/wikipedia-polling-wikitext-2026-10-15.txt`, 278 rows; parsed with `raw/parse_polls.py` pointed at the new file)
+3. "Poll: Eisenkot Bloc Holds at 54 Seats as Hard-Line Ex-General's Party Falls Short" (Channel 12/Midgam, 12 Oct: Yashar 23, Likud 20, Amcha 1.8%) — Haaretz, 2026-10-13 — https://www.haaretz.com/israel-news/elections/2026-10-13/ty-article/poll-eisenkot-bloc-holds-at-54-seats-hard-line-ex-generals-party-falls-short/000001a1-346a-d36f-a9fd-75ead18b0000 (accessed 2026-10-15). Kan 11 Oct poll via Kan News, https://www.kan.org.il/content/kan-news/politic/1108256/ (cited in [2]; PM suitability 43–38 via search summary of Anadolu/Kan)
+4. "סקר מנדטים חדש: איזנקוט מוביל, הנדל וזליכה מפתיעים - וינטר בחוץ" (Walla/Lazar, 13 Oct: Yashar 22, Likud 20, Amcha 2.8%) — ice.co.il — https://www.ice.co.il/research/news/article/1133482 (accessed 2026-10-15)
+5. Channel 13 poll, 14 Oct (Yashar 20, Likud 18; Netanyahu bloc 51, Eisenkot bloc 50; suitability Eisenkot 45, Netanyahu 38) — 13tv — https://13tv.co.il/item/news/politics/politics/survey-905396904/?pid=106628 (accessed 2026-10-15)
+6. "Two weeks before elections: Ofer Winter does not pass the electoral threshold" (i24NEWS/Direct Polls, 13 Oct: Likud 27, Yashar 21, Amcha 3.1%) — i24NEWS — https://www.i24news.tv/en/news/israel-election-s-2026/artc-two-weeks-before-elections-ofer-winter-does-not-pass-the-electoral-threshold-i24news-poll (accessed 2026-10-15)
+7. "Two polls: Hendel and Zelekha cross electoral threshold; Ofer Winter is out" (Channel 14 29–20 and Channel 12 20–23, 12 Oct) — Israel National News — https://www.israelnationalnews.com/news/434503 (accessed 2026-10-15)
+8. Polymarket gamma API and CLOB price history: `israeli-legislative-election-winner`, `israel-election-likud-of-seats`, `israel-election-yashar-of-seats`, `who-will-be-the-next-prime-minister-of-israel-after-the-next-election`, `will-israel-election-happen-as-scheduled-…`, `israel-election-amcha-yisrael-vote-share`, `israel-x-iran-ceasefire-continues-through…`, Trump-endorsement and bloc markets — https://polymarket.com/event/israeli-legislative-election-winner (accessed 2026-10-15; `raw/polymarket-largest-party-2026-10-15.json`, `raw/polymarket-largest-party-clob-history-2026-10-15.json`, `raw/polymarket-israel-election-likud-of-seats-2026-10-15.json`, `raw/polymarket-israel-election-yashar-of-seats-2026-10-15.json`, `raw/polymarket-israel-related-markets-2026-10-15.json`)
+9. "Netanyahu reportedly pressed Trump to renew Iran fighting before Israeli and US elections" — The Times of Israel, 2026-10-13 — https://www.timesofisrael.com/netanyahu-reportedly-pressed-trump-to-renew-iran-fighting-before-israeli-and-us-elections/ ; Axios, "Inside Trump, Netanyahu's dilemma: Strike Iran before elections or wait" — https://axios.com/2026/10/13/netanyahu-trump-iran-war-elections (accessed 2026-10-15, via search summary)
+10. "PM's aide Urich met senior Qatari official in Europe twice in 2024 -- report" — The Times of Israel, 2026-10-14 — https://www.timesofisrael.com/pms-aide-urich-met-senior-qatari-official-in-europe-twice-in-2024-report/ (accessed 2026-10-15)
+11. Sherwin Pomerantz, "13 Days to Elections: What is the Risk of Postponement?" — Times of Israel Blogs, 2026-10-14 — https://blogs.timesofisrael.com/13-days-to-elections-what-is-the-risk-of-postponement/ (accessed 2026-10-15). Opinion piece; used only for the absence of a bill and the quoted statements
+12. Lahav Harkov, "Netanyahu bloc gains on Gadi Eisenkot's opposition in latest Israeli polls" — Jewish Insider, 2026-10-11 — https://jewishinsider.com/2026/10/netanyahu-rising-in-weekend-polls/ (accessed 2026-10-15)
+13. Kalshi API, `KXISRAELKNESSET-26` — https://kalshi.com/markets/kxisraelknesset/israeli-knesset-election/kxisraelknesset-26 (accessed 2026-10-15; `raw/kalshi-israel-knesset-2026-10-15.json`)
+14. Manifold Markets API: "Will the Likud win the next Israeli election", "Who will be the Israeli PM after the next election?" — https://manifold.markets/Shump/will-the-likud-win-the-next-israeli , https://manifold.markets/ShakedKoplewitz/who-will-be-the-israeli-pm-after-th (accessed 2026-10-15; `raw/manifold-israel-2026-10-15.json`)
+15. "Checkmate? Netanyahu faces a daunting playing field ahead of Oct. 27" — JTA, 2026-10-13 — https://www.jta.org/2026/10/13/israel/checkmate-netanyahu-faces-a-daunting-playing-field-ahead-of-oct-27 (accessed 2026-10-15)
+16. The Times of Israel live blog, 2026-10-13 (Ben Gvir rules out a surplus deal with Winter; surplus-agreement deadline 16 Oct; Eisenkot on the polls) — https://www.timesofisrael.com/liveblog-october-13-2026/ (accessed 2026-10-15)
+17. "ToI poll: Anti-Netanyahu bloc regains lead but both camps short of majority 19 days ahead of vote" (Zman Yisrael, 7–8 Oct: Yashar 24, Likud 20) — The Times of Israel — https://www.timesofisrael.com/toi-poll-anti-netanyahu-bloc-regains-lead-but-both-camps-fall-short-19-days-ahead-of-vote/ (accessed 2026-10-15, via search summary)
+18. Carried forward from v3 [9]–[15] and still relied on for the outside view and house weights: JPost 2026-09-17 (article-908921); ToI 2026-09-18 (anti-Arab campaign); Wikipedia 2015 polling; Wikipedia April 2019 election; Wikipedia Shlomo Filber; CEC candidate lists 2026-09-03; ToI 2026-09-10 surplus-vote deals (all accessed 2026-09-20)
+19. "Poll: Netanyahu's Likud enjoys boost amid Iran war, but bloc he leads is no closer to majority" (Channel 12, June 2025: Likud 26, up 4 in three weeks) — The Times of Israel — https://www.timesofisrael.com/poll-netanyahus-likud-enjoys-boost-amid-iran-war-but-not-enough-to-clinch-election-win/ (accessed 2026-10-15, via search summary)
+
+**Question**: [Which party will win the most seats in the 2026 Israeli election?](https://www.metaculus.com/questions/45670/)
+**Date**: 2026-10-15
+**Forecast**: Yashar 58.7%, Likud 40.7%, Other 0.6% — IQR on Yashar (leading option) [51.7%, 65.7%] ≡ Likud [33.7%, 47.7%]
+**Thesis**: Early October's narrowing did not hold. Across eight mainstream pollsters, the latest Likud–Yashar gap widened again from −1.3 to −2.1 seats, and both of v3's dead heats (Channel 13, Zman Yisrael) are Yashar leads again, while Channel 14 and i24 held at +9 and +6 [2][5][6]. With 10% weight on those two houses and +0.6 seats of late drift to Likud, Yashar is largest outright in ~51% of outcomes. It also takes 55% of a 15% exact-tie branch, because the next-PM tie rule tilts its way now that Polymarket's PM market has Netanyahu down to 27.5% [8]. Polymarket's winner market (Yashar 62) and Kalshi sit ~3pp higher. The unpolled Urich–Qatar story and a ~12% Iran-strike tail roughly cancel. Fresh Metaculus cohorts were unavailable (403).
 
 ---
 

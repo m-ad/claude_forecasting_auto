@@ -1,0 +1,4169 @@
+{
+"source": "https://data-api.polymarket.com/trades?market=<conditionId>&takerOnly=true (paged, limit 500 x4 per market)",
+"retrieved": "2026-10-15T05:28Z",
+"window_utc": [
+"2026-10-09T16:00:00Z",
+"2026-10-09T20:00:00Z"
+],
+"note": "trimmed to the window of the 9 Oct repricing; fields reduced",
+"markets": {
+"Harry Kane": {
+"conditionId": "0x12dc2b61723b2a54fc1947a307389b5f32038e7a29a0e936ad1fe410b969d06a",
+"n_trades": 202,
+"usd_total": 27215.28,
+"trades": [
+{
+"utc": "2026-10-09T16:15:30Z",
+"side": "BUY",
+"outcome": "Yes",
+"size": 99.457505,
+"price": 0.5529999973,
+"wallet": "0x8b45d9fe"
+},
+{
+"utc": "2026-10-09T16:38:24Z",
+"side": "BUY",
+"outcome": "Yes",
+"size": 360.699606,
+"price": 0.5544780107,
+"wallet": "0x92a8eec1"
+},
+{
+"utc": "2026-10-09T16:38:40Z",
+"side": "BUY",
+"outcome": "Yes",
+"size": 357.982897,
+"price": 0.5586859056,
+"wallet": "0x92a8eec1"
+},
+{
+"utc": "2026-10-09T17:05:06Z",
+"side": "BUY",
+"outcome": "Yes",
+"size": 1.776199,
+"price": 0.5629999792,
+"wallet": "0xc80b496b"
+},
+{
+"utc": "2026-10-09T17:15:47Z",
+"side": "BUY",
+"outcome": "Yes",
+"size": 688.7,
+"price": 0.5627212139,
+"wallet": "0x58f5f813"
+},
+{
+"utc": "2026-10-09T17:16:16Z",
+"side": "BUY",
+"outcome": "Yes",
+"size": 510,
+"price": 0.565,
+"wallet": "0x58f5f813"
+},
+{
+"utc": "2026-10-09T17:32:14Z",
+"side": "BUY",
+"outcome": "No",
+"size": 903.764673,
+"price": 0.4425930908,
+"wallet": "0xa8c53b31"
+},
+{
+"utc": "2026-10-09T17:37:26Z",
+"side": "BUY",
+"outcome": "Yes",
+"size": 17.985866,
+"price": 0.5659999913,
+"wallet": "0x66e7ce01"
+},
+{
+"utc": "2026-10-09T17:39:44Z",
+"side": "BUY",
+"outcome": "Yes",
+"size": 28.996479,
+"price": 0.5679999975,
+"wallet": "0x66e7ce01"
+},
+{
+"utc": "2026-10-09T17:40:02Z",
+"side": "BUY",
+"outcome": "Yes",
+"size": 92,
+"price": 0.5689592391,
+"wallet": "0x032eb1bc"
+},
+{
+"utc": "2026-10-09T17:40:02Z",
+"side": "BUY",
+"outcome": "Yes",
+"size": 83.53,
+"price": 0.57,
+"wallet": "0x852eaa70"
+},
+{
+"utc": "2026-10-09T17:40:10Z",
+"side": "BUY",
+"outcome": "Yes",
+"size": 6.987741,
+"price": 0.5709999841,
+"wallet": "0x66e7ce01"
+},
+{
+"utc": "2026-10-09T17:40:26Z",
+"side": "BUY",
+"outcome": "Yes",
+"size": 100,
+"price": 0.572,
+"wallet": "0x66e7ce01"
+},
+{
+"utc": "2026-10-09T17:40:53Z",
+"side": "BUY",
+"outcome": "Yes",
+"size": 10,
+"price": 0.572,
+"wallet": "0x66e7ce01"
+},
+{
+"utc": "2026-10-09T17:42:29Z",
+"side": "BUY",
+"outcome": "Yes",
+"size": 90,
+"price": 0.5745557778,
+"wallet": "0x852eaa70"
+},
+{
+"utc": "2026-10-09T17:42:41Z",
+"side": "BUY",
+"outcome": "Yes",
+"size": 451,
+"price": 0.57598,
+"wallet": "0x032eb1bc"
+},
+{
+"utc": "2026-10-09T17:42:41Z",
+"side": "BUY",
+"outcome": "Yes",
+"size": 8.989546,
+"price": 0.5739999551,
+"wallet": "0x66e7ce01"
+},
+{
+"utc": "2026-10-09T17:42:50Z",
+"side": "BUY",
+"outcome": "Yes",
+"size": 303,
+"price": 0.576550429,
+"wallet": "0x032eb1bc"
+},
+{
+"utc": "2026-10-09T17:42:55Z",
+"side": "BUY",
+"outcome": "No",
+"size": 25.456675,
+"price": 0.4269999912,
+"wallet": "0xbb8e35c5"
+},
+{
+"utc": "2026-10-09T17:42:58Z",
+"side": "BUY",
+"outcome": "Yes",
+"size": 99.982759,
+"price": 0.5799999978,
+"wallet": "0x66e7ce01"
+},
+{
+"utc": "2026-10-09T17:43:08Z",
+"side": "BUY",
+"outcome": "Yes",
+"size": 99.982759,
+"price": 0.5799999978,
+"wallet": "0x66e7ce01"
+},
+{
+"utc": "2026-10-09T17:43:10Z",
+"side": "BUY",
+"outcome": "No",
+"size": 25.46729,
+"price": 0.4279999953,
+"wallet": "0xbb8e35c5"
+},
+{
+"utc": "2026-10-09T17:43:10Z",
+"side": "BUY",
+"outcome": "Yes",
+"size": 154.431035,
+"price": 0.5799999981,
+"wallet": "0x852eaa70"
+},
+{
+"utc": "2026-10-09T17:43:14Z",
+"side": "BUY",
+"outcome": "Yes",
+"size": 99.982759,
+"price": 0.5799999978,
+"wallet": "0x66e7ce01"
+},
+{
+"utc": "2026-10-09T17:43:17Z",
+"side": "BUY",
+"outcome": "Yes",
+"size": 89.982759,
+"price": 0.5799999976,
+"wallet": "0x852eaa70"
+},
+{
+"utc": "2026-10-09T17:43:26Z",
+"side": "BUY",
+"outcome": "Yes",
+"size": 99.982759,
+"price": 0.5799999978,
+"wallet": "0x66e7ce01"
+},
+{
+"utc": "2026-10-09T17:43:43Z",
+"side": "BUY",
+"outcome": "Yes",
+"size": 50,
+"price": 0.5805992,
+"wallet": "0xd218e474"
+},
+{
+"utc": "2026-10-09T17:43:43Z",
+"side": "BUY",
+"outcome": "Yes",
+"size": 99.982759,
+"price": 0.5799999978,
+"wallet": "0x66e7ce01"
+},
+{
+"utc": "2026-10-09T17:43:44Z",
+"side": "BUY",
+"outcome": "Yes",
+"size": 954,
+"price": 0.5852315723,
+"wallet": "0x032eb1bc"
+},
+{
+"utc": "2026-10-09T17:43:46Z",
+"side": "BUY",
+"outcome": "No",
+"size": 40.070652,
+"price": 0.4297409486,
+"wallet": "0xbb8e35c5"
+},
+{
+"utc": "2026-10-09T17:43:47Z",
+"side": "BUY",
+"outcome": "No",
+"size": 10.38,
+"price": 0.423,
+"wallet": "0xbb8e35c5"
+},
+{
+"utc": "2026-10-09T17:43:49Z",
+"side": "BUY",
+"outcome": "No",
+"size": 9.79021,
+"price": 0.4289999908,
+"wallet": "0xbb8e35c5"
+},
+{
+"utc": "2026-10-09T17:43:52Z",
+"side": "BUY",
+"outcome": "No",
+"size": 15.628791,
+"price": 0.4293358328,
+"wallet": "0xbb8e35c5"
+},
+{
+"utc": "2026-10-09T17:43:52Z",
+"side": "BUY",
+"outcome": "No",
+"size": 10.38,
+"price": 0.426,
+"wallet": "0xbb8e35c5"
+},
+{
+"utc": "2026-10-09T17:43:53Z",
+"side": "BUY",
+"outcome": "Yes",
+"size": 372,
+"price": 0.5831417204,
+"wallet": "0x032eb1bc"
+},
+{
+"utc": "2026-10-09T17:43:59Z",
+"side": "BUY",
+"outcome": "Yes",
+"size": 25.98616,
+"price": 0.5779999815,
+"wallet": "0x66e7ce01"
+},
+{
+"utc": "2026-10-09T17:44:01Z",
+"side": "BUY",
+"outcome": "Yes",
+"size": 73,
+"price": 0.5795579452,
+"wallet": "0x032eb1bc"
+},
+{
+"utc": "2026-10-09T17:44:14Z",
+"side": "BUY",
+"outcome": "No",
+"size": 20,
+"price": 0.43,
+"wallet": "0xfbd8c9c2"
+},
+{
+"utc": "2026-10-09T17:44:14Z",
+"side": "BUY",
+"outcome": "Yes",
+"size": 84,
+"price": 0.5876666667,
+"wallet": "0x032eb1bc"
+},
+{
+"utc": "2026-10-09T17:44:14Z",
+"side": "BUY",
+"outcome": "Yes",
+"size": 26.994819,
+"price": 0.5789999926,
+"wallet": "0x66e7ce01"
+},
+{
+"utc": "2026-10-09T17:44:16Z",
+"side": "BUY",
+"outcome": "No",
+"size": 62,
+"price": 0.43,
+"wallet": "0xd6accdd4"
+},
+{
+"utc": "2026-10-09T17:44:16Z",
+"side": "BUY",
+"outcome": "No",
+"size": 62,
+"price": 0.43,
+"wallet": "0xbb8e35c5"
+},
+{
+"utc": "2026-10-09T17:44:23Z",
+"side": "BUY",
+"outcome": "No",
+"size": 178.969485,
+"price": 0.4261061599,
+"wallet": "0xbb8e35c5"
+},
+{
+"utc": "2026-10-09T17:44:23Z",
+"side": "BUY",
+"outcome": "Yes",
+"size": 13.989725,
+"price": 0.5839999714,
+"wallet": "0x66e7ce01"
+},
+{
+"utc": "2026-10-09T17:44:25Z",
+"side": "BUY",
+"outcome": "Yes",
+"size": 2574,
+"price": 0.5911901709,
+"wallet": "0x032eb1bc"
+},
+{
+"utc": "2026-10-09T17:44:37Z",
+"side": "BUY",
+"outcome": "Yes",
+"size": 118,
+"price": 0.5889322034,
+"wallet": "0x032eb1bc"
+},
+{
+"utc": "2026-10-09T17:44:37Z",
+"side": "BUY",
+"outcome": "Yes",
+"size": 12,
+"price": 0.585,
+"wallet": "0x66e7ce01"
+},
+{
+"utc": "2026-10-09T17:44:53Z",
+"side": "BUY",
+"outcome": "No",
+"size": 10,
+"price": 0.416,
+"wallet": "0x71a34952"
+},
+{
+"utc": "2026-10-09T17:44:53Z",
+"side": "BUY",
+"outcome": "No",
+"size": 2,
+"price": 0.416,
+"wallet": "0x03805a13"
+},
+{
+"utc": "2026-10-09T17:44:55Z",
+"side": "BUY",
+"outcome": "Yes",
+"size": 61,
+"price": 0.5891803279,
+"wallet": "0x032eb1bc"
+},
+{
+"utc": "2026-10-09T17:44:55Z",
+"side": "BUY",
+"outcome": "Yes",
+"size": 68.991453,
+"price": 0.5849999999,
+"wallet": "0x66e7ce01"
+},
+{
+"utc": "2026-10-09T17:45:05Z",
+"side": "BUY",
+"outcome": "Yes",
+"size": 38,
+"price": 0.5889452632,
+"wallet": "0x032eb1bc"
+},
+{
+"utc": "2026-10-09T17:45:05Z",
+"side": "BUY",
+"outcome": "Yes",
+"size": 42.989691,
+"price": 0.5819999962,
+"wallet": "0x66e7ce01"
+},
+{
+"utc": "2026-10-09T17:45:17Z",
+"side": "BUY",
+"outcome": "Yes",
+"size": 26.993126,
+"price": 0.5819999877,
+"wallet": "0x66e7ce01"
+},
+{
+"utc": "2026-10-09T17:45:28Z",
+"side": "BUY",
+"outcome": "Yes",
+"size": 48,
+"price": 0.5860833333,
+"wallet": "0x032eb1bc"
+},
+{
+"utc": "2026-10-09T17:45:31Z",
+"side": "BUY",
+"outcome": "Yes",
+"size": 12,
+"price": 0.587,
+"wallet": "0x852eaa70"
+},
+{
+"utc": "2026-10-09T17:45:35Z",
+"side": "BUY",
+"outcome": "Yes",
+"size": 50.34,
+"price": 0.589523242,
+"wallet": "0x852eaa70"
+},
+{
+"utc": "2026-10-09T17:46:01Z",
+"side": "BUY",
+"outcome": "Yes",
+"size": 2304,
+"price": 0.5937655035,
+"wallet": "0x032eb1bc"
+},
+{
+"utc": "2026-10-09T17:46:11Z",
+"side": "BUY",
+"outcome": "Yes",
+"size": 90,
+"price": 0.594,
+"wallet": "0x66e7ce01"
+},
+{
+"utc": "2026-10-09T17:46:13Z",
+"side": "BUY",
+"outcome": "Yes",
+"size": 1133,
+"price": 0.597043248,
+"wallet": "0x032eb1bc"
+},
+{
+"utc": "2026-10-09T17:46:13Z",
+"side": "BUY",
+"outcome": "Yes",
+"size": 161.29,
+"price": 0.5989379999,
+"wallet": "0x852eaa70"
+},
+{
+"utc": "2026-10-09T17:46:14Z",
+"side": "BUY",
+"outcome": "No",
+"size": 10,
+"price": 0.412148,
+"wallet": "0x71a34952"
+},
+{
+"utc": "2026-10-09T17:46:26Z",
+"side": "BUY",
+"outcome": "Yes",
+"size": 142,
+"price": 0.5937887324,
+"wallet": "0x032eb1bc"
+},
+{
+"utc": "2026-10-09T17:46:40Z",
+"side": "BUY",
+"outcome": "Yes",
+"size": 1044,
+"price": 0.5982429119,
+"wallet": "0x032eb1bc"
+},
+{
+"utc": "2026-10-09T17:46:47Z",
+"side": "BUY",
+"outcome": "No",
+"size": 13.368552,
+"price": 0.4188935346,
+"wallet": "0xbb8e35c5"
+},
+{
+"utc": "2026-10-09T17:46:47Z",
+"side": "BUY",
+"outcome": "No",
+"size": 8.609757,
+"price": 0.409999957,
+"wallet": "0xbb8e35c5"
+},
+{
+"utc": "2026-10-09T17:47:02Z",
+"side": "BUY",
+"outcome": "Yes",
+"size": 10,
+"price": 0.593,
+"wallet": "0xbd2b2070"
+},
+{
+"utc": "2026-10-09T17:47:02Z",
+"side": "BUY",
+"outcome": "Yes",
+"size": 90,
+"price": 0.593,
+"wallet": "0x66e7ce01"
+},
+{
+"utc": "2026-10-09T17:47:02Z",
+"side": "BUY",
+"outcome": "Yes",
+"size": 64.73,
+"price": 0.5978204851,
+"wallet": "0x032eb1bc"
+},
+{
+"utc": "2026-10-09T17:47:04Z",
+"side": "BUY",
+"outcome": "No",
+"size": 20,
+"price": 0.407,
+"wallet": "0xbb8e35c5"
+},
+{
+"utc": "2026-10-09T17:47:13Z",
+"side": "BUY",
+"outcome": "Yes",
+"size": 150,
+"price": 0.5982764,
+"wallet": "0xd218e474"
+},
+{
+"utc": "2026-10-09T17:47:13Z",
+"side": "BUY",
+"outcome": "Yes",
+"size": 74,
+"price": 0.587,
+"wallet": "0xbd2b2070"
+},
+{
+"utc": "2026-10-09T17:47:13Z",
+"side": "BUY",
+"outcome": "Yes",
+"size": 100,
+"price": 0.587,
+"wallet": "0x66e7ce01"
+},
+{
+"utc": "2026-10-09T17:47:14Z",
+"side": "BUY",
+"outcome": "Yes",
+"size": 9,
+"price": 0.589,
+"wallet": "0x122cb94c"
+},
+{
+"utc": "2026-10-09T17:47:19Z",
+"side": "SELL",
+"outcome": "No",
+"size": 5,
+"price": 0.411,
+"wallet": "0x510f4963"
+},
+{
+"utc": "2026-10-09T17:47:31Z",
+"side": "BUY",
+"outcome": "Yes",
+"size": 26.984925,
+"price": 0.5969999917,
+"wallet": "0x66e7ce01"
+},
+{
+"utc": "2026-10-09T17:47:43Z",
+"side": "BUY",
+"outcome": "Yes",
+"size": 100,
+"price": 0.607,
+"wallet": "0x66e7ce01"
+},
+{
+"utc": "2026-10-09T17:48:04Z",
+"side": "BUY",
+"outcome": "No",
+"size": 16.2,
+"price": 0.4067506173,
+"wallet": "0xe025a346"
+},
+{
+"utc": "2026-10-09T17:48:04Z",
+"side": "BUY",
+"outcome": "No",
+"size": 8.8,
+"price": 0.405,
+"wallet": "0x1387d145"
+},
+{
+"utc": "2026-10-09T17:48:08Z",
+"side": "BUY",
+"outcome": "No",
+"size": 6.98,
+"price": 0.408,
+"wallet": "0x4f1d5ae2"
+},
+{
+"utc": "2026-10-09T17:48:16Z",
+"side": "BUY",
+"outcome": "Yes",
+"size": 9,
+"price": 0.593,
+"wallet": "0x122cb94c"
+},
+{
+"utc": "2026-10-09T17:48:16Z",
+"side": "BUY",
+"outcome": "Yes",
+"size": 15,
+"price": 0.593,
+"wallet": "0x122cb94c"
+},
+{
+"utc": "2026-10-09T17:48:19Z",
+"side": "BUY",
+"outcome": "Yes",
+"size": 6,
+"price": 0.593,
+"wallet": "0x122cb94c"
+},
+{
+"utc": "2026-10-09T17:48:19Z",
+"side": "BUY",
+"outcome": "Yes",
+"size": 9,
+"price": 0.593,
+"wallet": "0x122cb94c"
+},
+{
+"utc": "2026-10-09T17:48:38Z",
+"side": "BUY",
+"outcome": "Yes",
+"size": 18.049424,
+"price": 0.6050054561,
+"wallet": "0xbeef3f30"
+},
+{
+"utc": "2026-10-09T17:49:04Z",
+"side": "BUY",
+"outcome": "Yes",
+"size": 90,
+"price": 0.6069888889,
+"wallet": "0x852eaa70"
+},
+{
+"utc": "2026-10-09T17:49:05Z",
+"side": "BUY",
+"outcome": "Yes",
+"size": 6.9967,
+"price": 0.6059999714,
+"wallet": "0x66e7ce01"
+},
+{
+"utc": "2026-10-09T17:49:13Z",
+"side": "BUY",
+"outcome": "Yes",
+"size": 18.057308,
+"price": 0.6069564744,
+"wallet": "0xbeef3f30"
+},
+{
+"utc": "2026-10-09T17:49:47Z",
+"side": "BUY",
+"outcome": "Yes",
+"size": 45,
+"price": 0.61,
+"wallet": "0x66e7ce01"
+},
+{
+"utc": "2026-10-09T17:49:49Z",
+"side": "BUY",
+"outcome": "Yes",
+"size": 1183,
+"price": 0.6173686982,
+"wallet": "0xeed7c2e6"
+},
+{
+"utc": "2026-10-09T17:49:58Z",
+"side": "BUY",
+"outcome": "Yes",
+"size": 6.996752,
+"price": 0.6159999668,
+"wallet": "0x852eaa70"
+},
+{
+"utc": "2026-10-09T17:50:25Z",
+"side": "BUY",
+"outcome": "Yes",
+"size": 10,
+"price": 0.609,
+"wallet": "0x66e7ce01"
+},
+{
+"utc": "2026-10-09T17:50:28Z",
+"side": "BUY",
+"outcome": "Yes",
+"size": 5,
+"price": 0.609,
+"wallet": "0xcb016f2b"
+},
+{
+"utc": "2026-10-09T17:50:31Z",
+"side": "BUY",
+"outcome": "Yes",
+"size": 6,
+"price": 0.609,
+"wallet": "0x64befd43"
+},
+{
+"utc": "2026-10-09T17:50:37Z",
+"side": "BUY",
+"outcome": "Yes",
+"size": 18.011181,
+"price": 0.625167167,
+"wallet": "0xbeef3f30"
+},
+{
+"utc": "2026-10-09T17:50:56Z",
+"side": "SELL",
+"outcome": "Yes",
+"size": 48,
+"price": 0.625,
+"wallet": "0x122cb94c"
+},
+{
+"utc": "2026-10-09T17:51:11Z",
+"side": "BUY",
+"outcome": "Yes",
+"size": 13.993609,
+"price": 0.6259999833,
+"wallet": "0x852eaa70"
+},
+{
+"utc": "2026-10-09T17:51:22Z",
+"side": "BUY",
+"outcome": "Yes",
+"size": 5,
+"price": 0.626,
+"wallet": "0x852eaa70"
+},
+{
+"utc": "2026-10-09T17:51:46Z",
+"side": "BUY",
+"outcome": "Yes",
+"size": 79.95,
+"price": 0.626,
+"wallet": "0x852eaa70"
+},
+{
+"utc": "2026-10-09T17:52:04Z",
+"side": "BUY",
+"outcome": "Yes",
+"size": 141.19,
+"price": 0.6292350733,
+"wallet": "0xeed7c2e6"
+},
+{
+"utc": "2026-10-09T17:52:08Z",
+"side": "BUY",
+"outcome": "No",
+"size": 44.55,
+"price": 0.374,
+"wallet": "0x1387d145"
+},
+{
+"utc": "2026-10-09T17:52:49Z",
+"side": "SELL",
+"outcome": "Yes",
+"size": 21,
+"price": 0.626,
+"wallet": "0x7dcf2357"
+},
+{
+"utc": "2026-10-09T17:52:53Z",
+"side": "BUY",
+"outcome": "Yes",
+"size": 10,
+"price": 0.628,
+"wallet": "0x852eaa70"
+},
+{
+"utc": "2026-10-09T17:52:59Z",
+"side": "BUY",
+"outcome": "Yes",
+"size": 9.52381,
+"price": 0.6299999685,
+"wallet": "0x79a460c6"
+},
+{
+"utc": "2026-10-09T17:53:04Z",
+"side": "BUY",
+"outcome": "Yes",
+"size": 72,
+"price": 0.63,
+"wallet": "0xeed7c2e6"
+},
+{
+"utc": "2026-10-09T17:53:14Z",
+"side": "SELL",
+"outcome": "Yes",
+"size": 0.01,
+"price": 0.626,
+"wallet": "0xa3a417e4"
+},
+{
+"utc": "2026-10-09T17:53:20Z",
+"side": "BUY",
+"outcome": "Yes",
+"size": 52.444445,
+"price": 0.6299999933,
+"wallet": "0x852eaa70"
+},
+{
+"utc": "2026-10-09T17:53:50Z",
+"side": "BUY",
+"outcome": "No",
+"size": 150.97,
+"price": 0.371,
+"wallet": "0xdebbe89c"
+},
+{
+"utc": "2026-10-09T17:54:16Z",
+"side": "BUY",
+"outcome": "Yes",
+"size": 18,
+"price": 0.63,
+"wallet": "0xbeef3f30"
+},
+{
+"utc": "2026-10-09T17:54:46Z",
+"side": "BUY",
+"outcome": "Yes",
+"size": 30,
+"price": 0.63,
+"wallet": "0xd218e474"
+},
+{
+"utc": "2026-10-09T17:55:11Z",
+"side": "BUY",
+"outcome": "Yes",
+"size": 20,
+"price": 0.63,
+"wallet": "0xbeef3f30"
+},
+{
+"utc": "2026-10-09T17:55:16Z",
+"side": "BUY",
+"outcome": "No",
+"size": 13.477089,
+"price": 0.3709999986,
+"wallet": "0xb36fb7c6"
+},
+{
+"utc": "2026-10-09T17:55:31Z",
+"side": "BUY",
+"outcome": "Yes",
+"size": 2,
+"price": 0.63,
+"wallet": "0xbeef3f30"
+},
+{
+"utc": "2026-10-09T17:55:31Z",
+"side": "BUY",
+"outcome": "Yes",
+"size": 17.984127,
+"price": 0.6299999994,
+"wallet": "0xbeef3f30"
+},
+{
+"utc": "2026-10-09T17:56:44Z",
+"side": "BUY",
+"outcome": "Yes",
+"size": 18.285715,
+"price": 0.6299999754,
+"wallet": "0xbeef3f30"
+},
+{
+"utc": "2026-10-09T17:57:11Z",
+"side": "SELL",
+"outcome": "Yes",
+"size": 250,
+"price": 0.629,
+"wallet": "0x4eee1f27"
+},
+{
+"utc": "2026-10-09T17:57:29Z",
+"side": "BUY",
+"outcome": "Yes",
+"size": 1992.55,
+"price": 0.63,
+"wallet": "0xda0f4e3f"
+},
+{
+"utc": "2026-10-09T17:57:31Z",
+"side": "BUY",
+"outcome": "Yes",
+"size": 18.208138,
+"price": 0.6315857228,
+"wallet": "0xbeef3f30"
+},
+{
+"utc": "2026-10-09T17:58:10Z",
+"side": "SELL",
+"outcome": "Yes",
+"size": 36,
+"price": 0.629,
+"wallet": "0xe040ffe5"
+},
+{
+"utc": "2026-10-09T17:58:10Z",
+"side": "SELL",
+"outcome": "Yes",
+"size": 52,
+"price": 0.629,
+"wallet": "0x9f208e85"
+},
+{
+"utc": "2026-10-09T17:58:59Z",
+"side": "BUY",
+"outcome": "Yes",
+"size": 20.046947,
+"price": 0.6375035061,
+"wallet": "0xbeef3f30"
+},
+{
+"utc": "2026-10-09T17:59:43Z",
+"side": "BUY",
+"outcome": "No",
+"size": 343.061867,
+"price": 0.3727607534,
+"wallet": "0x03ed9faa"
+},
+{
+"utc": "2026-10-09T18:00:14Z",
+"side": "BUY",
+"outcome": "Yes",
+"size": 21,
+"price": 0.6185238095,
+"wallet": "0x122cb94c"
+},
+{
+"utc": "2026-10-09T18:00:17Z",
+"side": "BUY",
+"outcome": "Yes",
+"size": 10,
+"price": 0.618,
+"wallet": "0x122cb94c"
+},
+{
+"utc": "2026-10-09T18:00:17Z",
+"side": "BUY",
+"outcome": "Yes",
+"size": 10,
+"price": 0.618,
+"wallet": "0x122cb94c"
+},
+{
+"utc": "2026-10-09T18:00:17Z",
+"side": "BUY",
+"outcome": "Yes",
+"size": 10,
+"price": 0.618,
+"wallet": "0x122cb94c"
+},
+{
+"utc": "2026-10-09T18:00:25Z",
+"side": "BUY",
+"outcome": "No",
+"size": 500,
+"price": 0.383,
+"wallet": "0x87256d04"
+},
+{
+"utc": "2026-10-09T18:00:52Z",
+"side": "BUY",
+"outcome": "Yes",
+"size": 55,
+"price": 0.617,
+"wallet": "0x122cb94c"
+},
+{
+"utc": "2026-10-09T18:00:55Z",
+"side": "BUY",
+"outcome": "Yes",
+"size": 6,
+"price": 0.619,
+"wallet": "0x122cb94c"
+},
+{
+"utc": "2026-10-09T18:01:59Z",
+"side": "BUY",
+"outcome": "Yes",
+"size": 10,
+"price": 0.624,
+"wallet": "0x122cb94c"
+},
+{
+"utc": "2026-10-09T18:02:16Z",
+"side": "BUY",
+"outcome": "Yes",
+"size": 20,
+"price": 0.631,
+"wallet": "0xbeef3f30"
+},
+{
+"utc": "2026-10-09T18:02:35Z",
+"side": "BUY",
+"outcome": "Yes",
+"size": 5,
+"price": 0.626,
+"wallet": "0x122cb94c"
+},
+{
+"utc": "2026-10-09T18:02:35Z",
+"side": "BUY",
+"outcome": "Yes",
+"size": 17.987322,
+"price": 0.6309999899,
+"wallet": "0xbeef3f30"
+},
+{
+"utc": "2026-10-09T18:04:07Z",
+"side": "BUY",
+"outcome": "Yes",
+"size": 10,
+"price": 0.645,
+"wallet": "0x9495d622"
+},
+{
+"utc": "2026-10-09T18:04:08Z",
+"side": "SELL",
+"outcome": "No",
+"size": 1003.16,
+"price": 0.3600899358,
+"wallet": "0xefde9ff4"
+},
+{
+"utc": "2026-10-09T18:04:25Z",
+"side": "BUY",
+"outcome": "Yes",
+"size": 20,
+"price": 0.632,
+"wallet": "0xbeef3f30"
+},
+{
+"utc": "2026-10-09T18:04:25Z",
+"side": "BUY",
+"outcome": "Yes",
+"size": 10,
+"price": 0.631,
+"wallet": "0x122cb94c"
+},
+{
+"utc": "2026-10-09T18:04:26Z",
+"side": "BUY",
+"outcome": "Yes",
+"size": 10,
+"price": 0.631,
+"wallet": "0x64befd43"
+},
+{
+"utc": "2026-10-09T18:05:29Z",
+"side": "BUY",
+"outcome": "Yes",
+"size": 20,
+"price": 0.632,
+"wallet": "0xbeef3f30"
+},
+{
+"utc": "2026-10-09T18:05:55Z",
+"side": "BUY",
+"outcome": "Yes",
+"size": 5,
+"price": 0.633,
+"wallet": "0xcb016f2b"
+},
+{
+"utc": "2026-10-09T18:05:55Z",
+"side": "BUY",
+"outcome": "Yes",
+"size": 5,
+"price": 0.633,
+"wallet": "0xcb016f2b"
+},
+{
+"utc": "2026-10-09T18:05:56Z",
+"side": "BUY",
+"outcome": "Yes",
+"size": 5,
+"price": 0.633,
+"wallet": "0xcb016f2b"
+},
+{
+"utc": "2026-10-09T18:05:56Z",
+"side": "BUY",
+"outcome": "Yes",
+"size": 5,
+"price": 0.633,
+"wallet": "0xcb016f2b"
+},
+{
+"utc": "2026-10-09T18:05:56Z",
+"side": "BUY",
+"outcome": "Yes",
+"size": 5,
+"price": 0.633,
+"wallet": "0xcb016f2b"
+},
+{
+"utc": "2026-10-09T18:05:56Z",
+"side": "BUY",
+"outcome": "Yes",
+"size": 5,
+"price": 0.633,
+"wallet": "0xcb016f2b"
+},
+{
+"utc": "2026-10-09T18:06:16Z",
+"side": "BUY",
+"outcome": "Yes",
+"size": 63,
+"price": 0.633,
+"wallet": "0x8713130d"
+},
+{
+"utc": "2026-10-09T18:07:26Z",
+"side": "BUY",
+"outcome": "No",
+"size": 190,
+"price": 0.362,
+"wallet": "0xdebbe89c"
+},
+{
+"utc": "2026-10-09T18:07:26Z",
+"side": "SELL",
+"outcome": "Yes",
+"size": 137,
+"price": 0.638,
+"wallet": "0x122cb94c"
+},
+{
+"utc": "2026-10-09T18:07:34Z",
+"side": "BUY",
+"outcome": "Yes",
+"size": 20,
+"price": 0.641,
+"wallet": "0xbeef3f30"
+},
+{
+"utc": "2026-10-09T18:07:35Z",
+"side": "BUY",
+"outcome": "No",
+"size": 145,
+"price": 0.362,
+"wallet": "0xdebbe89c"
+},
+{
+"utc": "2026-10-09T18:09:56Z",
+"side": "SELL",
+"outcome": "Yes",
+"size": 1036,
+"price": 0.6476660232,
+"wallet": "0x5a955a1d"
+},
+{
+"utc": "2026-10-09T18:09:56Z",
+"side": "BUY",
+"outcome": "Yes",
+"size": 7445.46,
+"price": 0.670956035,
+"wallet": "0x3ed2c452"
+},
+{
+"utc": "2026-10-09T18:10:08Z",
+"side": "BUY",
+"outcome": "Yes",
+"size": 474,
+"price": 0.636978903,
+"wallet": "0x524db836"
+},
+{
+"utc": "2026-10-09T18:10:46Z",
+"side": "SELL",
+"outcome": "No",
+"size": 5.9,
+"price": 0.321,
+"wallet": "0xf0c04138"
+},
+{
+"utc": "2026-10-09T18:11:16Z",
+"side": "BUY",
+"outcome": "Yes",
+"size": 260,
+"price": 0.6489615385,
+"wallet": "0xa37a2bd2"
+},
+{
+"utc": "2026-10-09T18:12:56Z",
+"side": "BUY",
+"outcome": "Yes",
+"size": 44.791045,
+"price": 0.6697767377,
+"wallet": "0x40fb5b08"
+},
+{
+"utc": "2026-10-09T18:13:46Z",
+"side": "SELL",
+"outcome": "Yes",
+"size": 474,
+"price": 0.6452447257,
+"wallet": "0x524db836"
+},
+{
+"utc": "2026-10-09T18:17:20Z",
+"side": "BUY",
+"outcome": "No",
+"size": 500,
+"price": 0.364,
+"wallet": "0xefe8af61"
+},
+{
+"utc": "2026-10-09T18:17:25Z",
+"side": "BUY",
+"outcome": "Yes",
+"size": 50,
+"price": 0.636,
+"wallet": "0xbdd11cc9"
+},
+{
+"utc": "2026-10-09T18:17:44Z",
+"side": "BUY",
+"outcome": "Yes",
+"size": 95,
+"price": 0.636,
+"wallet": "0xbdd11cc9"
+},
+{
+"utc": "2026-10-09T18:18:02Z",
+"side": "BUY",
+"outcome": "Yes",
+"size": 53.99,
+"price": 0.636,
+"wallet": "0xb86f2f9b"
+},
+{
+"utc": "2026-10-09T18:18:08Z",
+"side": "SELL",
+"outcome": "Yes",
+"size": 0.46,
+"price": 0.635,
+"wallet": "0xae2a545c"
+},
+{
+"utc": "2026-10-09T18:19:19Z",
+"side": "SELL",
+"outcome": "Yes",
+"size": 250,
+"price": 0.635,
+"wallet": "0x4eee1f27"
+},
+{
+"utc": "2026-10-09T18:21:44Z",
+"side": "BUY",
+"outcome": "Yes",
+"size": 919.01,
+"price": 0.636,
+"wallet": "0xa37a2bd2"
+},
+{
+"utc": "2026-10-09T18:24:35Z",
+"side": "BUY",
+"outcome": "No",
+"size": 32.75,
+"price": 0.361,
+"wallet": "0x4f1d5ae2"
+},
+{
+"utc": "2026-10-09T18:25:11Z",
+"side": "BUY",
+"outcome": "No",
+"size": 22.18,
+"price": 0.361,
+"wallet": "0xb0c85813"
+},
+{
+"utc": "2026-10-09T18:29:41Z",
+"side": "BUY",
+"outcome": "Yes",
+"size": 7501.081197,
+"price": 0.666570574,
+"wallet": "0x3ed2c452"
+},
+{
+"utc": "2026-10-09T18:30:17Z",
+"side": "BUY",
+"outcome": "No",
+"size": 25,
+"price": 0.3586,
+"wallet": "0x7e65a3dd"
+},
+{
+"utc": "2026-10-09T18:30:17Z",
+"side": "BUY",
+"outcome": "Yes",
+"size": 64,
+"price": 0.634,
+"wallet": "0x122cb94c"
+},
+{
+"utc": "2026-10-09T18:30:22Z",
+"side": "BUY",
+"outcome": "Yes",
+"size": 10,
+"price": 0.632,
+"wallet": "0x122cb94c"
+},
+{
+"utc": "2026-10-09T18:30:22Z",
+"side": "BUY",
+"outcome": "No",
+"size": 62.64,
+"price": 0.3667183908,
+"wallet": "0x7e65a3dd"
+},
+{
+"utc": "2026-10-09T18:30:25Z",
+"side": "BUY",
+"outcome": "Yes",
+"size": 26.35,
+"price": 0.633,
+"wallet": "0x122cb94c"
+},
+{
+"utc": "2026-10-09T18:30:38Z",
+"side": "BUY",
+"outcome": "Yes",
+"size": 89,
+"price": 0.629,
+"wallet": "0x122cb94c"
+},
+{
+"utc": "2026-10-09T18:31:02Z",
+"side": "BUY",
+"outcome": "No",
+"size": 186.98,
+"price": 0.374,
+"wallet": "0x7e65a3dd"
+},
+{
+"utc": "2026-10-09T18:31:08Z",
+"side": "BUY",
+"outcome": "Yes",
+"size": 163.01,
+"price": 0.626,
+"wallet": "0xa37a2bd2"
+},
+{
+"utc": "2026-10-09T18:31:50Z",
+"side": "BUY",
+"outcome": "No",
+"size": 77.99,
+"price": 0.375,
+"wallet": "0x7e65a3dd"
+},
+{
+"utc": "2026-10-09T18:32:46Z",
+"side": "BUY",
+"outcome": "No",
+"size": 28,
+"price": 0.378,
+"wallet": "0x7e65a3dd"
+},
+{
+"utc": "2026-10-09T18:32:47Z",
+"side": "BUY",
+"outcome": "No",
+"size": 90,
+"price": 0.379,
+"wallet": "0x7e65a3dd"
+},
+{
+"utc": "2026-10-09T18:33:44Z",
+"side": "BUY",
+"outcome": "No",
+"size": 50,
+"price": 0.38,
+"wallet": "0x7e65a3dd"
+},
+{
+"utc": "2026-10-09T18:34:02Z",
+"side": "BUY",
+"outcome": "No",
+"size": 200,
+"price": 0.381,
+"wallet": "0x7e65a3dd"
+},
+{
+"utc": "2026-10-09T18:34:38Z",
+"side": "BUY",
+"outcome": "Yes",
+"size": 64.99,
+"price": 0.621,
+"wallet": "0x007a4445"
+},
+{
+"utc": "2026-10-09T18:36:46Z",
+"side": "SELL",
+"outcome": "Yes",
+"size": 40,
+"price": 0.623,
+"wallet": "0x122cb94c"
+},
+{
+"utc": "2026-10-09T18:36:46Z",
+"side": "BUY",
+"outcome": "No",
+"size": 191,
+"price": 0.376,
+"wallet": "0x7e65a3dd"
+},
+{
+"utc": "2026-10-09T18:37:11Z",
+"side": "SELL",
+"outcome": "Yes",
+"size": 135.8,
+"price": 0.621,
+"wallet": "0x122cb94c"
+},
+{
+"utc": "2026-10-09T18:37:11Z",
+"side": "BUY",
+"outcome": "No",
+"size": 150,
+"price": 0.379,
+"wallet": "0x7e65a3dd"
+},
+{
+"utc": "2026-10-09T18:37:58Z",
+"side": "SELL",
+"outcome": "Yes",
+"size": 13.55,
+"price": 0.618,
+"wallet": "0x122cb94c"
+},
+{
+"utc": "2026-10-09T18:39:46Z",
+"side": "BUY",
+"outcome": "Yes",
+"size": 92.99,
+"price": 0.619,
+"wallet": "0x64befd43"
+},
+{
+"utc": "2026-10-09T18:40:08Z",
+"side": "BUY",
+"outcome": "No",
+"size": 87,
+"price": 0.382,
+"wallet": "0xeed8c2be"
+},
+{
+"utc": "2026-10-09T18:57:10Z",
+"side": "BUY",
+"outcome": "No",
+"size": 522.971016,
+"price": 0.3824303716,
+"wallet": "0xa12461dd"
+},
+{
+"utc": "2026-10-09T19:03:34Z",
+"side": "SELL",
+"outcome": "Yes",
+"size": 7.9,
+"price": 0.611,
+"wallet": "0x671a3260"
+},
+{
+"utc": "2026-10-09T19:07:43Z",
+"side": "BUY",
+"outcome": "Yes",
+"size": 180,
+"price": 0.622,
+"wallet": "0x8dcf7e03"
+},
+{
+"utc": "2026-10-09T19:08:47Z",
+"side": "BUY",
+"outcome": "Yes",
+"size": 321.543407,
+"price": 0.6219999995,
+"wallet": "0x29a765da"
+},
+{
+"utc": "2026-10-09T19:08:47Z",
+"side": "BUY",
+"outcome": "Yes",
+"size": 21.56,
+"price": 0.6272170686,
+"wallet": "0xeed8c2be"
+},
+{
+"utc": "2026-10-09T19:17:10Z",
+"side": "BUY",
+"outcome": "Yes",
+"size": 100,
+"price": 0.628,
+"wallet": "0x8dcf7e03"
+},
+{
+"utc": "2026-10-09T19:20:31Z",
+"side": "BUY",
+"outcome": "Yes",
+"size": 100,
+"price": 0.624,
+"wallet": "0x8dcf7e03"
+},
+{
+"utc": "2026-10-09T19:22:10Z",
+"side": "BUY",
+"outcome": "No",
+"size": 49.99,
+"price": 0.384,
+"wallet": "0x87256d04"
+},
+{
+"utc": "2026-10-09T19:23:14Z",
+"side": "BUY",
+"outcome": "Yes",
+"size": 3.246752,
+"price": 0.6159999285,
+"wallet": "0xc93b0a6c"
+},
+{
+"utc": "2026-10-09T19:29:49Z",
+"side": "BUY",
+"outcome": "No",
+"size": 129.87013,
+"price": 0.3849999996,
+"wallet": "0x6065e635"
+},
+{
+"utc": "2026-10-09T19:37:58Z",
+"side": "BUY",
+"outcome": "No",
+"size": 207.03,
+"price": 0.385,
+"wallet": "0xa66790e2"
+},
+{
+"utc": "2026-10-09T19:39:44Z",
+"side": "BUY",
+"outcome": "Yes",
+"size": 26.461039,
+"price": 0.6159999991,
+"wallet": "0x95a37e36"
+},
+{
+"utc": "2026-10-09T19:47:08Z",
+"side": "BUY",
+"outcome": "Yes",
+"size": 5,
+"price": 0.616,
+"wallet": "0x4e369ccd"
+},
+{
+"utc": "2026-10-09T19:49:19Z",
+"side": "BUY",
+"outcome": "No",
+"size": 400,
+"price": 0.385,
+"wallet": "0x35f0f7dc"
+}
+]
+},
+"Lamine Yamal": {
+"conditionId": "0xa34edb6c898232378a9cc08744842df2cd89d278ba45b012bed3ac10c7241c4d",
+"n_trades": 316,
+"usd_total": 29005.02,
+"trades": [
+{
+"utc": "2026-10-09T16:25:29Z",
+"side": "SELL",
+"outcome": "Yes",
+"size": 9.15,
+"price": 0.366,
+"wallet": "0xeab346e5"
+},
+{
+"utc": "2026-10-09T16:33:34Z",
+"side": "BUY",
+"outcome": "Yes",
+"size": 26.737968,
+"price": 0.3739999988,
+"wallet": "0x098eb851"
+},
+{
+"utc": "2026-10-09T16:38:39Z",
+"side": "SELL",
+"outcome": "Yes",
+"size": 142.01,
+"price": 0.363,
+"wallet": "0x7f975377"
+},
+{
+"utc": "2026-10-09T16:57:19Z",
+"side": "BUY",
+"outcome": "Yes",
+"size": 82.02,
+"price": 0.372,
+"wallet": "0xfbf8be13"
+},
+{
+"utc": "2026-10-09T17:03:42Z",
+"side": "SELL",
+"outcome": "No",
+"size": 26.63,
+"price": 0.626,
+"wallet": "0x3958713f"
+},
+{
+"utc": "2026-10-09T17:37:26Z",
+"side": "BUY",
+"outcome": "No",
+"size": 17.98,
+"price": 0.628,
+"wallet": "0xf83ec0e3"
+},
+{
+"utc": "2026-10-09T17:39:44Z",
+"side": "BUY",
+"outcome": "No",
+"size": 28.99,
+"price": 0.63,
+"wallet": "0x4f1d5ae2"
+},
+{
+"utc": "2026-10-09T17:40:02Z",
+"side": "BUY",
+"outcome": "No",
+"size": 3.76,
+"price": 0.633,
+"wallet": "0x4f1d5ae2"
+},
+{
+"utc": "2026-10-09T17:40:02Z",
+"side": "BUY",
+"outcome": "No",
+"size": 10,
+"price": 0.630297,
+"wallet": "0x71a34952"
+},
+{
+"utc": "2026-10-09T17:40:10Z",
+"side": "BUY",
+"outcome": "No",
+"size": 6.98,
+"price": 0.6311346705,
+"wallet": "0xf83ec0e3"
+},
+{
+"utc": "2026-10-09T17:40:26Z",
+"side": "BUY",
+"outcome": "No",
+"size": 99.99,
+"price": 0.634,
+"wallet": "0xfe2d0b73"
+},
+{
+"utc": "2026-10-09T17:40:52Z",
+"side": "BUY",
+"outcome": "Yes",
+"size": 24.798928,
+"price": 0.3729999942,
+"wallet": "0xbcf41c4f"
+},
+{
+"utc": "2026-10-09T17:42:29Z",
+"side": "BUY",
+"outcome": "No",
+"size": 14.01,
+"price": 0.636,
+"wallet": "0xf83ec0e3"
+},
+{
+"utc": "2026-10-09T17:42:29Z",
+"side": "BUY",
+"outcome": "No",
+"size": 10,
+"price": 0.636,
+"wallet": "0x71a34952"
+},
+{
+"utc": "2026-10-09T17:42:37Z",
+"side": "BUY",
+"outcome": "Yes",
+"size": 267.720347,
+"price": 0.3735240938,
+"wallet": "0x29bffb44"
+},
+{
+"utc": "2026-10-09T17:42:41Z",
+"side": "BUY",
+"outcome": "No",
+"size": 442.98,
+"price": 0.6377133053,
+"wallet": "0xf83ec0e3"
+},
+{
+"utc": "2026-10-09T17:42:50Z",
+"side": "BUY",
+"outcome": "No",
+"size": 69.9,
+"price": 0.638,
+"wallet": "0xeed8c2be"
+},
+{
+"utc": "2026-10-09T17:42:50Z",
+"side": "BUY",
+"outcome": "No",
+"size": 5,
+"price": 0.638,
+"wallet": "0x71a34952"
+},
+{
+"utc": "2026-10-09T17:42:50Z",
+"side": "BUY",
+"outcome": "No",
+"size": 214.74,
+"price": 0.638,
+"wallet": "0xf83ec0e3"
+},
+{
+"utc": "2026-10-09T17:42:50Z",
+"side": "BUY",
+"outcome": "No",
+"size": 10,
+"price": 0.638,
+"wallet": "0x28bf066c"
+},
+{
+"utc": "2026-10-09T17:43:43Z",
+"side": "BUY",
+"outcome": "No",
+"size": 17.78,
+"price": 0.644,
+"wallet": "0x4f1d5ae2"
+},
+{
+"utc": "2026-10-09T17:43:43Z",
+"side": "BUY",
+"outcome": "No",
+"size": 40,
+"price": 0.644,
+"wallet": "0x28bf066c"
+},
+{
+"utc": "2026-10-09T17:43:43Z",
+"side": "BUY",
+"outcome": "No",
+"size": 14.97,
+"price": 0.644,
+"wallet": "0x4f1d5ae2"
+},
+{
+"utc": "2026-10-09T17:43:52Z",
+"side": "BUY",
+"outcome": "No",
+"size": 7,
+"price": 0.644,
+"wallet": "0x28bf066c"
+},
+{
+"utc": "2026-10-09T17:43:52Z",
+"side": "BUY",
+"outcome": "No",
+"size": 214.74,
+"price": 0.6449695446,
+"wallet": "0xf83ec0e3"
+},
+{
+"utc": "2026-10-09T17:43:52Z",
+"side": "BUY",
+"outcome": "No",
+"size": 30,
+"price": 0.644,
+"wallet": "0x28bf066c"
+},
+{
+"utc": "2026-10-09T17:44:01Z",
+"side": "BUY",
+"outcome": "No",
+"size": 7.38,
+"price": 0.645,
+"wallet": "0x4f1d5ae2"
+},
+{
+"utc": "2026-10-09T17:44:02Z",
+"side": "BUY",
+"outcome": "No",
+"size": 5,
+"price": 0.636,
+"wallet": "0x03805a13"
+},
+{
+"utc": "2026-10-09T17:44:14Z",
+"side": "BUY",
+"outcome": "No",
+"size": 20,
+"price": 0.638,
+"wallet": "0xfbd8c9c2"
+},
+{
+"utc": "2026-10-09T17:44:14Z",
+"side": "BUY",
+"outcome": "No",
+"size": 2,
+"price": 0.638,
+"wallet": "0x03805a13"
+},
+{
+"utc": "2026-10-09T17:44:19Z",
+"side": "BUY",
+"outcome": "No",
+"size": 20.166923,
+"price": 0.6416446872,
+"wallet": "0x03805a13"
+},
+{
+"utc": "2026-10-09T17:44:23Z",
+"side": "BUY",
+"outcome": "No",
+"size": 241.39,
+"price": 0.6498052943,
+"wallet": "0xfbedb045"
+},
+{
+"utc": "2026-10-09T17:44:23Z",
+"side": "BUY",
+"outcome": "No",
+"size": 999.755385,
+"price": 0.649808953,
+"wallet": "0x5a218c7a"
+},
+{
+"utc": "2026-10-09T17:44:25Z",
+"side": "BUY",
+"outcome": "No",
+"size": 1200,
+"price": 0.65,
+"wallet": "0xf83ec0e3"
+},
+{
+"utc": "2026-10-09T17:44:25Z",
+"side": "BUY",
+"outcome": "No",
+"size": 40,
+"price": 0.64625,
+"wallet": "0x71a34952"
+},
+{
+"utc": "2026-10-09T17:44:37Z",
+"side": "BUY",
+"outcome": "No",
+"size": 115.99,
+"price": 0.6481722562,
+"wallet": "0x4f1d5ae2"
+},
+{
+"utc": "2026-10-09T17:44:44Z",
+"side": "BUY",
+"outcome": "Yes",
+"size": 185.027778,
+"price": 0.3599999996,
+"wallet": "0xbb8e35c5"
+},
+{
+"utc": "2026-10-09T17:44:46Z",
+"side": "BUY",
+"outcome": "Yes",
+"size": 48.222223,
+"price": 0.3597926209,
+"wallet": "0xbb8e35c5"
+},
+{
+"utc": "2026-10-09T17:44:53Z",
+"side": "BUY",
+"outcome": "Yes",
+"size": 21.977778,
+"price": 0.3594539903,
+"wallet": "0xbb8e35c5"
+},
+{
+"utc": "2026-10-09T17:45:28Z",
+"side": "BUY",
+"outcome": "No",
+"size": 28,
+"price": 0.647,
+"wallet": "0x71a34952"
+},
+{
+"utc": "2026-10-09T17:45:35Z",
+"side": "BUY",
+"outcome": "No",
+"size": 2.345678,
+"price": 0.6479998533,
+"wallet": "0xb0c85813"
+},
+{
+"utc": "2026-10-09T17:45:35Z",
+"side": "BUY",
+"outcome": "No",
+"size": 10,
+"price": 0.648,
+"wallet": "0x71a34952"
+},
+{
+"utc": "2026-10-09T17:45:35Z",
+"side": "BUY",
+"outcome": "No",
+"size": 30,
+"price": 0.648,
+"wallet": "0x71a34952"
+},
+{
+"utc": "2026-10-09T17:45:59Z",
+"side": "BUY",
+"outcome": "No",
+"size": 67.66,
+"price": 0.65,
+"wallet": "0xb0c85813"
+},
+{
+"utc": "2026-10-09T17:45:59Z",
+"side": "BUY",
+"outcome": "No",
+"size": 380,
+"price": 0.65,
+"wallet": "0x122cb94c"
+},
+{
+"utc": "2026-10-09T17:45:59Z",
+"side": "BUY",
+"outcome": "No",
+"size": 99.692308,
+"price": 0.649999998,
+"wallet": "0x5a218c7a"
+},
+{
+"utc": "2026-10-09T17:45:59Z",
+"side": "BUY",
+"outcome": "No",
+"size": 40,
+"price": 0.648,
+"wallet": "0x71a34952"
+},
+{
+"utc": "2026-10-09T17:46:01Z",
+"side": "BUY",
+"outcome": "No",
+"size": 1200,
+"price": 0.6494273,
+"wallet": "0x4f1d5ae2"
+},
+{
+"utc": "2026-10-09T17:46:10Z",
+"side": "BUY",
+"outcome": "Yes",
+"size": 37.994429,
+"price": 0.3589999997,
+"wallet": "0xbb8e35c5"
+},
+{
+"utc": "2026-10-09T17:46:11Z",
+"side": "BUY",
+"outcome": "Yes",
+"size": 37.988827,
+"price": 0.3579999983,
+"wallet": "0xbb8e35c5"
+},
+{
+"utc": "2026-10-09T17:46:11Z",
+"side": "BUY",
+"outcome": "No",
+"size": 30,
+"price": 0.648,
+"wallet": "0x71a34952"
+},
+{
+"utc": "2026-10-09T17:46:11Z",
+"side": "BUY",
+"outcome": "No",
+"size": 61,
+"price": 0.6498691803,
+"wallet": "0xf83ec0e3"
+},
+{
+"utc": "2026-10-09T17:46:11Z",
+"side": "BUY",
+"outcome": "No",
+"size": 100,
+"price": 0.648,
+"wallet": "0x5a218c7a"
+},
+{
+"utc": "2026-10-09T17:46:13Z",
+"side": "BUY",
+"outcome": "No",
+"size": 294.11,
+"price": 0.65,
+"wallet": "0xb0c85813"
+},
+{
+"utc": "2026-10-09T17:46:13Z",
+"side": "BUY",
+"outcome": "No",
+"size": 10,
+"price": 0.65,
+"wallet": "0x71a34952"
+},
+{
+"utc": "2026-10-09T17:46:13Z",
+"side": "BUY",
+"outcome": "No",
+"size": 550,
+"price": 0.65,
+"wallet": "0xb0c85813"
+},
+{
+"utc": "2026-10-09T17:46:14Z",
+"side": "BUY",
+"outcome": "Yes",
+"size": 10.027701,
+"price": 0.3600027564,
+"wallet": "0xbb8e35c5"
+},
+{
+"utc": "2026-10-09T17:46:14Z",
+"side": "BUY",
+"outcome": "Yes",
+"size": 301.977654,
+"price": 0.3579072775,
+"wallet": "0xbb8e35c5"
+},
+{
+"utc": "2026-10-09T17:46:26Z",
+"side": "BUY",
+"outcome": "No",
+"size": 22,
+"price": 0.65,
+"wallet": "0x71a34952"
+},
+{
+"utc": "2026-10-09T17:46:26Z",
+"side": "BUY",
+"outcome": "No",
+"size": 100,
+"price": 0.65,
+"wallet": "0x5a218c7a"
+},
+{
+"utc": "2026-10-09T17:46:26Z",
+"side": "BUY",
+"outcome": "No",
+"size": 10,
+"price": 0.65,
+"wallet": "0x71a34952"
+},
+{
+"utc": "2026-10-09T17:46:40Z",
+"side": "BUY",
+"outcome": "No",
+"size": 100,
+"price": 0.672,
+"wallet": "0xb0c85813"
+},
+{
+"utc": "2026-10-09T17:46:40Z",
+"side": "BUY",
+"outcome": "No",
+"size": 12.8,
+"price": 0.6535289063,
+"wallet": "0xf83ec0e3"
+},
+{
+"utc": "2026-10-09T17:46:40Z",
+"side": "BUY",
+"outcome": "No",
+"size": 50,
+"price": 0.6708372,
+"wallet": "0xb0c85813"
+},
+{
+"utc": "2026-10-09T17:46:40Z",
+"side": "BUY",
+"outcome": "No",
+"size": 10,
+"price": 0.648,
+"wallet": "0x71a34952"
+},
+{
+"utc": "2026-10-09T17:46:40Z",
+"side": "BUY",
+"outcome": "No",
+"size": 99.969371,
+"price": 0.6481985267,
+"wallet": "0x5a218c7a"
+},
+{
+"utc": "2026-10-09T17:47:02Z",
+"side": "SELL",
+"outcome": "No",
+"size": 30,
+"price": 0.679,
+"wallet": "0x122cb94c"
+},
+{
+"utc": "2026-10-09T17:47:02Z",
+"side": "BUY",
+"outcome": "No",
+"size": 72,
+"price": 0.648,
+"wallet": "0x7e5972bf"
+},
+{
+"utc": "2026-10-09T17:47:02Z",
+"side": "BUY",
+"outcome": "No",
+"size": 10,
+"price": 0.679,
+"wallet": "0x090af6fd"
+},
+{
+"utc": "2026-10-09T17:47:02Z",
+"side": "BUY",
+"outcome": "No",
+"size": 10,
+"price": 0.682,
+"wallet": "0xb0c85813"
+},
+{
+"utc": "2026-10-09T17:47:02Z",
+"side": "BUY",
+"outcome": "No",
+"size": 60,
+"price": 0.6543873333,
+"wallet": "0xb0c85813"
+},
+{
+"utc": "2026-10-09T17:47:13Z",
+"side": "BUY",
+"outcome": "No",
+"size": 110,
+"price": 0.641,
+"wallet": "0x5a218c7a"
+},
+{
+"utc": "2026-10-09T17:47:14Z",
+"side": "BUY",
+"outcome": "No",
+"size": 74,
+"price": 0.684,
+"wallet": "0xb0c85813"
+},
+{
+"utc": "2026-10-09T17:47:23Z",
+"side": "BUY",
+"outcome": "No",
+"size": 60,
+"price": 0.644,
+"wallet": "0x852eaa70"
+},
+{
+"utc": "2026-10-09T17:47:31Z",
+"side": "BUY",
+"outcome": "No",
+"size": 18.990682,
+"price": 0.643999989,
+"wallet": "0x852eaa70"
+},
+{
+"utc": "2026-10-09T17:47:31Z",
+"side": "BUY",
+"outcome": "No",
+"size": 26.98,
+"price": 0.644,
+"wallet": "0xb0c85813"
+},
+{
+"utc": "2026-10-09T17:48:01Z",
+"side": "BUY",
+"outcome": "No",
+"size": 29,
+"price": 0.647,
+"wallet": "0x122cb94c"
+},
+{
+"utc": "2026-10-09T17:48:04Z",
+"side": "BUY",
+"outcome": "No",
+"size": 9.2,
+"price": 0.647,
+"wallet": "0x1becb669"
+},
+{
+"utc": "2026-10-09T17:48:04Z",
+"side": "BUY",
+"outcome": "No",
+"size": 8.8,
+"price": 0.647,
+"wallet": "0x1387d145"
+},
+{
+"utc": "2026-10-09T17:48:05Z",
+"side": "BUY",
+"outcome": "Yes",
+"size": 12,
+"price": 0.333,
+"wallet": "0x9753165f"
+},
+{
+"utc": "2026-10-09T17:48:08Z",
+"side": "BUY",
+"outcome": "Yes",
+"size": 16.988637,
+"price": 0.3519999868,
+"wallet": "0xbb8e35c5"
+},
+{
+"utc": "2026-10-09T17:48:31Z",
+"side": "BUY",
+"outcome": "No",
+"size": 43,
+"price": 0.68,
+"wallet": "0x3435519d"
+},
+{
+"utc": "2026-10-09T17:48:37Z",
+"side": "BUY",
+"outcome": "No",
+"size": 53,
+"price": 0.7067735849,
+"wallet": "0x3435519d"
+},
+{
+"utc": "2026-10-09T17:48:40Z",
+"side": "BUY",
+"outcome": "No",
+"size": 47,
+"price": 0.715,
+"wallet": "0x3435519d"
+},
+{
+"utc": "2026-10-09T17:49:13Z",
+"side": "BUY",
+"outcome": "No",
+"size": 90,
+"price": 0.7148,
+"wallet": "0x3435519d"
+},
+{
+"utc": "2026-10-09T17:49:17Z",
+"side": "SELL",
+"outcome": "No",
+"size": 4.54,
+"price": 0.668,
+"wallet": "0x4b05bb03"
+},
+{
+"utc": "2026-10-09T17:50:37Z",
+"side": "SELL",
+"outcome": "Yes",
+"size": 67.99,
+"price": 0.2614119723,
+"wallet": "0xe1c4b839"
+},
+{
+"utc": "2026-10-09T17:52:05Z",
+"side": "BUY",
+"outcome": "Yes",
+"size": 80,
+"price": 0.310375,
+"wallet": "0xdebbe89c"
+},
+{
+"utc": "2026-10-09T17:52:07Z",
+"side": "BUY",
+"outcome": "No",
+"size": 44.992678,
+"price": 0.6829999984,
+"wallet": "0xbb8e35c5"
+},
+{
+"utc": "2026-10-09T17:52:08Z",
+"side": "BUY",
+"outcome": "No",
+"size": 137.565787,
+"price": 0.6830186491,
+"wallet": "0x9753165f"
+},
+{
+"utc": "2026-10-09T17:52:08Z",
+"side": "BUY",
+"outcome": "Yes",
+"size": 60,
+"price": 0.3225758333,
+"wallet": "0xdebbe89c"
+},
+{
+"utc": "2026-10-09T17:52:11Z",
+"side": "BUY",
+"outcome": "No",
+"size": 82.419591,
+"price": 0.6830900192,
+"wallet": "0xbb8e35c5"
+},
+{
+"utc": "2026-10-09T17:52:13Z",
+"side": "BUY",
+"outcome": "No",
+"size": 44.992678,
+"price": 0.6829999984,
+"wallet": "0xbb8e35c5"
+},
+{
+"utc": "2026-10-09T17:52:20Z",
+"side": "BUY",
+"outcome": "No",
+"size": 22.223836,
+"price": 0.6879999924,
+"wallet": "0x9753165f"
+},
+{
+"utc": "2026-10-09T17:52:25Z",
+"side": "BUY",
+"outcome": "No",
+"size": 13.997092,
+"price": 0.6879999789,
+"wallet": "0x66e7ce01"
+},
+{
+"utc": "2026-10-09T17:52:25Z",
+"side": "BUY",
+"outcome": "No",
+"size": 2,
+"price": 0.688,
+"wallet": "0xbd2b2070"
+},
+{
+"utc": "2026-10-09T17:52:26Z",
+"side": "BUY",
+"outcome": "No",
+"size": 10,
+"price": 0.689,
+"wallet": "0x9753165f"
+},
+{
+"utc": "2026-10-09T17:52:47Z",
+"side": "BUY",
+"outcome": "No",
+"size": 5.442668,
+"price": 0.6889999537,
+"wallet": "0x852eaa70"
+},
+{
+"utc": "2026-10-09T17:52:49Z",
+"side": "SELL",
+"outcome": "Yes",
+"size": 21,
+"price": 0.311,
+"wallet": "0x7dcf2357"
+},
+{
+"utc": "2026-10-09T17:52:50Z",
+"side": "BUY",
+"outcome": "No",
+"size": 65.979681,
+"price": 0.6889999968,
+"wallet": "0xbb8e35c5"
+},
+{
+"utc": "2026-10-09T17:52:52Z",
+"side": "BUY",
+"outcome": "No",
+"size": 20.203192,
+"price": 0.6889999857,
+"wallet": "0x9753165f"
+},
+{
+"utc": "2026-10-09T17:52:52Z",
+"side": "BUY",
+"outcome": "No",
+"size": 10.986938,
+"price": 0.6889999743,
+"wallet": "0xbb8e35c5"
+},
+{
+"utc": "2026-10-09T17:52:52Z",
+"side": "BUY",
+"outcome": "No",
+"size": 56,
+"price": 0.689,
+"wallet": "0xbb8e35c5"
+},
+{
+"utc": "2026-10-09T17:52:58Z",
+"side": "BUY",
+"outcome": "No",
+"size": 15.152395,
+"price": 0.6889999898,
+"wallet": "0x9753165f"
+},
+{
+"utc": "2026-10-09T17:53:01Z",
+"side": "BUY",
+"outcome": "No",
+"size": 3.005699,
+"price": 0.7019997678,
+"wallet": "0x9753165f"
+},
+{
+"utc": "2026-10-09T17:53:08Z",
+"side": "BUY",
+"outcome": "No",
+"size": 10.101594,
+"price": 0.6889999737,
+"wallet": "0x9753165f"
+},
+{
+"utc": "2026-10-09T17:53:10Z",
+"side": "BUY",
+"outcome": "No",
+"size": 3.076922,
+"price": 0.6889999161,
+"wallet": "0x9753165f"
+},
+{
+"utc": "2026-10-09T17:53:14Z",
+"side": "SELL",
+"outcome": "Yes",
+"size": 0.3,
+"price": 0.311,
+"wallet": "0xa3a417e4"
+},
+{
+"utc": "2026-10-09T17:53:38Z",
+"side": "BUY",
+"outcome": "No",
+"size": 14,
+"price": 0.6955714286,
+"wallet": "0xb7d54bf1"
+},
+{
+"utc": "2026-10-09T17:53:41Z",
+"side": "BUY",
+"outcome": "No",
+"size": 8,
+"price": 0.689,
+"wallet": "0x852eaa70"
+},
+{
+"utc": "2026-10-09T17:54:01Z",
+"side": "BUY",
+"outcome": "No",
+"size": 5,
+"price": 0.689,
+"wallet": "0xb7d54bf1"
+},
+{
+"utc": "2026-10-09T17:54:16Z",
+"side": "BUY",
+"outcome": "No",
+"size": 50,
+"price": 0.73056,
+"wallet": "0x460a20d6"
+},
+{
+"utc": "2026-10-09T17:55:02Z",
+"side": "SELL",
+"outcome": "No",
+"size": 10,
+"price": 0.719,
+"wallet": "0x122cb94c"
+},
+{
+"utc": "2026-10-09T17:55:04Z",
+"side": "SELL",
+"outcome": "No",
+"size": 500,
+"price": 0.72,
+"wallet": "0x122cb94c"
+},
+{
+"utc": "2026-10-09T17:55:11Z",
+"side": "BUY",
+"outcome": "No",
+"size": 1375,
+"price": 0.7390313309,
+"wallet": "0x032eb1bc"
+},
+{
+"utc": "2026-10-09T17:55:11Z",
+"side": "SELL",
+"outcome": "No",
+"size": 50,
+"price": 0.736,
+"wallet": "0x122cb94c"
+},
+{
+"utc": "2026-10-09T17:55:31Z",
+"side": "BUY",
+"outcome": "No",
+"size": 50,
+"price": 0.74,
+"wallet": "0x460a20d6"
+},
+{
+"utc": "2026-10-09T17:55:31Z",
+"side": "BUY",
+"outcome": "No",
+"size": 444,
+"price": 0.7399954955,
+"wallet": "0x032eb1bc"
+},
+{
+"utc": "2026-10-09T17:55:31Z",
+"side": "BUY",
+"outcome": "No",
+"size": 17.997291,
+"price": 0.7389999973,
+"wallet": "0x66e7ce01"
+},
+{
+"utc": "2026-10-09T17:55:49Z",
+"side": "BUY",
+"outcome": "No",
+"size": 35,
+"price": 0.74,
+"wallet": "0x032eb1bc"
+},
+{
+"utc": "2026-10-09T17:55:49Z",
+"side": "BUY",
+"outcome": "Yes",
+"size": 17,
+"price": 0.244,
+"wallet": "0x122cb94c"
+},
+{
+"utc": "2026-10-09T17:55:49Z",
+"side": "BUY",
+"outcome": "No",
+"size": 33,
+"price": 0.7516363636,
+"wallet": "0x460a20d6"
+},
+{
+"utc": "2026-10-09T17:56:40Z",
+"side": "SELL",
+"outcome": "No",
+"size": 10,
+"price": 0.731,
+"wallet": "0x122cb94c"
+},
+{
+"utc": "2026-10-09T17:56:40Z",
+"side": "SELL",
+"outcome": "No",
+"size": 500,
+"price": 0.735,
+"wallet": "0x122cb94c"
+},
+{
+"utc": "2026-10-09T17:56:40Z",
+"side": "SELL",
+"outcome": "No",
+"size": 241.87,
+"price": 0.734,
+"wallet": "0x122cb94c"
+},
+{
+"utc": "2026-10-09T17:56:44Z",
+"side": "BUY",
+"outcome": "No",
+"size": 18.286478,
+"price": 0.7469999964,
+"wallet": "0x852eaa70"
+},
+{
+"utc": "2026-10-09T17:56:46Z",
+"side": "BUY",
+"outcome": "No",
+"size": 50,
+"price": 0.7474,
+"wallet": "0x460a20d6"
+},
+{
+"utc": "2026-10-09T17:56:59Z",
+"side": "BUY",
+"outcome": "No",
+"size": 848,
+"price": 0.7487894811,
+"wallet": "0x032eb1bc"
+},
+{
+"utc": "2026-10-09T17:56:59Z",
+"side": "BUY",
+"outcome": "No",
+"size": 100,
+"price": 0.748,
+"wallet": "0x66e7ce01"
+},
+{
+"utc": "2026-10-09T17:57:08Z",
+"side": "BUY",
+"outcome": "No",
+"size": 432,
+"price": 0.7492880556,
+"wallet": "0x032eb1bc"
+},
+{
+"utc": "2026-10-09T17:57:13Z",
+"side": "BUY",
+"outcome": "No",
+"size": 100,
+"price": 0.7539,
+"wallet": "0xe102b1da"
+},
+{
+"utc": "2026-10-09T17:57:13Z",
+"side": "BUY",
+"outcome": "No",
+"size": 100,
+"price": 0.753,
+"wallet": "0xb7d54bf1"
+},
+{
+"utc": "2026-10-09T17:57:14Z",
+"side": "BUY",
+"outcome": "Yes",
+"size": 36.231885,
+"price": 0.2759999928,
+"wallet": "0x99bbc9df"
+},
+{
+"utc": "2026-10-09T17:57:19Z",
+"side": "BUY",
+"outcome": "No",
+"size": 25,
+"price": 0.76,
+"wallet": "0xeed8c2be"
+},
+{
+"utc": "2026-10-09T17:57:19Z",
+"side": "BUY",
+"outcome": "No",
+"size": 1585,
+"price": 0.7544416404,
+"wallet": "0x032eb1bc"
+},
+{
+"utc": "2026-10-09T17:57:29Z",
+"side": "BUY",
+"outcome": "No",
+"size": 2140,
+"price": 0.76,
+"wallet": "0x032eb1bc"
+},
+{
+"utc": "2026-10-09T17:57:29Z",
+"side": "BUY",
+"outcome": "No",
+"size": 119,
+"price": 0.7598487395,
+"wallet": "0xb7d54bf1"
+},
+{
+"utc": "2026-10-09T17:57:41Z",
+"side": "BUY",
+"outcome": "No",
+"size": 90,
+"price": 0.76,
+"wallet": "0x852eaa70"
+},
+{
+"utc": "2026-10-09T17:57:41Z",
+"side": "BUY",
+"outcome": "No",
+"size": 31,
+"price": 0.76,
+"wallet": "0xb7d54bf1"
+},
+{
+"utc": "2026-10-09T17:57:44Z",
+"side": "BUY",
+"outcome": "No",
+"size": 148,
+"price": 0.76,
+"wallet": "0x032eb1bc"
+},
+{
+"utc": "2026-10-09T17:57:52Z",
+"side": "BUY",
+"outcome": "No",
+"size": 30,
+"price": 0.76,
+"wallet": "0x852eaa70"
+},
+{
+"utc": "2026-10-09T17:57:53Z",
+"side": "BUY",
+"outcome": "No",
+"size": 132,
+"price": 0.76,
+"wallet": "0x032eb1bc"
+},
+{
+"utc": "2026-10-09T17:57:53Z",
+"side": "BUY",
+"outcome": "No",
+"size": 3,
+"price": 0.76,
+"wallet": "0xb7d54bf1"
+},
+{
+"utc": "2026-10-09T17:57:56Z",
+"side": "BUY",
+"outcome": "Yes",
+"size": 226.627451,
+"price": 0.2542939955,
+"wallet": "0xdebbe89c"
+},
+{
+"utc": "2026-10-09T17:57:58Z",
+"side": "BUY",
+"outcome": "No",
+"size": 150,
+"price": 0.7687133333,
+"wallet": "0xb7d54bf1"
+},
+{
+"utc": "2026-10-09T17:57:58Z",
+"side": "BUY",
+"outcome": "No",
+"size": 61.994644,
+"price": 0.7469999989,
+"wallet": "0xbb8e35c5"
+},
+{
+"utc": "2026-10-09T17:57:59Z",
+"side": "BUY",
+"outcome": "Yes",
+"size": 208.156863,
+"price": 0.2548078369,
+"wallet": "0xdebbe89c"
+},
+{
+"utc": "2026-10-09T17:58:29Z",
+"side": "BUY",
+"outcome": "No",
+"size": 100,
+"price": 0.78,
+"wallet": "0x032eb1bc"
+},
+{
+"utc": "2026-10-09T17:58:38Z",
+"side": "SELL",
+"outcome": "No",
+"size": 124,
+"price": 0.756,
+"wallet": "0x122cb94c"
+},
+{
+"utc": "2026-10-09T17:58:38Z",
+"side": "SELL",
+"outcome": "No",
+"size": 10,
+"price": 0.757,
+"wallet": "0x122cb94c"
+},
+{
+"utc": "2026-10-09T17:58:46Z",
+"side": "BUY",
+"outcome": "No",
+"size": 90,
+"price": 0.778,
+"wallet": "0x852eaa70"
+},
+{
+"utc": "2026-10-09T17:58:59Z",
+"side": "BUY",
+"outcome": "No",
+"size": 119,
+"price": 0.7791596639,
+"wallet": "0xb7d54bf1"
+},
+{
+"utc": "2026-10-09T17:58:59Z",
+"side": "BUY",
+"outcome": "No",
+"size": 100,
+"price": 0.78261,
+"wallet": "0x032eb1bc"
+},
+{
+"utc": "2026-10-09T17:59:07Z",
+"side": "BUY",
+"outcome": "No",
+"size": 25,
+"price": 0.78,
+"wallet": "0x852eaa70"
+},
+{
+"utc": "2026-10-09T17:59:11Z",
+"side": "BUY",
+"outcome": "No",
+"size": 31,
+"price": 0.78,
+"wallet": "0xb7d54bf1"
+},
+{
+"utc": "2026-10-09T17:59:23Z",
+"side": "BUY",
+"outcome": "No",
+"size": 82,
+"price": 0.7868784146,
+"wallet": "0x032eb1bc"
+},
+{
+"utc": "2026-10-09T17:59:25Z",
+"side": "BUY",
+"outcome": "No",
+"size": 122,
+"price": 0.7809344262,
+"wallet": "0xb7d54bf1"
+},
+{
+"utc": "2026-10-09T17:59:35Z",
+"side": "BUY",
+"outcome": "No",
+"size": 28,
+"price": 0.78,
+"wallet": "0xb7d54bf1"
+},
+{
+"utc": "2026-10-09T17:59:40Z",
+"side": "BUY",
+"outcome": "No",
+"size": 53,
+"price": 0.78,
+"wallet": "0x852eaa70"
+},
+{
+"utc": "2026-10-09T17:59:53Z",
+"side": "BUY",
+"outcome": "Yes",
+"size": 58.011905,
+"price": 0.25167248,
+"wallet": "0xe43354e2"
+},
+{
+"utc": "2026-10-09T17:59:53Z",
+"side": "BUY",
+"outcome": "No",
+"size": 1643,
+"price": 0.778,
+"wallet": "0x032eb1bc"
+},
+{
+"utc": "2026-10-09T17:59:55Z",
+"side": "BUY",
+"outcome": "Yes",
+"size": 72.539683,
+"price": 0.2513107205,
+"wallet": "0x54c0fc90"
+},
+{
+"utc": "2026-10-09T17:59:55Z",
+"side": "SELL",
+"outcome": "No",
+"size": 129.44,
+"price": 0.748,
+"wallet": "0x122cb94c"
+},
+{
+"utc": "2026-10-09T17:59:55Z",
+"side": "BUY",
+"outcome": "Yes",
+"size": 32,
+"price": 0.252,
+"wallet": "0xb6ce892d"
+},
+{
+"utc": "2026-10-09T17:59:56Z",
+"side": "BUY",
+"outcome": "Yes",
+"size": 11.857708,
+"price": 0.2529999895,
+"wallet": "0xd031ddd1"
+},
+{
+"utc": "2026-10-09T17:59:56Z",
+"side": "BUY",
+"outcome": "Yes",
+"size": 7.905139,
+"price": 0.2529999789,
+"wallet": "0x263249fa"
+},
+{
+"utc": "2026-10-09T17:59:56Z",
+"side": "BUY",
+"outcome": "Yes",
+"size": 3.95257,
+"price": 0.2529999469,
+"wallet": "0x50690cd8"
+},
+{
+"utc": "2026-10-09T17:59:56Z",
+"side": "BUY",
+"outcome": "Yes",
+"size": 14.387352,
+"price": 0.2529999961,
+"wallet": "0x1e7386cd"
+},
+{
+"utc": "2026-10-09T17:59:56Z",
+"side": "BUY",
+"outcome": "Yes",
+"size": 3.95257,
+"price": 0.2529999469,
+"wallet": "0x7eef103b"
+},
+{
+"utc": "2026-10-09T17:59:56Z",
+"side": "BUY",
+"outcome": "Yes",
+"size": 3.95257,
+"price": 0.2529999469,
+"wallet": "0x6cd75562"
+},
+{
+"utc": "2026-10-09T17:59:56Z",
+"side": "BUY",
+"outcome": "Yes",
+"size": 9.881423,
+"price": 0.2529999981,
+"wallet": "0xb7825bbb"
+},
+{
+"utc": "2026-10-09T17:59:56Z",
+"side": "BUY",
+"outcome": "Yes",
+"size": 11.857708,
+"price": 0.2529999895,
+"wallet": "0x913c07a3"
+},
+{
+"utc": "2026-10-09T17:59:58Z",
+"side": "BUY",
+"outcome": "Yes",
+"size": 19.762846,
+"price": 0.2529999981,
+"wallet": "0xccdbc9ab"
+},
+{
+"utc": "2026-10-09T17:59:58Z",
+"side": "BUY",
+"outcome": "Yes",
+"size": 3.95257,
+"price": 0.2529999469,
+"wallet": "0x20d3c613"
+},
+{
+"utc": "2026-10-09T17:59:58Z",
+"side": "BUY",
+"outcome": "Yes",
+"size": 143.966157,
+"price": 0.2533234252,
+"wallet": "0xd0e9611a"
+},
+{
+"utc": "2026-10-09T17:59:58Z",
+"side": "BUY",
+"outcome": "Yes",
+"size": 78.859174,
+"price": 0.2536166559,
+"wallet": "0xf26cd852"
+},
+{
+"utc": "2026-10-09T18:00:04Z",
+"side": "SELL",
+"outcome": "No",
+"size": 402.13,
+"price": 0.75,
+"wallet": "0x122cb94c"
+},
+{
+"utc": "2026-10-09T18:00:13Z",
+"side": "BUY",
+"outcome": "No",
+"size": 23,
+"price": 0.7545147826,
+"wallet": "0xb7d54bf1"
+},
+{
+"utc": "2026-10-09T18:00:22Z",
+"side": "BUY",
+"outcome": "No",
+"size": 68,
+"price": 0.7701285294,
+"wallet": "0x032eb1bc"
+},
+{
+"utc": "2026-10-09T18:00:32Z",
+"side": "BUY",
+"outcome": "No",
+"size": 128,
+"price": 0.7703003125,
+"wallet": "0xb7d54bf1"
+},
+{
+"utc": "2026-10-09T18:00:37Z",
+"side": "BUY",
+"outcome": "Yes",
+"size": 156,
+"price": 0.25,
+"wallet": "0x29bffb44"
+},
+{
+"utc": "2026-10-09T18:00:43Z",
+"side": "BUY",
+"outcome": "No",
+"size": 131,
+"price": 0.768,
+"wallet": "0x032eb1bc"
+},
+{
+"utc": "2026-10-09T18:00:44Z",
+"side": "BUY",
+"outcome": "No",
+"size": 22,
+"price": 0.768,
+"wallet": "0xb7d54bf1"
+},
+{
+"utc": "2026-10-09T18:00:52Z",
+"side": "BUY",
+"outcome": "Yes",
+"size": 8.298756,
+"price": 0.2409999764,
+"wallet": "0xb22326c1"
+},
+{
+"utc": "2026-10-09T18:00:52Z",
+"side": "BUY",
+"outcome": "No",
+"size": 1989,
+"price": 0.7774534942,
+"wallet": "0x032eb1bc"
+},
+{
+"utc": "2026-10-09T18:00:52Z",
+"side": "SELL",
+"outcome": "No",
+"size": 298.53,
+"price": 0.759,
+"wallet": "0x4eee1f27"
+},
+{
+"utc": "2026-10-09T18:00:53Z",
+"side": "BUY",
+"outcome": "Yes",
+"size": 124.481328,
+"price": 0.2409999996,
+"wallet": "0xc1e51a0e"
+},
+{
+"utc": "2026-10-09T18:00:53Z",
+"side": "BUY",
+"outcome": "Yes",
+"size": 4.564316,
+"price": 0.2409999658,
+"wallet": "0xe162abe9"
+},
+{
+"utc": "2026-10-09T18:00:55Z",
+"side": "BUY",
+"outcome": "Yes",
+"size": 10.373444,
+"price": 0.2409999996,
+"wallet": "0xb7825bbb"
+},
+{
+"utc": "2026-10-09T18:00:55Z",
+"side": "BUY",
+"outcome": "Yes",
+"size": 4.564316,
+"price": 0.2409999658,
+"wallet": "0x54498e4c"
+},
+{
+"utc": "2026-10-09T18:00:56Z",
+"side": "BUY",
+"outcome": "Yes",
+"size": 8.298756,
+"price": 0.2409999764,
+"wallet": "0xa70f90bc"
+},
+{
+"utc": "2026-10-09T18:00:56Z",
+"side": "BUY",
+"outcome": "Yes",
+"size": 8.298756,
+"price": 0.2409999764,
+"wallet": "0x3170e438"
+},
+{
+"utc": "2026-10-09T18:00:58Z",
+"side": "BUY",
+"outcome": "Yes",
+"size": 8.6,
+"price": 0.241,
+"wallet": "0x640a64e2"
+},
+{
+"utc": "2026-10-09T18:00:59Z",
+"side": "BUY",
+"outcome": "Yes",
+"size": 6.929461,
+"price": 0.2409999854,
+"wallet": "0x1f6f81cb"
+},
+{
+"utc": "2026-10-09T18:01:01Z",
+"side": "BUY",
+"outcome": "No",
+"size": 12.998713,
+"price": 0.7769999999,
+"wallet": "0x66e7ce01"
+},
+{
+"utc": "2026-10-09T18:01:01Z",
+"side": "BUY",
+"outcome": "No",
+"size": 398,
+"price": 0.7779951759,
+"wallet": "0x032eb1bc"
+},
+{
+"utc": "2026-10-09T18:01:02Z",
+"side": "BUY",
+"outcome": "Yes",
+"size": 8.298756,
+"price": 0.2409999764,
+"wallet": "0xb22326c1"
+},
+{
+"utc": "2026-10-09T18:01:02Z",
+"side": "BUY",
+"outcome": "Yes",
+"size": 18.215768,
+"price": 0.2409999952,
+"wallet": "0x54c0fc90"
+},
+{
+"utc": "2026-10-09T18:01:04Z",
+"side": "BUY",
+"outcome": "Yes",
+"size": 36.47303,
+"price": 0.2409999937,
+"wallet": "0xd0e9611a"
+},
+{
+"utc": "2026-10-09T18:01:04Z",
+"side": "BUY",
+"outcome": "No",
+"size": 100,
+"price": 0.778,
+"wallet": "0xb7d54bf1"
+},
+{
+"utc": "2026-10-09T18:01:05Z",
+"side": "BUY",
+"outcome": "Yes",
+"size": 8.298756,
+"price": 0.2409999764,
+"wallet": "0xb22326c1"
+},
+{
+"utc": "2026-10-09T18:01:05Z",
+"side": "BUY",
+"outcome": "Yes",
+"size": 4.564316,
+"price": 0.2409999658,
+"wallet": "0x54498e4c"
+},
+{
+"utc": "2026-10-09T18:01:07Z",
+"side": "BUY",
+"outcome": "Yes",
+"size": 6.485356,
+"price": 0.238999987,
+"wallet": "0xd0e9611a"
+},
+{
+"utc": "2026-10-09T18:01:07Z",
+"side": "BUY",
+"outcome": "Yes",
+"size": 4.602511,
+"price": 0.238999972,
+"wallet": "0x54498e4c"
+},
+{
+"utc": "2026-10-09T18:01:17Z",
+"side": "BUY",
+"outcome": "No",
+"size": 99,
+"price": 0.777,
+"wallet": "0x032eb1bc"
+},
+{
+"utc": "2026-10-09T18:01:17Z",
+"side": "BUY",
+"outcome": "No",
+"size": 48.55,
+"price": 0.768,
+"wallet": "0x66e7ce01"
+},
+{
+"utc": "2026-10-09T18:01:17Z",
+"side": "BUY",
+"outcome": "No",
+"size": 135,
+"price": 0.768,
+"wallet": "0xb7d54bf1"
+},
+{
+"utc": "2026-10-09T18:01:28Z",
+"side": "BUY",
+"outcome": "No",
+"size": 15,
+"price": 0.777,
+"wallet": "0xb7d54bf1"
+},
+{
+"utc": "2026-10-09T18:01:29Z",
+"side": "BUY",
+"outcome": "No",
+"size": 30.025739,
+"price": 0.7769999932,
+"wallet": "0x852eaa70"
+},
+{
+"utc": "2026-10-09T18:01:31Z",
+"side": "SELL",
+"outcome": "No",
+"size": 164.28,
+"price": 0.7659739469,
+"wallet": "0x205bdf58"
+},
+{
+"utc": "2026-10-09T18:01:31Z",
+"side": "BUY",
+"outcome": "No",
+"size": 1556,
+"price": 0.7884711247,
+"wallet": "0x032eb1bc"
+},
+{
+"utc": "2026-10-09T18:01:34Z",
+"side": "BUY",
+"outcome": "Yes",
+"size": 6.437769,
+"price": 0.2329999725,
+"wallet": "0x1f6f81cb"
+},
+{
+"utc": "2026-10-09T18:01:53Z",
+"side": "BUY",
+"outcome": "No",
+"size": 22.050953,
+"price": 0.7849999952,
+"wallet": "0x852eaa70"
+},
+{
+"utc": "2026-10-09T18:01:56Z",
+"side": "BUY",
+"outcome": "Yes",
+"size": 39.6,
+"price": 0.232,
+"wallet": "0x94cf12f3"
+},
+{
+"utc": "2026-10-09T18:02:13Z",
+"side": "BUY",
+"outcome": "Yes",
+"size": 10,
+"price": 0.22,
+"wallet": "0x122cb94c"
+},
+{
+"utc": "2026-10-09T18:02:14Z",
+"side": "BUY",
+"outcome": "Yes",
+"size": 10,
+"price": 0.22,
+"wallet": "0x122cb94c"
+},
+{
+"utc": "2026-10-09T18:02:16Z",
+"side": "BUY",
+"outcome": "No",
+"size": 775,
+"price": 0.7890055484,
+"wallet": "0x032eb1bc"
+},
+{
+"utc": "2026-10-09T18:02:25Z",
+"side": "SELL",
+"outcome": "No",
+"size": 168.98,
+"price": 0.768,
+"wallet": "0x205bdf58"
+},
+{
+"utc": "2026-10-09T18:02:35Z",
+"side": "BUY",
+"outcome": "No",
+"size": 343,
+"price": 0.7889912536,
+"wallet": "0x032eb1bc"
+},
+{
+"utc": "2026-10-09T18:02:35Z",
+"side": "SELL",
+"outcome": "Yes",
+"size": 20,
+"price": 0.21,
+"wallet": "0x122cb94c"
+},
+{
+"utc": "2026-10-09T18:02:43Z",
+"side": "SELL",
+"outcome": "No",
+"size": 50,
+"price": 0.7772,
+"wallet": "0x460a20d6"
+},
+{
+"utc": "2026-10-09T18:02:52Z",
+"side": "BUY",
+"outcome": "No",
+"size": 5.997455,
+"price": 0.7869999858,
+"wallet": "0x852eaa70"
+},
+{
+"utc": "2026-10-09T18:02:55Z",
+"side": "BUY",
+"outcome": "No",
+"size": 53,
+"price": 0.7894339623,
+"wallet": "0x032eb1bc"
+},
+{
+"utc": "2026-10-09T18:02:58Z",
+"side": "BUY",
+"outcome": "No",
+"size": 139,
+"price": 0.7925893525,
+"wallet": "0xb7d54bf1"
+},
+{
+"utc": "2026-10-09T18:03:37Z",
+"side": "BUY",
+"outcome": "No",
+"size": 100,
+"price": 0.8060716,
+"wallet": "0xb7d54bf1"
+},
+{
+"utc": "2026-10-09T18:03:38Z",
+"side": "SELL",
+"outcome": "Yes",
+"size": 1.14,
+"price": 0.189,
+"wallet": "0xe162abe9"
+},
+{
+"utc": "2026-10-09T18:03:44Z",
+"side": "BUY",
+"outcome": "No",
+"size": 454,
+"price": 0.8126987665,
+"wallet": "0x032eb1bc"
+},
+{
+"utc": "2026-10-09T18:04:08Z",
+"side": "BUY",
+"outcome": "No",
+"size": 80,
+"price": 0.81,
+"wallet": "0x032eb1bc"
+},
+{
+"utc": "2026-10-09T18:04:25Z",
+"side": "BUY",
+"outcome": "No",
+"size": 150,
+"price": 0.8098666667,
+"wallet": "0xb7d54bf1"
+},
+{
+"utc": "2026-10-09T18:04:44Z",
+"side": "BUY",
+"outcome": "Yes",
+"size": 183.906977,
+"price": 0.2120637326,
+"wallet": "0x29bffb44"
+},
+{
+"utc": "2026-10-09T18:05:08Z",
+"side": "BUY",
+"outcome": "Yes",
+"size": 40,
+"price": 0.2115,
+"wallet": "0x29bffb44"
+},
+{
+"utc": "2026-10-09T18:05:29Z",
+"side": "BUY",
+"outcome": "Yes",
+"size": 140.845071,
+"price": 0.2129999991,
+"wallet": "0x29bffb44"
+},
+{
+"utc": "2026-10-09T18:05:31Z",
+"side": "BUY",
+"outcome": "No",
+"size": 89,
+"price": 0.810011236,
+"wallet": "0x032eb1bc"
+},
+{
+"utc": "2026-10-09T18:05:41Z",
+"side": "SELL",
+"outcome": "No",
+"size": 50,
+"price": 0.787,
+"wallet": "0x460a20d6"
+},
+{
+"utc": "2026-10-09T18:05:53Z",
+"side": "BUY",
+"outcome": "No",
+"size": 42,
+"price": 0.8122857143,
+"wallet": "0x032eb1bc"
+},
+{
+"utc": "2026-10-09T18:06:13Z",
+"side": "BUY",
+"outcome": "Yes",
+"size": 100,
+"price": 0.211,
+"wallet": "0x66e7ce01"
+},
+{
+"utc": "2026-10-09T18:06:13Z",
+"side": "SELL",
+"outcome": "No",
+"size": 50,
+"price": 0.789,
+"wallet": "0x460a20d6"
+},
+{
+"utc": "2026-10-09T18:06:13Z",
+"side": "SELL",
+"outcome": "No",
+"size": 76,
+"price": 0.789,
+"wallet": "0xb7d54bf1"
+},
+{
+"utc": "2026-10-09T18:06:13Z",
+"side": "BUY",
+"outcome": "Yes",
+"size": 222,
+"price": 0.211,
+"wallet": "0x032eb1bc"
+},
+{
+"utc": "2026-10-09T18:06:13Z",
+"side": "BUY",
+"outcome": "Yes",
+"size": 30,
+"price": 0.21,
+"wallet": "0xb8ee94bd"
+},
+{
+"utc": "2026-10-09T18:06:13Z",
+"side": "SELL",
+"outcome": "No",
+"size": 74,
+"price": 0.7891351351,
+"wallet": "0xb7d54bf1"
+},
+{
+"utc": "2026-10-09T18:06:14Z",
+"side": "BUY",
+"outcome": "Yes",
+"size": 20,
+"price": 0.211,
+"wallet": "0xcb016f2b"
+},
+{
+"utc": "2026-10-09T18:06:14Z",
+"side": "BUY",
+"outcome": "Yes",
+"size": 20,
+"price": 0.211,
+"wallet": "0xcb016f2b"
+},
+{
+"utc": "2026-10-09T18:06:14Z",
+"side": "BUY",
+"outcome": "Yes",
+"size": 20,
+"price": 0.211,
+"wallet": "0xcb016f2b"
+},
+{
+"utc": "2026-10-09T18:06:14Z",
+"side": "BUY",
+"outcome": "Yes",
+"size": 20,
+"price": 0.211,
+"wallet": "0xcb016f2b"
+},
+{
+"utc": "2026-10-09T18:06:14Z",
+"side": "BUY",
+"outcome": "Yes",
+"size": 20,
+"price": 0.211,
+"wallet": "0xcb016f2b"
+},
+{
+"utc": "2026-10-09T18:06:14Z",
+"side": "BUY",
+"outcome": "Yes",
+"size": 277.867299,
+"price": 0.2109999997,
+"wallet": "0x852eaa70"
+},
+{
+"utc": "2026-10-09T18:06:16Z",
+"side": "BUY",
+"outcome": "No",
+"size": 160,
+"price": 0.79,
+"wallet": "0x852eaa70"
+},
+{
+"utc": "2026-10-09T18:06:19Z",
+"side": "BUY",
+"outcome": "No",
+"size": 85,
+"price": 0.818,
+"wallet": "0x852eaa70"
+},
+{
+"utc": "2026-10-09T18:06:20Z",
+"side": "BUY",
+"outcome": "Yes",
+"size": 94.78673,
+"price": 0.2109999997,
+"wallet": "0x29bffb44"
+},
+{
+"utc": "2026-10-09T18:06:50Z",
+"side": "BUY",
+"outcome": "Yes",
+"size": 90.189574,
+"price": 0.2106673661,
+"wallet": "0x29bffb44"
+},
+{
+"utc": "2026-10-09T18:07:14Z",
+"side": "BUY",
+"outcome": "Yes",
+"size": 142.904762,
+"price": 0.2099300232,
+"wallet": "0x29bffb44"
+},
+{
+"utc": "2026-10-09T18:07:32Z",
+"side": "BUY",
+"outcome": "No",
+"size": 32.86,
+"price": 0.8143913573,
+"wallet": "0x852eaa70"
+},
+{
+"utc": "2026-10-09T18:08:43Z",
+"side": "BUY",
+"outcome": "Yes",
+"size": 356.92,
+"price": 0.2089719825,
+"wallet": "0xdebbe89c"
+},
+{
+"utc": "2026-10-09T18:09:08Z",
+"side": "BUY",
+"outcome": "Yes",
+"size": 234.81,
+"price": 0.2048296495,
+"wallet": "0xdebbe89c"
+},
+{
+"utc": "2026-10-09T18:09:11Z",
+"side": "BUY",
+"outcome": "Yes",
+"size": 120.047847,
+"price": 0.2089166997,
+"wallet": "0xdebbe89c"
+},
+{
+"utc": "2026-10-09T18:09:23Z",
+"side": "SELL",
+"outcome": "No",
+"size": 43.1,
+"price": 0.7932320186,
+"wallet": "0x460a20d6"
+},
+{
+"utc": "2026-10-09T18:09:26Z",
+"side": "BUY",
+"outcome": "Yes",
+"size": 151.34,
+"price": 0.2069339236,
+"wallet": "0xdebbe89c"
+},
+{
+"utc": "2026-10-09T18:11:52Z",
+"side": "SELL",
+"outcome": "No",
+"size": 11.86,
+"price": 0.7726863406,
+"wallet": "0x460a20d6"
+},
+{
+"utc": "2026-10-09T18:12:31Z",
+"side": "BUY",
+"outcome": "No",
+"size": 51,
+"price": 0.8000784314,
+"wallet": "0xb8ee94bd"
+},
+{
+"utc": "2026-10-09T18:12:31Z",
+"side": "BUY",
+"outcome": "No",
+"size": 100,
+"price": 0.774,
+"wallet": "0x7e5972bf"
+},
+{
+"utc": "2026-10-09T18:13:32Z",
+"side": "BUY",
+"outcome": "Yes",
+"size": 407.46,
+"price": 0.2351497079,
+"wallet": "0xe9076a87"
+},
+{
+"utc": "2026-10-09T18:13:41Z",
+"side": "BUY",
+"outcome": "No",
+"size": 127.729798,
+"price": 0.7829026708,
+"wallet": "0x2871d91c"
+},
+{
+"utc": "2026-10-09T18:14:58Z",
+"side": "SELL",
+"outcome": "No",
+"size": 22.8,
+"price": 0.767,
+"wallet": "0x0164c35d"
+},
+{
+"utc": "2026-10-09T18:15:08Z",
+"side": "SELL",
+"outcome": "No",
+"size": 22.8,
+"price": 0.767,
+"wallet": "0x0164c35d"
+},
+{
+"utc": "2026-10-09T18:15:32Z",
+"side": "BUY",
+"outcome": "Yes",
+"size": 22,
+"price": 0.243,
+"wallet": "0xfbedb045"
+},
+{
+"utc": "2026-10-09T18:15:32Z",
+"side": "BUY",
+"outcome": "Yes",
+"size": 144,
+"price": 0.2417291667,
+"wallet": "0xeed8c2be"
+},
+{
+"utc": "2026-10-09T18:15:34Z",
+"side": "BUY",
+"outcome": "Yes",
+"size": 845.04,
+"price": 0.235676891,
+"wallet": "0x1c4cd350"
+},
+{
+"utc": "2026-10-09T18:16:23Z",
+"side": "SELL",
+"outcome": "No",
+"size": 0.67,
+"price": 0.746,
+"wallet": "0x0164c35d"
+},
+{
+"utc": "2026-10-09T18:16:34Z",
+"side": "BUY",
+"outcome": "Yes",
+"size": 108,
+"price": 0.2490925926,
+"wallet": "0x5a955a1d"
+},
+{
+"utc": "2026-10-09T18:16:53Z",
+"side": "BUY",
+"outcome": "No",
+"size": 4,
+"price": 0.749,
+"wallet": "0xcb016f2b"
+},
+{
+"utc": "2026-10-09T18:17:26Z",
+"side": "BUY",
+"outcome": "No",
+"size": 1.333332,
+"price": 0.75,
+"wallet": "0x63b7d869"
+},
+{
+"utc": "2026-10-09T18:18:04Z",
+"side": "BUY",
+"outcome": "Yes",
+"size": 54,
+"price": 0.2685740741,
+"wallet": "0xb86f2f9b"
+},
+{
+"utc": "2026-10-09T18:18:50Z",
+"side": "BUY",
+"outcome": "Yes",
+"size": 2694,
+"price": 0.2699929473,
+"wallet": "0x80a0da00"
+},
+{
+"utc": "2026-10-09T18:19:43Z",
+"side": "BUY",
+"outcome": "No",
+"size": 398.357808,
+"price": 0.7489748965,
+"wallet": "0x500d79b1"
+},
+{
+"utc": "2026-10-09T18:22:08Z",
+"side": "BUY",
+"outcome": "Yes",
+"size": 15,
+"price": 0.273,
+"wallet": "0xad5353af"
+},
+{
+"utc": "2026-10-09T18:24:37Z",
+"side": "BUY",
+"outcome": "Yes",
+"size": 80.38,
+"price": 0.296290744,
+"wallet": "0x77e34da8"
+},
+{
+"utc": "2026-10-09T18:25:10Z",
+"side": "BUY",
+"outcome": "Yes",
+"size": 32.178218,
+"price": 0.3029999983,
+"wallet": "0x6d95b1b7"
+},
+{
+"utc": "2026-10-09T18:29:40Z",
+"side": "BUY",
+"outcome": "No",
+"size": 178.706848,
+"price": 0.729742595,
+"wallet": "0x5a218c7a"
+},
+{
+"utc": "2026-10-09T18:29:40Z",
+"side": "BUY",
+"outcome": "No",
+"size": 2046.63,
+"price": 0.7398959265,
+"wallet": "0x511f9c77"
+},
+{
+"utc": "2026-10-09T18:29:40Z",
+"side": "BUY",
+"outcome": "No",
+"size": 130.892421,
+"price": 0.7349546923,
+"wallet": "0xcf43b3b6"
+},
+{
+"utc": "2026-10-09T18:29:40Z",
+"side": "BUY",
+"outcome": "No",
+"size": 514.80054,
+"price": 0.7322253372,
+"wallet": "0x671a3260"
+},
+{
+"utc": "2026-10-09T18:29:41Z",
+"side": "BUY",
+"outcome": "No",
+"size": 135,
+"price": 0.723,
+"wallet": "0x71a34952"
+},
+{
+"utc": "2026-10-09T18:29:41Z",
+"side": "BUY",
+"outcome": "No",
+"size": 20,
+"price": 0.735,
+"wallet": "0x1387d145"
+},
+{
+"utc": "2026-10-09T18:29:41Z",
+"side": "BUY",
+"outcome": "No",
+"size": 25.048011,
+"price": 0.7289999992,
+"wallet": "0x9be90ea7"
+},
+{
+"utc": "2026-10-09T18:29:44Z",
+"side": "BUY",
+"outcome": "No",
+"size": 12.787551,
+"price": 0.7389999852,
+"wallet": "0xfe2d0b73"
+},
+{
+"utc": "2026-10-09T18:30:17Z",
+"side": "BUY",
+"outcome": "Yes",
+"size": 15.6,
+"price": 0.295,
+"wallet": "0xa6c6158e"
+},
+{
+"utc": "2026-10-09T18:31:32Z",
+"side": "BUY",
+"outcome": "Yes",
+"size": 100,
+"price": 0.2982525,
+"wallet": "0x7e65a3dd"
+},
+{
+"utc": "2026-10-09T18:39:46Z",
+"side": "BUY",
+"outcome": "Yes",
+"size": 10,
+"price": 0.294,
+"wallet": "0x5573d0cc"
+},
+{
+"utc": "2026-10-09T18:40:02Z",
+"side": "BUY",
+"outcome": "Yes",
+"size": 10,
+"price": 0.294,
+"wallet": "0x5573d0cc"
+},
+{
+"utc": "2026-10-09T18:40:08Z",
+"side": "BUY",
+"outcome": "Yes",
+"size": 974.069688,
+"price": 0.3079861777,
+"wallet": "0xa12461dd"
+},
+{
+"utc": "2026-10-09T18:40:08Z",
+"side": "BUY",
+"outcome": "Yes",
+"size": 50,
+"price": 0.2988,
+"wallet": "0xb13913b6"
+},
+{
+"utc": "2026-10-09T18:40:11Z",
+"side": "SELL",
+"outcome": "No",
+"size": 10,
+"price": 0.687,
+"wallet": "0xfbedb045"
+},
+{
+"utc": "2026-10-09T18:40:13Z",
+"side": "BUY",
+"outcome": "No",
+"size": 76,
+"price": 0.687,
+"wallet": "0x122cb94c"
+},
+{
+"utc": "2026-10-09T18:43:28Z",
+"side": "BUY",
+"outcome": "Yes",
+"size": 370.524591,
+"price": 0.3049730105,
+"wallet": "0xa12461dd"
+},
+{
+"utc": "2026-10-09T18:43:29Z",
+"side": "BUY",
+"outcome": "No",
+"size": 39.985896,
+"price": 0.7089999934,
+"wallet": "0x852eaa70"
+},
+{
+"utc": "2026-10-09T18:53:08Z",
+"side": "BUY",
+"outcome": "No",
+"size": 30,
+"price": 0.7086666667,
+"wallet": "0x852eaa70"
+},
+{
+"utc": "2026-10-09T18:53:08Z",
+"side": "BUY",
+"outcome": "No",
+"size": 392.59,
+"price": 0.709,
+"wallet": "0x7e5972bf"
+},
+{
+"utc": "2026-10-09T18:53:08Z",
+"side": "BUY",
+"outcome": "No",
+"size": 50,
+"price": 0.709,
+"wallet": "0x460a20d6"
+},
+{
+"utc": "2026-10-09T18:53:08Z",
+"side": "BUY",
+"outcome": "No",
+"size": 250,
+"price": 0.709,
+"wallet": "0x7e5972bf"
+},
+{
+"utc": "2026-10-09T18:53:08Z",
+"side": "BUY",
+"outcome": "No",
+"size": 250,
+"price": 0.709,
+"wallet": "0x7e5972bf"
+},
+{
+"utc": "2026-10-09T18:57:05Z",
+"side": "SELL",
+"outcome": "Yes",
+"size": 30,
+"price": 0.294,
+"wallet": "0x510f4963"
+},
+{
+"utc": "2026-10-09T18:57:16Z",
+"side": "SELL",
+"outcome": "Yes",
+"size": 30,
+"price": 0.292,
+"wallet": "0x321e2890"
+},
+{
+"utc": "2026-10-09T19:03:08Z",
+"side": "BUY",
+"outcome": "No",
+"size": 6.4,
+"price": 0.702,
+"wallet": "0xf8db8a6c"
+},
+{
+"utc": "2026-10-09T19:03:10Z",
+"side": "SELL",
+"outcome": "Yes",
+"size": 0.11,
+"price": 0.298,
+"wallet": "0xae2a545c"
+},
+{
+"utc": "2026-10-09T19:14:08Z",
+"side": "SELL",
+"outcome": "Yes",
+"size": 15.3,
+"price": 0.295,
+"wallet": "0xa4e3ce21"
+},
+{
+"utc": "2026-10-09T19:16:08Z",
+"side": "BUY",
+"outcome": "No",
+"size": 170.212766,
+"price": 0.7049999998,
+"wallet": "0xb12e89b6"
+},
+{
+"utc": "2026-10-09T19:16:58Z",
+"side": "BUY",
+"outcome": "Yes",
+"size": 315,
+"price": 0.3071269841,
+"wallet": "0x6a678ca3"
+},
+{
+"utc": "2026-10-09T19:19:05Z",
+"side": "BUY",
+"outcome": "No",
+"size": 19.16074,
+"price": 0.7029999885,
+"wallet": "0x852eaa70"
+},
+{
+"utc": "2026-10-09T19:23:11Z",
+"side": "SELL",
+"outcome": "Yes",
+"size": 36,
+"price": 0.3034308333,
+"wallet": "0xe040ffe5"
+},
+{
+"utc": "2026-10-09T19:32:11Z",
+"side": "BUY",
+"outcome": "No",
+"size": 653.991415,
+"price": 0.6989999999,
+"wallet": "0x852eaa70"
+},
+{
+"utc": "2026-10-09T19:35:26Z",
+"side": "BUY",
+"outcome": "Yes",
+"size": 70.11,
+"price": 0.304727571,
+"wallet": "0x9a61d266"
+},
+{
+"utc": "2026-10-09T19:40:44Z",
+"side": "BUY",
+"outcome": "Yes",
+"size": 113.127036,
+"price": 0.3069999995,
+"wallet": "0x3de69fd6"
+},
+{
+"utc": "2026-10-09T19:52:14Z",
+"side": "BUY",
+"outcome": "Yes",
+"size": 322.114159,
+"price": 0.3133361176,
+"wallet": "0x3b9460fc"
+},
+{
+"utc": "2026-10-09T19:54:23Z",
+"side": "BUY",
+"outcome": "Yes",
+"size": 31.661238,
+"price": 0.3069999979,
+"wallet": "0x479871f8"
+},
+{
+"utc": "2026-10-09T19:56:11Z",
+"side": "SELL",
+"outcome": "Yes",
+"size": 2.03,
+"price": 0.302,
+"wallet": "0x9109f13b"
+}
+]
+}
+}
+}

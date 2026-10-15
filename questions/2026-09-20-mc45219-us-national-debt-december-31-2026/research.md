@@ -154,3 +154,119 @@ log records is no longer needed. `metaculus_aggregations.py` now relaunches on T
 whenever an attempt returns `status 0`, not only when the exception carries a reset marker,
 so a plain `new_question.py --url` scaffold works first time. Verified live on post 45219
 with the variable unset.
+
+## 2026-10-15 — v3 update (Update mode; median $40.92T → $40.91T, IQR [$40.86T, $40.98T] → [$40.86T, $40.96T])
+
+(No dated section was appended for v2 on 2026-10-09; v2's evidence is itemised in forecast.md.)
+
+### Metaculus status
+
+- Fresh CP / Pro / gold: **unavailable**. The parent session ran the aggregations script once
+  after a 200 s cool-down and got 403 (Cloudflare managed challenge). I made no Metaculus calls
+  myself. The bot-key API (`raw/metaculus-api-2026-10-15.json`) shows the question open, 118
+  forecasters (107 on 10-09), comment_count 15 (12 on 10-09), and criteria, scaling and dates
+  unchanged.
+- **Correction to the brief.** A cohort reading *is* cached: `raw/metaculus-2026-10-09.json`
+  holds recency_weighted / metaculus_pros / gold_medalists as of 2026-10-09 05:00Z.
+  - CP $41.049T, IQR [40.885, 41.262], n=106.
+  - Pro $41.006T, IQR [40.877, 41.159], n=10.
+  - Gold $41.013T, IQR [40.857, 41.187], n=31.
+  - The file also has 340 history points and 8 comments.
+  - It postdates the v2 ledger entry (04:08Z), which is why v2 said "unavailable".
+  - It is used in v3 as a dated, 6-day-old reference. It is **not** logged as today's
+    community value; the ledger gets `n_forecasters` only.
+- Cohort trajectories since the 2026-09-21 open: Pro $41.109T → $41.006T; gold
+  $41.079T → $41.013T; CP $41.120T → $41.049T. All three are drifting toward this forecast.
+- Comments in that snapshot:
+  - DeRuina flags the Dec-31 trust-fund interest credit. It is real (+$44–74bn single-day
+    intragov in 2016–25, except 2020–21) and already sits inside the Oct 13 → Dec 31 reference
+    class.
+  - DeRuina also claims TPDO is only ~$30bn above debt subject to limit. Wrong: the gap was
+    $198.4bn on 2026-10-13.
+  - Koboh extrapolates linearly to ~$40.8T. DaiLothbrook maps the $628bn estimate to $41.13T
+    using the 2022–25 intragov seasonal, which is the v1 error.
+
+### Search / data log
+
+| Date | Query / source | Finding | Effect on forecast |
+|---|---|---|---|
+| 2026-10-15 | DTTP API 2026-09-01 … 10-13 (`raw/debt-to-penny-2026-10-15.json`) | 10-13: TPDO 40,343.9; public 32,483.6; intragov 7,860.2 ($bn). Since 10-07: +59.8 (public +44.4, intragov +15.5) | Re-base; intragov drift slightly firm |
+| 2026-10-15 | DTTP history 2015-09 … 2025-12 (2,789 rows) | Oct 13 → Dec 31: 2022 +275, 2023 +472, 2024 +511, 2025 +629; % 0.88 / 1.41 / 1.43 / 1.66. Intragov Oct 13 → Dec 31 median +33 (2016–25 ex-2021; range −39 … +98). Oct 7 → 13 TPDO range −4 … +33 (2026: +60) | Outside view $40.88–40.95T |
+| 2026-10-15 | DTS operating cash (`raw/dts-operating-cash-2026-10-15.json`) + TGA history 2022–26 | TGA 984.0 (9-30) → 893.7 (10-1) → 885.8 (10-7) → 920.2 (10-13). TPDO − TGA: 39,187.8 → 39,423.7. Net-financing proxy (Δpublic − ΔTGA) Sep 30 → Oct 13: 2026 122; 2025 134; 2024 150 (2026's window misses the 2nd-Wednesday SS payment on 10-14) | No deficit signal yet; built TGA-neutral tripwires |
+| 2026-10-15 | DTS debt subject to limit (`raw/dts-debt-subject-to-limit-2026-10-15.json`) | DSL 40,145.5; limit 41,104.0; headroom 958.5; unamortized discount 194.3, FFB 3.6, other 0.5 | Ceiling non-binding |
+| 2026-10-15 | DTS public debt transactions (`raw/dts-public-debt-transactions-2026-10-15.json`) | MTD to 10-13: bills +73.4, notes −1.3, bonds −12.0, TIPS +2.7; GAS issues 5,904.3 / redemptions 5,790.8 (net +113.4 = intragov change) | Confirms the decomposition |
+| 2026-10-15 | DTS deposits/withdrawals (Table II), 10-13 vs 2025-10-10/14/15 and 2024-10-11/15 | CBP withdrawals MTD 2.95 vs 0.71 a year ago, so residual IEEPA refunds are trickling out. Customs deposits are partial-month and uninformative. Summed "ex-debt" totals do not reconcile with the TGA identity (double-counted rows), so I did not use them | Dead end for a deficit read |
+| 2026-10-15 | MTS Table 1 via API | Latest month is Aug 2026 (Sep MTS not yet in the API). Q1 deficits: **FY2024 $510.0bn, FY2025 $711.0bn, FY2026 $602.4bn**. Jun–Sep: 2026 120 / 432 / 167 / 28 (Sep from CBO) = 747; 2025 −27 / 291 / 345 / −198 = 411 | **v1's research log mislabelled FY2024 Q1 ($510bn) as FY2025 Q1.** The 28.7% Q1-share statistic was mis-paired. Correct shares: 28.1% / 40.0% / 30.2% |
+| 2026-10-15 | WebSearch "intragovernmental holdings October 1 2026 … Military Retirement Fund" → OMB FY2027 Budget Appendix `civ_fy2027.pdf` (downloaded, pdftotext) | **Payment to Military Retirement Fund: $154,387mn (2025 actual), $161,413mn (2026 est), $23,451mn (2027 est).** MRF fund balance (investments) 1,806.9 → 1,984.6 → 2,057.8 ($bn). Narrative: amortization schedule set by the DoW Retirement Board of Actuaries; no reason given for the drop | **Key finding.** Explains ~90% of the Oct-1 GAS shortfall (net +80 vs +230 in 2025). "Deferred credit" scenario 15% → 3% |
+| 2026-10-15 | CBO MBR Sept 2026 (PDF 403; via search), CRFB 10-08, AAF 10-08 | FY2026 deficit $1,993bn (6.2% of GDP), +$218bn y/y; outlays $7,396bn (+6%), interest +$115bn (+11%), corporate −16%, customs −$22bn after ~$130bn of $166bn IEEPA refunds; Sep deficit $28bn | Hot run-rate; supports the Treasury-plan path over the soft path |
+| 2026-10-15 | Treasury sb0590 (2026-08-05 refunding statement) | Next refunding announcement **Wed 2026-11-04** (borrowing estimate normally the Monday, 11-02); coupon sizes unchanged "for at least the next several quarters" | Tripwire dates |
+| 2026-10-15 | Kitco/Reuters 2026-02-02 | Oct–Dec 2025: Nov est $569bn → actual $550bn, cash 873 vs 850, "actual borrowing $42bn lower" cash-adjusted. Jan–Mar first est (Nov) ≈ $577bn → $574bn (Feb). Apr–Jun first est $109bn (then $189bn in May per headline). Jul–Sep: $671bn (May) → $739bn (Aug) | Mixed track record; bias −$25bn and the upward-revision risk carried in scenario 4 |
+| 2026-10-15 | DTTP Jun 30 → Sep 30 2026 | Δpublic +744 vs $739bn privately-held estimate, cash 984 vs 950 assumed, so the cash-adjusted need was ~$30–90bn below plan, depending on the wedge | Supports a modest negative bias |
+| 2026-10-15 | C.H. Robinson 2026-09-17 (CBP declaration to the CIT) | $134.7bn accepted into CAPE; ~$122bn certified and transmitted to Treasury; $1.3bn on hold; Phase 3 (court-ordered reliquidations) from 2026-10-06 | ~$12–36bn of refunds still to come in Q1 FY2027; LR ≈ 1 |
+| 2026-10-15 | The Star/Bloomberg (NY Fed RMP pause) | RMPs zero since mid-August, none planned for the period to 10-14; ~$15.6bn/month MBS-to-bill reinvestment continues | Wedge +45 → +35 |
+| 2026-10-15 | NTU "Projecting the debt limit" (via search) | Limit reached ~May 2027, X-date ~Feb 2028 | Ceiling irrelevant in 2026 |
+| 2026-10-15 | Shutdown / lame-duck searches (AACOM, NASFAA, Steptoe 9-18, Akin Gump [403]) | CR to 2026-12-11 confirmed; lame duck from 11-09; no October reporting of a December shutdown fight | No change |
+| 2026-10-15 | Treasury refunding / TBAC searches | No preview or leak of the Nov-2 estimate; the August TBAC assumption of $850bn end-Dec cash still stands | No change |
+| 2026-10-15 | Polymarket gamma `peak-us-national-debt-before-2027` | $41T: mid 0.55 (bid 0.25 / ask 0.85, last 0.83), vol $683, unchanged since 10-09, so no trades. $42T: 0.039 | No information |
+| 2026-10-15 | Manifold `will-us-gross-federal-debt-reach-41` | 55.8% (81% on 10-09), 8 traders, $204 vol, last bet 10-13 | Weak; direction matches |
+| 2026-10-15 | Kalshi KXTRUFPDEBT / KXDEBTLEVEL / KXUSDEBTMON / KXDEBTGROWTH26 / KXUSDEBT | No open markets | — |
+| 2026-10-15 | General search "national debt forecast end of 2026" | Nothing beyond the CBO baseline, the Concord Coalition (~$40T by end-2026, stale) and a mirror of the Polymarket page | — |
+
+### Model changes (v3)
+
+- Treasury-plan scenario: Δpublic for the quarter = 628 − 34 (start cash) − 25 (bias) + 35 (wedge)
+  = 604, giving $40.922T with intragov 7,893.
+- Deficit path: Q1 deficit ≈ 720 (my estimate), so Δpublic = 720 − 15 (other means) − 134 (TGA
+  984 → 850) = 571, giving $40.889T.
+- v2's deficit path had added the +45 wedge on top of the deficit identity. That was a conceptual
+  double count, offset in v2 by the lower deficit it assumed.
+- Mixture, with sequential effects on the median:
+  - MRF finding −11.5
+  - intragov re-base +13
+  - deficit cross-check / softer split −2
+  - bias and wedge −7
+  - heavier tail +7
+  - final weights and σ decay −2
+  - net −2.3 ($40.915T → $40.913T)
+- Tripwires re-specified TGA-neutral (TPDO − TGA), because Oct 31 is a Saturday: the last October
+  record is Oct 30 and carries ~$90bn of shifted Nov-1 payments, while the 2y/5y/7y settlement
+  moves to Nov 2.
+
+### Dead ends
+
+- CBO MBR PDF: 403 for both WebFetch and curl.
+- Akin Gump approps blog: 403.
+- metalsmine (Apr–Jun estimate article): 403.
+- DTS Table II "ex-debt" sums: rows do not reconcile with the TGA identity; not usable as a
+  deficit proxy without a category map.
+
+### Open questions for next time (by 2026-11-03)
+
+1. DTTP for 2026-10-30 (published ~11-02): compute TPDO − TGA against the $39.59–39.71T band.
+2. Treasury borrowing estimate, Mon 2026-11-02: Oct–Dec figure vs the $594bn cash-adjusted
+   central, the end-Dec cash assumption, and the first Jan–Mar 2027 estimate. The refunding
+   statement follows on 11-04.
+3. CBO October MBR (~11-09) and the September MTS (whenever the API shows it).
+4. Why the MRF payment collapses: check the DoD Office of the Actuary valuation or the Board of
+   Actuaries minutes. This is only a curiosity now; it does not change the mechanics.
+5. Re-try the Metaculus aggregations when the parent's path reopens. The question closes
+   2026-11-30, so the final update must land before then.
+
+## 2026-10-15 (afternoon) — fresh Metaculus cohorts, no new version
+
+The aggregation script worked again at ~13:30 UTC (it was Cloudflare-blocked at 05:00 UTC, when v3
+was written). Cached as `raw/metaculus-2026-10-15.json`. Reading as of 2026-10-15 00:07 UTC:
+
+| Cohort | Median | IQR | n | vs 2026-10-09 | vs v3 median $40.91T |
+|---|---|---|---|---|---|
+| CP (recency-weighted) | $40.996T | [$40.835T, $41.175T] | 116 | −$53bn | +$86bn |
+| Pros | $40.971T | [$40.853T, $41.127T] | 10 | −$35bn | +$61bn |
+| Gold medalists | $41.013T | [$40.873T, $41.191T] | 31 | ±$0bn | +$103bn |
+
+Decision: **no new version.** v3's tripwire ("Pro/gold both > $150bn from $40.92T") is not fired. v3
+already priced the 2026-10-09 reading (Pro +$86bn, gold +$93bn) through its 13% heavy-tail weight.
+Today's reading is the same or closer (Pro moved −$35bn toward v3), so it adds no new information
+to that integration. The Pro median sits at roughly v3's 77th percentile and the gold median near
+its 90th. That gap is worth watching: if the 2026-11-02 refunding estimate or the Oct 30 print
+does not confirm the MRF-driven weak intragovernmental path, the gold cohort is the side to move
+toward.

@@ -17,69 +17,106 @@ dates:
   resolves: '2027-01-04'
 status: open
 current:
-  version: 2
-  date: '2026-10-09'
-  median: 40920000000000.0
+  version: 3
+  date: '2026-10-15'
+  median: 40910000000000.0
   iqr:
   - 40860000000000.0
-  - 40980000000000.0
+  - 40960000000000.0
   community:
     cp: null
     pro: null
     gold: null
-    n_forecasters: 107
-    as_of: '2026-10-09'
+    n_forecasters: 118
+    as_of: '2026-10-15'
 next_review: '2026-11-03'
 tripwires:
-- signal: Debt to the Penny intragovernmental holdings above $7.93T on any day (deferred Oct-1 trust-fund
-    credit catching up; now $7.845T)
-  by: '2026-11-30'
-  direction: up
-  magnitude: 70000000000
-  magnitude_unit: USD
-  fired: null
-- signal: Debt to the Penny month-end 2026-10-31 above $40.65T (central path $40.57T)
+- signal: 'October net financing: DTTP TPDO minus DTS TGA closing balance for record date 2026-10-30 above
+    $39.71T (central $39.65T; $39.424T on 2026-10-13)'
   by: '2026-11-03'
   direction: up
-  magnitude: 50000000000
+  magnitude: 35000000000
   magnitude_unit: USD
   fired: null
-- signal: Debt to the Penny month-end 2026-10-31 below $40.50T
+- signal: 'October net financing: DTTP TPDO minus DTS TGA closing balance for record date 2026-10-30 below
+    $39.59T'
   by: '2026-11-03'
   direction: down
-  magnitude: 40000000000
+  magnitude: 35000000000
   magnitude_unit: USD
   fired: null
-- signal: Treasury's 2026-11-02 refunding revises Oct-Dec privately-held net marketable borrowing away
-    from $628bn by more than $50bn, or end-Dec cash assumption away from $850bn by more than $50bn
-  by: '2026-11-02'
+- signal: 'Treasury 2026-11-02 borrowing estimate: Oct-Dec privately-held net marketable borrowing outside
+    $545-645bn (cash-adjusted central $594bn) or end-Dec cash assumption moved >= $50bn from $850bn; move
+    median ~70% of (estimate - $594bn)'
+  by: '2026-11-04'
   direction: either
   magnitude: 0
   magnitude_unit: USD
   fired: null
-- signal: Debt to the Penny month-end 2026-11-30 outside $40.70T-$40.88T (central path $40.79T)
+- signal: 'CBO Monthly Budget Review for October 2026: October deficit above $385bn (central ~$335bn incl.
+    shifted Nov-1 payments)'
+  by: '2026-11-12'
+  direction: up
+  magnitude: 30000000000
+  magnitude_unit: USD
+  fired: null
+- signal: 'CBO Monthly Budget Review for October 2026: October deficit below $285bn'
+  by: '2026-11-12'
+  direction: down
+  magnitude: 30000000000
+  magnitude_unit: USD
+  fired: null
+- signal: Debt to the Penny intragovernmental holdings above $7.93T on any day (unexplained one-off credit;
+    $7.860T on 2026-10-13)
+  by: '2026-11-30'
+  direction: up
+  magnitude: 50000000000
+  magnitude_unit: USD
+  fired: null
+- signal: Debt to the Penny intragovernmental holdings below $7.79T on record date 2026-11-30
+  by: '2026-12-02'
+  direction: down
+  magnitude: 25000000000
+  magnitude_unit: USD
+  fired: null
+- signal: 'November net financing: DTTP TPDO minus DTS TGA for record date 2026-11-30 outside $39.77T-$39.91T
+    (central $39.84T); move ~60% of the miss'
   by: '2026-12-02'
   direction: either
   magnitude: 0
   magnitude_unit: USD
   fired: null
-- signal: CR (P.L. 119-103) lapses on 2026-12-11 and a shutdown is still running on 2026-12-20
+- signal: Metaculus Pro and gold-medalist aggregations both above $41.06T at the next fetchable reading
+    (>$150bn over the median); re-check intragov and borrowing builds
+  by: '2026-11-30'
+  direction: up
+  magnitude: 30000000000
+  magnitude_unit: USD
+  fired: null
+- signal: CR (P.L. 119-103) lapses on 2026-12-11 with no FY2027 appropriations or further CR, and a shutdown
+    is still running on 2026-12-20
   by: '2026-12-20'
   direction: down
   magnitude: 25000000000
   magnitude_unit: USD
   fired: null
-# The v2 TGA tripwire is two-sided (-$70bn / +$70bn), so it is split into two directional entries.
 - signal: DTS TGA closing balance below $750bn on any day 2026-12-01 to 2026-12-15
   by: '2026-12-16'
   direction: down
-  magnitude: 70000000000
+  magnitude: 50000000000
   magnitude_unit: USD
   fired: null
 - signal: DTS TGA closing balance above $950bn on 2026-12-15
   by: '2026-12-16'
   direction: up
-  magnitude: 70000000000
+  magnitude: 50000000000
+  magnitude_unit: USD
+  fired: null
+- signal: A law enacted before 2026-12-15 disburses >= $25bn by 2026-12-31 (rebate cheques, supplemental);
+    add the amount disbursed
+  by: '2026-12-31'
+  direction: up
+  magnitude: 25000000000
   magnitude_unit: USD
   fired: null
 resolution:

@@ -16,47 +16,56 @@ dates:
   resolves: '2026-10-28'
 status: open
 current:
-  version: 3
-  date: '2026-10-09'
-  median: 0.509
+  version: 4
+  date: '2026-10-15'
+  median: 0.587
   iqr:
-  - 0.434
-  - 0.584
+  - 0.517
+  - 0.657
   community:
     cp: null
     pro: null
     gold: null
-    n_forecasters: 111
-    as_of: '2026-10-09'
-next_review: '2026-10-16'
+    n_forecasters: 119
+    as_of: '2026-10-15'
+next_review: '2026-10-20'
 tripwires:
-- signal: Mainstream-house average (Channel 14 and i24 excluded) has Likud ahead of Yashar by >=1 seat
-    in the last pre-blackout polls
+- signal: Mainstream-house average Likud-minus-Yashar gap (latest poll per publisher, Channel 14 and i24
+    excluded) is -0.5 or narrower in the last pre-blackout polls (from -2.13 on 2026-10-15)
   by: '2026-10-23'
   direction: down
-  magnitude: 8
-  magnitude_unit: pp
-  fired: null
-- signal: Mainstream-house gap returns to >=3 seats in Yashar's favour
-  by: '2026-10-23'
-  direction: up
   magnitude: 10
   magnitude_unit: pp
   fired: null
-- signal: Amcha Yisrael below 3.25% in a majority of final-week polls while the Likud-Yashar gap holds
+- signal: Mainstream-house average gap is -3.5 or wider (Yashar ahead) in the last pre-blackout polls
+  by: '2026-10-23'
+  direction: up
+  magnitude: 7
+  magnitude_unit: pp
+  fired: null
+- signal: Amcha Yisrael below 3.25% in a majority of 17-23 Oct mainstream polls AND mainstream Likud average
+    >= 21 seats (19.9 on 2026-10-15)
   by: '2026-10-23'
   direction: down
   magnitude: 3
   magnitude_unit: pp
   fired: null
-- signal: Election formally postponed (needs 80 MKs; Polymarket on-schedule 91.9% on 2026-10-09)
-  by: '2026-10-20'
+- signal: Israel or Iran strikes the other's territory (Polymarket ceasefire definition; ceasefire-holds
+    90.5% through 10-21 on 2026-10-15) - also re-check annulment risk
+  by: '2026-10-26'
+  direction: down
+  magnitude: 5
+  magnitude_unit: pp
+  fired: null
+- signal: Knesset passes an election postponement (80 MKs; Polymarket as-scheduled 92.15% on 2026-10-15)
+    - re-analyse, annulled if no result before 2027-01-01
+  by: '2026-10-26'
   direction: either
   magnitude: 0
   magnitude_unit: pp
   fired: null
-- signal: 'When cohort data returns: Metaculus Pros and gold both >=8pp from Yashar 48.5 in the same direction'
-  by: '2026-10-23'
+- signal: 'When cohort data returns: Metaculus Pros and gold both >=8pp from Yashar 58.7 in the same direction'
+  by: '2026-10-27'
   direction: either
   magnitude: 0
   magnitude_unit: pp
