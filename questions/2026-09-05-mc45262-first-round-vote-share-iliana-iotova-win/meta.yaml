@@ -13,25 +13,26 @@ dates:
   resolves: '2026-10-31'
 status: open
 current:
-  version: 3
-  date: '2026-10-09'
-  median: 48.6
+  version: 4
+  date: '2026-10-15'
+  median: 47.7
   iqr:
-  - 46.0
-  - 51.4
+  - 45.1
+  - 50.4
   community:
     cp: null
     pro: null
     gold: null
-    n_forecasters: 133
-    as_of: null
-  # Fresh CP/Pro/gold unavailable 2026-10-09 (Cloudflare block); last cached 2026-09-24 CP 45.45,
-  # Pro 45.73, Gold 45.52. n_forecasters from the Metaculus API 2026-10-09
-  # (raw/metaculus-api-2026-10-09.json).
-next_review: '2026-10-16'
+    n_forecasters: 140
+    as_of: '2026-10-15'
+  # Fresh CP/Pro/gold unavailable 2026-10-15 (Cloudflare 403); last cohort reading 2026-09-24
+  # (CP 45.45, Pro 45.73, Gold 45.52; raw/metaculus-2026-09-24.json), stale. n_forecasters and
+  # as_of from the Metaculus API 2026-10-15 (raw/metaculus-api-2026-10-15.json).
+next_review: '2026-10-18'
 tripwires:
-- signal: Final-week campaign poll average (Trend, Gallup, Alpha, Market Links, Myara, Sova Harris) — move ~70%
-    of the way to the new decided-basis mean
+- signal: Final-week campaign poll average (Trend, Gallup, Alpha, Market Links, Myara, Sova Harris; releases
+    ~18-23 Oct), converted to the CIK basis with 'I support no one' in the base - move ~70% of the way
+    to that mean
   by: '2026-10-23'
   direction: either
   magnitude: 0
@@ -43,28 +44,37 @@ tripwires:
   magnitude: 1.5
   magnitude_unit: '%'
   fired: null
-- signal: DPS issues a presidential endorsement — for Iotova +0.7pp; for Gyurov -0.7pp
-  by: '2026-10-22'
-  direction: either
-  magnitude: 0
-  magnitude_unit: '%'
-  fired: null
-- signal: Polls of record put expected turnout above 45 percent
+- signal: A pollster's projected turnout (not declared intention) above 45 percent
   by: '2026-10-22'
   direction: down
   magnitude: 1.0
   magnitude_unit: '%'
   fired: null
-- signal: Fresh Metaculus Pro or gold median below 46.0 after the polls — re-examine for a missed fact
-  by: '2026-10-20'
+- signal: Further Black Sea strike with casualties in Bulgarian waters or territory, or an open Iotova-Radev
+    split over the response (BTA/Mediapool headline)
+  by: '2026-10-23'
+  direction: down
+  magnitude: 0.7
+  magnitude_unit: '%'
+  fired: null
+- signal: New pardon-file revelation or other scandal touching Iotova personally (BTA/Capital headline)
+  by: '2026-10-23'
+  direction: down
+  magnitude: 1.0
+  magnitude_unit: '%'
+  fired: null
+- signal: Polymarket first-round margin-of-victory median below 18 pp or above 25 pp - move ~0.5pp in
+    the same direction
+  by: '2026-10-24'
   direction: either
   magnitude: 0
   magnitude_unit: '%'
   fired: null
-- signal: Major campaign scandal or debate collapse touching Iotova or the Radev government
-  by: '2026-10-23'
-  direction: down
-  magnitude: 1.5
+- signal: Fresh Metaculus Pro or gold median below 46.0 - re-examine for a missed fact (NOTA basis, house
+    effects), not a nudge
+  by: '2026-10-24'
+  direction: either
+  magnitude: 0
   magnitude_unit: '%'
   fired: null
 resolution:

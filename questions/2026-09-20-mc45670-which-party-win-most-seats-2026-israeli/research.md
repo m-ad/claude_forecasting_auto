@@ -227,3 +227,79 @@ none. Nothing else in the analysis changed.
 - **Model**: `raw/gap-model-2026-10-09.py` (closed-form normal). Central: Yashar 47.7.
 - **Dead end**: the i24 article on Abbas's statehood speech was empty to the fetcher, and its
   date is unclear (probably early September). Not used.
+
+---
+
+## 2026-10-15 — v4 research log
+
+**Order followed:** prior (v3) read first. Then the v3 tripwires checked one by one (polls for
+#1–#3, postponement for #4, cohorts for #5). Then markets and general news.
+
+- **Metaculus**: no aggregation calls this session (the parent got 403, a Cloudflare managed
+  challenge). Used the parent's API JSON (`raw/metaculus-api-2026-10-15.json`): open, 119
+  forecasters (111 on 10-09), 18 comments, close 2026-10-27 06:00Z, resolve 2026-10-28. I
+  re-read the criteria and fine print. The tie rule is: PM of the *first government formed*;
+  else the tied party with a minister; else, if both or neither tied party is in government
+  or no government forms, most votes. No fresh CP, Pro or gold. The last cohort reading
+  (2026-09-26: CP 57.0, Pros and gold 57.9 Yashar) is stale.
+- **Polls**: Wikipedia wikitext via `index.php?action=raw`; the MediaWiki API returned 429
+  (rate-limited). Saved as `raw/wikipedia-polling-wikitext-2026-10-15.txt` (278 rows, 271 on
+  10-09) and parsed with `parse_polls.py`, path swapped, run from a scratch copy. Seven new
+  rows: Ch13 14 Oct 18–20, Ch14 12 Oct 29–20, Midgam/Ch12 12 Oct 20–23, Kantar/Kan 11 Oct
+  20–22, Maariv 7–8 Oct 20–21, Zman Yisrael 7–8 Oct 20–24, i24 7 Oct 26–20. Two polls are
+  not yet in Wikipedia:
+  - Walla/Lazar 13 Oct: Yashar 22, Likud 20, Amcha 2.8% (ice.co.il).
+  - i24/Direct Polls 13 Oct: Likud 27, Yashar 21, Amcha 3.1% (i24NEWS).
+
+  Latest poll per mainstream publisher: −2, −3, −2, −2, −1, −4, −1, −2 → mean **−2.125**
+  (v3: −1.29 over 7). Filber pair +9 / +6. Mainstream Likud mean 19.9 (range 18–21). Blocs:
+  Kan 53–50 Netanyahu (11 Oct), Ch13 51–50 Netanyahu (14 Oct), Midgam 54–49 Eisenkot
+  (12 Oct), Walla 54–49 Eisenkot (13 Oct). PM suitability: Ch13 Eisenkot 45–38, Kan 43–38.
+- **Amcha Yisrael (tripwire 3)**: below threshold in Midgam (1.8%), Walla (2.8%), Kantar/IH
+  (2.9%), Ch14 (2.9%) and i24 (3.1%). Four seats in Ch13, Kan, Maariv and Zman Yisrael. Ben
+  Gvir ruled out a surplus deal with Winter (ToI live blog, 13 Oct). Surplus-agreement
+  deadline is 16 Oct; Shas–UTJ signed 11 Oct.
+- **Postponement (tripwire 4)**: no bill. ToI blog (Pomerantz, 14 Oct) is speculation only.
+  Polymarket "as scheduled" 0.9215 (0.919 on 10-09).
+- **Poll blackout**: Wikipedia's polling page cites the Elections (Propaganda Methods) Law
+  §16E(h): no polls may be published from the end of Friday before election day until 22:00
+  on election day. So the last polls come Thu 22 Oct (TV) and Fri 23 Oct (papers). Next
+  reviews: 10-20 (T−7d), 10-24 (all poll evidence in), 10-26 (T−1d to close).
+- **Polymarket** (gamma + CLOB, all 2026-10-15):
+  - Largest party: Yashar 0.62 (0.61/0.63, last 0.64), Likud 0.385 (0.37/0.40), Together
+    0.0045. Event volume $679,024 (10-09: $619,103); 1-week volume $62,783.
+  - CLOB history: Likud ~0.50–0.515 through 12 Oct, then 0.495 → 0.39 on 13 Oct 07:00–19:00
+    UTC, 0.415 → 0.295 at 22:00 UTC on 14 Oct (the Urich report), and 0.375 by 04:00 UTC on
+    15 Oct (`raw/polymarket-largest-party-clob-history-2026-10-15.json`).
+  - Likud-seats ladder: <20 19.2, 20–24 42.5, 25–29 25.5, 30–34 10.5, 35+ 1.5 ($516k).
+  - Yashar-seats ladder: thin, $19k.
+  - Next PM: Netanyahu 0.275 (0.355 on 10-09), Eisenkot 0.468 (0.436), Bennett 0.155 (0.095);
+    $46.5M volume.
+  - Other markets: Amcha vote share <3.25% 0.675; Israel–Iran ceasefire holds through 10-21
+    0.905 and through 10-31 0.845; Trump endorses Likud 0.335; Likud loses seats 0.936.
+  - Snapshots in `raw/polymarket-*-2026-10-15.json`.
+- **Kalshi** `KXISRAELKNESSET-26` (first call 429, retry 200): Yashar 0.56/0.59 (last 0.60),
+  Likud 0.32/0.37 (last 0.33). Thin. `raw/kalshi-israel-knesset-2026-10-15.json`.
+- **Manifold**: "Will the Likud win…" 30.2% (no change since 10-09; $3.8k). PM market:
+  Eisenkot 46.9, Netanyahu 32.0, Bennett 14.9. Discounted. `raw/manifold-israel-2026-10-15.json`.
+- **News, with disconfirming evidence sought**:
+  - Urich–Qatar report (Ch12, 14 Oct) [pro-Yashar, small].
+  - Netanyahu–Trump discussion of an Iran strike before the elections (Ch12/Axios, 13 Oct; PMO
+    and White House deny) [pro-Likud tail].
+  - Netanyahu's hour-long Channel 14 interview (13 Oct).
+  - Jewish Insider (11 Oct): best week of the campaign for the Netanyahu *bloc* [pro-Likud on
+    blocs, not on Likud's own seats].
+  - JTA (13 Oct): blocs ~52–53 each; Rosner warns new parties fade.
+  - Rally precedent: Channel 12 had Likud +4 during the June 2025 Iran war (ToI, via search
+    summary). A search summary also mentioned a 27 → 31 Zman Yisrael jump after a war
+    beginning 28 Feb 2026. Not opened and not used.
+- **Model**: `raw/gap-model-2026-10-15.py`, output in `raw/gap-model-output-2026-10-15.txt`.
+  Central: Yashar 58.66, Likud 40.74, Other 0.6. E[G] −0.56, sd 2.64, P(tie) 14.7%.
+- **Chart**: `charts/gap-shift-2026-10-15.png` (per-house gap, v3 vs v4; P(Yashar) by version
+  vs Polymarket).
+- **Inconsistency noted**: Polymarket's Likud-seats ladder (median ~23) and Yashar-seats ladder
+  (median ~22–23) imply a near coin flip, while its winner market says 62/38. One of them is
+  mispriced. This is the main reason I did not add a market row.
+- **Dead ends**: MediaWiki API 429 (used `action=raw` instead). ToI live-blog pages are
+  ~450k characters and the fetcher truncates them; I read only the 0–200k range of the
+  13 Oct page. The Haaretz 15 Oct "Lighthouse" exclusive is paywalled and was not used.

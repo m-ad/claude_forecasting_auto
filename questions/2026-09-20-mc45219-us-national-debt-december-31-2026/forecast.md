@@ -6,11 +6,283 @@
 | **Type** | numeric (USD, Total Public Debt Outstanding) |
 | **Opened / Closes / Resolves** | — / 2026-11-30 / 2027-01-04 (first Debt-to-the-Penny publication of the 2026-12-31 record) |
 | **Status** | open |
-| **Current forecast** | **Median $40.92T, IQR [$40.86T, $40.98T]** (v2, 2026-10-09) |
-| **Community (as of 2026-10-09)** | unavailable — aggregations hidden from bot key, browser path Cloudflare-blocked; 107 forecasters. Polymarket $41T-before-2027 55.5% (thin) |
+| **Current forecast** | **Median $40.91T, IQR [$40.86T, $40.96T]** (v3, 2026-10-15) |
+| **Community (as of 2026-10-15)** | fresh CP / Pro / gold unavailable (bot key hides aggregations; browser path Cloudflare-blocked); 118 forecasters. Last cached cohort reading, 2026-10-09 05:00Z: CP $41.05T (n=106) · Pro $41.01T (n=10) · Gold $41.01T (n=31). Polymarket $41T-before-2027 55% mid (no trades, thin) |
 | **Next review** | 2026-11-03 |
 
 <!-- Versions below, newest first. APPEND-ONLY: never edit or delete a past version. -->
+
+---
+
+## v3 — Update — 2026-10-15
+
+Mode: **Update** (incremental from v2). Six days have passed, the resolution criteria are
+unchanged (API diff, 2026-10-09 → 10-15), and neither of the re-analysis triggers applies:
+no cohort sits more than its own IQR away, and this is the first update after v2. The model
+is re-based on the 2026-10-13 Debt to the Penny print, and each driver below is costed
+against the v2 mixture one step at a time.
+
+![v3 scenario bands vs v2 mixture](charts/distribution_v3.png)
+
+### Revision
+
+Effects are sequential changes to the mixture median, in $bn. The rows sum to the total
+move.
+
+| Driver | Direction | Effect |
+|---|---|---|
+| Prior (v2, 2026-10-09) | — | Median $40.92T, IQR [$40.86T, $40.98T] |
+| **OMB FY2027 Budget Appendix:** Treasury's annual payment to the Military Retirement Fund drops to **$23.5bn in FY2027** from $161.4bn (FY2026 est.) and $154.4bn (FY2025) [42]. That $138bn cut explains about 90% of the $150bn shortfall in the 1 October trust-fund jump (+$80bn vs +$230bn in 2025). The missing credit is structural, not deferred, so the v2 "deferred credit lands" scenario falls from 15% to 3% | ↓ | −$11bn (p75 −$17bn, p90 −$23bn) |
+| Intragovernmental holdings were $7,860.2bn on 2026-10-13, up $15.5bn since Oct 7, against a historical −$18bn to +$8bn for those days. Re-basing on Oct 13 with the 2016–25 median Oct 13 → Dec 31 drift (+$33bn, excluding 2021) gives year-end intragov ≈ $7,893bn vs $7,880bn in v2 [36] | ↑ | +$13bn |
+| Public debt rose $44bn over Oct 7 → 13, but $34bn of it went into cash (TGA $885.8bn → $920.2bn) [36][37]. That is timing, not extra financing need | → | none |
+| **Corrected deficit cross-check.** v1 paired FY2024's Q1 deficit ($510bn) with FY2025. The actual Q1 deficits were $711bn (FY2025) and $602bn (FY2026) [41]. v2's deficit path also added the $45bn SOMA/nonmarketable wedge on top of a deficit identity that already contains it. Bottom-up, with CBO's FY2026 deficit at $1,993bn and a hot Jun–Sep [43–45], I put the Q1 FY2027 deficit at ≈$720bn ±50 (my estimate). That moves the deficit path to ≈$40.89T, with a separate softer tail at 10% | ↓ (net) | −$2bn |
+| Treasury estimate bias −$20bn → −$25bn. The FY2026 record is mixed: final estimates over-shot (cash-adjusted −$42bn in Oct–Dec 2025), but first estimates were revised up by $68–80bn twice [47]. The wedge drops from +$45bn to +$35bn because the Fed has paused its bill purchases since August [49]. Net: the Treasury-plan scenario moves $40.933T → $40.922T | ↓ | −$7bn |
+| Heavier tail re-weighted 4% → 13% at $41.00T: the Nov-2 upward-revision pattern above, end-December cash of $900–950bn, and Pro/gold sitting ~$95bn above (see Other forecasters) | ↑ | +$7bn |
+| Final weights; scenario σ trimmed $65–70bn → $55–60bn with 77 days left (6 of 83 elapsed) | ↓ | −$2bn (p75 −$8bn) |
+| Markets: Polymarket untraded since 10-09; Manifold 81% → 56% on 8 traders | → | none |
+| CR lapse risk, residual IEEPA refunds (≈$12–36bn left; slow pace), debt ceiling (headroom $958.5bn) | → | none |
+| **New forecast** | | **Median $40.91T, IQR [$40.86T, $40.96T]** |
+
+The median barely moves, from $40.915T to $40.913T. The right side of the distribution
+tightens (p75 $40.977T → $40.963T, p90 $41.038T → $41.011T), because the one mechanism that
+justified a fat right tail now has a primary-source explanation that points the other way.
+P(TPDO > $41.0T) falls from ≈18% to ≈12.5%.
+
+### Tripwire check
+
+| Tripwire from v2 | Fired? | Note |
+|---|---|---|
+| **Intragov catch-up**: DTTP intragovernmental holdings > $7.93T on any day before 2026-11-30 | not fired | $7,860.2bn on 2026-10-13. The OMB payment schedule [42] now explains the gap, so the tripwire is downgraded to "unexplained one-off credit" (+$50bn) |
+| **2026-10-31 month-end TPDO** > $40.65T (+$50bn) / < $40.50T (−$40bn) | not yet due | Oct 31 is a Saturday, so the last October record is **Oct 30**, published ~Nov 2. That day also carries ≈$90bn of shifted 1-November payments, and the 2y/5y/7y note settlement moves to Nov 2. A plain TPDO band therefore mostly measures cash timing: my Oct 30 TPDO central is $40.52–40.57T for a TGA of $870–920bn. Re-specified net of the TGA below. TPDO − TGA was $39.424T on 10-13 |
+| **2026-11-02 refunding**: Oct–Dec estimate revised from $628bn by > $50bn, or end-Dec cash from $850bn by > $50bn | not yet due | no previews or leaks found. Refunding statement Wed 2026-11-04 [46]; borrowing estimate expected Mon 2026-11-02 |
+| **2026-11-30 month-end TPDO** outside $40.70–40.88T | not yet due | re-specified net of the TGA below |
+| **CR lapse**: shutdown from 2026-12-12 still running on 2026-12-20 | not yet due | no October reporting of a December shutdown fight; the lame duck starts 2026-11-09 [51][52] |
+| **TGA** < $750bn on any day 12-01…12-15 / > $950bn on 12-15 | not yet due | TGA $920.2bn on 2026-10-13 [37] |
+| **Metaculus Pro/gold** both > $150bn from $40.92T | not fired | fresh reading unavailable 2026-10-15. Last cached reading (2026-10-09 05:00Z): Pro $41.006T (+$86bn), gold $41.013T (+$93bn) |
+
+**Tripwires fired: none.**
+
+### What resolves YES
+
+Unchanged from v2. Resolution is TPDO (`tot_pub_debt_out_amt`) for record date 2026-12-31
+in Debt to the Penny. The 2026-10-15 API snapshot shows criteria, fine print, scaling
+(open bounds, $40.5–42.5T) and dates unchanged [56]. The question closes 2026-11-30 and has
+118 forecasters (107 on 10-09).
+
+### Outside view (re-based on 2026-10-13)
+
+Reference class: **the Oct 13 → Dec 31 TPDO change** (nearest prior record date), in recent
+non-ceiling years [36].
+
+| Year | Oct 13 → Dec 31 | % | of which public | of which intragov |
+|---|---|---|---|---|
+| 2022 | +$275bn | +0.88% | +$232bn | +$42bn |
+| 2023 | +$472bn | +1.41% | +$512bn | −$39bn |
+| 2024 | +$511bn | +1.43% | +$486bn | +$25bn |
+| 2025 | +$629bn | +1.66% | +$531bn | +$98bn |
+
+The 2023–25 mean of +1.50% on $40.344T gives **$40.95T**. The 2023–25 dollar mean
+(+$537bn) gives **$40.88T**. The outside view centres on **$40.88–40.95T**, unchanged from
+v2's $40.90–40.95T. The Oct 13 → Dec 31 intragovernmental change, 2016–2025 excluding the
+2021 ceiling year, has a median of **+$33bn** (range −$39bn to +$98bn). That includes the
+≈+$50bn semiannual trust-fund interest credit that posts on Dec 31 itself (single-day
+intragov +$44–74bn in 2016–25, except 2020–21).
+
+### Inside view
+
+`TPDO(Dec 31) = public(Oct 13) + Δpublic(Oct 13→Dec 31) + intragov(Oct 13) + Δintragov(Oct 13→Dec 31)`
+
+| Component | $bn | Basis |
+|---|---|---|
+| Debt held by the public, 2026-10-13 (actual) | 32,483.6 | Debt to the Penny [36] |
+| + Δ public, Oct 13 → Dec 31 (Treasury-plan scenario) | +545 | Quarter = $628bn privately-held estimate [33] − $34bn (higher starting cash: $984bn vs $950bn) − $25bn estimate bias + $35bn wedge = **$604bn**, less $58.6bn already done (Sep 30 $32,425.0bn → Oct 13) |
+| Intragovernmental, 2026-10-13 (actual) | 7,860.2 | [36] |
+| + Δ intragov, Oct 13 → Dec 31 | +33 | reference-class median (above) |
+| **= TPDO 2026-12-31 (Treasury-plan scenario)** | **≈40,922** | |
+| *Bottom-up deficit scenario* | *≈40,889* | Δpublic = Q1 deficit ≈$720bn + other means ≈−$15bn + ΔTGA (984 → 850) −$134bn = $571bn |
+
+**The October trust-fund gap now has an explanation.** OMB's FY2027 Budget Appendix sets
+the general fund's "Payment to Military Retirement Fund" at $23,451mn for 2027, against
+$161,413mn (2026 est.) and $154,387mn (2025 actual). It projects the MRF's Treasury holdings
+rising only $73bn in FY2027, to $2,057.8bn, after +$178bn in FY2026 [42]. The payment lands
+as a start-of-year Government Account Series credit. On 2026-10-01 gross GAS issues were
+$836.9bn against $756.5bn of redemptions (net +$80bn), versus net +$230bn on 2025-10-01 [29].
+The $138bn payment cut accounts for about 90% of that difference. The appendix says the
+amortization schedule is set by the Department of War Retirement Board of Actuaries but does
+not say why the payment collapses. *Speculation:* the pre-1985 unfunded liability may be near
+the end of its amortization schedule, or it may have been re-amortized. Either way it is a
+budgeted, permanent change, not a late posting. v2's 15% "deferred credit" scenario was the
+main source of right skew and is now cut to 3%, kept only for unknown one-offs.
+
+**Deficit cross-check, corrected.** Q1 deficits were $510bn (FY2024), $711bn (FY2025) and
+$602bn (FY2026), which is 28.1%, 40.0% and 30.2% of each fiscal year [41]. FY2026 closed at
+$1,993bn, $218bn above FY2025, with outlays up 6% (interest +$115bn) and customs duties down
+$22bn after ≈$130bn of IEEPA refunds [43–45]. The Jun–Sep 2026 deficit was $747bn against
+$411bn a year earlier. That gap is ≈$236bn after adding back ≈$100bn of June-2025 payments
+shifted into May 2025, and roughly half of it is refunds. My bottom-up Q1 FY2027 estimate
+starts from $602bn, then adds ≈$110bn of outlay growth, takes off ≈$45bn of non-customs
+receipts growth, adds ≈$40–50bn of customs loss net of the ≈$12–36bn of refunds still due
+[48], and adds ≈$10bn for the 2025 shutdown base effect. That gives **≈$720bn (±$50bn)**.
+These are my estimates, not published figures. They imply Δpublic ≈ $571bn. Treasury's own
+plan implies a Q1 deficit of ≈$750bn+. The two paths now sit only $33bn apart, compared with
+≈$70bn in v2.
+
+**TGA-neutral tracking.** TPDO minus the TGA strips out cash timing and leaves deficit
+financing plus intragovernmental growth. It was $39.188T on Sep 30 and **$39.424T on
+Oct 13**. On the central path it reaches ≈$39.65T on Oct 30, ≈$39.84T on Nov 30 and
+≈$40.06T on Dec 31; $40.06T plus an $850bn TGA gives $40.91T. October carries ≈45% of the
+quarter's financing, because ≈$90bn of 1-November payments fall on Oct 30.
+
+**Debt limit.** Debt subject to limit was $40.145T on 2026-10-13. Headroom is **$958.5bn**,
+and TPDO runs $198.4bn above the limited measure [38]. The central path leaves ≈$370bn of
+headroom at year-end, and NTU puts the limit being reached around May 2027 [50]. It does not
+bind in 2026.
+
+### Evidence
+
+- Debt to the Penny 2026-10-13: TPDO $40,343.9bn, public $32,483.6bn, intragov $7,860.2bn
+  [36]. In 2016–25 the Oct 7 → 13 change ranged from −$4bn to +$33bn; 2026 printed +$60bn,
+  driven by a cash build (+$34bn) and intragov (+$15.5bn).
+- DTS Table IIIA month-to-date to Oct 13 [39]: net bills +$73.4bn, notes −$1.3bn, bonds
+  −$12.0bn, TIPS accrual +$2.7bn; net GAS +$113.4bn, matching the intragov change exactly.
+- DTS Table II [40]: CBP withdrawals $2.95bn month-to-date (vs $0.71bn a year earlier), which
+  puts residual IEEPA refunds at a trickle so far. CBP had certified ≈$122bn for payment by
+  mid-September, and Phase 3 of its refund portal for court-ordered reliquidations opened
+  2026-10-06 [48]. Expect ≈$10–30bn more in Q1. Likelihood ratio (LR) ≈1: mostly already in
+  Treasury's number.
+- OMB MRF payment schedule [42]: LR ≈ 5:1 against "deferred credit" vs "structural cut". This
+  is the update that moved the right tail.
+- CBO FY2026 deficit $1,993bn with September at $28bn vs a $198bn surplus in Sep 2025
+  [43–45]: LR ≈ 1.5:1 for the Treasury-plan path over a soft-deficit path.
+- The Fed has paused reserve-management purchases since mid-August; ≈$15.6bn a month of
+  MBS-to-bill reinvestment continues [49]. That shrinks the borrowing → debt wedge a little.
+- **Absent evidence:** no October reporting of a December shutdown fight, no year-end
+  fiscal package, no new tariff-rebate vehicle, and no leak of the Nov-2 borrowing estimate.
+
+### Other forecasters
+
+| Source | Value | As of | Note |
+|---|---|---|---|
+| Metaculus CP / Pro / gold (fresh) | **unavailable** | 2026-10-15 | bot key hides aggregations; browser path Cloudflare-blocked (parent session, 2026-10-15). The API's `my_forecasts` field is this bot's own submission, not the CP |
+| Metaculus CP, last cached | $41.049T, IQR [$40.885T, $41.262T] (n=106) | 2026-10-09 05:00Z | `raw/metaculus-2026-10-09.json`. This snapshot postdates the v2 ledger entry (04:08Z), which is why v2 said "unavailable". It is the first cohort reading this forecast has used, and it is 6 days old, so it is **not** logged as today's community value |
+| Metaculus Pro, last cached | $41.006T, IQR [$40.877T, $41.159T] (n=10) | 2026-10-09 05:00Z | drifted down from $41.109T at 2026-09-21 open |
+| Metaculus gold medalists, last cached | $41.013T, IQR [$40.857T, $41.187T] (n=31) | 2026-10-09 05:00Z | drifted down from $41.079T at open |
+| Metaculus forecaster count | 118 | 2026-10-15 (API) | 107 on 10-09; comment count 15 (12 on 10-09), but new comments are not readable today |
+| Polymarket "…hit $41 trillion before 2027?" | 55% mid (bid 25¢ / ask 85¢, last 83¢) | 2026-10-15 | $683 volume, unchanged since 10-09, so no trades. It is a peak-before-2027 question, so ≥ P(Dec 31 > $41T); my mixture gives ≈12.5% [53] |
+| Polymarket "…hit $42 trillion before 2027?" | 3.9% mid (bid 2.5¢ / ask 5.3¢) | 2026-10-15 | ≈$10k volume; consistent with my ≈0% |
+| Manifold "…reach $41 trillion before 2027?" | 56% (81% on 10-09) | 2026-10-15 | 8 traders, $204 volume, last bet 2026-10-13. Play money, so discounted, though the move matches mine [54] |
+| Kalshi | no open debt-level markets | 2026-10-15 | [55] |
+
+**Disagreement to flag.** Pro and gold agree with each other at ≈$41.01T, $93–100bn above
+my median; the CP is $136bn above it. All three cohort IQRs contain my median, and my IQR sits
+inside theirs, so this is not sharp disagreement. They are wider and centred higher.
+
+Following the rule, I looked for the fact I might be missing before keeping my number:
+
+- The cached comments [57] carry the same mapping v1 used: Treasury's $628bn plus a
+  $220–310bn Q4 intragov seasonal. That seasonal is exactly what the MRF payment cut breaks.
+- One comment puts TPDO only ~$30bn above debt subject to limit; it is actually $198bn. That
+  matters only for the ceiling, which does not bind.
+- Upward revisions at the next refunding are a real pattern, and I carry them in the 13%
+  heavier scenario.
+
+Both cohorts have fallen ≈$65–105bn since open, the same direction as my v1 → v2 move. I do
+not move further toward them: that would be herding on a 6-day-old number whose most likely
+driver the OMB data contradicts.
+
+### Scenarios
+
+| # | Scenario | Weight | Centre (σ) |
+|---|---|---|---|
+| 1 | Treasury's August plan holds, adjusted for starting cash, a −$25bn bias and a +$35bn wedge; intragov follows its normal Oct 13 → Dec 31 drift | 0.45 | $40.922T ($55bn) |
+| 2 | Bottom-up deficit path: Q1 deficit ≈$720bn, end-December TGA ≈$850bn | 0.27 | $40.889T ($55bn) |
+| 3 | Softer: Q1 deficit ≤ ≈$680bn and/or TGA ends December ≤ $820bn | 0.10 | $40.82T ($60bn) |
+| 4 | Heavier: Nov-2 estimate revised up ≈$75bn on weaker flows, and/or end-December cash $900–950bn | 0.13 | $41.00T ($60bn) |
+| 5 | Unexplained one-off intragovernmental credit (+$100bn) | 0.03 | $41.02T ($60bn) |
+| 6 | CR lapses 2026-12-11 plus a deep TGA drawdown | 0.02 | $40.78T ($60bn) |
+
+Mixture (`charts/distribution_v3.py`, 600k draws): p01 $40.73T, p05 $40.79T, p10 $40.82T,
+**p25 $40.86T, p50 $40.91T, p75 $40.96T**, p90 $41.01T, p95 $41.04T, p99 $41.10T.
+P(TPDO > $41.0T on Dec 31) ≈ 12.5%.
+
+### Sensitivity
+
+| Assumption | If instead | Median becomes |
+|---|---|---|
+| Δpublic Sep 30 → Dec 31 = $604bn (scenario 1) | $571bn (deficit path) | $40.89T |
+| Same | $680bn (Nov-2 estimate +$75bn) | $41.00T |
+| Δintragov Oct 13 → Dec 31 = +$33bn | 2023-style −$39bn | $40.85T |
+| Same | 2025-style +$98bn | $40.99T |
+| End-December TGA $850bn | $950bn | $41.02T |
+| Same | $780bn | $40.85T |
+| No CR lapse | Shutdown from Dec 12 through year-end | $40.89T |
+
+### What would change my mind (tripwires)
+
+- [ ] **October net financing**: DTTP TPDO minus the DTS TGA closing balance for record date
+      **2026-10-30** (published ~2026-11-02) above **$39.71T** → **+$35bn**; below
+      **$39.59T** → **−$35bn**. Central ≈$39.65T; it was $39.424T on 10-13.
+- [ ] **2026-11-02 borrowing estimate**: the Oct–Dec privately-held estimate outside
+      **$545–645bn** (cash-adjusted central $594bn = $628bn − $34bn), or the end-December
+      cash assumption moved by ≥ $50bn from $850bn → move the median by ~70% of (new
+      estimate − $594bn).
+- [ ] **CBO Monthly Budget Review, October 2026** (~2026-11-09): October deficit above
+      **$385bn** → **+$30bn**; below **$285bn** → **−$30bn**. Central ≈$335bn, including
+      ≈$90bn of shifted 1-November payments.
+- [ ] **November net financing**: TPDO minus TGA for **2026-11-30** outside
+      **$39.77–39.91T** (central ≈$39.84T) → move by ~60% of the miss.
+- [ ] **Intragov**: DTTP intragovernmental holdings above **$7.93T** on any day before
+      2026-11-30 → **+$50bn** (an unexplained credit); below **$7.79T** on 2026-11-30 →
+      **−$25bn**.
+- [ ] **CR lapse**: no FY2027 appropriations or further CR by 2026-12-11, and a shutdown
+      still running on 2026-12-20 → **−$25bn**.
+- [ ] **TGA**: DTS closing balance below $750bn on any day 2026-12-01…12-15 → **−$50bn**;
+      above $950bn on 2026-12-15 → **+$50bn**.
+- [ ] **New money out the door**: a law enacted before 2026-12-15 that disburses ≥ $25bn by
+      Dec 31 (rebate cheques, a supplemental) → add the amount disbursed by Dec 31.
+- [ ] **Metaculus Pro and gold** (next fetchable reading): both above **$41.06T** (> $150bn
+      over $40.91T) → re-check the intragov and borrowing builds before defending;
+      provisional **+$30bn**.
+
+### Sources
+
+New in this version (all accessed 2026-10-15 unless stated):
+
+36. U.S. Treasury Fiscal Data, *Debt to the Penny*, daily 2026-09-01 … 2026-10-13 — https://api.fiscaldata.treasury.gov/services/api/fiscal_service/v2/accounting/od/debt_to_penny (snapshot `raw/debt-to-penny-2026-10-15.json`). The 2015-09 … 2025-12 history for the Oct 13 reference class was pulled from the same API. (accessed 2026-10-15)
+37. U.S. Treasury Fiscal Data, *DTS — Operating Cash Balance*, 2026-09-25 … 10-13 (snapshot `raw/dts-operating-cash-2026-10-15.json`), and TGA closing balances 2022-09 … 2026-10 — https://api.fiscaldata.treasury.gov/services/api/fiscal_service/v1/accounting/dts/operating_cash_balance (accessed 2026-10-15)
+38. U.S. Treasury Fiscal Data, *DTS — Debt Subject to Limit*, 2026-09-25 … 10-13 (snapshot `raw/dts-debt-subject-to-limit-2026-10-15.json`) — https://api.fiscaldata.treasury.gov/services/api/fiscal_service/v1/accounting/dts/debt_subject_to_limit (accessed 2026-10-15)
+39. U.S. Treasury Fiscal Data, *DTS — Public Debt Transactions* (Table IIIA), 2026-10-01 … 10-13 (snapshot `raw/dts-public-debt-transactions-2026-10-15.json`) — https://api.fiscaldata.treasury.gov/services/api/fiscal_service/v1/accounting/dts/public_debt_transactions (accessed 2026-10-15)
+40. U.S. Treasury Fiscal Data, *DTS — Deposits and Withdrawals of Operating Cash* (Table II), 2026-10-13 and 2025-10-10/14/15 — https://api.fiscaldata.treasury.gov/services/api/fiscal_service/v1/accounting/dts/deposits_withdrawals_operating_cash (accessed 2026-10-15)
+41. U.S. Treasury Fiscal Data, *Monthly Treasury Statement*, Table 1 (monthly deficits FY2024 … Aug 2026; the September 2026 MTS was not yet in the API) — https://api.fiscaldata.treasury.gov/services/api/fiscal_service/v1/accounting/mts/mts_table_1 (accessed 2026-10-15)
+42. OMB, *Budget of the U.S. Government FY2027, Appendix — Department of War: Military Retirement* (Payment to Military Retirement Fund $154,387mn / $161,413mn / $23,451mn for 2025 / 2026 / 2027; MRF balances) — https://www.whitehouse.gov/wp-content/uploads/2026/04/civ_fy2027.pdf (accessed 2026-10-15)
+43. CBO, *Monthly Budget Review: September 2026* (2026-10-08) — https://www.cbo.gov/system/files/2026-10/61985-MBR.pdf (the PDF returns 403 to automated fetch; content taken from a search summary and [44][45]) (accessed 2026-10-15)
+44. CRFB, "CBO Estimates $2.0 Trillion Deficit for Fiscal Year 2026" (2026-10-08) — https://www.crfb.org/press-releases/cbo-estimates-20-trillion-deficit-fiscal-year-2026 (accessed 2026-10-15)
+45. American Action Forum, "CBO: FY 2026 Budget Deficit Totaled $2 Trillion" (2026-10-08) — https://www.americanactionforum.org/insight/cbo-fy-2026-budget-deficit-totaled-2-trillion/ (accessed 2026-10-15)
+46. U.S. Treasury, Quarterly Refunding Statement (2026-08-05; "next quarterly refunding announcement … Wednesday, November 4, 2026") — https://home.treasury.gov/news/press-releases/sb0590 (accessed 2026-10-15)
+47. Kitco / Reuters, "US Treasury trims Q1 borrowing outlook as larger cash balance offsets weaker flows" (2026-02-02) — https://www.kitco.com/news/off-the-wire/2026-02-02/us-treasury-trims-q1-borrowing-outlook-larger-cash-balance-offsets (accessed 2026-10-15)
+48. C.H. Robinson, "CBP Reports Major Progress on IEEPA Refunds; CAPE Phase 3 Launches October 6" (2026-09-17) — https://www.chrobinson.com/en-sg/resources/insights-and-advisories/client-advisories/2026q3/09-17-26-cbp-cape-phase-3-ieepa-refunds/ (accessed 2026-10-15)
+49. The Star (Bloomberg), "Fed extends pause on reserve management purchases to October" — https://www.thestar.com.my/business/business-news/2026/09/16/fed-extends-pause-on-reserve-management-purchases-to-october (accessed 2026-10-15)
+50. National Taxpayers Union, "Projecting the Debt Limit" (data as of Aug 2026) — https://www.ntu.org/publications/detail/projecting-the-debt-limit (via search summary) (accessed 2026-10-15)
+51. AACOM, "President Trump Signs Continuing Resolution to Fund Government Through December 11" (2026-09-08) — https://www.aacom.org/news-reports/news/2026/09/08/president-trump-signs-continuing-resolution-to-fund-government-through-december-11 (via search summary) (accessed 2026-10-15)
+52. Steptoe, "The Topline: Steptoe Appropriations Newsletter, September 18, 2026" — https://www.steptoe.com/en/news-publications/the-topline-steptoe-appropriations-newsletter-september-18-2026.html (via search summary) (accessed 2026-10-15)
+53. Polymarket, "Peak US National Debt before 2027?" (gamma API) — https://polymarket.com/event/peak-us-national-debt-before-2027 (snapshot `raw/markets-2026-10-15.json`) (accessed 2026-10-15)
+54. Manifold, "Will US gross federal debt reach $41 trillion before 2027?" — https://manifold.markets/prismatic/will-us-gross-federal-debt-reach-41 (snapshot `raw/markets-2026-10-15.json`) (accessed 2026-10-15)
+55. Kalshi public API, series KXTRUFPDEBT, KXDEBTLEVEL, KXUSDEBTMON, KXDEBTGROWTH26, KXUSDEBT (no open markets) — https://api.elections.kalshi.com/trade-api/v2/ (accessed 2026-10-15)
+56. Metaculus API, post 45219 (bot key; metadata and forecaster count only), fetched by the parent session — `raw/metaculus-api-2026-10-15.json` (accessed 2026-10-15)
+57. Metaculus aggregations snapshot (CP / Pro / gold and 8 comments), as of 2026-10-09 05:00Z — `raw/metaculus-2026-10-09.json` (cached 2026-10-09; accessed 2026-10-15 from `raw/`, not re-fetched)
+
+Sources 26–35: see v2. Sources 1–25: see v1.
+
+**Question**: [What will be the US national debt on December 31, 2026?](https://www.metaculus.com/questions/45219/what-will-be-the-us-national-debt-on-december-31-2026)
+**Date**: 2026-10-15
+**Forecast**: Median $40.91T, IQR [$40.86T, $40.96T]
+**Thesis**: TPDO was $40.344T on 2026-10-13 (Debt to the Penny), on the v2 path. OMB's FY2027
+Budget Appendix cuts Treasury's annual Military Retirement Fund payment from $161bn to
+$23.5bn, so the weak 1 October trust-fund jump is structural and the "deferred credit"
+upside mostly goes; a firmer intragovernmental drift and a corrected deficit cross-check
+(Q1 FY2027 deficit ≈$720bn) offset it at the median. Treasury's cash-adjusted Oct–Dec plan
+(≈$604bn of public debt for the quarter) plus a normal +$33bn intragov drift puts year-end
+near $40.91T; the 2 November borrowing estimate is the next big signal.
 
 ---
 

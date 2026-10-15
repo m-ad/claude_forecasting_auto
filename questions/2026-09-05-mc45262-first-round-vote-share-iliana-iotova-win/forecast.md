@@ -6,11 +6,232 @@
 | **Type** | numeric (%) — Metaculus range 35–55, **open at both bounds** |
 | **Opened / Closes / Resolves** | 2026-09-07 / 2026-10-24 / 2026-10-31 (election 2026-10-25) |
 | **Status** | open |
-| **Current forecast** | **Median 48.6%, IQR [46.0%, 51.4%]** (v3, 2026-10-09) |
-| **Community (as of 2026-09-24 — stale; fresh CP unavailable 2026-10-09, Cloudflare block)** | CP 45.4 [42.2, 49.1] (n=110) · Pro 45.7 [42.8, 48.8] (n=10) · Gold 45.5 [42.5, 48.7] (n=32) · API n=133 on 2026-10-09 |
-| **Next review** | 2026-10-16 |
+| **Current forecast** | **Median 47.7%, IQR [45.1%, 50.4%]** (v4, 2026-10-15) |
+| **Community (as of 2026-09-24 — stale; fresh CP unavailable 2026-10-09 and 2026-10-15, Cloudflare block)** | CP 45.4 [42.2, 49.1] (n=110) · Pro 45.7 [42.8, 48.8] (n=10) · Gold 45.5 [42.5, 48.7] (n=32) · API n=140 on 2026-10-15 |
+| **Next review** | 2026-10-18 |
 
 <!-- Versions below, newest first. APPEND-ONLY: never edit or delete a past version. -->
+
+---
+
+## v4 — Re-analysis — 2026-10-15
+
+Mode: **Re-analysis**. Six of the 16 days left at v3 have passed, which is more than 1/3, so the
+protocol calls for a de-novo pass. No new poll exists, so the anchor is still the six-poll average.
+I re-derived it on the **resolution basis** (CIK, all valid votes including "I support no one")
+instead of reusing v3's decided-voter mean, then added the news since 9 Oct. The revision table
+reconciles the result with the v3 prior.
+
+### Revision
+| Driver | Direction | Effect |
+|---|---|---|
+| Prior (v3, 2026-10-09) | — | Median 48.6%, IQR [46.0%, 51.4%] |
+| **No new named-agency poll since v3.** The last fieldwork ended 6 Oct. The Wikipedia table and the Mediapool election section were unchanged on 15 Oct [1,2]. The six campaign polls stay the anchor | → | none |
+| **Denominator re-check** (re-derived from the v1/v3 digest). CIK's base includes "I support no one" (NOTA). Trend, Alpha and Myara already carry NOTA in their base (4.6 / 2.9 / 2.3). Gallup, Market Links and Sova Harris report none. Sova's base is "respondents who named a pair", with 13.4% for the other 24 tickets [3,4]. Rescaling those three by ~0.975 (NOTA ≈ 2.5%, the 2021 level) moves the six-poll mean from 48.1 to **~47.5**. v3's −0.3 row bundled NOTA and fragmentation; separated, they come to ~−0.8. The net effect after a smaller shrink toward the outside view (the anchor is already lower) is shown here | ↓ | −0.3 pp |
+| **Black Sea drone strikes**, 6 and 13 Oct: four ships hit, two sunk, ~21 crew missing. On 14 Oct the government said Russia was likely behind them [8,9]. Gyurov and PP–DB call the response from Iotova and the government "timid" and demand NATO Article 4 consultations [10,11]. Alpha's Petrova and Dimitrova see the main risk in turnout, plus a possible Iotova–Radev rift that keeps some of her voters home [12,13]. *Speculative*: no poll covers the period after the strikes | ↓ | −0.3 pp |
+| **Cabinet trust 39% vs distrust 40%** (Market Links, fieldwork 26–29 Sep, published 2 Oct; 50/24 in May) [14]. Trust is below distrust and has fallen for four months. The fieldwork matches the polls, so only the drift over the remaining ~4 weeks is new | ↓ | −0.1 pp |
+| **Polymarket first-round margin market** (15 Oct; $16k traded, $309k resting liquidity): normalised median margin **≈ 21.5 pp**. The polls give ~22.5 and v3 implied ~23. Thin market, weighted ~20% [19] | ↓ | −0.2 pp |
+| Polymarket winner market (includes the runoff): Iotova 86.5%, up from 71% on 23 Sep. First-round-winner market 97%; "any outright first-round win" 6% [19]. These price who wins and the 50%-turnout rule, not her share | → | none |
+| **DPS**: Peevski said on 7 Oct, "на първи тур никого няма да подкрепим" ("we will back no one in the first round") [5]. The tripwire closes unfired. Alpha finds that DPS voters who do vote lean Iotova [12], which the polls already contain | → | none |
+| **GERB**: no call to vote for Gyurov found by 15 Oct. Borissov's stated line is still "Непоискана подкрепа не давам" ("I don't give support nobody asked for") [6] | → | none |
+| Iotova declined a debate before the first round (9 Oct), after saying on 13 Sep "Аз никога няма да се откажа" ("I will never back down") [7]. A standard front-runner move with low salience | → | none |
+| Metaculus: still no fresh cohort reading (Cloudflare 403). The API shows 140 forecasters (133 on 10-09) and 1,389 forecasts (1,246) [21]. That is activity with no visible direction | → | none |
+| Band: six fewer days of campaign variance, offset by a new security shock and the continued absence of final-week polls. The left tail is slightly fatter | band | IQR 5.4 → 5.3 pp |
+| **New forecast** | | **Median 47.7%, IQR [45.1%, 50.4%]** |
+
+### Tripwire check
+| Tripwire from v3 | Fired? | Note |
+|---|---|---|
+| Final-week poll average (Trend, Gallup, Alpha, Market Links, Myara, Sova Harris) — by 2026-10-23 | Not yet (pending) | As of 15 Oct, no poll fielded after 6 Oct has been published [1,2]. Releases are expected ~18–23 Oct |
+| GERB or Borissov openly calls to vote for Gyurov — by 2026-10-22 | Not fired (as of 10-15) | No call found. Borissov still says support must be requested [6]. Alpha: about half of GERB voters say they will probably stay home, and the rest lean Gyurov [12] |
+| DPS endorsement — by 2026-10-22 | **Not fired; closed** | Peevski said on 7 Oct that DPS backs no one in round 1 [5]. The statement predates v3, which missed it |
+| Polls of record put expected turnout above 45% — by 2026-10-22 | Not fired | No new turnout reading. Sova Harris's "47.4% intend to vote" is declared intention; its own analyst projects < 2.5m voters (≈ 38% of the 6.6m on the lists) [3]. The other houses give 35.4–40% |
+| Fresh Metaculus Pro/gold median below 46.0 — by 2026-10-20 | **Unobservable** | No cohort reading since 24 Sep (Cloudflare 403 on 10-09 and 10-15) [21] |
+| Major campaign scandal or debate collapse touching Iotova or the Radev government — by 2026-10-23 | **Partial** | The 6 and 13 Oct Black Sea strikes put the response from the government and Iotova under fire [8–11], and she declined a debate [7]. Neither is a scandal in the tripwire's sense, and the effect on her vote could go either way. Applied −0.3 rather than −1.5 |
+
+### What resolves YES
+unchanged from v1. Re-read today against the 2026-10-15 API JSON, where the criteria and fine print
+are unchanged [21]: the question resolves to "the percentage vote share received by Iliana Iotova in
+the first round … as declared by the Bulgarian Central Election Commission". CIK percentages are
+shares of **all valid votes, including "I support no one"**. The question is annulled if no result
+is declared by 2026-12-31. **A v4 clarification**: polls quoted "among decided voters" are on that
+basis only if NOTA is in their base, so Gallup, Market Links and Sova Harris overstate the
+CIK-basis figure by ~1 pp each (see the revision row). The question closes on 24 Oct at 22:59 UTC,
+before any exit poll.
+
+### Outside view
+unchanged from v1. First-round winners have a median of 44.1. Incumbents seeking a full term average 48.3.
+PB took 43.91% of valid votes in April. The poll average remains the dominant anchor; the outside
+view sets the tails and a small shrink.
+
+### Inside view (re-derived)
+
+**Anchor: the six campaign polls on the CIK basis.**
+
+| Poll (fieldwork) | Published, decided | NOTA in base? | CIK-basis estimate |
+|---|---|---|---|
+| Sova Harris for Trud (23–28 Sep) | 50.2 | no (base = named a pair) [3] | 48.9 |
+| Market Links/bTV (26–29 Sep) | 51.6 | not reported | 50.3 |
+| Alpha Research (24 Sep–1 Oct) | 44.5 | yes, 2.9 [4] | 44.5 |
+| Trend/24 Chasa (26 Sep–2 Oct) | 47.8 | yes, 4.6 | 47.8 |
+| Myara (26 Sep–4 Oct) | 46.9 | yes, 2.3 | 46.9 |
+| Gallup Int. Balkan (26 Sep–6 Oct) | 47.8 | not reported | 46.6 |
+| **Mean** | **48.1** | | **47.5** |
+
+If all six bases already contained NOTA, the anchor would be 48.1, and if NOTA is nearer the
+polls' own 3.3% average it would be 47.3. I take 47.5.
+
+**Adjustments.**
+
+| Adjustment | Δ |
+|---|---|
+| April 2026 precedent: polls understated PB by 7–10 pp; credited at ~1/8 (as in v3) | +0.9 |
+| Low turnout (35–40%) favours the organised PB vote, mostly already in the polls (as in v3) | +0.3 |
+| Fragmentation: 24 minor tickets usually beat their small poll shares (NOTA now handled in the anchor) | −0.2 |
+| Black Sea strikes: turnout risk and a security debate on Gyurov's ground (speculative) | −0.3 |
+| Cabinet-trust drift after the poll fieldwork | −0.1 |
+| Polymarket margin market at ~21.5 pp vs ~22.5 in the polls (weight ~20%) | −0.2 |
+| Shrink toward the outside view (44.1–48.3), smaller than v3's −0.4 because the anchor already moved | −0.2 |
+
+→ 47.5 + 0.9 + 0.3 − 0.2 − 0.3 − 0.1 − 0.2 − 0.2 = **47.7**.
+
+Reconciliation with v3 (48.6): anchor −0.6, fragmentation/NOTA row +0.1, smaller shrink +0.2 (these
+three net to the −0.3 "denominator" row), and −0.6 of new evidence.
+
+**Distribution:**
+
+| Bin | Mass | Cumulative |
+|---|---|---|
+| < 40% | 4% | 4 |
+| 40–43% | 10% | 14 |
+| 43–46% | 20% | 34 |
+| **46–49%** | **28%** | 62 |
+| 49–52% | 23% | 85 |
+| > 52% | 15% | 100 |
+
+→ p5 40.2 · p10 42.3 · **p25 45.1 · median 47.7 · p75 50.4** · p90 52.9 · p95 54.4. About 4% of
+the mass lies above the question's 55 bound and ~1% below 35 (both bounds are open).
+
+![Polls as published vs on the CIK basis, with the v4 band](charts/iotova_first_round_v4.png)
+
+### Evidence
+
+- **Polls.** No new release. The Wikipedia table still ends with Gallup (fieldwork to 6 Oct) [1].
+  Searches for Trend, Gallup, Alpha, Market Links, Myara, Sova Harris, Global Metrics, Mediana and
+  Exacta in Bulgarian and English found nothing newer. The **Sova Harris primary write-up** (dir.bg,
+  2 Oct, commissioned by *Trud*) is now found. Its base is respondents who named a pair, the 24
+  minor tickets total 13.4%, and no NOTA share is given. 47.4% say they will vote, but the analyst
+  projects fewer than 2.5m voters [3]. Alpha's primary page confirms a "firmly decided" base, that
+  30% of those voters are not fully sure of their choice, and a turnout of ~37% (2.4–2.6m) [4].
+- **Black Sea security shock.** On 6 Oct drones hit two ships ~70 nm off Byala, and one sank with
+  10 crew. Iotova convened the National Security Consultative Council on 7 Oct, and Peevski praised
+  the step [5]. On 13 Oct HS Dignity sank off Krapets with 11 missing, and the Chelsea 3 was
+  damaged [8]. The government said on 14 Oct that Russia was "likely" behind it (WaPo headline; the
+  page returned 403) [9]. Iotova condemned the attacks and called for de-escalation through
+  diplomacy; Sega called it a "vague e-mail" [10]. Gyurov demanded NATO Art. 4 consultations and
+  called her reaction "timid" [11]. Alpha's Petrova (9 Oct) said the risk is "не толкоз за кого ще
+  гласоподават, а дали въобще ще отидат до урните" ("not so much whom they vote for as whether
+  they go to the polls at all") and pointed to possible Iotova–Radev friction [13]. Dimitrova (14 Oct)
+  said Iotova "запазва водещите си позиции" ("keeps her leading positions") but that the attacks
+  change the situation [12]. **My read (speculative)**: a peace-first electorate limits the damage,
+  but the topic favours Gyurov's framing, and a turnout dip among soft PB voters is the likelier
+  channel. Hence a small negative, not a large one.
+- **Government standing.** Market Links (26–29 Sep) measured cabinet trust at 39% against 40%
+  distrust, down from 50/24 in May. Radev personally is at 44/39 [14]. This is below the 40% line
+  that v2 used as a tripwire. v3 missed it, but the polls from the same fieldwork already reflect it.
+- **Endorsements.** DPS is explicitly neutral in round 1 [5]. GERB has made no call, and Borissov
+  repeats that unsolicited support is not given [6]. Club Z's Stoynev, extrapolating from the polls,
+  puts GERB voters leaning Gyurov at ~65k versus about half that for Iotova [15]. That is already
+  in the polls.
+- **Campaign.** PP called on her to withdraw on 5 Oct over the 2022 "Petrich Escobar" pardon [16].
+  That fell within the late fieldwork of the Gallup and Myara polls. Nothing new since then.
+  Finance as of 12 Oct: Gyurov's committee had €375.6k, including three €100k donors; Iotova's had
+  €277.9k, mostly small donations [17]. A Ukrainian outlet's 14 Oct summary repeats 44–47% vs
+  24–26% [18].
+- **Absent:** a final-week poll, a GERB call, a turnout projection above 45%, and any fresh
+  Metaculus cohort.
+
+### Other forecasters
+| Source | Value | As of | Note |
+|---|---|---|---|
+| Metaculus CP (recency-weighted) | 45.4, IQR [42.2, 49.1] (n=110) | **2026-09-24 (stale)** | fresh CP unavailable 2026-10-09 and 2026-10-15 (Cloudflare 403); predates every campaign poll |
+| Metaculus Pro | 45.7, IQR [42.8, 48.8] (n=10) | **2026-09-24 (stale)** | same |
+| Metaculus gold medalists | 45.5, IQR [42.5, 48.7] (n=32) | **2026-09-24 (stale)** | same |
+| Metaculus activity (API) | 140 forecasters, 1,389 forecasts | 2026-10-15 | 133 / 1,246 on 10-09 |
+| Campaign poll mean (6), decided basis | 48.1 (44.5–51.6) | fieldwork to 2026-10-06 | as published |
+| Same, CIK basis (NOTA-adjusted) | ~47.5 (44.5–50.3) | fieldwork to 2026-10-06 | **primary anchor** |
+| Polymarket first-round margin | median ≈ 21.5 pp (20–30: 50%; 10–20: 29%; <10: 9%; 30+: 8%; Gyurov first: 4%) | 2026-10-15 | $16k traded; normalised for a 6.8% overround [19] |
+| Polymarket winner (incl. runoff) | Iotova 86.5% / Gyurov 13.5% | 2026-10-15 | $1.18M event volume; 71% on 23 Sep, 81.5% on 29 Sep [19,20] |
+| Polymarket first-round winner | Iotova 97% | 2026-10-15 | $15k |
+| Polymarket "any outright first-round win" | 6% | 2026-10-15 | gated by the ≥50%-turnout rule |
+| Kalshi winner | no quotes | 2026-10-15 | 11 listed markets, no bid/ask [22] |
+| Manifold | no market | 2026-10-15 | [22] |
+
+**Cohort disagreement:** not observable today. The only cohort reading (24 Sep) had all three within
+0.3 pp, and it predates every poll. I am now **2.0–2.3 pp above that stale cluster**, down from
+~3 pp at v3. The one live crowd signal on her share is the thin Polymarket margin market, which
+sits ~1 pp narrower than the polls, and it is one of the reasons for this cut. If a fresh reading
+shows Pro/gold still at ~45.5 after the polls, look first for a NOTA or house-effect convention I
+have not caught.
+
+### Scenarios
+| # | Scenario | Weight | Implies |
+|---|---|---|---|
+| 1 | Polls right on the CIK basis; low turnout; minor tickets slightly beat their polls | 0.45 | 45.5–49.5% |
+| 2 | April-style understatement repeats in part; PB machine plus an opposition that stays home | 0.22 | 49.5–54% |
+| 3 | Late swing against the government (Black Sea shock, trust erosion); soft Iotova voters stay home | 0.23 | 42.5–45.5% |
+| 4 | Alpha's low reading is the right one, plus a larger others/NOTA share | 0.10 | 39.5–43.5% |
+
+### Sensitivity
+| Assumption | If instead | Forecast becomes |
+|---|---|---|
+| Gallup, Market Links and Sova Harris omit NOTA | All six bases already include it | median ~48.1 |
+| Poll bias ≈ +1 toward Iotova (April credit) | No bias (2021-style) | median ~46.8 |
+| Same | Half of April's miss (+4) | median ~50.6 |
+| Black Sea strikes −0.3 | No effect, or a rally to the incumbent | median ~48.0 |
+| Final-week polls ≈ 47.5 on the CIK basis | Final-week CIK-basis mean ≤ 45 | median ~45.8 |
+| Same | Final-week CIK-basis mean ≥ 50 | median ~49.5 |
+| No GERB call | GERB openly mobilises for Gyurov | −1.5 |
+
+### What would change my mind (tripwires)
+- [ ] **Final-week poll average** (Trend, Gallup, Alpha, Market Links, Myara, Sova Harris; releases ~18–23 Oct), **converted to the CIK basis** (NOTA in the base) — by 2026-10-23 → move ~70% of the way to that mean
+- [ ] **GERB or Borissov openly calls to vote for Gyurov** — by 2026-10-22 → −1.5 pp
+- [ ] **A pollster's projected turnout (not declared intention) above 45%** — by 2026-10-22 → −1.0 pp
+- [ ] **A further Black Sea strike with casualties in Bulgarian waters or on its territory, or an open Iotova–Radev split over the response** (BTA/Mediapool headline) — by 2026-10-23 → −0.7 pp
+- [ ] **New pardon-file revelation or another scandal touching Iotova personally** (BTA/Capital headline) — by 2026-10-23 → −1.0 pp
+- [ ] **Polymarket first-round margin median below 18 pp or above 25 pp** — by 2026-10-24 → move ~0.5 pp in the same direction
+- [ ] **Fresh Metaculus Pro/gold median below 46.0** — by 2026-10-24 → re-examine for a missed fact (NOTA basis, house effects), not a nudge
+
+### Sources
+1. Wikipedia — "2026 Bulgarian presidential election" (opinion-poll table "recalculated … by excluding undecided and non-voters"; no poll after 6 Oct) — https://en.wikipedia.org/wiki/2026_Bulgarian_presidential_election (accessed 2026-10-15)
+2. Mediapool — "Президентски избори 2026" section (headlines 25 Sep–13 Oct) — https://www.mediapool.bg/prezidentski-izbori-2026/ (accessed 2026-10-15)
+3. dir.bg — "„Сова Харис“: Йотова-Вълчев - 50.2%, Гюров-Кандев - 23.7%, Костадинов-Волгин - 12.7%" (2 Oct 2026; for *Trud*) — https://dnes.dir.bg/na-fokus/sova-haris-jotova-valchev-50-2-gyurov-kandev-23-7-kostadinov-volgin-12-7 (accessed 2026-10-15)
+4. Alpha Research — "Предизборни нагласи на старта на кампанията за Президентски избори 2026" — https://alpharesearch.bg/post/1054-predizborni-naglasi-na-starta-na-kampaniata-za-prezidentski-izbori-2026.html (accessed 2026-10-15)
+5. 24 Chasa — "Делян Пеевски: ДПС няма да подкрепи никого за президент на първия тур, за втория ще мислим" (7 Oct 2026) — https://www.24chasa.bg/bulgaria/article/23689490 (accessed 2026-10-15)
+6. Sega — "Борисов допусна вариант да подкрепи Гюров и Кандев" (10 Sep 2026) — https://www.segabg.com/hot/category-bulgaria/borisov-dopusna-variant-da-podkrepi-gyurov-i-kandev (accessed 2026-10-15)
+7. Club Z — "Йотова отказа дебат с Гюров преди първия тур. А обеща: 'Никога няма да се откажа'" (9 Oct 2026) — https://clubz.bg/180357 (accessed 2026-10-15)
+8. Al Jazeera — "Drone attack sinks ship off Bulgaria's Black Sea coast, PM says" (13 Oct 2026) — https://www.aljazeera.com/news/2026/10/13/drone-attack-sinks-ship-off-bulgarias-black-sea-coast-pm-says ; Euronews (6 Oct) — https://www.euronews.com/2026/10/06/drones-hit-two-ships-off-coast-of-bulgaria-as-government-calls-emergency-meeting (accessed 2026-10-15)
+9. Washington Post — "Bulgaria says Russia was likely behind Black Sea drone strikes as rescue operations continue" (14 Oct 2026; direct fetch HTTP 403, headline via search index) — https://www.washingtonpost.com/business/2026/10/14/bulgaria-russia-ukraine-drone-attacks-radev-yotova/ff75351c-c7c4-11f1-aefb-abe4112d087e_story.html (accessed 2026-10-15)
+10. Sega — "С вял имейл Йотова призова за деескалация след новата атака с дронове" (13 Oct 2026) — https://www.segabg.com/hot/category-bulgaria/vyal-imeyl-yotova-prizova-za-deeskalaciya-sled-novata-ataka-dronove (accessed 2026-10-15)
+11. Club Z — "Гюров настоява правителството 'незабавно да поиска консултации по чл. 4 от договора за НАТО'" (13 Oct 2026) — https://clubz.bg/180468 (accessed 2026-10-15)
+12. Taralej — "Боряна Димитрова пред 'Таралеж': Йотова води, но атаките в Черно море променят ситуацията" (14 Oct 2026) — https://taralej.bg/mnenia/borqna-dimitrova-pred-taralej-yotova-vodi-no-atakite-v-cherno-more-promenqt-situaciqta (accessed 2026-10-15)
+13. Novini247 / Studio Actualno — Genoveva Petrova (Alpha Research) on drones and turnout (9 Oct 2026) — https://novini247.com/novini/vmesto-da-mobilizirat-izbiratelite-poslednite-sabitiya-okolo-udarenite-ot-dronove_11282152.html (accessed 2026-10-15)
+14. Focus News — "Недоверието към кабинета 'Радев' почти се удвои за 4 месеца" (Market Links/bTV, 2 Oct 2026) — https://www.focus-news.net/novini/Bylgaria/Nedoverieto-kum-kabineta-Radev-pochti-se-udvoi-za-4-meseca-3033756 (accessed 2026-10-15)
+15. Club Z — Veselin Stoynev, "Може ли да се стопи разликата между Йотова и Гюров?" (6 Oct 2026, opinion) — https://clubz.bg/180218 (accessed 2026-10-15)
+16. Mediapool — "ПП призова Йотова да се оттегли от изборите заради 'Петричкия Ескобар'" (5 Oct 2026) — https://www.mediapool.bg/prezidentski-izbori-2026/pp-prizova-yotova-da-se-ottegli-ot-izborite-zaradi-petrichkiya-eskobar/ (accessed 2026-10-15)
+17. BTA — "Media Review: October 13" (campaign finance from Segabg) — https://www.bta.bg/en/news/bulgaria/1223450-media-review-october-13 (accessed 2026-10-15)
+18. European Pravda — "How Bulgaria's pro-Russian PM could gain his own president and why it matters" (14 Oct 2026) — https://www.eurointegration.com.ua/eng/news/2026/10/14/7247686/ (accessed 2026-10-15)
+19. Polymarket — gamma API, events "bulgaria-presidential-election", "…-first-round-margin-of-victory", "…-first-round-winner", "will-any-presidential-candidate-win-outright-…" — https://gamma-api.polymarket.com/events?slug=bulgaria-presidential-election-first-round-margin-of-victory (accessed 2026-10-15); snapshot `raw/polymarket-2026-10-15.json`
+20. The Traders Spread — "Bulgaria Presidential Election: Iotova's 81.5% Prices the Run-Off" (29 Sep 2026; via search index) — https://thetradersspread.com/prediction-markets/bulgaria-presidential-election-iotova-81-5-percent-prices-run-off (accessed 2026-10-15)
+21. Metaculus #45262 — official API post JSON (bot key; metadata only, aggregations hidden) — `raw/metaculus-api-2026-10-15.json` (retrieved by the parent session 2026-10-15); last cohort snapshot `raw/metaculus-2026-09-24.json`; https://www.metaculus.com/questions/45262/ (accessed 2026-10-15)
+22. Kalshi trade API — https://api.elections.kalshi.com/trade-api/v2/events/KXBULGARIAPRES-26NOV15 ; Manifold — https://api.manifold.markets/v0/search-markets?term=Iotova (accessed 2026-10-15)
+23. v3 poll sources (Trend, Market Links, Alpha, Myara, Gallup releases), e.g. Mediapool — "„Тренд“: 47.8% за Йотова и 24.6% за Гюров" — https://www.mediapool.bg/prezidentski-izbori-2026/trend-478-za-yotova-i-246-za-gyurov/ (accessed 2026-10-09)
+24. Raw snapshot — `raw/news-2026-10-15.json` (accessed 2026-10-15)
+
+**Question**: [What first round vote share will Iliana Iotova win in the 2026 Bulgarian Presidential election?](https://www.metaculus.com/questions/45262/)
+**Date**: 2026-10-15
+**Forecast**: Median 47.7%, IQR [45.1%, 50.4%]
+**Thesis**: No poll has been fielded since 6 Oct, and on the resolution basis the six-poll anchor is lower than published: CIK counts "I support no one" in the denominator while Gallup, Market Links and Sova Harris leave it out, so the mean is ~47.5 rather than 48.1 [1,3,4]. The 6 and 13 Oct Black Sea drone strikes, cabinet trust at 39/40 and a thin Polymarket margin market at ~21.5 pp each shade her down slightly (−0.6 together) [8–14,19]. The +0.9 credit for April's polling miss stays, which gives 47.7; DPS backs no one in round 1, GERB has made no call, and the Metaculus cohorts are stale (24 Sep: 45.4–45.7).
 
 ---
 

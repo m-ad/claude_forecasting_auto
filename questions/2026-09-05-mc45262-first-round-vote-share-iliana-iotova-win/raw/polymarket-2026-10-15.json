@@ -1,0 +1,490 @@
+{
+ "retrieved": "2026-10-15",
+ "source": "Polymarket gamma API (https://gamma-api.polymarket.com/events?slug=...), Kalshi trade API v2, Manifold API v0",
+ "markets": {
+  "winner_incl_runoff": {
+   "title": "Bulgaria Presidential Election",
+   "event_volume_usd": 1179216.7,
+   "liquidity_usd": 1172098.2,
+   "end": "2026-10-26T03:59:00Z",
+   "markets": [
+    {
+     "option": "Iliana Iotova",
+     "price_yes": 0.865,
+     "best_bid": 0.86,
+     "best_ask": 0.87,
+     "last": 0.86,
+     "volume_usd": 400942.5
+    },
+    {
+     "option": "Nikolai Denkov",
+     "price_yes": 0.0005,
+     "best_bid": null,
+     "best_ask": 0.001,
+     "last": 0.001,
+     "volume_usd": 78338.0
+    },
+    {
+     "option": "Blagomir Kotsev",
+     "price_yes": 0.0005,
+     "best_bid": null,
+     "best_ask": 0.001,
+     "last": 0.001,
+     "volume_usd": 29822.0
+    },
+    {
+     "option": "Rosen Zhelyazkov",
+     "price_yes": 0.0005,
+     "best_bid": null,
+     "best_ask": 0.001,
+     "last": 0.001,
+     "volume_usd": 69774.1
+    },
+    {
+     "option": "Kostadin Kostadinov",
+     "price_yes": 0.0015,
+     "best_bid": 0.001,
+     "best_ask": 0.002,
+     "last": 0.001,
+     "volume_usd": 103975.2
+    },
+    {
+     "option": "Natalia Kiselova",
+     "price_yes": 0.0005,
+     "best_bid": null,
+     "best_ask": 0.001,
+     "last": 0.001,
+     "volume_usd": 16129.2
+    },
+    {
+     "option": "Yanaki Stoilov",
+     "price_yes": 0.0005,
+     "best_bid": null,
+     "best_ask": 0.001,
+     "last": 0.001,
+     "volume_usd": 19185.7
+    },
+    {
+     "option": "Krum Zarkov",
+     "price_yes": 0.0005,
+     "best_bid": null,
+     "best_ask": 0.001,
+     "last": 0.001,
+     "volume_usd": 18734.3
+    },
+    {
+     "option": "Atanas Atanasov",
+     "price_yes": 0.0005,
+     "best_bid": null,
+     "best_ask": 0.001,
+     "last": 0.001,
+     "volume_usd": 17976.4
+    },
+    {
+     "option": "Boyko Borissov",
+     "price_yes": 0.0005,
+     "best_bid": null,
+     "best_ask": 0.001,
+     "last": 0.001,
+     "volume_usd": 57629.2
+    },
+    {
+     "option": "Delyan Peevski",
+     "price_yes": 0.0005,
+     "best_bid": null,
+     "best_ask": 0.001,
+     "last": 0.001,
+     "volume_usd": 16556.0
+    },
+    {
+     "option": "Vassil Terziev",
+     "price_yes": 0.0005,
+     "best_bid": null,
+     "best_ask": 0.001,
+     "last": 0.001,
+     "volume_usd": 40230.7
+    },
+    {
+     "option": "Rosen Plevneliev",
+     "price_yes": 0.0005,
+     "best_bid": null,
+     "best_ask": 0.001,
+     "last": 0.001,
+     "volume_usd": 21662.9
+    },
+    {
+     "option": "Аndrey Gyurov",
+     "price_yes": 0.135,
+     "best_bid": 0.13,
+     "best_ask": 0.14,
+     "last": 0.14,
+     "volume_usd": 288260.4
+    }
+   ]
+  },
+  "first_round_margin_of_victory": {
+   "title": "Bulgaria Presidential Election First Round: Margin of Victory",
+   "event_volume_usd": 16388.2,
+   "liquidity_usd": 309466.8,
+   "end": "2026-10-25T23:59:00Z",
+   "markets": [
+    {
+     "option": "Iotova 40%+",
+     "price_yes": 0.0075,
+     "best_bid": 0.004,
+     "best_ask": 0.011,
+     "last": 0.002,
+     "volume_usd": 334.9
+    },
+    {
+     "option": "Iotova 30-40%",
+     "price_yes": 0.073,
+     "best_bid": 0.064,
+     "best_ask": 0.082,
+     "last": 0.084,
+     "volume_usd": 2701.3
+    },
+    {
+     "option": "Iotova 20-30%",
+     "price_yes": 0.535,
+     "best_bid": 0.53,
+     "best_ask": 0.54,
+     "last": 0.54,
+     "volume_usd": 4462.2
+    },
+    {
+     "option": "Iotova 10-20%",
+     "price_yes": 0.305,
+     "best_bid": 0.3,
+     "best_ask": 0.31,
+     "last": 0.32,
+     "volume_usd": 1066.1
+    },
+    {
+     "option": "Iotova <10%",
+     "price_yes": 0.1,
+     "best_bid": 0.09,
+     "best_ask": 0.11,
+     "last": 0.12,
+     "volume_usd": 1669.1
+    },
+    {
+     "option": "Gyurov <10%",
+     "price_yes": 0.018,
+     "best_bid": 0.008,
+     "best_ask": 0.028,
+     "last": 0.018,
+     "volume_usd": 313.7
+    },
+    {
+     "option": "Gyurov 10-20%",
+     "price_yes": 0.01,
+     "best_bid": 0.003,
+     "best_ask": 0.017,
+     "last": 0.044,
+     "volume_usd": 3217.6
+    },
+    {
+     "option": "Gyurov 20-30%",
+     "price_yes": 0.0135,
+     "best_bid": 0.004,
+     "best_ask": 0.023,
+     "last": 0.07,
+     "volume_usd": 2387.4
+    },
+    {
+     "option": "Gyurov 30%+",
+     "price_yes": 0.0055,
+     "best_bid": 0.002,
+     "best_ask": 0.009,
+     "last": null,
+     "volume_usd": 235.8
+    }
+   ],
+   "resolution_basis": "absolute difference between first- and second-place shares of all valid votes cast (same denominator as CIK incl. 'I support no one')"
+  },
+  "bulgaria-presidential-election-first-round-2nd-place": {
+   "title": "Bulgaria Presidential Election First Round: 2nd Place",
+   "event_volume_usd": 6032.0,
+   "liquidity_usd": 137993.8,
+   "end": "2026-10-25T23:59:00Z",
+   "markets": [
+    {
+     "option": "Iliana Iotova",
+     "price_yes": 0.01,
+     "best_bid": 0.001,
+     "best_ask": 0.019,
+     "last": 0.017,
+     "volume_usd": 275.3
+    },
+    {
+     "option": "Andrey Gyurov",
+     "price_yes": 0.92,
+     "best_bid": 0.91,
+     "best_ask": 0.93,
+     "last": 0.93,
+     "volume_usd": 1741.5
+    },
+    {
+     "option": "Kostadin Kostadinov",
+     "price_yes": 0.0415,
+     "best_bid": 0.006,
+     "best_ask": 0.077,
+     "last": 0.101,
+     "volume_usd": 1271.1
+    },
+    {
+     "option": "Nikolai Denkov",
+     "price_yes": 0.0125,
+     "best_bid": 0.002,
+     "best_ask": 0.023,
+     "last": 0.003,
+     "volume_usd": 257.0
+    },
+    {
+     "option": "Rosen Zhelyazkov",
+     "price_yes": 0.039,
+     "best_bid": 0.003,
+     "best_ask": 0.075,
+     "last": 0.014,
+     "volume_usd": 299.5
+    },
+    {
+     "option": "Boyko Borissov",
+     "price_yes": 0.008,
+     "best_bid": 0.001,
+     "best_ask": 0.015,
+     "last": null,
+     "volume_usd": 170.8
+    },
+    {
+     "option": "Vassil Terziev",
+     "price_yes": 0.039,
+     "best_bid": 0.003,
+     "best_ask": 0.075,
+     "last": 0.019,
+     "volume_usd": 241.2
+    },
+    {
+     "option": "Blagomir Kotsev",
+     "price_yes": 0.005,
+     "best_bid": 0.001,
+     "best_ask": 0.009,
+     "last": 0.003,
+     "volume_usd": 273.7
+    },
+    {
+     "option": "Natalia Kiselova",
+     "price_yes": 0.0375,
+     "best_bid": 0.003,
+     "best_ask": 0.072,
+     "last": 0.022,
+     "volume_usd": 259.8
+    },
+    {
+     "option": "Yanaki Stoilov",
+     "price_yes": 0.039,
+     "best_bid": 0.003,
+     "best_ask": 0.075,
+     "last": 0.004,
+     "volume_usd": 266.7
+    },
+    {
+     "option": "Krum Zarkov",
+     "price_yes": 0.005,
+     "best_bid": 0.001,
+     "best_ask": 0.009,
+     "last": 0.004,
+     "volume_usd": 236.8
+    },
+    {
+     "option": "Atanas Atanasov",
+     "price_yes": 0.005,
+     "best_bid": 0.001,
+     "best_ask": 0.009,
+     "last": 0.004,
+     "volume_usd": 236.8
+    },
+    {
+     "option": "Delyan Peevski",
+     "price_yes": 0.005,
+     "best_bid": 0.001,
+     "best_ask": 0.009,
+     "last": 0.021,
+     "volume_usd": 336.1
+    },
+    {
+     "option": "Rosen Plevneliev",
+     "price_yes": 0.0015,
+     "best_bid": 0.001,
+     "best_ask": 0.002,
+     "last": 0.018,
+     "volume_usd": 165.8
+    }
+   ]
+  },
+  "bulgaria-presidential-election-first-round-winner": {
+   "title": "Bulgaria Presidential Election First Round Winner",
+   "event_volume_usd": 15185.3,
+   "liquidity_usd": 446694.2,
+   "end": "2026-10-25T23:59:00Z",
+   "markets": [
+    {
+     "option": "Iliana Iotova",
+     "price_yes": 0.9705,
+     "best_bid": 0.963,
+     "best_ask": 0.978,
+     "last": 0.978,
+     "volume_usd": 8563.9
+    },
+    {
+     "option": "Andrey Gyurov",
+     "price_yes": 0.022,
+     "best_bid": 0.015,
+     "best_ask": 0.029,
+     "last": 0.016,
+     "volume_usd": 801.9
+    },
+    {
+     "option": "Kostadin Kostadinov",
+     "price_yes": 0.0005,
+     "best_bid": null,
+     "best_ask": 0.001,
+     "last": 0.001,
+     "volume_usd": 311.3
+    },
+    {
+     "option": "Nikolai Denkov",
+     "price_yes": 0.0045,
+     "best_bid": 0.001,
+     "best_ask": 0.008,
+     "last": 0.001,
+     "volume_usd": 508.8
+    },
+    {
+     "option": "Rosen Zhelyazkov",
+     "price_yes": 0.0045,
+     "best_bid": 0.001,
+     "best_ask": 0.008,
+     "last": 0.001,
+     "volume_usd": 505.0
+    },
+    {
+     "option": "Boyko Borissov",
+     "price_yes": 0.0045,
+     "best_bid": 0.001,
+     "best_ask": 0.008,
+     "last": 0.001,
+     "volume_usd": 497.1
+    },
+    {
+     "option": "Vassil Terziev",
+     "price_yes": 0.005,
+     "best_bid": 0.001,
+     "best_ask": 0.009,
+     "last": 0.001,
+     "volume_usd": 508.8
+    },
+    {
+     "option": "Blagomir Kotsev",
+     "price_yes": 0.0045,
+     "best_bid": 0.001,
+     "best_ask": 0.008,
+     "last": 0.001,
+     "volume_usd": 508.8
+    },
+    {
+     "option": "Natalia Kiselova",
+     "price_yes": 0.0015,
+     "best_bid": 0.001,
+     "best_ask": 0.002,
+     "last": 0.002,
+     "volume_usd": 478.8
+    },
+    {
+     "option": "Yanaki Stoilov",
+     "price_yes": 0.0045,
+     "best_bid": 0.001,
+     "best_ask": 0.008,
+     "last": 0.001,
+     "volume_usd": 508.8
+    },
+    {
+     "option": "Krum Zarkov",
+     "price_yes": 0.0045,
+     "best_bid": 0.001,
+     "best_ask": 0.008,
+     "last": 0.002,
+     "volume_usd": 483.8
+    },
+    {
+     "option": "Atanas Atanasov",
+     "price_yes": 0.0035,
+     "best_bid": 0.001,
+     "best_ask": 0.006,
+     "last": 0.002,
+     "volume_usd": 508.8
+    },
+    {
+     "option": "Delyan Peevski",
+     "price_yes": 0.0035,
+     "best_bid": 0.001,
+     "best_ask": 0.006,
+     "last": 0.001,
+     "volume_usd": 490.6
+    },
+    {
+     "option": "Rosen Plevneliev",
+     "price_yes": 0.005,
+     "best_bid": 0.001,
+     "best_ask": 0.009,
+     "last": 0.001,
+     "volume_usd": 508.8
+    }
+   ]
+  },
+  "will-any-presidential-candidate-win-outright-in-the-first-round-of-the-bulgaria-election": {
+   "title": "Will any presidential candidate win outright in the first round of the Bulgaria election?",
+   "event_volume_usd": 7519.7,
+   "liquidity_usd": 20457.0,
+   "end": "2027-01-01T04:59:00Z",
+   "markets": [
+    {
+     "option": "Will any presidential candidate win outright in the first round of the Bulgaria election?",
+     "price_yes": 0.06,
+     "best_bid": 0.05,
+     "best_ask": 0.07,
+     "last": 0.05,
+     "volume_usd": 7519.7
+    }
+   ]
+  }
+ },
+ "derived_margin": {
+  "overround_sum": 1.0675,
+  "normalised": {
+   "Iotova 40%+": 0.007,
+   "Iotova 30-40%": 0.0684,
+   "Iotova 20-30%": 0.5012,
+   "Iotova 10-20%": 0.2857,
+   "Iotova <10%": 0.0937,
+   "Gyurov <10%": 0.0169,
+   "Gyurov 10-20%": 0.0094,
+   "Gyurov 20-30%": 0.0126,
+   "Gyurov 30%+": 0.0052
+  },
+  "note": "cum P(Gyurov wins first round)=0.044; P(Iotova margin<10)=0.138; <20=0.423; median margin ~ 20 + (0.5-cum20)/P(20-30)*10",
+  "median_margin_pp": 21.5
+ },
+ "kalshi": {
+  "event": "KXBULGARIAPRES-26NOV15 (winner)",
+  "note": "11 candidate markets listed, all with no bid/ask/last/volume on 2026-10-15"
+ },
+ "manifold": {
+  "note": "search-markets 'Iotova' returned []; 'Bulgaria' returned no presidential-election market"
+ },
+ "previous_snapshots": {
+  "2026-09-23": "Polymarket winner Iotova 0.71 / Gyurov 0.28 (PredScope mirror, ~$561k)",
+  "2026-09-29": "Polymarket winner Iotova 0.815 (thetradersspread.com)"
+ }
+}

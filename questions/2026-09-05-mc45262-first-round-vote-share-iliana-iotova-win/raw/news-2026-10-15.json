@@ -1,0 +1,31 @@
+{
+  "retrieved": "2026-10-15",
+  "note": "Metaculus aggregations NOT fetched (parent: Cloudflare 403 on 2026-10-15). API metadata in metaculus-api-2026-10-15.json: status open, nr_forecasters 140 (133 on 10-09), forecasts_count 1389 (1246 on 10-09), comment_count 11 (9), closes 2026-10-24T22:59Z; criteria/fine print unchanged.",
+  "new_polls_since_v3": "none found. en.wikipedia poll table (accessed 2026-10-15) still lists the same six campaign polls, last fieldwork ending 2026-10-06; Mediapool presidential section and searches (Trend, Gallup, Alpha, Market Links, Myara, Sova Harris, Global Metrics, Mediana, Exacta) show no newer release.",
+  "polls_cik_basis_check": [
+    {"pollster": "Trend", "decided": 47.8, "nota_in_base": 4.6, "cik_basis_est": 47.8},
+    {"pollster": "Alpha Research", "decided": 44.5, "nota_in_base": 2.9, "cik_basis_est": 44.5, "note": "primary page: base 'firmly decided to vote'; 30% of them not fully sure; turnout ~37% (2.4-2.6m)"},
+    {"pollster": "Myara", "decided": 46.9, "nota_in_base": 2.3, "cik_basis_est": 46.9},
+    {"pollster": "Gallup Int. Balkan", "decided": 47.8, "nota_in_base": "not reported", "cik_basis_est_if_nota_2.5": 46.6},
+    {"pollster": "Market Links", "decided": 51.6, "nota_in_base": "not reported", "cik_basis_est_if_nota_2.5": 50.3},
+    {"pollster": "Sova Harris (for Trud)", "decided": 50.2, "nota_in_base": "not reported; base = respondents naming a pair; other 24 pairs 13.4%", "cik_basis_est_if_nota_2.5": 48.9, "source": "dir.bg 2026-10-02 primary write-up; 47.4% declare they will vote but analyst projects < 2.5m voters"}
+  ],
+  "poll_mean_decided": 48.1,
+  "poll_mean_cik_basis_est": 47.5,
+  "items": [
+    {"date": "2026-10-02", "source": "focus-news.net (Market Links/bTV, fieldwork 26-29 Sep)", "fact": "Radev cabinet trust 39% vs distrust 40% (May: 50/24); Radev personally 44/39"},
+    {"date": "2026-10-05", "source": "Mediapool / dnes.bg", "fact": "PP calls on Iotova to withdraw over 2022 pardon of 'Petrich Escobar' after prison-fight video; DB seeks parliamentary hearing"},
+    {"date": "2026-10-06", "source": "Club Z (Veselin Stoynev, opinion)", "fact": "extrapolation from polls: Iotova ~1.1m, Gyurov ~650k, Kostadinov ~250k votes; ~65k GERB voters lean Gyurov vs ~half that for Iotova"},
+    {"date": "2026-10-06/07", "source": "Euronews / BTA", "fact": "first drone strike: two ships hit ~70 nm off Byala, one sunk, 10 crew missing; Iotova convenes National Security Consultative Council 7 Oct"},
+    {"date": "2026-10-07", "source": "24chasa.bg", "fact": "Peevski: DPS will back no one in the first round ('на първи тур никого няма да подкрепим, след това ще мислим'); praises Iotova for convening the council, 'not to be read as support'"},
+    {"date": "2026-10-09", "source": "Club Z 180357", "fact": "Iotova declines a pre-first-round debate with Gyurov ('we will wait for 25 October'); on 13 Sep she had said 'Аз никога няма да се откажа'"},
+    {"date": "2026-10-09", "source": "novini247 / Actualno (Genoveva Petrova, Alpha Research)", "fact": "drone events more likely to lower turnout than mobilise; possible Iotova-Radev friction could make some Iotova supporters reconsider voting at all"},
+    {"date": "2026-10-13", "source": "Al Jazeera / Sega / Club Z 180468", "fact": "second strike: HS Dignity sunk off Krapets, 11 missing; Chelsea 3 damaged. Iotova condemns, calls for de-escalation via diplomacy (Sega: 'vague e-mail'); Gyurov demands NATO Art. 4 consultations, calls Iotova's reaction 'timid'"},
+    {"date": "2026-10-13", "source": "BTA Media Review Oct 13 (Segabg)", "fact": "campaign finance: Gyurov committee EUR 375,600 (three EUR 100k donors); Iotova committee EUR 277,905 mostly small donations"},
+    {"date": "2026-10-14", "source": "Washington Post headline (403; via search index)", "fact": "Bulgaria says Russia was likely behind Black Sea drone strikes"},
+    {"date": "2026-10-14", "source": "Taralej (Boryana Dimitrova, Alpha Research)", "fact": "Iotova keeps lead, runoff >90%; Black Sea attacks 'change the situation' (turnout, perceptions); ~half of GERB and DPS voters say they likely won't vote; remaining GERB voters lean Gyurov, DPS voters lean Iotova"},
+    {"date": "2026-10-14", "source": "European Pravda (eurointegration.com.ua)", "fact": "summary: Iotova 44-47%, Gyurov 24-26% in latest polls; Alpha: ~30% may change their minds"}
+  ],
+  "endorsements": "GERB: no call to vote for Gyurov found as of 2026-10-15 (Borissov line: 'Непоискана подкрепа не давам'). DPS: explicit first-round non-endorsement (7 Oct).",
+  "markets": "see polymarket-2026-10-15.json: winner (incl. runoff) Iotova 0.865; first-round winner Iotova 0.97; first-round margin median ~21.5 pp (normalised); any outright first-round win 0.06"
+}

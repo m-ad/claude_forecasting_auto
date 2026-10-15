@@ -209,3 +209,43 @@ Poll mean 48.1, median 47.8 (n=6). v3: median 48.6, IQR [46.0, 51.4].
 Dead ends: banker.bg 403; no Sova Harris primary release; no Kalshi/Manifold vote-share market.
 
 Next time: final-week polls (~18–23 Oct); fresh Metaculus cohorts if the Cloudflare block lifts; GERB/DPS last-minute positioning.
+
+---
+
+## 2026-10-15 — v4 re-analysis log
+
+Metaculus aggregations NOT fetched: the parent's single call per post returned 403 (Cloudflare managed
+challenge). The bot-key API JSON is cached as `raw/metaculus-api-2026-10-15.json`: status open, 140 forecasters
+(133), 1,389 forecasts (1,246), 11 comments (9); criteria/fine print unchanged. Market snapshot
+`raw/polymarket-2026-10-15.json`; news/polls snapshot `raw/news-2026-10-15.json`. Tripwires were searched
+first, then general news.
+
+| Date | Query / source | Finding | Effect |
+|---|---|---|---|
+| 2026-10-15 | Tripwire: "Борисов Гюров подкрепа" / "Borissov GERB Gyurov October" (Sega, Taralej, Novinite, bTV) | No GERB call to vote Gyurov. Borissov line unchanged: "Непоискана подкрепа не давам" (Sega 10 Sep) | not fired |
+| 2026-10-15 | Tripwire: "ДПС Пеевски президентски избори подкрепа" → 24chasa 7 Oct | Peevski: "на първи тур никого няма да подкрепим, след това ще мислим"; praises Iotova for convening KSNS, "not support" | DPS tripwire closed, not fired (v3 missed this 7 Oct item) |
+| 2026-10-15 | Tripwire: final-week polls — en.wikipedia poll table; Mediapool election section; searches for Trend, Gallup, Alpha, Market Links (2nd wave), Myara, Sova Harris, Global Metrics, Mediana, Exacta | No poll fielded after 6 Oct published | pending |
+| 2026-10-15 | dir.bg 2 Oct (Sova Harris primary, for Trud) | 50.2 / 23.7 / 12.7, others 13.4; base = named a pair; no NOTA reported; 47.4% declare they will vote; analyst projects <2.5m voters | resolves v3 dead end; feeds NOTA re-check |
+| 2026-10-15 | alpharesearch.bg post 1054 | base "firmly decided"; 30% of them not fully sure; turnout ~37% (2.4-2.6m) | context |
+| 2026-10-15 | Denominator re-check (own calculation) | Trend/Alpha/Myara carry NOTA (4.6/2.9/2.3); Gallup/ML/Sova do not report it; ×0.975 → six-poll mean 47.5 vs 48.1 | −0.3 net (see v4 table) |
+| 2026-10-15 | Tripwire: turnout >45% | none; Sova's 47.4% is declared intention, not projection | not fired |
+| 2026-10-15 | Tripwire: scandal/debate — Club Z 180357, Sega, banker.bg | Iotova declined a pre-round-1 debate (9 Oct) despite 13 Sep "never back down" | none |
+| 2026-10-15 | Mediapool 5 Oct; dnes.bg | PP calls on Iotova to withdraw over the "Petrich Escobar" pardon (video) — within late Gallup/Myara fieldwork | already partly in polls |
+| 2026-10-15 | Al Jazeera 13 Oct; Euronews 6 Oct; WaPo 14 Oct headline (403) | Black Sea drone strikes 6 and 13 Oct; 2 ships sunk, ~21 missing; govt: Russia "likely" | new shock |
+| 2026-10-15 | Sega 13 Oct; Club Z 180468 | Iotova: condemn + de-escalation (Sega: "вял имейл"); Gyurov: NATO Art. 4, "timid reaction" | −0.3 (speculative) |
+| 2026-10-15 | novini247 9 Oct (Petrova, Alpha); Taralej 14 Oct (Dimitrova, Alpha) | effect mainly on turnout; possible Iotova–Radev friction; Iotova keeps lead; runoff >90%; GERB rest lean Gyurov, DPS lean Iotova | supports small negative |
+| 2026-10-15 | focus-news 2 Oct (Market Links 26–29 Sep) | cabinet trust 39 / distrust 40 (May 50/24); Radev 44/39 | −0.1 (drift only) |
+| 2026-10-15 | Club Z 6 Oct (Stoynev, opinion) | extrapolation: Iotova ~1.1m, Gyurov ~650k, Kostadinov ~250k; GERB→Gyurov ~65k vs ~half to Iotova | restates Alpha; none |
+| 2026-10-15 | BTA Media Review 13 Oct | finance: Gyurov €375.6k (three €100k donors); Iotova €277.9k small donors | none |
+| 2026-10-15 | European Pravda 14 Oct | repeats 44–47 vs 24–26 | none |
+| 2026-10-15 | Polymarket gamma API | winner (incl. runoff) Iotova 0.865 (0.71 on 23 Sep, 0.815 on 29 Sep), $1.18M; first-round winner 0.97; first-round margin market: normalised median ≈ 21.5 pp ($16k traded, $309k liquidity); any outright round-1 win 0.06 | margin −0.2 |
+| 2026-10-15 | Kalshi API KXBULGARIAPRES-26NOV15; Manifold search | Kalshi: 11 markets, no quotes. Manifold: no market | none |
+
+v4: median 47.7, IQR [45.1, 50.4]; p5 40.2, p10 42.3, p90 52.9, p95 54.4. Chart `charts/iotova_first_round_v4.png`
+(dot plot of published vs CIK-basis poll values).
+
+Dead ends: banker.bg (403), Capital (403), WaPo (403); no second-wave poll from any agency; no Gallup/ML NOTA figure.
+
+Next time (T−7d, 2026-10-18; then T−1d of close, 2026-10-23): final-week polls converted to the CIK basis (check
+each release for a NOTA line); any GERB move; further Black Sea incidents; Polymarket margin market drift;
+fresh Metaculus cohorts if the Cloudflare block lifts.
