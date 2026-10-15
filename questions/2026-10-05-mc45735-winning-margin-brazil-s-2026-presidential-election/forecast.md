@@ -6,11 +6,114 @@
 | **Type** | numeric (percentage points of valid votes; range 0–8, closed lower / open upper bound) |
 | **Opened / Closes / Resolves** | 2026-10-06 / 2026-10-25 / 2026-10-27 |
 | **Status** | open |
-| **Current forecast** | **Median 4.3, IQR [2.4, 6.3]** (v3, 2026-10-12) |
-| **Community (as of 2026-10-12)** | CP not retrievable 2026-10-12 (Cloudflare 403); n=78 forecasters (API). Stale 2026-10-09: CP 3.74 · Pro 3.78 · Gold 3.43 |
-| **Next review** | 2026-10-15 |
+| **Current forecast** | **Median 3.9, IQR [2.2, 5.9]** (v4, 2026-10-15) |
+| **Community (as of 2026-10-15)** | CP 3.92 [2.66, 5.31] · Pro 3.83 [2.33, 5.45] · Gold 3.87 [2.48, 5.30]; n=88 |
+| **Next review** | 2026-10-17 |
 
 <!-- Versions below, newest first. APPEND-ONLY: never edit or delete a past version. -->
+
+---
+
+## v4 — Update — 2026-10-15
+
+### Revision table
+
+| Driver | Direction | Effect on median | Note |
+|---|---|---|---|
+| **Prior (v3, 2026-10-12)** | — | **4.3, IQR [2.4, 6.3]** | signed centre F +4.2, scale 2.9, t(6) |
+| Quaest's first post-R1 runoff poll (10–13 Oct, n=2,154, face-to-face, ±2): F 46 / L 44 total, 9% blank/null, 1% undecided, so **F +2.2 of valid votes** (51.1 / 48.9) [1][2] | down | −0.3 | Quaest is one of the three named pollsters. The result is just above the "F ≤ +2" down-tripwire, so I count it as a partial fire. Quaest also has a Lula-leaning house effect: its pre-R1 wave (2–3 Oct) had F +2.3 valid, so this is no movement within Quaest, not a Lula gain. The poll average falls from +5.2 to +4.6 (ex-Vox), or from +4.6 to +4.0 (Vox at half weight). |
+| Winner markets moved about 3pp toward Lula: Polymarket F 86.05 → 83.3; Kalshi F 87.5 → 84.5 (mid) [3][4] | down | −0.1 | This is the market reaction to Quaest plus the debate news. At scale 2.8 a P(F) of 0.84 implies a signed centre of about +3.0, so my P(F) of 0.89 now sits about 5pp above the markets. |
+| Flávio says he will skip the Band debate on 18 Oct; Lula confirmed. Globo (23 Oct) is undecided [5] | down | −0.05 | Lula's main route back is the debates, and an empty chair has historically cost little in Brazil. *Speculative.* |
+| Metaculus cohorts, now fresh and in agreement: CP 3.92 [2.66, 5.31], Pro 3.83 [2.33, 5.45], gold 3.87 [2.48, 5.30] [6] | down | (check) | All three cohorts agree and sit about 0.4 below v3. That points the same way as the Quaest move. No double count: I applied no separate shift for it. |
+| Kalshi margin market (KXBRPRES2MOV): absolute-margin median ≈ 4.4, IQR ≈ [2.6, 6.1], after normalising bracket mids that sum to 1.06 [4] | up | +0.05 | Essentially unchanged from 12 Oct (4.4 [2.5, 6.4]). It is thin, at $3k–19k per bracket, and is the one source still above 4. |
+| Fewer days remain (10, down from 13) | narrower | — | Scale 2.9 → 2.8. I keep it wider than the 10-day mechanics alone suggest, because the markets give Lula more than the polls do. |
+| **New (v4)** | | **3.9, IQR [2.2, 5.9]** | signed centre F +3.8, scale 2.8, t(6). P(Flávio wins) 0.89; P(\|M\| > 8) 0.095; P(\|M\| < 2) 0.23 |
+
+### Tripwire check (from v3)
+
+| Tripwire | Status | Evidence |
+|---|---|---|
+| Quaest (14 Oct) **and** the next Datafolha wave both show F ≥ +7 valid by 2026-10-17 → up 0.8 | **not fired** | Quaest showed F +2.2 [1]. The Datafolha wave (fieldwork 13–15 Oct) was not out at the time of writing. |
+| Any of Datafolha / Quaest / AtlasIntel shows F ≤ +2 valid, or a Lula margin gain of ≥ 3pp between consecutive post-R1 waves, by 2026-10-20 → down 1.0 | **partial** | Quaest F +2.2, 0.2pp above the threshold. Its last pre-R1 wave was the same (+2.3), so there was no Lula gain within the pollster. Applied as −0.3, about a third of the full move. |
+| Final AtlasIntel / Datafolha polls show \|margin\| ≥ 7 valid by 2026-10-24 → up 1.2; ≤ 2 → down 1.2 | pending | The next AtlasIntel poll is due 19 Oct (n≈5,000, ±1) [7] |
+| Polymarket or Kalshi winner odds at 75/25 or closer before 2026-10-22 → down 0.8; ≥ 93/7 → up 0.6 | not fired | Polymarket 83.3 / 16.5; Kalshi 84.5 / 17.5 [3][4] |
+| Kalshi margin-market implied median outside [3.5, 5.5] by 2026-10-22 → move halfway | not fired | ≈ 4.4 [4] |
+
+### What resolves YES
+
+Unchanged from v1. Resolution criteria and fine print were re-read in the 2026-10-15 snapshot and are unchanged: the absolute TSE valid-vote margin between first and second place, on a 0–8 scale with an open upper bound. Close is 2026-10-25 11:00 UTC [6].
+
+### Outside view
+
+Unchanged from v1.
+
+### Inside view (changes only)
+
+- **The polls have spread out again.** Six post-R1 national polls now range from L +1.7 (Vox Brasil) through F +2.2 (Quaest) and F +4.3 (Datafolha) to F +5.4 to +5.6 (PoderData, Ipespe, AtlasIntel). The standard deviation across pollsters, about 2.5pp, is close to my scale, so the house effects are as large as the remaining campaign uncertainty. Quaest and Datafolha use face-to-face fieldwork. AtlasIntel (online) and PoderData (phone) are the high end. In 2022 the face-to-face pollsters overstated Lula, and in the 2026 R1 they understated Flávio. That is why I give Quaest full rather than extra weight.
+- **Market gap.** The markets give Lula about 16–17%; my model gives 11%. Part of the gap is the fat tail the markets price in for a debate-driven comeback. Part may be the long-shot bias common in prediction markets. I narrow it by moving the centre (+4.2 → +3.8) and by not shrinking the scale as fast as the calendar alone would.
+- **The Metaculus cohorts are now in line with me.** v3 was 0.4 above all three cohorts. v4 sits at 3.9, against CP 3.92, Pro 3.83 and gold 3.87. Agreement is not evidence in itself. It does mean there is no unexplained gap to chase.
+
+### Evidence (new since v3)
+
+- Quaest/Globo, 10–13 Oct, n=2,154, ±2, TSE BR-08729/2026: F 46 / L 44, blank or null 9%, undecided 1%. Previous wave (3 Oct): F 44 / L 42 [1][2]. One outlet reports rejection at F 54 / L 53 [2] (not verified).
+- Datafolha has a second post-R1 wave scheduled (13–15 Oct, n≈2,520), to be released 15 Oct. It was not out at the time of writing [8].
+- AtlasIntel's next poll is due Monday 19 Oct, with fieldwork 13–18 Oct, n≈5,000 online, ±1 [7].
+- Debates: Band/Estadão on 18 Oct at 20:00. Flávio said on 13 Oct that attending is "not planned"; Lula confirmed. Globo on 23 Oct is undecided on Flávio's side [5].
+- Markets on 15 Oct: Polymarket F 83.3 / L 16.5, with $182M event volume; Kalshi winner F 84–85 / L 17–18. On KXVOTEBR2, Flávio ≥ 52% of valid votes trades at about 0.65 (0.68 on 12 Oct) and ≥ 53% at about 0.37 (0.34) [3][4].
+
+### Other forecasters
+
+| Source | Value | As of | Note |
+|---|---|---|---|
+| Metaculus CP (recency-weighted) | 3.92, IQR [2.66, 5.31] | 2026-10-15 00:52 UTC | n=88 (91 on the post). It was 3.74 on 2026-10-09 [6]. |
+| Metaculus Pro | 3.83, IQR [2.33, 5.45] | 2026-10-15 | n=8 |
+| Metaculus gold medalists | 3.87, IQR [2.48, 5.30] | 2026-10-15 | n=29. It was 3.43 on 2026-10-09. All three cohorts now agree within 0.1, so no disagreement to flag. |
+| Kalshi, runoff margin (KXBRPRES2MOV) | implied \|M\| median ≈ 4.4, IQR ≈ [2.6, 6.1] | 2026-10-15 | Thin: $3k–19k per bracket [4] |
+| Kalshi, winner (KXBRPRES) | F 84.5 / L 17.5 (mids) | 2026-10-15 | about $5.7M combined volume [4] |
+| Polymarket, winner | F 83.3 / L 16.5 | 2026-10-15 | $182M event volume [3] |
+
+### Scenarios
+
+| # | Scenario | Weight (v3 → v4) | Implies (abs. margin) |
+|---|---|---|---|
+| 1 | Flávio comfortable: polls hold or widen | 0.29 → 0.24 | ≥ 6 |
+| 2 | Flávio narrow: some reversion | 0.45 → 0.46 | 2–6 |
+| 3 | Coin-flip finish | 0.20 → 0.23 | 0–2 |
+| 4 | Lula clear comeback | 0.06 → 0.07 | 2–6 |
+
+### Sensitivity
+
+| Assumption | If instead | Forecast becomes |
+|---|---|---|
+| Centre +3.8 | Poll average ex-Vox (+4.6) | median ≈ 4.7, IQR [2.8, 6.6] |
+| Centre +3.8 | Winner-market-implied (+3.0) | median ≈ 3.2, IQR [1.6, 5.1] |
+| Scale 2.8 | 2.3 (frozen electorate) | median ≈ 3.8, IQR [2.3, 5.4] |
+
+### What would change my mind (tripwires)
+
+- [ ] Datafolha (15 Oct) **and** AtlasIntel (19 Oct) both show F ≥ +6 valid → up 0.7 pp
+- [ ] Datafolha (15 Oct) or AtlasIntel (19 Oct) shows F ≤ +2 valid, or a Lula margin gain of ≥ 3pp against the same pollster's previous post-R1 wave, by 2026-10-20 → down 0.9 pp
+- [ ] Final AtlasIntel / Datafolha / Quaest polls (by 2026-10-24) show \|margin\| ≥ 7 valid → up 1.2 pp; ≤ 2 valid → down 1.2 pp
+- [ ] Polymarket or Kalshi winner odds at 75/25 or closer before 2026-10-22 → down 0.8 pp; ≥ 92/8 → up 0.6 pp
+- [ ] Flávio also skips the Globo debate (23 Oct) and the following polls show Lula gaining → down 0.3 pp
+
+### Sources
+
+1. Metrópoles, "Quaest: Flávio Bolsonaro tem 46% e Lula marca 44% no 2º turno", 2026-10-14 — https://www.metropoles.com/brasil/quaest-flavio-bolsonaro-tem-46-e-lula-marca-44-no-2o-turno (accessed 2026-10-15)
+2. TVT News, "Quaest divulga 1ª pesquisa para presidente no 2º turno Lula x Flávio Bolsonaro" — https://tvtnews.com.br/primeira-pesquisa-quaest-presidente-2-turn14-10/ (accessed 2026-10-15, search snippet); US News/Reuters, "Flavio Bolsonaro Slightly Leads Lula in Brazil Runoff, Quaest Poll Shows", 2026-10-14 — https://www.usnews.com/news/world/articles/2026-10-14/flavio-bolsonaro-slightly-leads-lula-in-brazil-runoff-quaest-poll-shows (accessed 2026-10-15, search snippet)
+3. Polymarket Gamma API, event `brazil-presidential-election` — https://polymarket.com/event/brazil-presidential-election (accessed 2026-10-15; cached `raw/polymarket-winner-2026-10-15.json`)
+4. Kalshi trade API, series KXBRPRES2MOV, KXBRPRES and KXVOTEBR2 — https://kalshi.com/markets/kxbrpres2mov (accessed 2026-10-15; cached `raw/kalshi-2026-10-15.json`)
+5. The Rio Times, "Flávio Skips Band Debate as Lula Confirms", 2026-10-14 — https://www.riotimesonline.com/brazil-flavio-bolsonaro-skips-band-debate-lula-confirms (accessed 2026-10-15)
+6. Metaculus #45735 aggregations (CP, Pro, gold), criteria and comments — cached `raw/metaculus-2026-10-15.json` (retrieved 2026-10-15)
+7. CartaCapital, "A nova pesquisa AtlasIntel sobre Lula x Flávio Bolsonaro…", 2026-10-14 — https://www.cartacapital.com.br/cartaexpressa/a-nova-pesquisa-atlasintel-sobre-lula-x-flavio-bolsonaro-a-6-dias-do-2o-turno/ (accessed 2026-10-15)
+8. Terra, "Quaest divulga nesta quarta sua 1ª pesquisa sobre segundo turno…" (also notes the Datafolha release on 15 Oct) — https://www.terra.com.br/noticias/eleicoes/quaest-divulga-nesta-quarta-sua-1-pesquisa-sobre-segundo-turno-entre-lula-e-flavio-bolsonaro,da54282265ac07b9bcaf76319831f949qx26ql7w.html (accessed 2026-10-15, search snippet)
+9. Metrópoles, AtlasIntel 3–8 Oct — https://www.metropoles.com/brasil/atlasintel-flavio-tem-528-e-lula-472-no-2o-turno-em-votos-validos ; CNN Brasil, Ipespe — https://www.cnnbrasil.com.br/eleicoes/ipespe-flavio-tem-527-dos-votos-validos-no-2o-turno-lula-473/ ; Portal Tela, Vox Brasil — https://www.portaltela.com/politica/2026/10/09/vox-brasil-lula-tem-442-e-flavio-427-no-segundo-turno/ (accessed 2026-10-12); Brasil de Fato, Datafolha 6–8 Oct — https://www.brasildefato.com.br/2026/10/08/datafolha-segundo-turno-flavio-bolsonaro-49-lula-45/ (accessed 2026-10-09) — carried forward from v3, still relied on for the post-R1 poll set
+10. Metaculus question #45735 text — https://www.metaculus.com/questions/45735/ (cached `raw/question-text-2026-10-05.json`, accessed 2026-10-05); Wikipedia, 2022 Brazilian general election — https://en.wikipedia.org/wiki/2022_Brazilian_general_election (accessed 2026-10-05) — carried forward from v1, still relied on for the resolution digest and the outside view
+
+**Question**: [What will be the winning margin in Brazil’s 2026 presidential election runoff?](https://www.metaculus.com/questions/45735/what-will-be-the-winning-margin-in-brazils-2026-presidential-election-runoff)
+**Date**: 2026-10-15
+**Forecast**: Median 3.9, IQR [2.2, 5.9]
+**Thesis**: Quaest's first post-R1 runoff poll (F +2.2 of valid votes) pulls the six-poll average down to about F +4.6 ex-outlier. Winner markets slipped 3pp toward Lula (Polymarket 83.3%, Kalshi 84.5%), and Flávio is skipping the Band debate. I centre the signed margin at F +3.8 with a 2.8pp spread. That now matches the Metaculus CP, Pros and gold medalists (3.8–3.9). Datafolha (15 Oct) and AtlasIntel (19 Oct) are the next decisive releases.
 
 ---
 
