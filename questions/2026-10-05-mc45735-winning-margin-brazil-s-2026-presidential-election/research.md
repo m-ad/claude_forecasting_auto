@@ -99,3 +99,21 @@ Next: AtlasIntel (9 Oct+) and Quaest post-R1 waves; debate dates; Kalshi price.
 Model v3: signed margin ~ 4.2 + 2.9·t(6). P(F) 0.90; |M| p5 0.54, p10 1.06, p25 2.42, p50 4.30, p75 6.34, p90 8.43, p95 9.89; P(>8) 0.122; P(<2) 0.200; P(<3) 0.32 (Kalshi 0.31).
 
 Next: Quaest 14 Oct; second Datafolha/AtlasIntel waves; Band debate 18 Oct; Kalshi margin brackets.
+
+## 2026-10-15 update (v4)
+
+| Date | Query / source | Finding | Effect on forecast |
+|---|---|---|---|
+| 2026-10-15 | Metaculus aggregations (browser path worked) | CP 3.92 [2.66, 5.31] n=88; Pro 3.83 [2.33, 5.45] n=8; gold 3.87 [2.48, 5.30] n=29; criteria unchanged | cohorts agree; ~0.4 below v3 |
+| 2026-10-15 | Metrópoles / TVT News / US News (Quaest 10–13 Oct, n=2,154) | F 46 / L 44 total, 9% B/N, 1% undecided → F +2.2 valid; pre-R1 wave F 44 / L 42 (+2.3) | down (partial tripwire) |
+| 2026-10-15 | Search "Datafolha 15 de outubro" | new wave (13–15 Oct, n≈2,520) scheduled for release 15 Oct; not yet out | pending |
+| 2026-10-15 | CartaCapital | next AtlasIntel due Mon 19 Oct, n≈5,000 online, ±1 | pending |
+| 2026-10-15 | Rio Times | Flávio says Band debate (18 Oct) attendance "not planned"; Lula confirmed; Globo (23 Oct) TBD | slight down |
+| 2026-10-15 | Kalshi API | margin brackets (mids sum 1.06, normalised): \|M\| 0–3 0.29, 3–6 0.45, 6–9 0.175, ≥9 0.085 → median ≈ 4.4, IQR ≈ [2.6, 6.1]; winner F 84.5 (was 87.5); F≥52% ≈ 0.65 | winner down |
+| 2026-10-15 | Polymarket Gamma (urllib 403; curl with UA worked) | F 83.3 / L 16.5 (was 86.05 / 12.5); $182M | down |
+| 2026-10-15 | pt.wikipedia polling page | 404 on fetch | dead end |
+| 2026-10-15 | Bloomberg 14 Oct "Bolsonaro holds narrow lead" | 403 | dead end |
+
+Model v4: signed margin ~ 3.8 + 2.8·t(6). P(F) 0.89; |M| p5 0.47, p10 0.92, p25 2.15, p50 3.92, p75 5.88, p90 7.89, p95 9.31; P(>8) 0.095; P(<2) 0.23; P(<3) 0.37 (Kalshi 0.29).
+
+Next: Datafolha 15 Oct; AtlasIntel 19 Oct; Band debate 18 Oct (Flávio absent?); Globo 23 Oct attendance.

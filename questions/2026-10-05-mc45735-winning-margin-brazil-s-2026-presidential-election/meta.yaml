@@ -18,49 +18,55 @@ dates:
   resolves: '2026-10-27'
 status: open
 current:
-  version: 3
-  date: '2026-10-12'
-  median: 4.3
+  version: 4
+  date: '2026-10-15'
+  median: 3.9
   iqr:
-  - 2.4
-  - 6.3
+  - 2.2
+  - 5.9
   community:
-    cp: null
-    pro: null
-    gold: null
-    n_forecasters: 78
-    as_of: '2026-10-12'
-next_review: '2026-10-15'
+    cp: 3.92
+    pro: 3.83
+    gold: 3.87
+    n_forecasters: 88
+    as_of: '2026-10-15'
+next_review: '2026-10-17'
 tripwires:
-- signal: Quaest (14 Oct) and next Datafolha wave both show Flávio >= +7 pp of valid votes
-  by: '2026-10-17'
+- signal: Datafolha (15 Oct) and AtlasIntel (19 Oct) both show Flávio >= +6 pp of valid votes
+  by: '2026-10-19'
   direction: up
-  magnitude: 0.8
+  magnitude: 0.7
   magnitude_unit: percentage points
   fired: null
-- signal: Datafolha, Quaest or AtlasIntel shows Flávio <= +2 valid, or a Lula margin gain >= 3 pp between
-    consecutive post-R1 waves
+- signal: Datafolha or AtlasIntel shows Flávio <= +2 valid, or a Lula margin gain >= 3 pp vs the same
+    pollster's previous post-R1 wave
   by: '2026-10-20'
   direction: down
-  magnitude: 1.0
+  magnitude: 0.9
   magnitude_unit: percentage points
   fired: null
-- signal: Final AtlasIntel/Datafolha runoff polls show |margin| >= 7 pp of valid votes
+- signal: Final AtlasIntel/Datafolha/Quaest runoff polls show |margin| >= 7 pp of valid votes
   by: '2026-10-24'
   direction: up
   magnitude: 1.2
   magnitude_unit: percentage points
   fired: null
-- signal: Final AtlasIntel/Datafolha runoff polls show |margin| <= 2 pp of valid votes
+- signal: Final AtlasIntel/Datafolha/Quaest runoff polls show |margin| <= 2 pp of valid votes
   by: '2026-10-24'
   direction: down
   magnitude: 1.2
   magnitude_unit: percentage points
   fired: null
-- signal: Polymarket or Kalshi winner odds 75/25 or closer (down 0.8) or >= 93/7 (up 0.6)
+- signal: Polymarket or Kalshi winner odds 75/25 or closer (down 0.8) or >= 92/8 (up 0.6)
   by: '2026-10-22'
   direction: down
   magnitude: 0.8
+  magnitude_unit: percentage points
+  fired: null
+- signal: Flávio also skips the Globo debate (23 Oct) and subsequent polls show Lula gaining
+  by: '2026-10-24'
+  direction: down
+  magnitude: 0.3
   magnitude_unit: percentage points
   fired: null
 resolution:

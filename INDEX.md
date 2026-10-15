@@ -1,13 +1,13 @@
 # Question index
 
-_Regenerated 2026-10-14 by `scripts/status.py --index`._
+_Regenerated 2026-10-15 by `scripts/status.py --index`._
 
 | Question | Type | Current | v | Community (CP) | Resolves | Next review | Status |
 |---|---|---|---|---|---|---|---|
 | [What first round vote share will Iliana Iotova win in the 2026 Bulgarian Presidential election?](questions/2026-09-05-mc45262-first-round-vote-share-iliana-iotova-win/forecast.md) | numeric | 48.6 [46, 51.4] | 3 | — | 2026-10-31 | 2026-10-16 | open |
 | [Who will win the 2026 Ballon d'Or?](questions/2026-09-11-mc45617-ballon-dor-2026/forecast.md) | multiple_choice | 0.44 [0.35, 0.53] | 5 | 0.465 | 2026-10-26 | 2026-10-16 | open |
 | [Which party will win the most seats in the 2026 Israeli election?](questions/2026-09-20-mc45670-which-party-win-most-seats-2026-israeli/forecast.md) | multiple_choice | 0.509 [0.434, 0.584] | 3 | — | 2026-10-28 | 2026-10-16 | open |
-| [What will be the winning margin in Brazil’s 2026 presidential election runoff?](questions/2026-10-05-mc45735-winning-margin-brazil-s-2026-presidential-election/forecast.md) | numeric | 4.3 [2.4, 6.3] | 3 | — | 2026-10-27 | 2026-10-15 | open |
+| [What will be the winning margin in Brazil’s 2026 presidential election runoff?](questions/2026-10-05-mc45735-winning-margin-brazil-s-2026-presidential-election/forecast.md) | numeric | 3.9 [2.2, 5.9] | 4 | 3.92 | 2026-10-27 | 2026-10-17 | open |
 | [Will the Trump administration or a GOP state governor deploy armed officers or troops to a polling or early voting site in 2026?](questions/2026-10-11-mc46051-trump-administration-gop-state-governor-deploy-armed/forecast.md) | binary | 26.0% [17.0%, 36.0%] | 1 | — | 2026-11-06 | 2026-10-16 | open |
 | [Will OpenAI file for an IPO during 2026?](questions/2026-08-28-mc41141-openai-file-ipo-during-2026/forecast.md) | binary | 3.0% [1.5%, 5.0%] | 2 | 2.0% | 2027-01-01 | 2026-10-16 | open |
 | [Will the United States attack Oman before 2027?](questions/2026-09-05-mc45230-united-states-attack-oman-before-2027/forecast.md) | binary | 5.5% [3.5%, 8.5%] | 3 | 4.0% | 2027-01-01 | 2026-10-16 | open |
