@@ -7,7 +7,7 @@
 | **Opened / Closes / Resolves** | ~2026-09-17 / 2026-10-27 / scheduled 2026-10-28 (annulled if no result before 2027-01-01) |
 | **Status** | open |
 | **Current forecast** | **Yashar 58.7%, Likud 40.7%, Other 0.6%** — IQR on Yashar (leading option) [51.7%, 65.7%] ≡ Likud [33.7%, 47.7%] (v4, 2026-10-15) |
-| **Community** | Yashar: CP 57.0% · Pros 57.9% · gold 57.9% **as of 2026-09-26 (stale; fresh cohorts unavailable 2026-10-09 and 2026-10-15, Cloudflare 403)**; 119 forecasters (API, 2026-10-15); Polymarket Yashar 61.75% / Likud 38.5% (mid, 2026-10-15) |
+| **Community (as of 2026-10-15 07:31 UTC, fetched 13:15 UTC after v4)** | Yashar / Likud / Other: CP 55.0 / 44.0 / 1.0 (n=117) · Pros 54.8 / 44.1 / 1.0 (n=10) · gold 54.7 / 44.3 / 1.0 (n=34); 119 forecasters. ~4pp below v4, inside its IQR: no new version, see research.md. Polymarket Yashar 61.75% / Likud 38.5% (mid, 2026-10-15) |
 | **Next review** | 2026-10-20 (T−7d); then 2026-10-24, after the last pre-blackout polls of 22–23 Oct |
 
 <!-- Versions below, newest first. APPEND-ONLY: never edit or delete a past version. -->

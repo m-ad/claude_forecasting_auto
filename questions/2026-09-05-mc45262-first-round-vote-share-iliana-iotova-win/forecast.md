@@ -7,7 +7,7 @@
 | **Opened / Closes / Resolves** | 2026-09-07 / 2026-10-24 / 2026-10-31 (election 2026-10-25) |
 | **Status** | open |
 | **Current forecast** | **Median 47.7%, IQR [45.1%, 50.4%]** (v4, 2026-10-15) |
-| **Community (as of 2026-09-24 — stale; fresh CP unavailable 2026-10-09 and 2026-10-15, Cloudflare block)** | CP 45.4 [42.2, 49.1] (n=110) · Pro 45.7 [42.8, 48.8] (n=10) · Gold 45.5 [42.5, 48.7] (n=32) · API n=140 on 2026-10-15 |
+| **Community (as of 2026-10-15 11:43 UTC, fetched 13:30 UTC after v4)** | CP 46.8 [44.0, 49.7] (n=115) · Pro 47.2 [44.5, 50.0] (n=10) · Gold 47.0 [44.3, 49.8] (n=31) · 140 forecasters. Within 1pp of v4: no new version, see research.md |
 | **Next review** | 2026-10-18 |
 
 <!-- Versions below, newest first. APPEND-ONLY: never edit or delete a past version. -->

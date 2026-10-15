@@ -251,3 +251,22 @@ with the variable unset.
    Actuaries minutes. This is only a curiosity now; it does not change the mechanics.
 5. Re-try the Metaculus aggregations when the parent's path reopens. The question closes
    2026-11-30, so the final update must land before then.
+
+## 2026-10-15 (afternoon) — fresh Metaculus cohorts, no new version
+
+The aggregation script worked again at ~13:30 UTC (it was Cloudflare-blocked at 05:00 UTC, when v3
+was written). Cached as `raw/metaculus-2026-10-15.json`. Reading as of 2026-10-15 00:07 UTC:
+
+| Cohort | Median | IQR | n | vs 2026-10-09 | vs v3 median $40.91T |
+|---|---|---|---|---|---|
+| CP (recency-weighted) | $40.996T | [$40.835T, $41.175T] | 116 | −$53bn | +$86bn |
+| Pros | $40.971T | [$40.853T, $41.127T] | 10 | −$35bn | +$61bn |
+| Gold medalists | $41.013T | [$40.873T, $41.191T] | 31 | ±$0bn | +$103bn |
+
+Decision: **no new version.** v3's tripwire ("Pro/gold both > $150bn from $40.92T") is not fired. v3
+already priced the 2026-10-09 reading (Pro +$86bn, gold +$93bn) through its 13% heavy-tail weight.
+Today's reading is the same or closer (Pro moved −$35bn toward v3), so it adds no new information
+to that integration. The Pro median sits at roughly v3's 77th percentile and the gold median near
+its 90th. That gap is worth watching: if the 2026-11-02 refunding estimate or the Oct 30 print
+does not confirm the MRF-driven weak intragovernmental path, the gold cohort is the side to move
+toward.

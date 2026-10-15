@@ -7,7 +7,7 @@
 | **Opened / Closes / Resolves** | — / 2026-11-30 / 2027-01-04 (first Debt-to-the-Penny publication of the 2026-12-31 record) |
 | **Status** | open |
 | **Current forecast** | **Median $40.91T, IQR [$40.86T, $40.96T]** (v3, 2026-10-15) |
-| **Community (as of 2026-10-15)** | fresh CP / Pro / gold unavailable (bot key hides aggregations; browser path Cloudflare-blocked); 118 forecasters. Last cached cohort reading, 2026-10-09 05:00Z: CP $41.05T (n=106) · Pro $41.01T (n=10) · Gold $41.01T (n=31). Polymarket $41T-before-2027 55% mid (no trades, thin) |
+| **Community (as of 2026-10-15 00:07 UTC, fetched 13:30 UTC after v3)** | CP $41.00T [40.84, 41.18] (n=116) · Pro $40.97T [40.85, 41.13] (n=10) · Gold $41.01T [40.87, 41.19] (n=31); 118 forecasters. Within v3's tripwire (both > $150bn away): no new version, see research.md. Polymarket $41T-before-2027 55% mid (no trades, thin) |
 | **Next review** | 2026-11-03 |
 
 <!-- Versions below, newest first. APPEND-ONLY: never edit or delete a past version. -->

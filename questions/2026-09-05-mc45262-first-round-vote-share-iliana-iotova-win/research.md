@@ -249,3 +249,14 @@ Dead ends: banker.bg (403), Capital (403), WaPo (403); no second-wave poll from 
 Next time (T−7d, 2026-10-18; then T−1d of close, 2026-10-23): final-week polls converted to the CIK basis (check
 each release for a NOTA line); any GERB move; further Black Sea incidents; Polymarket margin market drift;
 fresh Metaculus cohorts if the Cloudflare block lifts.
+
+## 2026-10-15 (afternoon) — fresh Metaculus cohorts, no new version
+
+The aggregation script worked again at ~13:30 UTC (blocked at 05:00 UTC). Cached as
+`raw/metaculus-2026-10-15.json`. Reading as of 2026-10-15 11:43 UTC: CP **46.8** [44.0, 49.7]
+(n=115), Pro **47.2** [44.5, 50.0] (n=10), Gold **47.0** [44.3, 49.8] (n=31). Since 2026-09-24 the
+cohorts have moved up ~1.4pp, toward the polls and toward v4 (47.7 [45.1, 50.4]).
+
+Decision: **no new version.** The gap is 0.5–0.9pp, well inside v4's IQR. The v3/v4 tripwire
+("fresh Pro or gold median below 46.0") is not fired. The cohorts are now observable, so that
+tripwire can be checked again before the 2026-10-24 close.

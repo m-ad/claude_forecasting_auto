@@ -230,3 +230,23 @@ Moved ~1/3 of the way, not 40%.
 - Ceremony-week logistics: Bayern's and Barcelona's fixtures on 24–25 Oct, and any camp that
   skips London.
 - Fresh Metaculus cohorts: did Pros and gold follow the 9 Oct market move?
+
+## 2026-10-15 (afternoon) — v7 after fresh Metaculus cohorts
+
+The aggregation script worked again at ~13:15 UTC (blocked at 05:00 UTC when v6 was written).
+Cached as `raw/metaculus-2026-10-15.json`. Reading as of 10:55 UTC, Kane / Yamal: CP 54.4 / 40.2
+(n=127), Pros 53.8 / 38.2 (n=10), gold 53.3 / 40.0 (n=30). On the five minor options together:
+Pros 7.9, gold 6.7, CP 5.4, against v6's 12.5. The protocol trigger "CP moved > 5pp" fired (Kane
++7.9 since 2026-10-09), so v7 was written.
+
+Markets re-pulled at 13:17 UTC (`raw/polymarket-ballon-dor-winner-2026-2026-10-15T1317Z.json`,
+`raw/kalshi-ballondor-2026-10-15T1317Z.json`): Polymarket Kane 63.35 / Yamal 27.95, on +$0.17M
+of event volume since 05:24 UTC; Kalshi 64 / 30. Unchanged in substance.
+
+Searches (EN "Ballon d'Or 2026 Kane Yamal winner leak October 15", extended; ES "Balón de Oro 2026
+ganador filtración Lamine Yamal Kane"; "Rafael Leão Ballon d'Or 2026 trophy Lamine Yamal"): no
+credible leak. A viral FullTime Report image ("Yamal wins, Mbappé 2nd") was flagged as fabricated
+by readers. A Foot Africa "Leão hands the trophy to Yamal" item could not be fetched (403) and
+is unverified. Metaculus comments cite the market flip and Kane's stats, not new facts.
+
+Dead ends: x.com (402), foot-africa.com (403).

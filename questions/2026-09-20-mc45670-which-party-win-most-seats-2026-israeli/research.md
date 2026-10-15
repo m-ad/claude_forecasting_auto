@@ -303,3 +303,24 @@ none. Nothing else in the analysis changed.
 - **Dead ends**: MediaWiki API 429 (used `action=raw` instead). ToI live-blog pages are
   ~450k characters and the fetcher truncates them; I read only the 0–200k range of the
   13 Oct page. The Haaretz 15 Oct "Lighthouse" exclusive is paywalled and was not used.
+
+## 2026-10-15 (afternoon) — fresh Metaculus cohorts, no new version
+
+The aggregation script worked again at ~13:15 UTC (blocked at 05:00 UTC). Cached as
+`raw/metaculus-2026-10-15.json`. Reading as of 2026-10-15 07:31 UTC, which is after the 14 Oct
+Channel 13 poll and the Urich report:
+
+| Cohort | Likud | Yashar | Other | n |
+|---|---|---|---|---|
+| CP | 44.0 | 55.0 | 1.0 | 117 |
+| Pros | 44.1 | 54.8 | 1.0 | 10 |
+| Gold | 44.3 | 54.7 | 1.0 | 34 |
+| v4 (this repo) | 40.7 | 58.7 | 0.6 | |
+| Polymarket (mid, 05:xx UTC) | 38.5 | 61.75 | — | |
+
+Decision: **no new version.** Pros and gold agree with each other, but they are only ~4pp from v4
+on Yashar, inside v4's IQR [51.7, 65.7] and below the protocol's 5pp community-move trigger. The
+v3 tripwire (both ≥ 8pp from 48.5) is not fired: they are +6.3 / +6.2. v4 sits between them and
+Polymarket. Polymarket breaks ties on votes, not on the next-PM rule, so the two are not strictly
+comparable. Watch the gap at the 2026-10-20 review: if the final mainstream polls do not widen
+further and the cohorts stay at ~55, shade toward them.
