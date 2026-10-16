@@ -172,6 +172,14 @@ def main() -> None:
                     f"  {sq['label']}: question {sq['id']} ({sq['type']})",
                     file=sys.stderr,
                 )
+            if "sub-question=" not in (args.url or ""):
+                # The URL's sub-question id is the only slug-to-subquestion
+                # mapping the repo keeps; submission refuses a group slug without it.
+                print(
+                    "! pin this slug's subquestion: end meta.yaml's url with "
+                    "?sub-question=<id> (or pass --url with it)",
+                    file=sys.stderr,
+                )
             if not meta_remote.get("type"):
                 print(
                     f"! the subquestions differ in type; scaffolding as --type {qtype}",

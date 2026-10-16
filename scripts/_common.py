@@ -201,9 +201,15 @@ def find_slug(needle: str) -> str | None:
     m = re.search(r"/questions/(\d+)", needle) or re.fullmatch(r"(\d+)", needle)
     if m:
         pid = int(m.group(1))
-        hits = [s for s, meta in cands if meta.get("post_id") == pid]
+        hits = [(s, meta) for s, meta in cands if meta.get("post_id") == pid]
+        # Sub-questions of one group post share its id; the URL's
+        # ``?sub-question=<id>`` is what tells the sibling slugs apart.
+        sub = re.search(r"[?&]sub-question=(\d+)", needle)
+        if sub and len(hits) > 1:
+            pin = re.compile(rf"[?&]sub-question={sub.group(1)}(?!\d)")
+            hits = [(s, meta) for s, meta in hits if pin.search(meta.get("url") or "")]
         if len(hits) == 1:
-            return hits[0]
+            return hits[0][0]
     low = needle.lower()
     hits = [
         s
