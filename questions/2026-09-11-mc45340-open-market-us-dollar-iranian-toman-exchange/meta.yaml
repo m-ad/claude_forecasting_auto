@@ -16,21 +16,21 @@ dates:
   resolves: '2026-12-31'
 status: open
 current:
-  version: 2
-  date: '2026-10-02'
-  median: 288000.0
+  version: 3
+  date: '2026-10-16'
+  median: 291000.0
   iqr:
-  - 255000.0
-  - 322000.0
+  - 258000.0
+  - 328000.0
   community:
     cp: 250000.0
     pro: 250000.0
     gold: 250000.0
-    n_forecasters: 102
-    as_of: '2026-10-02'
-next_review: '2026-10-16'
+    n_forecasters: 110
+    as_of: '2026-10-16'
+next_review: '2026-11-01'
 tripwires:
-- signal: Bonbast's 31 October close comes in at or below 240,000 toman
+- signal: Bonbast's 31 October close comes in at or below 245,000 toman
   by: '2026-10-31'
   direction: down
   magnitude: 20000
@@ -48,7 +48,7 @@ tripwires:
   magnitude: 35000
   magnitude_unit: toman per USD
   fired: null
-- signal: Hormuz commercial transits recover above 40 per day (PortWatch) for a full week
+- signal: Iranian-linked tankers transit Hormuz unblocked (PortWatch above 40 per day for a full week with the blockade eased)
   by: '2026-11-30'
   direction: down
   magnitude: 30000
@@ -59,6 +59,12 @@ tripwires:
   by: '2026-11-30'
   direction: up
   magnitude: 25000
+  magnitude_unit: toman per USD
+  fired: null
+- signal: Central bank halts or exhausts the $2bn dollar sales (announcement, or Bonbast up more than 5% in a week)
+  by: '2026-11-30'
+  direction: up
+  magnitude: 12000
   magnitude_unit: toman per USD
   fired: null
 - signal: Bonbast dark for more than five consecutive days, or a major source switches to new rials

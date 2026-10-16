@@ -322,3 +322,14 @@ probability.
 2. Its operational peak and landfall intensity. Did any TCU say 100 kt+?
 3. The CPC ENSO update of 8 Oct.
 4. Any post-Isaias genesis signal for the western Caribbean, 15–31 Oct.
+
+## 2026-10-16 — v9 update log
+
+- NHC CurrentStorms.json: only EP Trudy (HU 90 kt) and Simon (TS); no Atlantic system.
+- TWOAT 8 PM EDT 15 Oct: no formation expected in 7 days.
+- NHC TCR season page (updated 2026-10-16): Isaias listed MH, 105 kt, 959 mb, ACE 7.2. MIATWSAT text product is discontinued; the stats now live on this page.
+- ATCF best track bal092026: 105 kt at 12Z/18Z 9 Oct, 95 kt 00Z 10 Oct, then landfall/decay.
+- CSU two-week 14–27 Oct: 60/38/2 below/normal/above. MJO favourable but strong El Niño shear; weak subtropical signal in week 2.
+- Kalshi: T0 (>0) finalized YES; T1 24/26¢ (234 contracts in 24 h); T2 8/10¢.
+- Metaculus (pre-fetched, closed): CP/Pro/gold on `1` = 90.8/90.7/91.0.
+- Dead end: web search did not find CSU 10-14 coverage; got the PDF directly from tropical.colostate.edu.

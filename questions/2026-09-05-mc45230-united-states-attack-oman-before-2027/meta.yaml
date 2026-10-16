@@ -13,23 +13,23 @@ dates:
   resolves: '2027-01-01'
 status: open
 current:
-  version: 3
-  date: '2026-09-18'
-  median: 0.055
+  version: 4
+  date: '2026-10-16'
+  median: 0.035
   iqr:
-  - 0.035
-  - 0.085
+  - 0.02
+  - 0.055
   community:
-    cp: 0.04
-    pro: 0.04
-    gold: 0.05
-    n_forecasters: 127
-    as_of: '2026-09-18'
-next_review: '2026-10-16'
+    cp: 0.02
+    pro: 0.03
+    gold: 0.03
+    n_forecasters: 148
+    as_of: '2026-10-16'
+next_review: '2026-10-30'
 tripwires:
 - signal: An Omani national is reported killed or injured aboard a vessel struck by US forces, or an Omani-flagged/Omani-owned
-    vessel is damaged by US ordnance. Modal YES path under the amended criteria and undiscussed by the
-    crowd
+    vessel (incl. a dhow) is damaged by US ordnance. Watch for disclosure of the 2026-10-06 CENTCOM dhow's
+    registration/crew
   by: '2026-12-31'
   direction: up
   magnitude: 25
@@ -55,28 +55,27 @@ tripwires:
   magnitude: 8
   magnitude_unit: pp
   fired: null
-- signal: The question author narrows or widens the fine print again — trigger a re-analysis. The 2026-09-07
-    amendment moved this forecast more than any military event of the war
+- signal: Admins answer DeRuina's disputed-registration question, or the question author amends the fine
+    print
   by: '2026-12-31'
   direction: either
   magnitude: 0
   magnitude_unit: pp
   fired: null
-- signal: 2026-10-31 passes with no US munition harming Omani property, forces or nationals
-  by: '2026-10-31'
+- signal: 2026-11-30 passes with no US munition harming Omani property, forces or nationals
+  by: '2026-11-30'
   direction: down
-  magnitude: 1.5
+  magnitude: 1.0
   magnitude_unit: pp
   fired: null
 - signal: A US-Iran ceasefire or Hormuz agreement is signed and holds at least 30 days
   by: '2026-12-15'
   direction: down
-  magnitude: 2
+  magnitude: 1.5
   magnitude_unit: pp
   fired: null
-- signal: CP, Pro and gold all move outside 2%-9% — re-examine (a move down inside that band is not by
-    itself a reason to follow)
-  by: '2026-10-16'
+- signal: CP, Pro and gold all move outside 1%-7% — re-examine
+  by: '2026-11-01'
   direction: either
   magnitude: 0
   magnitude_unit: pp

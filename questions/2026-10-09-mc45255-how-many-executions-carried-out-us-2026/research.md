@@ -71,3 +71,13 @@ Rubio .72, Pavatt .72, Dennes .82, Hasan .40.
 - Next FL warrant (expected ~Oct 15–25) and its date; any December double-executions.
 - Pavatt board vote (Oct 14); Weisheit clemency + drug procurement; Rubio CCA review; Hasan habeas.
 - Arizona: identity/date of the pending warrant request, if any.
+
+## 2026-10-16 — v3 update
+
+- DPIC (fetched 2026-10-16, updated 2026-10-13): 31 executions; Robertson executed Oct 13. Upcoming list unchanged apart from that: Reaves 10/20, Weisheit/Taylor/Guardado 11/5, Rubio/Pavatt 11/12, Dennes 11/19, Hasan 12/3. Warrant outcomes: 31 of 58. Snapshots in raw/dpic-*-2026-10-16.html.
+- Pavatt: board denied clemency 3–2 on Oct 14 (KOSU, KFOR, News9).
+- Hasan: Trump cancels livestream on Oct 15 but says "He will die, as scheduled"; no habeas found.
+- Weisheit: defense asks to move the date to Nov 19 for brain scans; clemency testimony Oct 19; drugs unconfirmed (Indiana Capital Chronicle, Oct 13).
+- Searched: new Florida warrant after Oct 5 (none found), a ruling on Guardado's protocol suit (none), a Rubio stay (none), Florida drug supply (no shortage reported), other-state December dates (none; Wikipedia lists 13 pending requests: TN 6, TX 4, MS 2, AZ 1).
+- Metaculus (pre-fetched raw/metaculus-2026-10-16.json): CP/Pro/gold all ~34–37% on <39 and ~10–12% on >41. The exmateriae comment's Monte Carlo (FL new mean 2.5) gives 26/19/22/18/15.
+- Model v3 (raw/model_v3.py): 17.7/16.8/21.0/19.9/24.6. Blended 80/20 with the Pro+gold mean → 21/18/20.5/18.5/22.

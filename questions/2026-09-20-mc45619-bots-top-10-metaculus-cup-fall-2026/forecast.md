@@ -6,11 +6,125 @@
 | **Type** | discrete (0–10, integer, both bounds closed) |
 | **Opened / Closes / Resolves** | open (CP revealed 2026-09-26) / 2026-12-15 / after the Cup closes 2027-01-01 |
 | **Status** | open |
-| **Current forecast** | **Median 5, IQR [4, 5]** (mean 4.6) (v2, 2026-10-02) |
-| **Community (as of 2026-10-02)** | CP 5.08, IQR [4.04, 6.13] (n=102) · Pro 5.12 [4.03, 6.27] (n=10) · Gold 5.10 [4.01, 6.23] (n=31) |
-| **Next review** | 2026-10-16 |
+| **Current forecast** | **Median 5, IQR [4, 5]** (mean 4.6) (v3, 2026-10-16) |
+| **Community (as of 2026-10-16)** | CP 5.06, IQR [3.98, 6.14] (n=118) · Pro 5.05 [4.16, 6.03] (n=10) · Gold 5.22 [4.23, 6.23] (n=32) |
+| **Next review** | 2026-10-30 |
 
 <!-- Versions below, newest first. APPEND-ONLY: never edit or delete a past version. -->
+
+---
+
+## v3 — Update — 2026-10-16
+
+### Revision
+
+No change. Effects are on the mean of the forecast distribution (median and IQR in the last row).
+
+| Driver | Direction | Effect |
+|---|---|---|
+| Prior (v2, 2026-10-02) | — | Median 5, IQR [4, 5] (mean 4.58) |
+| Metaculus cohorts flat over 14 days: CP 5.08 → 5.06 [3.98, 6.14] (n=118); Pro 5.12 → 5.05 [4.16, 6.03] (n=10); gold 5.10 → 5.22 [4.23, 6.23] (n=32) [S1]. Daily ranges CP 5.00–5.15, Pro 4.93–5.42, gold 4.88–5.31; no public trigger behind the moves, and the 4.5/5.6 tripwire band was never breached | → | none. Moving toward them without new information would be herding; their v2 level is already in the 40%-weight blend |
+| Metaculus bot template bug [S29]: until 2026-10-15 a stale lock file pointed fresh forks' `--mode metaculus_cup` at the *Summer* Cup (33021), so new template bots "retrieved 0 questions" on the Fall tournaments. Fixed 2026-10-15 | ↓ (≥ 6 tail only, negligible) | none. Template newcomers that start a month into the Cup lose coverage and were already treated as non-contenders in v2. It does not touch the five incumbents, which run their own code |
+| Elapsed quiet time: about a third of the Cup has passed with no report of an incumbent bot (laertes, manticAI, futuresearch, cassi, preseen) withdrawing, and no rule change | → (very slight ↑ on the roll-call) | none. Absence of news is weak evidence, because no public leaderboard exists to reveal a withdrawal |
+| Live Fall Cup leaderboard still not public; no new comments in the 2026-10-16 snapshot (comment list came back empty) | → | none |
+| **New forecast** | | **Median 5, IQR [4, 5]** (mean 4.58), PMF unchanged from v2 |
+
+### Tripwire check
+
+| Tripwire from v2 | Fired? | Note |
+|---|---|---|
+| Elite incumbent absent or covering < half the Cup questions, by 2026-10-15 → down 1 per bot | **Not fired (expired; unobservable)** | No leaderboard, operator statement or news of a withdrawal (searches on 2026-10-16 [S30, S31]). Re-dated to the interim leaderboard (by 2026-11-10) rather than dropped, because the check could not be made. |
+| First interim Cup leaderboard: ≤ 3 bots → down 1; ≥ 6 → up 1, by 2026-11-10 | Not fired (pending) | Not yet published. |
+| Sixth bot inside the interim top 15, by 2026-11-15 → up 1 | Not fired (pending) | No leaderboard. The template bug [S29] makes a template-based sixth bot less likely. |
+| Admins rule on `symbiosis` / unflagged bots, by 2026-11-15 | Not fired | No new comments in the snapshot. |
+| Pro and gold medians both < 4.5 or > 5.6, by 2026-11-15 → 0.5 toward them | Not fired | Pro 5.05 and gold 5.22 on 2026-10-16. Over the window the extremes were Pro 5.42 (2026-10-08) and gold 5.31 (2026-10-14). |
+| ≥ 2 of the elite five outside the Fall FutureEval top 10, by 2026-11-30 | Not fired (pending) | No standings found. |
+| Cup rule change on bot eligibility / top-10 construction (any date) | Not fired | None found. The template's Cup mode was re-pointed at the Fall Cup, which shows Metaculus still invites bots into it [S29]. |
+
+### What resolves YES
+
+Unchanged from v1. The resolution criteria, fine print and background in `raw/metaculus-2026-10-16.json` match the 2026-10-02 snapshot word for word (checked programmatically).
+
+### Outside view
+
+unchanged from v2
+
+### Inside view
+
+Unchanged from v2. The PMF is carried forward as is:
+
+| Bots | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 |
+|---|---|---|---|---|---|---|---|---|---|---|---|
+| v3 (= v2) | 0.2% | 1.1% | 5.0% | 14.5% | 26.7% | 29.5% | 15.0% | 5.5% | 1.9% | 0.4% | 0.2% |
+
+Cumulative: P(≤3) 20.8%, P(≤4) 47.5%, P(≤5) 77.0%. The median is still a near coin-flip between 4 and 5.
+
+### Evidence
+
+New since v2:
+
+- **Cohort stability.** The comment list in the cached JSON came back empty, so no new arguments were available. The aggregates hardly moved: about 16 new forecasters joined the CP (102 → 118) and the median held at ~5.06. Gold drifted up 0.12 and Pro down 0.07. Both moves are within the post-reveal noise band and carry no information beyond what v2 already used.
+- **Template bug [S29, S32].** Fresh forks of Metaculus's official bot template forecast on the Summer Cup instead of the Fall Cup until the fix merged on 2026-10-15. The PR does not say whether existing deployments were affected. This trims the pool of late, template-based entrants a little, but v2 had already given that pool almost no chance of a top-10 seat.
+- **No Fall 2026 standings anywhere.** I searched for Fall Cup and Fall FutureEval standings, news on incumbent bots, and Metaculus announcements [S30, S31]. Every hit was Summer 2026 coverage (Mantic's $25M raise; AI took 1st, 2nd and 5th place). Per the brief, I did not fetch the Metaculus leaderboard.
+
+Absent evidence: no incumbent withdrawal, no rule change, no admin ruling. Because no public leaderboard exists, this absence is uninformative rather than reassuring.
+
+### Other forecasters
+
+| Source | Value | As of | Note |
+|---|---|---|---|
+| Metaculus CP (recency-weighted) | 5.06, IQR [3.98, 6.14] (n=118) | 2026-10-16 | 5.08 on 2026-10-02 |
+| Metaculus Pro | 5.05, IQR [4.16, 6.03] (n=10) | 2026-10-16 | 5.12 on 2026-10-02 |
+| Metaculus gold medalists | 5.22, IQR [4.23, 6.23] (n=32) | 2026-10-16 | 5.10 on 2026-10-02 |
+| Kalshi / Polymarket / Manifold | no market | 2026-10-16 | none found |
+| Sentinel Team, Mantic blog, GJOpen, INFER | no matching question | 2026-10-16 | |
+
+**Cohort disagreement: none material.** The cohorts agree within 0.17 at the median; gold sits slightly highest.
+**Where I sit:** same median bin (5), lower mean (4.58 vs ~5.1), and a narrower IQR ([4, 5] vs ~[4, 6]). My ≥ 6 tail is 23%, against the crowd's ~37%. The reasons are unchanged from v2.
+
+### Scenarios
+
+unchanged from v2
+
+### Sensitivity
+
+unchanged from v2
+
+### What would change my mind (tripwires)
+
+- [ ] **By 2026-11-10 — first public interim Cup leaderboard** (expected early November): ≤ 3 bots in the interim top 10 → **down 1**; ≥ 6 → **up 1**.
+- [ ] **By 2026-11-10 — an elite incumbent absent from the interim leaderboard** or covering under half the open Cup questions → **down 1 per bot**. All five present with full coverage → **up 0.3** on the mean (IQR to [4, 6]). (Re-dated from 2026-10-15.)
+- [ ] **By 2026-11-15 — a sixth bot inside the interim Cup top 15** → **up 1** on the ≥ 6 tail.
+- [ ] **By 2026-11-15 — admins answer the `symbiosis` / unflagged-bot question.** Not counted as bots → **down 1**; struck from the list → **up 0.5**.
+- [ ] **By 2026-11-15 — Pro and gold medians both < 4.5 or > 5.6** without a public trigger → **0.5 toward them**.
+- [ ] **By 2026-11-30 — Fall 2026 FutureEval interim standings**: ≥ 2 of the elite five outside the top 10 → **down 1**; all five in the top 5 → **up 0.3**.
+- [ ] **Any date — Metaculus Cup rule change** on bot eligibility or top-10 construction → re-analyse.
+
+### Sources
+
+Still-relevant sources carried forward with their original access dates, then the sources consulted this session.
+
+1. Metaculus #45619, "How many bots will finish in the top 10 of the Metaculus Cup Fall 2026?" — aggregations (CP / Pro / gold) and history, resolution criteria, fine print, background; the comment list was empty in this snapshot — https://www.metaculus.com/questions/45619/how-many-bots-will-finish-in-the-top-10-of-the-metaculus-cup-fall-2026 (accessed 2026-10-16; pre-fetched raw JSON in `raw/metaculus-2026-10-16.json`)
+5. Metaculus Cup Fall 2026 tournament page (dates, schedule, question count, prize pool) — https://www.metaculus.com/tournament/metaculus-cup-fall-2026/ (accessed 2026-09-20)
+6. Scott Alexander, "The AI Superforecasters Are Here", Astral Codex Ten — https://www.astralcodexten.com/p/the-ai-superforecasters-are-here (accessed 2026-09-20)
+7. Metaculus Cup Summer 2026 tournament page (58 questions; closed 2026-09-02, winners 2026-09-05) — https://www.metaculus.com/tournament/metaculus-cup-summer-2026/ (accessed 2026-09-20)
+11. Metaculus FutureEval — https://www.metaculus.com/futureeval/ and the Spring 2026 FutureEval analysis notebook https://www.metaculus.com/notebooks/45373/spring-2026-futureeval-analysis/ (accessed 2026-09-20)
+12. Metaculus Tournament Rules (bots ineligible for prizes; humans may use AI assistance) — https://www.metaculus.com/tournament-rules/ (accessed 2026-09-20)
+13. Metaculus Scores FAQ (peer score, coverage, tournament ranking) — https://www.metaculus.com/help/scores-faq/ (accessed 2026-09-20)
+14. Metaculus Medals FAQ (ranking by summed peer score over summed coverage) — https://www.metaculus.com/help/medals-faq/ (accessed 2026-09-20)
+23. Metaculus/metac-bot-template PR #114, "README: point to open-source bots; Metaculus Cup fall 2026" (template `--mode metaculus_cup` now targets `metaculus-cup-fall-2026`, tournament ID 33108) — https://github.com/Metaculus/metac-bot-template/pull/114 (accessed 2026-10-02)
+24. BySergiMM/metac-bot-template PR #11, "forecast new Metaculus Cup questions after every scheduled run" (opened and merged 2026-10-01) — https://github.com/BySergiMM/metac-bot-template/pull/11 (accessed 2026-10-02)
+25. IBM Think, "AI forecasters are catching up to humans. It's a new opportunity for businesses—if they hire the humans too", 2026-09-28 — https://www.ibm.com/think/news/ai-forecasters-new-opportunity-business-hire-humans-too (accessed 2026-10-02)
+26. Metaculus/metaculus PR #5205, "feat(futureeval): add Fall 2026 tournament and Spring 2026 pros-vs-bots results" ($58k Fall FutureEval; Spring 2026 Pro lead 1.25, 95% CI [−2.37, 4.87]) — https://github.com/Metaculus/metaculus/pull/5205 (accessed 2026-10-02)
+29. Metaculus/metac-bot-template PR #120, "Move lock to forecasting-tools 0.3.4 so tournament mode targets fall 2026" (merged 2026-10-15) — https://github.com/Metaculus/metac-bot-template/pull/120 (accessed 2026-10-16; cached `raw/github-metac-bot-template-2026-10-16.json`)
+30. NewsBytes, "AI takes 1st, 2nd and 5th places at Metaculus Cup" (Summer 2026 coverage, no Fall data; found by the 2026-10-16 searches for Fall standings) — https://www.newsbytesapp.com/news/science/ai-takes-1st-2nd-and-5th-places-at-metaculus-cup/tldr (accessed 2026-10-16)
+31. Crypto Briefing, "Mantic raises $25M for superhuman forecasting" (Summer 2026 result; no Fall data) — https://cryptobriefing.com/mantic-raises-25m-ai-forecasting/ (accessed 2026-10-16)
+32. Metaculus/metac-bot-template commit history on `main` (commits #114, #116, #117 on 2026-10-01 and #120 on 2026-10-15) — https://github.com/Metaculus/metac-bot-template/commits/main (accessed 2026-10-16; cached `raw/github-metac-bot-template-2026-10-16.json`)
+
+**Question**: [How many bots will finish in the top 10 of the Metaculus Cup Fall 2026?](https://www.metaculus.com/questions/45619/how-many-bots-will-finish-in-the-top-10-of-the-metaculus-cup-fall-2026)
+**Date**: 2026-10-16
+**Forecast**: Median 5, IQR [4, 5]
+**Thesis**: No change. All Metaculus cohorts held at ~5.1 over two quiet weeks (CP 5.06, Pro 5.05, gold 5.22 [S1]), and no tripwire fired. No Fall leaderboard is public yet, so nothing tests the five-incumbent roll-call. The only new fact, a bot-template bug that kept fresh forks off the Fall Cup until 2026-10-15 [S29], touches only the ≥ 6 tail, which I already hold below the crowd. The next real signal is the interim leaderboard expected in early November.
 
 ---
 

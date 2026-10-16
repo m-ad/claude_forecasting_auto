@@ -146,3 +146,16 @@ The end-December level is spot × (war/sanctions path) × (monetary path).
 
 Metaculus aggregations for this numeric question carry no CDF, so P(>250k) for the cohorts is
 unknowable from the API beyond "≥ 50%".
+
+## v3 search log (2026-10-16)
+
+| Date | Query / source | Finding | Use |
+|---|---|---|---|
+| 2026-10-16 | Bonbast POST `/json` | USD 266,500 / 266,300, last modified 04:22 | spot |
+| 2026-10-16 | bonbast.com/graph/usd | peak 269,600 (5 Oct), low 259,800 (13 Oct), 266,700 (15 Oct) | path; snapshot saved |
+| 2026-10-16 | Polymarket gamma: Dec / Oct / blockade-end | Dec implied median ~283k, p25 ~234k, P(>250k) ~67%, 2.0–2.5M bracket +8pp w/w; Oct 2.8M+ 51.5% (thin); blockade end Oct 31 5.5%, Nov 30 21.5%, Dec 31 35% | market comparison; de-escalation weight cut |
+| 2026-10-16 | raw/metaculus-2026-10-16.json (pre-fetched by parent) | CP/Pro/gold median AND IQR all clipped at 250k; n=110/10/30; comments 86–89% >250k, median ~290k | community |
+| 2026-10-16 | search: CBI intervention | $2bn state-bank dollar sales from ~3–4 Oct; volatility 15%→1.2% (bne 12 Oct); Ferdowsi 262.8k on 12 Oct; Hemmati: leakage to arbitrage | new down driver (near term) |
+| 2026-10-16 | CBS / CNBC / Fox / Axios | Trump 8 Oct: no strikes before 3 Nov midterms; blockade "full force"; Iran calls US response "insufficient"; strike options (MOAB) for after midterms; CENTCOM claims >40 transits in 24h (escorted non-Iranian traffic) | scenario weights; Hormuz tripwire not fired |
+| 2026-10-16 | Lloyd's List 12 Oct; straits.live | 477 non-Iranian transits in Sept; PortWatch 4 transits on 4 Oct | Hormuz tripwire not fired |
+| 2026-10-16 | globalsecurity.org oprep | HTTP 402, dead end | — |

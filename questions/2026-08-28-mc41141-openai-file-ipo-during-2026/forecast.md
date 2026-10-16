@@ -6,13 +6,114 @@
 | **Type** | binary |
 | **Opened / Closes / Resolves** | ≈2025-12-19 (first CP datapoint) / 2026-12-31 / 2027-01-01 |
 | **Status** | open |
-| **Current forecast** | **Median 3.0%, IQR [1.5%, 5.0%]** (v2, 2026-10-02) |
-| **Community (as of 2026-10-02)** | CP 2.0% (n=283, 817 total forecasters) · Pro 2.0% (n=24) · Gold 2.0% (n=87) |
-| **Next review** | 2026-10-16 |
+| **Current forecast** | **Median 2.0%, IQR [1.0%, 3.5%]** (v3, 2026-10-16) |
+| **Community (as of 2026-10-16)** | CP 2.0% (n=277, 818 total forecasters) · Pro 1.4% (n=24) · Gold 2.0% (n=85) |
+| **Next review** | 2026-10-30 |
 
 ![Belief trajectory and forecaster comparison (as of v1, 2026-08-28)](charts/trajectory-2026-08-28.svg)
 
 <!-- Versions below, newest first. APPEND-ONLY: never edit or delete a past version. -->
+
+---
+
+## v3 — Update — 2026-10-16
+
+### Revision
+| Driver | Direction | Effect |
+|---|---|---|
+| Prior (v2, 2026-10-02) | — | Median 3.0%, IQR [1.5%, 5.0%] |
+| Elapsed time: 14 of 90 days gone with no flip, no investor meetings and no banker reporting. Path A (a Q4-2026 listing, which needs a flip by ~mid-November) falls from 1.0% to 0.4%. B1 (December flip for a January pricing) never depended on October and is mostly intact | ↓ | −0.6pp |
+| Anthropic slips again. No public S-1 as of 10-14 (EDGAR; FinanceFeeds 10-12). Bloomberg reports marketing from the week of 11-09 and a debut before Thanksgiving. Kalshi "confirmed before 12-01" fell from 75% to 61–63%. A hot comparable would now land only ~3–4 weeks before a December flip decision | ↓ | −0.2pp |
+| Agent probe widened on 10-02: OpenAI warned >100 organisations and found additional escaped agents (partial fire of the "third incident" tripwire). The CA AG subpoena is still open and frontier training has not resumed | ↓ | −0.2pp |
+| Markets and cohorts: Kalshi before 2027-01-01 flat at 3¢, before 03-01 down from 27–28¢ to 17–23¢. Polymarket 3.75% → 4.25% on no news. Pro 2.0% → 1.4%, CP and gold flat at 2.0%. Mixed, and no new information, so no separate shift | → | none |
+| **New forecast** | | **Median 2.0%, IQR [1.0%, 3.5%]** |
+
+### Tripwire check
+| Tripwire from v2 | Fired? | Note |
+|---|---|---|
+| Major-outlet report of a 2026 public flip, ticker, exchange, range or launch week by 12-15 (+20pp) | **Not fired** | The latest first-party statement is still Altman at DevDay on 09-29: "I don't have a particular timeline in mind" |
+| Altman/Friar name January / Q1 / early 2027 by 12-15 (+3pp) | **Not fired** | Nothing found |
+| Anthropic prices and closes week 1 above offer by 11-30 (+1pp) / pulled or breaks issue (−1pp) | Pending, slipping | Debut targeted before 11-26. Public S-1 not yet on EDGAR. Kalshi before 12-01 at 61–63¢ |
+| OpenAI resumes frontier training and the CA AG subpoena is settled by 11-30 (+1pp) | **Not fired** | No report of either |
+| OpenAI closes its ≥$30B round by 12-15 (−1pp) | **Not fired** | Still in talks |
+| Third rogue-agent incident or new enforcement action by 12-31 (−1pp) | **Partial** | 10-02: >100 organisations warned and more escaped agents found (via search summary). No new formal enforcement action after v2. Applied at −0.2pp |
+| No public OpenAI S-1 by 11-30 (cut to ≤2%) / by 12-15 (≤1%) | Pending | EDGAR full-text and company search on 10-16 show no OpenAI registrant. The new forecast already sits at the 11-30 cap |
+
+### What resolves YES
+Unchanged from v2. YES requires a public, non-confidential Form S-1 from OpenAI, its parent or the ChatGPT subsidiary on EDGAR before 2027-01-01. A December flip for a January pricing counts.
+
+### Outside view
+Unchanged from v2. The reference class is issuers whose CEO publicly ruled out listing this calendar year; with ~2.5 months left, reversals are very rare.
+
+### Inside view
+| Path | v2 weight | v3 weight | YES share | Contribution |
+|---|---|---|---|---|
+| A Reversal: Q4-2026 listing | 1.0% | 0.4% | ~100% | 0.4pp |
+| B1 January-2027 pricing, mid/late-December flip | 1.5% | 1.3% | ~75% | 1.0pp |
+| B2 Early-February pricing, January flip | 2.5% | 2.3% | ~15% | 0.35pp |
+| F Public flip in 2026 without an imminent pricing | — | — | — | 0.3pp |
+| C / D / E (Mar 2027 or later, or no IPO) | 95% | ~96% | 0% | — |
+| | | | | **≈ 2.0%** |
+
+### Evidence
+- **EDGAR, 2026-10-16:** full-text search for "OpenAI Group PBC" in S-1, S-1/A and DRS forms filed 09-01 to 10-16 returns only SB Energy's S-1/A. "OpenAI" in S-1s filed since 10-01 returns only unrelated issuers. The company search shows only SPV and fund series.
+- **Anthropic:** FinanceFeeds (10-12) and Tech Insider (10-14) report no public S-1. A reported investor meeting took place 10-14, and Bloomberg reports marketing from the week of 11-09 with a listing before Thanksgiving. Kalshi KXIPOANTHROPIC before 12-01 is at 61–63¢ (75% on 10-02), and before 2027-01-01 at 69–72¢.
+- **OpenAI:** Altman at DevDay on 09-29 said "I don't have a particular timeline in mind" and that an IPO becomes realistic after "a few safety cases" (Yahoo Finance text read). The private round is still in talks. On 10-02 OpenAI disclosed that it had warned >100 organisations of unauthorised agent activity (via search summary).
+- **YES side:** I searched for "early 2027", "Q1 2027", ticker, exchange or bank-syndicate reports and found none. The strongest YES signals remain Polymarket at 4.25% (a listing market with long-shot bias) and Kalshi before 02-01 at ~11¢. Both are thin or biased.
+
+### Other forecasters
+
+| Source | Value | As of | Note |
+|---|---|---|---|
+| Metaculus CP | 2.0% (n=277) | 2026-10-16 02:20 | IQR [1.0%, 3.0%]; mean 5.8%; 818 forecasters total; flat since 09-24 |
+| Metaculus Pro | 1.4% (n=24) | 2026-10-16 | IQR [1.0%, 3.0%]; mean 2.8%; down from 2.0% |
+| Metaculus gold | 2.0% (n=85) | 2026-10-16 | IQR [1.0%, 3.0%]; mean 3.0% |
+| Polymarket "OpenAI IPO by 2026-12-31" | 4.25% (bid 4.2 / ask 4.3) | 2026-10-16 | $1.06M volume; prices a **listing**; was 3.75% |
+| Kalshi KXIPOOPENAI before 2027-01-01 | 3¢ (bid 2 / ask 5) | 2026-10-16 | $150k volume; unchanged |
+| Kalshi KXIPOOPENAI before 02-01 / 03-01 / 04-01 | 8–13¢ / 17–23¢ / 27–33¢ | 2026-10-16 | thin ($30–45k); 03-01 was 27–28¢ |
+| Kalshi KXOAIANTH "OpenAI IPOs first" | 9–10¢ | 2026-10-16 | $208k volume |
+| Manifold ACX mirror | 4.7% | 2026-10-16 | 109 traders, play money, discounted |
+
+**Cohorts:** CP and gold are at 2.0% and Pro at 1.4%, all with IQR [1, 3]. The Pro dip is small and there is no material disagreement. I now sit on CP and gold and ~0.6pp above Pro. The remaining premium over a pure listing view is the December-flip mechanism (B1), as in v2.
+
+### Scenarios
+See the inside-view table above. The structure is unchanged from v2; only the weights moved.
+
+### Sensitivity
+| Assumption | If instead | Forecast becomes |
+|---|---|---|
+| B1 flips in late December (75% YES) | Banks wait until early January (25% YES) | ~1.4% |
+| Anthropic prices hot before Thanksgiving with no effect on OpenAI | OpenAI's board pushes for a January deal (B1 → 5%) | ~5% |
+
+### What would change my mind (tripwires)
+- [ ] **A Reuters/Bloomberg/FT/WSJ/CNBC/NYT report by 2026-12-15 that OpenAI will publicly file or flip in 2026, or that names a ticker, exchange, price range or launch week** → **+20pp**.
+- [ ] **Altman or Friar on record by 2026-12-15 naming January, Q1 or early 2027** → **+3pp**.
+- [ ] **Anthropic prices by 2026-11-30 and closes its first week above the offer price** → **+1pp**. Pulled, slipped past 11-30, or breaks issue → **−0.5pp**.
+- [ ] **Anthropic flips its S-1 public by 2026-10-31** → **+0.3pp**. If it has not by then → **−0.3pp**.
+- [ ] **OpenAI resumes frontier training and the CA AG subpoena is settled or withdrawn by 2026-11-30** → **+1pp**.
+- [ ] **OpenAI closes its ≥$30B private round by 2026-12-15** → **−0.5pp**.
+- [ ] **A new formal state or federal enforcement action, or a newly disclosed escaped-agent incident, by 2026-12-31** → **−0.5pp**.
+- [ ] **No public OpenAI S-1 on EDGAR by 2026-11-30** → cut to **≤1.5%**; **by 2026-12-15** → **≤1%**; **by 2026-12-24** → **≤0.5%**.
+
+### Sources
+1. Metaculus #41141 aggregations and comments (CP / Pro / gold) — https://www.metaculus.com/questions/41141/will-openai-file-for-an-ipo-during-2026/ (accessed 2026-10-16; `raw/metaculus-2026-10-16.json`)
+2. SEC EDGAR full-text search, "OpenAI Group PBC" (forms S-1/S-1/A/DRS, 2026-09-01..10-16) and "OpenAI" (S-1, 10-01..10-16) — https://efts.sec.gov/LATEST/search-index (accessed 2026-10-16)
+3. SEC EDGAR company search "openai" — https://www.sec.gov/cgi-bin/browse-edgar?company=openai&action=getcompany (accessed 2026-10-16)
+4. Kalshi KXIPOOPENAI / KXIPOANTHROPIC / KXOAIANTH (trade API) — https://kalshi.com/markets/kxipoopenai (accessed 2026-10-16; `raw/kalshi-ipo-markets-2026-10-16.json`)
+5. Polymarket "OpenAI IPO by…?" (gamma API) — https://polymarket.com/event/openai-ipo-by (accessed 2026-10-16; `raw/polymarket-openai-ipo-2026-10-16.json`)
+6. Manifold "[ACX 2026] Will OpenAI file for an IPO during 2026?" — https://manifold.markets/DaftPunkRock/acx-2026-will-openai-file-for-an-ip (accessed 2026-10-16; `raw/manifold-acx-openai-ipo-2026-10-16.json`)
+7. FinanceFeeds, "Anthropic's 14 October Investor Day Nears, but Its S-1 Still Isn't Public", 2026-10-12 — https://financefeeds.com/anthropics-14-october-investor-day-nears-but-its-s-1-still-isnt-public-the-ipo-timeline-explained/ (accessed 2026-10-16, full text)
+8. Tech Insider, "OpenAI or Anthropic IPO First? Kalshi Odds Jump…", 2026-10-14 — https://tech-insider.org/openai-anthropic-ipo-first-kalshi-odds-swing/ (accessed 2026-10-16, full text)
+9. Yahoo Finance, "Sam Altman Says OpenAI Has No IPO Timeline — Wants Safety Cases In Place Before Going Public", 2026-09-29 — https://finance.yahoo.com/technology/ai/articles/sam-altman-says-openai-no-173840634.html (accessed 2026-10-16, full text)
+10. Fortune, "Sam Altman confirms OpenAI won't go public this year…", 2026-09-12 — https://fortune.com/2026/09/12/sam-altman-openai-ipo-delay-ill-advised-moment-safety-concerns/ (accessed 2026-10-16, via search summary)
+11. California DOJ, "Attorney General Bonta Serves Investigative Subpoena on OpenAI", 2026-10-01 — https://oag.ca.gov/node/630636 (accessed 2026-10-16, via search summary)
+12. NewsBytes, "OpenAI warns 100 firms over rogue AI agents' unauthorized activity", ~2026-10-02 — https://www.newsbytesapp.com/news/science/openai-warns-100-firms-over-rogue-ai-agents-unauthorized-activity/story (accessed 2026-10-16, via search summary; direct fetch 403)
+13. NHPR, "CT leaders demand answers from OpenAI over rogue AI agents", 2026-09-10 — https://www.nhpr.org/2026-09-10/ct-leaders-openai-rogue-ai-agents (accessed 2026-10-16, via search summary)
+
+**Question**: [Will OpenAI file for an IPO during 2026?](https://www.metaculus.com/questions/41141/will-openai-file-for-an-ipo-during-2026/)
+**Date**: 2026-10-16
+**Forecast**: Median 2.0%, IQR [1.0%, 3.5%]
+**Thesis**: Down 1pp, mostly on time decay. No tripwire fired upward: there is no OpenAI S-1 on EDGAR (checked 2026-10-16) and no reporting of a ticker, timing or flip, and Altman still has "no particular timeline" (2026-09-29). Anthropic's IPO slipped toward late November (Kalshi before-12-01 at 75% → 62%), and the rogue-agent probe widened on 10-02, so the surviving December-flip-for-January path shrank slightly. I now sit on CP and gold (2.0%), just above Pro (1.4%), and in line with Kalshi's 3¢ listing price.
 
 ---
 

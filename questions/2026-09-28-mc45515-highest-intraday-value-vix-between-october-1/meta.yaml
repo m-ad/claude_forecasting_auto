@@ -17,19 +17,19 @@ dates:
   resolves: '2026-12-25'
 status: open
 current:
-  version: 2
-  date: '2026-10-02'
-  median: 23.8
+  version: 3
+  date: '2026-10-16'
+  median: 23.6
   iqr:
-  - 20.4
-  - 29.0
+  - 20.6
+  - 28.6
   community:
-    cp: 24.31
-    pro: 24.39
-    gold: 24.33
-    n_forecasters: 68
-    as_of: '2026-10-02'
-next_review: '2026-10-16'
+    cp: 24.53
+    pro: 23.44
+    gold: 24.42
+    n_forecasters: 95
+    as_of: '2026-10-16'
+next_review: '2026-10-29'
 tripwires:
 - signal: Published Metaculus resolution criteria name a source other than Cboe daily HIGH, or exclude
     extended-hours prints
@@ -45,36 +45,59 @@ tripwires:
   magnitude: 0
   magnitude_unit: VIX points
   fired: false
-- signal: US 10-year Treasury yield closes at or above 5.50%
-  by: '2026-11-15'
-  direction: up
-  magnitude: 3
-  magnitude_unit: VIX points
-  fired: false
-- signal: US resumes strikes on Iran (incl. before Nov 3) or Strait of Hormuz closed with Brent settling
-    above $120
-  by: '2026-12-10'
-  direction: up
-  magnitude: 3
-  magnitude_unit: VIX points
-  fired: false
 - signal: VIX intraday high stays below 18.0 every session from 2026-10-01 through 2026-10-21 (Oct VIX
     expiry)
   by: '2026-10-21'
   direction: down
   magnitude: 1
   magnitude_unit: VIX points
-  fired: null
+  fired: false
 - signal: VIX intraday high stays below 18.0 every session from 2026-10-01 through 2026-11-06 (post-midterm)
   by: '2026-11-06'
   direction: down
   magnitude: 4
   magnitude_unit: VIX points
-  fired: null
+  fired: false
 - signal: VIX closes above 20.0 on any session before 2026-10-16
   by: '2026-10-16'
   direction: up
   magnitude: 3
+  magnitude_unit: VIX points
+  fired: false
+- signal: US 10-year Treasury yield closes at or above 5.50%
+  by: '2026-11-15'
+  direction: up
+  magnitude: 3
+  magnitude_unit: VIX points
+  fired: null
+- signal: US resumes strikes on Iran, or Strait of Hormuz closed with Brent settling above $120
+  by: '2026-12-10'
+  direction: up
+  magnitude: 3
+  magnitude_unit: VIX points
+  fired: null
+- signal: VIX intraday high stays below 20.0 every session from 2026-10-16 through 2026-11-06 (post-midterm)
+  by: '2026-11-06'
+  direction: down
+  magnitude: 2
+  magnitude_unit: VIX points
+  fired: null
+- signal: VIX closes above 22.0 on any session before 2026-11-06
+  by: '2026-11-06'
+  direction: up
+  magnitude: 3
+  magnitude_unit: VIX points
+  fired: null
+- signal: FOMC raises rates at its 2026-10-28 meeting
+  by: '2026-10-28'
+  direction: up
+  magnitude: 1
+  magnitude_unit: VIX points
+  fired: null
+- signal: S&P 500 closes 7% or more below its 2026-10-06 record close (7,818.93), i.e. at or below 7,272
+  by: '2026-12-10'
+  direction: up
+  magnitude: 4
   magnitude_unit: VIX points
   fired: null
 - signal: Continuing resolution lapses 2026-12-11 and a federal shutdown is still running on 2026-12-15

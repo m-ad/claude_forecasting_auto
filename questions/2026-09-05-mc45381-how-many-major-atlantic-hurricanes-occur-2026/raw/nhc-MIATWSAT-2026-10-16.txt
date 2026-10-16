@@ -1,0 +1,43 @@
+000
+ABNT30 KNHC 011304
+TWSAT 
+
+Monthly Tropical Weather Summary
+NWS National Hurricane Center Miami FL
+900 AM EDT Thu May 1 2025
+
+This is the last National Hurricane Center (NHC) Tropical Weather 
+Summary (TWS) text product that will be issued for the Atlantic 
+basin.  The tropical cyclone statistics from the TWS will be found 
+on <a href='https://www.hurricanes.gov'>hurricanes.gov</a> beginning with the 2025 hurricane season.  This 
+change will allow for more frequent updates to the statistics and 
+the addition of graphics and links to supporting information that 
+this text only format cannot support.  An account of tropical 
+cyclone names, classification (i.e., tropical depression, tropical 
+storm, or hurricane), and maximum sustained wind speed will be found 
+on <a href='https://www.hurricanes.gov'>hurricanes.gov</a> at this url beginning around July 1: 
+
+<a href='https://www.nhc.noaa.gov/data/tcr/index.php'>https://www.nhc.noaa.gov/data/tcr/index.php</a>?basin=atl
+
+A sample webpage is provided here, with the "2023 Atlantic Summary 
+Table (PDF)" example linked below the Tropical Cyclone Reports 
+(TCRs):
+
+<a href='https://www.nhc.noaa.gov/data/tcr/index.php'>https://www.nhc.noaa.gov/data/tcr/index.php</a>?season=2023&basin=atl 
+
+This information will be updated no less frequently than monthly 
+during the hurricane season and will be updated after the season's 
+TCRs are completed to document the official record of the season's 
+tropical cyclone activity.  Previously, the statistics and data in 
+the TWS were based on real-time operational assessments and were 
+not updated when the season's TCRs were complete.  The new 
+web-based format allows the information to be updated once the 
+post-analysis for the season is complete. 
+
+For more information, see Service Change Notice 25-22: Migration of 
+the Tropical Weather Summary Information from Text Product Format to 
+<a href='https://www.hurricanes.gov'>hurricanes.gov</a>:
+
+https://www.weather.gov/media/notification/pdf_2025/scn25-
+22_moving_info_from_tws_to_<a href='https://www.hurricanes.gov'>hurricanes.gov</a>.pdf
+  

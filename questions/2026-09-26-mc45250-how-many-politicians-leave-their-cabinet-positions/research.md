@@ -159,3 +159,13 @@ cascade p = 0.30, trimmed "adds two" share 60%→40%.
   pensions), any post-Budget mini-reshuffle talk.
 - Mahmood's formal settlement consultation response (autumn) — does Burnham overrule her?
 - Any admin comment on whether sideways moves count.
+
+## 2026-10-16 (v4 update)
+
+- Metaculus pre-fetched snapshot (`raw/metaculus-2026-10-16.json`, 01:06 UTC): CP 64.8/24.2/7.0/4.0 (n=93), Pro 68.9/21.2/5.9/4.0 (n=9), gold 64.4/24.1/7.4/4.0 (n=29). Three new comments (VectorWright 11 Oct, DaiLothbrook 12 Oct, Vlad25 13 Oct): no new facts.
+- GOV.UK ministers (WebFetch 16 Oct): same 18 in same roles, no vacancies. Wikipedia "Premiership of Andy Burnham" (edited 13 Oct): no cabinet changes since 20 July; items on early prisoner releases, Russia/Brexit claim, EU ties, "Burnham Bounce" polling (9 Oct).
+- Healey/Burnham letter to cabinet: no new money, fund pledges within budgets (Times via Devdiscourse; Express & Star 403). Budget still 28 Oct. CGT rise not ruled out.
+- 30y gilt ~6.034% reported 7 Oct (roic.ai, 403 on fetch, snippet only). No evidence of >6.25%.
+- Polymarket gamma API: Burnham out by Dec 31 = 6.05% (5.2/6.9), $31k vol. First-to-leave: Healey 13.5, Fahnbulleh 10.35, D. Alexander 6.55, Powell 5.4, McFadden 4.25, Cooper 4.45; nobody resolved.
+- Searches with no hits: October cabinet resignation; Independent Adviser referral of Burnham ministers; Mahmood/Rayner/Fahnbulleh split in Oct; Powell triple-lock follow-up after conference.
+- Model: λ 0.50 → 0.44 (decay less than proportional, Budget ahead) +0.01 (spending letter) = 0.45; cascade 0.30 (60/40); reshuffle 1.2%, PM change 3%. Result 62.3/20.1/8.4/9.1 → 62.5/20/8.5/9.

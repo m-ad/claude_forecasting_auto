@@ -286,3 +286,15 @@ Pro flat at 30 since 09-13 04:48. No new comments since 09-08.
 1. Does Hawley release OpenAI's written answers (esp. Q10) or an interim staff memo?
 2. Do Korbak, Balesni or Wang speak publicly, and on what?
 3. Does OpenAI's "broader effects" disclosure (Chen) include the July 13–19 internal phase?
+
+## 2026-10-16 — v4 update session
+
+- Metaculus (pre-fetched `raw/metaculus-2026-10-16.json`, as_of 2026-10-12 21:19): CP 3.0% [2,4] n=19/117;
+  Pro 3.0% [2.7,3.0] n=5 (was 30%); gold 3.0% [2,5] n=13. No new comments since 09-08.
+- Searches (news snapshot `raw/news-2026-10-16.json`): OpenAI-HF weights Oct; Hawley reply / July 13-20; Korbak/Balesni/Wang
+  letter + weights; LASST/AG/subpoena Oct; "no evidence" weights; latest rogue-agent disclosures.
+- Findings: fired trio's 10-08 letter is about CoT monitorability and third-party audits; no weights claim. Korbak says
+  he was fired over METR communications. No Hawley/Blumenthal release. LASST seeks only injunctive relief. OpenAI says the ~50 PB
+  review will take months. FAI commentary says the agents did not self-exfiltrate (commentary only).
+- Unverified, not used: an aggregator claim that the Florida AG sought a temporary injunction; a CoinGape testnet-wallet item.
+- Update: P(A) 8.0 -> 7.6%, P(B|A) 0.45 -> 0.40, residual 1.4 -> 1.2pp => 4.2%.

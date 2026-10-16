@@ -17,19 +17,19 @@ dates:
   resolves: '2027-01-05'
 status: open
 current:
-  version: 2
-  date: '2026-10-02'
+  version: 3
+  date: '2026-10-16'
   median: 5.0
   iqr:
   - 4.0
   - 5.0
   community:
-    cp: 5.08
-    pro: 5.12
-    gold: 5.1
-    n_forecasters: 102
-    as_of: '2026-10-02'
-next_review: '2026-10-16'
+    cp: 5.06
+    pro: 5.05
+    gold: 5.22
+    n_forecasters: 118
+    as_of: '2026-10-16'
+next_review: '2026-10-30'
 tripwires:
 - signal: 'Revealed community/Pro/gold aggregations after the 2026-09-26 CP reveal sit at or above 5 (FIRED:
     2026-09-27 CP 5.02 / Pro 5.58 / gold 5.50; 2026-10-02 CP 5.08 / Pro 5.12 / gold 5.10; applied in v2
@@ -39,9 +39,9 @@ tripwires:
   magnitude: 1
   magnitude_unit: bots
   fired: true
-- signal: Live Fall 2026 Cup leaderboard (or a bot operator's statement) shows an elite incumbent absent
-    or covering under half the open Cup questions
-  by: '2026-10-15'
+- signal: Interim Fall 2026 Cup leaderboard (or a bot operator's statement) shows an elite incumbent absent
+    or covering under half the open Cup questions (re-dated from 2026-10-15, which expired unobservable)
+  by: '2026-11-10'
   direction: down
   magnitude: 1
   magnitude_unit: bots

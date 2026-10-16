@@ -6,11 +6,157 @@
 | **Type** | numeric (VIX points; range 6–40, open bounds) |
 | **Opened / Closes / Resolves** | 2026-09-28 / 2026-12-10 / 2026-12-25 |
 | **Status** | open |
-| **Current forecast** | **Median 23.8, IQR [20.4, 29.0]** (v2, 2026-10-02) |
-| **Community (as of 2026-10-02)** | CP 24.3 [21.1, 28.7] (n=68) · Pro 24.4 [21.3, 29.0] (n=7) · Gold 24.3 [21.4, 28.3] (n=26) |
-| **Next review** | 2026-10-16 |
+| **Current forecast** | **Median 23.6, IQR [20.6, 28.6]** (v3, 2026-10-16) |
+| **Community (as of 2026-10-16)** | CP 24.5 [21.2, 28.5] (n=95) · Pro 23.4 [20.3, 28.1] (n=8) · Gold 24.4 [21.4, 28.6] (n=29) |
+| **Next review** | 2026-10-29 |
 
 <!-- Versions below, newest first. APPEND-ONLY: never edit or delete a past version. -->
+
+---
+
+## v3 — Update — 2026-10-16
+
+### Revision
+
+| Driver | Direction | Effect |
+|---|---|---|
+| Prior (v2, 2026-10-02) | — | Median 23.8, IQR [20.4, 29.0] |
+| Realised floor rises from 17.59 to **18.01** (Oct 15, 09:55 ET; Cboe CSV and Yahoo 5-minute bars agree) | ↑ lower tail only | p5 17.8 → 18.1, p10 18.4 → 18.7, p25 +0.2 |
+| Elapsed time: 10 of 59 sessions gone with spot at 14.8–16.9, and 49 left. Base-rate classes re-run (start close 15–18, 49 sessions, 18.01 floor): medians 23.1 / 23.3 / 24.1, against 23.1 / 23.4 / 25.3 in v2 | ↓ | −0.2 (mostly the contango-conditioned class drifting down; the hazard decay is offset by a higher spot, 16.46 against 15.3) |
+| Trump said on Oct 8 that the US will not strike Iran before the Nov 3 midterms; the blockade stays | ↓ | −0.2. This removes most of the late-October strike window that v2 added +0.2 for. Post-election strikes stay in the tail |
+| Hormuz tanker attacks at a wartime high (12+ in one week, a container ship sunk Oct 14); Brent 105–107 (was ~100) | ↑ | +0.1. Oil is pricing it in steadily, not in a spike, and Brent is far from the $120 tripwire |
+| Hot September CPI (+0.6% m/m, 3.7% y/y) and an AI-credit wobble (CoreWeave −15%, Oracle −9%) on Oct 14: S&P −1.1%, the worst day since July; VIX to 17.45, then 18.01 on Oct 15. VVIX up to 94 | ↑ | +0.2. It shows two live shock channels (inflation leading to Fed hikes, and AI leverage). The market shrugged them off: S&P +0.3% on Oct 15 |
+| 10-year yield is *down*: 5.09% close on Oct 15, from a 5.36% intraday high on Oct 7 | ↓ | −0.1. The bond-led channel is cooler, and 5.50% is further away |
+| VIX option forwards slightly lower (Nov-18 17.8, Dec-16 18.2, against 18.4 / 18.8). These are quotes from before the open, so low weight | → | none |
+| Metaculus: CP 24.5 and gold 24.4 are flat; Pro fell from 24.4 to **23.4** (n=8) | → | none applied. The cohorts now straddle my number |
+| **New forecast** | | **Median 23.6, IQR [20.6, 28.6]** |
+
+### Tripwire check
+
+| Tripwire from v2 | Fired? | Note |
+|---|---|---|
+| 10-year Treasury closes at or above 5.50% (by 2026-11-15) | No | Peak close 5.311% (Oct 5), peak intraday 5.364% (Oct 7). 5.089% on Oct 15 |
+| US resumes strikes on Iran, or Hormuz closed with Brent settling above $120 (by 2026-12-10) | No | Trump ruled out strikes before Nov 3. Hormuz is contested, not closed. Brent's peak settle is 106.65 (Oct 12) |
+| VIX intraday high stays below 18.0 in every session from Oct 1 to Oct 21 | **No (narrowly broken)** | Oct 15 high 18.01. The calm-regime signal did not fire. |
+| VIX intraday high stays below 18.0 in every session from Oct 1 to Nov 6 | **No (broken)** | Same print, 18.01 |
+| VIX closes above 20.0 before 2026-10-16 | No | Max close 16.87 (Oct 14) |
+| Continuing resolution lapses Dec 11 and a shutdown is still running Dec 15 | Pending | Not testable yet |
+
+### What resolves YES
+
+Unchanged from v2 (Yahoo `^VIX` daily "High", max over Oct 1 – Dec 24 inclusive; Cboe
+is the fallback). New: **Yahoo's daily bar for 2026-10-15 shows High = 0.0** (retrieved
+2026-10-16 04:23 UTC), while its own 5-minute bars show 18.01 and Cboe's CSV shows 18.01. This
+is a transient Yahoo glitch, and the "unreliable Yahoo, so use Cboe" fine print covers it. It
+matters only if Oct 15 ends up as the window max. **Realised max so far: 18.01. The outcome
+cannot be below that.**
+
+### Outside view
+
+`analysis/update_2026_10_16.py`, using Cboe history retrieved 2026-10-16. The forward max is
+over 49 sessions, floored at 18.01:
+
+| Class (start close 15–18) | Episodes | p10 / p25 / p50 / p75 / p90 | P(>25) / P(>30) / P(>40) |
+|---|---|---|---|
+| 1992+ | ~37 | 18.2 / 20.5 / 23.1 / 28.8 / 36.6 | 38% / 21% / 6% |
+| 2004+ | ~23 | 18.9 / 20.9 / 23.3 / 29.0 / 37.5 | 41% / 23% / 7% |
+| plus VIX3M 17.5–19.5 (contango, as now: VIX3M 18.5) | ~24 | 19.3 / 21.6 / 24.1 / 29.0 / 38.0 | 45% / 22% / 10% |
+
+Blend: median ≈ 23.4, IQR ≈ [20.8, 28.9].
+
+### Inside view
+
+- **Iran.** On Oct 8 Trump committed to no strikes before the Nov 3 midterms, and the blockade
+  continues [30]. Iran has escalated against shipping instead: more than 20 vessels attacked
+  in October, and a container ship sank on Oct 14 [31][32]. Brent has firmed to about $106.
+  Pricing is steady, not convex. The strike tail now opens after Nov 3, with about 7 weeks
+  left in the window.
+- **Inflation and the Fed.** September CPI came in at +0.6% m/m and 3.7% y/y on Oct 14, and
+  equities had their worst day since July [29]. The Oct 28 FOMC (Federal Open Market
+  Committee) is now a live event for a hike. Oddly, the 10-year fell to 5.09% on Oct 15.
+- **AI leverage.** CoreWeave −15% and Oracle −9% on Oct 14, on worries about debt-funded AI
+  build-outs [29]. This is a new, plausible source of a spike.
+- **Term structure.** VIX9D 14.0, VIX 16.5, VIX3M 18.5, VVIX 92.6 (Oct 15 close). Contango
+  persists, and VVIX is up from 85 to the low 90s.
+
+### Evidence
+
+See the revision table. Absent: no VIX futures inversion, no credit-spread blowout headline,
+no Fed hike yet.
+
+### Other forecasters
+
+| Source | Value | As of | Note |
+|---|---|---|---|
+| Metaculus CP (recency-weighted) | 24.5, IQR [21.2, 28.5] (n=95) | 2026-10-16 04:00 UTC | Flat from 24.3 |
+| Metaculus Pro | 23.4, IQR [20.3, 28.1] (n=8) | 2026-10-16 | Down 1.0 from 24.4 |
+| Metaculus gold medalists | 24.4, IQR [21.4, 28.6] (n=29) | 2026-10-16 | Flat |
+| Cboe VIX options (parity forwards) | Oct-21 17.2 / Nov-18 17.8 / Dec-16 18.2 | 2026-10-16 (pre-open quotes) | Slightly lower; risk-neutral Dec P(>25) about 8.5% |
+| Kalshi / Polymarket | no matching market | — | as in v2 |
+| Metaculus comments | VectorWright: about 22, with a 90% range of 18–32 (calm regime). DaiLothbrook: anchor 23.5. eylonbsh: futures flat, but heavy tails | 2026-10-11/12 | All written before the Oct 14 move |
+
+Cohort split: Pro (23.4) sits 1.1 below CP and gold (24.4–24.5). The gap is modest, and n=8
+makes it noisy. I sit between them, closer to Pro.
+
+### Scenarios
+
+| # | Scenario | Weight | Implies (window max) |
+|---|---|---|---|
+| 1 | Calm grind; nothing beyond about a 3% dip | 20% | 18.0–20 |
+| 2 | Routine wobble (earnings, FOMC Oct 28, election, CPI Nov, Iran headline) | 52% | 20–28 |
+| 3 | Real correction: a Fed hike shock, an AI-credit unwind, post-election Iran strikes | 21% | 28–38 |
+| 4 | Crisis (credit, Treasury dysfunction, Hormuz escalation) | 7% | 38–65+ |
+
+Quantiles: p5 18.1 · p10 18.7 · **p25 20.6 · p50 23.6 · p75 28.6** · p90 35.5 · p95 43.0.
+P(>30) ≈ 21%, P(>40) ≈ 6.5%.
+
+### Sensitivity
+
+| Assumption | If instead | Forecast becomes |
+|---|---|---|
+| Iran strikes stay off until after Nov 3 | Strikes before Nov 3 | Median about 26–27 |
+| FOMC holds Oct 28 | Hike | Median about 24.5 |
+| VIX stays below 20 through Nov 6 | — | Median about 21.5 at that review |
+
+### What would change my mind (tripwires)
+
+- [ ] The 10-year Treasury closes at or above 5.50% before 2026-11-15 → median +3.
+- [ ] The US resumes strikes on Iran, or Hormuz closes with Brent settling above $120,
+  before 2026-12-10 → median +3.
+- [ ] The VIX intraday high stays below 20.0 in every session from 2026-10-16 through
+  2026-11-06 → median −2.
+- [ ] A VIX close above 22.0 before 2026-11-06 → median +3.
+- [ ] The FOMC hikes on 2026-10-28 → median +1.
+- [ ] The S&P 500 closes at or below 7,272 (−7% from the Oct 6 record close of 7,818.93)
+  before 2026-12-10 → median +4.
+- [ ] The continuing resolution lapses on 2026-12-11 and a shutdown is still running on
+  2026-12-15 → median +1.
+
+### Sources
+
+Numbering follows v1/v2. 1–3 were refreshed on 2026-10-16, the carried-forward entries keep their original access dates, and 29–33 are new:
+
+1. Cboe VIX / VIX9D / VIX3M / VVIX history CSVs — https://cdn.cboe.com/api/global/us_indices/daily_prices/VIX_History.csv (accessed 2026-10-16; `raw/*_History-2026-10-16.csv`)
+2. Cboe delayed VIX option chain — https://cdn.cboe.com/api/global/delayed_quotes/options/_VIX.json (accessed 2026-10-16, 04:23 UTC, pre-open; `raw/cboe-vix-options-2026-10-16.json`)
+3. Metaculus post 45515: aggregations, criteria and comments — https://www.metaculus.com/questions/45515/ (pre-fetched snapshot as of 2026-10-16 04:00 UTC, accessed 2026-10-16; `raw/metaculus-2026-10-16.json`)
+8. Federal Reserve, FOMC meeting calendars — https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm (accessed 2026-09-28)
+9. UPI, "Trump rejects Iran's peace proposal, says war will resume after midterms" — https://www.upi.com/Top_News/US/2026/09/26/trump-rejects-iran-peace-proposal/4531790438333 (accessed 2026-09-28)
+12. Breaking Defense, "House passes funding stopgap, averting government shutdown in October" — https://breakingdefense.com/2026/09/house-passes-funding-stopgap-averting-government-shutdown-in-october/ (accessed 2026-09-28)
+19. Kelly, B., Pástor, Ľ. & Veronesi, P. (2016). "The Price of Political Uncertainty: Theory and Evidence from the Option Market." *Journal of Finance* 71(5), 2417–2480 — https://onlinelibrary.wiley.com/doi/abs/10.1111/jofi.12406 (accessed 2026-09-28)
+22. Kalshi public API series list — https://api.elections.kalshi.com/trade-api/v2/series ; Polymarket gamma search; Manifold search API (accessed 2026-09-28; no matching markets)
+26. CBS News, "Live Updates: Trump vows Iran war will end 'right after the election' or sooner, as 9,000 troops head to Mideast" (2026-10-02) — https://www.cbsnews.com/live-updates/trump-iran-war-us-midterm-elections-troops-deployment/ (accessed 2026-10-02)
+27. Kalshi series API; Polymarket gamma public-search "VIX" — https://api.elections.kalshi.com/trade-api/v2/series (accessed 2026-10-02; no matching market)
+
+29. AP via OPB, "US stocks drop to their worst day since July as inflation worsens" (2026-10-14) — https://www.opb.org/article/2026/10/14/us-stocks-drop-to-their-worst-day-since-july-as-inflation-worsens/ ; TheStreet, "Stock Market Today (Oct. 14, 2026)" — https://www.thestreet.com/stock-market-today/stock-market-today-dow-jones-sp-500-nasdaq-updates-oct-14-2026 (search snippets, accessed 2026-10-16)
+30. CBS News, "Trump promises not to resume strikes before midterm elections" — https://www.cbsnews.com/live-updates/iran-war-nuclear-donald-trump-vance-rubio-strait-of-hormuz/ (snippet, accessed 2026-10-16)
+31. CNBC, "Container ship sinks in Strait of Hormuz as Iran steps up attacks" (2026-10-14) — https://www.cnbc.com/amp/2026/10/14/container-ship-sinks-strait-hormuz-as-iran-war-attacks.html (snippet, accessed 2026-10-16)
+32. The National, "Strait of Hormuz attacks surge as Iran steps up campaign against US-backed oil shipping" (2026-10-13) — https://www.thenationalnews.com/news/gulf/2026/10/13/strait-of-hormuz-attacks-surge-as-iran-steps-up-campaign-against-us-backed-oil-shipping/ (snippet, accessed 2026-10-16)
+33. Yahoo Finance chart API: `^VIX` daily and 5-minute (extended hours), `^TNX`, `BZ=F`, `^GSPC` — https://query1.finance.yahoo.com/v8/finance/chart/%5EVIX (accessed 2026-10-16; `raw/yahoo-vix-chart-2026-10-16.json`, `raw/yahoo-vix-5m-2026-10-16.json`, `raw/yahoo-macro-2026-10-16.json`)
+
+**Question**: [What will be the highest intraday value of the VIX between October 1 and December 24, 2026?](https://www.metaculus.com/questions/45515/what-will-be-the-highest-intraday-value-of-the-vix-between-october-1-and-december-24-2026)
+**Date**: 2026-10-16
+**Forecast**: Median 23.6, IQR [20.6, 28.6]
+**Thesis**: The window max is already 18.01 (Oct 15, on the hot-CPI / AI-credit selloff), which narrowly broke the "calm below 18" tripwire. Base rates for the remaining 49 sessions from a VIX near 16.5 in contango still centre on 23–24 (Cboe history). Trump's pledge of no Iran strikes before Nov 3 and a cooler 10-year (5.09%) offset the new inflation, Fed and AI-leverage channels, so the median is about flat. Metaculus CP and gold are at 24.4–24.5; Pro is at 23.4.
 
 ---
 

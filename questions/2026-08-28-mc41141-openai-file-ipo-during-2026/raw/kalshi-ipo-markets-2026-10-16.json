@@ -1,0 +1,240 @@
+{
+ "retrieved": "2026-10-16",
+ "source": "https://api.elections.kalshi.com/trade-api/v2/markets?series_ticker=...",
+ "KXIPOOPENAI": [
+  {
+   "ticker": "KXIPOOPENAI-27MAY01",
+   "yes_sub_title": "Before May 1, 2027",
+   "yes_bid_dollars": "0.4500",
+   "yes_ask_dollars": "0.4700",
+   "last_price_dollars": "0.4500",
+   "volume_fp": "23378.68",
+   "status": "active",
+   "rules_primary": "If OpenAI confirms an IPO before May 1, 2027, then the market resolves to Yes."
+  },
+  {
+   "ticker": "KXIPOOPENAI-27JUN01",
+   "yes_sub_title": "Before Jun 1, 2027",
+   "yes_bid_dollars": "0.4900",
+   "yes_ask_dollars": "0.5400",
+   "last_price_dollars": "0.4800",
+   "volume_fp": "32798.12",
+   "status": "active",
+   "rules_primary": "If OpenAI confirms an IPO before Jun 1, 2027, then the market resolves to Yes."
+  },
+  {
+   "ticker": "KXIPOOPENAI-27APR01",
+   "yes_sub_title": "Before Apr 1, 2027",
+   "yes_bid_dollars": "0.2700",
+   "yes_ask_dollars": "0.3300",
+   "last_price_dollars": "0.3300",
+   "volume_fp": "37482.54",
+   "status": "active",
+   "rules_primary": "If OpenAI confirms an IPO before Apr 1, 2027, then the market resolves to Yes."
+  },
+  {
+   "ticker": "KXIPOOPENAI-27MAR01",
+   "yes_sub_title": "Before Mar 1, 2027",
+   "yes_bid_dollars": "0.1700",
+   "yes_ask_dollars": "0.2300",
+   "last_price_dollars": "0.1900",
+   "volume_fp": "30097.17",
+   "status": "active",
+   "rules_primary": "If OpenAI confirms an IPO before Mar 1, 2027, then the market resolves to Yes."
+  },
+  {
+   "ticker": "KXIPOOPENAI-27JAN01",
+   "yes_sub_title": "Before Jan 1, 2027",
+   "yes_bid_dollars": "0.0200",
+   "yes_ask_dollars": "0.0500",
+   "last_price_dollars": "0.0300",
+   "volume_fp": "150103.97",
+   "status": "active",
+   "rules_primary": "If OpenAI confirms an IPO before Jan 1, 2027, then the market resolves to Yes."
+  },
+  {
+   "ticker": "KXIPOOPENAI-27FEB01",
+   "yes_sub_title": "Before Feb 1, 2027",
+   "yes_bid_dollars": "0.0800",
+   "yes_ask_dollars": "0.1300",
+   "last_price_dollars": "0.1100",
+   "volume_fp": "45576.48",
+   "status": "active",
+   "rules_primary": "If OpenAI confirms an IPO before Feb 1, 2027, then the market resolves to Yes."
+  },
+  {
+   "ticker": "KXIPOOPENAI-26SEP01",
+   "yes_sub_title": "Before Sep 1, 2026",
+   "yes_bid_dollars": "0.0000",
+   "yes_ask_dollars": "1.0000",
+   "last_price_dollars": "0.0100",
+   "volume_fp": "319375.57",
+   "status": "finalized",
+   "rules_primary": "If OpenAI confirms an IPO before Sep 1, 2026, then the market resolves to Yes."
+  },
+  {
+   "ticker": "KXIPOOPENAI-26OCT01",
+   "yes_sub_title": "Before Oct 1, 2026",
+   "yes_bid_dollars": "0.0000",
+   "yes_ask_dollars": "1.0000",
+   "last_price_dollars": "0.0100",
+   "volume_fp": "137184.90",
+   "status": "finalized",
+   "rules_primary": "If OpenAI confirms an IPO before Oct 1, 2026, then the market resolves to Yes."
+  },
+  {
+   "ticker": "KXIPOOPENAI-26NOV01",
+   "yes_sub_title": "Before Nov 1, 2026",
+   "yes_bid_dollars": "0.0000",
+   "yes_ask_dollars": "0.0100",
+   "last_price_dollars": "0.0100",
+   "volume_fp": "88381.14",
+   "status": "active",
+   "rules_primary": "If OpenAI confirms an IPO before Nov 1, 2026, then the market resolves to Yes."
+  },
+  {
+   "ticker": "KXIPOOPENAI-26DEC01",
+   "yes_sub_title": "Before Dec 1, 2026",
+   "yes_bid_dollars": "0.0100",
+   "yes_ask_dollars": "0.0400",
+   "last_price_dollars": "0.0400",
+   "volume_fp": "97892.98",
+   "status": "active",
+   "rules_primary": "If OpenAI confirms an IPO before Dec 1, 2026, then the market resolves to Yes."
+  }
+ ],
+ "KXIPOANTHROPIC": [
+  {
+   "ticker": "KXIPOANTHROPIC-DATE-26OCT24",
+   "yes_sub_title": "Before Oct 24, 2026",
+   "yes_bid_dollars": "0.0000",
+   "yes_ask_dollars": "0.0100",
+   "last_price_dollars": "0.0100",
+   "volume_fp": "49061.68",
+   "status": "active",
+   "rules_primary": "If Anthropic confirms an IPO before Oct 24, 2026, then the market resolves to Yes."
+  },
+  {
+   "ticker": "KXIPOANTHROPIC-DATE-26OCT17",
+   "yes_sub_title": "Before Oct 17, 2026",
+   "yes_bid_dollars": "0.0000",
+   "yes_ask_dollars": "0.0100",
+   "last_price_dollars": "0.0100",
+   "volume_fp": "69195.84",
+   "status": "active",
+   "rules_primary": "If Anthropic confirms an IPO before Oct 17, 2026, then the market resolves to Yes."
+  },
+  {
+   "ticker": "KXIPOANTHROPIC-DATE-26OCT10",
+   "yes_sub_title": "Before Oct 10, 2026",
+   "yes_bid_dollars": "0.0000",
+   "yes_ask_dollars": "1.0000",
+   "last_price_dollars": "0.0100",
+   "volume_fp": "134585.89",
+   "status": "finalized",
+   "rules_primary": "If Anthropic confirms an IPO before Oct 10, 2026, then the market resolves to Yes."
+  },
+  {
+   "ticker": "KXIPOANTHROPIC-DATE-27MAR01",
+   "yes_sub_title": "Before Mar 1, 2027",
+   "yes_bid_dollars": "0.8400",
+   "yes_ask_dollars": "0.8700",
+   "last_price_dollars": "0.8600",
+   "volume_fp": "17718.35",
+   "status": "active",
+   "rules_primary": "If Anthropic confirms an IPO before Mar 1, 2027, then the market resolves to Yes."
+  },
+  {
+   "ticker": "KXIPOANTHROPIC-DATE-27JAN01",
+   "yes_sub_title": "Before Jan 1, 2027",
+   "yes_bid_dollars": "0.6900",
+   "yes_ask_dollars": "0.7200",
+   "last_price_dollars": "0.7200",
+   "volume_fp": "289244.11",
+   "status": "active",
+   "rules_primary": "If Anthropic confirms an IPO before Jan 1, 2027, then the market resolves to Yes."
+  },
+  {
+   "ticker": "KXIPOANTHROPIC-DATE-27FEB01",
+   "yes_sub_title": "Before Feb 1, 2027",
+   "yes_bid_dollars": "0.8400",
+   "yes_ask_dollars": "0.8500",
+   "last_price_dollars": "0.8200",
+   "volume_fp": "26567.73",
+   "status": "active",
+   "rules_primary": "If Anthropic confirms an IPO before Feb 1, 2027, then the market resolves to Yes."
+  },
+  {
+   "ticker": "KXIPOANTHROPIC-DATE-27APR01",
+   "yes_sub_title": "Before Apr 1, 2027",
+   "yes_bid_dollars": "0.8500",
+   "yes_ask_dollars": "0.8600",
+   "last_price_dollars": "0.8600",
+   "volume_fp": "24548.59",
+   "status": "active",
+   "rules_primary": "If Anthropic confirms an IPO before Apr 1, 2027, then the market resolves to Yes."
+  },
+  {
+   "ticker": "KXIPOANTHROPIC-DATE-26SEP01",
+   "yes_sub_title": "Before Sep 1, 2026",
+   "yes_bid_dollars": "0.0000",
+   "yes_ask_dollars": "1.0000",
+   "last_price_dollars": "0.0100",
+   "volume_fp": "619482.57",
+   "status": "finalized",
+   "rules_primary": "If Anthropic confirms an IPO before Sep 1, 2026, then the market resolves to Yes."
+  },
+  {
+   "ticker": "KXIPOANTHROPIC-DATE-26OCT01",
+   "yes_sub_title": "Before Oct 1, 2026",
+   "yes_bid_dollars": "0.0000",
+   "yes_ask_dollars": "1.0000",
+   "last_price_dollars": "0.0100",
+   "volume_fp": "732634.48",
+   "status": "finalized",
+   "rules_primary": "If Anthropic confirms an IPO before Oct 1, 2026, then the market resolves to Yes."
+  },
+  {
+   "ticker": "KXIPOANTHROPIC-DATE-26NOV01",
+   "yes_sub_title": "Before Nov 1, 2026",
+   "yes_bid_dollars": "0.0000",
+   "yes_ask_dollars": "0.0100",
+   "last_price_dollars": "0.0200",
+   "volume_fp": "593791.14",
+   "status": "active",
+   "rules_primary": "If Anthropic confirms an IPO before Nov 1, 2026, then the market resolves to Yes."
+  },
+  {
+   "ticker": "KXIPOANTHROPIC-DATE-26DEC01",
+   "yes_sub_title": "Before Dec 1, 2026",
+   "yes_bid_dollars": "0.6100",
+   "yes_ask_dollars": "0.6300",
+   "last_price_dollars": "0.6100",
+   "volume_fp": "231966.90",
+   "status": "active",
+   "rules_primary": "If Anthropic confirms an IPO before Dec 1, 2026, then the market resolves to Yes."
+  }
+ ],
+ "KXOAIANTH": [
+  {
+   "ticker": "KXOAIANTH-40-ANTH",
+   "yes_sub_title": "Anthropic",
+   "yes_bid_dollars": "0.9300",
+   "yes_ask_dollars": "0.9500",
+   "last_price_dollars": "0.9500",
+   "volume_fp": "210018.94",
+   "status": "active",
+   "rules_primary": "If Anthropic confirms an IPO first, before Jan 1, 2040, then the market resolves to Yes."
+  },
+  {
+   "ticker": "KXOAIANTH-40-OAI",
+   "yes_sub_title": "OpenAI",
+   "yes_bid_dollars": "0.0900",
+   "yes_ask_dollars": "0.1000",
+   "last_price_dollars": "0.0900",
+   "volume_fp": "207871.81",
+   "status": "active",
+   "rules_primary": "If OpenAI confirms an IPO first, before Jan 1, 2040, then the market resolves to Yes."
+  }
+ ]
+}

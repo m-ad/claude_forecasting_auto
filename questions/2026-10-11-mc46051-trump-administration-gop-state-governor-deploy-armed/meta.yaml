@@ -19,35 +19,36 @@ dates:
   resolves: '2026-11-06'
 status: open
 current:
-  version: 1
-  date: '2026-10-11'
-  median: 0.26
+  version: 2
+  date: '2026-10-16'
+  median: 0.21
   iqr:
-  - 0.17
-  - 0.36
+  - 0.14
+  - 0.29
   community:
-    cp: null
-    pro: null
-    gold: null
-    n_forecasters: 4
-    as_of: '2026-10-11'
-next_review: '2026-10-16'
+    cp: 0.15
+    pro: 0.17
+    gold: 0.15
+    n_forecasters: 64
+    as_of: '2026-10-16'
+next_review: '2026-10-21'
 tripwires:
-- signal: Credible report of armed federal agents inside or within 250 ft of an open early-voting/polling
-    site
+- signal: Credible report of armed federal agents inside or within 250 ft of an open early-voting/Election
+    Day site
   by: '2026-11-03'
   direction: up
-  magnitude: 35
+  magnitude: 40
+  magnitude_unit: pp
+  fired: null
+- signal: Credible report of ICE/HSI arrest inside a building hosting open early voting (e.g. Hennepin
+    County Government Center), armed status unclear
+  by: '2026-11-03'
+  direction: up
+  magnitude: 12
   magnitude_unit: pp
   fired: null
 - signal: Federal court preliminary injunction (LULAC v. DHS / DSCC v. DHS) barring armed agents at polling
     places
-  by: '2026-10-30'
-  direction: down
-  magnitude: 6
-  magnitude_unit: pp
-  fired: null
-- signal: DHS/ICE written field guidance keeping agents away from polling sites published or leaked
   by: '2026-10-30'
   direction: down
   magnitude: 5
@@ -65,8 +66,8 @@ tripwires:
   magnitude: 20
   magnitude_unit: pp
   fired: null
-- signal: Metaculus CP/Pro/gold revealed; CP <10% or >45%, or Pro+gold agree >10pp from 26% (re-analyse)
-  by: '2026-10-16'
+- signal: Metaculus CP moves >7pp from 15%, or Pro/gold move >7pp (re-check for missed fact)
+  by: '2026-10-28'
   direction: either
   magnitude: 0
   magnitude_unit: pp

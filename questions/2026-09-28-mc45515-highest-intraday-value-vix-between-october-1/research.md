@@ -173,3 +173,12 @@ Remaining 57 sessions, floored at 17.59:
 - VIX path through Oct 21 expiry (the below-18 tripwire); Q3 earnings kick-off.
 - Iran: any pre-election strikes once the carrier group arrives (late October).
 - 10Y back above 5.3%? Sept CPI (mid-October).
+
+## 2026-10-16 — v3 update log
+
+- Cboe CSVs (VIX/VIX9D/VIX3M/VVIX) are now behind a 307 redirect; used `curl -L`. Window highs so far: Oct 1 17.59, Oct 14 17.45, **Oct 15 18.01** (Yahoo 5-minute bar at 13:55 UTC agrees; Yahoo's daily bar shows High 0.0 for Oct 15, a glitch).
+- Base rates for 49 remaining sessions with the 18.01 floor: `analysis/update_2026_10_16.py`. Medians 23.1 / 23.3 / 24.1.
+- Option forwards come from quotes taken before the open (04:23 UTC), so they get low weight: Oct-21 17.2, Nov-18 17.8, Dec-16 18.2.
+- Macro (Yahoo): 10-year close 5.089% on Oct 15 (peak intraday 5.364% on Oct 7); Brent 105–107; S&P −1.1% on Oct 14 (hot CPI, 3.7% y/y; AI-credit selloff), +0.3% on Oct 15.
+- Iran: Trump said Oct 8 there will be no strikes before Nov 3; Hormuz tanker attacks are at a wartime high (CBS, CNBC, The National snippets).
+- Searches that found nothing: news from Oct 15–16 specifically, and the US VIX on Oct 15 (found via data instead).

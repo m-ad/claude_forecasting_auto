@@ -4,13 +4,174 @@
 |---|---|
 | **Source** | Metaculus #45255 (Metaculus Cup Fall 2026) — https://www.metaculus.com/questions/45255/how-many-executions-will-be-carried-out-in-the-us-in-2026 |
 | **Type** | multiple_choice (Fewer than 39 / 39 / 40 / 41 / More than 41) |
-| **Opened / Closes / Resolves** | opens 2026-10-12 / 2026-12-02 / scheduled 2027-01-01 |
+| **Opened / Closes / Resolves** | 2026-10-12 / 2026-12-02 / scheduled 2027-01-01 |
 | **Status** | open |
-| **Current forecast** | **<39 13.5%, 39 13.0%, 40 18.0%, 41 19.5%, >41 36.0%** — IQR on ">41" (leading option) [28.0%, 45.0%]; implied count median 41, IQR [40, 42] (v2, 2026-10-09) |
-| **Community** | not yet visible — question opens 2026-10-12, CP reveal 2026-10-15 (API, 2026-10-09; n=1) |
-| **Next review** | 2026-10-16 |
+| **Current forecast** | **<39 21.0%, 39 18.0%, 40 20.5%, 41 18.5%, >41 22.0%** — IQR on ">41" [15.0%, 30.0%]; implied count median 40, IQR [39, 41] (v3, 2026-10-16) |
+| **Community (as of 2026-10-16)** | CP <39 36.9 / 39 22.2 / 40 19.0 / 41 12.0 / >41 10.0 (n=62) · Pro 34/23/18/13/12 (n=9) · Gold 33.7/24.8/17.8/12.9/10.9 (n=26) |
+| **Next review** | 2026-10-23 |
 
 <!-- Versions below, newest first. APPEND-ONLY: never edit or delete a past version. -->
+
+---
+
+## v3 — Update — 2026-10-16
+
+### Revision
+
+| Driver | Direction | Effect |
+|---|---|---|
+| Prior (v2, 2026-10-09) | — | <39 13.5%, 39 13.0%, 40 18.0%, 41 19.5%, >41 36.0% |
+| Robertson executed 2026-10-13; DPIC count now 31 [1][4] | → | none: it was priced at 0.96 |
+| Oklahoma board denied Pavatt clemency 3–2 on 2026-10-14 [5]; P(executed) 0.72 → 0.86 | ↑ | >41 +2pp |
+| Trump (2026-10-15) cancels livestream but says Hasan "will die, as scheduled"; no habeas filed yet [6]; P 0.40 → 0.42 | ↑ | >41 +0.5pp |
+| Weisheit asks Indiana Supreme Court to move date to Nov 19 for brain scans; drug supply still unconfirmed [7]; P 0.72 → 0.68 | ↓ | >41 −0.5pp |
+| **Elapsed time, no new Florida warrant since Oct 5.** Warrants come ~31 days ahead, so the earliest new date is ~Nov 16; the window for new Florida executions shrinks from ~8 to ~6.5 weeks. Expected new FL warrants 3.6 → 2.9 | ↓ | >41 −9pp |
+| Other-state residual (Poisson 0.45 → 0.35): one week of the window gone, no new non-FL date anywhere [3][8] | ↓ | >41 −2pp |
+| Model output (`raw/model_v3.py`): <39 17.7, 39 16.8, 40 21.0, 41 19.9, >41 24.6 | | |
+| Metaculus Pro + gold agree on >41 ≈ 11–12% and <39 ≈ 34%, far below me. I searched for a missed fact (Florida drug supply, protocol ruling, Hasan stay, new stays) and found none. I still give the cohorts 20% weight because they agree with each other and have better track records | ↓ | >41 −2.6pp, <39 +3.3pp |
+| **New forecast** | | **<39 21.0%, 39 18.0%, 40 20.5%, 41 18.5%, >41 22.0%** |
+
+### Tripwire check
+
+| Tripwire from v1/v2 | Fired? | Note |
+|---|---|---|
+| Robertson (Oct 13) or Reaves (Oct 20) not executed on schedule | No (half resolved) | Robertson executed Oct 13 [4]. Reaves still pending: he lost in circuit court and his appeal is at the Florida Supreme Court [9] |
+| DeSantis signs a new warrant for mid/late November by Oct 24 | Not yet | None found as of Oct 16; Guardado (signed Oct 5) is still the latest [10] |
+| No new Florida warrant by Oct 31 | Not yet due | Live risk; partly priced in via the shrinking window |
+| Oklahoma board recommends clemency for Pavatt (Oct 14) | **No** | Denied 3–2 [5] |
+| Hasan files federal habeas with a stay request by Nov 20 | Not so far | Nothing filed that I could find; the Oct 15 Trump statement reaffirms the date [6] |
+| Weisheit stayed, granted clemency, or Indiana lacks drugs by Nov 4 | Partial signal, not fired | Defense asks for a Nov 19 date, still inside 2026; clemency testimony Oct 19 [7] |
+
+### What resolves YES
+
+unchanged from v2 (DPIC 2026 count; military executions count; failed executions do not).
+
+### Outside view
+
+Unchanged from v1, apart from the count. DPIC now shows 31 executions by Oct 13, and 31 of
+58 scheduled 2026 warrants have been carried out [1][3].
+
+### Inside view
+
+Total = 31 + scheduled dates that hold + new Florida warrants + others.
+
+| Date | Prisoner | P(carried out) v2 → v3 |
+|---|---|---|
+| Oct 20 | Reaves (FL) | 0.93 → 0.94 |
+| Nov 5 | Guardado (FL) | 0.92 |
+| Nov 5 | Taylor (AL) | 0.87 |
+| Nov 5 (or 19) | Weisheit (IN) | 0.72 → 0.68 |
+| Nov 12 | Rubio (TX) | 0.72 → 0.70 |
+| Nov 12 | Pavatt (OK) | 0.72 → 0.86 |
+| Nov 19 | Dennes (TX) | 0.82 → 0.83 |
+| Dec 3 | Hasan (Military) | 0.40 → 0.42 |
+
+Expected from the eight: ≈ 6.2, so 31 + 6.2 = 37.2 before additions.
+
+**Florida.** DeSantis has signed no warrant since Guardado on Oct 5. With the ~31-day lead,
+any new execution falls on or after ~Nov 16. Late 2025 had four executions between Nov 13 and
+Dec 18, and the 2026 pace is ~1.8/month. Against that sit Thompson's withdrawal and the
+pending protocol challenges. New pmf for further warrants executed by Dec 31: 0:4%, 1:10%,
+2:22%, 3:32%, 4:22%, 5:8%, 6:2% (mean 2.9), each 93% to complete. Thompson re-warranted
+before year-end is folded in here. **Others:** Poisson(0.35).
+
+Model (400k draws, shared logit shock σ = 0.4): mean 40.2, 5–95% [37, 43], IQR [39, 41].
+
+### Evidence
+
+- DPIC: 31 executions in 6 states as of 2026-10-13; upcoming list shows the 8 dates above,
+  none stayed [1][2][3].
+- Robertson executed 12:32 pm Oct 13; Florida's 17th of 2026 [4].
+- Pavatt: board denied clemency 3–2 on Oct 14. AG Drummond: "Justice will be served … Nov. 12."
+  Stitt has granted clemency only after a favourable board vote (Wood, 2025), so a denial
+  makes commutation unlikely [5].
+- Hasan: the livestream is cancelled; Trump: "He will die, as scheduled, by firing squad" [6].
+  No habeas reported.
+- Weisheit: delay request to Nov 19, federal judge funded brain scans; drug acquisition still
+  unconfirmed [7].
+- Absent: no new Florida warrant (Oct 6–16), no new date in any other state, no ruling on
+  Guardado's protocol suit [10][11].
+
+### Other forecasters
+
+| Source | Value | As of | Note |
+|---|---|---|---|
+| Metaculus CP (recency-weighted) | <39 36.9 / 39 22.2 / 40 19.0 / 41 12.0 / >41 10.0 (n=62) | 2026-10-16 | <39 rose 27.5% → 36.9% since the reveal |
+| Metaculus Pro | 34 / 23 / 18 / 13 / 12 (n=9) | 2026-10-16 | <39 went 20.7% → 34% |
+| Metaculus gold medalists | 33.7 / 24.8 / 17.8 / 12.9 / 10.9 (n=26) | 2026-10-16 | close to the Pros |
+| exmateriae comment (own Monte Carlo) | 26 / 19 / 22 / 18 / 15 | 2026-10-12 | FL new mean ~2.5; fragile-date odds similar to mine |
+| Kalshi / Polymarket / Manifold | no market | 2026-10-16 | — |
+
+**Material disagreement.** All three cohorts agree with each other and put ~34–37% on "<39"
+against my 21%, and ~11% on ">41" against my 22%. The most detailed public comment
+(exmateriae) is itself above the cohorts on 40–>41. That suggests the cohorts assume Florida
+adds ≤ 2 more, or that more fragile dates fail. I looked for a fact behind that (a Florida
+pause, a drug shortage, a protocol ruling, a Hasan stay) and found none. I moved most of the
+way by re-deriving: the shrinking Florida window accounts for most of the 14pp drop on ">41".
+I added a 20% blend toward Pro/gold for the rest and did not herd further.
+
+### Scenarios
+
+| # | Scenario | Weight | Implies |
+|---|---|---|---|
+| 1 | Florida adds ≤ 1 and two or more fragile dates (IN, TX-Rubio, Hasan) fall | 21.0% | < 39 |
+| 2 | Florida adds ~2; Hasan stayed; one more fragile date falls | 18.0% | 39 |
+| 3 | Central: Florida adds 2–3; Hasan stayed | 20.5% | 40 |
+| 4 | Florida adds 3, or 2 plus Hasan | 18.5% | 41 |
+| 5 | Florida keeps ~2/month (4+) or Hasan plus 3 FL; most dates hold | 22.0% | > 41 |
+
+### Sensitivity
+
+| Assumption | If instead | Forecast becomes (model, before blend) |
+|---|---|---|
+| FL new mean 2.9 | mean ~2 | <39 28, 39 22, 40 22, 41 16, >41 12 |
+| | mean ~3.6 (v2 assumption) | <39 11, 39 12, 40 18, 41 21, >41 38 |
+| Hasan 0.42 | 0.15 / 0.70 | >41 19.5 / 29.6 |
+| Others λ 0.35 | 0.15 / 1.0 | >41 20.7 / 37.5 |
+
+The Florida pace is still the lever. It shows up within ~10 days, as a warrant signed or not.
+
+### What would change my mind (tripwires)
+
+- [ ] Reaves (FL) not executed on **2026-10-20** → ">41" −5pp, mass to <39/39.
+- [ ] DeSantis signs a new warrant for a mid/late-November date by **2026-10-24** → ">41" +4pp; two new warrants by **2026-11-07** → ">41" +8pp.
+- [ ] No new Florida warrant by **2026-10-31** → ">41" −7pp, "<39" +6pp.
+- [ ] Hasan files federal habeas with a stay request by **2026-11-20** → ">41" −4pp; a public statement that he will not challenge → +4pp.
+- [ ] Weisheit stayed past 2026, granted clemency, or Indiana fails to obtain drugs by **2026-11-04** → ">41" −3pp.
+- [ ] Rubio stayed by the Texas Court of Criminal Appeals on competency by **2026-11-11** → ">41" −3pp.
+- [ ] Gov. Stitt commutes Pavatt despite the board vote by **2026-11-11** → ">41" −3pp.
+
+### Sources
+
+1. DPIC — Executions in 2026 (31, updated 2026-10-13) — https://deathpenaltyinfo.org/executions/2026 (accessed 2026-10-16; snapshot `raw/dpic-executions-2026-2026-10-16.html`)
+2. DPIC — Upcoming Executions (updated 2026-10-13) — https://deathpenaltyinfo.org/executions/upcoming-executions (accessed 2026-10-16; `raw/dpic-upcoming-2026-10-16.html`)
+3. DPIC — Outcomes of Death Warrants in 2026 (31 of 58) — https://deathpenaltyinfo.org/executions/upcoming-executions/outcomes-of-warrants/outcomes-of-death-warrants-in-2026 (accessed 2026-10-16; `raw/dpic-warrant-outcomes-2026-10-16.html`)
+4. Turn to 10 — Florida executes prisoner who admitted killing cellmate to get death sentence — https://turnto10.com/news/nation-world/florida-executes-prisoner-who-admitted-killing-cellmate-to-get-death-sentence-authorities-execution-death-row-inmate-lethal-injection-capital-punishment-firing-squad-christa-pike-murder-strangulation-florida-department-of-corrections-true-crime (accessed 2026-10-16)
+5. KOSU — Oklahoma parole board rejects clemency for James Pavatt — https://www.kosu.org/james-pavatt-clemency-denied ; KFOR — https://kfor.com/news/local/clemency-denied-for-oklahoma-death-row-inmate-james-pavatt/ (accessed 2026-10-16)
+6. CBS News — Trump calls off plan to livestream Fort Hood shooter's execution — https://www.cbsnews.com/news/trump-fort-hood-shooter-nidal-hasan-execution-live-stream/ ; Washington Times — https://www.washingtontimes.com/news/2026/oct/15/donald-trump-bipartisan-backlash-says-pentagon-wont-livestream/ (accessed 2026-10-16)
+7. Indiana Capital Chronicle — Indiana death row inmate seeks execution delay for brain scans ahead of clemency hearings — https://indianacapitalchronicle.com/2026/10/13/indiana-death-row-inmate-seeks-execution-delay-for-brain-scans-ahead-of-clemency-hearings/ (accessed 2026-10-16)
+8. Wikipedia — List of people scheduled to be executed in the United States (edited 2026-10-15) — https://en.wikipedia.org/wiki/List_of_people_scheduled_to_be_executed_in_the_United_States (accessed 2026-10-16)
+9. WPTV — Family of death row inmate William Reaves pleads for clemency ahead of Oct. 20 execution — https://www.wptv.com/wptv-investigates/i-love-him-family-of-death-row-inmate-william-reaves-pleads-for-clemency-ahead-of-oct-20-execution (accessed 2026-10-16)
+10. WUSF — DeSantis signs warrant for record 20th execution in Florida this year — https://www.wusf.org/courts-law/2026-10-05/desantis-signs-warrant-for-record-20th-execution-in-florida-this-year (accessed 2026-10-16)
+11. Florida Death Penalty substack — New federal lawsuit challenges Florida's lethal injection protocol — https://fladeathpenalty.substack.com/p/new-federal-lawsuit-challenges-floridas (accessed 2026-10-16)
+12. Metaculus #45255 — CP / Pro / gold aggregations and comments (pre-fetched to `raw/metaculus-2026-10-16.json`) — https://www.metaculus.com/questions/45255/ (accessed 2026-10-16)
+
+Carried forward from v1/v2 (still relied on):
+
+13. DPIC — Executions in 2025 (47) — https://deathpenaltyinfo.org/executions/2025 (accessed 2026-10-09)
+14. CBS Miami — DeSantis cancels execution of William Lee Thompson — https://cbsnews.com/miami/news/desantis-cancels-execution-william-lee-thompson (accessed 2026-10-09)
+15. OPB/AP — Tennessee governor halts executions after Christa Gail Pike survives lethal injection — https://www.opb.org/article/2026/10/01/tennessee-governor-halts-executions-after-christa-gail-pike-survives-lethal-injection/ (accessed 2026-10-09)
+16. Military Times — Army sets date, location for execution of Nidal Malik Hasan — https://www.militarytimes.com/news/your-military/2026/10/07/army-sets-date-location-for-execution-of-nidal-malik-hasan/ (accessed 2026-10-09)
+17. Washington Times/AP — As Army moves to execute Fort Hood shooter, questions about procedure linger — https://www.washingtontimes.com/news/2026/oct/7/questions-procedure-linger-army-moves-execute-fort-hood-shooter/ (accessed 2026-10-09)
+18. KRGV — John Allen Rubio found competent to be executed — https://www.krgv.com/news/john-allen-rubio-found-competent-to-be-executed (accessed 2026-10-09)
+19. Alabama Reflector — Gov. Kay Ivey schedules November execution for Michael Taylor — https://alabamareflector.com/?p=22694 (accessed 2026-10-09)
+20. TDCJ — Scheduled Executions (Rubio 11/12, Dennes 11/19) — https://www.tdcj.texas.gov/death_row/scheduled_executions.html (accessed 2026-10-09)
+
+**Question**: [How many executions will be carried out in the US in 2026?](https://www.metaculus.com/questions/45255/how-many-executions-will-be-carried-out-in-the-us-in-2026)
+**Date**: 2026-10-16
+**Forecast**: Fewer than 39 21.0%, 39 18.0%, 40 20.5%, 41 18.5%, More than 41 22.0% (IQR on "More than 41" [15.0%, 30.0%]; implied count median 40, IQR [39, 41])
+**Thesis**: DPIC has 31 executions (Robertson, Oct 13), and eight dates remain, worth ≈ 6.2; Pavatt's clemency denial and Trump's "as scheduled" for Hasan firm two of them. No Florida warrant since Oct 5 means new Florida dates cannot start before ~Nov 16, which cuts expected Florida additions from 3.4 to ~2.7 and the median count from 41 to 40. Metaculus Pro and gold medalists (">41" ≈ 11%) still sit below me; I found no fact behind the gap and give them 20% weight.
+
 
 ---
 

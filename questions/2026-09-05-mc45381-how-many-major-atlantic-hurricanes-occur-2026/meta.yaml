@@ -13,49 +13,48 @@ dates:
   resolves: '2026-11-30'
 status: open
 current:
-  version: 8
-  date: '2026-10-09'
-  median: 0.869
+  version: 9
+  date: '2026-10-16'
+  median: 0.91
   iqr:
-  - 0.845
-  - 0.895
+  - 0.885
+  - 0.935
   community:
-    cp: 0.886
-    pro: 0.879
-    gold: 0.859
-    n_forecasters: 164
-    as_of: '2026-10-09'
-next_review: '2026-10-16'
+    cp: 0.908
+    pro: 0.907
+    gold: 0.91
+    n_forecasters: 162
+    as_of: '2026-10-16'
+next_review: '2026-10-23'
 tripwires:
-- signal: NHC TWO flags >= 50% 7-day formation in the Gulf, western Caribbean or SW Atlantic
-  by: '2026-11-15'
+- signal: NHC TWO shows >= 40% 7-day formation in the Gulf, western Caribbean or SW Atlantic
+  by: '2026-11-20'
   direction: down
-  magnitude: 5
+  magnitude: 4
   magnitude_unit: pp
   fired: null
 - signal: NHC forecasts >= 100 kt for any new named storm - option `2` to ~60%
   by: '2026-11-30'
   direction: down
-  magnitude: 45
+  magnitude: 50
   magnitude_unit: pp
   fired: null
-- signal: CSU two-week forecasts (10-14, 10-28) favour near- or above-normal activity
+- signal: CSU two-week forecast of 2026-10-28 favours near- or above-normal (> 50% combined)
   by: '2026-10-28'
   direction: down
-  magnitude: 3
+  magnitude: 2
   magnitude_unit: pp
   fired: null
-- signal: NHC monthly summary or advisory archive lists Isaias below 111 mph, or retracts the 105 kt estimate
-    - option `0` to ~15%
+- signal: NHC season table or Isaias TCR lists Isaias below 96 kt before 1 Dec
   by: '2026-11-30'
-  direction: up
+  direction: down
   magnitude: 15
   magnitude_unit: pp
   fired: null
-- signal: Quiet through 2026-11-01 with no outlook area - option `1` to ~93%
+- signal: Quiet through 2026-11-01 with no outlook area - option `1` to ~94%
   by: '2026-11-01'
   direction: up
-  magnitude: 6
+  magnitude: 3
   magnitude_unit: pp
   fired: null
 resolution:
