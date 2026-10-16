@@ -16,19 +16,19 @@ dates:
   resolves: '2027-01-01'
 status: open
 current:
-  version: 1
-  date: '2026-10-09'
-  median: 0.465
+  version: 2
+  date: '2026-10-16'
+  median: 0.455
   iqr:
-  - 0.395
-  - 0.535
+  - 0.385
+  - 0.525
   community:
     cp: null
     pro: null
     gold: null
-    n_forecasters: 2
-    as_of: '2026-10-09'
-next_review: '2026-10-16'
+    n_forecasters: 58
+    as_of: '2026-10-16'
+next_review: '2026-10-19'
 tripwires:
 - signal: Final-week poll average (polls ending by 2026-11-05) has Opportunity < 5.0% (National-led up)
   by: '2026-11-05'
@@ -42,22 +42,34 @@ tripwires:
   magnitude: 6
   magnitude_unit: pp
   fired: null
-- signal: National/Luxon softens the Opportunity rule-out (e.g. won't rule out C&S)
+- signal: National/Luxon softens the Opportunity rule-out, or National changes leader (National-led up)
   by: '2026-11-07'
   direction: up
   magnitude: 5
   magnitude_unit: pp
   fired: null
+- signal: Metaculus Pro or gold (revealed 2026-10-18) >= 10pp from my National-led (re-examine for a missed fact)
+  by: '2026-10-19'
+  direction: either
+  magnitude: 0
+  magnitude_unit: pp
+  fired: null
 - signal: 'Election-night count: right bloc >= 63 seats without TOP (National-led to ~85%)'
   by: '2026-11-08'
   direction: up
-  magnitude: 38
+  magnitude: 40
   magnitude_unit: pp
   fired: null
 - signal: 'Election-night count: TOP >= 5.3% and left+TOP >= 63 (Labour-led to ~75%)'
   by: '2026-11-08'
   direction: down
   magnitude: 30
+  magnitude_unit: pp
+  fired: null
+- signal: Opportunity says post-election it will wait for 27 Nov specials before negotiating (None before January +5pp)
+  by: '2026-11-15'
+  direction: either
+  magnitude: 0
   magnitude_unit: pp
   fired: null
 - signal: No coalition / C&S agreement announced by 2026-12-18 (None before January +20pp)

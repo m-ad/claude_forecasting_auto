@@ -4,14 +4,126 @@
 |---|---|
 | **Source** | Metaculus #45381 — https://www.metaculus.com/questions/45381/ |
 | **Type** | multiple choice — options `0`, `1`, `2`, `3`, `4+` |
-| **Opened / Closes / Resolves** | 2026-09-07 / 2026-10-16 / 2026-11-30 (NHC data as of 2026-12-01) |
+| **Opened / Closes / Resolves** | 2026-09-07 / 2026-10-16 (closed) / 2026-11-30 (NHC data as of 2026-12-01) |
 | **Status** | open |
-| **Current forecast** | **0: 0.3% · 1: 86.9% · 2: 10.8% · 3: 1.5% · 4+: 0.5%** — leading option `1`, IQR on `1` [84.5%, 89.5%], on `0` [0.1%, 0.5%] (v8, 2026-10-09) |
-| **Community (as of 2026-10-09 20:32Z)** | CP **1: 88.6%** (n=148) · Pro **87.9%** (n=9) · gold **85.9%** (n=35); all three put `0` at the 0.1% floor |
-| **Market (as of 2026-10-09 ~20:35Z)** | **Kalshi `KXHURCTOTMAJ-26DEC01`: `>0` 99/100¢** (P(0) ≈ 1%); `>1` 26/28¢; `>2` 12/15¢ |
-| **Next review** | 2026-10-16 (Isaias landfall confirmed in the TCUs; then only the tail remains) |
+| **Metaculus forecasting** | closed 2026-10-16; awaiting resolution |
+| **Current forecast** | **0: 0.2% · 1: 91.0% · 2: 7.6% · 3: 0.9% · 4+: 0.3%**. Leading option `1`, IQR on `1` [88.5%, 93.5%] (v9, 2026-10-16) |
+| **Community (as of 2026-10-15 22:45Z, final)** | CP **1: 90.8%** (n=162) · Pro **90.7%** (n=10) · gold **91.0%** (n=36); all three at the 0.1% floor on `0` |
+| **Market (as of 2026-10-16)** | **Kalshi `KXHURCTOTMAJ-26DEC01`: `>0` finalized YES**; `>1` 24/26¢; `>2` 8/10¢ |
+| **Next review** | 2026-10-23 (TWO check; CSU two-week of 10-28 follows) |
 
 <!-- Versions below, newest first. APPEND-ONLY: never edit or delete a past version. -->
+
+---
+
+## v9 — Update — 2026-10-16
+
+**Mode: Update** (incremental). Written on 16 Oct, one week after v8. The structure is
+unchanged, and Metaculus closed for forecasting at 00:00Z today, so this version is
+scored on the ledger only. Isaias is now in NHC's 2026 season table as a major hurricane.
+NHC has no Atlantic system active or in the outlook, and CSU favours a below-normal
+fortnight. The remaining question is whether a second major forms in the last ~6 weeks
+of an El Niño season.
+
+### Revision table
+
+| Driver | Direction | Effect |
+|---|---|---|
+| **Prior (v8, 2026-10-09)** | — | **0: 0.3 · 1: 86.9 · 2: 10.8 · 3: 1.5 · 4+: 0.5**, IQR on `1` [84.5, 89.5] |
+| **Isaias is locked in as a major in NHC's published season record.** NHC's 2026 Atlantic TCR/season page ("Last updated: October 16, 2026") lists *9 Isaias MH, 06 Oct–10 Oct, 105 kt, 959 mb* [1]. That page replaced the Monthly Tropical Weather Summary as the statistics source the fine print names [2]. The ATCF best track keeps the 105 kt peak at 12Z/18Z 9 Oct [3]. The only remaining route to `0` is a TCR downgrade published before 1 Dec, and TCRs normally come out months after the season. *p*(Isaias counted) goes from 0.997 to 0.998 | — | `0` −0.1 pp |
+| **Quiet basin and the hazard has decayed.** Today's TWO (8 PM EDT 15 Oct): "Tropical cyclone formation is not expected during the next 7 days" [4]. CurrentStorms.json shows only East Pacific systems (Trudy, Simon) [5]. The CSU two-week forecast (14–27 Oct) gives 60% below-normal, 38% normal and 2% above-normal. It notes MJO (Madden–Julian Oscillation) support from phases over Africa and the Indian Ocean, but calls the base state "quite TC-unfavorable, given the strong El Niño and associated high levels of vertical wind shear", with only a weak subtropical-Atlantic signal in week 2 [6]. A subtropical system is an unlikely Cat 3. This leaves an effective genesis window of about 23 Oct – 30 Nov. λ for further majors falls from 0.14 to **0.09**, so P(0 / 1 / 2+ further majors) = 0.914 / 0.078 / 0.008. *λ is a judgement; the late-season climatology behind it is from memory and unverified, as in v8.* | toward `1` | `1` +4.1 pp; `2` −3.2; `3` −0.6; `4+` −0.2 |
+| **Cohorts and market.** Metaculus final aggregates (as of 2026-10-15 22:45Z) are CP **0: 0.1 · 1: 90.8 · 2: 8.2 · 3: 0.8 · 4+: 0.1** (n=162), Pros 90.7 / 8.3 (n=10) and gold 91.0 / 8.0 (n=36) [7]. CP moved +2.2 pp on `1` since v8, about the same as the hazard decay. Kalshi `>0` has **finalized YES** [8], so Kalshi has also settled that Isaias counts. Kalshi `>1` is 24/26¢ (last 25¢) on 234 contracts in 24 h, and `>2` 8/10¢. That is still about 3× my number and the cohorts' for ≥ 2, on thin volume. I read it as a longshot premium, as in v8, and give it no weight. The comments add no new facts: one cites a climatological 0.3–0.5 majors after mid-October in average years, fewer under El Niño [9] | — | 0.0 pp |
+| **New forecast (v9)** | | **0: 0.2 · 1: 91.0 · 2: 7.6 · 3: 0.9 · 4+: 0.3**, IQR on `1` [88.5, 93.5] |
+
+**Mixture.** `1` = 0.998 × 0.914 ≈ 91.2%, trimmed to 91.0% to keep 0.2 pp on the multi-storm
+tail. `2` = 0.998 × 0.078 ≈ 7.8% → 7.6%. `3` + `4+` = 1.2%. The IQR on `1` comes from λ ∈ [0.065, 0.12].
+
+### Tripwire check (v8 list)
+
+| # | Tripwire | Status | Evidence |
+|---|---|---|---|
+| 1 | NHC TWO ≥ 50% 7-day formation in Gulf / W Caribbean / SW Atlantic (by 11-15) | Not fired | "Not expected during the next 7 days" [4] |
+| 2 | NHC forecasts ≥ 100 kt for a new named storm | Not fired | No active Atlantic storm [5] |
+| 3 | CSU two-week (10-14, 10-28) favours near/above-normal | Not fired (10-14) | 60% below-normal, 38% normal, 2% above [6]. The 10-28 issue is pending |
+| 4 | NHC summary lists Isaias < 111 mph, or retracts 105 kt | Not fired; opposite | Season table lists Isaias as MH, 105 kt [1] |
+| 5 | Quiet through 11-01 with no outlook area → `1` ~93% | Partial (on track) | Quiet so far; 7-day TWO is empty to ~22 Oct [4] |
+
+### What resolves YES (which option)
+
+Unchanged from v8.
+
+### Outside view
+
+Unchanged from v7.
+
+### Scenarios
+
+| # | Scenario | Weight | Implies |
+|---|---|---|---|
+| 1 | Isaias is the only major of 2026 | 0.910 | **1** |
+| 2 | One further late-season major | 0.076 | **2** |
+| 3 | Two further majors | 0.009 | **3** |
+| 4 | Three or more further majors | 0.003 | **4+** |
+| 5 | Isaias is not counted on 1 December | 0.002 | **0** |
+
+### Inside view
+
+Superseded by the revision table.
+
+### Evidence
+
+- NHC season table (updated 2026-10-16): Isaias listed as MH, 105 kt / 959 mb, 6–10 Oct. It is the only major among nine named storms [1]. The text Monthly Tropical Weather Summary has been discontinued, and its statistics now live on that page [2].
+- ATCF best track: 105 kt at 12Z and 18Z on 9 Oct, 95 kt at 00Z on 10 Oct, then extratropical [3]. This is consistent with the operational products cited in v8 [11].
+- Basin state: the TWO for 15 Oct shows no formation expected in 7 days [4], and no Atlantic system is active [5].
+- CSU two-week forecast for 14–27 Oct: 60% below-normal, 38% normal, 2% above-normal. The MJO is favourable, but strong-El Niño shear dominates [6]. This is consistent with CPC's El Niño strengthening toward a historic OND (October–December) peak, carried forward from v8 [10].
+- Markets and cohorts: Kalshi `>0` has finalized YES [8], and the Metaculus cohorts' final values are ~91% on `1` [7][9].
+
+### Other forecasters (2026-10-16)
+
+| Source | Distribution | As of | Note |
+|---|---|---|---|
+| **Metaculus CP** | 0: 0.1 · **1: 90.8** · 2: 8.2 · 3: 0.8 · 4+: 0.1 | 10-15 22:45Z (final, closed) | n=162; IQR on `1` [88.8, 94.6] [7] |
+| **Metaculus Pros** | 0: 0.1 · **1: 90.7** · 2: 8.3 · 3: 0.8 · 4+: 0.1 | same | n=10 [7] |
+| **Metaculus gold** | 0: 0.1 · **1: 91.0** · 2: 8.0 · 3: 0.8 · 4+: 0.1 | same | n=36 [7] |
+| **Kalshi `KXHURCTOTMAJ-26DEC01`** | `>0` finalized YES; `>1` 24/26¢; `>2` 8/10¢; `>3` 5/6¢ | 10-16 | `>1` 24-h volume 234 contracts; thin tail premium [8] |
+
+**Cohort agreement.** Near-identical. All three cohorts are within 0.3 pp of each other on
+`1` and within 0.4 pp of this forecast. Kalshi is the only outlier, on `2+`.
+
+### Sensitivity
+
+| Assumption | If instead | Forecast becomes |
+|---|---|---|
+| λ = 0.09 | 0.20 (Kalshi-like) | 1: ~82% · 2+: ~18% |
+| — | 0.05 | 1: ~95% · 2+: ~5% |
+
+### What would change my mind (tripwires)
+
+- [ ] **NHC TWO shows ≥ 40% 7-day formation in the Gulf, the western Caribbean or the SW Atlantic**, by 2026-11-20 → `2+` up ~4pp; a ≥ 70% area on a Caribbean track → up ~8pp.
+- [ ] **An NHC forecast of ≥ 100 kt for any new named storm** → `2` up to ~60%.
+- [ ] **The CSU two-week forecast of 2026-10-28 favours near- or above-normal** (> 50% combined) → `2+` up ~2pp.
+- [ ] **The NHC season table or a published Isaias TCR lists Isaias below 96 kt before 1 Dec** → `0` up to the downgraded share; resolution-dispute territory.
+- [ ] **Quiet through 2026-11-01 with no outlook area** → `2+` down to ~5%, `1` up to ~94%.
+
+### Sources
+
+1. NHC — 2026 Atlantic Tropical Cyclone Reports / season table ("Last updated: October 16, 2026"; Isaias MH, 105 kt, 959 mb) — https://www.nhc.noaa.gov/data/tcr/index.php?season=2026&basin=atl (accessed 2026-10-16; `raw/nhc-tcr-season-2026-10-16.html`)
+2. NHC — Monthly Tropical Weather Summary (final TWS notice: statistics migrated to hurricanes.gov / TCR page) — https://www.nhc.noaa.gov/text/MIATWSAT.shtml (accessed 2026-10-16; `raw/nhc-MIATWSAT-2026-10-16.txt`)
+3. NHC ATCF best track `bal092026.dat` — https://ftp.nhc.noaa.gov/atcf/btk/bal092026.dat (accessed 2026-10-16; `raw/nhc-bal092026-2026-10-16.dat`)
+4. NHC — Atlantic Tropical Weather Outlook, 800 PM EDT Thu 15 Oct 2026 — https://www.nhc.noaa.gov/text/MIATWOAT.shtml (accessed 2026-10-16; `raw/nhc-MIATWOAT-2026-10-16.txt`)
+5. NHC — CurrentStorms.json (only EP Trudy, Simon active) — https://www.nhc.noaa.gov/CurrentStorms.json (accessed 2026-10-16; `raw/nhc-currentstorms-2026-10-16.json`)
+6. Colorado State University — Forecast of Atlantic hurricane activity from October 14–27, 2026 — https://tropical.colostate.edu/Forecast/2026-1014.pdf (accessed 2026-10-16; `raw/csu-2week-2026-10-14.pdf`, `raw/csu-forecasting-2026-10-16.html`)
+7. Metaculus question 45381, three-cohort aggregations (as of 2026-10-15 22:45Z; question closed) — https://www.metaculus.com/questions/45381/ (accessed 2026-10-16, pre-fetched by the coordinator; `raw/metaculus-2026-10-16.json`)
+8. Kalshi `KXHURCTOTMAJ` markets — https://kalshi.com/markets/kxhurctotmaj (accessed 2026-10-16 via public API; `raw/kalshi-KXHURCTOTMAJ-2026-10-16.json`)
+9. Metaculus question 45381 comments (eylonbsh, VectorWright, hamish; 11–14 Oct) — same file as [7]
+10. NOAA CPC — ENSO Diagnostic Discussion, 8 Oct 2026 (carried from v8 source 7; not re-fetched) — https://www.cpc.ncep.noaa.gov/products/analysis_monitoring/enso_advisory/ensodisc.shtml (accessed 2026-10-09)
+11. NHC — Hurricane Isaias Discussion 12, 1000 AM CDT Fri 9 Oct (upgrade to major, 105 kt; carried from v8 source 2) — https://www.nhc.noaa.gov/text/MIATCDAT4.shtml (accessed 2026-10-09; `raw/nhc-MIATCDAT4-2026-10-09-late.txt`)
+
+**Question**: [How many Major Atlantic Hurricanes will occur in the 2026 Atlantic hurricane season?](https://www.metaculus.com/questions/45381/)
+**Date**: 2026-10-16
+**Forecast**: 0: 0.2%, 1: 91.0%, 2: 7.6%, 3: 0.9%, 4+: 0.3% — IQR on leading option `1` [88.5%, 93.5%]
+**Thesis**: `1` is up 4.1 pp. NHC's season table now records Isaias as a major hurricane (105 kt) [1][3], and Kalshi `>0` has settled YES [8]. The basin is empty, the 7-day TWO shows no formation [4], and CSU favours a below-normal 14–27 Oct under a strong El Niño [6], so λ for a further major falls from 0.14 to 0.09. Metaculus CP, Pros and gold all sit at about 91% on `1` [7]; Kalshi's ~25% for ≥ 2 remains a thin-tail outlier.
+
 
 ---
 

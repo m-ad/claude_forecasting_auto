@@ -6,11 +6,160 @@
 | **Type** | binary |
 | **Opened / Closes / Resolves** | 2026-09-07 / 2026-11-01 / 2027-01-01 |
 | **Status** | open |
-| **Current forecast** | **Median 5.5%, IQR [3.5%, 8.5%]** (v3, 2026-09-18) |
-| **Community (as of 2026-09-18 17:09 UTC)** | CP 4.0% IQR[2.0%, 6.0%] (n=127) · Pro 4.0% IQR[3.5%, 6.7%] (n=11) · Gold 5.0% IQR[3.5%, 6.0%] (n=36) · 129 forecasters total |
-| **Next review** | 2026-10-16 |
+| **Current forecast** | **Median 3.5%, IQR [2.0%, 5.5%]** (v4, 2026-10-16) |
+| **Community (as of 2026-10-16 00:24 UTC)** | CP 2.0% IQR[1.0%, 3.4%] (n=148) · Pro 3.0% IQR[3.0%, 5.0%] (n=11) · Gold 3.0% IQR[2.0%, 3.0%] (n=37) · 185 forecasters total |
+| **Next review** | 2026-10-30 |
 
 <!-- Versions below, newest first. APPEND-ONLY: never edit or delete a past version. -->
+
+---
+
+## v4 — Update — 2026-10-16
+
+**Mode: Update, not re-analysis.** The criteria and fine print are byte-identical to the 2026-09-18
+snapshot; no cohort is more than 1.5 pp from me; 28 days is under a third of the remaining window.
+This is the third downward move in a row (v1 12.0% → v2 8.4% → v3 5.5%), which the protocol flags as
+possible anchoring drift. I checked: v2→v3 was a structural repricing (fine-print amendment) and this
+move is mechanical hazard decay plus quiet time on an event-requiring question. Successive declines
+are what a correctly specified forecast of a non-occurring event *should* show, so the drift flag is
+noted but not acted on.
+
+### Revision
+
+| Driver | Direction | Effect |
+|---|---|---|
+| Prior (v3, 2026-09-18) | — | Median 5.5%, IQR [3.5%, 8.5%] |
+| **Window shrinks 105 → 77 days** (27% less exposure on every path, at an unchanged hazard rate) | ↓ | **−1.5 pp** |
+| **28 more quiet days with the US still shooting in the Gulf of Oman.** CENTCOM destroyed an "Iranian-affiliated" dhow on 6 Oct and disabled the Panama-flagged *Ocean Molica* on 10 Oct, both in the Gulf of Oman; neither harmed anything reported as Omani [2][3]. Iran hit ~29 more merchant ships 18 Sep–13 Oct; none attributed to the US [4]. Every Omani-coast casualty event, e.g. the *On Peace* 9 nm off Limah on 6 Oct, is non-US [5]. 7.5 months of war, zero qualifying events | ↓ | **−0.4 pp** |
+| **Diplomatic warming since the August threat**: Rubio–Al Busaidi call 15 Sep, US–Houthi meeting hosted in Muscat ~16 Sep, Oman invited to the 22 Sep Trump–GCC meeting at UNGA, where Trump said the war could end right after the 3 Nov midterms [1][6]. No Trump statement on Oman found since 17 Aug | ↓ | **−0.3 pp** |
+| **Cohorts drifted down**: CP 4.0 → 2.0%, Pro 4.0 → 3.0%, gold 5.0 → 3.0% [1]. No new fact behind it that I have not counted above; weighted lightly to avoid herding | ↓ | **−0.2 pp** |
+| **Collateral path is live, not hypothetical**: the US is now destroying *dhows* in the Gulf of Oman, a vessel class where Omani registration or crew is common, and the 6 Oct dhow's flag and crew nationality were never disclosed [2]. Partial offset to the decay on the collateral path | ↑ | **+0.4 pp** |
+| **New forecast** | | **Median 3.5%, IQR [2.0%, 5.5%]** |
+
+### Tripwire check
+
+| Tripwire from v3 | Fired? | Note |
+|---|---|---|
+| Omani national killed/injured aboard a US-struck vessel, or Omani-flagged/owned vessel damaged by US ordnance (by 2026-12-31) → +25 pp | **Not fired — nearest miss so far** | 6 Oct dhow destroyed by CENTCOM in the Gulf of Oman after crew removed; no flag or nationality disclosed, no Omani statement; *Ocean Molica* (Panama) disabled 10 Oct, no injuries [2][3] |
+| Oman formally protests a US military action (by 2026-12-31) → +20 pp | **Not fired** | No Omani MFA statement against Washington found |
+| Oman suspends/restricts Duqm/Salalah access or denies transit/overflight (by 2026-11-30) → +15 pp | **Not fired** | Nothing found |
+| Trump repeats the Oman threat with an operational referent (by 2026-12-31) → +8 pp | **Not fired** | No Oman statement since 17 Aug found; tone toward Gulf states is "endgame" diplomacy [6] |
+| Question author narrows/widens fine print (by 2026-12-31) → re-analysis | **Not fired** | Criteria and fine print identical to the 2026-09-18 snapshot [1] |
+| 2026-10-31 passes with no US munition harming Omani property/forces/nationals → −1.5 pp | **Not due** | 15 days out; largely priced in the hazard-decay row |
+| US–Iran ceasefire or Hormuz agreement signed and holding ≥ 30 days (by 2026-12-15) → −2 pp | **Not fired** | No ceasefire in force; strait effectively closed; US blockade enforcement continuing [3][4] |
+| CP, Pro and gold all move outside 2%–9% (by 2026-10-16) → re-examine | **Not fired (edge)** | CP exactly 2.0%, Pro 3.0%, gold 3.0%. Pro and gold remain inside |
+
+### What resolves YES
+
+Unchanged from v3. Fine print re-checked against `raw/metaculus-2026-10-16.json`: identical.
+`DeRuina` (30 Sep) asked in-thread whether the resolver would wait for an official Omani statement
+if a US strike hit a vessel of unconfirmed Omani registration [1]. No answer yet. That is exactly the
+6 Oct dhow case, and it is the most likely way this question gets disputed.
+
+### Outside view
+
+Unchanged from v3, with Class C refreshed: 0 events in **7.5** months. Jeffreys λ ≈ 0.5/7.5 =
+0.067/mo → P(≥1 in 2.5 mo) ≈ **15%** (was 23%). That is still the structural ceiling before the
+discounts (access agreement, mediation role, military asymmetry) that bring it into low single digits.
+
+### Inside view
+
+| Path | v3 (105 d) | v4 (77 d) | Why |
+|---|---|---|---|
+| Deliberate US strike as coercion | 0.015 | **0.008** | time decay, plus the Rubio call, Muscat-hosted US–Houthi talks and GCC-summit inclusion. Trump's "end after midterms" framing points to settlement, not new targets |
+| Collateral harm to Omani property, forces or nationals | 0.032 | **0.022** | time decay (→0.023), small further quiet-time decrement, offset by US strikes on dhows in the Gulf of Oman |
+| Oman obstructs → US strike, or Muscat calls a US action an attack | 0.012 | **0.007** | time decay; Oman keeps doing rescue and evacuation, not obstruction [5] |
+
+`P(YES) = 1 − (0.992 × 0.978 × 0.993) ≈ 3.7%`, less an ambiguity haircut of −0.2 pp (an
+undisclosed-flag dhow is precisely the kind of case the no-consensus clause or an "ambiguous"
+resolution could absorb) → **3.5%**.
+
+### Evidence
+
+- **US kinetic activity near Oman continues at tempo.** The blockade is being enforced in the Gulf
+  of Oman itself: dhow destroyed 6 Oct, cargo ship disabled 10 Oct [2][3]. This keeps the
+  collateral path from decaying faster than the calendar. But CENTCOM is visibly taking care over
+  crews ("crew safely removed", "without harming the crew"), which lowers P(harm | strike).
+- **Oman is the rescuer, not the victim, of US fire.** 6 Oct: the Omani MoD evacuated injured crew of
+  the *On Peace*, hit 9 nm off Limah by an unclaimed attacker [5]. Same pattern as *El Gaia* in v3.
+- **US–Oman channel active.** 8 Oct US Embassy Muscat security alert is about Iranian threats to US
+  interests in Oman, i.e. the embassy is open and the threat model treats Oman as host, not target [7].
+- **Absent:** an Omani protest, a Trump repetition, any access restriction, and any prediction
+  market. The Wikipedia Oman-strikes page's US-reactions log still ends on 2026-08-25 [8].
+
+### Other forecasters
+
+| Source | Value | As of | Note |
+|---|---|---|---|
+| Metaculus CP (recency-weighted) | **2.0%** IQR[1.0%, 3.4%] (n=148; 185 total) | 2026-10-16 00:24Z | was 4.0% at v3 |
+| Metaculus Pro | **3.0%** IQR[3.0%, 5.0%] (n=11) | 2026-10-16 00:24Z | was 4.0% |
+| Metaculus gold medalists | **3.0%** IQR[2.0%, 3.0%] (n=37) | 2026-10-16 00:24Z | was 5.0% |
+| Polymarket / Kalshi | no market | 2026-10-16 | re-searched |
+| Manifold, Sentinel, GJO, INFER | nothing on US–Oman | 2026-10-16 | — |
+| Comment-thread individuals | `VectorWright` 7%, `sai_39` ~10%, `Russell-viper` 15%, `sheikah` 0.1% | Sep–Oct | the high tail cites the two Trump threats plus the accidental path |
+
+**Cohorts agree with each other** (1 pp spread) and all moved down 1–2 pp. I sit 0.5 pp above Pro
+and gold and 1.5 pp above the CP. The reason is the same as in v3: the Jeffreys discipline, plus
+continued US strikes on small craft in the Gulf of Oman. The v3 claim that the Omani-nationals route
+was "mentioned in none of the comments" is **no longer true**: `DeRuina` and `VectorWright` both
+name the accidental-harm path and the Omani-dhow case [1]. The crowd has seen it and still sits at 2–3%.
+
+### Scenarios
+
+| # | Scenario | Weight | Implies |
+|---|---|---|---|
+| 1 | Attrition continues to year-end, Oman mediating and rescuing | 0.63 | NO |
+| 2 | Post-midterm deal / partial reopening | 0.20 | NO |
+| 3 | US engagements near/inside Omani waters harm nothing Omani | 0.127 | NO |
+| 4 | Collateral harm to Omani property/forces/nationals, attributed | 0.022 | **YES** |
+| 5 | Oman obstructs → US strike, or Muscat calls a US action an attack | 0.007 | **YES** |
+| 6 | Deliberate punitive strike | 0.008 | **YES** |
+| 7 | Ambiguous / no-consensus incident | 0.006 | not YES |
+
+### Sensitivity
+
+| Assumption | If instead | Forecast becomes |
+|---|---|---|
+| Collateral 0.022 | US strike tempo in Gulf of Oman doubles | ≈ 5.5% |
+| Collateral 0.022 | resolver requires an official Omani statement for disputed-registration vessels | ≈ 3.0% |
+| Deliberate 0.008 | Trump re-threatens Oman with a named target | ≈ 11% |
+| Jeffreys floor retained | dropped (structural argument only) | ≈ 2.2% |
+| Quiet through 2026-11-30 | nothing happens | ≈ 2.0% |
+
+### What would change my mind (tripwires)
+
+- [ ] **An Omani national killed/injured aboard a US-struck vessel, or an Omani-flagged/owned vessel
+      (incl. a dhow) damaged by US ordnance**, by 2026-12-31 → **+25 pp**. Watch for any later
+      disclosure of the 6 Oct dhow's registration or crew.
+- [ ] **Oman formally protests a US military action**, by 2026-12-31 → **+20 pp**.
+- [ ] **Oman restricts Duqm/Salalah access or denies US transit/overflight**, by 2026-11-30 → **+15 pp**.
+- [ ] **Trump repeats the Oman threat with an operational referent**, by 2026-12-31 → **+8 pp**.
+- [ ] **Admins answer `DeRuina`'s disputed-registration question, or amend the fine print**, by
+      2026-12-31 → re-analysis.
+- [ ] **2026-11-30 passes with no US munition harming anything Omani** → **−1.0 pp**.
+- [ ] **US–Iran ceasefire or Hormuz agreement signed and holding ≥ 30 days**, by 2026-12-15 → **−1.5 pp**.
+- [ ] **CP, Pro and gold all move outside 1%–7%**, by 2026-11-01 (question close) → re-examine.
+
+### Sources
+
+1. Metaculus #45230 — https://www.metaculus.com/questions/45230/ — CP/Pro/gold, 262 history points and 8 comments, pre-fetched snapshot `raw/metaculus-2026-10-16.json` (accessed 2026-10-16)
+2. gCaptain — "U.S. Forces Destroy Iranian-Linked Dhow Accused of Targeting Navy Ships" — https://gcaptain.com/u-s-forces-destroy-iranian-linked-dhow-accused-of-targeting-navy-ships/ (accessed 2026-10-16); corroborated by Jerusalem Post — https://www.jpost.com/middle-east/iran-news/article-911742 (accessed 2026-10-16)
+3. Al Jazeera — "US forces disable ship 'attempting to run' Iran blockade in Gulf of Oman" (2026-10-11) — https://www.aljazeera.com/news/2026/10/11/us-forces-disable-ship-attempting-to-run-iran-blockade-in-gulf-of-oman (accessed 2026-10-16)
+4. Wikipedia — "2026 Strait of Hormuz crisis", list of ships attacked by Iran, 18 Sep–13 Oct — https://en.wikipedia.org/wiki/2026_Strait_of_Hormuz_crisis (accessed 2026-10-16)
+5. Al Jazeera — "Oman evacuates injured crew from attacked tanker in Strait of Hormuz" (2026-10-07) — https://www.aljazeera.com/news/2026/10/7/oman-evacuates-injured-crew-from-attacked-tanker-in-strait-of-hormuz (accessed 2026-10-16)
+6. Al Jazeera — "Trump-GCC Summit in New York: What does each side want?" (2026-09-22) — https://www.aljazeera.com/news/2026/9/22/trump-gcc-summit-in-new-york-what-does-each-side-want (accessed 2026-10-16)
+7. U.S. Embassy Muscat — Security Alert, 2026-10-08 — https://om.usembassy.gov/security-alert-u-s-embassy-muscat-october-8-2026/ (accessed 2026-10-16)
+8. Wikipedia — "2026 Iranian strikes on Oman" — https://en.wikipedia.org/wiki/2026_Iranian_strikes_on_Oman (accessed 2026-10-16)
+9. Polymarket / Kalshi — re-searched for a US-attacks-Oman contract; none exists — https://polymarket.com/ (accessed 2026-10-16)
+10. CNBC — "Trump threatens Oman, Hormuz Strait traffic slows, Iran ceasefire ends" (2026-08-17), the last Trump threat against Oman, carried forward from v3 — https://www.cnbc.com/2026/08/17/us-iran-war-trump-hormuz.html (accessed 2026-09-18)
+11. Wikipedia — "2026 Iran war ceasefire", the June MoU and its lapse, carried forward from v3 for the ceasefire tripwire — https://en.wikipedia.org/wiki/2026_Iran_war_ceasefire (accessed 2026-09-18)
+
+News snapshot cached in `raw/news-2026-10-16.json`.
+
+**Question**: [Will the United States attack Oman before 2027?](https://www.metaculus.com/questions/45230/)
+**Date**: 2026-10-16
+**Forecast**: Median 3.5%, IQR [2.0%, 5.5%]
+**Thesis**: Nothing tripped. With 77 days left, every path decays mechanically: zero qualifying events in 7.5 months of war; Oman acts as rescuer and US diplomatic channel, not target (Rubio call, Muscat-hosted US–Houthi talks, GCC-summit inclusion); no Trump threat since 17 Aug [1][5][6]. I stay 0.5 pp above Pro and gold (3.0%) and 1.5 pp above the CP (2.0%) because the US is still destroying small craft in the Gulf of Oman. The 6 Oct dhow's flag and crew were never disclosed, so the collateral "Omani nationals or vessels" route remains live [2][3].
 
 ---
 

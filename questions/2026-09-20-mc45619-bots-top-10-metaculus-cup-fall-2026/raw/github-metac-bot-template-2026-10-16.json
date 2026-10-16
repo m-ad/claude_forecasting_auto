@@ -1,0 +1,11 @@
+{
+  "retrieved": "2026-10-16",
+  "source": "https://github.com/Metaculus/metac-bot-template/commits/main and https://github.com/Metaculus/metac-bot-template/pull/120 (via WebFetch)",
+  "commits_since_2026-10-01": [
+    {"date": "2026-10-15", "sha": "096cb20", "title": "Move lock to forecasting-tools 0.3.4 so tournament mode targets fall 2026 (#120)"},
+    {"date": "2026-10-01", "sha": "da5de87", "title": "Sync main.py with forecasting-tools FallTemplateBot2026 (#117)"},
+    {"date": "2026-10-01", "sha": "0391c49", "title": "README: point to open-source bots; bump forecasting-tools to 0.3.0; Metaculus Cup fall 2026 (#114)"},
+    {"date": "2026-10-01", "sha": "299b8dd", "title": "README: explain how to see your bot's forecasts (#116)"}
+  ],
+  "pr_120_summary": "Stale uv lock pinned forecasting-tools 0.2.92, which pointed --mode tournament at the summer 2026 tournament and --mode metaculus_cup at the Summer Cup (33021). Fresh forks 'retrieved 0 questions and never forecast on the fall tournament'. Fix pins 0.3.4: fall FutureEval 33121, fall Cup 33108 (metaculus-cup-fall-2026). Merged 2026-10-15. Start date of the bug and effect on existing deployments not stated."
+}

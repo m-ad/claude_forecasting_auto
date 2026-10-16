@@ -360,3 +360,13 @@ is the cleanest market read available on a question with no prediction market.
 3. Whether the author amends the fine print again. It has moved this forecast more than any
    military event of the whole war.
 4. Whether US escort activity resumes in the southern Omani lane if the strait reopens.
+
+---
+
+## 2026-10-16 — v4 update session
+
+- Metaculus: pre-fetched `raw/metaculus-2026-10-16.json` — CP 2.0% [1.0, 3.4] n=148; Pro 3.0% [3.0, 5.0] n=11; gold 3.0% [2.0, 3.0] n=37. Criteria/fine print identical to 09-18. 8 comments; DeRuina (09-30) raises Omani-dhow / disputed-registration case; VectorWright 7%.
+- Searches: "Oman United States October 2026"; "Trump Oman threat October 2026" (nothing after 08-17); "Iran US ceasefire Hormuz October 2026" (no ceasefire); "Oman foreign ministry statement US strike Omani vessel" (none; June *Settebello* US strike killed Indian sailors, Omani navy responded — non-Omani nationals); Trump–GCC UNGA meeting 09-22; CENTCOM Gulf of Oman strikes Oct (dhow 10-06, *Ocean Molica* 10-10, no harm reported); Duqm access (nothing new); Polymarket (no market); Rubio/Busaidi Oct (nothing found).
+- Wikipedia MediaWiki API rate-limited ("too many requests") — read via WebFetch instead. Oman-strikes page US-reactions log still ends 08-25. Hormuz-crisis page lists ~29 Iranian attacks on merchant ships 09-18..10-13.
+- Snapshot: `raw/news-2026-10-16.json`.
+- Result: 5.5% → 3.5% (IQR 2.0–5.5). Mostly hazard decay over 105→77 days.

@@ -51,3 +51,13 @@ Conditional mapping → National-led 47.2 / Labour-led 44.6 / none 8.1. I moved 
 - Does TOP declare a preference, or a willingness to abstain? Does National soften its TOP rule-out?
 - Final-fortnight polls on TOP vs 5%; Mt Albert electorate polling for Qiulae Wong.
 - Leader-debate effects; NZ First trajectory.
+
+## 2026-10-16 — v2 update log
+- Metaculus snapshot `raw/metaculus-2026-10-16.json` (pre-fetched): n=58, CP/Pro/gold hidden until 2026-10-18; 2 comments (55%, 56% National-led).
+- Polymarket gamma API re-fetched (`raw/polymarket-*-2026-10-16.json`): coalition Nat+ACT+NZF 39.5 (was 43.0), Lab+Grn 33.0 (26.9), Lab+Grn+TPM 16.5 (17.0), Other 9.05; Luxon 52.5 (55.5), Hipkins 45 (44); most seats Lab 54 / Nat 45.
+- Wikipedia polling (accessed 2026-10-16): new polls Verian 8–12 Oct (TOP 8), Anacta 6–10 Oct (TOP 5.4). 7-poll mean TOP ≈ 6.2, right ≈ 48.3, left ≈ 44.4.
+- 1News 13 Oct: Wong — approach largest party first, then second; may wait for specials. Luxon re-rules out TOP and grand coalition.
+- RNZ 9 Oct live: Hipkins — TOP vote is "giving your vote away"; "no deals pre-election".
+- Kiwipolls 13 Oct: coalition retains 38.9 / disputed 58.4 / opposition 2.8. election2026.nz 12 Oct: L57/TOP7/R59.
+- Searches: "Opportunity Party poll ... October 2026"; "Luxon Opportunity rule out confidence supply ..."; "Qiulae Wong Labour coalition confidence supply"; "Hipkins Opportunity Party coalition election campaign news".
+- Note: leading option flipped to Labour-led (45.5 vs 44.5), so ledger median/IQR now refer to Labour-led.

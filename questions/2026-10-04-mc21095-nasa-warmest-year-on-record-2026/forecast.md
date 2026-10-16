@@ -6,11 +6,127 @@
 | **Type** | binary |
 | **Opened / Closes / Resolves** | 2024-01-25 / 2027-01-01 / 2027-01-15 (NASA's annual announcement, usually mid-January) |
 | **Status** | open |
-| **Current forecast** | **Median 59.0%, IQR [49.0%, 68.0%]** (v2, 2026-10-04) |
-| **Community (as of 2026-10-04)** | **not retrieved**: three fetch attempts returned HTTP 403 (Cloudflare), and the bot API key hides aggregations (116 forecasters on the group). Operator-relayed comments cite the ERA5-based Climate Brink dashboard (85.5% → 37%; 20.6% on 2026-10-03) and Berkeley Earth's July update (69%) |
-| **Next review** | 2026-10-16 |
+| **Current forecast** | **Median 62.0%, IQR [51.0%, 71.0%]** (v3, 2026-10-16) |
+| **Community (as of 2026-10-15)** | CP 73.0% (n=48) · Pro 94.0% (n=7) · Gold 70.0% (n=24) |
+| **Next review** | 2026-11-07 |
 
 <!-- Versions below, newest first. APPEND-ONLY: never edit or delete a past version. -->
+
+---
+
+## v3 — Update — 2026-10-16
+
+Trigger: scheduled review (`next_review` 2026-10-16), timed for NASA's September GISTEMP release. Mode: **Update**. The question structure is unchanged. The last two versions both moved up, but this one is re-derived from fresh data rather than nudged from the prior.
+
+### Revision
+
+| Driver | Direction | Effect |
+|---|---|---|
+| Prior (v2, 2026-10-04) | — | Median 59.0%, IQR [49.0%, 68.0%]. That is the model's 64% minus 5 pp of shading toward the markets |
+| **GISTEMP September 2026 = 1.38 °C** [1]. This is the 2nd-warmest September (2023: 1.48). It lands 0.02 below the ERA5-mapped 1.40 that v1/v2 assumed. Neither September tripwire (≥ 1.45 / ≤ 1.33) fired | ↓ | **−2 pp** |
+| **GISTEMP back-revision moved the bar.** In the 2026-10-16 table, **2024's annual value is now 1.28** (unrounded 1.2817, previously 1.2858 → 1.29) in both the monthly table and graph.txt [1][2]. The same revision pass lowered 2026 Jan–Aug by 0.06 °C in total (e.g. Feb 1.25 → 1.23, Mar 1.32 → 1.30; Aug rose 1.40 → 1.42). Jan–Sep 2026 now sums to 11.11. **Oct–Dec thresholds:** a 2-dp tie at 1.28 needs ≥ 1.397, and a strict 2-dp record (1.29) needs ≥ 1.437. The v2-equivalent figures, after taking out September's own effect, were ≈ 1.417 and 1.457. Rounding luck makes the bar ~0.02 °C easier for Oct–Dec | ↑ | **+6 pp** |
+| **October so far is warm, but not as warm as EC46 projected.** ERA5 1–14 October averages **0.823 °C** vs 1991–2020 (the last 9 days were 0.85–0.92) [3]. That is above the 0.78 down-tripwire but below EC46's 0.96 median. The Climate Brink ERA5 projection of the 2026 annual fell 1.5826 → **1.5669** (2026-10-13), which implies ERA5 for the rest of the year ≈ 0.93, so Oct–Dec ≈ 0.91 [20][21]. Mapped with the Oct–Dec regression (GISS = 0.615 + 0.887·ERA5, sd 0.043, refit 2010–2025 on the revised table; 2026 Jul–Sep residuals +0.03 to +0.055), that gives GISS Oct–Dec ≈ **1.453**. Blended 50/25/25 with the persistence-plus-El-Niño-rise analog (≈ 1.48) and the lagged-RONI regression (≈ 1.42), the Oct–Dec centre falls from v2's 1.475 to **1.45 ± 0.06** | ↓ | **−7 pp** |
+| **Other forecasters now bracket or exceed me, so the v2 market discount is dropped and replaced by a small upward shade.** Kalshi (64.3% mid) now requires LOTI > 1.28, which is a *strict* record since 2024 was revised to 1.28; my matching number is 58%. Polymarket (tie counts as rank 1) moved 70.5 → **74.5%**; my matching number (≥ 1.28) is 80% [15][16]. Berkeley Earth's August update (published 2026-09-24) gives **93%** in its own dataset, up from 69% [24]. Berkeley Earth is methodologically closest to GISTEMP. Metaculus: CP 73%, Pro 94% (n=7), gold 70% [25]. The model alone gives 61%. I add +1 pp for the Pro/Berkeley signal, without herding toward 73–94: the gap between me and them is mostly the tie discount, not the climate view | ↑ | **+6 pp** (removes the −5, adds +1) |
+| **New forecast** | | **Median 62.0%, IQR [51.0%, 71.0%]** |
+
+### Tripwire check
+
+| Tripwire from v2 | Fired? | Note |
+|---|---|---|
+| GISTEMP September ≥ 1.45 (up 8) / ≤ 1.33 (down 12), by 10-20 | **not fired** | printed 1.38 [1] |
+| ERA5 October to date through 10-15 ≤ 0.78 (down 10) | **not fired** | 1–14 Oct mean 0.823; a rebound from 0.68 (10-02) to ~0.87–0.92 [3] |
+| ERA5 October monthly ≥ 0.90 / ≤ 0.78, by 11-10 | pending | month-to-date 0.823; dashboard October median ≈ 0.885 vs 1991–2020 [22] |
+| Nov–Dec required mean > 1.55 after the October print | pending | — |
+| Metaculus admin or NASA statement on ties | not fired | none of the 9 comments in the 2026-10-16 snapshot addresses ties [25] |
+
+Unplanned finding: the **2024 revision to 1.28** was not a listed tripwire, but it is the largest single mover this round. GISTEMP back-revisions of the comparison year should have been on the list (added below).
+
+### What resolves YES
+
+Unchanged from v1, except that **the bar is now 2024 = 1.28 °C** (unrounded ≈ 1.282) in the current GISTEMP table, not 1.29. The bar can move again with each monthly revision through January. The tie problem is unchanged: 2-dp 1.28 is an exact tie, and 1.29–1.30 is "effectively tied" territory.
+
+### Outside view
+
+Unchanged from v1. The strong-El-Niño onset analogs require a Sep–Dec jump over Jan–Aug of about +0.19 °C for a strict record (Jan–Aug mean 1.216, Sep–Dec needed ≈ 1.41). That is in line with 1997 and 2015.
+
+### Inside view
+
+Annual = (11.11 + 3 × Oct–Dec mean) / 12, with Oct–Dec ~ N(1.45, 0.06) and ±0.005 revision noise (400k draws). Buckets, relative to 2024's 1.28:
+
+- ≤ 1.27: 20%
+- = 1.28 (tie): 22%
+- 1.29–1.30: 44%
+- ≥ 1.31: 15%
+
+So **P(≥ 1.28) = 80%** and **P(≥ 1.29) = 58%**. Mapped with P(YES | tie) = 0.55, P(YES | +0.01–0.02) = 0.80 and P(YES | ≥ +0.03) = 0.97, this gives **61%**, and 62% after the +1 pp shade. If any nominal ≥ 1.28 counts as YES, the number would be ~80%.
+
+ENSO context: CPC (2026-10-08) keeps an El Niño Advisory, with an 83% chance that Oct–Dec RONI ≥ 2.5 (a historic event) and continued strengthening through year-end [5]. Because of the ~3-month lag, that supports Nov–Dec running above October.
+
+### Evidence
+
+v1/v2 evidence stands. New this round: the September GISTEMP print and back-revision [1][2], ERA5 October to date [3], the refreshed dashboard [20][21][22], Berkeley Earth's August update [24], CPC's October discussion [5], and the Metaculus cohort split [25]. Still absent: any ruling on ties.
+
+### Other forecasters
+
+| Source | Value | As of | Note |
+|---|---|---|---|
+| Metaculus CP (recency-weighted) | 73.0%, IQR [50, 84] (n=48) | 2026-10-15 | drifted 80 → 70–74 since 10-04 [25] |
+| Metaculus Pro | **94.0%**, IQR [70, 94] (n=7) | 2026-10-15 | 90 → 94 on 10-11, after the September print; small n |
+| Metaculus gold medalists | 70.0%, IQR [66, 85] (n=24) | 2026-10-15 | 85 → 70 since 10-04 |
+| Kalshi KXGTEMP-26 (LOTI > 1.28, i.e. now a strict record) | 63.4 / 65.3% bid/ask, last 63.3% | 2026-10-16 | 423k contracts [15]; my equivalent is 58% |
+| Polymarket rank 1 (graph.txt; tie = rank 1) | 74.5% (bid 0.74 / ask 0.75) | 2026-10-16 | $712k on this leg, $3.78M on the event [16]; my equivalent is 80% |
+| Berkeley Earth (own dataset) | 93% | 2026-09-24 | data through August [24] |
+| Climate Brink dashboard, **ERA5** record | 5.6% | 2026-10-15 | different dataset; ERA5 needs far more [20] |
+
+**Cohort disagreement is material.** Pros (94%) sit 24 pp above the gold medalists (70%), and the CP is in between. The Pros' 7 forecasters probably treat any nominal ≥ 1.28 as YES and/or put more weight on Berkeley Earth's 93%. My market-definition numbers (80% tie-inclusive, 58% strict) sit within ±6 pp of the two real-money markets. That says my climate view is not the outlier. My Metaculus number is lower because I discount ties and "effectively tied" outcomes. If the Pros are right that admins will resolve a NASA "tied with 2024" as YES, I am ~18 pp too low. That is the biggest risk in this forecast.
+
+### Scenarios
+
+| # | Scenario | Weight | Implies |
+|---|---|---|---|
+| 1 | Oct–Dec ≤ 1.39 (October stays ~0.82 in ERA5, no Nov–Dec lift) → ≤ 1.27 | 20% | NO (~1%) |
+| 2 | Oct–Dec ~1.40–1.43 → 1.28 tie | 22% | ~55% |
+| 3 | Oct–Dec ~1.44–1.51 → 1.29–1.30 | 44% | ~80% |
+| 4 | Oct–Dec ≥ 1.52 (Nov–Dec lagged El Niño surge) → ≥ 1.31 | 15% | ~97% |
+
+Weighted ≈ 0.20·0.01 + 0.22·0.55 + 0.44·0.80 + 0.15·0.97 ≈ **0.62**.
+
+### Sensitivity
+
+| Assumption | If instead | Forecast becomes |
+|---|---|---|
+| Oct–Dec centre 1.45 | 1.42 / 1.47 / 1.50 | 47% / 70% / 80% |
+| Tie mapping 0.55 / 0.80 | any nominal ≥ 1.28 counts as YES | ~80% |
+| 2024 stays at 1.28 | revised back up to 1.29 (unrounded ≥ 1.285) | ≈ −8 to −10 pp |
+
+### What would change my mind (tripwires)
+
+- [ ] Copernicus ERA5 October 2026 monthly anomaly (~2026-11-06) ≥ 0.90 °C → up 7 pp; ≤ 0.79 °C → down 10 pp
+- [ ] NASA GISTEMP October 2026 (~2026-11-12) ≥ 1.50 °C → up 10 pp; ≤ 1.38 °C → down 15 pp
+- [ ] After the GISTEMP October print, the Nov–Dec mean needed for a 2-dp 1.29 exceeds 1.55 °C → down ~25 pp
+- [ ] Any GISTEMP monthly release revises 2024's annual back to 1.29 (or 2026 Jan–Sep down by ≥ 0.03 in total) → down 8–10 pp
+- [ ] Metaculus admin comment, or NASA wording, on tie treatment (by 2027-01-14) → re-analyse, ±15–20 pp
+
+### Sources
+
+Sources from v1/v2 re-used here, with access dates refreshed, followed by the new ones:
+
+1. NASA GISS, GISTEMP v4 GLB.Ts+dSST monthly table — https://data.giss.nasa.gov/gistemp/tabledata_v4/GLB.Ts+dSST.csv (accessed 2026-10-16; `raw/gistemp-GLB.Ts+dSST-2026-10-16.csv`)
+2. NASA GISS, graph.txt annual means (No_Smoothing; 2024 = 1.28) — https://data.giss.nasa.gov/gistemp/graphs/graph_data/Global_Mean_Estimates_based_on_Land_and_Ocean_Data/graph.txt (accessed 2026-10-16; `raw/gistemp-graph-annual-2026-10-16.txt`)
+3. Copernicus Climate Pulse, ERA5 daily series — https://sites.ecmwf.int/data/climatepulse/data/series/era5_daily_series_2t_global.csv (accessed 2026-10-16; `raw/era5-daily-2t-global-2023-2026-10-16.csv`)
+5. NOAA CPC, ENSO Diagnostic Discussion, 2026-10-08 — https://www.cpc.ncep.noaa.gov/products/analysis_monitoring/enso_advisory/ensodisc.shtml (accessed 2026-10-16)
+15. Kalshi API, KXGTEMP-26-P0 — https://api.elections.kalshi.com/trade-api/v2/markets/KXGTEMP-26-P0 (accessed 2026-10-16; `raw/kalshi-KXGTEMP-26-P0-2026-10-16.json`)
+16. Polymarket (gamma API), "Where will 2026 rank among the hottest years on record?" — https://polymarket.com/event/where-will-2026-rank-among-the-hottest-years-on-record (accessed 2026-10-16; `raw/polymarket-2026-rank-2026-10-16.json`)
+20. The Climate Brink dashboard, rank probabilities (file of 2026-10-15) — https://dashboard.theclimatebrink.com/assets/data/rank_probabilities.csv (accessed 2026-10-16; snapshot in `raw/`)
+21. Same dashboard, projection history and annual prediction — https://dashboard.theclimatebrink.com/assets/data/projection_history.csv (accessed 2026-10-16; snapshot in `raw/`)
+22. Same dashboard, October 2026 monthly projection — https://dashboard.theclimatebrink.com/assets/data/monthly_projection.csv (accessed 2026-10-16; snapshot in `raw/`)
+24. Berkeley Earth, "August 2026 Temperature Update", 2026-09-24 — https://berkeleyearth.org/august-2026-temperature-update/ (accessed 2026-10-16)
+25. Metaculus post 21095, sub-question 21098: CP, Pro and gold aggregations plus comments, pre-fetched — https://www.metaculus.com/questions/21095/ (accessed 2026-10-16; `raw/metaculus-2026-10-16.json`)
+
+**Question**: [Will 2026 be the warmest year on record, according to NASA?](https://www.metaculus.com/questions/21095/will-the-following-years-be-the-warmest-year-on-record-according-to-nasa/?sub-question=21098)
+**Date**: 2026-10-16
+**Forecast**: Median 62.0%, IQR [51.0%, 71.0%]
+**Thesis**: GISTEMP printed September at 1.38 and revised 2024 down to 1.28, so 2026 now needs Oct–Dec ≥ 1.40 to tie and ≥ 1.44 for a strict 2-dp record. ERA5 October to date (0.82) and the trimmed Climate Brink projection put Oct–Dec near 1.45. That gives P(≥ 1.28) 80% and P(≥ 1.29) 58%, both within ±6 pp of Polymarket (74.5%) and Kalshi (64%). About 22% of the mass is an exact tie and 44% is a +0.01–0.02 margin, which still carries the Metaculus-specific discount, despite Pros at 94% and Berkeley Earth at 93%.
 
 ---
 

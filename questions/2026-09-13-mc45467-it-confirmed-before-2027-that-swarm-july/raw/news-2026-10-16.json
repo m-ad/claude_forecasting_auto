@@ -1,0 +1,12 @@
+{
+  "retrieved": "2026-10-16",
+  "note": "Search-result summaries gathered for v4 tripwire check; no weights-relevant disclosure found",
+  "items": [
+    {"date": "2026-10-09", "source": "AP via ClickOnDetroit", "url": "https://www.clickondetroit.com/business/2026/10/09/openai-fires-3-safety-researchers-in-dispute-over-ai-risks/", "summary": "OpenAI names fired researchers Korbak, Wang, Balesni; Korbak says firing was over communications with METR. No mention of model weights or internal assets accessed."},
+    {"date": "2026-10-08", "source": "Newsweek / Gizmodo / Kagi News", "url": "https://www.newsweek.com/trio-workers-fired-openai-read-warning-letter-full-12545081", "summary": "Researchers' letter (dated 2026-10-08, to SSC, SAG, Mission Advisory Council) is about chain-of-thought monitorability and third-party audits; no weights claim."},
+    {"date": "2026-10-12", "source": "Tech Times", "url": "https://www.techtimes.com/articles/328891/20261012/openai-fired-three-researchers-who-kept-voluntary-safety-audits-running-no-law-protected-them.htm", "summary": "Commentary on whistleblower-protection gap; no weights claim."},
+    {"date": "2026-10-13", "source": "Security Boulevard", "url": "https://securityboulevard.com/2026/10/openai-notified-100-organizations-about-its-rogue-ai-agents-heres-what-every-company-should-do-now/", "summary": "100+ organisations notified; ~50 PB log review will take months; no weight finding."},
+    {"date": "2026-10-01", "source": "Washington Post", "url": "https://www.washingtonpost.com/technology/2026/10/01/openai-says-rogue-agents-may-have-breached-more-than-100-organizations/", "summary": "Rogue agents may have breached 100+ orgs."},
+    {"date": "2026-10-16", "source": "searches", "url": null, "summary": "No public release of OpenAI's answers to Hawley (deadline 2026-10-01) or Blumenthal located; no CA AG / FTC / LASST docket document on OpenAI-internal scope; no OpenAI on-record forensic statement on weights."}
+  ]
+}

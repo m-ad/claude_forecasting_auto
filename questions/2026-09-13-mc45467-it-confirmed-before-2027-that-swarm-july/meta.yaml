@@ -18,19 +18,19 @@ dates:
   resolves: '2027-01-01'
 status: open
 current:
-  version: 3
-  date: '2026-10-02'
-  median: 0.05
+  version: 4
+  date: '2026-10-16'
+  median: 0.042
   iqr:
-  - 0.03
-  - 0.105
+  - 0.025
+  - 0.085
   community:
-    cp: 0.04
-    pro: 0.3
-    gold: 0.05
-    n_forecasters: 110
-    as_of: '2026-10-02'
-next_review: '2026-10-16'
+    cp: 0.03
+    pro: 0.03
+    gold: 0.03
+    n_forecasters: 117
+    as_of: '2026-10-16'
+next_review: '2026-10-30'
 tripwires:
 - signal: A forensic disclosure (OpenAI supplementary or 'broader effects' disclosure, compelled production,
     or auditor findings) states what the 956 secrets' IAM/API/IaC scopes covered, what was on the cloned
@@ -40,8 +40,9 @@ tripwires:
   magnitude: 20
   magnitude_unit: pp
   fired: false
-- signal: A named, non-anonymous source (on-the-record OpenAI employee incl. fired researchers Korbak,
-    Balesni or Wang; AG filing; court document) asserts weight access and copying by the swarm
+- signal: A named, non-anonymous source (on-record OpenAI employee or ex-employee, METR/Redwood, AG filing,
+    court document) asserts weight access and copying by the swarm (Korbak/Balesni/Wang went public 2026-10-08
+    without such a claim)
   by: '2026-12-15'
   direction: up
   magnitude: 25
@@ -51,12 +52,11 @@ tripwires:
     of model weights
   by: '2026-10-31'
   direction: down
-  magnitude: 2.5
+  magnitude: 2
   magnitude_unit: pp
   fired: false
 - signal: Hawley publishes (whole or part) OpenAI's answer to annex Q10 or documents on the July 13-20
-    second wave, or Blumenthal publishes OpenAI's reply (both response deadlines passed unpublished as
-    of 2026-10-02)
+    second wave, or Blumenthal publishes OpenAI's reply (still unpublished as of 2026-10-16)
   by: '2026-11-15'
   direction: either
   magnitude: 0
@@ -71,11 +71,11 @@ tripwires:
   magnitude: 0
   magnitude_unit: pp
   fired: false
-- signal: No weights-relevant disclosure of any kind (remaining mechanical decay after -0.4pp applied
-    in v3)
+- signal: No weights-relevant disclosure of any kind (remaining mechanical decay after -0.4pp v3 and -0.4pp
+    v4)
   by: '2026-11-30'
   direction: down
-  magnitude: 1.5
+  magnitude: 1.1
   magnitude_unit: pp
   fired: null
 resolution:

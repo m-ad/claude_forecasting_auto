@@ -1,0 +1,1057 @@
+{
+  "post_id": 46051,
+  "question_id": 46289,
+  "title": "Will the Trump administration or a GOP state governor deploy armed officers or troops to a polling or early voting site in 2026?",
+  "question_type": "binary",
+  "status": "open",
+  "resolution": null,
+  "scheduled_close_time": "2026-11-02T13:00:00Z",
+  "cp_reveal_time": "2026-10-15T17:00:00Z",
+  "options": null,
+  "scaling": {
+    "range_min": null,
+    "range_max": null,
+    "nominal_min": null,
+    "nominal_max": null,
+    "zero_point": null,
+    "open_upper_bound": false,
+    "open_lower_bound": false,
+    "inbound_outcome_count": null,
+    "continuous_range": null
+  },
+  "resolution_criteria": "This question resolves as **Yes** if active duty United States military personnel, National Guard members, federal officers, or state troopers are deployed by the U.S. federal government or a Republican state governor to any polling or early-voting site, while that site is open for in-person voting for the [2026 general elections](https://en.wikipedia.org/wiki/2026_United_States_elections).\n\nIn order to count, the personnel or troops must be armed with firearms and must be either inside the voting site or within 250 feet of its entrance.",
+  "fine_print": "For purposes of this question, deliberate deployment for any stated reason counts regardless of stated purpose (e.g., ICE officers enforcing immigration laws or National Guard with the stated purpose of protecting voters).\n\nState troopers are defined as law enforcement officers working for state-level law enforcement agencies. Officers of sub-state level agencies such as county sheriff’s departments or municipal police departments do not count.\n\nA deployment by a Republican state governor counts if it is ordered by the governor or, in cases where the deployment order is issued by another state official, when it is specifically authorized by the governor.&#x20;\n\nPersonnel present in a personal capacity (such as voting or serving as poll workers) do not count.\n\nDeployments to provide protection to specific individuals, such as the U.S. Secret Service being at a polling place to facilitate the visit of a protectee so they can vote, do not count.\n\nPersonnel whose physical closeness to a polling location is incidental to their other duties, including personnel passing through an area, would not count, as long as their presence is coincidental and unrelated to that site or there is a lack of uncontroversial credible reporting that they were deliberately deployed there.&#x20;\n\nDeployments solely to provide personal protection to a specific individual visiting the site, including advance security work for that visit, do not count.\n\nThis question will resolve based upon reporting from [credible sources](https://www.metaculus.com/faq/#definitions).\n\nLocations used solely as drop boxes for mail-in or absentee ballots do not count.",
+  "background": "*This question is contributed by Bright Line Watch. See also the* [*U.S. Democracy Threat Index*](https://www.metaculus.com/index/us-democracy-threat/)*.*&#x20;\n\nFor several months the [Former JAG Working Group](https://www.formerjagworkinggroup.org/) has been submitting memoranda to members of the U.S. Congress and staff members [warning](https://www.formerjagworkinggroup.org/post/sixth-memorandum-to-members-of-congress-and-staff) of possible plans to deploy troops to voting sites to intimidate voters. Federal [law](https://www.law.cornell.edu/uscode/text/18/592) prohibits deployment of \"any troops or armed men at any place where a general or special election is held, unless such force be necessary to repel armed enemies of the United States.\" In a recent [interview](https://time.com/article/2026/10/01/donald-trump-2026-interview-transcript/) with Time Magazine, Donald Trump replied, \"I don't rule anything out or in\" in response to questions about plans to declare a state of emergency in the days leading up to the election or the deployment of ICE agents to polling stations.\n\nIn October 2026 there were sightings of National Guard troops standing by an official ballot dropbox in Washington, DC, posted on social media ([example](https://x.com/YourAnonCentral/status/2108874736122171883)). However, subsequent to the social media footage, there were [reported](https://www.washingtonpost.com/dc-md-va/2026/10/09/troops-were-loitering-by-dc-ballot-box-by-mistake-national-guard-says/) denials that the deployment was deliberate.&#x20;\n\nSee also from The Conversation: [What the law says about armed officers at polling places](https://theconversation.com/what-the-law-says-about-armed-officers-at-polling-places-293150)",
+  "nr_forecasters": 65,
+  "methods": {
+    "recency_weighted": {
+      "method": "recency_weighted",
+      "status": 200,
+      "history_points": 79,
+      "latest": {
+        "as_of": "2026-10-16 03:47",
+        "forecaster_count": 64,
+        "center": 0.15,
+        "lower": 0.125,
+        "upper": 0.23,
+        "mean": 0.18217324980610494,
+        "display": "15.0%  IQR[12.5%, 23.0%]",
+        "per_option": null
+      },
+      "history": [
+        [
+          "2026-10-12 17:00",
+          0.23
+        ],
+        [
+          "2026-10-12 17:48",
+          0.25
+        ],
+        [
+          "2026-10-12 18:11",
+          0.25
+        ],
+        [
+          "2026-10-12 18:12",
+          0.25
+        ],
+        [
+          "2026-10-12 18:29",
+          0.23
+        ],
+        [
+          "2026-10-12 19:17",
+          0.2
+        ],
+        [
+          "2026-10-12 19:25",
+          0.23
+        ],
+        [
+          "2026-10-12 21:39",
+          0.2
+        ],
+        [
+          "2026-10-12 22:55",
+          0.23
+        ],
+        [
+          "2026-10-12 23:12",
+          0.25
+        ],
+        [
+          "2026-10-12 23:23",
+          0.25
+        ],
+        [
+          "2026-10-12 23:30",
+          0.26
+        ],
+        [
+          "2026-10-13 00:21",
+          0.25
+        ],
+        [
+          "2026-10-13 00:30",
+          0.25
+        ],
+        [
+          "2026-10-13 00:52",
+          0.25
+        ],
+        [
+          "2026-10-13 02:49",
+          0.25
+        ],
+        [
+          "2026-10-13 03:50",
+          0.25
+        ],
+        [
+          "2026-10-13 07:18",
+          0.21
+        ],
+        [
+          "2026-10-13 08:38",
+          0.25
+        ],
+        [
+          "2026-10-13 11:28",
+          0.25
+        ],
+        [
+          "2026-10-13 12:54",
+          0.25
+        ],
+        [
+          "2026-10-13 17:18",
+          0.25
+        ],
+        [
+          "2026-10-13 17:24",
+          0.21
+        ],
+        [
+          "2026-10-13 19:56",
+          0.2
+        ],
+        [
+          "2026-10-13 21:30",
+          0.2
+        ],
+        [
+          "2026-10-13 21:45",
+          0.2
+        ],
+        [
+          "2026-10-13 22:41",
+          0.25
+        ],
+        [
+          "2026-10-14 00:11",
+          0.2
+        ],
+        [
+          "2026-10-14 01:20",
+          0.25
+        ],
+        [
+          "2026-10-14 01:58",
+          0.25
+        ],
+        [
+          "2026-10-14 04:20",
+          0.25
+        ],
+        [
+          "2026-10-14 04:23",
+          0.25
+        ],
+        [
+          "2026-10-14 07:14",
+          0.25
+        ],
+        [
+          "2026-10-14 07:27",
+          0.2
+        ],
+        [
+          "2026-10-14 07:41",
+          0.2
+        ],
+        [
+          "2026-10-14 09:45",
+          0.25
+        ],
+        [
+          "2026-10-14 11:53",
+          0.26
+        ],
+        [
+          "2026-10-14 13:50",
+          0.25
+        ],
+        [
+          "2026-10-14 14:41",
+          0.26
+        ],
+        [
+          "2026-10-14 14:45",
+          0.26
+        ],
+        [
+          "2026-10-14 14:46",
+          0.26
+        ],
+        [
+          "2026-10-14 14:46",
+          0.26
+        ],
+        [
+          "2026-10-14 14:47",
+          0.26
+        ],
+        [
+          "2026-10-14 14:53",
+          0.23
+        ],
+        [
+          "2026-10-14 15:38",
+          0.26
+        ],
+        [
+          "2026-10-14 17:08",
+          0.21
+        ],
+        [
+          "2026-10-14 18:00",
+          0.26
+        ],
+        [
+          "2026-10-14 18:00",
+          0.26
+        ],
+        [
+          "2026-10-14 20:16",
+          0.2
+        ],
+        [
+          "2026-10-14 20:20",
+          0.19
+        ],
+        [
+          "2026-10-14 20:52",
+          0.21
+        ],
+        [
+          "2026-10-14 21:35",
+          0.19
+        ],
+        [
+          "2026-10-15 00:09",
+          0.15
+        ],
+        [
+          "2026-10-15 01:24",
+          0.15
+        ],
+        [
+          "2026-10-15 04:18",
+          0.15
+        ],
+        [
+          "2026-10-15 05:52",
+          0.15
+        ],
+        [
+          "2026-10-15 06:51",
+          0.15
+        ],
+        [
+          "2026-10-15 10:28",
+          0.15
+        ],
+        [
+          "2026-10-15 14:08",
+          0.15
+        ],
+        [
+          "2026-10-15 14:45",
+          0.15
+        ],
+        [
+          "2026-10-15 17:07",
+          0.15
+        ],
+        [
+          "2026-10-15 17:18",
+          0.15
+        ],
+        [
+          "2026-10-15 17:22",
+          0.15
+        ],
+        [
+          "2026-10-15 17:43",
+          0.15
+        ],
+        [
+          "2026-10-15 18:12",
+          0.15
+        ],
+        [
+          "2026-10-15 18:42",
+          0.15
+        ],
+        [
+          "2026-10-15 18:55",
+          0.15
+        ],
+        [
+          "2026-10-15 20:00",
+          0.15
+        ],
+        [
+          "2026-10-15 20:14",
+          0.15
+        ],
+        [
+          "2026-10-15 21:06",
+          0.15
+        ],
+        [
+          "2026-10-15 21:07",
+          0.15
+        ],
+        [
+          "2026-10-15 21:17",
+          0.15
+        ],
+        [
+          "2026-10-15 21:50",
+          0.15
+        ],
+        [
+          "2026-10-15 21:51",
+          0.14
+        ],
+        [
+          "2026-10-15 21:58",
+          0.15
+        ],
+        [
+          "2026-10-15 23:01",
+          0.15
+        ],
+        [
+          "2026-10-16 00:03",
+          0.14
+        ],
+        [
+          "2026-10-16 03:39",
+          0.15
+        ],
+        [
+          "2026-10-16 03:47",
+          0.15
+        ]
+      ]
+    },
+    "metaculus_pros": {
+      "method": "metaculus_pros",
+      "status": 200,
+      "history_points": 79,
+      "latest": {
+        "as_of": "2026-10-16 03:47",
+        "forecaster_count": 9,
+        "center": 0.17,
+        "lower": 0.15,
+        "upper": 0.23,
+        "mean": 0.18139307636160446,
+        "display": "17.0%  IQR[15.0%, 23.0%]",
+        "per_option": null
+      },
+      "history": [
+        [
+          "2026-10-12 17:00",
+          0.37
+        ],
+        [
+          "2026-10-12 17:48",
+          0.37
+        ],
+        [
+          "2026-10-12 18:11",
+          0.34
+        ],
+        [
+          "2026-10-12 18:12",
+          0.34
+        ],
+        [
+          "2026-10-12 18:29",
+          0.34
+        ],
+        [
+          "2026-10-12 19:17",
+          0.34
+        ],
+        [
+          "2026-10-12 19:25",
+          0.33
+        ],
+        [
+          "2026-10-12 21:39",
+          0.33
+        ],
+        [
+          "2026-10-12 22:55",
+          0.33
+        ],
+        [
+          "2026-10-12 23:12",
+          0.33
+        ],
+        [
+          "2026-10-12 23:23",
+          0.33
+        ],
+        [
+          "2026-10-12 23:30",
+          0.33
+        ],
+        [
+          "2026-10-13 00:21",
+          0.33
+        ],
+        [
+          "2026-10-13 00:30",
+          0.33
+        ],
+        [
+          "2026-10-13 00:52",
+          0.27
+        ],
+        [
+          "2026-10-13 02:49",
+          0.27
+        ],
+        [
+          "2026-10-13 03:50",
+          0.25
+        ],
+        [
+          "2026-10-13 07:18",
+          0.25
+        ],
+        [
+          "2026-10-13 08:38",
+          0.27
+        ],
+        [
+          "2026-10-13 11:28",
+          0.27
+        ],
+        [
+          "2026-10-13 12:54",
+          0.34009375
+        ],
+        [
+          "2026-10-13 17:18",
+          0.34009375
+        ],
+        [
+          "2026-10-13 17:24",
+          0.34009375
+        ],
+        [
+          "2026-10-13 19:56",
+          0.34009375
+        ],
+        [
+          "2026-10-13 21:30",
+          0.25
+        ],
+        [
+          "2026-10-13 21:45",
+          0.25
+        ],
+        [
+          "2026-10-13 22:41",
+          0.25
+        ],
+        [
+          "2026-10-14 00:11",
+          0.25
+        ],
+        [
+          "2026-10-14 01:20",
+          0.25
+        ],
+        [
+          "2026-10-14 01:58",
+          0.25
+        ],
+        [
+          "2026-10-14 04:20",
+          0.25
+        ],
+        [
+          "2026-10-14 04:23",
+          0.25
+        ],
+        [
+          "2026-10-14 07:14",
+          0.25
+        ],
+        [
+          "2026-10-14 07:27",
+          0.25
+        ],
+        [
+          "2026-10-14 07:41",
+          0.25
+        ],
+        [
+          "2026-10-14 09:45",
+          0.25
+        ],
+        [
+          "2026-10-14 11:53",
+          0.25
+        ],
+        [
+          "2026-10-14 13:50",
+          0.25
+        ],
+        [
+          "2026-10-14 14:41",
+          0.25
+        ],
+        [
+          "2026-10-14 14:45",
+          0.25
+        ],
+        [
+          "2026-10-14 14:46",
+          0.25
+        ],
+        [
+          "2026-10-14 14:46",
+          0.25
+        ],
+        [
+          "2026-10-14 14:47",
+          0.25
+        ],
+        [
+          "2026-10-14 14:53",
+          0.25
+        ],
+        [
+          "2026-10-14 15:38",
+          0.34009375
+        ],
+        [
+          "2026-10-14 17:08",
+          0.15
+        ],
+        [
+          "2026-10-14 18:00",
+          0.15
+        ],
+        [
+          "2026-10-14 18:00",
+          0.15
+        ],
+        [
+          "2026-10-14 20:16",
+          0.15
+        ],
+        [
+          "2026-10-14 20:20",
+          0.15
+        ],
+        [
+          "2026-10-14 20:52",
+          0.15
+        ],
+        [
+          "2026-10-14 21:35",
+          0.15
+        ],
+        [
+          "2026-10-15 00:09",
+          0.15
+        ],
+        [
+          "2026-10-15 01:24",
+          0.09
+        ],
+        [
+          "2026-10-15 04:18",
+          0.15
+        ],
+        [
+          "2026-10-15 05:52",
+          0.15
+        ],
+        [
+          "2026-10-15 06:51",
+          0.15
+        ],
+        [
+          "2026-10-15 10:28",
+          0.15
+        ],
+        [
+          "2026-10-15 14:08",
+          0.15
+        ],
+        [
+          "2026-10-15 14:45",
+          0.15
+        ],
+        [
+          "2026-10-15 17:07",
+          0.15
+        ],
+        [
+          "2026-10-15 17:18",
+          0.15
+        ],
+        [
+          "2026-10-15 17:22",
+          0.15
+        ],
+        [
+          "2026-10-15 17:43",
+          0.15
+        ],
+        [
+          "2026-10-15 18:12",
+          0.15
+        ],
+        [
+          "2026-10-15 18:42",
+          0.15
+        ],
+        [
+          "2026-10-15 18:55",
+          0.15
+        ],
+        [
+          "2026-10-15 20:00",
+          0.15
+        ],
+        [
+          "2026-10-15 20:14",
+          0.17
+        ],
+        [
+          "2026-10-15 21:06",
+          0.17
+        ],
+        [
+          "2026-10-15 21:07",
+          0.15
+        ],
+        [
+          "2026-10-15 21:17",
+          0.15
+        ],
+        [
+          "2026-10-15 21:50",
+          0.15
+        ],
+        [
+          "2026-10-15 21:51",
+          0.15
+        ],
+        [
+          "2026-10-15 21:58",
+          0.15
+        ],
+        [
+          "2026-10-15 23:01",
+          0.15
+        ],
+        [
+          "2026-10-16 00:03",
+          0.15
+        ],
+        [
+          "2026-10-16 03:39",
+          0.17
+        ],
+        [
+          "2026-10-16 03:47",
+          0.17
+        ]
+      ]
+    },
+    "gold_medalists": {
+      "method": "gold_medalists",
+      "status": 200,
+      "history_points": 79,
+      "latest": {
+        "as_of": "2026-10-16 03:47",
+        "forecaster_count": 27,
+        "center": 0.15,
+        "lower": 0.1,
+        "upper": 0.23,
+        "mean": 0.18271177699751842,
+        "display": "15.0%  IQR[10.0%, 23.0%]",
+        "per_option": null
+      },
+      "history": [
+        [
+          "2026-10-12 17:00",
+          0.26
+        ],
+        [
+          "2026-10-12 17:48",
+          0.4
+        ],
+        [
+          "2026-10-12 18:11",
+          0.34
+        ],
+        [
+          "2026-10-12 18:12",
+          0.34
+        ],
+        [
+          "2026-10-12 18:29",
+          0.34
+        ],
+        [
+          "2026-10-12 19:17",
+          0.34
+        ],
+        [
+          "2026-10-12 19:25",
+          0.33
+        ],
+        [
+          "2026-10-12 21:39",
+          0.33
+        ],
+        [
+          "2026-10-12 22:55",
+          0.33
+        ],
+        [
+          "2026-10-12 23:12",
+          0.34
+        ],
+        [
+          "2026-10-12 23:23",
+          0.33
+        ],
+        [
+          "2026-10-12 23:30",
+          0.34
+        ],
+        [
+          "2026-10-13 00:21",
+          0.33
+        ],
+        [
+          "2026-10-13 00:30",
+          0.25
+        ],
+        [
+          "2026-10-13 00:52",
+          0.27
+        ],
+        [
+          "2026-10-13 02:49",
+          0.27
+        ],
+        [
+          "2026-10-13 03:50",
+          0.25
+        ],
+        [
+          "2026-10-13 07:18",
+          0.25
+        ],
+        [
+          "2026-10-13 08:38",
+          0.27
+        ],
+        [
+          "2026-10-13 11:28",
+          0.27
+        ],
+        [
+          "2026-10-13 12:54",
+          0.27
+        ],
+        [
+          "2026-10-13 17:18",
+          0.27
+        ],
+        [
+          "2026-10-13 17:24",
+          0.27
+        ],
+        [
+          "2026-10-13 19:56",
+          0.27
+        ],
+        [
+          "2026-10-13 21:30",
+          0.27
+        ],
+        [
+          "2026-10-13 21:45",
+          0.25
+        ],
+        [
+          "2026-10-13 22:41",
+          0.27
+        ],
+        [
+          "2026-10-14 00:11",
+          0.27
+        ],
+        [
+          "2026-10-14 01:20",
+          0.4
+        ],
+        [
+          "2026-10-14 01:58",
+          0.27
+        ],
+        [
+          "2026-10-14 04:20",
+          0.27
+        ],
+        [
+          "2026-10-14 04:23",
+          0.27
+        ],
+        [
+          "2026-10-14 07:14",
+          0.5
+        ],
+        [
+          "2026-10-14 07:27",
+          0.5
+        ],
+        [
+          "2026-10-14 07:41",
+          0.5
+        ],
+        [
+          "2026-10-14 09:45",
+          0.5
+        ],
+        [
+          "2026-10-14 11:53",
+          0.5
+        ],
+        [
+          "2026-10-14 13:50",
+          0.5
+        ],
+        [
+          "2026-10-14 14:41",
+          0.5
+        ],
+        [
+          "2026-10-14 14:45",
+          0.5
+        ],
+        [
+          "2026-10-14 14:46",
+          0.5
+        ],
+        [
+          "2026-10-14 14:46",
+          0.5
+        ],
+        [
+          "2026-10-14 14:47",
+          0.5
+        ],
+        [
+          "2026-10-14 14:53",
+          0.27
+        ],
+        [
+          "2026-10-14 15:38",
+          0.39
+        ],
+        [
+          "2026-10-14 17:08",
+          0.26
+        ],
+        [
+          "2026-10-14 18:00",
+          0.26
+        ],
+        [
+          "2026-10-14 18:00",
+          0.26
+        ],
+        [
+          "2026-10-14 20:16",
+          0.26
+        ],
+        [
+          "2026-10-14 20:20",
+          0.26
+        ],
+        [
+          "2026-10-14 20:52",
+          0.26
+        ],
+        [
+          "2026-10-14 21:35",
+          0.26
+        ],
+        [
+          "2026-10-15 00:09",
+          0.26
+        ],
+        [
+          "2026-10-15 01:24",
+          0.2
+        ],
+        [
+          "2026-10-15 04:18",
+          0.2
+        ],
+        [
+          "2026-10-15 05:52",
+          0.2
+        ],
+        [
+          "2026-10-15 06:51",
+          0.12
+        ],
+        [
+          "2026-10-15 10:28",
+          0.12
+        ],
+        [
+          "2026-10-15 14:08",
+          0.12
+        ],
+        [
+          "2026-10-15 14:45",
+          0.12
+        ],
+        [
+          "2026-10-15 17:07",
+          0.12
+        ],
+        [
+          "2026-10-15 17:18",
+          0.17
+        ],
+        [
+          "2026-10-15 17:22",
+          0.17
+        ],
+        [
+          "2026-10-15 17:43",
+          0.17
+        ],
+        [
+          "2026-10-15 18:12",
+          0.17
+        ],
+        [
+          "2026-10-15 18:42",
+          0.17
+        ],
+        [
+          "2026-10-15 18:55",
+          0.17
+        ],
+        [
+          "2026-10-15 20:00",
+          0.17
+        ],
+        [
+          "2026-10-15 20:14",
+          0.17
+        ],
+        [
+          "2026-10-15 21:06",
+          0.17
+        ],
+        [
+          "2026-10-15 21:07",
+          0.17
+        ],
+        [
+          "2026-10-15 21:17",
+          0.17
+        ],
+        [
+          "2026-10-15 21:50",
+          0.15
+        ],
+        [
+          "2026-10-15 21:51",
+          0.15
+        ],
+        [
+          "2026-10-15 21:58",
+          0.15
+        ],
+        [
+          "2026-10-15 23:01",
+          0.15
+        ],
+        [
+          "2026-10-16 00:03",
+          0.14
+        ],
+        [
+          "2026-10-16 03:39",
+          0.15
+        ],
+        [
+          "2026-10-16 03:47",
+          0.15
+        ]
+      ]
+    }
+  },
+  "comments": [
+    {
+      "author": "johnnycaffeine",
+      "created_at": "2026-10-14",
+      "text": "@(preseen-human) Yeah that's fair. Secret Service visits are a long established practice, for example as [this](https://cdn.cnn.com/cnn/2018/images/03/12/gpa_10_18_statement_re_homeland_security_reauthorization_bill_provision.pdf) describes. I'll edit the FP accordingly, thank you.&#x20;"
+    },
+    {
+      "author": "preseen-human",
+      "created_at": "2026-10-14",
+      "text": "@(johnnycaffeine)Thanks for the clarification. Is it fair to assume that a secret service detail dispatched in advance of the President or other cabinet officer to ensure a polling place was safe wouldn't resolve this question? Would it make any difference how the secret service detail behaved (i.e. if did anything else besides playing a clearly protective role)?"
+    },
+    {
+      "author": "DaiLothbrook",
+      "created_at": "2026-10-12",
+      "text": "iN THis first estimate, so far, I will  assign 5% to a qualifying deployment. Reports of agents near voting activity and preparations by election officials make me less comfortable with my initial 2% prior, but proximity and rhetoric are not the same as an order placing armed personnel at a polling or early-voting site. DHS says it has no plan for broad ICE patrols, and legal barriers are substantial. The biggest uncertainty is what Metaculus IS REQUIRING   as proof of a governor- or administration-directed deployment. Sources: [AP](https://www.ap.org/news-highlights/elections/2026/trump-administration-says-it-has-no-plans-for-ice-officers-at-polls-activists-are-preparing-anyway/), [Axios](https://www.axios.com/2026/09/17/states-ice-polls-2026-election), [Brennan Center](https://www.brennancenter.org/our-work/research-reports/federal-and-state-election-laws-ban-federal-forces-polling-places)."
+    },
+    {
+      "author": "johnnycaffeine",
+      "created_at": "2026-10-12",
+      "text": "@(ChaosCondensate) Thank you for the question. If the ICE officers were specifically sent to the polling site to execute the warrant, and in-person voting were underway at the time, that would seem to be consistent with a deliberate deployment."
+    },
+    {
+      "author": "ChaosCondensate",
+      "created_at": "2026-10-12",
+      "text": "@(admins) how strictly should \"deliberately deployed\" be read? Concrete case: armed ICE officers enter a building to make an arrest on a warrant unrelated to the election, while in-person early voting for the 2026general election is underway inside that same building, and they are within 250 feet of the entrance. Does that resolve YES, or is it excluded as incidental to their other duties? Thank you"
+    }
+  ],
+  "label": null,
+  "subquestions": [],
+  "aggregation_note": null
+}

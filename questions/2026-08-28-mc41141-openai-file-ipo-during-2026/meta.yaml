@@ -18,19 +18,19 @@ dates:
   resolves: '2027-01-01'
 status: open
 current:
-  version: 2
-  date: '2026-10-02'
-  median: 0.03
+  version: 3
+  date: '2026-10-16'
+  median: 0.02
   iqr:
-  - 0.015
-  - 0.05
+  - 0.01
+  - 0.035
   community:
     cp: 0.02
-    pro: 0.02
+    pro: 0.014
     gold: 0.02
-    n_forecasters: 283
-    as_of: '2026-10-02'
-next_review: '2026-10-16'
+    n_forecasters: 277
+    as_of: '2026-10-16'
+next_review: '2026-10-30'
 tripwires:
 - signal: Anthropic files a public (non-confidential) S-1 on EDGAR
   by: '2026-09-30'
@@ -43,15 +43,15 @@ tripwires:
   direction: up
   magnitude: 7
   magnitude_unit: pp
-  fired: null
+  fired: false
 - signal: Anthropic prices below range or breaks issue in its first week
   by: '2026-11-15'
   direction: down
   magnitude: 6
   magnitude_unit: pp
-  fired: null
-- signal: Wire/major-outlet report naming an OpenAI ticker, exchange, share count or price range, or a
-    syndicate expansion
+  fired: false
+- signal: Wire/major-outlet report naming an OpenAI ticker, exchange, share count
+    or price range, or a syndicate expansion
   by: '2026-11-15'
   direction: up
   magnitude: 15
@@ -75,14 +75,15 @@ tripwires:
   magnitude: 12
   magnitude_unit: pp
   fired: null
-- signal: Major-outlet report that OpenAI will publicly file/flip its S-1 in 2026, or naming a ticker,
-    exchange, price range or launch week
+- signal: Major-outlet report that OpenAI will publicly file/flip its S-1 in 2026,
+    or naming a ticker, exchange, price range or launch week
   by: '2026-12-15'
   direction: up
   magnitude: 20
   magnitude_unit: pp
   fired: null
-- signal: Altman or Friar on record naming January / Q1 / early 2027 as the listing target
+- signal: Altman or Friar on record naming January / Q1 / early 2027 as the listing
+    target
   by: '2026-12-15'
   direction: up
   magnitude: 3
@@ -100,7 +101,8 @@ tripwires:
   magnitude: 1
   magnitude_unit: pp
   fired: null
-- signal: OpenAI resumes frontier training and the California AG subpoena is settled or withdrawn
+- signal: OpenAI resumes frontier training and the California AG subpoena is settled
+    or withdrawn
   by: '2026-11-30'
   direction: up
   magnitude: 1
@@ -112,17 +114,42 @@ tripwires:
   magnitude: 1
   magnitude_unit: pp
   fired: null
-- signal: Third publicly reported rogue-agent incident or new state/federal enforcement action against
-    OpenAI
+- signal: Third publicly reported rogue-agent incident or new state/federal enforcement
+    action against OpenAI
   by: '2026-12-31'
   direction: down
   magnitude: 1
   magnitude_unit: pp
-  fired: null
+  fired: '2026-10-02'
 - signal: No public OpenAI S-1 on EDGAR (cut to <=2%; by 2026-12-15 cut to <=1%)
   by: '2026-11-30'
   direction: down
   magnitude: 1
+  magnitude_unit: pp
+  fired: null
+- signal: Anthropic flips its S-1 public on EDGAR (if not by then, -0.3pp)
+  by: '2026-10-31'
+  direction: up
+  magnitude: 0.3
+  magnitude_unit: pp
+  fired: null
+- signal: Anthropic IPO pulled, slips past 2026-11-30, or breaks issue in week 1
+  by: '2026-11-30'
+  direction: down
+  magnitude: 0.5
+  magnitude_unit: pp
+  fired: null
+- signal: New formal state/federal enforcement action or newly disclosed escaped-agent
+    incident at OpenAI
+  by: '2026-12-31'
+  direction: down
+  magnitude: 0.5
+  magnitude_unit: pp
+  fired: null
+- signal: No public OpenAI S-1 on EDGAR (cut to <=1.5%; by 12-15 <=1%; by 12-24 <=0.5%)
+  by: '2026-11-30'
+  direction: down
+  magnitude: 0.5
   magnitude_unit: pp
   fired: null
 resolution:

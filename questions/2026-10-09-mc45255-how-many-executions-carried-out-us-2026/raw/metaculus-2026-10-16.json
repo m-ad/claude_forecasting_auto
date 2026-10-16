@@ -1,0 +1,1110 @@
+{
+  "post_id": 45255,
+  "question_id": 45444,
+  "title": "How many executions will be carried out in the US in 2026?",
+  "question_type": "multiple_choice",
+  "status": "open",
+  "resolution": null,
+  "scheduled_close_time": "2026-12-02T23:59:00Z",
+  "cp_reveal_time": "2026-10-15T17:00:00Z",
+  "options": [
+    "Fewer than 39",
+    "39",
+    "40",
+    "41",
+    "More than 41"
+  ],
+  "scaling": {
+    "range_min": null,
+    "range_max": null,
+    "nominal_min": null,
+    "nominal_max": null,
+    "zero_point": null,
+    "open_upper_bound": false,
+    "open_lower_bound": false,
+    "inbound_outcome_count": null,
+    "continuous_range": null
+  },
+  "resolution_criteria": "This question resolves as the total number of people in the United States who were executed by state and federal governmental authorities in 2026, according to the [Death Penalty Information Center](https://deathpenaltyinfo.org/facts-and-research/data/executions) (DPIC).&#x20;",
+  "fine_print": "This question may also resolve according to [credible sources](https://www.metaculus.com/faq/#definitions). Please note that US military executions count even if they are not included in the DPIC total.",
+  "background": "The US death-row population has declined for 20 consecutive years, with around 2,100 [prisoners currently facing execution](https://deathpenaltyinfo.org/death-row/overview). However, capital punishment remains in the headlines, in part due to [Florida's increasing numbers of executions](https://www.nytimes.com/2026/06/30/magazine/florida-death-penalty.html). In mid August, [Florida executed its 13th death row prisoner of the year](https://apnews.com/article/florida-execution-william-silvia-9ece9e5bba0484cdd83e53fd0918145a). Texas remains the state with the most executions since the reinstatement of the death penalty in the 1970s.\n\nNot all executions that are planned go ahead [on schedule](https://deathpenaltyinfo.org/executions/upcoming-executions/outcomes-of-warrants/outcomes-of-death-warrants-in-2026), either due to reprieves, appeals, executive orders, or in the case of [Christa Pike in Tennessee](https://deathpenaltyinfo.org/tag/christa-pike), a failed execution. A review was called for by the Governor and [the Department of Correction Commissioner resigned](https://www.nytimes.com/2026/10/03/us/tennessee-prison-commissioner-resigns-christa-pike.html). However, [the 30th person executed of the year](https://www.local10.com/news/2026/10/07/texas-carries-out-nations-first-execution-since-christa-pikes-failed-lethal-injection/) occurred a week later in Texas.&#x20;\n\n[Nine more executions are scheduled](https://deathpenaltyinfo.org/executions/upcoming-executions) to take place between October 13 and December 31, 2026. If they all go ahead, the total for the nation in 2026 would be 39.",
+  "nr_forecasters": 64,
+  "methods": {
+    "recency_weighted": {
+      "method": "recency_weighted",
+      "status": 200,
+      "history_points": 76,
+      "latest": {
+        "as_of": "2026-10-16 04:05",
+        "forecaster_count": 62,
+        "center": 0.36925977933801407,
+        "lower": 0.2894198270487137,
+        "upper": 0.4191597495188268,
+        "mean": 0.3746463728790469,
+        "display": "Fewer than 39=36.9%  39=22.2%  40=19.0%  41=12.0%  More than 41=10.0%",
+        "per_option": [
+          [
+            "Fewer than 39",
+            0.36925977933801407,
+            0.2894198270487137,
+            0.4191597495188268
+          ],
+          [
+            "39",
+            0.22155667001003013,
+            0.19960060361263976,
+            0.2594807846964317
+          ],
+          [
+            "40",
+            0.1896208625877633,
+            0.17564879902866493,
+            0.20459093068679726
+          ],
+          [
+            "41",
+            0.11976128385155468,
+            0.08483090939485124,
+            0.12974139083918426
+          ],
+          [
+            "More than 41",
+            0.09980140421263793,
+            0.07984112337011035,
+            0.13972196589769312
+          ]
+        ]
+      },
+      "history": [
+        [
+          "2026-10-12 17:00",
+          0.2754462193823216
+        ],
+        [
+          "2026-10-12 17:50",
+          0.31775147928994085
+        ],
+        [
+          "2026-10-12 18:11",
+          0.2817244008714597
+        ],
+        [
+          "2026-10-12 18:21",
+          0.2769154175588865
+        ],
+        [
+          "2026-10-12 18:24",
+          0.29653325688073395
+        ],
+        [
+          "2026-10-12 18:27",
+          0.29552
+        ],
+        [
+          "2026-10-12 19:35",
+          0.3017359550561798
+        ],
+        [
+          "2026-10-12 19:46",
+          0.3034350282485876
+        ],
+        [
+          "2026-10-12 19:55",
+          0.3034350282485876
+        ],
+        [
+          "2026-10-12 19:55",
+          0.3034350282485876
+        ],
+        [
+          "2026-10-12 19:56",
+          0.3034350282485876
+        ],
+        [
+          "2026-10-12 21:50",
+          0.38303743315508015
+        ],
+        [
+          "2026-10-12 23:08",
+          0.3034350282485876
+        ],
+        [
+          "2026-10-12 23:14",
+          0.38303743315508015
+        ],
+        [
+          "2026-10-12 23:28",
+          0.39878897136797453
+        ],
+        [
+          "2026-10-13 00:01",
+          0.4455323383084576
+        ],
+        [
+          "2026-10-13 00:29",
+          0.477230448383733
+        ],
+        [
+          "2026-10-13 00:57",
+          0.4455323383084576
+        ],
+        [
+          "2026-10-13 02:09",
+          0.45095566502463047
+        ],
+        [
+          "2026-10-13 02:09",
+          0.45095566502463047
+        ],
+        [
+          "2026-10-13 11:28",
+          0.48000000000000004
+        ],
+        [
+          "2026-10-13 12:19",
+          0.45095566502463047
+        ],
+        [
+          "2026-10-13 17:18",
+          0.44216931216931216
+        ],
+        [
+          "2026-10-13 17:24",
+          0.405527833001988
+        ],
+        [
+          "2026-10-13 19:56",
+          0.38652415210688595
+        ],
+        [
+          "2026-10-13 21:27",
+          0.40593034825870644
+        ],
+        [
+          "2026-10-13 22:46",
+          0.39296969696969697
+        ],
+        [
+          "2026-10-13 22:48",
+          0.37899470899470894
+        ],
+        [
+          "2026-10-13 22:49",
+          0.37077743271221536
+        ],
+        [
+          "2026-10-13 23:28",
+          0.34010790598290597
+        ],
+        [
+          "2026-10-14 00:11",
+          0.37077743271221536
+        ],
+        [
+          "2026-10-14 01:26",
+          0.40795499999999996
+        ],
+        [
+          "2026-10-14 09:44",
+          0.37077743271221536
+        ],
+        [
+          "2026-10-14 10:19",
+          0.40194088669950734
+        ],
+        [
+          "2026-10-14 12:59",
+          0.45284034416826
+        ],
+        [
+          "2026-10-14 13:32",
+          0.40795499999999996
+        ],
+        [
+          "2026-10-14 13:34",
+          0.45284034416826
+        ],
+        [
+          "2026-10-14 14:49",
+          0.4788816986855409
+        ],
+        [
+          "2026-10-14 15:26",
+          0.46940931615460857
+        ],
+        [
+          "2026-10-14 16:00",
+          0.4120656565656566
+        ],
+        [
+          "2026-10-14 16:00",
+          0.4120656565656566
+        ],
+        [
+          "2026-10-14 16:00",
+          0.4120656565656566
+        ],
+        [
+          "2026-10-14 17:09",
+          0.3834394273127753
+        ],
+        [
+          "2026-10-14 17:51",
+          0.36653157894736843
+        ],
+        [
+          "2026-10-14 20:13",
+          0.33723411016949156
+        ],
+        [
+          "2026-10-14 20:15",
+          0.3305059717698154
+        ],
+        [
+          "2026-10-14 20:51",
+          0.3299170984455958
+        ],
+        [
+          "2026-10-15 00:08",
+          0.36461780104712044
+        ],
+        [
+          "2026-10-15 00:53",
+          0.36364467005076145
+        ],
+        [
+          "2026-10-15 03:34",
+          0.37039503619441577
+        ],
+        [
+          "2026-10-15 03:39",
+          0.3711606217616581
+        ],
+        [
+          "2026-10-15 03:40",
+          0.3711606217616581
+        ],
+        [
+          "2026-10-15 06:34",
+          0.3711606217616581
+        ],
+        [
+          "2026-10-15 10:30",
+          0.39613827433628324
+        ],
+        [
+          "2026-10-15 10:30",
+          0.39613827433628324
+        ],
+        [
+          "2026-10-15 13:43",
+          0.3981975806451613
+        ],
+        [
+          "2026-10-15 14:16",
+          0.4124041450777203
+        ],
+        [
+          "2026-10-15 17:09",
+          0.39940242669363
+        ],
+        [
+          "2026-10-15 17:44",
+          0.40209326424870473
+        ],
+        [
+          "2026-10-15 17:44",
+          0.40209326424870473
+        ],
+        [
+          "2026-10-15 18:13",
+          0.3823349753694582
+        ],
+        [
+          "2026-10-15 18:57",
+          0.3814704704704705
+        ],
+        [
+          "2026-10-15 19:17",
+          0.3814704704704705
+        ],
+        [
+          "2026-10-15 20:09",
+          0.38061847389558234
+        ],
+        [
+          "2026-10-15 21:06",
+          0.3818517034068136
+        ],
+        [
+          "2026-10-15 21:10",
+          0.38100000000000006
+        ],
+        [
+          "2026-10-15 21:20",
+          0.38223370110331
+        ],
+        [
+          "2026-10-15 21:58",
+          0.3857064777327935
+        ],
+        [
+          "2026-10-15 22:46",
+          0.3865129482071713
+        ],
+        [
+          "2026-10-15 23:02",
+          0.3853174924165824
+        ],
+        [
+          "2026-10-16 00:03",
+          0.37759362549800796
+        ],
+        [
+          "2026-10-16 01:02",
+          0.3718636363636364
+        ],
+        [
+          "2026-10-16 01:03",
+          0.36925977933801407
+        ],
+        [
+          "2026-10-16 01:11",
+          0.368155
+        ],
+        [
+          "2026-10-16 01:25",
+          0.3794784784784785
+        ],
+        [
+          "2026-10-16 04:05",
+          0.36925977933801407
+        ]
+      ]
+    },
+    "metaculus_pros": {
+      "method": "metaculus_pros",
+      "status": 200,
+      "history_points": 76,
+      "latest": {
+        "as_of": "2026-10-16 04:05",
+        "forecaster_count": 9,
+        "center": 0.34,
+        "lower": 0.13,
+        "upper": 0.36,
+        "mean": 0.29142271656904645,
+        "display": "Fewer than 39=34.0%  39=23.0%  40=18.0%  41=13.0%  More than 41=12.0%",
+        "per_option": [
+          [
+            "Fewer than 39",
+            0.34,
+            0.13,
+            0.36
+          ],
+          [
+            "39",
+            0.22999999999999998,
+            0.16,
+            0.22999999999999998
+          ],
+          [
+            "40",
+            0.18,
+            0.18,
+            0.22
+          ],
+          [
+            "41",
+            0.12999999999999998,
+            0.12999999999999998,
+            0.21999999999999995
+          ],
+          [
+            "More than 41",
+            0.11999999999999998,
+            0.10999999999999999,
+            0.27
+          ]
+        ]
+      },
+      "history": [
+        [
+          "2026-10-12 17:00",
+          0.20704058272632675
+        ],
+        [
+          "2026-10-12 17:50",
+          0.20704058272632675
+        ],
+        [
+          "2026-10-12 18:11",
+          0.12999999999999998
+        ],
+        [
+          "2026-10-12 18:21",
+          0.09000000000000001
+        ],
+        [
+          "2026-10-12 18:24",
+          0.09000000000000001
+        ],
+        [
+          "2026-10-12 18:27",
+          0.20877019937040925
+        ],
+        [
+          "2026-10-12 19:35",
+          0.2812670157068063
+        ],
+        [
+          "2026-10-12 19:46",
+          0.37089265536723165
+        ],
+        [
+          "2026-10-12 19:55",
+          0.38470718232044193
+        ],
+        [
+          "2026-10-12 19:55",
+          0.37089265536723165
+        ],
+        [
+          "2026-10-12 19:56",
+          0.3913879781420765
+        ],
+        [
+          "2026-10-12 21:50",
+          0.3913879781420765
+        ],
+        [
+          "2026-10-12 23:08",
+          0.2812670157068063
+        ],
+        [
+          "2026-10-12 23:14",
+          0.2812670157068063
+        ],
+        [
+          "2026-10-12 23:28",
+          0.2812670157068063
+        ],
+        [
+          "2026-10-13 00:01",
+          0.2812670157068063
+        ],
+        [
+          "2026-10-13 00:29",
+          0.2812670157068063
+        ],
+        [
+          "2026-10-13 00:57",
+          0.2604293193717277
+        ],
+        [
+          "2026-10-13 02:09",
+          0.2604293193717277
+        ],
+        [
+          "2026-10-13 02:09",
+          0.2604293193717277
+        ],
+        [
+          "2026-10-13 11:28",
+          0.2604293193717277
+        ],
+        [
+          "2026-10-13 12:19",
+          0.2604293193717277
+        ],
+        [
+          "2026-10-13 17:18",
+          0.2604293193717277
+        ],
+        [
+          "2026-10-13 17:24",
+          0.2604293193717277
+        ],
+        [
+          "2026-10-13 19:56",
+          0.2604293193717277
+        ],
+        [
+          "2026-10-13 21:27",
+          0.2604293193717277
+        ],
+        [
+          "2026-10-13 22:46",
+          0.2604293193717277
+        ],
+        [
+          "2026-10-13 22:48",
+          0.2604293193717277
+        ],
+        [
+          "2026-10-13 22:49",
+          0.2604293193717277
+        ],
+        [
+          "2026-10-13 23:28",
+          0.2604293193717277
+        ],
+        [
+          "2026-10-14 00:11",
+          0.2604293193717277
+        ],
+        [
+          "2026-10-14 01:26",
+          0.2604293193717277
+        ],
+        [
+          "2026-10-14 09:44",
+          0.2604293193717277
+        ],
+        [
+          "2026-10-14 10:19",
+          0.2604293193717277
+        ],
+        [
+          "2026-10-14 12:59",
+          0.2604293193717277
+        ],
+        [
+          "2026-10-14 13:32",
+          0.1040387029288703
+        ],
+        [
+          "2026-10-14 13:34",
+          0.2604293193717277
+        ],
+        [
+          "2026-10-14 14:49",
+          0.2604293193717277
+        ],
+        [
+          "2026-10-14 15:26",
+          0.25
+        ],
+        [
+          "2026-10-14 16:00",
+          0.25
+        ],
+        [
+          "2026-10-14 16:00",
+          0.25
+        ],
+        [
+          "2026-10-14 16:00",
+          0.25
+        ],
+        [
+          "2026-10-14 17:09",
+          0.2755179487179487
+        ],
+        [
+          "2026-10-14 17:51",
+          0.2755179487179487
+        ],
+        [
+          "2026-10-14 20:13",
+          0.2755179487179487
+        ],
+        [
+          "2026-10-14 20:15",
+          0.2755179487179487
+        ],
+        [
+          "2026-10-14 20:51",
+          0.2755179487179487
+        ],
+        [
+          "2026-10-15 00:08",
+          0.2755179487179487
+        ],
+        [
+          "2026-10-15 00:53",
+          0.3535431472081218
+        ],
+        [
+          "2026-10-15 03:34",
+          0.3535431472081218
+        ],
+        [
+          "2026-10-15 03:39",
+          0.3535431472081218
+        ],
+        [
+          "2026-10-15 03:40",
+          0.3535431472081218
+        ],
+        [
+          "2026-10-15 06:34",
+          0.3535431472081218
+        ],
+        [
+          "2026-10-15 10:30",
+          0.3535431472081218
+        ],
+        [
+          "2026-10-15 10:30",
+          0.3535431472081218
+        ],
+        [
+          "2026-10-15 13:43",
+          0.3535431472081218
+        ],
+        [
+          "2026-10-15 14:16",
+          0.3535431472081218
+        ],
+        [
+          "2026-10-15 17:09",
+          0.3535431472081218
+        ],
+        [
+          "2026-10-15 17:44",
+          0.36364467005076145
+        ],
+        [
+          "2026-10-15 17:44",
+          0.36364467005076145
+        ],
+        [
+          "2026-10-15 18:13",
+          0.3535431472081218
+        ],
+        [
+          "2026-10-15 18:57",
+          0.3535431472081218
+        ],
+        [
+          "2026-10-15 19:17",
+          0.3535431472081218
+        ],
+        [
+          "2026-10-15 20:09",
+          0.3535431472081218
+        ],
+        [
+          "2026-10-15 21:06",
+          0.3535431472081218
+        ],
+        [
+          "2026-10-15 21:10",
+          0.35642786069651744
+        ],
+        [
+          "2026-10-15 21:20",
+          0.35642786069651744
+        ],
+        [
+          "2026-10-15 21:58",
+          0.35642786069651744
+        ],
+        [
+          "2026-10-15 22:46",
+          0.35642786069651744
+        ],
+        [
+          "2026-10-15 23:02",
+          0.35642786069651744
+        ],
+        [
+          "2026-10-16 00:03",
+          0.35642786069651744
+        ],
+        [
+          "2026-10-16 01:02",
+          0.35642786069651744
+        ],
+        [
+          "2026-10-16 01:03",
+          0.35642786069651744
+        ],
+        [
+          "2026-10-16 01:11",
+          0.35
+        ],
+        [
+          "2026-10-16 01:25",
+          0.35
+        ],
+        [
+          "2026-10-16 04:05",
+          0.34
+        ]
+      ]
+    },
+    "gold_medalists": {
+      "method": "gold_medalists",
+      "status": 200,
+      "history_points": 76,
+      "latest": {
+        "as_of": "2026-10-16 04:05",
+        "forecaster_count": 26,
+        "center": 0.3366268656716418,
+        "lower": 0.27623204565408255,
+        "upper": 0.35642844600526774,
+        "mean": 0.33285165815373247,
+        "display": "Fewer than 39=33.7%  39=24.8%  40=17.8%  41=12.9%  More than 41=10.9%",
+        "per_option": [
+          [
+            "Fewer than 39",
+            0.3366268656716418,
+            0.27623204565408255,
+            0.35642844600526774
+          ],
+          [
+            "39",
+            0.24752238805970148,
+            0.22772059701492536,
+            0.25841337313432833
+          ],
+          [
+            "40",
+            0.17821890547263677,
+            0.15841680486456602,
+            0.21782310668877827
+          ],
+          [
+            "41",
+            0.12871641791044774,
+            0.09901262916188287,
+            0.12871641791044774
+          ],
+          [
+            "More than 41",
+            0.10891542288557213,
+            0.04950701040253279,
+            0.14852103120759835
+          ]
+        ]
+      },
+      "history": [
+        [
+          "2026-10-12 17:00",
+          0.3962739726027397
+        ],
+        [
+          "2026-10-12 17:50",
+          0.5730103686635944
+        ],
+        [
+          "2026-10-12 18:11",
+          0.4065297297297297
+        ],
+        [
+          "2026-10-12 18:21",
+          0.3962739726027397
+        ],
+        [
+          "2026-10-12 18:24",
+          0.26089617486338795
+        ],
+        [
+          "2026-10-12 18:27",
+          0.3810557244174265
+        ],
+        [
+          "2026-10-12 19:35",
+          0.3810557244174265
+        ],
+        [
+          "2026-10-12 19:46",
+          0.3474074074074074
+        ],
+        [
+          "2026-10-12 19:55",
+          0.36084974093264244
+        ],
+        [
+          "2026-10-12 19:55",
+          0.3474074074074074
+        ],
+        [
+          "2026-10-12 19:56",
+          0.36736410256410257
+        ],
+        [
+          "2026-10-12 21:50",
+          0.36736410256410257
+        ],
+        [
+          "2026-10-12 23:08",
+          0.36736410256410257
+        ],
+        [
+          "2026-10-12 23:14",
+          0.37116062176165804
+        ],
+        [
+          "2026-10-12 23:28",
+          0.4256720532319392
+        ],
+        [
+          "2026-10-13 00:01",
+          0.4581621621621622
+        ],
+        [
+          "2026-10-13 00:29",
+          0.4646598984771574
+        ],
+        [
+          "2026-10-13 00:57",
+          0.45543283582089555
+        ],
+        [
+          "2026-10-13 02:09",
+          0.45543283582089555
+        ],
+        [
+          "2026-10-13 02:09",
+          0.45543283582089555
+        ],
+        [
+          "2026-10-13 11:28",
+          0.45543283582089555
+        ],
+        [
+          "2026-10-13 12:19",
+          0.38716756756756754
+        ],
+        [
+          "2026-10-13 17:18",
+          0.38716756756756754
+        ],
+        [
+          "2026-10-13 17:24",
+          0.38716756756756754
+        ],
+        [
+          "2026-10-13 19:56",
+          0.38716756756756754
+        ],
+        [
+          "2026-10-13 21:27",
+          0.46
+        ],
+        [
+          "2026-10-13 22:46",
+          0.3962739726027397
+        ],
+        [
+          "2026-10-13 22:48",
+          0.3810053191489362
+        ],
+        [
+          "2026-10-13 22:49",
+          0.37077743271221536
+        ],
+        [
+          "2026-10-13 23:28",
+          0.37077743271221536
+        ],
+        [
+          "2026-10-14 00:11",
+          0.37077743271221536
+        ],
+        [
+          "2026-10-14 01:26",
+          0.4623181818181818
+        ],
+        [
+          "2026-10-14 09:44",
+          0.4623181818181818
+        ],
+        [
+          "2026-10-14 10:19",
+          0.4623181818181818
+        ],
+        [
+          "2026-10-14 12:59",
+          0.4827376237623762
+        ],
+        [
+          "2026-10-14 13:32",
+          0.48428571428571426
+        ],
+        [
+          "2026-10-14 13:34",
+          0.4827376237623762
+        ],
+        [
+          "2026-10-14 14:49",
+          0.4914073319755601
+        ],
+        [
+          "2026-10-14 15:26",
+          0.48646370967741936
+        ],
+        [
+          "2026-10-14 16:00",
+          0.4718298969072165
+        ],
+        [
+          "2026-10-14 16:00",
+          0.4718298969072165
+        ],
+        [
+          "2026-10-14 16:00",
+          0.4718298969072165
+        ],
+        [
+          "2026-10-14 17:09",
+          0.3817620614035087
+        ],
+        [
+          "2026-10-14 17:51",
+          0.3817620614035087
+        ],
+        [
+          "2026-10-14 20:13",
+          0.3817620614035087
+        ],
+        [
+          "2026-10-14 20:15",
+          0.3817620614035087
+        ],
+        [
+          "2026-10-14 20:51",
+          0.3817620614035087
+        ],
+        [
+          "2026-10-15 00:08",
+          0.3817620614035087
+        ],
+        [
+          "2026-10-15 00:53",
+          0.3688733264675592
+        ],
+        [
+          "2026-10-15 03:34",
+          0.3688733264675592
+        ],
+        [
+          "2026-10-15 03:39",
+          0.3688733264675592
+        ],
+        [
+          "2026-10-15 03:40",
+          0.3688733264675592
+        ],
+        [
+          "2026-10-15 06:34",
+          0.3855570321151716
+        ],
+        [
+          "2026-10-15 10:30",
+          0.3855570321151716
+        ],
+        [
+          "2026-10-15 10:30",
+          0.3855570321151716
+        ],
+        [
+          "2026-10-15 13:43",
+          0.3855570321151716
+        ],
+        [
+          "2026-10-15 14:16",
+          0.3855570321151716
+        ],
+        [
+          "2026-10-15 17:09",
+          0.3855570321151716
+        ],
+        [
+          "2026-10-15 17:44",
+          0.37116062176165804
+        ],
+        [
+          "2026-10-15 17:44",
+          0.37116062176165804
+        ],
+        [
+          "2026-10-15 18:13",
+          0.36197193347193346
+        ],
+        [
+          "2026-10-15 18:57",
+          0.36197193347193346
+        ],
+        [
+          "2026-10-15 19:17",
+          0.36197193347193346
+        ],
+        [
+          "2026-10-15 20:09",
+          0.36197193347193346
+        ],
+        [
+          "2026-10-15 21:06",
+          0.36197193347193346
+        ],
+        [
+          "2026-10-15 21:10",
+          0.36197193347193346
+        ],
+        [
+          "2026-10-15 21:20",
+          0.36197193347193346
+        ],
+        [
+          "2026-10-15 21:58",
+          0.36197193347193346
+        ],
+        [
+          "2026-10-15 22:46",
+          0.4105820105820106
+        ],
+        [
+          "2026-10-15 23:02",
+          0.4105820105820106
+        ],
+        [
+          "2026-10-16 00:03",
+          0.3535431472081218
+        ],
+        [
+          "2026-10-16 01:02",
+          0.3507029204431017
+        ],
+        [
+          "2026-10-16 01:03",
+          0.3465273631840796
+        ],
+        [
+          "2026-10-16 01:11",
+          0.34
+        ],
+        [
+          "2026-10-16 01:25",
+          0.34
+        ],
+        [
+          "2026-10-16 04:05",
+          0.3366268656716418
+        ]
+      ]
+    }
+  },
+  "comments": [
+    {
+      "author": "exmateriae",
+      "created_at": "2026-10-15",
+      "text": "@(exmateriae) Live stream canceled&#x20;"
+    },
+    {
+      "author": "DaiLothbrook",
+      "created_at": "2026-10-12",
+      "text": "My historical median of 23 is now overtaken by events: the Death Penalty Information Center records 30 completed US executions, with several more warrants active before year-end. I add seven expected completions rather than counting every scheduled date, because warrants can be stayed or withdrawn and attempted executions do not automatically count as completed, The  case of the women, I forgot which state she was is very impressive.\n\n\n\n&#x20;However, Again, I believe the questions resolutioins for the cup question are becoming extremely thin, short, Leaving an enormous space for questions, doubts, and hundreds of Suppositions that we need to make, which makes everyone here answer oe a very or slightly different questiosn. Could you guys make the resolution and fine print ofr the questions cup more detailed? The  most resolutions and fine print are insuffucient, it seems it suppoosing that the event is simple,, all is simple, only to put a link there is enough. Honestly, it doesnt.&#x20;\n\nin GJO, there pretty much everyone answrr a different question, because the events are poorly defined and resolutions very poorly written.  So, For  the Cup all of them 1- OR we need to suppose a lot of things or  2- make questions for clarifications for all events that is being forecasted."
+    },
+    {
+      "author": "exmateriae",
+      "created_at": "2026-10-12",
+      "text": "On October 8, DPIC listed [30 prisoners executed](https://deathpenaltyinfo.org/executions/2026) in 6 states in 2026, with Florida accounting for 16 of the 30. Nine executions are [still scheduled](https://deathpenaltyinfo.org/executions/upcoming-executions) by EOY.\n\n### Tennessee\n\nTo my understanding, Tennessee is out for 2026 because of the Sept 30 failed execution oh Christa Pike, capital punishment has been [halted until next year](https://philstarlife.com/news-and-views/614615-christa-pike-final-words-before-her-failed-execution) after that. That should also cancel Gary Sutton's Dec 3 date, [which DPIC still showed as active](https://deathpenaltyinfo.org/executions/upcoming-executions/outcomes-of-warrants/outcomes-of-death-warrants-in-2026) before the halt.\n\nThis might be a weird edge case that I'll ask Claude to include in the Monte Carlo: she was [still unconscious on a ventilator](https://www.boldsky.com/insync/who-is-christa-pike-how-did-the-us-death-row-inmate-survive-two-lethal-injection-doses-173153.html). If she dies before EOY, would DPIC call that an execution? Precedent seems to go towards no: Broom and Hamm survived their failed attempts and were never counted. \\~4–5% this adds +1.\n\n### Florida\n\nFlorida withdrew a warrant for the first time: DeSantis canceled William Lee Thompson's execution scheduled for Oct. 13, pending a psychiatric evaluation but afaict, that still seems [likely to happen this year](https://deathpenaltyinfo.org/executions/upcoming-executions/outcomes-of-warrants/outcomes-of-death-warrants-in-2026)? DeSantis has weird incentives in that he broke the record of executions last year and could one up it this year.\n\nGuardado (Nov 5) would be #19 and tie the 2025 record. The [warrant coverage](https://cbs12.com/news/local/desantis-signs-death-warrant-for-record-20th-execution-of-year-jesse-guardado-2024-murder-walton-county-woman-) says he would have been #20 to break the record but that was still counting Thompson. I'm not exactly sure what the probabilities are on this one but the incentives are there. This is DeSantis last term and the record is really close and would help him strengthen the image he wants to have. \n\nLast year Florida executed [four people](https://www.mysuncoast.com/2025/12/19/florida-executes-its-19th-inmate-2025) between November 6 and December 31. Warrants come 4–5 weeks ahead: Walls’s Dec 18 date was [signed Nov 18](https://www.wsls.com/news/national/2025/11/19/florida-sets-execution-date-for-man-who-fatally-shot-man-and-woman-during-home-invasion-robbery/). There's still plenty time.\n\n### **Hasan (Military)**\n\n**From an outsider POV, this seems like a pretty weird case.** Trump approved on October 2the first military execution since 1961, the Army [set the date on Oct 6](https://taskandpurpose.com/news/nidal-hasan-execution/) and the Pentagon wants it [livestreamed](https://www.bbc.co.uk/news/articles/cmy0r96xygx6o). He could still file for habeas which would likely bring the execution to [next year](https://www.news4jax.com/news/politics/2026/10/09/legal-path-seems-narrow-to-challenge-livestream-of-fort-hood-shooters-execution-experts-say/), at least in part because he [didn’t have a lawyer](https://federalnewsnetwork.com/defense-news/2026/10/pentagon-says-the-firing-squad-execution-of-fort-hood-shooter-nidal-malik-hasan-will-be-livestreamed-in-december/) at the time of notification so he might simply not have been aware? New counsel with less than two months would kill this but from what I've read, his trial behavior indicated he likely won't. Also, the last presidential approval, Ronald Gray’s in 2008, [ended in a stay](https://www.army.mil/article/14882/scheduled_execution_of_pvt_ronald_a_gray_stayed).\n\n### **Other states**\n\nHumphreys in Georgia [got a stay](https://www.fox5atlanta.com/news/judge-stays-execution-convicted-murder-stacey-humphreys) from a county judge so that will wait for next year. (is it possible for something really quick to happen here?)\n\nSurprisingly, there's a legislation that stops Texas from having other executions this year? Art. 43.141 [requires 91 days](https://texas.public.law/statutes/tex._code_of_crim._proc._article_43.141) between the order and the execution date.\n\nOklahoma may have one with Pavatt [on November 12](https://www.kgou.org/criminal-justice/2026-08-28/execution-date-set-for-oklahoma-county-killer) but the governor has granted clemency before, eg [Tremane Wood](https://deathpenaltyinfo.org/stories/oklahoma-governor-kevin-stitt-grants-clemency-to-tremane-wood) a year ago.\n\nIn Louisiana, the 5th Circuit [reversed Todd Wessinger's habeas relief](https://www.wafb.com/2026/08/18/execution-death-row-inmate-todd-wessinger-will-move-forward-appeals-court-rules/) on August 18. He [sued over nitrogen](https://content.wbrz.com/news/a-death-row-inmate-convicted-of-two-1995-murders-is-suing-to-block-his-nitrogen-gas-execution) and there’s no date yet but the state has gone from [warrant to execution](https://lailluminator.com/2025/02/11/louisiana-execution/) in \\~5 weeks with Hoffman last year, so December is still possible.\n\nFrom there, I asked Claude for an estimation of each person's probability of execution, didn't adjust much on that: (and gave me a few additional facts)\n\n| Date   | Inmate           | Key fact                                                                                                                                                                             | P(executed) |\n| ------ | ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------- |\n| Oct 13 | Robertson (FL)   | Volunteer, pleaded guilty and waived all appeals                                                                                                                                     | 96%         |\n| Oct 20 | Reaves (FL)      | Lost in circuit court, appeal pending at the Florida Supreme Court                                                                                                                   | 90%         |\n| Nov 5  | Guardado (FL)    | Routine Florida warrant                                                                                                                                                              | 93%         |\n| Nov 5  | Weisheit (IN)    | No drugs had been acquired for the Nov. 5 execution, clemency hearings in October                                                                                                    | 65%         |\n| Nov 5  | Taylor (AL)      | Warrant obtained for nitrogen, then switched to lethal injection after a federal court ruled the nitrogen protocol unconstitutional. Lee went ahead on Sept 18 after the same switch | 82%         |\n| Nov 12 | Rubio (TX)       | Pending competency-to-be-executed claim, previously diagnosed with schizophrenia                                                                                                     | 62%         |\n| Nov 12 | Pavatt (OK)      | Innocence-based clemency bid, hearing Oct. 14                                                                                                                                        | 82%         |\n| Nov 19 | Dennes (TX)      | No notable live litigation found                                                                                                                                                     | 85%         |\n| Dec 3  | Hasan (Military) | See above                                                                                                                                                                            | 35%         |\n\n### **M**onte Carlo, 300k runs:\n\n5% chance of another failure or a SCOTUS move. (might be high? would rather err on uncertainty for now)\n\nNew Florida dates: 0–5, mean \\~2.5, each \\~93% to go through. Other states: a small Poisson(0.3) for AL, AZ, GA, LA, MS.\n\nMost of the uncertainty is whether the scheduled failures cancel out the new Florida dates, which is why 39 and 40 are pretty uncertain.\n\n| Scenario                            | \\<39 | 39 | 40 | 41 | >41 | IQR   |\n| ----------------------------------- | ---- | -- | -- | -- | --- | ----- |\n| FL slow, Hasan excluded             | 53   | 22 | 16 | 7  | 2   | 37–39 |\n| FL base, Hasan excluded             | 36   | 23 | 21 | 13 | 7   | 38–40 |\n| FL base, Hasan counted (P\\=.35)     | 30   | 21 | 22 | 16 | 11  | 38–41 |\n| FL repeats 2025 pace, Hasan counted | 21   | 17 | 22 | 20 | 20  | 39–41 |\n\n\n\nIf every date holds and nothing gets added, that's 39. I expect the schedule to lose 1 to 3 dates and Florida to add 2 to 4. Hasan’s firing squad is the other big lever, and per the fine print it counts even if DPIC leaves it out.\n\nHere were the results after the Monte Carlo, which I won't be exactly following but I'm not far away: \\<39: 26% · 39: 19% · 40: 22% · 41: 18% · >41: 15%. Median 39–40, IQR 38–41."
+    }
+  ],
+  "label": null,
+  "subquestions": [],
+  "aggregation_note": null
+}

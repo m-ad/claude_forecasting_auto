@@ -17,56 +17,75 @@ dates:
   resolves: '2027-01-15'
 status: open
 current:
-  version: 2
-  date: '2026-10-04'
-  median: 0.59
+  version: 3
+  date: '2026-10-16'
+  median: 0.62
   iqr:
-  - 0.49
-  - 0.68
+  - 0.51
+  - 0.71
   community:
-    cp: null
-    pro: null
-    gold: null
-    n_forecasters: 116
-    as_of: '2026-10-04'
-next_review: '2026-10-16'
+    cp: 0.73
+    pro: 0.94
+    gold: 0.7
+    n_forecasters: 118
+    as_of: '2026-10-16'
+next_review: '2026-11-07'
 tripwires:
 - signal: NASA GISTEMP September 2026 (release ~mid-Oct) prints >= 1.45 C
   by: '2026-10-20'
   direction: up
   magnitude: 8
   magnitude_unit: pp
-  fired: null
+  fired: false
 - signal: NASA GISTEMP September 2026 prints <= 1.33 C
   by: '2026-10-20'
   direction: down
   magnitude: 12
   magnitude_unit: pp
-  fired: null
+  fired: false
 - signal: ERA5 October month-to-date (Climate Pulse CSV) through 10-15 averages <= 0.78 C - EC46 rebound
     not materialising
   by: '2026-10-16'
   direction: down
   magnitude: 10
   magnitude_unit: pp
-  fired: null
+  fired: false
 - signal: Copernicus ERA5 October 2026 monthly anomaly (vs 1991-2020) >= 0.90 C
   by: '2026-11-10'
+  direction: up
+  magnitude: 7
+  magnitude_unit: pp
+  fired: null
+- signal: Copernicus ERA5 October 2026 monthly anomaly <= 0.79 C
+  by: '2026-11-10'
+  direction: down
+  magnitude: 10
+  magnitude_unit: pp
+  fired: null
+- signal: NASA GISTEMP October 2026 prints >= 1.50 C
+  by: '2026-11-20'
   direction: up
   magnitude: 10
   magnitude_unit: pp
   fired: null
-- signal: Copernicus ERA5 October 2026 monthly anomaly <= 0.78 C
-  by: '2026-11-10'
+- signal: NASA GISTEMP October 2026 prints <= 1.38 C
+  by: '2026-11-20'
   direction: down
   magnitude: 15
   magnitude_unit: pp
   fired: null
-- signal: After the GISTEMP October print, the Nov-Dec mean needed to reach a 2-dp annual 1.30 C exceeds
+- signal: After the GISTEMP October print, the Nov-Dec mean needed to reach a 2-dp annual 1.29 C exceeds
     1.55 C
   by: '2026-11-20'
   direction: down
-  magnitude: 30
+  magnitude: 25
+  magnitude_unit: pp
+  fired: null
+- signal: A GISTEMP monthly release revises the 2024 annual back to 1.29 C (or 2026 Jan-Sep down by >= 0.03
+    C in total)
+  by: '2027-01-14'
+  direction: down
+  magnitude: 9
   magnitude_unit: pp
   fired: null
 - signal: Metaculus admin comment or NASA statement on how a tie / 'effectively tied' 2026-vs-2024 result

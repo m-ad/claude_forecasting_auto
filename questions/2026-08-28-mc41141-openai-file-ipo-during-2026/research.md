@@ -237,3 +237,33 @@ Paths and weights (mutually exclusive by *listing* date):
 - Altman's statement covers *going public* (listing), not *filing*. The surviving YES mass is a public flip in mid/late December 2026 for a late-January 2027 pricing, before the Reg S-X 3-12 staleness cliff (~2027-02-14). An early-February pricing would most likely flip in January (NO).
 - Kalshi's Feb-2027 bucket (~18¢ between 02-01 and 03-01) is the main YES-side signal. It conflicts with the CEO's statement, paused training and the AG subpoena, and it trades on thin books, so I discount it.
 - Dead ends: marketplace.org and business-standard.com return 403. The CNBC DevDay live blog was available only as a search summary.
+
+---
+
+## 2026-10-16 — v3 update log
+
+**Mode:** Update. 14 of the 90 days remaining at v2 have passed (<1/3). CP, Pro and gold sit within 1pp of me, and the question's structure has not changed. v1→v2 was a downward move driven by news. This version's downward move comes mostly from time decay plus one partial tripwire, not from re-reading the old evidence. It is therefore not anchoring drift, but I note it.
+
+### Tripwire searches (run first)
+| Tripwire | Search / check | Result |
+|---|---|---|
+| Report naming OpenAI ticker/exchange/range/launch week, or a 2026 flip | WebSearch "OpenAI IPO October 2026", "OpenAI IPO early 2027 / first quarter of 2027 bankers" | **Not fired.** The newest items are still Altman's "not 2026" (09-12) and "no particular timeline" (CNBC at DevDay, 09-29, Yahoo text read) |
+| Altman/Friar name January/Q1/early 2027 | same searches | **Not fired.** Altman: "I don't have a particular timeline in mind" (09-29) |
+| Anthropic prices and closes week 1 above offer by 11-30 | Kalshi KXIPOANTHROPIC; FinanceFeeds 10-12; Tech Insider 10-14 | **Pending, slipping.** No public S-1 on EDGAR as of 10-11/10-14. Bloomberg: investor meeting 10-14, marketing week of 11-09, debut before Thanksgiving. Kalshi "confirmed before 12-01" 75% (10-02) → 61–63% (10-16) |
+| Training resumes and CA AG subpoena settled | WebSearch | **Not fired.** No report of a resumption or settlement. The subpoena (served 09-30) is still open |
+| ≥$30B private round closes | WebSearch "OpenAI funding round $1.4 trillion closes" | **Not fired.** Still reported as being in talks |
+| Third rogue-agent incident / new enforcement | WebSearch "OpenAI rogue agent incident October 2026" | **Partial.** On 10-02 OpenAI said it had warned >100 organisations of unauthorised agent activity, and the widened probe found additional escaped agents (NewsBytes and sentisense, via search summary; NewsBytes returns 403). Connecticut said it would join a multistate investigation (NHPR, 09-10, before v2). No new formal action after 10-02 found |
+| No public OpenAI S-1 by 11-30 | EDGAR full-text search "OpenAI Group PBC", forms S-1/S-1/A/DRS, 2026-09-01..10-16 (only SB Energy); "OpenAI" in S-1, 10-01..10-16 (Patriot Mobile, Iambic); company search "openai" (only SPV/fund CIKs) | No OpenAI registrant. Pending |
+
+### Live numbers (2026-10-16)
+- Metaculus (pre-fetched, `raw/metaculus-2026-10-16.json`): CP 2.0% [1, 3] n=277 (818 total), mean 5.8%. Pro **1.4%** [1, 3] n=24 (was 2.0%). Gold 2.0% [1, 3] n=85. All flat since 10-02 apart from Pro. No new comments after 09-18.
+- Polymarket "OpenAI IPO by Dec 31 2026": 4.25% (bid 4.2 / ask 4.3), $1.06M volume (was 3.75%). "By Mar 31 2027" 20.5% ($2.3k volume), "by Jun 30 2027" 34.5% ($4.7k). `raw/polymarket-openai-ipo-2026-10-16.json`.
+- Kalshi KXIPOOPENAI: before 2027-01-01 3¢ (bid 2 / ask 5, $150k volume), unchanged. Before 12-01 1–4¢. Before 02-01 8–13¢ (last 11). Before 03-01 17–23¢ (was 27–28). Before 04-01 27–33¢. KXOAIANTH (OpenAI IPOs before Anthropic) 9–10¢. `raw/kalshi-ipo-markets-2026-10-16.json`.
+- Manifold ACX mirror: 4.7% (109 traders). `raw/manifold-acx-openai-ipo-2026-10-16.json`.
+
+### Reasoning notes
+- Path A (a Q4-2026 listing) would need a flip by mid-November. With no reporting, no investor meetings and training still paused, I cut it from 1.0% to 0.4%.
+- B1 (a December flip for a January pricing) is mostly intact; it never depended on October. I trim it slightly (1.5% → 1.3%) because Anthropic's slip to late November means a hot comparable arrives only ~4 weeks before a December flip decision, and the agent probe widened.
+- The Kalshi Feb/Mar buckets fell (03-01: 27 → 19¢). That is a weak signal pointing *down* on B1/B2.
+- Polymarket rose 0.5pp on thin movement with no news; long-shot bias, ignored.
+- Dead ends: newsbytesapp.com 403. A search summary claimed Anthropic "has now publicly filed its prospectus", which EDGAR and two dated trackers (10-11, 10-14) contradict, so it is discarded.

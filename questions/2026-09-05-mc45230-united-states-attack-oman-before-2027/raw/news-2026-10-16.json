@@ -1,0 +1,15 @@
+{
+  "retrieved": "2026-10-16",
+  "note": "Hand-compiled news snapshot for the v4 tripwire check (WebSearch/WebFetch). Wikipedia MediaWiki API returned 'too many requests' this session; pages read via WebFetch.",
+  "items": [
+    {"date": "2026-10-06", "event": "CENTCOM destroys 'Iranian-affiliated' dhow in Gulf of Oman after removing crew; flag, position and crew nationality not disclosed; announced 2026-10-14", "source": "https://gcaptain.com/u-s-forces-destroy-iranian-linked-dhow-accused-of-targeting-navy-ships/", "omani_harm_reported": false},
+    {"date": "2026-10-06", "event": "Panama-flagged tanker On Peace struck 9 nm off Limah, Oman; attacker unclaimed; Oman MoD evacuated 10 crew to Khasab", "source": "https://www.aljazeera.com/news/2026/10/7/oman-evacuates-injured-crew-from-attacked-tanker-in-strait-of-hormuz", "us_involved": false},
+    {"date": "2026-10-10", "event": "US fighter disables Panama-flagged M/V Ocean Molica (Arika Sun) in Gulf of Oman running the blockade; CENTCOM: no crew harmed; no Omani reaction reported", "source": "https://www.aljazeera.com/news/2026/10/11/us-forces-disable-ship-attempting-to-run-iran-blockade-in-gulf-of-oman", "omani_harm_reported": false},
+    {"date": "2026-10-08", "event": "US Embassy Muscat security alert: Iran and Iran-aligned groups may target US interests", "source": "https://om.usembassy.gov/security-alert-u-s-embassy-muscat-october-8-2026/"},
+    {"date": "2026-09-18..2026-10-13", "event": "Wikipedia 'List of ships attacked by Iran': ~29 further merchant ships hit by Iran; none attributed to US", "source": "https://en.wikipedia.org/wiki/2026_Strait_of_Hormuz_crisis"},
+    {"date": "2026-09-22", "event": "Trump-GCC meeting at UNGA, Oman invited; Trump says Iran war could end right after 3 Nov midterms", "source": "https://www.aljazeera.com/news/2026/9/22/trump-gcc-summit-in-new-york-what-does-each-side-want"},
+    {"date": "2026-10-16", "event": "Wikipedia '2026 Iranian strikes on Oman' US-reactions log: still no entry after 2026-08-25", "source": "https://en.wikipedia.org/wiki/2026_Iranian_strikes_on_Oman"},
+    {"date": "2026-10-16", "event": "No Trump statement on Oman found after 2026-08-17; no Omani protest of US action; no change to Duqm/Salalah access found; no ceasefire in force", "source": "WebSearch, multiple queries"},
+    {"date": "2026-10-16", "event": "No Polymarket/Kalshi market on US attacking Oman", "source": "https://polymarket.com/"}
+  ]
+}

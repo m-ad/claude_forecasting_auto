@@ -1,0 +1,6062 @@
+<!DOCTYPE HTML>
+<!--
+	Hielo by TEMPLATED
+	templated.co @templatedco
+	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
+-->
+<html>
+
+	<head>
+		<title>CSU Hurricane Seasonal Forecasting</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="stylesheet" href="/assets/css/main.css" />
+		<link rel="stylesheet" href="/assets/css/font-awesome.min.css" />
+		<link rel="stylesheet" href="/assets/css/tropical-responsive.css" />
+		<link rel="icon" href="/images/logo/BellTClogo.png">
+		<script src="https://kit.fontawesome.com/8e44de192d.js" crossorigin="anonymous"></script>
+		<!-- Google tag (gtag.js) --> <script async src="https://www.googletagmanager.com/gtag/js?id=G-31VFNPBLKG"></script> 
+		<script> window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-31VFNPBLKG'); </script>
+		
+	</head>
+	<body>
+
+		<!-- Header -->
+			<header id="header" class="alt">
+				<div class="logo"><a href="/index.html"><i class="icon fa-home"></i></a> CSU Tropical Cyclones, Radar, Atmospheric Modeling, and Software Team (TC-RAMS)</div>
+				<a href="#menu">Menu</a>
+			</header>
+
+
+		<!-- Nav -->
+			<nav id="menu">
+				<ul class="links">
+
+					<li><a href="/index.html">Home</a></li>
+					<li><a href="/news.html">News</a></li>
+					<li><a href="/research_group.html">Team members</a></li>
+					<li><a href="/forecasting.html">Forecasting</a></li>
+					<li><a href="/research.html">Research</a></li>
+					<li><a href="/resources.html">Resources</a></li>
+					<li><a href="/publication.html">Publications</a></li>
+
+				</ul>
+			</nav>
+
+<script src="https://code.highcharts.com/maps/highmaps.js"></script>
+<script src="https://code.highcharts.com/maps/modules/exporting.js"></script>
+<script src="https://code.highcharts.com/mapdata/custom/world.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/proj4js/2.3.6/proj4.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    var myChart = Highcharts.chart('atl_ace', {
+    chart: {
+      type: 'line'
+    },
+    title: {
+      useHTML: true,
+      text: "Current Season North Atlantic Ocean ACE (1981-2010 Climo)"
+    },
+    yAxis: {
+      title: {
+        useHTML: true,
+        text: "ACE (10<sup>4</sup>kt<sup>2</sup>)"
+      },
+    },
+    xAxis: {
+      title: {
+        text: "Date",
+      },
+      type: 'datetime',
+      labels: {
+            format: '{value:%e-%b}',
+            rotation: 45,
+            align: 'left'
+        }
+    },
+    series: [{
+      name: 'Observed',
+      data:[ 
+ [Date.parse('1-Jan-2021'),0], 
+ [Date.parse('2-Jan-2021'),0], 
+ [Date.parse('3-Jan-2021'),0], 
+ [Date.parse('4-Jan-2021'),0], 
+ [Date.parse('5-Jan-2021'),0], 
+ [Date.parse('6-Jan-2021'),0], 
+ [Date.parse('7-Jan-2021'),0], 
+ [Date.parse('8-Jan-2021'),0], 
+ [Date.parse('9-Jan-2021'),0], 
+ [Date.parse('10-Jan-2021'),0], 
+ [Date.parse('11-Jan-2021'),0], 
+ [Date.parse('12-Jan-2021'),0], 
+ [Date.parse('13-Jan-2021'),0], 
+ [Date.parse('14-Jan-2021'),0], 
+ [Date.parse('15-Jan-2021'),0], 
+ [Date.parse('16-Jan-2021'),0], 
+ [Date.parse('17-Jan-2021'),0], 
+ [Date.parse('18-Jan-2021'),0], 
+ [Date.parse('19-Jan-2021'),0], 
+ [Date.parse('20-Jan-2021'),0], 
+ [Date.parse('21-Jan-2021'),0], 
+ [Date.parse('22-Jan-2021'),0], 
+ [Date.parse('23-Jan-2021'),0], 
+ [Date.parse('24-Jan-2021'),0], 
+ [Date.parse('25-Jan-2021'),0], 
+ [Date.parse('26-Jan-2021'),0], 
+ [Date.parse('27-Jan-2021'),0], 
+ [Date.parse('28-Jan-2021'),0], 
+ [Date.parse('29-Jan-2021'),0], 
+ [Date.parse('30-Jan-2021'),0], 
+ [Date.parse('31-Jan-2021'),0], 
+ [Date.parse('1-Feb-2021'),0], 
+ [Date.parse('2-Feb-2021'),0], 
+ [Date.parse('3-Feb-2021'),0], 
+ [Date.parse('4-Feb-2021'),0], 
+ [Date.parse('5-Feb-2021'),0], 
+ [Date.parse('6-Feb-2021'),0], 
+ [Date.parse('7-Feb-2021'),0], 
+ [Date.parse('8-Feb-2021'),0], 
+ [Date.parse('9-Feb-2021'),0], 
+ [Date.parse('10-Feb-2021'),0], 
+ [Date.parse('11-Feb-2021'),0], 
+ [Date.parse('12-Feb-2021'),0], 
+ [Date.parse('13-Feb-2021'),0], 
+ [Date.parse('14-Feb-2021'),0], 
+ [Date.parse('15-Feb-2021'),0], 
+ [Date.parse('16-Feb-2021'),0], 
+ [Date.parse('17-Feb-2021'),0], 
+ [Date.parse('18-Feb-2021'),0], 
+ [Date.parse('19-Feb-2021'),0], 
+ [Date.parse('20-Feb-2021'),0], 
+ [Date.parse('21-Feb-2021'),0], 
+ [Date.parse('22-Feb-2021'),0], 
+ [Date.parse('23-Feb-2021'),0], 
+ [Date.parse('24-Feb-2021'),0], 
+ [Date.parse('25-Feb-2021'),0], 
+ [Date.parse('26-Feb-2021'),0], 
+ [Date.parse('27-Feb-2021'),0], 
+ [Date.parse('28-Feb-2021'),0], 
+ [Date.parse('29-Feb-2021'),0], 
+ [Date.parse('1-Mar-2021'),0], 
+ [Date.parse('2-Mar-2021'),0], 
+ [Date.parse('3-Mar-2021'),0], 
+ [Date.parse('4-Mar-2021'),0], 
+ [Date.parse('5-Mar-2021'),0], 
+ [Date.parse('6-Mar-2021'),0], 
+ [Date.parse('7-Mar-2021'),0], 
+ [Date.parse('8-Mar-2021'),0], 
+ [Date.parse('9-Mar-2021'),0], 
+ [Date.parse('10-Mar-2021'),0], 
+ [Date.parse('11-Mar-2021'),0], 
+ [Date.parse('12-Mar-2021'),0], 
+ [Date.parse('13-Mar-2021'),0], 
+ [Date.parse('14-Mar-2021'),0], 
+ [Date.parse('15-Mar-2021'),0], 
+ [Date.parse('16-Mar-2021'),0], 
+ [Date.parse('17-Mar-2021'),0], 
+ [Date.parse('18-Mar-2021'),0], 
+ [Date.parse('19-Mar-2021'),0], 
+ [Date.parse('20-Mar-2021'),0], 
+ [Date.parse('21-Mar-2021'),0], 
+ [Date.parse('22-Mar-2021'),0], 
+ [Date.parse('23-Mar-2021'),0], 
+ [Date.parse('24-Mar-2021'),0], 
+ [Date.parse('25-Mar-2021'),0], 
+ [Date.parse('26-Mar-2021'),0], 
+ [Date.parse('27-Mar-2021'),0], 
+ [Date.parse('28-Mar-2021'),0], 
+ [Date.parse('29-Mar-2021'),0], 
+ [Date.parse('30-Mar-2021'),0], 
+ [Date.parse('31-Mar-2021'),0], 
+ [Date.parse('1-Apr-2021'),0], 
+ [Date.parse('2-Apr-2021'),0], 
+ [Date.parse('3-Apr-2021'),0], 
+ [Date.parse('4-Apr-2021'),0], 
+ [Date.parse('5-Apr-2021'),0], 
+ [Date.parse('6-Apr-2021'),0], 
+ [Date.parse('7-Apr-2021'),0], 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+      ]
+    },{
+      name: 'Climatology',
+      data:[ 
+ [Date.parse('1-Jan-2021'),0.0], 
+ [Date.parse('2-Jan-2021'),0.1], 
+ [Date.parse('3-Jan-2021'),0.1], 
+ [Date.parse('4-Jan-2021'),0.1], 
+ [Date.parse('5-Jan-2021'),0.2], 
+ [Date.parse('6-Jan-2021'),0.2], 
+ [Date.parse('7-Jan-2021'),0.2], 
+ [Date.parse('8-Jan-2021'),0.2], 
+ [Date.parse('9-Jan-2021'),0.2], 
+ [Date.parse('10-Jan-2021'),0.2], 
+ [Date.parse('11-Jan-2021'),0.2], 
+ [Date.parse('12-Jan-2021'),0.2], 
+ [Date.parse('13-Jan-2021'),0.2], 
+ [Date.parse('14-Jan-2021'),0.2], 
+ [Date.parse('15-Jan-2021'),0.2], 
+ [Date.parse('16-Jan-2021'),0.2], 
+ [Date.parse('17-Jan-2021'),0.2], 
+ [Date.parse('18-Jan-2021'),0.2], 
+ [Date.parse('19-Jan-2021'),0.2], 
+ [Date.parse('20-Jan-2021'),0.2], 
+ [Date.parse('21-Jan-2021'),0.2], 
+ [Date.parse('22-Jan-2021'),0.2], 
+ [Date.parse('23-Jan-2021'),0.2], 
+ [Date.parse('24-Jan-2021'),0.2], 
+ [Date.parse('25-Jan-2021'),0.2], 
+ [Date.parse('26-Jan-2021'),0.2], 
+ [Date.parse('27-Jan-2021'),0.2], 
+ [Date.parse('28-Jan-2021'),0.2], 
+ [Date.parse('29-Jan-2021'),0.2], 
+ [Date.parse('30-Jan-2021'),0.2], 
+ [Date.parse('31-Jan-2021'),0.2], 
+ [Date.parse('1-Feb-2021'),0.2], 
+ [Date.parse('2-Feb-2021'),0.2], 
+ [Date.parse('3-Feb-2021'),0.2], 
+ [Date.parse('4-Feb-2021'),0.2], 
+ [Date.parse('5-Feb-2021'),0.2], 
+ [Date.parse('6-Feb-2021'),0.2], 
+ [Date.parse('7-Feb-2021'),0.2], 
+ [Date.parse('8-Feb-2021'),0.2], 
+ [Date.parse('9-Feb-2021'),0.2], 
+ [Date.parse('10-Feb-2021'),0.2], 
+ [Date.parse('11-Feb-2021'),0.2], 
+ [Date.parse('12-Feb-2021'),0.2], 
+ [Date.parse('13-Feb-2021'),0.2], 
+ [Date.parse('14-Feb-2021'),0.2], 
+ [Date.parse('15-Feb-2021'),0.2], 
+ [Date.parse('16-Feb-2021'),0.2], 
+ [Date.parse('17-Feb-2021'),0.2], 
+ [Date.parse('18-Feb-2021'),0.2], 
+ [Date.parse('19-Feb-2021'),0.2], 
+ [Date.parse('20-Feb-2021'),0.2], 
+ [Date.parse('21-Feb-2021'),0.2], 
+ [Date.parse('22-Feb-2021'),0.2], 
+ [Date.parse('23-Feb-2021'),0.2], 
+ [Date.parse('24-Feb-2021'),0.2], 
+ [Date.parse('25-Feb-2021'),0.2], 
+ [Date.parse('26-Feb-2021'),0.2], 
+ [Date.parse('27-Feb-2021'),0.2], 
+ [Date.parse('28-Feb-2021'),0.2], 
+ [Date.parse('29-Feb-2021'),0.2], 
+ [Date.parse('1-Mar-2021'),0.2], 
+ [Date.parse('2-Mar-2021'),0.2], 
+ [Date.parse('3-Mar-2021'),0.2], 
+ [Date.parse('4-Mar-2021'),0.2], 
+ [Date.parse('5-Mar-2021'),0.2], 
+ [Date.parse('6-Mar-2021'),0.2], 
+ [Date.parse('7-Mar-2021'),0.2], 
+ [Date.parse('8-Mar-2021'),0.2], 
+ [Date.parse('9-Mar-2021'),0.2], 
+ [Date.parse('10-Mar-2021'),0.2], 
+ [Date.parse('11-Mar-2021'),0.2], 
+ [Date.parse('12-Mar-2021'),0.2], 
+ [Date.parse('13-Mar-2021'),0.2], 
+ [Date.parse('14-Mar-2021'),0.2], 
+ [Date.parse('15-Mar-2021'),0.2], 
+ [Date.parse('16-Mar-2021'),0.2], 
+ [Date.parse('17-Mar-2021'),0.2], 
+ [Date.parse('18-Mar-2021'),0.2], 
+ [Date.parse('19-Mar-2021'),0.2], 
+ [Date.parse('20-Mar-2021'),0.2], 
+ [Date.parse('21-Mar-2021'),0.2], 
+ [Date.parse('22-Mar-2021'),0.2], 
+ [Date.parse('23-Mar-2021'),0.2], 
+ [Date.parse('24-Mar-2021'),0.2], 
+ [Date.parse('25-Mar-2021'),0.2], 
+ [Date.parse('26-Mar-2021'),0.2], 
+ [Date.parse('27-Mar-2021'),0.2], 
+ [Date.parse('28-Mar-2021'),0.2], 
+ [Date.parse('29-Mar-2021'),0.2], 
+ [Date.parse('30-Mar-2021'),0.2], 
+ [Date.parse('31-Mar-2021'),0.2], 
+ [Date.parse('1-Apr-2021'),0.2], 
+ [Date.parse('2-Apr-2021'),0.2], 
+ [Date.parse('3-Apr-2021'),0.2], 
+ [Date.parse('4-Apr-2021'),0.2], 
+ [Date.parse('5-Apr-2021'),0.2], 
+ [Date.parse('6-Apr-2021'),0.2], 
+ [Date.parse('7-Apr-2021'),0.2], 
+ [Date.parse('8-Apr-2021'),0.2], 
+ [Date.parse('9-Apr-2021'),0.2], 
+ [Date.parse('10-Apr-2021'),0.2], 
+ [Date.parse('11-Apr-2021'),0.2], 
+ [Date.parse('12-Apr-2021'),0.2], 
+ [Date.parse('13-Apr-2021'),0.2], 
+ [Date.parse('14-Apr-2021'),0.2], 
+ [Date.parse('15-Apr-2021'),0.2], 
+ [Date.parse('16-Apr-2021'),0.2], 
+ [Date.parse('17-Apr-2021'),0.2], 
+ [Date.parse('18-Apr-2021'),0.2], 
+ [Date.parse('19-Apr-2021'),0.2], 
+ [Date.parse('20-Apr-2021'),0.2], 
+ [Date.parse('21-Apr-2021'),0.2], 
+ [Date.parse('22-Apr-2021'),0.2], 
+ [Date.parse('23-Apr-2021'),0.3], 
+ [Date.parse('24-Apr-2021'),0.3], 
+ [Date.parse('25-Apr-2021'),0.3], 
+ [Date.parse('26-Apr-2021'),0.3], 
+ [Date.parse('27-Apr-2021'),0.3], 
+ [Date.parse('28-Apr-2021'),0.3], 
+ [Date.parse('29-Apr-2021'),0.3], 
+ [Date.parse('30-Apr-2021'),0.3], 
+ [Date.parse('1-May-2021'),0.3], 
+ [Date.parse('2-May-2021'),0.3], 
+ [Date.parse('3-May-2021'),0.3], 
+ [Date.parse('4-May-2021'),0.3], 
+ [Date.parse('5-May-2021'),0.3], 
+ [Date.parse('6-May-2021'),0.3], 
+ [Date.parse('7-May-2021'),0.3], 
+ [Date.parse('8-May-2021'),0.3], 
+ [Date.parse('9-May-2021'),0.3], 
+ [Date.parse('10-May-2021'),0.3], 
+ [Date.parse('11-May-2021'),0.4], 
+ [Date.parse('12-May-2021'),0.4], 
+ [Date.parse('13-May-2021'),0.4], 
+ [Date.parse('14-May-2021'),0.4], 
+ [Date.parse('15-May-2021'),0.4], 
+ [Date.parse('16-May-2021'),0.4], 
+ [Date.parse('17-May-2021'),0.4], 
+ [Date.parse('18-May-2021'),0.4], 
+ [Date.parse('19-May-2021'),0.4], 
+ [Date.parse('20-May-2021'),0.4], 
+ [Date.parse('21-May-2021'),0.4], 
+ [Date.parse('22-May-2021'),0.4], 
+ [Date.parse('23-May-2021'),0.4], 
+ [Date.parse('24-May-2021'),0.4], 
+ [Date.parse('25-May-2021'),0.4], 
+ [Date.parse('26-May-2021'),0.4], 
+ [Date.parse('27-May-2021'),0.4], 
+ [Date.parse('28-May-2021'),0.4], 
+ [Date.parse('29-May-2021'),0.4], 
+ [Date.parse('30-May-2021'),0.4], 
+ [Date.parse('31-May-2021'),0.4], 
+ [Date.parse('1-Jun-2021'),0.4], 
+ [Date.parse('2-Jun-2021'),0.4], 
+ [Date.parse('3-Jun-2021'),0.4], 
+ [Date.parse('4-Jun-2021'),0.5], 
+ [Date.parse('5-Jun-2021'),0.6], 
+ [Date.parse('6-Jun-2021'),0.6], 
+ [Date.parse('7-Jun-2021'),0.7], 
+ [Date.parse('8-Jun-2021'),0.7], 
+ [Date.parse('9-Jun-2021'),0.7], 
+ [Date.parse('10-Jun-2021'),0.7], 
+ [Date.parse('11-Jun-2021'),0.7], 
+ [Date.parse('12-Jun-2021'),0.8], 
+ [Date.parse('13-Jun-2021'),0.9], 
+ [Date.parse('14-Jun-2021'),0.9], 
+ [Date.parse('15-Jun-2021'),1.0], 
+ [Date.parse('16-Jun-2021'),1.0], 
+ [Date.parse('17-Jun-2021'),1.0], 
+ [Date.parse('18-Jun-2021'),1.0], 
+ [Date.parse('19-Jun-2021'),1.0], 
+ [Date.parse('20-Jun-2021'),1.1], 
+ [Date.parse('21-Jun-2021'),1.2], 
+ [Date.parse('22-Jun-2021'),1.2], 
+ [Date.parse('23-Jun-2021'),1.2], 
+ [Date.parse('24-Jun-2021'),1.2], 
+ [Date.parse('25-Jun-2021'),1.2], 
+ [Date.parse('26-Jun-2021'),1.2], 
+ [Date.parse('27-Jun-2021'),1.3], 
+ [Date.parse('28-Jun-2021'),1.3], 
+ [Date.parse('29-Jun-2021'),1.4], 
+ [Date.parse('30-Jun-2021'),1.4], 
+ [Date.parse('1-Jul-2021'),1.6], 
+ [Date.parse('2-Jul-2021'),1.7], 
+ [Date.parse('3-Jul-2021'),1.7], 
+ [Date.parse('4-Jul-2021'),1.8], 
+ [Date.parse('5-Jul-2021'),1.8], 
+ [Date.parse('6-Jul-2021'),1.9], 
+ [Date.parse('7-Jul-2021'),2.0], 
+ [Date.parse('8-Jul-2021'),2.3], 
+ [Date.parse('9-Jul-2021'),2.7], 
+ [Date.parse('10-Jul-2021'),3.1], 
+ [Date.parse('11-Jul-2021'),3.5], 
+ [Date.parse('12-Jul-2021'),3.7], 
+ [Date.parse('13-Jul-2021'),4.0], 
+ [Date.parse('14-Jul-2021'),4.2], 
+ [Date.parse('15-Jul-2021'),4.4], 
+ [Date.parse('16-Jul-2021'),4.7], 
+ [Date.parse('17-Jul-2021'),5.1], 
+ [Date.parse('18-Jul-2021'),5.5], 
+ [Date.parse('19-Jul-2021'),5.8], 
+ [Date.parse('20-Jul-2021'),6.2], 
+ [Date.parse('21-Jul-2021'),6.5], 
+ [Date.parse('22-Jul-2021'),6.6], 
+ [Date.parse('23-Jul-2021'),6.7], 
+ [Date.parse('24-Jul-2021'),6.8], 
+ [Date.parse('25-Jul-2021'),7.0], 
+ [Date.parse('26-Jul-2021'),7.1], 
+ [Date.parse('27-Jul-2021'),7.2], 
+ [Date.parse('28-Jul-2021'),7.2], 
+ [Date.parse('29-Jul-2021'),7.3], 
+ [Date.parse('30-Jul-2021'),7.5], 
+ [Date.parse('31-Jul-2021'),7.5], 
+ [Date.parse('1-Aug-2021'),7.7], 
+ [Date.parse('2-Aug-2021'),7.9], 
+ [Date.parse('3-Aug-2021'),8.2], 
+ [Date.parse('4-Aug-2021'),8.5], 
+ [Date.parse('5-Aug-2021'),8.9], 
+ [Date.parse('6-Aug-2021'),9.3], 
+ [Date.parse('7-Aug-2021'),9.6], 
+ [Date.parse('8-Aug-2021'),10.0], 
+ [Date.parse('9-Aug-2021'),10.3], 
+ [Date.parse('10-Aug-2021'),10.4], 
+ [Date.parse('11-Aug-2021'),10.7], 
+ [Date.parse('12-Aug-2021'),11.0], 
+ [Date.parse('13-Aug-2021'),11.5], 
+ [Date.parse('14-Aug-2021'),12.0], 
+ [Date.parse('15-Aug-2021'),12.4], 
+ [Date.parse('16-Aug-2021'),13.0], 
+ [Date.parse('17-Aug-2021'),13.7], 
+ [Date.parse('18-Aug-2021'),14.4], 
+ [Date.parse('19-Aug-2021'),15.4], 
+ [Date.parse('20-Aug-2021'),16.3], 
+ [Date.parse('21-Aug-2021'),17.3], 
+ [Date.parse('22-Aug-2021'),18.3], 
+ [Date.parse('23-Aug-2021'),19.3], 
+ [Date.parse('24-Aug-2021'),20.4], 
+ [Date.parse('25-Aug-2021'),21.3], 
+ [Date.parse('26-Aug-2021'),22.4], 
+ [Date.parse('27-Aug-2021'),23.8], 
+ [Date.parse('28-Aug-2021'),25.2], 
+ [Date.parse('29-Aug-2021'),27.0], 
+ [Date.parse('30-Aug-2021'),28.7], 
+ [Date.parse('31-Aug-2021'),30.5], 
+ [Date.parse('1-Sep-2021'),32.4], 
+ [Date.parse('2-Sep-2021'),34.5], 
+ [Date.parse('3-Sep-2021'),36.4], 
+ [Date.parse('4-Sep-2021'),38.2], 
+ [Date.parse('5-Sep-2021'),39.8], 
+ [Date.parse('6-Sep-2021'),41.4], 
+ [Date.parse('7-Sep-2021'),42.9], 
+ [Date.parse('8-Sep-2021'),44.5], 
+ [Date.parse('9-Sep-2021'),46.2], 
+ [Date.parse('10-Sep-2021'),48.0], 
+ [Date.parse('11-Sep-2021'),49.8], 
+ [Date.parse('12-Sep-2021'),51.8], 
+ [Date.parse('13-Sep-2021'),53.9], 
+ [Date.parse('14-Sep-2021'),56.3], 
+ [Date.parse('15-Sep-2021'),58.8], 
+ [Date.parse('16-Sep-2021'),61.3], 
+ [Date.parse('17-Sep-2021'),63.5], 
+ [Date.parse('18-Sep-2021'),65.3], 
+ [Date.parse('19-Sep-2021'),67.0], 
+ [Date.parse('20-Sep-2021'),68.5], 
+ [Date.parse('21-Sep-2021'),70.1], 
+ [Date.parse('22-Sep-2021'),71.7], 
+ [Date.parse('23-Sep-2021'),73.3], 
+ [Date.parse('24-Sep-2021'),74.8], 
+ [Date.parse('25-Sep-2021'),76.4], 
+ [Date.parse('26-Sep-2021'),78.0], 
+ [Date.parse('27-Sep-2021'),79.4], 
+ [Date.parse('28-Sep-2021'),80.7], 
+ [Date.parse('29-Sep-2021'),82.1], 
+ [Date.parse('30-Sep-2021'),83.1], 
+ [Date.parse('1-Oct-2021'),83.9], 
+ [Date.parse('2-Oct-2021'),84.6], 
+ [Date.parse('3-Oct-2021'),85.3], 
+ [Date.parse('4-Oct-2021'),85.7], 
+ [Date.parse('5-Oct-2021'),86.3], 
+ [Date.parse('6-Oct-2021'),86.8], 
+ [Date.parse('7-Oct-2021'),87.3], 
+ [Date.parse('8-Oct-2021'),87.7], 
+ [Date.parse('9-Oct-2021'),88.2], 
+ [Date.parse('10-Oct-2021'),88.6], 
+ [Date.parse('11-Oct-2021'),88.9], 
+ [Date.parse('12-Oct-2021'),89.3], 
+ [Date.parse('13-Oct-2021'),89.7], 
+ [Date.parse('14-Oct-2021'),90.1], 
+ [Date.parse('15-Oct-2021'),90.5], 
+ [Date.parse('16-Oct-2021'),90.9], 
+ [Date.parse('17-Oct-2021'),91.4], 
+ [Date.parse('18-Oct-2021'),91.8], 
+ [Date.parse('19-Oct-2021'),92.4], 
+ [Date.parse('20-Oct-2021'),93.2], 
+ [Date.parse('21-Oct-2021'),93.7], 
+ [Date.parse('22-Oct-2021'),94.2], 
+ [Date.parse('23-Oct-2021'),94.7], 
+ [Date.parse('24-Oct-2021'),95.1], 
+ [Date.parse('25-Oct-2021'),95.5], 
+ [Date.parse('26-Oct-2021'),96.0], 
+ [Date.parse('27-Oct-2021'),96.4], 
+ [Date.parse('28-Oct-2021'),96.9], 
+ [Date.parse('29-Oct-2021'),97.3], 
+ [Date.parse('30-Oct-2021'),97.7], 
+ [Date.parse('31-Oct-2021'),98.1], 
+ [Date.parse('1-Nov-2021'),98.4], 
+ [Date.parse('2-Nov-2021'),98.6], 
+ [Date.parse('3-Nov-2021'),98.8], 
+ [Date.parse('4-Nov-2021'),99.0], 
+ [Date.parse('5-Nov-2021'),99.3], 
+ [Date.parse('6-Nov-2021'),99.7], 
+ [Date.parse('7-Nov-2021'),99.9], 
+ [Date.parse('8-Nov-2021'),100.2], 
+ [Date.parse('9-Nov-2021'),100.6], 
+ [Date.parse('10-Nov-2021'),100.8], 
+ [Date.parse('11-Nov-2021'),100.9], 
+ [Date.parse('12-Nov-2021'),101.0], 
+ [Date.parse('13-Nov-2021'),101.1], 
+ [Date.parse('14-Nov-2021'),101.2], 
+ [Date.parse('15-Nov-2021'),101.3], 
+ [Date.parse('16-Nov-2021'),101.4], 
+ [Date.parse('17-Nov-2021'),101.6], 
+ [Date.parse('18-Nov-2021'),101.9], 
+ [Date.parse('19-Nov-2021'),102.3], 
+ [Date.parse('20-Nov-2021'),102.6], 
+ [Date.parse('21-Nov-2021'),102.9], 
+ [Date.parse('22-Nov-2021'),103.1], 
+ [Date.parse('23-Nov-2021'),103.3], 
+ [Date.parse('24-Nov-2021'),103.3], 
+ [Date.parse('25-Nov-2021'),103.5], 
+ [Date.parse('26-Nov-2021'),103.6], 
+ [Date.parse('27-Nov-2021'),103.7], 
+ [Date.parse('28-Nov-2021'),103.8], 
+ [Date.parse('29-Nov-2021'),104.0], 
+ [Date.parse('30-Nov-2021'),104.1], 
+ [Date.parse('1-Dec-2021'),104.2], 
+ [Date.parse('2-Dec-2021'),104.4], 
+ [Date.parse('3-Dec-2021'),104.5], 
+ [Date.parse('4-Dec-2021'),104.6], 
+ [Date.parse('5-Dec-2021'),104.6], 
+ [Date.parse('6-Dec-2021'),104.7], 
+ [Date.parse('7-Dec-2021'),104.8], 
+ [Date.parse('8-Dec-2021'),104.9], 
+ [Date.parse('9-Dec-2021'),104.9], 
+ [Date.parse('10-Dec-2021'),105.0], 
+ [Date.parse('11-Dec-2021'),105.0], 
+ [Date.parse('12-Dec-2021'),105.0], 
+ [Date.parse('13-Dec-2021'),105.0], 
+ [Date.parse('14-Dec-2021'),105.1], 
+ [Date.parse('15-Dec-2021'),105.1], 
+ [Date.parse('16-Dec-2021'),105.2], 
+ [Date.parse('17-Dec-2021'),105.2], 
+ [Date.parse('18-Dec-2021'),105.2], 
+ [Date.parse('19-Dec-2021'),105.3], 
+ [Date.parse('20-Dec-2021'),105.3], 
+ [Date.parse('21-Dec-2021'),105.4], 
+ [Date.parse('22-Dec-2021'),105.4], 
+ [Date.parse('23-Dec-2021'),105.5], 
+ [Date.parse('24-Dec-2021'),105.6], 
+ [Date.parse('25-Dec-2021'),105.6], 
+ [Date.parse('26-Dec-2021'),105.6], 
+ [Date.parse('27-Dec-2021'),105.6], 
+ [Date.parse('28-Dec-2021'),105.6], 
+ [Date.parse('29-Dec-2021'),105.6], 
+ [Date.parse('30-Dec-2021'),105.6], 
+ [Date.parse('31-Dec-2021'),105.6], 
+      ]
+    }]
+    });
+  });
+</script>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    var myChart = Highcharts.chart('nwp_ace', {
+    chart: {
+      type: 'line'
+    },
+    title: {
+      useHTML: true,
+      text: "Current Season Northwest Pacific Ocean ACE (1981-2010 Climo)"
+    },
+    yAxis: {
+      title: {
+        useHTML: true,
+        text: "ACE (10<sup>4</sup>kt<sup>2</sup>)"
+      },
+    },
+    xAxis: {
+      title: {
+        text: "Date",
+      },
+      type: 'datetime',
+      labels: {
+            format: '{value:%e-%b}',
+            rotation: 45,
+            align: 'left'
+        }
+    },
+    series: [{
+      name: 'Observed',
+      data:[ 
+ [Date.parse('1-Jan-2021'),0], 
+ [Date.parse('2-Jan-2021'),0], 
+ [Date.parse('3-Jan-2021'),0], 
+ [Date.parse('4-Jan-2021'),0], 
+ [Date.parse('5-Jan-2021'),0], 
+ [Date.parse('6-Jan-2021'),0], 
+ [Date.parse('7-Jan-2021'),0], 
+ [Date.parse('8-Jan-2021'),0], 
+ [Date.parse('9-Jan-2021'),0], 
+ [Date.parse('10-Jan-2021'),0], 
+ [Date.parse('11-Jan-2021'),0], 
+ [Date.parse('12-Jan-2021'),0], 
+ [Date.parse('13-Jan-2021'),0], 
+ [Date.parse('14-Jan-2021'),0], 
+ [Date.parse('15-Jan-2021'),0], 
+ [Date.parse('16-Jan-2021'),0], 
+ [Date.parse('17-Jan-2021'),0], 
+ [Date.parse('18-Jan-2021'),0], 
+ [Date.parse('19-Jan-2021'),0], 
+ [Date.parse('20-Jan-2021'),0], 
+ [Date.parse('21-Jan-2021'),0], 
+ [Date.parse('22-Jan-2021'),0], 
+ [Date.parse('23-Jan-2021'),0], 
+ [Date.parse('24-Jan-2021'),0], 
+ [Date.parse('25-Jan-2021'),0], 
+ [Date.parse('26-Jan-2021'),0], 
+ [Date.parse('27-Jan-2021'),0], 
+ [Date.parse('28-Jan-2021'),0], 
+ [Date.parse('29-Jan-2021'),0], 
+ [Date.parse('30-Jan-2021'),0], 
+ [Date.parse('31-Jan-2021'),0], 
+ [Date.parse('1-Feb-2021'),0], 
+ [Date.parse('2-Feb-2021'),0], 
+ [Date.parse('3-Feb-2021'),0], 
+ [Date.parse('4-Feb-2021'),0], 
+ [Date.parse('5-Feb-2021'),0], 
+ [Date.parse('6-Feb-2021'),0], 
+ [Date.parse('7-Feb-2021'),0], 
+ [Date.parse('8-Feb-2021'),0], 
+ [Date.parse('9-Feb-2021'),0], 
+ [Date.parse('10-Feb-2021'),0], 
+ [Date.parse('11-Feb-2021'),0], 
+ [Date.parse('12-Feb-2021'),0], 
+ [Date.parse('13-Feb-2021'),0], 
+ [Date.parse('14-Feb-2021'),0], 
+ [Date.parse('15-Feb-2021'),0], 
+ [Date.parse('16-Feb-2021'),0.1], 
+ [Date.parse('17-Feb-2021'),0.6], 
+ [Date.parse('18-Feb-2021'),0.8], 
+ [Date.parse('19-Feb-2021'),0.8], 
+ [Date.parse('20-Feb-2021'),0.8], 
+ [Date.parse('21-Feb-2021'),0.8], 
+ [Date.parse('22-Feb-2021'),0.8], 
+ [Date.parse('23-Feb-2021'),0.8], 
+ [Date.parse('24-Feb-2021'),0.8], 
+ [Date.parse('25-Feb-2021'),0.8], 
+ [Date.parse('26-Feb-2021'),0.8], 
+ [Date.parse('27-Feb-2021'),0.8], 
+ [Date.parse('28-Feb-2021'),0.8], 
+ [Date.parse('29-Feb-2021'),0.8], 
+ [Date.parse('1-Mar-2021'),0.8], 
+ [Date.parse('2-Mar-2021'),0.8], 
+ [Date.parse('3-Mar-2021'),0.8], 
+ [Date.parse('4-Mar-2021'),0.8], 
+ [Date.parse('5-Mar-2021'),0.8], 
+ [Date.parse('6-Mar-2021'),0.8], 
+ [Date.parse('7-Mar-2021'),0.8], 
+ [Date.parse('8-Mar-2021'),0.8], 
+ [Date.parse('9-Mar-2021'),0.8], 
+ [Date.parse('10-Mar-2021'),0.8], 
+ [Date.parse('11-Mar-2021'),0.8], 
+ [Date.parse('12-Mar-2021'),0.8], 
+ [Date.parse('13-Mar-2021'),0.8], 
+ [Date.parse('14-Mar-2021'),0.8], 
+ [Date.parse('15-Mar-2021'),0.8], 
+ [Date.parse('16-Mar-2021'),0.8], 
+ [Date.parse('17-Mar-2021'),0.8], 
+ [Date.parse('18-Mar-2021'),0.8], 
+ [Date.parse('19-Mar-2021'),0.8], 
+ [Date.parse('20-Mar-2021'),0.8], 
+ [Date.parse('21-Mar-2021'),0.8], 
+ [Date.parse('22-Mar-2021'),0.8], 
+ [Date.parse('23-Mar-2021'),0.8], 
+ [Date.parse('24-Mar-2021'),0.8], 
+ [Date.parse('25-Mar-2021'),0.8], 
+ [Date.parse('26-Mar-2021'),0.8], 
+ [Date.parse('27-Mar-2021'),0.8], 
+ [Date.parse('28-Mar-2021'),0.8], 
+ [Date.parse('29-Mar-2021'),0.8], 
+ [Date.parse('30-Mar-2021'),0.8], 
+ [Date.parse('31-Mar-2021'),0.8], 
+ [Date.parse('1-Apr-2021'),0.8], 
+ [Date.parse('2-Apr-2021'),0.8], 
+ [Date.parse('3-Apr-2021'),0.8], 
+ [Date.parse('4-Apr-2021'),0.8], 
+ [Date.parse('5-Apr-2021'),0.8], 
+ [Date.parse('6-Apr-2021'),0.8], 
+ [Date.parse('7-Apr-2021'),0.8], 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+      ]
+    },{
+      name: 'Climatology',
+      data:[ 
+ [Date.parse('1-Jan-2021'),0.0], 
+ [Date.parse('2-Jan-2021'),0.1], 
+ [Date.parse('3-Jan-2021'),0.2], 
+ [Date.parse('4-Jan-2021'),0.3], 
+ [Date.parse('5-Jan-2021'),0.3], 
+ [Date.parse('6-Jan-2021'),0.3], 
+ [Date.parse('7-Jan-2021'),0.4], 
+ [Date.parse('8-Jan-2021'),0.5], 
+ [Date.parse('9-Jan-2021'),0.7], 
+ [Date.parse('10-Jan-2021'),0.9], 
+ [Date.parse('11-Jan-2021'),1.2], 
+ [Date.parse('12-Jan-2021'),1.5], 
+ [Date.parse('13-Jan-2021'),1.7], 
+ [Date.parse('14-Jan-2021'),1.9], 
+ [Date.parse('15-Jan-2021'),2.1], 
+ [Date.parse('16-Jan-2021'),2.2], 
+ [Date.parse('17-Jan-2021'),2.3], 
+ [Date.parse('18-Jan-2021'),2.4], 
+ [Date.parse('19-Jan-2021'),2.5], 
+ [Date.parse('20-Jan-2021'),2.5], 
+ [Date.parse('21-Jan-2021'),2.5], 
+ [Date.parse('22-Jan-2021'),2.5], 
+ [Date.parse('23-Jan-2021'),2.5], 
+ [Date.parse('24-Jan-2021'),2.5], 
+ [Date.parse('25-Jan-2021'),2.5], 
+ [Date.parse('26-Jan-2021'),2.5], 
+ [Date.parse('27-Jan-2021'),2.5], 
+ [Date.parse('28-Jan-2021'),2.5], 
+ [Date.parse('29-Jan-2021'),2.5], 
+ [Date.parse('30-Jan-2021'),2.5], 
+ [Date.parse('31-Jan-2021'),2.5], 
+ [Date.parse('1-Feb-2021'),2.5], 
+ [Date.parse('2-Feb-2021'),2.6], 
+ [Date.parse('3-Feb-2021'),2.6], 
+ [Date.parse('4-Feb-2021'),2.7], 
+ [Date.parse('5-Feb-2021'),2.8], 
+ [Date.parse('6-Feb-2021'),2.8], 
+ [Date.parse('7-Feb-2021'),2.8], 
+ [Date.parse('8-Feb-2021'),2.8], 
+ [Date.parse('9-Feb-2021'),2.8], 
+ [Date.parse('10-Feb-2021'),2.8], 
+ [Date.parse('11-Feb-2021'),2.8], 
+ [Date.parse('12-Feb-2021'),2.8], 
+ [Date.parse('13-Feb-2021'),2.8], 
+ [Date.parse('14-Feb-2021'),2.8], 
+ [Date.parse('15-Feb-2021'),2.8], 
+ [Date.parse('16-Feb-2021'),2.8], 
+ [Date.parse('17-Feb-2021'),2.8], 
+ [Date.parse('18-Feb-2021'),2.8], 
+ [Date.parse('19-Feb-2021'),2.8], 
+ [Date.parse('20-Feb-2021'),2.8], 
+ [Date.parse('21-Feb-2021'),2.8], 
+ [Date.parse('22-Feb-2021'),2.8], 
+ [Date.parse('23-Feb-2021'),2.8], 
+ [Date.parse('24-Feb-2021'),2.8], 
+ [Date.parse('25-Feb-2021'),2.8], 
+ [Date.parse('26-Feb-2021'),2.8], 
+ [Date.parse('27-Feb-2021'),2.8], 
+ [Date.parse('28-Feb-2021'),2.8], 
+ [Date.parse('29-Feb-2021'),2.8], 
+ [Date.parse('1-Mar-2021'),2.8], 
+ [Date.parse('2-Mar-2021'),2.9], 
+ [Date.parse('3-Mar-2021'),3.0], 
+ [Date.parse('4-Mar-2021'),3.1], 
+ [Date.parse('5-Mar-2021'),3.3], 
+ [Date.parse('6-Mar-2021'),3.6], 
+ [Date.parse('7-Mar-2021'),3.8], 
+ [Date.parse('8-Mar-2021'),3.9], 
+ [Date.parse('9-Mar-2021'),3.9], 
+ [Date.parse('10-Mar-2021'),3.9], 
+ [Date.parse('11-Mar-2021'),4.0], 
+ [Date.parse('12-Mar-2021'),4.0], 
+ [Date.parse('13-Mar-2021'),4.0], 
+ [Date.parse('14-Mar-2021'),4.1], 
+ [Date.parse('15-Mar-2021'),4.2], 
+ [Date.parse('16-Mar-2021'),4.4], 
+ [Date.parse('17-Mar-2021'),4.7], 
+ [Date.parse('18-Mar-2021'),4.8], 
+ [Date.parse('19-Mar-2021'),4.8], 
+ [Date.parse('20-Mar-2021'),4.9], 
+ [Date.parse('21-Mar-2021'),5.0], 
+ [Date.parse('22-Mar-2021'),5.1], 
+ [Date.parse('23-Mar-2021'),5.2], 
+ [Date.parse('24-Mar-2021'),5.3], 
+ [Date.parse('25-Mar-2021'),5.5], 
+ [Date.parse('26-Mar-2021'),5.7], 
+ [Date.parse('27-Mar-2021'),5.8], 
+ [Date.parse('28-Mar-2021'),5.8], 
+ [Date.parse('29-Mar-2021'),5.8], 
+ [Date.parse('30-Mar-2021'),5.9], 
+ [Date.parse('31-Mar-2021'),5.9], 
+ [Date.parse('1-Apr-2021'),5.9], 
+ [Date.parse('2-Apr-2021'),6.0], 
+ [Date.parse('3-Apr-2021'),6.2], 
+ [Date.parse('4-Apr-2021'),6.4], 
+ [Date.parse('5-Apr-2021'),6.5], 
+ [Date.parse('6-Apr-2021'),6.6], 
+ [Date.parse('7-Apr-2021'),6.7], 
+ [Date.parse('8-Apr-2021'),6.9], 
+ [Date.parse('9-Apr-2021'),7.1], 
+ [Date.parse('10-Apr-2021'),7.3], 
+ [Date.parse('11-Apr-2021'),7.5], 
+ [Date.parse('12-Apr-2021'),7.7], 
+ [Date.parse('13-Apr-2021'),8.0], 
+ [Date.parse('14-Apr-2021'),8.3], 
+ [Date.parse('15-Apr-2021'),8.6], 
+ [Date.parse('16-Apr-2021'),9.0], 
+ [Date.parse('17-Apr-2021'),9.5], 
+ [Date.parse('18-Apr-2021'),9.9], 
+ [Date.parse('19-Apr-2021'),10.5], 
+ [Date.parse('20-Apr-2021'),11.0], 
+ [Date.parse('21-Apr-2021'),11.5], 
+ [Date.parse('22-Apr-2021'),12.0], 
+ [Date.parse('23-Apr-2021'),12.3], 
+ [Date.parse('24-Apr-2021'),12.5], 
+ [Date.parse('25-Apr-2021'),12.8], 
+ [Date.parse('26-Apr-2021'),13.0], 
+ [Date.parse('27-Apr-2021'),13.2], 
+ [Date.parse('28-Apr-2021'),13.3], 
+ [Date.parse('29-Apr-2021'),13.5], 
+ [Date.parse('30-Apr-2021'),13.6], 
+ [Date.parse('1-May-2021'),13.8], 
+ [Date.parse('2-May-2021'),13.9], 
+ [Date.parse('3-May-2021'),13.9], 
+ [Date.parse('4-May-2021'),14.0], 
+ [Date.parse('5-May-2021'),14.1], 
+ [Date.parse('6-May-2021'),14.3], 
+ [Date.parse('7-May-2021'),14.5], 
+ [Date.parse('8-May-2021'),14.7], 
+ [Date.parse('9-May-2021'),14.9], 
+ [Date.parse('10-May-2021'),15.4], 
+ [Date.parse('11-May-2021'),16.0], 
+ [Date.parse('12-May-2021'),16.6], 
+ [Date.parse('13-May-2021'),17.0], 
+ [Date.parse('14-May-2021'),17.5], 
+ [Date.parse('15-May-2021'),18.2], 
+ [Date.parse('16-May-2021'),18.9], 
+ [Date.parse('17-May-2021'),19.7], 
+ [Date.parse('18-May-2021'),20.4], 
+ [Date.parse('19-May-2021'),21.0], 
+ [Date.parse('20-May-2021'),22.0], 
+ [Date.parse('21-May-2021'),22.9], 
+ [Date.parse('22-May-2021'),23.5], 
+ [Date.parse('23-May-2021'),23.8], 
+ [Date.parse('24-May-2021'),24.1], 
+ [Date.parse('25-May-2021'),24.5], 
+ [Date.parse('26-May-2021'),24.7], 
+ [Date.parse('27-May-2021'),24.8], 
+ [Date.parse('28-May-2021'),24.9], 
+ [Date.parse('29-May-2021'),25.0], 
+ [Date.parse('30-May-2021'),25.3], 
+ [Date.parse('31-May-2021'),25.6], 
+ [Date.parse('1-Jun-2021'),25.9], 
+ [Date.parse('2-Jun-2021'),26.2], 
+ [Date.parse('3-Jun-2021'),26.6], 
+ [Date.parse('4-Jun-2021'),26.8], 
+ [Date.parse('5-Jun-2021'),27.2], 
+ [Date.parse('6-Jun-2021'),27.6], 
+ [Date.parse('7-Jun-2021'),28.0], 
+ [Date.parse('8-Jun-2021'),28.3], 
+ [Date.parse('9-Jun-2021'),28.6], 
+ [Date.parse('10-Jun-2021'),29.2], 
+ [Date.parse('11-Jun-2021'),29.7], 
+ [Date.parse('12-Jun-2021'),30.0], 
+ [Date.parse('13-Jun-2021'),30.3], 
+ [Date.parse('14-Jun-2021'),30.6], 
+ [Date.parse('15-Jun-2021'),30.8], 
+ [Date.parse('16-Jun-2021'),31.0], 
+ [Date.parse('17-Jun-2021'),31.4], 
+ [Date.parse('18-Jun-2021'),31.9], 
+ [Date.parse('19-Jun-2021'),32.5], 
+ [Date.parse('20-Jun-2021'),33.0], 
+ [Date.parse('21-Jun-2021'),33.5], 
+ [Date.parse('22-Jun-2021'),34.0], 
+ [Date.parse('23-Jun-2021'),34.6], 
+ [Date.parse('24-Jun-2021'),35.4], 
+ [Date.parse('25-Jun-2021'),36.1], 
+ [Date.parse('26-Jun-2021'),36.8], 
+ [Date.parse('27-Jun-2021'),37.4], 
+ [Date.parse('28-Jun-2021'),38.2], 
+ [Date.parse('29-Jun-2021'),39.0], 
+ [Date.parse('30-Jun-2021'),39.7], 
+ [Date.parse('1-Jul-2021'),40.2], 
+ [Date.parse('2-Jul-2021'),40.6], 
+ [Date.parse('3-Jul-2021'),41.0], 
+ [Date.parse('4-Jul-2021'),41.6], 
+ [Date.parse('5-Jul-2021'),42.4], 
+ [Date.parse('6-Jul-2021'),43.2], 
+ [Date.parse('7-Jul-2021'),43.9], 
+ [Date.parse('8-Jul-2021'),44.7], 
+ [Date.parse('9-Jul-2021'),45.5], 
+ [Date.parse('10-Jul-2021'),46.4], 
+ [Date.parse('11-Jul-2021'),47.4], 
+ [Date.parse('12-Jul-2021'),48.3], 
+ [Date.parse('13-Jul-2021'),49.3], 
+ [Date.parse('14-Jul-2021'),50.2], 
+ [Date.parse('15-Jul-2021'),51.1], 
+ [Date.parse('16-Jul-2021'),52.3], 
+ [Date.parse('17-Jul-2021'),53.6], 
+ [Date.parse('18-Jul-2021'),54.9], 
+ [Date.parse('19-Jul-2021'),56.1], 
+ [Date.parse('20-Jul-2021'),57.1], 
+ [Date.parse('21-Jul-2021'),58.2], 
+ [Date.parse('22-Jul-2021'),59.5], 
+ [Date.parse('23-Jul-2021'),60.8], 
+ [Date.parse('24-Jul-2021'),62.2], 
+ [Date.parse('25-Jul-2021'),63.6], 
+ [Date.parse('26-Jul-2021'),65.0], 
+ [Date.parse('27-Jul-2021'),66.5], 
+ [Date.parse('28-Jul-2021'),68.2], 
+ [Date.parse('29-Jul-2021'),69.8], 
+ [Date.parse('30-Jul-2021'),71.5], 
+ [Date.parse('31-Jul-2021'),72.9], 
+ [Date.parse('1-Aug-2021'),74.0], 
+ [Date.parse('2-Aug-2021'),74.9], 
+ [Date.parse('3-Aug-2021'),75.9], 
+ [Date.parse('4-Aug-2021'),77.0], 
+ [Date.parse('5-Aug-2021'),78.2], 
+ [Date.parse('6-Aug-2021'),79.6], 
+ [Date.parse('7-Aug-2021'),81.3], 
+ [Date.parse('8-Aug-2021'),83.2], 
+ [Date.parse('9-Aug-2021'),85.0], 
+ [Date.parse('10-Aug-2021'),86.6], 
+ [Date.parse('11-Aug-2021'),88.2], 
+ [Date.parse('12-Aug-2021'),89.8], 
+ [Date.parse('13-Aug-2021'),91.4], 
+ [Date.parse('14-Aug-2021'),93.0], 
+ [Date.parse('15-Aug-2021'),94.6], 
+ [Date.parse('16-Aug-2021'),96.3], 
+ [Date.parse('17-Aug-2021'),98.0], 
+ [Date.parse('18-Aug-2021'),99.7], 
+ [Date.parse('19-Aug-2021'),101.3], 
+ [Date.parse('20-Aug-2021'),103.1], 
+ [Date.parse('21-Aug-2021'),105.0], 
+ [Date.parse('22-Aug-2021'),107.4], 
+ [Date.parse('23-Aug-2021'),109.7], 
+ [Date.parse('24-Aug-2021'),111.6], 
+ [Date.parse('25-Aug-2021'),113.4], 
+ [Date.parse('26-Aug-2021'),115.4], 
+ [Date.parse('27-Aug-2021'),117.2], 
+ [Date.parse('28-Aug-2021'),119.2], 
+ [Date.parse('29-Aug-2021'),121.6], 
+ [Date.parse('30-Aug-2021'),124.6], 
+ [Date.parse('31-Aug-2021'),127.8], 
+ [Date.parse('1-Sep-2021'),130.9], 
+ [Date.parse('2-Sep-2021'),133.9], 
+ [Date.parse('3-Sep-2021'),136.1], 
+ [Date.parse('4-Sep-2021'),137.8], 
+ [Date.parse('5-Sep-2021'),139.4], 
+ [Date.parse('6-Sep-2021'),141.2], 
+ [Date.parse('7-Sep-2021'),143.0], 
+ [Date.parse('8-Sep-2021'),144.9], 
+ [Date.parse('9-Sep-2021'),147.0], 
+ [Date.parse('10-Sep-2021'),149.3], 
+ [Date.parse('11-Sep-2021'),151.8], 
+ [Date.parse('12-Sep-2021'),154.4], 
+ [Date.parse('13-Sep-2021'),156.3], 
+ [Date.parse('14-Sep-2021'),158.1], 
+ [Date.parse('15-Sep-2021'),160.1], 
+ [Date.parse('16-Sep-2021'),162.5], 
+ [Date.parse('17-Sep-2021'),165.0], 
+ [Date.parse('18-Sep-2021'),167.2], 
+ [Date.parse('19-Sep-2021'),169.2], 
+ [Date.parse('20-Sep-2021'),171.1], 
+ [Date.parse('21-Sep-2021'),173.0], 
+ [Date.parse('22-Sep-2021'),175.2], 
+ [Date.parse('23-Sep-2021'),177.8], 
+ [Date.parse('24-Sep-2021'),180.3], 
+ [Date.parse('25-Sep-2021'),182.7], 
+ [Date.parse('26-Sep-2021'),184.9], 
+ [Date.parse('27-Sep-2021'),187.2], 
+ [Date.parse('28-Sep-2021'),189.7], 
+ [Date.parse('29-Sep-2021'),192.0], 
+ [Date.parse('30-Sep-2021'),194.3], 
+ [Date.parse('1-Oct-2021'),196.2], 
+ [Date.parse('2-Oct-2021'),197.8], 
+ [Date.parse('3-Oct-2021'),199.3], 
+ [Date.parse('4-Oct-2021'),200.9], 
+ [Date.parse('5-Oct-2021'),203.0], 
+ [Date.parse('6-Oct-2021'),205.3], 
+ [Date.parse('7-Oct-2021'),207.1], 
+ [Date.parse('8-Oct-2021'),208.7], 
+ [Date.parse('9-Oct-2021'),210.3], 
+ [Date.parse('10-Oct-2021'),211.3], 
+ [Date.parse('11-Oct-2021'),212.1], 
+ [Date.parse('12-Oct-2021'),213.1], 
+ [Date.parse('13-Oct-2021'),214.3], 
+ [Date.parse('14-Oct-2021'),215.8], 
+ [Date.parse('15-Oct-2021'),217.4], 
+ [Date.parse('16-Oct-2021'),219.1], 
+ [Date.parse('17-Oct-2021'),221.3], 
+ [Date.parse('18-Oct-2021'),224.0], 
+ [Date.parse('19-Oct-2021'),226.6], 
+ [Date.parse('20-Oct-2021'),229.2], 
+ [Date.parse('21-Oct-2021'),232.0], 
+ [Date.parse('22-Oct-2021'),234.6], 
+ [Date.parse('23-Oct-2021'),236.7], 
+ [Date.parse('24-Oct-2021'),239.1], 
+ [Date.parse('25-Oct-2021'),241.6], 
+ [Date.parse('26-Oct-2021'),243.8], 
+ [Date.parse('27-Oct-2021'),245.6], 
+ [Date.parse('28-Oct-2021'),247.2], 
+ [Date.parse('29-Oct-2021'),248.7], 
+ [Date.parse('30-Oct-2021'),250.3], 
+ [Date.parse('31-Oct-2021'),251.7], 
+ [Date.parse('1-Nov-2021'),253.1], 
+ [Date.parse('2-Nov-2021'),254.6], 
+ [Date.parse('3-Nov-2021'),256.1], 
+ [Date.parse('4-Nov-2021'),257.6], 
+ [Date.parse('5-Nov-2021'),259.4], 
+ [Date.parse('6-Nov-2021'),261.0], 
+ [Date.parse('7-Nov-2021'),262.4], 
+ [Date.parse('8-Nov-2021'),263.3], 
+ [Date.parse('9-Nov-2021'),263.9], 
+ [Date.parse('10-Nov-2021'),264.9], 
+ [Date.parse('11-Nov-2021'),266.1], 
+ [Date.parse('12-Nov-2021'),267.2], 
+ [Date.parse('13-Nov-2021'),268.0], 
+ [Date.parse('14-Nov-2021'),268.5], 
+ [Date.parse('15-Nov-2021'),269.0], 
+ [Date.parse('16-Nov-2021'),269.6], 
+ [Date.parse('17-Nov-2021'),270.3], 
+ [Date.parse('18-Nov-2021'),271.0], 
+ [Date.parse('19-Nov-2021'),271.8], 
+ [Date.parse('20-Nov-2021'),272.9], 
+ [Date.parse('21-Nov-2021'),274.0], 
+ [Date.parse('22-Nov-2021'),275.3], 
+ [Date.parse('23-Nov-2021'),276.7], 
+ [Date.parse('24-Nov-2021'),278.1], 
+ [Date.parse('25-Nov-2021'),279.4], 
+ [Date.parse('26-Nov-2021'),280.9], 
+ [Date.parse('27-Nov-2021'),282.5], 
+ [Date.parse('28-Nov-2021'),284.2], 
+ [Date.parse('29-Nov-2021'),285.8], 
+ [Date.parse('30-Nov-2021'),287.2], 
+ [Date.parse('1-Dec-2021'),288.4], 
+ [Date.parse('2-Dec-2021'),289.4], 
+ [Date.parse('3-Dec-2021'),290.1], 
+ [Date.parse('4-Dec-2021'),290.7], 
+ [Date.parse('5-Dec-2021'),291.2], 
+ [Date.parse('6-Dec-2021'),291.6], 
+ [Date.parse('7-Dec-2021'),292.0], 
+ [Date.parse('8-Dec-2021'),292.6], 
+ [Date.parse('9-Dec-2021'),293.3], 
+ [Date.parse('10-Dec-2021'),294.0], 
+ [Date.parse('11-Dec-2021'),294.4], 
+ [Date.parse('12-Dec-2021'),294.8], 
+ [Date.parse('13-Dec-2021'),295.3], 
+ [Date.parse('14-Dec-2021'),295.7], 
+ [Date.parse('15-Dec-2021'),296.2], 
+ [Date.parse('16-Dec-2021'),296.8], 
+ [Date.parse('17-Dec-2021'),297.4], 
+ [Date.parse('18-Dec-2021'),298.3], 
+ [Date.parse('19-Dec-2021'),299.1], 
+ [Date.parse('20-Dec-2021'),300.0], 
+ [Date.parse('21-Dec-2021'),300.8], 
+ [Date.parse('22-Dec-2021'),301.5], 
+ [Date.parse('23-Dec-2021'),302.1], 
+ [Date.parse('24-Dec-2021'),302.7], 
+ [Date.parse('25-Dec-2021'),303.2], 
+ [Date.parse('26-Dec-2021'),303.7], 
+ [Date.parse('27-Dec-2021'),304.2], 
+ [Date.parse('28-Dec-2021'),304.5], 
+ [Date.parse('29-Dec-2021'),304.7], 
+ [Date.parse('30-Dec-2021'),304.9], 
+ [Date.parse('31-Dec-2021'),305.0], 
+      ]
+    }]
+    });
+  });
+</script>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    var myChart = Highcharts.chart('nep_ace', {
+    chart: {
+      type: 'line'
+    },
+    title: {
+      useHTML: true,
+      text: "Current Season Northeast Pacific Ocean ACE (1981-2010 Climo)"
+    },
+    yAxis: {
+      title: {
+        useHTML: true,
+        text: "ACE (10<sup>4</sup>kt<sup>2</sup>)"
+      },
+    },
+    xAxis: {
+      title: {
+        text: "Date",
+      },
+      type: 'datetime',
+      labels: {
+            format: '{value:%e-%b}',
+            rotation: 45,
+            align: 'left'
+        }
+    },
+    series: [{
+      name: 'Observed',
+      data:[ 
+ [Date.parse('1-Jan-2021'),0], 
+ [Date.parse('2-Jan-2021'),0], 
+ [Date.parse('3-Jan-2021'),0], 
+ [Date.parse('4-Jan-2021'),0], 
+ [Date.parse('5-Jan-2021'),0], 
+ [Date.parse('6-Jan-2021'),0], 
+ [Date.parse('7-Jan-2021'),0], 
+ [Date.parse('8-Jan-2021'),0], 
+ [Date.parse('9-Jan-2021'),0], 
+ [Date.parse('10-Jan-2021'),0], 
+ [Date.parse('11-Jan-2021'),0], 
+ [Date.parse('12-Jan-2021'),0], 
+ [Date.parse('13-Jan-2021'),0], 
+ [Date.parse('14-Jan-2021'),0], 
+ [Date.parse('15-Jan-2021'),0], 
+ [Date.parse('16-Jan-2021'),0], 
+ [Date.parse('17-Jan-2021'),0], 
+ [Date.parse('18-Jan-2021'),0], 
+ [Date.parse('19-Jan-2021'),0], 
+ [Date.parse('20-Jan-2021'),0], 
+ [Date.parse('21-Jan-2021'),0], 
+ [Date.parse('22-Jan-2021'),0], 
+ [Date.parse('23-Jan-2021'),0], 
+ [Date.parse('24-Jan-2021'),0], 
+ [Date.parse('25-Jan-2021'),0], 
+ [Date.parse('26-Jan-2021'),0], 
+ [Date.parse('27-Jan-2021'),0], 
+ [Date.parse('28-Jan-2021'),0], 
+ [Date.parse('29-Jan-2021'),0], 
+ [Date.parse('30-Jan-2021'),0], 
+ [Date.parse('31-Jan-2021'),0], 
+ [Date.parse('1-Feb-2021'),0], 
+ [Date.parse('2-Feb-2021'),0], 
+ [Date.parse('3-Feb-2021'),0], 
+ [Date.parse('4-Feb-2021'),0], 
+ [Date.parse('5-Feb-2021'),0], 
+ [Date.parse('6-Feb-2021'),0], 
+ [Date.parse('7-Feb-2021'),0], 
+ [Date.parse('8-Feb-2021'),0], 
+ [Date.parse('9-Feb-2021'),0], 
+ [Date.parse('10-Feb-2021'),0], 
+ [Date.parse('11-Feb-2021'),0], 
+ [Date.parse('12-Feb-2021'),0], 
+ [Date.parse('13-Feb-2021'),0], 
+ [Date.parse('14-Feb-2021'),0], 
+ [Date.parse('15-Feb-2021'),0], 
+ [Date.parse('16-Feb-2021'),0], 
+ [Date.parse('17-Feb-2021'),0], 
+ [Date.parse('18-Feb-2021'),0], 
+ [Date.parse('19-Feb-2021'),0], 
+ [Date.parse('20-Feb-2021'),0], 
+ [Date.parse('21-Feb-2021'),0], 
+ [Date.parse('22-Feb-2021'),0], 
+ [Date.parse('23-Feb-2021'),0], 
+ [Date.parse('24-Feb-2021'),0], 
+ [Date.parse('25-Feb-2021'),0], 
+ [Date.parse('26-Feb-2021'),0], 
+ [Date.parse('27-Feb-2021'),0], 
+ [Date.parse('28-Feb-2021'),0], 
+ [Date.parse('29-Feb-2021'),0], 
+ [Date.parse('1-Mar-2021'),0], 
+ [Date.parse('2-Mar-2021'),0], 
+ [Date.parse('3-Mar-2021'),0], 
+ [Date.parse('4-Mar-2021'),0], 
+ [Date.parse('5-Mar-2021'),0], 
+ [Date.parse('6-Mar-2021'),0], 
+ [Date.parse('7-Mar-2021'),0], 
+ [Date.parse('8-Mar-2021'),0], 
+ [Date.parse('9-Mar-2021'),0], 
+ [Date.parse('10-Mar-2021'),0], 
+ [Date.parse('11-Mar-2021'),0], 
+ [Date.parse('12-Mar-2021'),0], 
+ [Date.parse('13-Mar-2021'),0], 
+ [Date.parse('14-Mar-2021'),0], 
+ [Date.parse('15-Mar-2021'),0], 
+ [Date.parse('16-Mar-2021'),0], 
+ [Date.parse('17-Mar-2021'),0], 
+ [Date.parse('18-Mar-2021'),0], 
+ [Date.parse('19-Mar-2021'),0], 
+ [Date.parse('20-Mar-2021'),0], 
+ [Date.parse('21-Mar-2021'),0], 
+ [Date.parse('22-Mar-2021'),0], 
+ [Date.parse('23-Mar-2021'),0], 
+ [Date.parse('24-Mar-2021'),0], 
+ [Date.parse('25-Mar-2021'),0], 
+ [Date.parse('26-Mar-2021'),0], 
+ [Date.parse('27-Mar-2021'),0], 
+ [Date.parse('28-Mar-2021'),0], 
+ [Date.parse('29-Mar-2021'),0], 
+ [Date.parse('30-Mar-2021'),0], 
+ [Date.parse('31-Mar-2021'),0], 
+ [Date.parse('1-Apr-2021'),0], 
+ [Date.parse('2-Apr-2021'),0], 
+ [Date.parse('3-Apr-2021'),0], 
+ [Date.parse('4-Apr-2021'),0], 
+ [Date.parse('5-Apr-2021'),0], 
+ [Date.parse('6-Apr-2021'),0], 
+ [Date.parse('7-Apr-2021'),0], 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+      ]
+    },{
+      name: 'Climatology',
+      data:[ 
+ [Date.parse('1-Jan-2021'),0.0], 
+ [Date.parse('2-Jan-2021'),0.0], 
+ [Date.parse('3-Jan-2021'),0.0], 
+ [Date.parse('4-Jan-2021'),0.0], 
+ [Date.parse('5-Jan-2021'),0.0], 
+ [Date.parse('6-Jan-2021'),0.0], 
+ [Date.parse('7-Jan-2021'),0.0], 
+ [Date.parse('8-Jan-2021'),0.0], 
+ [Date.parse('9-Jan-2021'),0.0], 
+ [Date.parse('10-Jan-2021'),0.0], 
+ [Date.parse('11-Jan-2021'),0.0], 
+ [Date.parse('12-Jan-2021'),0.0], 
+ [Date.parse('13-Jan-2021'),0.0], 
+ [Date.parse('14-Jan-2021'),0.0], 
+ [Date.parse('15-Jan-2021'),0.0], 
+ [Date.parse('16-Jan-2021'),0.0], 
+ [Date.parse('17-Jan-2021'),0.0], 
+ [Date.parse('18-Jan-2021'),0.0], 
+ [Date.parse('19-Jan-2021'),0.0], 
+ [Date.parse('20-Jan-2021'),0.0], 
+ [Date.parse('21-Jan-2021'),0.0], 
+ [Date.parse('22-Jan-2021'),0.0], 
+ [Date.parse('23-Jan-2021'),0.0], 
+ [Date.parse('24-Jan-2021'),0.0], 
+ [Date.parse('25-Jan-2021'),0.0], 
+ [Date.parse('26-Jan-2021'),0.0], 
+ [Date.parse('27-Jan-2021'),0.0], 
+ [Date.parse('28-Jan-2021'),0.0], 
+ [Date.parse('29-Jan-2021'),0.1], 
+ [Date.parse('30-Jan-2021'),0.1], 
+ [Date.parse('31-Jan-2021'),0.2], 
+ [Date.parse('1-Feb-2021'),0.3], 
+ [Date.parse('2-Feb-2021'),0.4], 
+ [Date.parse('3-Feb-2021'),0.5], 
+ [Date.parse('4-Feb-2021'),0.5], 
+ [Date.parse('5-Feb-2021'),0.5], 
+ [Date.parse('6-Feb-2021'),0.5], 
+ [Date.parse('7-Feb-2021'),0.5], 
+ [Date.parse('8-Feb-2021'),0.5], 
+ [Date.parse('9-Feb-2021'),0.5], 
+ [Date.parse('10-Feb-2021'),0.5], 
+ [Date.parse('11-Feb-2021'),0.5], 
+ [Date.parse('12-Feb-2021'),0.5], 
+ [Date.parse('13-Feb-2021'),0.5], 
+ [Date.parse('14-Feb-2021'),0.5], 
+ [Date.parse('15-Feb-2021'),0.5], 
+ [Date.parse('16-Feb-2021'),0.5], 
+ [Date.parse('17-Feb-2021'),0.5], 
+ [Date.parse('18-Feb-2021'),0.5], 
+ [Date.parse('19-Feb-2021'),0.5], 
+ [Date.parse('20-Feb-2021'),0.5], 
+ [Date.parse('21-Feb-2021'),0.5], 
+ [Date.parse('22-Feb-2021'),0.5], 
+ [Date.parse('23-Feb-2021'),0.5], 
+ [Date.parse('24-Feb-2021'),0.5], 
+ [Date.parse('25-Feb-2021'),0.5], 
+ [Date.parse('26-Feb-2021'),0.5], 
+ [Date.parse('27-Feb-2021'),0.5], 
+ [Date.parse('28-Feb-2021'),0.5], 
+ [Date.parse('29-Feb-2021'),0.5], 
+ [Date.parse('1-Mar-2021'),0.5], 
+ [Date.parse('2-Mar-2021'),0.5], 
+ [Date.parse('3-Mar-2021'),0.5], 
+ [Date.parse('4-Mar-2021'),0.5], 
+ [Date.parse('5-Mar-2021'),0.5], 
+ [Date.parse('6-Mar-2021'),0.5], 
+ [Date.parse('7-Mar-2021'),0.5], 
+ [Date.parse('8-Mar-2021'),0.5], 
+ [Date.parse('9-Mar-2021'),0.5], 
+ [Date.parse('10-Mar-2021'),0.5], 
+ [Date.parse('11-Mar-2021'),0.5], 
+ [Date.parse('12-Mar-2021'),0.5], 
+ [Date.parse('13-Mar-2021'),0.5], 
+ [Date.parse('14-Mar-2021'),0.5], 
+ [Date.parse('15-Mar-2021'),0.5], 
+ [Date.parse('16-Mar-2021'),0.5], 
+ [Date.parse('17-Mar-2021'),0.5], 
+ [Date.parse('18-Mar-2021'),0.5], 
+ [Date.parse('19-Mar-2021'),0.5], 
+ [Date.parse('20-Mar-2021'),0.5], 
+ [Date.parse('21-Mar-2021'),0.5], 
+ [Date.parse('22-Mar-2021'),0.5], 
+ [Date.parse('23-Mar-2021'),0.5], 
+ [Date.parse('24-Mar-2021'),0.5], 
+ [Date.parse('25-Mar-2021'),0.5], 
+ [Date.parse('26-Mar-2021'),0.5], 
+ [Date.parse('27-Mar-2021'),0.5], 
+ [Date.parse('28-Mar-2021'),0.5], 
+ [Date.parse('29-Mar-2021'),0.5], 
+ [Date.parse('30-Mar-2021'),0.5], 
+ [Date.parse('31-Mar-2021'),0.5], 
+ [Date.parse('1-Apr-2021'),0.5], 
+ [Date.parse('2-Apr-2021'),0.5], 
+ [Date.parse('3-Apr-2021'),0.5], 
+ [Date.parse('4-Apr-2021'),0.5], 
+ [Date.parse('5-Apr-2021'),0.5], 
+ [Date.parse('6-Apr-2021'),0.5], 
+ [Date.parse('7-Apr-2021'),0.5], 
+ [Date.parse('8-Apr-2021'),0.5], 
+ [Date.parse('9-Apr-2021'),0.5], 
+ [Date.parse('10-Apr-2021'),0.5], 
+ [Date.parse('11-Apr-2021'),0.5], 
+ [Date.parse('12-Apr-2021'),0.5], 
+ [Date.parse('13-Apr-2021'),0.5], 
+ [Date.parse('14-Apr-2021'),0.5], 
+ [Date.parse('15-Apr-2021'),0.5], 
+ [Date.parse('16-Apr-2021'),0.5], 
+ [Date.parse('17-Apr-2021'),0.5], 
+ [Date.parse('18-Apr-2021'),0.5], 
+ [Date.parse('19-Apr-2021'),0.5], 
+ [Date.parse('20-Apr-2021'),0.5], 
+ [Date.parse('21-Apr-2021'),0.5], 
+ [Date.parse('22-Apr-2021'),0.5], 
+ [Date.parse('23-Apr-2021'),0.5], 
+ [Date.parse('24-Apr-2021'),0.5], 
+ [Date.parse('25-Apr-2021'),0.5], 
+ [Date.parse('26-Apr-2021'),0.5], 
+ [Date.parse('27-Apr-2021'),0.5], 
+ [Date.parse('28-Apr-2021'),0.5], 
+ [Date.parse('29-Apr-2021'),0.5], 
+ [Date.parse('30-Apr-2021'),0.5], 
+ [Date.parse('1-May-2021'),0.5], 
+ [Date.parse('2-May-2021'),0.5], 
+ [Date.parse('3-May-2021'),0.5], 
+ [Date.parse('4-May-2021'),0.5], 
+ [Date.parse('5-May-2021'),0.5], 
+ [Date.parse('6-May-2021'),0.5], 
+ [Date.parse('7-May-2021'),0.5], 
+ [Date.parse('8-May-2021'),0.5], 
+ [Date.parse('9-May-2021'),0.5], 
+ [Date.parse('10-May-2021'),0.5], 
+ [Date.parse('11-May-2021'),0.5], 
+ [Date.parse('12-May-2021'),0.5], 
+ [Date.parse('13-May-2021'),0.5], 
+ [Date.parse('14-May-2021'),0.5], 
+ [Date.parse('15-May-2021'),0.5], 
+ [Date.parse('16-May-2021'),0.6], 
+ [Date.parse('17-May-2021'),0.7], 
+ [Date.parse('18-May-2021'),0.7], 
+ [Date.parse('19-May-2021'),0.8], 
+ [Date.parse('20-May-2021'),0.9], 
+ [Date.parse('21-May-2021'),0.9], 
+ [Date.parse('22-May-2021'),1.0], 
+ [Date.parse('23-May-2021'),1.1], 
+ [Date.parse('24-May-2021'),1.2], 
+ [Date.parse('25-May-2021'),1.5], 
+ [Date.parse('26-May-2021'),1.7], 
+ [Date.parse('27-May-2021'),1.9], 
+ [Date.parse('28-May-2021'),2.1], 
+ [Date.parse('29-May-2021'),2.3], 
+ [Date.parse('30-May-2021'),2.7], 
+ [Date.parse('31-May-2021'),3.0], 
+ [Date.parse('1-Jun-2021'),3.2], 
+ [Date.parse('2-Jun-2021'),3.3], 
+ [Date.parse('3-Jun-2021'),3.4], 
+ [Date.parse('4-Jun-2021'),3.5], 
+ [Date.parse('5-Jun-2021'),3.6], 
+ [Date.parse('6-Jun-2021'),3.7], 
+ [Date.parse('7-Jun-2021'),3.8], 
+ [Date.parse('8-Jun-2021'),3.9], 
+ [Date.parse('9-Jun-2021'),3.9], 
+ [Date.parse('10-Jun-2021'),4.1], 
+ [Date.parse('11-Jun-2021'),4.2], 
+ [Date.parse('12-Jun-2021'),4.4], 
+ [Date.parse('13-Jun-2021'),4.6], 
+ [Date.parse('14-Jun-2021'),4.9], 
+ [Date.parse('15-Jun-2021'),5.4], 
+ [Date.parse('16-Jun-2021'),5.6], 
+ [Date.parse('17-Jun-2021'),5.9], 
+ [Date.parse('18-Jun-2021'),6.2], 
+ [Date.parse('19-Jun-2021'),6.6], 
+ [Date.parse('20-Jun-2021'),7.0], 
+ [Date.parse('21-Jun-2021'),7.5], 
+ [Date.parse('22-Jun-2021'),8.2], 
+ [Date.parse('23-Jun-2021'),8.8], 
+ [Date.parse('24-Jun-2021'),9.5], 
+ [Date.parse('25-Jun-2021'),10.2], 
+ [Date.parse('26-Jun-2021'),11.0], 
+ [Date.parse('27-Jun-2021'),11.6], 
+ [Date.parse('28-Jun-2021'),12.2], 
+ [Date.parse('29-Jun-2021'),12.8], 
+ [Date.parse('30-Jun-2021'),13.5], 
+ [Date.parse('1-Jul-2021'),14.2], 
+ [Date.parse('2-Jul-2021'),14.9], 
+ [Date.parse('3-Jul-2021'),15.4], 
+ [Date.parse('4-Jul-2021'),15.7], 
+ [Date.parse('5-Jul-2021'),16.0], 
+ [Date.parse('6-Jul-2021'),16.3], 
+ [Date.parse('7-Jul-2021'),16.8], 
+ [Date.parse('8-Jul-2021'),17.2], 
+ [Date.parse('9-Jul-2021'),17.7], 
+ [Date.parse('10-Jul-2021'),18.1], 
+ [Date.parse('11-Jul-2021'),18.7], 
+ [Date.parse('12-Jul-2021'),19.5], 
+ [Date.parse('13-Jul-2021'),20.5], 
+ [Date.parse('14-Jul-2021'),21.7], 
+ [Date.parse('15-Jul-2021'),22.9], 
+ [Date.parse('16-Jul-2021'),23.9], 
+ [Date.parse('17-Jul-2021'),24.7], 
+ [Date.parse('18-Jul-2021'),25.7], 
+ [Date.parse('19-Jul-2021'),26.9], 
+ [Date.parse('20-Jul-2021'),28.4], 
+ [Date.parse('21-Jul-2021'),29.7], 
+ [Date.parse('22-Jul-2021'),31.0], 
+ [Date.parse('23-Jul-2021'),32.2], 
+ [Date.parse('24-Jul-2021'),33.4], 
+ [Date.parse('25-Jul-2021'),35.0], 
+ [Date.parse('26-Jul-2021'),36.6], 
+ [Date.parse('27-Jul-2021'),37.8], 
+ [Date.parse('28-Jul-2021'),38.6], 
+ [Date.parse('29-Jul-2021'),39.4], 
+ [Date.parse('30-Jul-2021'),40.3], 
+ [Date.parse('31-Jul-2021'),41.1], 
+ [Date.parse('1-Aug-2021'),42.0], 
+ [Date.parse('2-Aug-2021'),43.1], 
+ [Date.parse('3-Aug-2021'),44.2], 
+ [Date.parse('4-Aug-2021'),45.3], 
+ [Date.parse('5-Aug-2021'),46.4], 
+ [Date.parse('6-Aug-2021'),47.4], 
+ [Date.parse('7-Aug-2021'),48.4], 
+ [Date.parse('8-Aug-2021'),49.4], 
+ [Date.parse('9-Aug-2021'),50.5], 
+ [Date.parse('10-Aug-2021'),51.6], 
+ [Date.parse('11-Aug-2021'),52.7], 
+ [Date.parse('12-Aug-2021'),53.9], 
+ [Date.parse('13-Aug-2021'),55.1], 
+ [Date.parse('14-Aug-2021'),56.2], 
+ [Date.parse('15-Aug-2021'),57.1], 
+ [Date.parse('16-Aug-2021'),58.0], 
+ [Date.parse('17-Aug-2021'),58.8], 
+ [Date.parse('18-Aug-2021'),59.7], 
+ [Date.parse('19-Aug-2021'),60.5], 
+ [Date.parse('20-Aug-2021'),61.4], 
+ [Date.parse('21-Aug-2021'),62.3], 
+ [Date.parse('22-Aug-2021'),63.4], 
+ [Date.parse('23-Aug-2021'),64.9], 
+ [Date.parse('24-Aug-2021'),66.4], 
+ [Date.parse('25-Aug-2021'),68.0], 
+ [Date.parse('26-Aug-2021'),69.5], 
+ [Date.parse('27-Aug-2021'),70.8], 
+ [Date.parse('28-Aug-2021'),72.0], 
+ [Date.parse('29-Aug-2021'),72.8], 
+ [Date.parse('30-Aug-2021'),73.7], 
+ [Date.parse('31-Aug-2021'),74.7], 
+ [Date.parse('1-Sep-2021'),75.8], 
+ [Date.parse('2-Sep-2021'),77.4], 
+ [Date.parse('3-Sep-2021'),78.7], 
+ [Date.parse('4-Sep-2021'),79.8], 
+ [Date.parse('5-Sep-2021'),80.7], 
+ [Date.parse('6-Sep-2021'),81.6], 
+ [Date.parse('7-Sep-2021'),82.5], 
+ [Date.parse('8-Sep-2021'),83.5], 
+ [Date.parse('9-Sep-2021'),84.5], 
+ [Date.parse('10-Sep-2021'),85.6], 
+ [Date.parse('11-Sep-2021'),86.7], 
+ [Date.parse('12-Sep-2021'),88.3], 
+ [Date.parse('13-Sep-2021'),89.9], 
+ [Date.parse('14-Sep-2021'),91.5], 
+ [Date.parse('15-Sep-2021'),92.8], 
+ [Date.parse('16-Sep-2021'),93.9], 
+ [Date.parse('17-Sep-2021'),95.0], 
+ [Date.parse('18-Sep-2021'),96.1], 
+ [Date.parse('19-Sep-2021'),97.2], 
+ [Date.parse('20-Sep-2021'),98.4], 
+ [Date.parse('21-Sep-2021'),99.7], 
+ [Date.parse('22-Sep-2021'),101.2], 
+ [Date.parse('23-Sep-2021'),102.8], 
+ [Date.parse('24-Sep-2021'),104.3], 
+ [Date.parse('25-Sep-2021'),105.7], 
+ [Date.parse('26-Sep-2021'),107.0], 
+ [Date.parse('27-Sep-2021'),108.0], 
+ [Date.parse('28-Sep-2021'),109.0], 
+ [Date.parse('29-Sep-2021'),109.9], 
+ [Date.parse('30-Sep-2021'),110.8], 
+ [Date.parse('1-Oct-2021'),111.8], 
+ [Date.parse('2-Oct-2021'),112.8], 
+ [Date.parse('3-Oct-2021'),113.8], 
+ [Date.parse('4-Oct-2021'),114.6], 
+ [Date.parse('5-Oct-2021'),115.2], 
+ [Date.parse('6-Oct-2021'),115.8], 
+ [Date.parse('7-Oct-2021'),116.2], 
+ [Date.parse('8-Oct-2021'),116.8], 
+ [Date.parse('9-Oct-2021'),117.5], 
+ [Date.parse('10-Oct-2021'),118.3], 
+ [Date.parse('11-Oct-2021'),119.0], 
+ [Date.parse('12-Oct-2021'),119.7], 
+ [Date.parse('13-Oct-2021'),120.2], 
+ [Date.parse('14-Oct-2021'),120.5], 
+ [Date.parse('15-Oct-2021'),121.0], 
+ [Date.parse('16-Oct-2021'),121.3], 
+ [Date.parse('17-Oct-2021'),121.7], 
+ [Date.parse('18-Oct-2021'),122.4], 
+ [Date.parse('19-Oct-2021'),123.4], 
+ [Date.parse('20-Oct-2021'),124.4], 
+ [Date.parse('21-Oct-2021'),125.1], 
+ [Date.parse('22-Oct-2021'),125.7], 
+ [Date.parse('23-Oct-2021'),126.3], 
+ [Date.parse('24-Oct-2021'),126.8], 
+ [Date.parse('25-Oct-2021'),127.3], 
+ [Date.parse('26-Oct-2021'),128.0], 
+ [Date.parse('27-Oct-2021'),128.5], 
+ [Date.parse('28-Oct-2021'),128.9], 
+ [Date.parse('29-Oct-2021'),129.3], 
+ [Date.parse('30-Oct-2021'),129.7], 
+ [Date.parse('31-Oct-2021'),129.9], 
+ [Date.parse('1-Nov-2021'),130.1], 
+ [Date.parse('2-Nov-2021'),130.2], 
+ [Date.parse('3-Nov-2021'),130.4], 
+ [Date.parse('4-Nov-2021'),130.5], 
+ [Date.parse('5-Nov-2021'),130.5], 
+ [Date.parse('6-Nov-2021'),130.5], 
+ [Date.parse('7-Nov-2021'),130.6], 
+ [Date.parse('8-Nov-2021'),130.6], 
+ [Date.parse('9-Nov-2021'),130.7], 
+ [Date.parse('10-Nov-2021'),130.8], 
+ [Date.parse('11-Nov-2021'),131.0], 
+ [Date.parse('12-Nov-2021'),131.0], 
+ [Date.parse('13-Nov-2021'),131.0], 
+ [Date.parse('14-Nov-2021'),131.0], 
+ [Date.parse('15-Nov-2021'),131.0], 
+ [Date.parse('16-Nov-2021'),131.1], 
+ [Date.parse('17-Nov-2021'),131.2], 
+ [Date.parse('18-Nov-2021'),131.2], 
+ [Date.parse('19-Nov-2021'),131.3], 
+ [Date.parse('20-Nov-2021'),131.3], 
+ [Date.parse('21-Nov-2021'),131.3], 
+ [Date.parse('22-Nov-2021'),131.3], 
+ [Date.parse('23-Nov-2021'),131.4], 
+ [Date.parse('24-Nov-2021'),131.5], 
+ [Date.parse('25-Nov-2021'),131.5], 
+ [Date.parse('26-Nov-2021'),131.5], 
+ [Date.parse('27-Nov-2021'),131.5], 
+ [Date.parse('28-Nov-2021'),131.5], 
+ [Date.parse('29-Nov-2021'),131.5], 
+ [Date.parse('30-Nov-2021'),131.5], 
+ [Date.parse('1-Dec-2021'),131.5], 
+ [Date.parse('2-Dec-2021'),131.5], 
+ [Date.parse('3-Dec-2021'),131.6], 
+ [Date.parse('4-Dec-2021'),131.6], 
+ [Date.parse('5-Dec-2021'),131.6], 
+ [Date.parse('6-Dec-2021'),131.7], 
+ [Date.parse('7-Dec-2021'),131.8], 
+ [Date.parse('8-Dec-2021'),131.8], 
+ [Date.parse('9-Dec-2021'),131.8], 
+ [Date.parse('10-Dec-2021'),131.8], 
+ [Date.parse('11-Dec-2021'),131.8], 
+ [Date.parse('12-Dec-2021'),131.8], 
+ [Date.parse('13-Dec-2021'),131.8], 
+ [Date.parse('14-Dec-2021'),131.8], 
+ [Date.parse('15-Dec-2021'),131.8], 
+ [Date.parse('16-Dec-2021'),131.8], 
+ [Date.parse('17-Dec-2021'),131.8], 
+ [Date.parse('18-Dec-2021'),131.8], 
+ [Date.parse('19-Dec-2021'),131.8], 
+ [Date.parse('20-Dec-2021'),131.8], 
+ [Date.parse('21-Dec-2021'),131.8], 
+ [Date.parse('22-Dec-2021'),131.8], 
+ [Date.parse('23-Dec-2021'),131.8], 
+ [Date.parse('24-Dec-2021'),131.8], 
+ [Date.parse('25-Dec-2021'),131.8], 
+ [Date.parse('26-Dec-2021'),131.8], 
+ [Date.parse('27-Dec-2021'),131.8], 
+ [Date.parse('28-Dec-2021'),131.8], 
+ [Date.parse('29-Dec-2021'),131.8], 
+ [Date.parse('30-Dec-2021'),131.8], 
+ [Date.parse('31-Dec-2021'),131.8], 
+      ]
+    }]
+    });
+  });
+</script>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    var myChart = Highcharts.chart('ni_ace', {
+    chart: {
+      type: 'line'
+    },
+    title: {
+      useHTML: true,
+      text: "Current Season North Indian Ocean ACE (1981-2010 Climo)"
+    },
+    yAxis: {
+      title: {
+        useHTML: true,
+        text: "ACE (10<sup>4</sup>kt<sup>2</sup>)"
+      },
+    },
+    xAxis: {
+      title: {
+        text: "Date",
+      },
+      type: 'datetime',
+      labels: {
+            format: '{value:%e-%b}',
+            rotation: 45,
+            align: 'left'
+        }
+    },
+    series: [{
+      name: 'Observed',
+      data:[ 
+ [Date.parse('1-Jan-2021'),0], 
+ [Date.parse('2-Jan-2021'),0], 
+ [Date.parse('3-Jan-2021'),0], 
+ [Date.parse('4-Jan-2021'),0], 
+ [Date.parse('5-Jan-2021'),0], 
+ [Date.parse('6-Jan-2021'),0], 
+ [Date.parse('7-Jan-2021'),0], 
+ [Date.parse('8-Jan-2021'),0], 
+ [Date.parse('9-Jan-2021'),0], 
+ [Date.parse('10-Jan-2021'),0], 
+ [Date.parse('11-Jan-2021'),0], 
+ [Date.parse('12-Jan-2021'),0], 
+ [Date.parse('13-Jan-2021'),0], 
+ [Date.parse('14-Jan-2021'),0], 
+ [Date.parse('15-Jan-2021'),0], 
+ [Date.parse('16-Jan-2021'),0], 
+ [Date.parse('17-Jan-2021'),0], 
+ [Date.parse('18-Jan-2021'),0], 
+ [Date.parse('19-Jan-2021'),0], 
+ [Date.parse('20-Jan-2021'),0], 
+ [Date.parse('21-Jan-2021'),0], 
+ [Date.parse('22-Jan-2021'),0], 
+ [Date.parse('23-Jan-2021'),0], 
+ [Date.parse('24-Jan-2021'),0], 
+ [Date.parse('25-Jan-2021'),0], 
+ [Date.parse('26-Jan-2021'),0], 
+ [Date.parse('27-Jan-2021'),0], 
+ [Date.parse('28-Jan-2021'),0], 
+ [Date.parse('29-Jan-2021'),0], 
+ [Date.parse('30-Jan-2021'),0], 
+ [Date.parse('31-Jan-2021'),0], 
+ [Date.parse('1-Feb-2021'),0], 
+ [Date.parse('2-Feb-2021'),0], 
+ [Date.parse('3-Feb-2021'),0], 
+ [Date.parse('4-Feb-2021'),0], 
+ [Date.parse('5-Feb-2021'),0], 
+ [Date.parse('6-Feb-2021'),0], 
+ [Date.parse('7-Feb-2021'),0], 
+ [Date.parse('8-Feb-2021'),0], 
+ [Date.parse('9-Feb-2021'),0], 
+ [Date.parse('10-Feb-2021'),0], 
+ [Date.parse('11-Feb-2021'),0], 
+ [Date.parse('12-Feb-2021'),0], 
+ [Date.parse('13-Feb-2021'),0], 
+ [Date.parse('14-Feb-2021'),0], 
+ [Date.parse('15-Feb-2021'),0], 
+ [Date.parse('16-Feb-2021'),0], 
+ [Date.parse('17-Feb-2021'),0], 
+ [Date.parse('18-Feb-2021'),0], 
+ [Date.parse('19-Feb-2021'),0], 
+ [Date.parse('20-Feb-2021'),0], 
+ [Date.parse('21-Feb-2021'),0], 
+ [Date.parse('22-Feb-2021'),0], 
+ [Date.parse('23-Feb-2021'),0], 
+ [Date.parse('24-Feb-2021'),0], 
+ [Date.parse('25-Feb-2021'),0], 
+ [Date.parse('26-Feb-2021'),0], 
+ [Date.parse('27-Feb-2021'),0], 
+ [Date.parse('28-Feb-2021'),0], 
+ [Date.parse('29-Feb-2021'),0], 
+ [Date.parse('1-Mar-2021'),0], 
+ [Date.parse('2-Mar-2021'),0], 
+ [Date.parse('3-Mar-2021'),0], 
+ [Date.parse('4-Mar-2021'),0], 
+ [Date.parse('5-Mar-2021'),0], 
+ [Date.parse('6-Mar-2021'),0], 
+ [Date.parse('7-Mar-2021'),0], 
+ [Date.parse('8-Mar-2021'),0], 
+ [Date.parse('9-Mar-2021'),0], 
+ [Date.parse('10-Mar-2021'),0], 
+ [Date.parse('11-Mar-2021'),0], 
+ [Date.parse('12-Mar-2021'),0], 
+ [Date.parse('13-Mar-2021'),0], 
+ [Date.parse('14-Mar-2021'),0], 
+ [Date.parse('15-Mar-2021'),0], 
+ [Date.parse('16-Mar-2021'),0], 
+ [Date.parse('17-Mar-2021'),0], 
+ [Date.parse('18-Mar-2021'),0], 
+ [Date.parse('19-Mar-2021'),0], 
+ [Date.parse('20-Mar-2021'),0], 
+ [Date.parse('21-Mar-2021'),0], 
+ [Date.parse('22-Mar-2021'),0], 
+ [Date.parse('23-Mar-2021'),0], 
+ [Date.parse('24-Mar-2021'),0], 
+ [Date.parse('25-Mar-2021'),0], 
+ [Date.parse('26-Mar-2021'),0], 
+ [Date.parse('27-Mar-2021'),0], 
+ [Date.parse('28-Mar-2021'),0], 
+ [Date.parse('29-Mar-2021'),0], 
+ [Date.parse('30-Mar-2021'),0], 
+ [Date.parse('31-Mar-2021'),0], 
+ [Date.parse('1-Apr-2021'),0], 
+ [Date.parse('2-Apr-2021'),0], 
+ [Date.parse('3-Apr-2021'),0], 
+ [Date.parse('4-Apr-2021'),0], 
+ [Date.parse('5-Apr-2021'),0], 
+ [Date.parse('6-Apr-2021'),0], 
+ [Date.parse('7-Apr-2021'),0], 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+      ]
+    },{
+      name: 'Climatology',
+      data:[ 
+ [Date.parse('1-Jan-2021'),0.0], 
+ [Date.parse('2-Jan-2021'),0.0], 
+ [Date.parse('3-Jan-2021'),0.0], 
+ [Date.parse('4-Jan-2021'),0.0], 
+ [Date.parse('5-Jan-2021'),0.0], 
+ [Date.parse('6-Jan-2021'),0.0], 
+ [Date.parse('7-Jan-2021'),0.0], 
+ [Date.parse('8-Jan-2021'),0.0], 
+ [Date.parse('9-Jan-2021'),0.0], 
+ [Date.parse('10-Jan-2021'),0.1], 
+ [Date.parse('11-Jan-2021'),0.1], 
+ [Date.parse('12-Jan-2021'),0.1], 
+ [Date.parse('13-Jan-2021'),0.1], 
+ [Date.parse('14-Jan-2021'),0.1], 
+ [Date.parse('15-Jan-2021'),0.1], 
+ [Date.parse('16-Jan-2021'),0.1], 
+ [Date.parse('17-Jan-2021'),0.1], 
+ [Date.parse('18-Jan-2021'),0.2], 
+ [Date.parse('19-Jan-2021'),0.2], 
+ [Date.parse('20-Jan-2021'),0.2], 
+ [Date.parse('21-Jan-2021'),0.2], 
+ [Date.parse('22-Jan-2021'),0.2], 
+ [Date.parse('23-Jan-2021'),0.2], 
+ [Date.parse('24-Jan-2021'),0.2], 
+ [Date.parse('25-Jan-2021'),0.2], 
+ [Date.parse('26-Jan-2021'),0.2], 
+ [Date.parse('27-Jan-2021'),0.2], 
+ [Date.parse('28-Jan-2021'),0.2], 
+ [Date.parse('29-Jan-2021'),0.2], 
+ [Date.parse('30-Jan-2021'),0.2], 
+ [Date.parse('31-Jan-2021'),0.2], 
+ [Date.parse('1-Feb-2021'),0.2], 
+ [Date.parse('2-Feb-2021'),0.2], 
+ [Date.parse('3-Feb-2021'),0.2], 
+ [Date.parse('4-Feb-2021'),0.3], 
+ [Date.parse('5-Feb-2021'),0.3], 
+ [Date.parse('6-Feb-2021'),0.3], 
+ [Date.parse('7-Feb-2021'),0.3], 
+ [Date.parse('8-Feb-2021'),0.3], 
+ [Date.parse('9-Feb-2021'),0.3], 
+ [Date.parse('10-Feb-2021'),0.3], 
+ [Date.parse('11-Feb-2021'),0.3], 
+ [Date.parse('12-Feb-2021'),0.3], 
+ [Date.parse('13-Feb-2021'),0.3], 
+ [Date.parse('14-Feb-2021'),0.3], 
+ [Date.parse('15-Feb-2021'),0.3], 
+ [Date.parse('16-Feb-2021'),0.3], 
+ [Date.parse('17-Feb-2021'),0.3], 
+ [Date.parse('18-Feb-2021'),0.3], 
+ [Date.parse('19-Feb-2021'),0.3], 
+ [Date.parse('20-Feb-2021'),0.3], 
+ [Date.parse('21-Feb-2021'),0.3], 
+ [Date.parse('22-Feb-2021'),0.3], 
+ [Date.parse('23-Feb-2021'),0.3], 
+ [Date.parse('24-Feb-2021'),0.3], 
+ [Date.parse('25-Feb-2021'),0.3], 
+ [Date.parse('26-Feb-2021'),0.3], 
+ [Date.parse('27-Feb-2021'),0.3], 
+ [Date.parse('28-Feb-2021'),0.3], 
+ [Date.parse('29-Feb-2021'),0.3], 
+ [Date.parse('1-Mar-2021'),0.3], 
+ [Date.parse('2-Mar-2021'),0.3], 
+ [Date.parse('3-Mar-2021'),0.3], 
+ [Date.parse('4-Mar-2021'),0.3], 
+ [Date.parse('5-Mar-2021'),0.3], 
+ [Date.parse('6-Mar-2021'),0.3], 
+ [Date.parse('7-Mar-2021'),0.3], 
+ [Date.parse('8-Mar-2021'),0.3], 
+ [Date.parse('9-Mar-2021'),0.3], 
+ [Date.parse('10-Mar-2021'),0.3], 
+ [Date.parse('11-Mar-2021'),0.3], 
+ [Date.parse('12-Mar-2021'),0.3], 
+ [Date.parse('13-Mar-2021'),0.3], 
+ [Date.parse('14-Mar-2021'),0.3], 
+ [Date.parse('15-Mar-2021'),0.3], 
+ [Date.parse('16-Mar-2021'),0.3], 
+ [Date.parse('17-Mar-2021'),0.3], 
+ [Date.parse('18-Mar-2021'),0.3], 
+ [Date.parse('19-Mar-2021'),0.3], 
+ [Date.parse('20-Mar-2021'),0.3], 
+ [Date.parse('21-Mar-2021'),0.3], 
+ [Date.parse('22-Mar-2021'),0.3], 
+ [Date.parse('23-Mar-2021'),0.3], 
+ [Date.parse('24-Mar-2021'),0.3], 
+ [Date.parse('25-Mar-2021'),0.3], 
+ [Date.parse('26-Mar-2021'),0.3], 
+ [Date.parse('27-Mar-2021'),0.3], 
+ [Date.parse('28-Mar-2021'),0.3], 
+ [Date.parse('29-Mar-2021'),0.3], 
+ [Date.parse('30-Mar-2021'),0.3], 
+ [Date.parse('31-Mar-2021'),0.3], 
+ [Date.parse('1-Apr-2021'),0.3], 
+ [Date.parse('2-Apr-2021'),0.3], 
+ [Date.parse('3-Apr-2021'),0.3], 
+ [Date.parse('4-Apr-2021'),0.3], 
+ [Date.parse('5-Apr-2021'),0.3], 
+ [Date.parse('6-Apr-2021'),0.3], 
+ [Date.parse('7-Apr-2021'),0.3], 
+ [Date.parse('8-Apr-2021'),0.3], 
+ [Date.parse('9-Apr-2021'),0.3], 
+ [Date.parse('10-Apr-2021'),0.3], 
+ [Date.parse('11-Apr-2021'),0.3], 
+ [Date.parse('12-Apr-2021'),0.3], 
+ [Date.parse('13-Apr-2021'),0.3], 
+ [Date.parse('14-Apr-2021'),0.3], 
+ [Date.parse('15-Apr-2021'),0.3], 
+ [Date.parse('16-Apr-2021'),0.3], 
+ [Date.parse('17-Apr-2021'),0.3], 
+ [Date.parse('18-Apr-2021'),0.4], 
+ [Date.parse('19-Apr-2021'),0.4], 
+ [Date.parse('20-Apr-2021'),0.4], 
+ [Date.parse('21-Apr-2021'),0.4], 
+ [Date.parse('22-Apr-2021'),0.4], 
+ [Date.parse('23-Apr-2021'),0.4], 
+ [Date.parse('24-Apr-2021'),0.4], 
+ [Date.parse('25-Apr-2021'),0.4], 
+ [Date.parse('26-Apr-2021'),0.4], 
+ [Date.parse('27-Apr-2021'),0.5], 
+ [Date.parse('28-Apr-2021'),0.6], 
+ [Date.parse('29-Apr-2021'),1.0], 
+ [Date.parse('30-Apr-2021'),1.4], 
+ [Date.parse('1-May-2021'),1.6], 
+ [Date.parse('2-May-2021'),1.8], 
+ [Date.parse('3-May-2021'),2.1], 
+ [Date.parse('4-May-2021'),2.3], 
+ [Date.parse('5-May-2021'),2.4], 
+ [Date.parse('6-May-2021'),2.5], 
+ [Date.parse('7-May-2021'),2.5], 
+ [Date.parse('8-May-2021'),2.7], 
+ [Date.parse('9-May-2021'),2.9], 
+ [Date.parse('10-May-2021'),3.1], 
+ [Date.parse('11-May-2021'),3.2], 
+ [Date.parse('12-May-2021'),3.2], 
+ [Date.parse('13-May-2021'),3.3], 
+ [Date.parse('14-May-2021'),3.3], 
+ [Date.parse('15-May-2021'),3.4], 
+ [Date.parse('16-May-2021'),3.4], 
+ [Date.parse('17-May-2021'),3.5], 
+ [Date.parse('18-May-2021'),3.7], 
+ [Date.parse('19-May-2021'),4.1], 
+ [Date.parse('20-May-2021'),4.6], 
+ [Date.parse('21-May-2021'),4.8], 
+ [Date.parse('22-May-2021'),5.0], 
+ [Date.parse('23-May-2021'),5.0], 
+ [Date.parse('24-May-2021'),5.1], 
+ [Date.parse('25-May-2021'),5.4], 
+ [Date.parse('26-May-2021'),5.5], 
+ [Date.parse('27-May-2021'),5.6], 
+ [Date.parse('28-May-2021'),5.7], 
+ [Date.parse('29-May-2021'),5.7], 
+ [Date.parse('30-May-2021'),5.8], 
+ [Date.parse('31-May-2021'),5.8], 
+ [Date.parse('1-Jun-2021'),5.8], 
+ [Date.parse('2-Jun-2021'),5.9], 
+ [Date.parse('3-Jun-2021'),6.2], 
+ [Date.parse('4-Jun-2021'),6.5], 
+ [Date.parse('5-Jun-2021'),6.8], 
+ [Date.parse('6-Jun-2021'),7.1], 
+ [Date.parse('7-Jun-2021'),7.3], 
+ [Date.parse('8-Jun-2021'),7.5], 
+ [Date.parse('9-Jun-2021'),7.7], 
+ [Date.parse('10-Jun-2021'),7.8], 
+ [Date.parse('11-Jun-2021'),7.8], 
+ [Date.parse('12-Jun-2021'),7.9], 
+ [Date.parse('13-Jun-2021'),7.9], 
+ [Date.parse('14-Jun-2021'),7.9], 
+ [Date.parse('15-Jun-2021'),8.0], 
+ [Date.parse('16-Jun-2021'),8.0], 
+ [Date.parse('17-Jun-2021'),8.0], 
+ [Date.parse('18-Jun-2021'),8.0], 
+ [Date.parse('19-Jun-2021'),8.1], 
+ [Date.parse('20-Jun-2021'),8.1], 
+ [Date.parse('21-Jun-2021'),8.1], 
+ [Date.parse('22-Jun-2021'),8.1], 
+ [Date.parse('23-Jun-2021'),8.1], 
+ [Date.parse('24-Jun-2021'),8.1], 
+ [Date.parse('25-Jun-2021'),8.1], 
+ [Date.parse('26-Jun-2021'),8.1], 
+ [Date.parse('27-Jun-2021'),8.1], 
+ [Date.parse('28-Jun-2021'),8.1], 
+ [Date.parse('29-Jun-2021'),8.1], 
+ [Date.parse('30-Jun-2021'),8.2], 
+ [Date.parse('1-Jul-2021'),8.2], 
+ [Date.parse('2-Jul-2021'),8.2], 
+ [Date.parse('3-Jul-2021'),8.2], 
+ [Date.parse('4-Jul-2021'),8.2], 
+ [Date.parse('5-Jul-2021'),8.2], 
+ [Date.parse('6-Jul-2021'),8.2], 
+ [Date.parse('7-Jul-2021'),8.2], 
+ [Date.parse('8-Jul-2021'),8.2], 
+ [Date.parse('9-Jul-2021'),8.2], 
+ [Date.parse('10-Jul-2021'),8.2], 
+ [Date.parse('11-Jul-2021'),8.2], 
+ [Date.parse('12-Jul-2021'),8.2], 
+ [Date.parse('13-Jul-2021'),8.2], 
+ [Date.parse('14-Jul-2021'),8.2], 
+ [Date.parse('15-Jul-2021'),8.2], 
+ [Date.parse('16-Jul-2021'),8.2], 
+ [Date.parse('17-Jul-2021'),8.2], 
+ [Date.parse('18-Jul-2021'),8.2], 
+ [Date.parse('19-Jul-2021'),8.2], 
+ [Date.parse('20-Jul-2021'),8.2], 
+ [Date.parse('21-Jul-2021'),8.2], 
+ [Date.parse('22-Jul-2021'),8.2], 
+ [Date.parse('23-Jul-2021'),8.2], 
+ [Date.parse('24-Jul-2021'),8.2], 
+ [Date.parse('25-Jul-2021'),8.2], 
+ [Date.parse('26-Jul-2021'),8.2], 
+ [Date.parse('27-Jul-2021'),8.2], 
+ [Date.parse('28-Jul-2021'),8.2], 
+ [Date.parse('29-Jul-2021'),8.2], 
+ [Date.parse('30-Jul-2021'),8.2], 
+ [Date.parse('31-Jul-2021'),8.2], 
+ [Date.parse('1-Aug-2021'),8.2], 
+ [Date.parse('2-Aug-2021'),8.2], 
+ [Date.parse('3-Aug-2021'),8.2], 
+ [Date.parse('4-Aug-2021'),8.2], 
+ [Date.parse('5-Aug-2021'),8.2], 
+ [Date.parse('6-Aug-2021'),8.2], 
+ [Date.parse('7-Aug-2021'),8.2], 
+ [Date.parse('8-Aug-2021'),8.2], 
+ [Date.parse('9-Aug-2021'),8.2], 
+ [Date.parse('10-Aug-2021'),8.2], 
+ [Date.parse('11-Aug-2021'),8.2], 
+ [Date.parse('12-Aug-2021'),8.2], 
+ [Date.parse('13-Aug-2021'),8.2], 
+ [Date.parse('14-Aug-2021'),8.2], 
+ [Date.parse('15-Aug-2021'),8.2], 
+ [Date.parse('16-Aug-2021'),8.2], 
+ [Date.parse('17-Aug-2021'),8.2], 
+ [Date.parse('18-Aug-2021'),8.2], 
+ [Date.parse('19-Aug-2021'),8.2], 
+ [Date.parse('20-Aug-2021'),8.2], 
+ [Date.parse('21-Aug-2021'),8.2], 
+ [Date.parse('22-Aug-2021'),8.2], 
+ [Date.parse('23-Aug-2021'),8.2], 
+ [Date.parse('24-Aug-2021'),8.2], 
+ [Date.parse('25-Aug-2021'),8.2], 
+ [Date.parse('26-Aug-2021'),8.2], 
+ [Date.parse('27-Aug-2021'),8.2], 
+ [Date.parse('28-Aug-2021'),8.2], 
+ [Date.parse('29-Aug-2021'),8.2], 
+ [Date.parse('30-Aug-2021'),8.2], 
+ [Date.parse('31-Aug-2021'),8.2], 
+ [Date.parse('1-Sep-2021'),8.2], 
+ [Date.parse('2-Sep-2021'),8.2], 
+ [Date.parse('3-Sep-2021'),8.2], 
+ [Date.parse('4-Sep-2021'),8.2], 
+ [Date.parse('5-Sep-2021'),8.2], 
+ [Date.parse('6-Sep-2021'),8.2], 
+ [Date.parse('7-Sep-2021'),8.2], 
+ [Date.parse('8-Sep-2021'),8.2], 
+ [Date.parse('9-Sep-2021'),8.2], 
+ [Date.parse('10-Sep-2021'),8.2], 
+ [Date.parse('11-Sep-2021'),8.2], 
+ [Date.parse('12-Sep-2021'),8.2], 
+ [Date.parse('13-Sep-2021'),8.2], 
+ [Date.parse('14-Sep-2021'),8.2], 
+ [Date.parse('15-Sep-2021'),8.2], 
+ [Date.parse('16-Sep-2021'),8.2], 
+ [Date.parse('17-Sep-2021'),8.2], 
+ [Date.parse('18-Sep-2021'),8.3], 
+ [Date.parse('19-Sep-2021'),8.3], 
+ [Date.parse('20-Sep-2021'),8.3], 
+ [Date.parse('21-Sep-2021'),8.3], 
+ [Date.parse('22-Sep-2021'),8.3], 
+ [Date.parse('23-Sep-2021'),8.3], 
+ [Date.parse('24-Sep-2021'),8.3], 
+ [Date.parse('25-Sep-2021'),8.3], 
+ [Date.parse('26-Sep-2021'),8.4], 
+ [Date.parse('27-Sep-2021'),8.4], 
+ [Date.parse('28-Sep-2021'),8.4], 
+ [Date.parse('29-Sep-2021'),8.5], 
+ [Date.parse('30-Sep-2021'),8.5], 
+ [Date.parse('1-Oct-2021'),8.5], 
+ [Date.parse('2-Oct-2021'),8.5], 
+ [Date.parse('3-Oct-2021'),8.6], 
+ [Date.parse('4-Oct-2021'),8.6], 
+ [Date.parse('5-Oct-2021'),8.6], 
+ [Date.parse('6-Oct-2021'),8.6], 
+ [Date.parse('7-Oct-2021'),8.6], 
+ [Date.parse('8-Oct-2021'),8.6], 
+ [Date.parse('9-Oct-2021'),8.7], 
+ [Date.parse('10-Oct-2021'),8.7], 
+ [Date.parse('11-Oct-2021'),8.7], 
+ [Date.parse('12-Oct-2021'),8.7], 
+ [Date.parse('13-Oct-2021'),8.7], 
+ [Date.parse('14-Oct-2021'),8.8], 
+ [Date.parse('15-Oct-2021'),8.8], 
+ [Date.parse('16-Oct-2021'),8.9], 
+ [Date.parse('17-Oct-2021'),9.1], 
+ [Date.parse('18-Oct-2021'),9.3], 
+ [Date.parse('19-Oct-2021'),9.4], 
+ [Date.parse('20-Oct-2021'),9.4], 
+ [Date.parse('21-Oct-2021'),9.4], 
+ [Date.parse('22-Oct-2021'),9.4], 
+ [Date.parse('23-Oct-2021'),9.6], 
+ [Date.parse('24-Oct-2021'),9.7], 
+ [Date.parse('25-Oct-2021'),9.7], 
+ [Date.parse('26-Oct-2021'),9.7], 
+ [Date.parse('27-Oct-2021'),9.8], 
+ [Date.parse('28-Oct-2021'),10.0], 
+ [Date.parse('29-Oct-2021'),10.3], 
+ [Date.parse('30-Oct-2021'),10.6], 
+ [Date.parse('31-Oct-2021'),10.7], 
+ [Date.parse('1-Nov-2021'),10.8], 
+ [Date.parse('2-Nov-2021'),10.9], 
+ [Date.parse('3-Nov-2021'),10.9], 
+ [Date.parse('4-Nov-2021'),10.9], 
+ [Date.parse('5-Nov-2021'),11.1], 
+ [Date.parse('6-Nov-2021'),11.4], 
+ [Date.parse('7-Nov-2021'),11.9], 
+ [Date.parse('8-Nov-2021'),12.2], 
+ [Date.parse('9-Nov-2021'),12.6], 
+ [Date.parse('10-Nov-2021'),12.8], 
+ [Date.parse('11-Nov-2021'),12.9], 
+ [Date.parse('12-Nov-2021'),13.0], 
+ [Date.parse('13-Nov-2021'),13.3], 
+ [Date.parse('14-Nov-2021'),13.7], 
+ [Date.parse('15-Nov-2021'),14.3], 
+ [Date.parse('16-Nov-2021'),14.7], 
+ [Date.parse('17-Nov-2021'),14.8], 
+ [Date.parse('18-Nov-2021'),14.9], 
+ [Date.parse('19-Nov-2021'),15.1], 
+ [Date.parse('20-Nov-2021'),15.3], 
+ [Date.parse('21-Nov-2021'),15.6], 
+ [Date.parse('22-Nov-2021'),15.7], 
+ [Date.parse('23-Nov-2021'),15.8], 
+ [Date.parse('24-Nov-2021'),15.8], 
+ [Date.parse('25-Nov-2021'),16.0], 
+ [Date.parse('26-Nov-2021'),16.1], 
+ [Date.parse('27-Nov-2021'),16.3], 
+ [Date.parse('28-Nov-2021'),16.4], 
+ [Date.parse('29-Nov-2021'),16.6], 
+ [Date.parse('30-Nov-2021'),16.9], 
+ [Date.parse('1-Dec-2021'),17.1], 
+ [Date.parse('2-Dec-2021'),17.3], 
+ [Date.parse('3-Dec-2021'),17.4], 
+ [Date.parse('4-Dec-2021'),17.5], 
+ [Date.parse('5-Dec-2021'),17.7], 
+ [Date.parse('6-Dec-2021'),17.8], 
+ [Date.parse('7-Dec-2021'),17.9], 
+ [Date.parse('8-Dec-2021'),18.0], 
+ [Date.parse('9-Dec-2021'),18.1], 
+ [Date.parse('10-Dec-2021'),18.2], 
+ [Date.parse('11-Dec-2021'),18.3], 
+ [Date.parse('12-Dec-2021'),18.3], 
+ [Date.parse('13-Dec-2021'),18.4], 
+ [Date.parse('14-Dec-2021'),18.5], 
+ [Date.parse('15-Dec-2021'),18.6], 
+ [Date.parse('16-Dec-2021'),18.7], 
+ [Date.parse('17-Dec-2021'),18.7], 
+ [Date.parse('18-Dec-2021'),18.8], 
+ [Date.parse('19-Dec-2021'),18.8], 
+ [Date.parse('20-Dec-2021'),18.8], 
+ [Date.parse('21-Dec-2021'),18.9], 
+ [Date.parse('22-Dec-2021'),18.9], 
+ [Date.parse('23-Dec-2021'),18.9], 
+ [Date.parse('24-Dec-2021'),18.9], 
+ [Date.parse('25-Dec-2021'),19.0], 
+ [Date.parse('26-Dec-2021'),19.0], 
+ [Date.parse('27-Dec-2021'),19.1], 
+ [Date.parse('28-Dec-2021'),19.1], 
+ [Date.parse('29-Dec-2021'),19.1], 
+ [Date.parse('30-Dec-2021'),19.1], 
+ [Date.parse('31-Dec-2021'),19.1], 
+      ]
+    }]
+    });
+  });
+</script>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    var myChart = Highcharts.chart('sp_ace', {
+    chart: {
+      type: 'line'
+    },
+    title: {
+      useHTML: true,
+      text: "Current Season South Pacific Ocean ACE (1981-2010 Climo)"
+    },
+    yAxis: {
+      title: {
+        useHTML: true,
+        text: "ACE (10<sup>4</sup>kt<sup>2</sup>)"
+      },
+    },
+    xAxis: {
+      title: {
+        text: "Date",
+      },
+      type: 'datetime',
+      labels: {
+            format: '{value:%e-%b}',
+            rotation: 45,
+            align: 'left'
+        }
+    },
+    series: [{
+      name: 'Observed',
+      data:[ 
+ [Date.parse('1-Jul-2020'),0.0], 
+ [Date.parse('2-Jul-2020'),0], 
+ [Date.parse('3-Jul-2020'),0], 
+ [Date.parse('4-Jul-2020'),0], 
+ [Date.parse('5-Jul-2020'),0], 
+ [Date.parse('6-Jul-2020'),0], 
+ [Date.parse('7-Jul-2020'),0], 
+ [Date.parse('8-Jul-2020'),0], 
+ [Date.parse('9-Jul-2020'),0], 
+ [Date.parse('10-Jul-2020'),0], 
+ [Date.parse('11-Jul-2020'),0], 
+ [Date.parse('12-Jul-2020'),0], 
+ [Date.parse('13-Jul-2020'),0], 
+ [Date.parse('14-Jul-2020'),0], 
+ [Date.parse('15-Jul-2020'),0], 
+ [Date.parse('16-Jul-2020'),0], 
+ [Date.parse('17-Jul-2020'),0], 
+ [Date.parse('18-Jul-2020'),0], 
+ [Date.parse('19-Jul-2020'),0], 
+ [Date.parse('20-Jul-2020'),0], 
+ [Date.parse('21-Jul-2020'),0], 
+ [Date.parse('22-Jul-2020'),0], 
+ [Date.parse('23-Jul-2020'),0], 
+ [Date.parse('24-Jul-2020'),0], 
+ [Date.parse('25-Jul-2020'),0], 
+ [Date.parse('26-Jul-2020'),0], 
+ [Date.parse('27-Jul-2020'),0], 
+ [Date.parse('28-Jul-2020'),0], 
+ [Date.parse('29-Jul-2020'),0], 
+ [Date.parse('30-Jul-2020'),0], 
+ [Date.parse('31-Jul-2020'),0], 
+ [Date.parse('1-Aug-2020'),0], 
+ [Date.parse('2-Aug-2020'),0], 
+ [Date.parse('3-Aug-2020'),0], 
+ [Date.parse('4-Aug-2020'),0], 
+ [Date.parse('5-Aug-2020'),0], 
+ [Date.parse('6-Aug-2020'),0], 
+ [Date.parse('7-Aug-2020'),0], 
+ [Date.parse('8-Aug-2020'),0], 
+ [Date.parse('9-Aug-2020'),0], 
+ [Date.parse('10-Aug-2020'),0], 
+ [Date.parse('11-Aug-2020'),0], 
+ [Date.parse('12-Aug-2020'),0], 
+ [Date.parse('13-Aug-2020'),0], 
+ [Date.parse('14-Aug-2020'),0], 
+ [Date.parse('15-Aug-2020'),0], 
+ [Date.parse('16-Aug-2020'),0], 
+ [Date.parse('17-Aug-2020'),0], 
+ [Date.parse('18-Aug-2020'),0], 
+ [Date.parse('19-Aug-2020'),0], 
+ [Date.parse('20-Aug-2020'),0], 
+ [Date.parse('21-Aug-2020'),0], 
+ [Date.parse('22-Aug-2020'),0], 
+ [Date.parse('23-Aug-2020'),0], 
+ [Date.parse('24-Aug-2020'),0], 
+ [Date.parse('25-Aug-2020'),0], 
+ [Date.parse('26-Aug-2020'),0], 
+ [Date.parse('27-Aug-2020'),0], 
+ [Date.parse('28-Aug-2020'),0], 
+ [Date.parse('29-Aug-2020'),0], 
+ [Date.parse('30-Aug-2020'),0], 
+ [Date.parse('31-Aug-2020'),0], 
+ [Date.parse('1-Sep-2020'),0], 
+ [Date.parse('2-Sep-2020'),0], 
+ [Date.parse('3-Sep-2020'),0], 
+ [Date.parse('4-Sep-2020'),0], 
+ [Date.parse('5-Sep-2020'),0], 
+ [Date.parse('6-Sep-2020'),0], 
+ [Date.parse('7-Sep-2020'),0], 
+ [Date.parse('8-Sep-2020'),0], 
+ [Date.parse('9-Sep-2020'),0], 
+ [Date.parse('10-Sep-2020'),0], 
+ [Date.parse('11-Sep-2020'),0], 
+ [Date.parse('12-Sep-2020'),0], 
+ [Date.parse('13-Sep-2020'),0], 
+ [Date.parse('14-Sep-2020'),0], 
+ [Date.parse('15-Sep-2020'),0], 
+ [Date.parse('16-Sep-2020'),0], 
+ [Date.parse('17-Sep-2020'),0], 
+ [Date.parse('18-Sep-2020'),0], 
+ [Date.parse('19-Sep-2020'),0], 
+ [Date.parse('20-Sep-2020'),0], 
+ [Date.parse('21-Sep-2020'),0], 
+ [Date.parse('22-Sep-2020'),0], 
+ [Date.parse('23-Sep-2020'),0], 
+ [Date.parse('24-Sep-2020'),0], 
+ [Date.parse('25-Sep-2020'),0], 
+ [Date.parse('26-Sep-2020'),0], 
+ [Date.parse('27-Sep-2020'),0], 
+ [Date.parse('28-Sep-2020'),0], 
+ [Date.parse('29-Sep-2020'),0], 
+ [Date.parse('30-Sep-2020'),0], 
+ [Date.parse('1-Oct-2020'),0], 
+ [Date.parse('2-Oct-2020'),0], 
+ [Date.parse('3-Oct-2020'),0], 
+ [Date.parse('4-Oct-2020'),0], 
+ [Date.parse('5-Oct-2020'),0], 
+ [Date.parse('6-Oct-2020'),0], 
+ [Date.parse('7-Oct-2020'),0], 
+ [Date.parse('8-Oct-2020'),0], 
+ [Date.parse('9-Oct-2020'),0], 
+ [Date.parse('10-Oct-2020'),0], 
+ [Date.parse('11-Oct-2020'),0], 
+ [Date.parse('12-Oct-2020'),0], 
+ [Date.parse('13-Oct-2020'),0], 
+ [Date.parse('14-Oct-2020'),0], 
+ [Date.parse('15-Oct-2020'),0], 
+ [Date.parse('16-Oct-2020'),0], 
+ [Date.parse('17-Oct-2020'),0], 
+ [Date.parse('18-Oct-2020'),0], 
+ [Date.parse('19-Oct-2020'),0], 
+ [Date.parse('20-Oct-2020'),0], 
+ [Date.parse('21-Oct-2020'),0], 
+ [Date.parse('22-Oct-2020'),0], 
+ [Date.parse('23-Oct-2020'),0], 
+ [Date.parse('24-Oct-2020'),0], 
+ [Date.parse('25-Oct-2020'),0], 
+ [Date.parse('26-Oct-2020'),0], 
+ [Date.parse('27-Oct-2020'),0], 
+ [Date.parse('28-Oct-2020'),0], 
+ [Date.parse('29-Oct-2020'),0], 
+ [Date.parse('30-Oct-2020'),0], 
+ [Date.parse('31-Oct-2020'),0], 
+ [Date.parse('1-Nov-2020'),0], 
+ [Date.parse('2-Nov-2020'),0], 
+ [Date.parse('3-Nov-2020'),0], 
+ [Date.parse('4-Nov-2020'),0], 
+ [Date.parse('5-Nov-2020'),0], 
+ [Date.parse('6-Nov-2020'),0], 
+ [Date.parse('7-Nov-2020'),0], 
+ [Date.parse('8-Nov-2020'),0], 
+ [Date.parse('9-Nov-2020'),0], 
+ [Date.parse('10-Nov-2020'),0], 
+ [Date.parse('11-Nov-2020'),0], 
+ [Date.parse('12-Nov-2020'),0], 
+ [Date.parse('13-Nov-2020'),0], 
+ [Date.parse('14-Nov-2020'),0], 
+ [Date.parse('15-Nov-2020'),0], 
+ [Date.parse('16-Nov-2020'),0], 
+ [Date.parse('17-Nov-2020'),0], 
+ [Date.parse('18-Nov-2020'),0], 
+ [Date.parse('19-Nov-2020'),0], 
+ [Date.parse('20-Nov-2020'),0], 
+ [Date.parse('21-Nov-2020'),0], 
+ [Date.parse('22-Nov-2020'),0], 
+ [Date.parse('23-Nov-2020'),0], 
+ [Date.parse('24-Nov-2020'),0], 
+ [Date.parse('25-Nov-2020'),0], 
+ [Date.parse('26-Nov-2020'),0], 
+ [Date.parse('27-Nov-2020'),0], 
+ [Date.parse('28-Nov-2020'),0], 
+ [Date.parse('29-Nov-2020'),0], 
+ [Date.parse('30-Nov-2020'),0], 
+ [Date.parse('1-Dec-2020'),0], 
+ [Date.parse('2-Dec-2020'),0], 
+ [Date.parse('3-Dec-2020'),0], 
+ [Date.parse('4-Dec-2020'),0], 
+ [Date.parse('5-Dec-2020'),0], 
+ [Date.parse('6-Dec-2020'),0], 
+ [Date.parse('7-Dec-2020'),0], 
+ [Date.parse('8-Dec-2020'),0], 
+ [Date.parse('9-Dec-2020'),0], 
+ [Date.parse('10-Dec-2020'),0.1], 
+ [Date.parse('11-Dec-2020'),0.7], 
+ [Date.parse('12-Dec-2020'),1.2], 
+ [Date.parse('13-Dec-2020'),2.7], 
+ [Date.parse('14-Dec-2020'),5.6], 
+ [Date.parse('15-Dec-2020'),12.7], 
+ [Date.parse('16-Dec-2020'),21.0], 
+ [Date.parse('17-Dec-2020'),25.3], 
+ [Date.parse('18-Dec-2020'),27.0], 
+ [Date.parse('19-Dec-2020'),27.7], 
+ [Date.parse('20-Dec-2020'),27.7], 
+ [Date.parse('21-Dec-2020'),27.7], 
+ [Date.parse('22-Dec-2020'),27.7], 
+ [Date.parse('23-Dec-2020'),27.7], 
+ [Date.parse('24-Dec-2020'),27.7], 
+ [Date.parse('25-Dec-2020'),27.7], 
+ [Date.parse('26-Dec-2020'),27.7], 
+ [Date.parse('27-Dec-2020'),27.7], 
+ [Date.parse('28-Dec-2020'),27.7], 
+ [Date.parse('29-Dec-2020'),27.7], 
+ [Date.parse('30-Dec-2020'),27.7], 
+ [Date.parse('31-Dec-2020'),27.7], 
+ [Date.parse('1-Jan-2021'),27.7], 
+ [Date.parse('2-Jan-2021'),27.7], 
+ [Date.parse('3-Jan-2021'),28.3], 
+ [Date.parse('4-Jan-2021'),28.3], 
+ [Date.parse('5-Jan-2021'),28.3], 
+ [Date.parse('6-Jan-2021'),28.3], 
+ [Date.parse('7-Jan-2021'),28.3], 
+ [Date.parse('8-Jan-2021'),28.3], 
+ [Date.parse('9-Jan-2021'),28.3], 
+ [Date.parse('10-Jan-2021'),28.3], 
+ [Date.parse('11-Jan-2021'),28.3], 
+ [Date.parse('12-Jan-2021'),28.3], 
+ [Date.parse('13-Jan-2021'),28.3], 
+ [Date.parse('14-Jan-2021'),28.3], 
+ [Date.parse('15-Jan-2021'),28.3], 
+ [Date.parse('16-Jan-2021'),28.5], 
+ [Date.parse('17-Jan-2021'),29.6], 
+ [Date.parse('18-Jan-2021'),30.1], 
+ [Date.parse('19-Jan-2021'),30.1], 
+ [Date.parse('20-Jan-2021'),30.1], 
+ [Date.parse('21-Jan-2021'),30.1], 
+ [Date.parse('22-Jan-2021'),30.1], 
+ [Date.parse('23-Jan-2021'),30.1], 
+ [Date.parse('24-Jan-2021'),30.1], 
+ [Date.parse('25-Jan-2021'),30.1], 
+ [Date.parse('26-Jan-2021'),30.1], 
+ [Date.parse('27-Jan-2021'),30.1], 
+ [Date.parse('28-Jan-2021'),30.1], 
+ [Date.parse('29-Jan-2021'),30.1], 
+ [Date.parse('30-Jan-2021'),30.1], 
+ [Date.parse('31-Jan-2021'),30.1], 
+ [Date.parse('1-Feb-2021'),38.0], 
+ [Date.parse('2-Feb-2021'),38.3], 
+ [Date.parse('3-Feb-2021'),38.3], 
+ [Date.parse('4-Feb-2021'),38.3], 
+ [Date.parse('5-Feb-2021'),38.3], 
+ [Date.parse('6-Feb-2021'),38.3], 
+ [Date.parse('7-Feb-2021'),38.3], 
+ [Date.parse('8-Feb-2021'),38.5], 
+ [Date.parse('9-Feb-2021'),38.8], 
+ [Date.parse('10-Feb-2021'),39.3], 
+ [Date.parse('11-Feb-2021'),39.3], 
+ [Date.parse('12-Feb-2021'),39.3], 
+ [Date.parse('13-Feb-2021'),39.3], 
+ [Date.parse('14-Feb-2021'),39.3], 
+ [Date.parse('15-Feb-2021'),39.3], 
+ [Date.parse('16-Feb-2021'),39.3], 
+ [Date.parse('17-Feb-2021'),39.3], 
+ [Date.parse('18-Feb-2021'),39.3], 
+ [Date.parse('19-Feb-2021'),39.3], 
+ [Date.parse('20-Feb-2021'),39.3], 
+ [Date.parse('21-Feb-2021'),39.3], 
+ [Date.parse('22-Feb-2021'),39.3], 
+ [Date.parse('23-Feb-2021'),39.3], 
+ [Date.parse('24-Feb-2021'),39.3], 
+ [Date.parse('25-Feb-2021'),39.3], 
+ [Date.parse('26-Feb-2021'),39.3], 
+ [Date.parse('27-Feb-2021'),39.3], 
+ [Date.parse('28-Feb-2021'),40.0], 
+ [Date.parse('29-Feb-2021'),40.8], 
+ [Date.parse('1-Mar-2021'),43.1], 
+ [Date.parse('2-Mar-2021'),46.7], 
+ [Date.parse('3-Mar-2021'),52.7], 
+ [Date.parse('4-Mar-2021'),55.2], 
+ [Date.parse('5-Mar-2021'),55.2], 
+ [Date.parse('6-Mar-2021'),55.2], 
+ [Date.parse('7-Mar-2021'),55.2], 
+ [Date.parse('8-Mar-2021'),55.2], 
+ [Date.parse('9-Mar-2021'),55.2], 
+ [Date.parse('10-Mar-2021'),55.2], 
+ [Date.parse('11-Mar-2021'),55.2], 
+ [Date.parse('12-Mar-2021'),55.2], 
+ [Date.parse('13-Mar-2021'),55.2], 
+ [Date.parse('14-Mar-2021'),55.2], 
+ [Date.parse('15-Mar-2021'),55.2], 
+ [Date.parse('16-Mar-2021'),55.2], 
+ [Date.parse('17-Mar-2021'),55.2], 
+ [Date.parse('18-Mar-2021'),55.2], 
+ [Date.parse('19-Mar-2021'),55.2], 
+ [Date.parse('20-Mar-2021'),55.2], 
+ [Date.parse('21-Mar-2021'),55.2], 
+ [Date.parse('22-Mar-2021'),55.2], 
+ [Date.parse('23-Mar-2021'),55.2], 
+ [Date.parse('24-Mar-2021'),55.2], 
+ [Date.parse('25-Mar-2021'),55.2], 
+ [Date.parse('26-Mar-2021'),55.2], 
+ [Date.parse('27-Mar-2021'),55.2], 
+ [Date.parse('28-Mar-2021'),55.2], 
+ [Date.parse('29-Mar-2021'),55.2], 
+ [Date.parse('30-Mar-2021'),55.2], 
+ [Date.parse('31-Mar-2021'),55.2], 
+ [Date.parse('1-Apr-2021'),55.2], 
+ [Date.parse('2-Apr-2021'),55.2], 
+ [Date.parse('3-Apr-2021'),55.2], 
+ [Date.parse('4-Apr-2021'),55.2], 
+ [Date.parse('5-Apr-2021'),55.2], 
+ [Date.parse('6-Apr-2021'),55.2], 
+ [Date.parse('7-Apr-2021'),55.2], 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+      ]
+    },{
+      name: 'Climatology',
+      data:[ 
+ [Date.parse('1-Jul-2020'),0.0], 
+ [Date.parse('2-Jul-2020'),0.0], 
+ [Date.parse('3-Jul-2020'),0.0], 
+ [Date.parse('4-Jul-2020'),0.0], 
+ [Date.parse('5-Jul-2020'),0.0], 
+ [Date.parse('6-Jul-2020'),0.0], 
+ [Date.parse('7-Jul-2020'),0.0], 
+ [Date.parse('8-Jul-2020'),0.0], 
+ [Date.parse('9-Jul-2020'),0.0], 
+ [Date.parse('10-Jul-2020'),0.0], 
+ [Date.parse('11-Jul-2020'),0.0], 
+ [Date.parse('12-Jul-2020'),0.0], 
+ [Date.parse('13-Jul-2020'),0.0], 
+ [Date.parse('14-Jul-2020'),0.0], 
+ [Date.parse('15-Jul-2020'),0.0], 
+ [Date.parse('16-Jul-2020'),0.0], 
+ [Date.parse('17-Jul-2020'),0.0], 
+ [Date.parse('18-Jul-2020'),0.0], 
+ [Date.parse('19-Jul-2020'),0.0], 
+ [Date.parse('20-Jul-2020'),0.0], 
+ [Date.parse('21-Jul-2020'),0.0], 
+ [Date.parse('22-Jul-2020'),0.0], 
+ [Date.parse('23-Jul-2020'),0.0], 
+ [Date.parse('24-Jul-2020'),0.0], 
+ [Date.parse('25-Jul-2020'),0.0], 
+ [Date.parse('26-Jul-2020'),0.0], 
+ [Date.parse('27-Jul-2020'),0.0], 
+ [Date.parse('28-Jul-2020'),0.0], 
+ [Date.parse('29-Jul-2020'),0.0], 
+ [Date.parse('30-Jul-2020'),0.0], 
+ [Date.parse('31-Jul-2020'),0.0], 
+ [Date.parse('1-Aug-2020'),0.0], 
+ [Date.parse('2-Aug-2020'),0.0], 
+ [Date.parse('3-Aug-2020'),0.0], 
+ [Date.parse('4-Aug-2020'),0.0], 
+ [Date.parse('5-Aug-2020'),0.0], 
+ [Date.parse('6-Aug-2020'),0.0], 
+ [Date.parse('7-Aug-2020'),0.0], 
+ [Date.parse('8-Aug-2020'),0.0], 
+ [Date.parse('9-Aug-2020'),0.0], 
+ [Date.parse('10-Aug-2020'),0.0], 
+ [Date.parse('11-Aug-2020'),0.0], 
+ [Date.parse('12-Aug-2020'),0.0], 
+ [Date.parse('13-Aug-2020'),0.0], 
+ [Date.parse('14-Aug-2020'),0.0], 
+ [Date.parse('15-Aug-2020'),0.0], 
+ [Date.parse('16-Aug-2020'),0.0], 
+ [Date.parse('17-Aug-2020'),0.0], 
+ [Date.parse('18-Aug-2020'),0.0], 
+ [Date.parse('19-Aug-2020'),0.0], 
+ [Date.parse('20-Aug-2020'),0.0], 
+ [Date.parse('21-Aug-2020'),0.0], 
+ [Date.parse('22-Aug-2020'),0.0], 
+ [Date.parse('23-Aug-2020'),0.0], 
+ [Date.parse('24-Aug-2020'),0.0], 
+ [Date.parse('25-Aug-2020'),0.0], 
+ [Date.parse('26-Aug-2020'),0.0], 
+ [Date.parse('27-Aug-2020'),0.0], 
+ [Date.parse('28-Aug-2020'),0.0], 
+ [Date.parse('29-Aug-2020'),0.0], 
+ [Date.parse('30-Aug-2020'),0.0], 
+ [Date.parse('31-Aug-2020'),0.0], 
+ [Date.parse('1-Sep-2020'),0.0], 
+ [Date.parse('2-Sep-2020'),0.0], 
+ [Date.parse('3-Sep-2020'),0.0], 
+ [Date.parse('4-Sep-2020'),0.0], 
+ [Date.parse('5-Sep-2020'),0.0], 
+ [Date.parse('6-Sep-2020'),0.0], 
+ [Date.parse('7-Sep-2020'),0.0], 
+ [Date.parse('8-Sep-2020'),0.0], 
+ [Date.parse('9-Sep-2020'),0.0], 
+ [Date.parse('10-Sep-2020'),0.0], 
+ [Date.parse('11-Sep-2020'),0.0], 
+ [Date.parse('12-Sep-2020'),0.0], 
+ [Date.parse('13-Sep-2020'),0.0], 
+ [Date.parse('14-Sep-2020'),0.0], 
+ [Date.parse('15-Sep-2020'),0.0], 
+ [Date.parse('16-Sep-2020'),0.0], 
+ [Date.parse('17-Sep-2020'),0.0], 
+ [Date.parse('18-Sep-2020'),0.0], 
+ [Date.parse('19-Sep-2020'),0.0], 
+ [Date.parse('20-Sep-2020'),0.0], 
+ [Date.parse('21-Sep-2020'),0.0], 
+ [Date.parse('22-Sep-2020'),0.0], 
+ [Date.parse('23-Sep-2020'),0.0], 
+ [Date.parse('24-Sep-2020'),0.0], 
+ [Date.parse('25-Sep-2020'),0.0], 
+ [Date.parse('26-Sep-2020'),0.0], 
+ [Date.parse('27-Sep-2020'),0.0], 
+ [Date.parse('28-Sep-2020'),0.0], 
+ [Date.parse('29-Sep-2020'),0.0], 
+ [Date.parse('30-Sep-2020'),0.0], 
+ [Date.parse('1-Oct-2020'),0.0], 
+ [Date.parse('2-Oct-2020'),0.0], 
+ [Date.parse('3-Oct-2020'),0.0], 
+ [Date.parse('4-Oct-2020'),0.0], 
+ [Date.parse('5-Oct-2020'),0.0], 
+ [Date.parse('6-Oct-2020'),0.0], 
+ [Date.parse('7-Oct-2020'),0.0], 
+ [Date.parse('8-Oct-2020'),0.0], 
+ [Date.parse('9-Oct-2020'),0.0], 
+ [Date.parse('10-Oct-2020'),0.1], 
+ [Date.parse('11-Oct-2020'),0.1], 
+ [Date.parse('12-Oct-2020'),0.1], 
+ [Date.parse('13-Oct-2020'),0.1], 
+ [Date.parse('14-Oct-2020'),0.1], 
+ [Date.parse('15-Oct-2020'),0.1], 
+ [Date.parse('16-Oct-2020'),0.1], 
+ [Date.parse('17-Oct-2020'),0.1], 
+ [Date.parse('18-Oct-2020'),0.1], 
+ [Date.parse('19-Oct-2020'),0.1], 
+ [Date.parse('20-Oct-2020'),0.1], 
+ [Date.parse('21-Oct-2020'),0.1], 
+ [Date.parse('22-Oct-2020'),0.2], 
+ [Date.parse('23-Oct-2020'),0.2], 
+ [Date.parse('24-Oct-2020'),0.4], 
+ [Date.parse('25-Oct-2020'),0.4], 
+ [Date.parse('26-Oct-2020'),0.4], 
+ [Date.parse('27-Oct-2020'),0.4], 
+ [Date.parse('28-Oct-2020'),0.4], 
+ [Date.parse('29-Oct-2020'),0.4], 
+ [Date.parse('30-Oct-2020'),0.5], 
+ [Date.parse('31-Oct-2020'),0.5], 
+ [Date.parse('1-Nov-2020'),0.6], 
+ [Date.parse('2-Nov-2020'),0.7], 
+ [Date.parse('3-Nov-2020'),0.9], 
+ [Date.parse('4-Nov-2020'),1.0], 
+ [Date.parse('5-Nov-2020'),1.0], 
+ [Date.parse('6-Nov-2020'),1.1], 
+ [Date.parse('7-Nov-2020'),1.1], 
+ [Date.parse('8-Nov-2020'),1.1], 
+ [Date.parse('9-Nov-2020'),1.1], 
+ [Date.parse('10-Nov-2020'),1.1], 
+ [Date.parse('11-Nov-2020'),1.1], 
+ [Date.parse('12-Nov-2020'),1.1], 
+ [Date.parse('13-Nov-2020'),1.1], 
+ [Date.parse('14-Nov-2020'),1.2], 
+ [Date.parse('15-Nov-2020'),1.3], 
+ [Date.parse('16-Nov-2020'),1.4], 
+ [Date.parse('17-Nov-2020'),1.6], 
+ [Date.parse('18-Nov-2020'),1.7], 
+ [Date.parse('19-Nov-2020'),1.9], 
+ [Date.parse('20-Nov-2020'),1.9], 
+ [Date.parse('21-Nov-2020'),1.9], 
+ [Date.parse('22-Nov-2020'),2.0], 
+ [Date.parse('23-Nov-2020'),2.1], 
+ [Date.parse('24-Nov-2020'),2.2], 
+ [Date.parse('25-Nov-2020'),2.3], 
+ [Date.parse('26-Nov-2020'),2.5], 
+ [Date.parse('27-Nov-2020'),2.7], 
+ [Date.parse('28-Nov-2020'),2.9], 
+ [Date.parse('29-Nov-2020'),2.9], 
+ [Date.parse('30-Nov-2020'),3.0], 
+ [Date.parse('1-Dec-2020'),3.0], 
+ [Date.parse('2-Dec-2020'),3.0], 
+ [Date.parse('3-Dec-2020'),3.0], 
+ [Date.parse('4-Dec-2020'),3.0], 
+ [Date.parse('5-Dec-2020'),3.1], 
+ [Date.parse('6-Dec-2020'),3.3], 
+ [Date.parse('7-Dec-2020'),3.9], 
+ [Date.parse('8-Dec-2020'),4.4], 
+ [Date.parse('9-Dec-2020'),4.9], 
+ [Date.parse('10-Dec-2020'),5.3], 
+ [Date.parse('11-Dec-2020'),5.5], 
+ [Date.parse('12-Dec-2020'),5.8], 
+ [Date.parse('13-Dec-2020'),5.9], 
+ [Date.parse('14-Dec-2020'),6.0], 
+ [Date.parse('15-Dec-2020'),6.1], 
+ [Date.parse('16-Dec-2020'),6.2], 
+ [Date.parse('17-Dec-2020'),6.2], 
+ [Date.parse('18-Dec-2020'),6.3], 
+ [Date.parse('19-Dec-2020'),6.3], 
+ [Date.parse('20-Dec-2020'),6.4], 
+ [Date.parse('21-Dec-2020'),6.5], 
+ [Date.parse('22-Dec-2020'),6.7], 
+ [Date.parse('23-Dec-2020'),7.0], 
+ [Date.parse('24-Dec-2020'),7.2], 
+ [Date.parse('25-Dec-2020'),7.5], 
+ [Date.parse('26-Dec-2020'),7.9], 
+ [Date.parse('27-Dec-2020'),8.5], 
+ [Date.parse('28-Dec-2020'),9.2], 
+ [Date.parse('29-Dec-2020'),9.9], 
+ [Date.parse('30-Dec-2020'),10.5], 
+ [Date.parse('31-Dec-2020'),11.1], 
+ [Date.parse('1-Jan-2021'),11.5], 
+ [Date.parse('2-Jan-2021'),12.1], 
+ [Date.parse('3-Jan-2021'),12.7], 
+ [Date.parse('4-Jan-2021'),13.5], 
+ [Date.parse('5-Jan-2021'),14.6], 
+ [Date.parse('6-Jan-2021'),15.6], 
+ [Date.parse('7-Jan-2021'),16.3], 
+ [Date.parse('8-Jan-2021'),17.0], 
+ [Date.parse('9-Jan-2021'),17.6], 
+ [Date.parse('10-Jan-2021'),18.2], 
+ [Date.parse('11-Jan-2021'),18.7], 
+ [Date.parse('12-Jan-2021'),19.1], 
+ [Date.parse('13-Jan-2021'),19.5], 
+ [Date.parse('14-Jan-2021'),20.1], 
+ [Date.parse('15-Jan-2021'),20.6], 
+ [Date.parse('16-Jan-2021'),21.2], 
+ [Date.parse('17-Jan-2021'),22.0], 
+ [Date.parse('18-Jan-2021'),22.8], 
+ [Date.parse('19-Jan-2021'),23.5], 
+ [Date.parse('20-Jan-2021'),23.8], 
+ [Date.parse('21-Jan-2021'),24.0], 
+ [Date.parse('22-Jan-2021'),24.1], 
+ [Date.parse('23-Jan-2021'),24.4], 
+ [Date.parse('24-Jan-2021'),24.8], 
+ [Date.parse('25-Jan-2021'),25.2], 
+ [Date.parse('26-Jan-2021'),25.7], 
+ [Date.parse('27-Jan-2021'),26.1], 
+ [Date.parse('28-Jan-2021'),26.7], 
+ [Date.parse('29-Jan-2021'),27.2], 
+ [Date.parse('30-Jan-2021'),27.7], 
+ [Date.parse('31-Jan-2021'),28.1], 
+ [Date.parse('1-Feb-2021'),28.7], 
+ [Date.parse('2-Feb-2021'),29.3], 
+ [Date.parse('3-Feb-2021'),29.9], 
+ [Date.parse('4-Feb-2021'),30.4], 
+ [Date.parse('5-Feb-2021'),31.0], 
+ [Date.parse('6-Feb-2021'),31.8], 
+ [Date.parse('7-Feb-2021'),32.5], 
+ [Date.parse('8-Feb-2021'),33.2], 
+ [Date.parse('9-Feb-2021'),33.8], 
+ [Date.parse('10-Feb-2021'),34.4], 
+ [Date.parse('11-Feb-2021'),34.9], 
+ [Date.parse('12-Feb-2021'),35.4], 
+ [Date.parse('13-Feb-2021'),35.9], 
+ [Date.parse('14-Feb-2021'),36.8], 
+ [Date.parse('15-Feb-2021'),37.6], 
+ [Date.parse('16-Feb-2021'),38.3], 
+ [Date.parse('17-Feb-2021'),38.8], 
+ [Date.parse('18-Feb-2021'),39.2], 
+ [Date.parse('19-Feb-2021'),39.4], 
+ [Date.parse('20-Feb-2021'),39.6], 
+ [Date.parse('21-Feb-2021'),39.9], 
+ [Date.parse('22-Feb-2021'),40.2], 
+ [Date.parse('23-Feb-2021'),40.6], 
+ [Date.parse('24-Feb-2021'),41.2], 
+ [Date.parse('25-Feb-2021'),42.1], 
+ [Date.parse('26-Feb-2021'),43.5], 
+ [Date.parse('27-Feb-2021'),44.7], 
+ [Date.parse('28-Feb-2021'),45.8], 
+ [Date.parse('29-Feb-2021'),45.8], 
+ [Date.parse('1-Mar-2021'),47.2], 
+ [Date.parse('2-Mar-2021'),48.3], 
+ [Date.parse('3-Mar-2021'),49.0], 
+ [Date.parse('4-Mar-2021'),49.6], 
+ [Date.parse('5-Mar-2021'),50.1], 
+ [Date.parse('6-Mar-2021'),50.8], 
+ [Date.parse('7-Mar-2021'),51.7], 
+ [Date.parse('8-Mar-2021'),52.7], 
+ [Date.parse('9-Mar-2021'),53.7], 
+ [Date.parse('10-Mar-2021'),54.5], 
+ [Date.parse('11-Mar-2021'),55.2], 
+ [Date.parse('12-Mar-2021'),55.9], 
+ [Date.parse('13-Mar-2021'),56.8], 
+ [Date.parse('14-Mar-2021'),57.5], 
+ [Date.parse('15-Mar-2021'),58.3], 
+ [Date.parse('16-Mar-2021'),59.0], 
+ [Date.parse('17-Mar-2021'),59.7], 
+ [Date.parse('18-Mar-2021'),60.1], 
+ [Date.parse('19-Mar-2021'),60.5], 
+ [Date.parse('20-Mar-2021'),60.8], 
+ [Date.parse('21-Mar-2021'),61.2], 
+ [Date.parse('22-Mar-2021'),61.8], 
+ [Date.parse('23-Mar-2021'),62.3], 
+ [Date.parse('24-Mar-2021'),62.7], 
+ [Date.parse('25-Mar-2021'),63.1], 
+ [Date.parse('26-Mar-2021'),63.5], 
+ [Date.parse('27-Mar-2021'),63.9], 
+ [Date.parse('28-Mar-2021'),64.3], 
+ [Date.parse('29-Mar-2021'),64.7], 
+ [Date.parse('30-Mar-2021'),65.1], 
+ [Date.parse('31-Mar-2021'),65.5], 
+ [Date.parse('1-Apr-2021'),65.8], 
+ [Date.parse('2-Apr-2021'),66.1], 
+ [Date.parse('3-Apr-2021'),66.4], 
+ [Date.parse('4-Apr-2021'),66.6], 
+ [Date.parse('5-Apr-2021'),66.9], 
+ [Date.parse('6-Apr-2021'),67.2], 
+ [Date.parse('7-Apr-2021'),67.4], 
+ [Date.parse('8-Apr-2021'),67.6], 
+ [Date.parse('9-Apr-2021'),67.9], 
+ [Date.parse('10-Apr-2021'),68.1], 
+ [Date.parse('11-Apr-2021'),68.3], 
+ [Date.parse('12-Apr-2021'),68.6], 
+ [Date.parse('13-Apr-2021'),68.7], 
+ [Date.parse('14-Apr-2021'),68.8], 
+ [Date.parse('15-Apr-2021'),68.9], 
+ [Date.parse('16-Apr-2021'),68.9], 
+ [Date.parse('17-Apr-2021'),69.0], 
+ [Date.parse('18-Apr-2021'),69.3], 
+ [Date.parse('19-Apr-2021'),69.6], 
+ [Date.parse('20-Apr-2021'),69.8], 
+ [Date.parse('21-Apr-2021'),70.0], 
+ [Date.parse('22-Apr-2021'),70.3], 
+ [Date.parse('23-Apr-2021'),70.7], 
+ [Date.parse('24-Apr-2021'),70.9], 
+ [Date.parse('25-Apr-2021'),71.0], 
+ [Date.parse('26-Apr-2021'),71.0], 
+ [Date.parse('27-Apr-2021'),71.0], 
+ [Date.parse('28-Apr-2021'),71.0], 
+ [Date.parse('29-Apr-2021'),71.0], 
+ [Date.parse('30-Apr-2021'),71.1], 
+ [Date.parse('1-May-2021'),71.1], 
+ [Date.parse('2-May-2021'),71.2], 
+ [Date.parse('3-May-2021'),71.2], 
+ [Date.parse('4-May-2021'),71.3], 
+ [Date.parse('5-May-2021'),71.3], 
+ [Date.parse('6-May-2021'),71.3], 
+ [Date.parse('7-May-2021'),71.4], 
+ [Date.parse('8-May-2021'),71.4], 
+ [Date.parse('9-May-2021'),71.4], 
+ [Date.parse('10-May-2021'),71.5], 
+ [Date.parse('11-May-2021'),71.5], 
+ [Date.parse('12-May-2021'),71.5], 
+ [Date.parse('13-May-2021'),71.5], 
+ [Date.parse('14-May-2021'),71.6], 
+ [Date.parse('15-May-2021'),71.6], 
+ [Date.parse('16-May-2021'),71.6], 
+ [Date.parse('17-May-2021'),71.6], 
+ [Date.parse('18-May-2021'),71.6], 
+ [Date.parse('19-May-2021'),71.6], 
+ [Date.parse('20-May-2021'),71.6], 
+ [Date.parse('21-May-2021'),71.6], 
+ [Date.parse('22-May-2021'),71.6], 
+ [Date.parse('23-May-2021'),71.6], 
+ [Date.parse('24-May-2021'),71.7], 
+ [Date.parse('25-May-2021'),71.7], 
+ [Date.parse('26-May-2021'),71.7], 
+ [Date.parse('27-May-2021'),71.7], 
+ [Date.parse('28-May-2021'),71.7], 
+ [Date.parse('29-May-2021'),71.7], 
+ [Date.parse('30-May-2021'),71.7], 
+ [Date.parse('31-May-2021'),71.7], 
+ [Date.parse('1-Jun-2021'),71.7], 
+ [Date.parse('2-Jun-2021'),71.7], 
+ [Date.parse('3-Jun-2021'),71.7], 
+ [Date.parse('4-Jun-2021'),71.7], 
+ [Date.parse('5-Jun-2021'),71.8], 
+ [Date.parse('6-Jun-2021'),71.8], 
+ [Date.parse('7-Jun-2021'),71.9], 
+ [Date.parse('8-Jun-2021'),72.0], 
+ [Date.parse('9-Jun-2021'),72.0], 
+ [Date.parse('10-Jun-2021'),72.0], 
+ [Date.parse('11-Jun-2021'),72.1], 
+ [Date.parse('12-Jun-2021'),72.2], 
+ [Date.parse('13-Jun-2021'),72.3], 
+ [Date.parse('14-Jun-2021'),72.4], 
+ [Date.parse('15-Jun-2021'),72.4], 
+ [Date.parse('16-Jun-2021'),72.4], 
+ [Date.parse('17-Jun-2021'),72.4], 
+ [Date.parse('18-Jun-2021'),72.4], 
+ [Date.parse('19-Jun-2021'),72.4], 
+ [Date.parse('20-Jun-2021'),72.4], 
+ [Date.parse('21-Jun-2021'),72.4], 
+ [Date.parse('22-Jun-2021'),72.4], 
+ [Date.parse('23-Jun-2021'),72.4], 
+ [Date.parse('24-Jun-2021'),72.4], 
+ [Date.parse('25-Jun-2021'),72.4], 
+ [Date.parse('26-Jun-2021'),72.4], 
+ [Date.parse('27-Jun-2021'),72.4], 
+ [Date.parse('28-Jun-2021'),72.4], 
+ [Date.parse('29-Jun-2021'),72.4], 
+ [Date.parse('30-Jun-2021'),72.4], 
+      ]
+    }]
+    });
+  });
+</script>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    var myChart = Highcharts.chart('si_ace', {
+    chart: {
+      type: 'line'
+    },
+    title: {
+      useHTML: true,
+      text: "Current Season South Indian Ocean ACE (1981-2010 Climo)"
+    },
+    yAxis: {
+      title: {
+        useHTML: true,
+        text: "ACE (10<sup>4</sup>kt<sup>2</sup>)"
+      },
+    },
+    xAxis: {
+      title: {
+        text: "Date",
+      },
+      type: 'datetime',
+      labels: {
+            format: '{value:%e-%b}',
+            rotation: 45,
+            align: 'left'
+        }
+    },
+    series: [{
+      name: 'Observed',
+      data:[ 
+ [Date.parse('1-Jul-2020'),0.0], 
+ [Date.parse('2-Jul-2020'),0], 
+ [Date.parse('3-Jul-2020'),0], 
+ [Date.parse('4-Jul-2020'),0], 
+ [Date.parse('5-Jul-2020'),0], 
+ [Date.parse('6-Jul-2020'),0], 
+ [Date.parse('7-Jul-2020'),0], 
+ [Date.parse('8-Jul-2020'),0], 
+ [Date.parse('9-Jul-2020'),0], 
+ [Date.parse('10-Jul-2020'),0], 
+ [Date.parse('11-Jul-2020'),0], 
+ [Date.parse('12-Jul-2020'),0], 
+ [Date.parse('13-Jul-2020'),0], 
+ [Date.parse('14-Jul-2020'),0], 
+ [Date.parse('15-Jul-2020'),0], 
+ [Date.parse('16-Jul-2020'),0], 
+ [Date.parse('17-Jul-2020'),0], 
+ [Date.parse('18-Jul-2020'),0], 
+ [Date.parse('19-Jul-2020'),0], 
+ [Date.parse('20-Jul-2020'),0], 
+ [Date.parse('21-Jul-2020'),0], 
+ [Date.parse('22-Jul-2020'),0], 
+ [Date.parse('23-Jul-2020'),0], 
+ [Date.parse('24-Jul-2020'),0], 
+ [Date.parse('25-Jul-2020'),0], 
+ [Date.parse('26-Jul-2020'),0], 
+ [Date.parse('27-Jul-2020'),0], 
+ [Date.parse('28-Jul-2020'),0], 
+ [Date.parse('29-Jul-2020'),0], 
+ [Date.parse('30-Jul-2020'),0], 
+ [Date.parse('31-Jul-2020'),0], 
+ [Date.parse('1-Aug-2020'),0], 
+ [Date.parse('2-Aug-2020'),0], 
+ [Date.parse('3-Aug-2020'),0], 
+ [Date.parse('4-Aug-2020'),0], 
+ [Date.parse('5-Aug-2020'),0], 
+ [Date.parse('6-Aug-2020'),0], 
+ [Date.parse('7-Aug-2020'),0], 
+ [Date.parse('8-Aug-2020'),0], 
+ [Date.parse('9-Aug-2020'),0], 
+ [Date.parse('10-Aug-2020'),0], 
+ [Date.parse('11-Aug-2020'),0], 
+ [Date.parse('12-Aug-2020'),0], 
+ [Date.parse('13-Aug-2020'),0], 
+ [Date.parse('14-Aug-2020'),0], 
+ [Date.parse('15-Aug-2020'),0], 
+ [Date.parse('16-Aug-2020'),0], 
+ [Date.parse('17-Aug-2020'),0], 
+ [Date.parse('18-Aug-2020'),0], 
+ [Date.parse('19-Aug-2020'),0], 
+ [Date.parse('20-Aug-2020'),0], 
+ [Date.parse('21-Aug-2020'),0], 
+ [Date.parse('22-Aug-2020'),0], 
+ [Date.parse('23-Aug-2020'),0], 
+ [Date.parse('24-Aug-2020'),0], 
+ [Date.parse('25-Aug-2020'),0], 
+ [Date.parse('26-Aug-2020'),0], 
+ [Date.parse('27-Aug-2020'),0], 
+ [Date.parse('28-Aug-2020'),0], 
+ [Date.parse('29-Aug-2020'),0], 
+ [Date.parse('30-Aug-2020'),0], 
+ [Date.parse('31-Aug-2020'),0], 
+ [Date.parse('1-Sep-2020'),0], 
+ [Date.parse('2-Sep-2020'),0], 
+ [Date.parse('3-Sep-2020'),0], 
+ [Date.parse('4-Sep-2020'),0], 
+ [Date.parse('5-Sep-2020'),0], 
+ [Date.parse('6-Sep-2020'),0], 
+ [Date.parse('7-Sep-2020'),0], 
+ [Date.parse('8-Sep-2020'),0], 
+ [Date.parse('9-Sep-2020'),0], 
+ [Date.parse('10-Sep-2020'),0], 
+ [Date.parse('11-Sep-2020'),0], 
+ [Date.parse('12-Sep-2020'),0], 
+ [Date.parse('13-Sep-2020'),0], 
+ [Date.parse('14-Sep-2020'),0], 
+ [Date.parse('15-Sep-2020'),0], 
+ [Date.parse('16-Sep-2020'),0], 
+ [Date.parse('17-Sep-2020'),0], 
+ [Date.parse('18-Sep-2020'),0], 
+ [Date.parse('19-Sep-2020'),0], 
+ [Date.parse('20-Sep-2020'),0], 
+ [Date.parse('21-Sep-2020'),0], 
+ [Date.parse('22-Sep-2020'),0], 
+ [Date.parse('23-Sep-2020'),0], 
+ [Date.parse('24-Sep-2020'),0], 
+ [Date.parse('25-Sep-2020'),0], 
+ [Date.parse('26-Sep-2020'),0], 
+ [Date.parse('27-Sep-2020'),0], 
+ [Date.parse('28-Sep-2020'),0], 
+ [Date.parse('29-Sep-2020'),0], 
+ [Date.parse('30-Sep-2020'),0], 
+ [Date.parse('1-Oct-2020'),0], 
+ [Date.parse('2-Oct-2020'),0], 
+ [Date.parse('3-Oct-2020'),0], 
+ [Date.parse('4-Oct-2020'),0], 
+ [Date.parse('5-Oct-2020'),0], 
+ [Date.parse('6-Oct-2020'),0], 
+ [Date.parse('7-Oct-2020'),0], 
+ [Date.parse('8-Oct-2020'),0], 
+ [Date.parse('9-Oct-2020'),0], 
+ [Date.parse('10-Oct-2020'),0], 
+ [Date.parse('11-Oct-2020'),0], 
+ [Date.parse('12-Oct-2020'),0], 
+ [Date.parse('13-Oct-2020'),0], 
+ [Date.parse('14-Oct-2020'),0], 
+ [Date.parse('15-Oct-2020'),0], 
+ [Date.parse('16-Oct-2020'),0], 
+ [Date.parse('17-Oct-2020'),0], 
+ [Date.parse('18-Oct-2020'),0], 
+ [Date.parse('19-Oct-2020'),0], 
+ [Date.parse('20-Oct-2020'),0], 
+ [Date.parse('21-Oct-2020'),0], 
+ [Date.parse('22-Oct-2020'),0], 
+ [Date.parse('23-Oct-2020'),0], 
+ [Date.parse('24-Oct-2020'),0], 
+ [Date.parse('25-Oct-2020'),0], 
+ [Date.parse('26-Oct-2020'),0], 
+ [Date.parse('27-Oct-2020'),0], 
+ [Date.parse('28-Oct-2020'),0], 
+ [Date.parse('29-Oct-2020'),0], 
+ [Date.parse('30-Oct-2020'),0], 
+ [Date.parse('31-Oct-2020'),0], 
+ [Date.parse('1-Nov-2020'),0], 
+ [Date.parse('2-Nov-2020'),0], 
+ [Date.parse('3-Nov-2020'),0], 
+ [Date.parse('4-Nov-2020'),0], 
+ [Date.parse('5-Nov-2020'),0], 
+ [Date.parse('6-Nov-2020'),0], 
+ [Date.parse('7-Nov-2020'),0], 
+ [Date.parse('8-Nov-2020'),0], 
+ [Date.parse('9-Nov-2020'),0], 
+ [Date.parse('10-Nov-2020'),0], 
+ [Date.parse('11-Nov-2020'),0], 
+ [Date.parse('12-Nov-2020'),0], 
+ [Date.parse('13-Nov-2020'),0.2], 
+ [Date.parse('14-Nov-2020'),1.2], 
+ [Date.parse('15-Nov-2020'),2.8], 
+ [Date.parse('16-Nov-2020'),3.9], 
+ [Date.parse('17-Nov-2020'),4.2], 
+ [Date.parse('18-Nov-2020'),4.2], 
+ [Date.parse('19-Nov-2020'),4.2], 
+ [Date.parse('20-Nov-2020'),4.2], 
+ [Date.parse('21-Nov-2020'),4.2], 
+ [Date.parse('22-Nov-2020'),4.2], 
+ [Date.parse('23-Nov-2020'),4.2], 
+ [Date.parse('24-Nov-2020'),4.2], 
+ [Date.parse('25-Nov-2020'),4.2], 
+ [Date.parse('26-Nov-2020'),4.2], 
+ [Date.parse('27-Nov-2020'),4.2], 
+ [Date.parse('28-Nov-2020'),4.2], 
+ [Date.parse('29-Nov-2020'),4.2], 
+ [Date.parse('30-Nov-2020'),4.2], 
+ [Date.parse('1-Dec-2020'),4.2], 
+ [Date.parse('2-Dec-2020'),4.2], 
+ [Date.parse('3-Dec-2020'),4.2], 
+ [Date.parse('4-Dec-2020'),4.2], 
+ [Date.parse('5-Dec-2020'),4.2], 
+ [Date.parse('6-Dec-2020'),4.2], 
+ [Date.parse('7-Dec-2020'),4.8], 
+ [Date.parse('8-Dec-2020'),6.4], 
+ [Date.parse('9-Dec-2020'),7.4], 
+ [Date.parse('10-Dec-2020'),9.0], 
+ [Date.parse('11-Dec-2020'),9.3], 
+ [Date.parse('12-Dec-2020'),9.3], 
+ [Date.parse('13-Dec-2020'),9.3], 
+ [Date.parse('14-Dec-2020'),9.3], 
+ [Date.parse('15-Dec-2020'),9.3], 
+ [Date.parse('16-Dec-2020'),9.3], 
+ [Date.parse('17-Dec-2020'),9.3], 
+ [Date.parse('18-Dec-2020'),9.3], 
+ [Date.parse('19-Dec-2020'),9.3], 
+ [Date.parse('20-Dec-2020'),9.3], 
+ [Date.parse('21-Dec-2020'),9.3], 
+ [Date.parse('22-Dec-2020'),9.3], 
+ [Date.parse('23-Dec-2020'),9.3], 
+ [Date.parse('24-Dec-2020'),9.4], 
+ [Date.parse('25-Dec-2020'),9.9], 
+ [Date.parse('26-Dec-2020'),10.2], 
+ [Date.parse('27-Dec-2020'),10.2], 
+ [Date.parse('28-Dec-2020'),10.7], 
+ [Date.parse('29-Dec-2020'),11.9], 
+ [Date.parse('30-Dec-2020'),12.1], 
+ [Date.parse('31-Dec-2020'),12.1], 
+ [Date.parse('1-Jan-2021'),12.1], 
+ [Date.parse('2-Jan-2021'),12.1], 
+ [Date.parse('3-Jan-2021'),14.5], 
+ [Date.parse('4-Jan-2021'),15.2], 
+ [Date.parse('5-Jan-2021'),16.9], 
+ [Date.parse('6-Jan-2021'),17.7], 
+ [Date.parse('7-Jan-2021'),18.3], 
+ [Date.parse('8-Jan-2021'),18.3], 
+ [Date.parse('9-Jan-2021'),18.3], 
+ [Date.parse('10-Jan-2021'),18.3], 
+ [Date.parse('11-Jan-2021'),18.3], 
+ [Date.parse('12-Jan-2021'),18.3], 
+ [Date.parse('13-Jan-2021'),18.3], 
+ [Date.parse('14-Jan-2021'),18.3], 
+ [Date.parse('15-Jan-2021'),18.5], 
+ [Date.parse('16-Jan-2021'),19.0], 
+ [Date.parse('17-Jan-2021'),20.4], 
+ [Date.parse('18-Jan-2021'),21.6], 
+ [Date.parse('19-Jan-2021'),22.2], 
+ [Date.parse('20-Jan-2021'),22.6], 
+ [Date.parse('21-Jan-2021'),22.6], 
+ [Date.parse('22-Jan-2021'),22.6], 
+ [Date.parse('23-Jan-2021'),22.6], 
+ [Date.parse('24-Jan-2021'),22.6], 
+ [Date.parse('25-Jan-2021'),22.9], 
+ [Date.parse('26-Jan-2021'),22.9], 
+ [Date.parse('27-Jan-2021'),22.9], 
+ [Date.parse('28-Jan-2021'),22.9], 
+ [Date.parse('29-Jan-2021'),22.9], 
+ [Date.parse('30-Jan-2021'),22.9], 
+ [Date.parse('31-Jan-2021'),22.9], 
+ [Date.parse('1-Feb-2021'),25.1], 
+ [Date.parse('2-Feb-2021'),25.1], 
+ [Date.parse('3-Feb-2021'),25.6], 
+ [Date.parse('4-Feb-2021'),27.0], 
+ [Date.parse('5-Feb-2021'),29.5], 
+ [Date.parse('6-Feb-2021'),34.6], 
+ [Date.parse('7-Feb-2021'),41.3], 
+ [Date.parse('8-Feb-2021'),46.6], 
+ [Date.parse('9-Feb-2021'),49.1], 
+ [Date.parse('10-Feb-2021'),53.0], 
+ [Date.parse('11-Feb-2021'),54.3], 
+ [Date.parse('12-Feb-2021'),54.9], 
+ [Date.parse('13-Feb-2021'),54.9], 
+ [Date.parse('14-Feb-2021'),54.9], 
+ [Date.parse('15-Feb-2021'),59.4], 
+ [Date.parse('16-Feb-2021'),59.6], 
+ [Date.parse('17-Feb-2021'),60.7], 
+ [Date.parse('18-Feb-2021'),61.2], 
+ [Date.parse('19-Feb-2021'),61.2], 
+ [Date.parse('20-Feb-2021'),61.2], 
+ [Date.parse('21-Feb-2021'),61.5], 
+ [Date.parse('22-Feb-2021'),61.5], 
+ [Date.parse('23-Feb-2021'),61.5], 
+ [Date.parse('24-Feb-2021'),61.7], 
+ [Date.parse('25-Feb-2021'),63.0], 
+ [Date.parse('26-Feb-2021'),65.1], 
+ [Date.parse('27-Feb-2021'),68.5], 
+ [Date.parse('28-Feb-2021'),71.7], 
+ [Date.parse('29-Feb-2021'),74.6], 
+ [Date.parse('1-Mar-2021'),75.9], 
+ [Date.parse('2-Mar-2021'),77.3], 
+ [Date.parse('3-Mar-2021'),82.9], 
+ [Date.parse('4-Mar-2021'),88.6], 
+ [Date.parse('5-Mar-2021'),93.4], 
+ [Date.parse('6-Mar-2021'),95.7], 
+ [Date.parse('7-Mar-2021'),97.4], 
+ [Date.parse('8-Mar-2021'),104.7], 
+ [Date.parse('9-Mar-2021'),111.0], 
+ [Date.parse('10-Mar-2021'),116.1], 
+ [Date.parse('11-Mar-2021'),118.7], 
+ [Date.parse('12-Mar-2021'),120.0], 
+ [Date.parse('13-Mar-2021'),120.6], 
+ [Date.parse('14-Mar-2021'),120.7], 
+ [Date.parse('15-Mar-2021'),120.7], 
+ [Date.parse('16-Mar-2021'),120.7], 
+ [Date.parse('17-Mar-2021'),120.7], 
+ [Date.parse('18-Mar-2021'),120.7], 
+ [Date.parse('19-Mar-2021'),120.7], 
+ [Date.parse('20-Mar-2021'),120.7], 
+ [Date.parse('21-Mar-2021'),120.7], 
+ [Date.parse('22-Mar-2021'),120.7], 
+ [Date.parse('23-Mar-2021'),120.7], 
+ [Date.parse('24-Mar-2021'),120.7], 
+ [Date.parse('25-Mar-2021'),120.7], 
+ [Date.parse('26-Mar-2021'),120.7], 
+ [Date.parse('27-Mar-2021'),120.7], 
+ [Date.parse('28-Mar-2021'),120.7], 
+ [Date.parse('29-Mar-2021'),120.7], 
+ [Date.parse('30-Mar-2021'),120.7], 
+ [Date.parse('31-Mar-2021'),120.7], 
+ [Date.parse('1-Apr-2021'),120.7], 
+ [Date.parse('2-Apr-2021'),121.5], 
+ [Date.parse('3-Apr-2021'),123.3], 
+ [Date.parse('4-Apr-2021'),124.4], 
+ [Date.parse('5-Apr-2021'),125.5], 
+ [Date.parse('6-Apr-2021'),125.9], 
+ [Date.parse('7-Apr-2021'),125.9], 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+      ]
+    },{
+      name: 'Climatology',
+      data:[ 
+ [Date.parse('1-Jul-2020'),0.0], 
+ [Date.parse('2-Jul-2020'),0.0], 
+ [Date.parse('3-Jul-2020'),0.0], 
+ [Date.parse('4-Jul-2020'),0.0], 
+ [Date.parse('5-Jul-2020'),0.0], 
+ [Date.parse('6-Jul-2020'),0.0], 
+ [Date.parse('7-Jul-2020'),0.0], 
+ [Date.parse('8-Jul-2020'),0.0], 
+ [Date.parse('9-Jul-2020'),0.0], 
+ [Date.parse('10-Jul-2020'),0.0], 
+ [Date.parse('11-Jul-2020'),0.0], 
+ [Date.parse('12-Jul-2020'),0.0], 
+ [Date.parse('13-Jul-2020'),0.0], 
+ [Date.parse('14-Jul-2020'),0.0], 
+ [Date.parse('15-Jul-2020'),0.0], 
+ [Date.parse('16-Jul-2020'),0.0], 
+ [Date.parse('17-Jul-2020'),0.0], 
+ [Date.parse('18-Jul-2020'),0.0], 
+ [Date.parse('19-Jul-2020'),0.0], 
+ [Date.parse('20-Jul-2020'),0.1], 
+ [Date.parse('21-Jul-2020'),0.1], 
+ [Date.parse('22-Jul-2020'),0.1], 
+ [Date.parse('23-Jul-2020'),0.1], 
+ [Date.parse('24-Jul-2020'),0.1], 
+ [Date.parse('25-Jul-2020'),0.1], 
+ [Date.parse('26-Jul-2020'),0.1], 
+ [Date.parse('27-Jul-2020'),0.1], 
+ [Date.parse('28-Jul-2020'),0.1], 
+ [Date.parse('29-Jul-2020'),0.1], 
+ [Date.parse('30-Jul-2020'),0.2], 
+ [Date.parse('31-Jul-2020'),0.2], 
+ [Date.parse('1-Aug-2020'),0.2], 
+ [Date.parse('2-Aug-2020'),0.2], 
+ [Date.parse('3-Aug-2020'),0.2], 
+ [Date.parse('4-Aug-2020'),0.2], 
+ [Date.parse('5-Aug-2020'),0.2], 
+ [Date.parse('6-Aug-2020'),0.2], 
+ [Date.parse('7-Aug-2020'),0.2], 
+ [Date.parse('8-Aug-2020'),0.2], 
+ [Date.parse('9-Aug-2020'),0.2], 
+ [Date.parse('10-Aug-2020'),0.2], 
+ [Date.parse('11-Aug-2020'),0.2], 
+ [Date.parse('12-Aug-2020'),0.2], 
+ [Date.parse('13-Aug-2020'),0.2], 
+ [Date.parse('14-Aug-2020'),0.2], 
+ [Date.parse('15-Aug-2020'),0.2], 
+ [Date.parse('16-Aug-2020'),0.2], 
+ [Date.parse('17-Aug-2020'),0.2], 
+ [Date.parse('18-Aug-2020'),0.3], 
+ [Date.parse('19-Aug-2020'),0.3], 
+ [Date.parse('20-Aug-2020'),0.3], 
+ [Date.parse('21-Aug-2020'),0.3], 
+ [Date.parse('22-Aug-2020'),0.3], 
+ [Date.parse('23-Aug-2020'),0.3], 
+ [Date.parse('24-Aug-2020'),0.3], 
+ [Date.parse('25-Aug-2020'),0.3], 
+ [Date.parse('26-Aug-2020'),0.3], 
+ [Date.parse('27-Aug-2020'),0.3], 
+ [Date.parse('28-Aug-2020'),0.3], 
+ [Date.parse('29-Aug-2020'),0.3], 
+ [Date.parse('30-Aug-2020'),0.3], 
+ [Date.parse('31-Aug-2020'),0.3], 
+ [Date.parse('1-Sep-2020'),0.3], 
+ [Date.parse('2-Sep-2020'),0.3], 
+ [Date.parse('3-Sep-2020'),0.3], 
+ [Date.parse('4-Sep-2020'),0.4], 
+ [Date.parse('5-Sep-2020'),0.4], 
+ [Date.parse('6-Sep-2020'),0.4], 
+ [Date.parse('7-Sep-2020'),0.4], 
+ [Date.parse('8-Sep-2020'),0.4], 
+ [Date.parse('9-Sep-2020'),0.4], 
+ [Date.parse('10-Sep-2020'),0.4], 
+ [Date.parse('11-Sep-2020'),0.4], 
+ [Date.parse('12-Sep-2020'),0.4], 
+ [Date.parse('13-Sep-2020'),0.4], 
+ [Date.parse('14-Sep-2020'),0.4], 
+ [Date.parse('15-Sep-2020'),0.4], 
+ [Date.parse('16-Sep-2020'),0.4], 
+ [Date.parse('17-Sep-2020'),0.4], 
+ [Date.parse('18-Sep-2020'),0.4], 
+ [Date.parse('19-Sep-2020'),0.4], 
+ [Date.parse('20-Sep-2020'),0.4], 
+ [Date.parse('21-Sep-2020'),0.4], 
+ [Date.parse('22-Sep-2020'),0.4], 
+ [Date.parse('23-Sep-2020'),0.5], 
+ [Date.parse('24-Sep-2020'),0.5], 
+ [Date.parse('25-Sep-2020'),0.5], 
+ [Date.parse('26-Sep-2020'),0.5], 
+ [Date.parse('27-Sep-2020'),0.6], 
+ [Date.parse('28-Sep-2020'),0.6], 
+ [Date.parse('29-Sep-2020'),0.7], 
+ [Date.parse('30-Sep-2020'),0.7], 
+ [Date.parse('1-Oct-2020'),0.8], 
+ [Date.parse('2-Oct-2020'),0.8], 
+ [Date.parse('3-Oct-2020'),0.8], 
+ [Date.parse('4-Oct-2020'),0.8], 
+ [Date.parse('5-Oct-2020'),0.8], 
+ [Date.parse('6-Oct-2020'),0.8], 
+ [Date.parse('7-Oct-2020'),0.8], 
+ [Date.parse('8-Oct-2020'),0.8], 
+ [Date.parse('9-Oct-2020'),0.8], 
+ [Date.parse('10-Oct-2020'),0.9], 
+ [Date.parse('11-Oct-2020'),0.9], 
+ [Date.parse('12-Oct-2020'),0.9], 
+ [Date.parse('13-Oct-2020'),0.9], 
+ [Date.parse('14-Oct-2020'),0.9], 
+ [Date.parse('15-Oct-2020'),0.9], 
+ [Date.parse('16-Oct-2020'),0.9], 
+ [Date.parse('17-Oct-2020'),0.9], 
+ [Date.parse('18-Oct-2020'),1.0], 
+ [Date.parse('19-Oct-2020'),1.1], 
+ [Date.parse('20-Oct-2020'),1.2], 
+ [Date.parse('21-Oct-2020'),1.3], 
+ [Date.parse('22-Oct-2020'),1.4], 
+ [Date.parse('23-Oct-2020'),1.5], 
+ [Date.parse('24-Oct-2020'),1.6], 
+ [Date.parse('25-Oct-2020'),1.7], 
+ [Date.parse('26-Oct-2020'),1.8], 
+ [Date.parse('27-Oct-2020'),1.9], 
+ [Date.parse('28-Oct-2020'),2.0], 
+ [Date.parse('29-Oct-2020'),2.1], 
+ [Date.parse('30-Oct-2020'),2.2], 
+ [Date.parse('31-Oct-2020'),2.2], 
+ [Date.parse('1-Nov-2020'),2.3], 
+ [Date.parse('2-Nov-2020'),2.5], 
+ [Date.parse('3-Nov-2020'),2.6], 
+ [Date.parse('4-Nov-2020'),2.9], 
+ [Date.parse('5-Nov-2020'),3.1], 
+ [Date.parse('6-Nov-2020'),3.4], 
+ [Date.parse('7-Nov-2020'),3.8], 
+ [Date.parse('8-Nov-2020'),4.3], 
+ [Date.parse('9-Nov-2020'),4.7], 
+ [Date.parse('10-Nov-2020'),5.0], 
+ [Date.parse('11-Nov-2020'),5.4], 
+ [Date.parse('12-Nov-2020'),5.7], 
+ [Date.parse('13-Nov-2020'),6.0], 
+ [Date.parse('14-Nov-2020'),6.2], 
+ [Date.parse('15-Nov-2020'),6.5], 
+ [Date.parse('16-Nov-2020'),6.9], 
+ [Date.parse('17-Nov-2020'),7.3], 
+ [Date.parse('18-Nov-2020'),7.6], 
+ [Date.parse('19-Nov-2020'),7.9], 
+ [Date.parse('20-Nov-2020'),8.3], 
+ [Date.parse('21-Nov-2020'),8.8], 
+ [Date.parse('22-Nov-2020'),9.3], 
+ [Date.parse('23-Nov-2020'),10.0], 
+ [Date.parse('24-Nov-2020'),10.5], 
+ [Date.parse('25-Nov-2020'),10.9], 
+ [Date.parse('26-Nov-2020'),11.2], 
+ [Date.parse('27-Nov-2020'),11.6], 
+ [Date.parse('28-Nov-2020'),12.0], 
+ [Date.parse('29-Nov-2020'),12.4], 
+ [Date.parse('30-Nov-2020'),12.6], 
+ [Date.parse('1-Dec-2020'),12.8], 
+ [Date.parse('2-Dec-2020'),13.0], 
+ [Date.parse('3-Dec-2020'),13.3], 
+ [Date.parse('4-Dec-2020'),13.8], 
+ [Date.parse('5-Dec-2020'),14.3], 
+ [Date.parse('6-Dec-2020'),14.8], 
+ [Date.parse('7-Dec-2020'),15.4], 
+ [Date.parse('8-Dec-2020'),16.2], 
+ [Date.parse('9-Dec-2020'),17.0], 
+ [Date.parse('10-Dec-2020'),17.8], 
+ [Date.parse('11-Dec-2020'),18.4], 
+ [Date.parse('12-Dec-2020'),18.8], 
+ [Date.parse('13-Dec-2020'),19.1], 
+ [Date.parse('14-Dec-2020'),19.6], 
+ [Date.parse('15-Dec-2020'),20.2], 
+ [Date.parse('16-Dec-2020'),20.9], 
+ [Date.parse('17-Dec-2020'),21.5], 
+ [Date.parse('18-Dec-2020'),22.0], 
+ [Date.parse('19-Dec-2020'),22.5], 
+ [Date.parse('20-Dec-2020'),23.4], 
+ [Date.parse('21-Dec-2020'),24.2], 
+ [Date.parse('22-Dec-2020'),24.9], 
+ [Date.parse('23-Dec-2020'),25.6], 
+ [Date.parse('24-Dec-2020'),26.4], 
+ [Date.parse('25-Dec-2020'),27.2], 
+ [Date.parse('26-Dec-2020'),28.0], 
+ [Date.parse('27-Dec-2020'),28.7], 
+ [Date.parse('28-Dec-2020'),29.2], 
+ [Date.parse('29-Dec-2020'),29.6], 
+ [Date.parse('30-Dec-2020'),29.9], 
+ [Date.parse('31-Dec-2020'),30.2], 
+ [Date.parse('1-Jan-2021'),30.5], 
+ [Date.parse('2-Jan-2021'),30.8], 
+ [Date.parse('3-Jan-2021'),31.1], 
+ [Date.parse('4-Jan-2021'),31.5], 
+ [Date.parse('5-Jan-2021'),31.9], 
+ [Date.parse('6-Jan-2021'),32.5], 
+ [Date.parse('7-Jan-2021'),33.2], 
+ [Date.parse('8-Jan-2021'),34.3], 
+ [Date.parse('9-Jan-2021'),35.5], 
+ [Date.parse('10-Jan-2021'),36.5], 
+ [Date.parse('11-Jan-2021'),37.3], 
+ [Date.parse('12-Jan-2021'),38.2], 
+ [Date.parse('13-Jan-2021'),39.2], 
+ [Date.parse('14-Jan-2021'),40.1], 
+ [Date.parse('15-Jan-2021'),40.9], 
+ [Date.parse('16-Jan-2021'),41.5], 
+ [Date.parse('17-Jan-2021'),42.2], 
+ [Date.parse('18-Jan-2021'),42.9], 
+ [Date.parse('19-Jan-2021'),43.6], 
+ [Date.parse('20-Jan-2021'),44.6], 
+ [Date.parse('21-Jan-2021'),45.5], 
+ [Date.parse('22-Jan-2021'),46.6], 
+ [Date.parse('23-Jan-2021'),47.7], 
+ [Date.parse('24-Jan-2021'),48.7], 
+ [Date.parse('25-Jan-2021'),49.4], 
+ [Date.parse('26-Jan-2021'),50.3], 
+ [Date.parse('27-Jan-2021'),51.5], 
+ [Date.parse('28-Jan-2021'),52.8], 
+ [Date.parse('29-Jan-2021'),54.2], 
+ [Date.parse('30-Jan-2021'),55.3], 
+ [Date.parse('31-Jan-2021'),56.3], 
+ [Date.parse('1-Feb-2021'),57.3], 
+ [Date.parse('2-Feb-2021'),58.4], 
+ [Date.parse('3-Feb-2021'),59.6], 
+ [Date.parse('4-Feb-2021'),60.7], 
+ [Date.parse('5-Feb-2021'),61.9], 
+ [Date.parse('6-Feb-2021'),63.0], 
+ [Date.parse('7-Feb-2021'),64.2], 
+ [Date.parse('8-Feb-2021'),65.3], 
+ [Date.parse('9-Feb-2021'),66.4], 
+ [Date.parse('10-Feb-2021'),67.4], 
+ [Date.parse('11-Feb-2021'),68.3], 
+ [Date.parse('12-Feb-2021'),69.2], 
+ [Date.parse('13-Feb-2021'),70.2], 
+ [Date.parse('14-Feb-2021'),71.1], 
+ [Date.parse('15-Feb-2021'),71.8], 
+ [Date.parse('16-Feb-2021'),72.6], 
+ [Date.parse('17-Feb-2021'),73.6], 
+ [Date.parse('18-Feb-2021'),74.6], 
+ [Date.parse('19-Feb-2021'),75.7], 
+ [Date.parse('20-Feb-2021'),76.8], 
+ [Date.parse('21-Feb-2021'),77.7], 
+ [Date.parse('22-Feb-2021'),78.6], 
+ [Date.parse('23-Feb-2021'),79.4], 
+ [Date.parse('24-Feb-2021'),80.2], 
+ [Date.parse('25-Feb-2021'),80.9], 
+ [Date.parse('26-Feb-2021'),81.7], 
+ [Date.parse('27-Feb-2021'),82.6], 
+ [Date.parse('28-Feb-2021'),84.0], 
+ [Date.parse('29-Feb-2021'),84.0], 
+ [Date.parse('1-Mar-2021'),86.6], 
+ [Date.parse('2-Mar-2021'),87.7], 
+ [Date.parse('3-Mar-2021'),88.6], 
+ [Date.parse('4-Mar-2021'),89.5], 
+ [Date.parse('5-Mar-2021'),90.4], 
+ [Date.parse('6-Mar-2021'),91.6], 
+ [Date.parse('7-Mar-2021'),92.7], 
+ [Date.parse('8-Mar-2021'),94.2], 
+ [Date.parse('9-Mar-2021'),95.7], 
+ [Date.parse('10-Mar-2021'),97.4], 
+ [Date.parse('11-Mar-2021'),99.0], 
+ [Date.parse('12-Mar-2021'),100.6], 
+ [Date.parse('13-Mar-2021'),101.9], 
+ [Date.parse('14-Mar-2021'),103.0], 
+ [Date.parse('15-Mar-2021'),103.9], 
+ [Date.parse('16-Mar-2021'),104.6], 
+ [Date.parse('17-Mar-2021'),105.2], 
+ [Date.parse('18-Mar-2021'),106.0], 
+ [Date.parse('19-Mar-2021'),106.9], 
+ [Date.parse('20-Mar-2021'),107.8], 
+ [Date.parse('21-Mar-2021'),108.7], 
+ [Date.parse('22-Mar-2021'),109.5], 
+ [Date.parse('23-Mar-2021'),110.0], 
+ [Date.parse('24-Mar-2021'),110.6], 
+ [Date.parse('25-Mar-2021'),111.4], 
+ [Date.parse('26-Mar-2021'),112.4], 
+ [Date.parse('27-Mar-2021'),113.4], 
+ [Date.parse('28-Mar-2021'),114.2], 
+ [Date.parse('29-Mar-2021'),115.0], 
+ [Date.parse('30-Mar-2021'),115.8], 
+ [Date.parse('31-Mar-2021'),116.5], 
+ [Date.parse('1-Apr-2021'),117.4], 
+ [Date.parse('2-Apr-2021'),118.2], 
+ [Date.parse('3-Apr-2021'),119.0], 
+ [Date.parse('4-Apr-2021'),119.9], 
+ [Date.parse('5-Apr-2021'),121.0], 
+ [Date.parse('6-Apr-2021'),122.5], 
+ [Date.parse('7-Apr-2021'),123.9], 
+ [Date.parse('8-Apr-2021'),125.1], 
+ [Date.parse('9-Apr-2021'),126.3], 
+ [Date.parse('10-Apr-2021'),127.5], 
+ [Date.parse('11-Apr-2021'),128.6], 
+ [Date.parse('12-Apr-2021'),129.5], 
+ [Date.parse('13-Apr-2021'),130.4], 
+ [Date.parse('14-Apr-2021'),131.4], 
+ [Date.parse('15-Apr-2021'),132.1], 
+ [Date.parse('16-Apr-2021'),132.7], 
+ [Date.parse('17-Apr-2021'),133.0], 
+ [Date.parse('18-Apr-2021'),133.3], 
+ [Date.parse('19-Apr-2021'),133.7], 
+ [Date.parse('20-Apr-2021'),134.0], 
+ [Date.parse('21-Apr-2021'),134.2], 
+ [Date.parse('22-Apr-2021'),134.6], 
+ [Date.parse('23-Apr-2021'),134.8], 
+ [Date.parse('24-Apr-2021'),135.1], 
+ [Date.parse('25-Apr-2021'),135.3], 
+ [Date.parse('26-Apr-2021'),135.5], 
+ [Date.parse('27-Apr-2021'),135.7], 
+ [Date.parse('28-Apr-2021'),135.9], 
+ [Date.parse('29-Apr-2021'),136.0], 
+ [Date.parse('30-Apr-2021'),136.1], 
+ [Date.parse('1-May-2021'),136.2], 
+ [Date.parse('2-May-2021'),136.2], 
+ [Date.parse('3-May-2021'),136.3], 
+ [Date.parse('4-May-2021'),136.4], 
+ [Date.parse('5-May-2021'),136.6], 
+ [Date.parse('6-May-2021'),136.8], 
+ [Date.parse('7-May-2021'),136.9], 
+ [Date.parse('8-May-2021'),137.0], 
+ [Date.parse('9-May-2021'),137.2], 
+ [Date.parse('10-May-2021'),137.4], 
+ [Date.parse('11-May-2021'),137.5], 
+ [Date.parse('12-May-2021'),137.6], 
+ [Date.parse('13-May-2021'),137.8], 
+ [Date.parse('14-May-2021'),138.0], 
+ [Date.parse('15-May-2021'),138.0], 
+ [Date.parse('16-May-2021'),138.1], 
+ [Date.parse('17-May-2021'),138.1], 
+ [Date.parse('18-May-2021'),138.2], 
+ [Date.parse('19-May-2021'),138.2], 
+ [Date.parse('20-May-2021'),138.2], 
+ [Date.parse('21-May-2021'),138.2], 
+ [Date.parse('22-May-2021'),138.2], 
+ [Date.parse('23-May-2021'),138.2], 
+ [Date.parse('24-May-2021'),138.2], 
+ [Date.parse('25-May-2021'),138.2], 
+ [Date.parse('26-May-2021'),138.2], 
+ [Date.parse('27-May-2021'),138.3], 
+ [Date.parse('28-May-2021'),138.3], 
+ [Date.parse('29-May-2021'),138.3], 
+ [Date.parse('30-May-2021'),138.3], 
+ [Date.parse('31-May-2021'),138.3], 
+ [Date.parse('1-Jun-2021'),138.3], 
+ [Date.parse('2-Jun-2021'),138.3], 
+ [Date.parse('3-Jun-2021'),138.3], 
+ [Date.parse('4-Jun-2021'),138.3], 
+ [Date.parse('5-Jun-2021'),138.3], 
+ [Date.parse('6-Jun-2021'),138.3], 
+ [Date.parse('7-Jun-2021'),138.3], 
+ [Date.parse('8-Jun-2021'),138.3], 
+ [Date.parse('9-Jun-2021'),138.3], 
+ [Date.parse('10-Jun-2021'),138.3], 
+ [Date.parse('11-Jun-2021'),138.3], 
+ [Date.parse('12-Jun-2021'),138.3], 
+ [Date.parse('13-Jun-2021'),138.3], 
+ [Date.parse('14-Jun-2021'),138.3], 
+ [Date.parse('15-Jun-2021'),138.3], 
+ [Date.parse('16-Jun-2021'),138.3], 
+ [Date.parse('17-Jun-2021'),138.3], 
+ [Date.parse('18-Jun-2021'),138.3], 
+ [Date.parse('19-Jun-2021'),138.3], 
+ [Date.parse('20-Jun-2021'),138.3], 
+ [Date.parse('21-Jun-2021'),138.4], 
+ [Date.parse('22-Jun-2021'),138.4], 
+ [Date.parse('23-Jun-2021'),138.4], 
+ [Date.parse('24-Jun-2021'),138.4], 
+ [Date.parse('25-Jun-2021'),138.4], 
+ [Date.parse('26-Jun-2021'),138.4], 
+ [Date.parse('27-Jun-2021'),138.4], 
+ [Date.parse('28-Jun-2021'),138.4], 
+ [Date.parse('29-Jun-2021'),138.4], 
+ [Date.parse('30-Jun-2021'),138.4], 
+      ]
+    }]
+    });
+  });
+</script>
+
+<script>
+function showDiv(btn,ctn,eye,txt) {
+  var ic = document.getElementById(eye)
+  var x = document.getElementById(ctn);
+  var property = document.getElementById(btn);
+  var str = document.getElementById(txt)
+  if (x.style.display === "none") {
+    x.style.display = "block";
+    property.style.backgroundColor = "#8a4680";
+    ic.classList.replace('fa-eye-slash','fa-eye');
+  } else {
+    x.style.display = "none";
+    property.style.backgroundColor = "transparent";
+    ic.classList.replace('fa-eye','fa-eye-slash');
+  }
+}
+</script>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    var worldmap = Highcharts.mapChart('tcmap', {
+      chart: {
+        map: 'custom/world'
+    },
+
+    title: {
+        text: 'Global Tropical Cyclone Activity'
+    },
+
+    subtitle: {
+        text: 'For informational use only. Please refer to the <a href="https://www.nhc.noaa.gov/">National Hurricane Center</a> for official forecasts'
+    },
+    xAxis: {
+        crosshair: {
+                    zIndex: 5,
+                    dashStyle: 'dot',
+                    snap: false,
+                    color: 'gray'
+                }
+            },
+
+            yAxis: {
+                crosshair: {
+                    zIndex: 5,
+                    dashStyle: 'dot',
+                    snap: false,
+                    color: 'gray'
+                }
+            },
+
+    tooltip: {
+        pointFormat: '{point.name} ({point.basin}{point.charnam})<br>' +
+                    'Formation Location: Lat {point.lat}, Lon {point.lon}<br>' +
+                    'Min MSLP: {point.mslp} hPa, ' +
+                    'Max Intensity: {point.intensity} kts<br>' +
+                    'Named Storm Days: {point.nsd}, ' +
+                    'ACE: {point.ace}<br>' +
+                    'Status: {point.status}'
+    },
+
+    mapNavigation: {
+           enabled: true,
+           buttonOptions: {
+               verticalAlign: 'bottom'
+           }
+       },
+    series: [{
+        name: 'Basemap',
+        mapData: Highcharts.maps['custom/world'],
+        borderColor: '#606060',
+        nullColor: 'rgba(200, 200, 200, 0.2)',
+        showInLegend: false },
+        {
+        type: 'mappoint',
+        name: ' Active Tropical Cyclones',
+        data:[
+          
+        
+        {
+          
+          
+          
+          
+        },
+      
+      
+    
+    {
+      
+      
+      
+      
+    },
+  
+    {
+      
+      
+      
+      
+    },
+  
+    {
+      
+      
+      
+      
+    },
+  
+    {
+      
+      
+      
+      
+    },
+  
+    {
+      
+      
+      
+      
+    },
+  
+    {
+      
+      
+      
+      
+    },
+  
+    {
+      
+      
+      
+      
+    },
+  
+    {
+      
+      
+      
+      
+    },
+  
+    {
+      
+      
+      
+      
+    },
+  
+    {
+      
+      
+      
+      
+    },
+  
+    {
+      
+      
+      
+      
+    },
+  
+    {
+      
+      
+      
+      
+    },
+  
+    {
+      
+      
+      
+      
+    },
+  
+    {
+      
+      
+      
+      
+    },
+  
+    {
+      
+      
+      
+      
+    },
+  
+    {
+      
+      
+      
+      
+    },
+  
+    {
+      
+      
+      
+      
+    },
+  
+  
+  {
+    
+    
+    
+    
+  },
+  
+  {
+    
+    
+    
+    
+  },
+  
+  {
+    
+    
+    
+    
+  },
+  
+  {
+    
+    
+    
+    
+  },
+  
+  {
+    
+    
+    
+    
+  },
+  
+  {
+    
+    
+    
+    
+  },
+  
+  {
+    
+    
+    
+    
+  },
+  
+  {
+    
+    
+    
+    
+  },
+  
+  {
+    
+    
+    
+    
+  },
+  
+  {
+    
+    
+    
+    
+  },
+  
+  
+        ]
+      },
+      {
+      type: 'mappoint',
+      name: ' Inactive Tropical Cyclones',
+      data:[
+        
+      
+      {
+        
+        
+        
+        
+          name: 'DUJUAN',
+          lat: 7.0,
+          lon: 132.6,
+          basin: 'WP',
+          charnam: '01',
+          mslp: 991,
+          intensity: 45,
+          ace: 0.85,
+          nsd: 1.5,
+          status: 'Inactive',
+        
+      },
+    
+    
+  
+  {
+    
+    
+    
+    
+      name: 'ALICIA',
+      lat: -7.4,
+      lon: 79.7,
+      basin: 'SH',
+      charnam: '01',
+      mslp: 983,
+      intensity: 65,
+      ace: 4.2,
+      nsd: 3.75,
+      status: 'Inactive',
+    
+  },
+
+  {
+    
+    
+    
+    
+      name: 'BONGOYO',
+      lat: -15.1,
+      lon: 80.9,
+      basin: 'SH',
+      charnam: '02',
+      mslp: 992,
+      intensity: 55,
+      ace: 3.41,
+      nsd: 4.25,
+      status: 'Inactive',
+    
+  },
+
+  {
+    
+    
+    
+    
+      name: 'THREE',
+      lat: -11.0,
+      lon: 108.5,
+      basin: 'SH',
+      charnam: '03',
+      mslp: 992,
+      intensity: 45,
+      ace: 1.75,
+      nsd: 3.0,
+      status: 'Inactive',
+    
+  },
+
+  {
+    
+    
+    
+    
+      name: 'CHALANE',
+      lat: -15.8,
+      lon: 56.5,
+      basin: 'SH',
+      charnam: '07',
+      mslp: 990,
+      intensity: 60,
+      ace: 2.89,
+      nsd: 4.0,
+      status: 'Inactive',
+    
+  },
+
+  {
+    
+    
+    
+    
+      name: 'DANILO',
+      lat: -11.2,
+      lon: 72.1,
+      basin: 'SH',
+      charnam: '08',
+      mslp: 979,
+      intensity: 70,
+      ace: 6.17,
+      nsd: 6.5,
+      status: 'Inactive',
+    
+  },
+
+  {
+    
+    
+    
+    
+      name: 'JOSHUA',
+      lat: -16.4,
+      lon: 94.1,
+      basin: 'SH',
+      charnam: '10',
+      mslp: 998,
+      intensity: 45,
+      ace: 1.9,
+      nsd: 3.25,
+      status: 'Inactive',
+    
+  },
+
+  {
+    
+    
+    
+    
+      name: 'ELOISE',
+      lat: -12.6,
+      lon: 62.1,
+      basin: 'SH',
+      charnam: '12',
+      mslp: 975,
+      intensity: 85,
+      ace: 7.05,
+      nsd: 6.75,
+      status: 'Inactive',
+    
+  },
+
+  {
+    
+    
+    
+    
+      name: 'THIRTEEN',
+      lat: -12.4,
+      lon: 97.2,
+      basin: 'SH',
+      charnam: '13',
+      mslp: 999,
+      intensity: 35,
+      ace: 1.96,
+      nsd: 4.0,
+      status: 'Inactive',
+    
+  },
+
+  {
+    
+    
+    
+    
+      name: 'FOURTEEN',
+      lat: -18.8,
+      lon: 120.4,
+      basin: 'SH',
+      charnam: '14',
+      mslp: 997,
+      intensity: 40,
+      ace: 0.56,
+      nsd: 1.0,
+      status: 'Inactive',
+    
+  },
+
+  {
+    
+    
+    
+    
+      name: 'EIGHTEEN',
+      lat: -24.4,
+      lon: 113.7,
+      basin: 'SH',
+      charnam: '18',
+      mslp: 991,
+      intensity: 35,
+      ace: 1.1,
+      nsd: 2.25,
+      status: 'Inactive',
+    
+  },
+
+  {
+    
+    
+    
+    
+      name: 'FARAJI',
+      lat: -12.6,
+      lon: 81.4,
+      basin: 'SH',
+      charnam: '19',
+      mslp: 920,
+      intensity: 140,
+      ace: 28.71,
+      nsd: 9.0,
+      status: 'Inactive',
+    
+  },
+
+  {
+    
+    
+    
+    
+      name: 'GUAMBE',
+      lat: -21.9,
+      lon: 37.4,
+      basin: 'SH',
+      charnam: '21',
+      mslp: 976,
+      intensity: 70,
+      ace: 2.16,
+      nsd: 1.75,
+      status: 'Inactive',
+    
+  },
+
+  {
+    
+    
+    
+    
+      name: 'MARIAN',
+      lat: -14.0,
+      lon: 100.8,
+      basin: 'SH',
+      charnam: '22',
+      mslp: 952,
+      intensity: 100,
+      ace: 15.79,
+      nsd: 8.25,
+      status: 'Inactive',
+    
+  },
+
+  {
+    
+    
+    
+    
+      name: 'HABANA',
+      lat: -16.4,
+      lon: 72.5,
+      basin: 'SH',
+      charnam: '24',
+      mslp: 931,
+      intensity: 130,
+      ace: 42.93,
+      nsd: 11.75,
+      status: 'Inactive',
+    
+  },
+
+  {
+    
+    
+    
+    
+      name: 'IMAN',
+      lat: -24.4,
+      lon: 58.0,
+      basin: 'SH',
+      charnam: '25',
+      mslp: 991,
+      intensity: 45,
+      ace: 0.61,
+      nsd: 0.75,
+      status: 'Inactive',
+    
+  },
+
+  {
+    
+    
+    
+    
+      name: 'SEROJA',
+      lat: -10.4,
+      lon: 123.2,
+      basin: 'SH',
+      charnam: '26',
+      mslp: 990,
+      intensity: 55,
+      ace: 3.19,
+      nsd: 3.5,
+      status: 'Inactive',
+    
+  },
+
+  {
+    
+    
+    
+    
+      name: 'TWENTY-SE',
+      lat: -14.9,
+      lon: 104.8,
+      basin: 'SH',
+      charnam: '27',
+      mslp: 993,
+      intensity: 45,
+      ace: 2.05,
+      nsd: 3.25,
+      status: 'Inactive',
+    
+  },
+
+
+{
+  
+  
+  
+  
+    name: 'FOUR',
+    lat: -12.1,
+    lon: 179.9,
+    basin: 'SH',
+    charnam: '04',
+    mslp: 997,
+    intensity: 40,
+    ace: 0.85,
+    nsd: 1.5,
+    status: 'Inactive',
+  
+},
+
+{
+  
+  
+  
+  
+    name: 'YASA',
+    lat: -13.7,
+    lon: 172.9,
+    basin: 'SH',
+    charnam: '05',
+    mslp: 914,
+    intensity: 140,
+    ace: 23.78,
+    nsd: 7.5,
+    status: 'Inactive',
+  
+},
+
+{
+  
+  
+  
+  
+    name: 'ZAZU',
+    lat: -17.0,
+    lon: -173.4,
+    basin: 'SH',
+    charnam: '06',
+    mslp: 985,
+    intensity: 55,
+    ace: 3.18,
+    nsd: 3.5,
+    status: 'Inactive',
+  
+},
+
+{
+  
+  
+  
+  
+    name: 'IMOGEN',
+    lat: -16.8,
+    lon: 139.9,
+    basin: 'SH',
+    charnam: '09',
+    mslp: 995,
+    intensity: 45,
+    ace: 0.61,
+    nsd: 1.0,
+    status: 'Inactive',
+  
+},
+
+{
+  
+  
+  
+  
+    name: 'KIMI',
+    lat: -15.1,
+    lon: 146.4,
+    basin: 'SH',
+    charnam: '11',
+    mslp: 990,
+    intensity: 55,
+    ace: 1.81,
+    nsd: 2.0,
+    status: 'Inactive',
+  
+},
+
+{
+  
+  
+  
+  
+    name: 'ANA',
+    lat: -16.1,
+    lon: 176.5,
+    basin: 'SH',
+    charnam: '15',
+    mslp: 976,
+    intensity: 65,
+    ace: 3.63,
+    nsd: 3.5,
+    status: 'Inactive',
+  
+},
+
+{
+  
+  
+  
+  
+    name: 'BINA',
+    lat: -11.9,
+    lon: 171.4,
+    basin: 'SH',
+    charnam: '16',
+    mslp: 991,
+    intensity: 45,
+    ace: 0.97,
+    nsd: 1.5,
+    status: 'Inactive',
+  
+},
+
+{
+  
+  
+  
+  
+    name: 'LUCAS',
+    lat: -13.9,
+    lon: 152.3,
+    basin: 'SH',
+    charnam: '17',
+    mslp: 980,
+    intensity: 65,
+    ace: 3.65,
+    nsd: 3.75,
+    status: 'Inactive',
+  
+},
+
+{
+  
+  
+  
+  
+    name: 'TWENTY',
+    lat: -25.1,
+    lon: -177.7,
+    basin: 'SH',
+    charnam: '20',
+    mslp: 991,
+    intensity: 45,
+    ace: 1.01,
+    nsd: 1.75,
+    status: 'Inactive',
+  
+},
+
+{
+  
+  
+  
+  
+    name: 'NIRAN',
+    lat: -16.7,
+    lon: 146.8,
+    basin: 'SH',
+    charnam: '23',
+    mslp: 917,
+    intensity: 140,
+    ace: 15.91,
+    nsd: 5.75,
+    status: 'Inactive',
+  
+},
+
+
+      ]
+    }]
+
+    });
+
+});
+
+</script>
+
+<style>
+sup {
+  font-size: x-small;
+}
+figure {
+  margin: auto;
+  text-align: center;
+}
+figure img {
+    vertical-align: top;
+}
+figure figcaption {
+  background-color: white;
+  color: black;
+  padding: 2px;
+  font-size: medium;
+  text-align: center;
+}
+
+</style>
+
+		<!-- One -->
+			<section id="One" class="wrapper style3">
+				<div class="inner">
+					<header class="align-center">
+						<p>Colorado State University</p>
+						<h2>Seasonal Hurricane Forecasting</h2>
+					</header>
+				</div>
+			</section>
+
+
+		<!-- Two -->
+			<section id="two" class="wrapper style4" style="margin:-40px 0px -40px 0px;">
+
+				<div id="main" class="container">
+					<div class="box forecast-box">
+				<!-- Two column for twitter feed -->
+						<div class="row 200%" style="margin:-30px 0px -30px 0px;">
+						<div class="9u 12u$(medium)">
+							<header class="align-center">
+								<p>Atlantic Seasonal Hurricane Activity</p>
+								<h2>Forecast for 2026 Hurricane Activity </h2>
+							</header>
+							<!-- Table -->
+							<div class="content">
+							<div class="table-wrapper" style="overflow-x:auto;">
+								<table>
+									<thead>
+										<tr>
+											<th>Forecast Parameters</th>
+											<th>CSU Forecast for 2026*</th>
+											<th>Average for 1991-2020</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td>Named Storms</td>
+											<td>9</td>
+											<td>14.4</td>
+										</tr>
+										<tr>
+											<td>Named Storm Days</td>
+											<td>35</td>
+											<td>69.4</td>
+										</tr>
+										<tr>
+											<td>Hurricanes</td>
+											<td>4</td>
+											<td>7.2</td>
+										</tr>
+										<tr>
+											<td>Hurricane Days</td>
+											<td>12</td>
+											<td>27.0</td>
+										</tr>
+										<tr>
+											<td>Major Hurricanes</td>
+											<td>1</td>
+											<td>3.2</td>
+										</tr>
+										<tr>
+											<td>Major Hurricane Days</td>
+											<td>2</td>
+											<td>7.4</td>
+										</tr>
+										<tr>
+											<td>Accumulated Cyclone Energy (ACE)+</td>
+											<td>50</td>
+											<td>123</td>
+										</tr>
+										<tr>
+											<td>ACE West of 60 degrees longitude</td>
+											<td>25</td>
+											<td>73</td>
+										</tr>
+									</tbody>
+									<tfoot>
+                    <tr>
+                    </tr>
+                    <tr>
+                    	<td colspan="3" style="font-size: small;">*CSU's initial seasonal forecast for 2026 was released on Thursday, April 9th. Updated forecasts were released on Wednesday, June 10th, Wednesday, July 8th, and Wednesday, August 5th.</td>
+                    </tr>
+										<tr>
+											<td colspan="3" style="font-size: small;">+A measure of a named storm's potential for wind and storm surge destruction defined
+												as the sum of the square of a named storm's maximum wind speed (in 10<sup>4</sup> knots<sup>2</sup>) for each 6-hour
+												 period of its existence.</td>
+										</tr>
+									</tfoot>
+								</table>
+							</div>
+
+
+<h3><b>2026 Forecast Summary</b></h3>
+<p>We have maintained our 2026 Atlantic basin hurricane season forecast for a well below-
+normal season. El Niño conditions are likely to continue to intensify over the next few
+months. We are extremely confident that we will have a strong El Niño for the peak of
+hurricane season. Sea surface temperatures across the Caribbean and tropical Atlantic are
+slightly above their long-term averages. We anticipate the powerful El Niño being the
+dominant factor for the upcoming hurricane season, driving very high levels of tropical
+Atlantic vertical wind shear. We are forecasting a well below-average probability for
+major hurricane landfalls along the continental United States coastline and in the
+Caribbean. As with all hurricane seasons, coastal residents are reminded that it only takes
+one hurricane making landfall to make it an active season. Thorough preparations should
+be made every season, regardless of predicted activity.</p>
+
+</br>
+
+<p>CSU's initial seasonal hurricane forecast and press release for 2026 was released on <b>Thursday, April 9, 2026</b> and updated on <b>Wednesday, June 10, 2026</b>, <b>Wednesday, July 8, 2026</b>, and <b>Wednesday, August 5, 2026</b>.
+The forecast includes predictions for named storms, hurricanes, major hurricanes, and accumulated cyclone energy for the 2026 Atlantic hurricane season.
+Additional forecast updates will be released on August 5th.</p>
+
+
+<h3> See a StoryMap description of our forecast here:
+                                                <a href="https://storymaps.arcgis.com/stories/c3485ddd60ea4104b4f1e3df3e288784" class="button alt">StoryMap</a></h3>
+
+<a href="Forecast/2026-08-pressrelease.pdf" target="_blank">Forecast Press Release</a> <br> <br>
+
+<a href="Forecast/2026-08-pressrelease_Spanish.pdf" target="_blank" >Lea nuestro resumen de pronóstico en español aquí</a> </br> </br>
+
+
+<p>For full forecast document click the 2026 FORECAST (August 5, 2026) button below.</p>
+
+<h3><b>2025 Season Review</b></h3>
+<p>The 2025 Atlantic hurricane season was an above-normal season with 13 named storms, 5 hurricanes, and 4 major hurricanes.
+Three hurricanes reached Category 5 intensity (Erin, Humberto and Melissa).
+See the <a href="/archive.html">archive page</a> for full details on the 2025 season.</p>
+
+<a href="Forecast/2025-11-pressrelease.pdf" target="_blank">Read our 2025 forecast verification summary here</a> <br> <br>
+
+<a href="Forecast/2025-11.pdf" target="_blank">Read the full 2025 forecast verification here</a> <br> <br>
+						</div>
+						</div>
+
+						</div>
+						<hr/>
+						<h3 style="text-align:center;">2026 CSU Tropical Meteorology Project Forecast Schedule</h3>
+						<div id="schedule" class="align-center">
+							<ul class="actions" style="text-align:center;">
+                <li><a href="Forecast/2026-04.pdf" class="button small doubleline special" target="_blank" style="width:150px;"><i class="fa fa-download"></i> (April 9, 2026) <br>2026 Forecast</a></li>
+                <li><a href="Forecast/2026-06.pdf" class="button small doubleline special" target="_blank" style="width:150px;"><i class="fa fa-download"></i> (June 10, 2026) <br>2026 Forecast</a></li>
+                <li><a href="Forecast/2026-07.pdf" class="button small doubleline special" target="_blank" style="width:150px;"><i class="fa fa-download"></i> (July 8, 2026) <br>2026 Forecast</a></li>
+                <li><a href="Forecast/2026-08.pdf" class="button small doubleline special" target="_blank" style="width:150px;"><i class="fa fa-download"></i> (Aug 5, 2026) <br>2026 Forecast</a></li>
+                <li><a href="#" class="button small doubleline alt fit" target="_blank" style="width:150px;"><i class="fa fa-pause-circle"></i> (Nov, 2026) <br>2026 Verification</a></li>
+
+							</ul>
+						</div>
+            <h4 style="text-align:center;">Two-week Forecasts of North Atlantic Tropical Cyclone Activity</h4>
+            <div id="schedule" class="align-center">
+							<ul class="actions" style="text-align:center;">
+              <li><a href="Forecast/2026-0805.pdf" class="button small doubleline special" target="_blank" style="width:150px;"><i class="fa fa-download"></i> (Aug 5, 2026) <br>2-week Forecast</a></li>
+	      <li><a href="Forecast/2026-0819.pdf" class="button small doubleline special" target="_blank" style="width:150px;"><i class="fa fa-download"></i> (Aug 19, 2026) <br>2-week Forecast</a></li>
+	      <li><a href="Forecast/2026-0902.pdf" class="button small doubleline special" target="_blank" style="width:150px;"><i class="fa fa-download"></i> (Sep 2, 2026) <br>2-week Forecast</a></li>
+	      <li><a href="Forecast/2026-0916.pdf" class="button small doubleline special" target="_blank" style="width:150px;"><i class="fa fa-download"></i> (Sep 16, 2026) <br>2-week Forecast</a></li>
+	      <li><a href="Forecast/2026-0930.pdf" class="button small doubleline special" target="_blank" style="width:150px;"><i class="fa fa-download"></i> (Sep 30, 2026) <br>2-week Forecast</a></li>
+	      <li><a href="Forecast/2026-1014.pdf" class="button small doubleline special" target="_blank" style="width:150px;"><i class="fa fa-download"></i> (Oct 14, 2026) <br>2-week Forecast</a></li>
+							</ul>
+						</div>
+					</div>
+
+					</div>
+			</section>
+
+
+        <!-- Four: archive and resources -->
+          <section id="four" class="wrapper style2">
+            <div class="inner">
+    					<div class="gallery" style="margin:-40px 0px -40px 0px;">
+    						<div>
+    							<div class="image fit">
+    								<a href="/archive.html"><img src="images/forecast/archive.png" alt="" style="filter:brightness(30%)"/></a>
+    								<div class="centered-above"><a href="/archive.html"><h2 style="color:white;"><i class="fa fa-external-link"></i> ARCHIVE</h2></a></div>
+                    <div class="centered-below"><p> <a href="/archive.html" style="color:white">CLICK HERE</a> to learn more about the TC activity in previous seasons</p></div>
+    							</div>
+    						</div>
+    						<div>
+    							<div class="image fit">
+    								<a href="/resources.html"><img src="images/forecast/resources2.png" alt="" style="filter:brightness(40%)"/></a>
+                    <div class="centered-above"><a href="/resources.html"><h2 style="color:white;"><i class="fa fa-external-link"></i> RESOURCES</h2></a></div>
+    								<div class="centered-below"><p><a href="/resources.html" style="color:white">CLICK HERE</a> for real-time statistics <br> and other tropical weather resources</p></div>
+    							</div>
+    						</div>
+    					</div>
+    				</div>
+          </section>
+
+
+			<!-- Six: factors -->
+			<section id="Six" class="wrapper style2">
+				<div id="factors" class="container" style="margin-top:-20px;">
+
+					<div class="inner" style="margin:-70px 0px -40px 0px;">
+					<div class="box">
+						<div class="inner forecast-factors-inner">
+							<br>
+						<header class="align-center">
+							<p>DESCRIPTION OF CLIMATE FACTORS INFLUENCING ATLANTIC HURRICANE ACTIVITY</p>
+							<h2>Forecast Factors</h2>
+						</header>
+						<html>
+<head>
+<style>
+figure {
+  margin: auto;
+  text-align: center;
+}
+figure img {
+    vertical-align: top;
+}
+figure figcaption {
+  background-color: white;
+  color: black;
+  padding: 2px;
+  font-size:small;
+  text-align: left;
+}
+</style>
+</head>
+<p>In 1984, Dr Bill Gray at Colorado State University documented that Atlantic hurricane activity responded to a variety of large-scale atmospheric and oceanic parameters spanning various portions of the globe. These large-scale factors interact with the global climate system in such a way that then alter the environment of the tropical Atlantic, where most major hurricanes develop and intensify. For example, hurricanes are more likely to develop when they traverse through an environment of low vertical wind shear (the change in wind direction and speed with height in the atmosphere), high sea surface temperatures and high mid-level moisture. Several parameters that have been documented to impact Atlantic hurricanes are discussed here in more detail. </p>
+
+<h3> Atlantic Ocean Thermodynamics </h3>
+<p> A warmer-than-normal tropical North Atlantic Ocean is known to typically create conditions more favorable for hurricane formation and intensification. In addition to enhancing latent and sensible heat fluxes that fuel tropical cyclones, a warmer tropical North Atlantic also drives lower pressures and reduced low-level trade winds, which also feed back to a more conducive environment for hurricanes. </p>
+
+<p> It is important to note that the warming of the tropical North Atlantic Ocean also be measured relative to warming in other areas. One frequently utilized metric is relative sea surface temperature, which measures the difference between tropical North Atlantic Ocean sea surface temperatures and sea surface temperatures in the rest of the tropics (Vecchi et al. 2008). This index is important because it dictates where anomalous rising and sinking motion is likely to occur. When the tropical North Atlantic Ocean is anomalously warmer than the remainder of the tropics, anomalous rising motion is likely in this area, favoring enhanced tropical cyclone activity. </p>
+<figure style="width:400px;float:right;margin:0px 20px">
+  <img src="/images/forecast/factor_enso.jpg" alt="" />
+  <figcaption>Averaged sea surface height anomalies measured by Jason 2 in the Pacific Ocean, observed at the beginning of October 2015. Credit: NASA</figcaption>
+</figure>
+<p>An additional index that is often utilized to assess the favorability of the tropical North Atlantic Ocean is the Atlantic Meridional Mode (AMM) (Kossin and Vimont 2007). The AMM assesses both the thermodynamic and dynamic state of the tropical North Atlantic Ocean through analysis of low-level winds as well as sea surface temperatures. A positive phase of the AMM is associated with a warmer tropical North Atlantic relative to the tropical South Atlantic, as well as with reduced trade winds in the tropical North Atlantic. Positive phases of the AMM are generally characterized by above-normal Atlantic hurricane activity. </p>
+
+<h3> El Niño Southern Oscillation </h3>
+
+<p>At the interannual timescale, the prime driver of Atlantic tropical cyclone variability is generally considered to be El Niño Southern Oscillation (ENSO). ENSO is driven by changes in ocean temperature in the tropical Pacific, where above average conditions (El Niño) in the Central and Eastern Pacific shift the convective activity in the tropical Pacific eastward, and modify the Walker cell throughout the tropics. The influence of ENSO on Atlantic tropical cyclone activity is well documented and is understood to occur mainly through local changes in vertical wind shear: during El Niño (La Niña) conditions, the eastward (westward) shift in convection in the tropical Pacific leads to anomalous upper-level westerlies (easterlies) over the Atlantic, which then increases (decreases) the vertical wind shear, thus decreasing (increasing) tropical cyclone activity. </p>
+
+<figure style="width:400px;float:right;margin:0px 20px">
+  <img src="/images/forecast/factor_dust.jpg" alt="" style="width:400px"/>
+  <figcaption>Dust streaming from Mauritania, Senegal, western Sahara and maybe other countries farther East, and heading West toward South America and the Gulf of Mexico. Composite image made with data from VIIRS acquired by Aqua/MODIS on June 24, 2014. Credit: NASA</figcaption>
+</figure>
+
+<h3> Sahel Precipitation </h3>
+<p> Changes in convective precipitation over the Sahel region has been shown to impact zonal winds in the upper-troposphere, which in turn modulate vertical wind shear over the Main Development Region and influence the conditions of cyclogenesis over the tropical Atlantic. It is possible that changes in the nature of the African Easterly Waves coming off the African continent might also be playing a role. Years with higher Sahel rainfall tend to be associated with more active hurricane seasons. The influence of the Sahel precipitation is mostly felt when the thermodynamical conditions over the tropical Atlantic are not conducive to hurricane formation. </p>
+
+<h3> Saharan Dust </h3>
+
+<p> Dust outbreaks from West Africa impact tropical cyclone activity by reducing Atlantic tropical sea surface temperatures ahead of the hurricane season. Episodes of dust outbreak are also associated with extremely dry air coming from the Sahara, another factor detrimental to cyclone formation. </p>
+
+</html>
+
+						</div>
+            <br>
+					</div>
+					</div>
+				</div>
+
+			</section>
+
+      <section id="Seven" class="wrapper style2">
+				<div class="inner" id="faq">
+					<div class="box">
+					<div class="content">
+						<header class="align-center">
+							<p>Data Quality and Methodology Questions</p>
+							<h2>Frequently Asked Questions</h2>
+						</header>
+						<html>
+<head>
+<style>
+.dropbtn {
+  background-color:transparent;
+  color: black;
+  padding: 10px 20px;
+  font-size: 20px;
+  border: none;
+  cursor: pointer;
+  width : 100%;
+  box-shadow: 0px 3px 3px 0px rgba(0,0,0,0.15);
+}
+
+.dropbtn:hover, .dropbtn:focus {
+  background-color: lightgray;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+  width : 100%;
+}
+
+.dropdown-content {
+  display: none;
+  width : 100%;
+  position: static;
+  background-color: white;
+  min-width: 160px;
+  overflow: auto;
+  box-shadow: 0px 5px 5px 0px rgba(0,0,0,0.15);
+  z-index: 1;
+}
+
+.dropdown-content p {
+  color: black;
+  padding: 16px 16px;
+  text-decoration: none;
+  display: block;
+
+}
+
+.dropdown p:hover {background-color: #ddd;}
+
+.show {display: block;}
+</style>
+<script src="https://kit.fontawesome.com/8e44de192d.js" crossorigin="anonymous"></script>
+</head>
+<div class="dropdown">
+  <div onclick="myFunction('a1')" class="dropbtn">1. How did the CSU seasonal hurricane forecast get started?</div>
+  <div id="a1" class="dropdown-content">
+    <p> <a href="/archive.html#bill_gray" target="_blank">Dr. Bill Gray</a> first started seasonal Atlantic hurricane predictions  at Colorado State University in 1984. Prior to
+his development of these forecasts, not only were there were no publicly issued predictions for overall Atlantic basinwide activity,
+but Atlantic TC teleconnection patterns had only been rudimentarily investigated (Ballenzweig 1959 J. Meteor.). His final
+Ph.D. student, Phil Klotzbach and the CSU tropical weather and climate research team continues the legacy and regularly issues the forecast to the present day.</p>
+  </div>
+</div>
+<div class="dropdown">
+  <div onclick="myFunction('a2')" class="dropbtn">2. Why do you study hurricanes in Colorado?</div>
+  <div id="a2" class="dropdown-content">
+    <p> "Storm Surge can't get you at 5,000 feet!" ~ <a href="/archive.html#bill_gray" target="_blank">Dr. Bill Gray</a> </p>
+  </div>
+</div>
+<div class="dropdown">
+  <div onclick="myFunction('a3')" class="dropbtn">3. What features of weather and climate do you look at when preparing a forecast?</div>
+  <div id="a3" class="dropdown-content">
+    <p> In 1984, Dr. Bill Gray at Colorado State University documented that Atlantic hurricane activity responded to a variety of large-scale atmospheric and oceanic parameters spanning various portions of the globe. These large-scale factors interact with the global climate system in such a way that then alter the environment of the tropical Atlantic, where most major hurricanes develop and intensify. For example, hurricanes are more likely to develop when they traverse through an environment of low vertical wind shear (the change in wind direction and speed with height in the atmosphere), high sea surface temperatures and high mid-level moisture. Several parameters that have been documented to impact Atlantic hurricanes are discussed here in more detail <a href="/forecasting.html#four">HERE</a> </p>
+  </div>
+</div>
+<div class="dropdown">
+  <div onclick="myFunction('a4')" class="dropbtn">4. What data sources are you using for your calculations?</div>
+  <div id="a4" class="dropdown-content">
+    <p> Real-time estimates of global tropical cyclone activity are calculated from the operational b-decks as archived on <a href="http://hurricanes.ral.ucar.edu/repository/data/bdecks_open/" target="_blank">the University Corporation of Atmospheric Research</a>
+These are operational estimates of intensity and have not been subject to any thorough review. When tropical cyclones are active, these files are updated every six hours with estimates of location, maximum wind, minimum sea level pressure and a variety of wind radii information.
+More information on the b-decks is available on <a href=http://hurricanes.ral.ucar.edu/realtime/current/ target="_blank">the National Corporation for Atmospheric Research’s Tropical Cyclone Guidance Project.</a> </p>
+  </div>
+</div>
+<div class="dropdown">
+  <div onclick="myFunction('a5')" class="dropbtn">5. How good is the data?</div>
+  <div id="a5" class="dropdown-content">
+    <p style="margin-bottom:-15px"> As you go back in time, the quality of the best track data generally degrades. The quality of this data is also very heavily basin dependent. For example, the North Atlantic is the only basin that currently has operational aircraft reconnaissance. For all other basins, intensity estimates are currently based virtually entirely on satellite data. The Dvorak technique is the primary technique currently used today to estimate tropical cyclone intensity from satellite imagery. This technique was first initiated in 1972; however, the quality of satellite data in the 1970s through the mid-1980s likely led to significant underestimates in intensity, especially for the most intense systems.</p>
+    <p style="margin-bottom:-30px">  Here are the time periods that I typically consider to be the most reliable for each TC basin. </p>
+    <!-- Table -->
+    <div class="content" style="margin-top:-30px">
+    <div class="table-wrapper">
+      <table class="alt">
+        <thead>
+          <tr>
+            <th>Basin</th>
+            <th>Time Period of Highest Quality Data</th>
+            <th>Reason</th>
+          </tr>
+        </thead>
+        <tbody>
+          
+          <tr>
+            <td>North Atlantic</td>
+            <td>1966-present</td>
+            <td>Geostationary satellite data available</td>
+          </tr>
+          
+          <tr>
+            <td>Eastern North Pacific</td>
+            <td>1988-present</td>
+            <td>National Hurricane Center took over observational responsibilities</td>
+          </tr>
+          
+          <tr>
+            <td>Western North Pacific</td>
+            <td>1985-present</td>
+            <td>Joint Typhoon Warning Center deems these best tracks to be of highest quality</td>
+          </tr>
+          
+          <tr>
+            <td>North Indian Ocean</td>
+            <td>1985-present</td>
+            <td>Joint Typhoon Warning Center deems these best tracks to be of highest quality</td>
+          </tr>
+          
+          <tr>
+            <td>South Indian Ocean</td>
+            <td>1985-present</td>
+            <td>Joint Typhoon Warning Center deems these best tracks to be of highest quality</td>
+          </tr>
+          
+          <tr>
+            <td>South Pacific</td>
+            <td>1985-present</td>
+            <td>Joint Typhoon Warning Center deems these best tracks to be of highest quality</td>
+          </tr>
+          
+        </tbody>
+      </table>
+    </div>
+  </div>
+    <p style="margin-top:-45px"> Here is a list of a few publications discussing various issues with data quality:</p>
+    <ul style="margin-left:30px;margin-top:-30px">
+    <li><a href="https://www.metoc.navy.mil/jtwc/products/best-tracks/tc-bt-report.html" target="_blank">Joint Typhoon Warning Center Best Tracks Documentation</a> – Describes the quality of the JTWC best track since 1945. </li>
+    <li><a href="/Forecast/klotzbachlandsea2015.pdf" target="_blank">Extremely Intense Hurricanes</a> – Revisiting Webster et al. after 10 Years – Discusses changes in observational platforms that may have led to a spurious increase in Category 4-5 hurricanes prior to 1990.</li>
+    <li><a href="https://journals.ametsoc.org/doi/full/10.1175/2008JCLI2178.1" target="_blank"> On estimates of historical North Atlantic tropical cyclone activity </a>– Discusses likely under-estimates in tropical cyclone counts for the North Atlantic basin prior to 1965.</li>
+  </ul>
+
+  </div>
+</div>
+
+<div class="dropdown">
+  <div onclick="myFunction('a6')" class="dropbtn">6. How do you make your climatological calculations?</div>
+  <div id="a6" class="dropdown-content">
+    <p> Climatological calculations are made from the best tracks provided by the National Hurricane Center, the Central Pacific Hurricane Center and the Joint Typhoon Warning Center as archived on <a href="https://www.ncdc.noaa.gov/ibtracs/index.php" target="_blank">the International Best Track Archive for Climate Stewardship</a>.
+Best tracks are the best estimate by the operational center for a tropical cyclone’s intensity for every six-hour period when a tropical cyclone is active. Other times may be included in the best track when additional information is provided (e.g., landfall, aircraft reconnaissance).</p>
+  </div>
+</div>
+
+<div class="dropdown">
+  <div onclick="myFunction('a7')" class="dropbtn">7. What is Accumulated Cyclone Energy (ACE)?</div>
+  <div id="a7" class="dropdown-content">
+    <p> ACE is calculated by summing the square of the maximum sustained winds of each tropical cyclone (in knots) every six hours when the system is classified as either tropical or sub-tropical. The resulting value is then divided by 10,000. Details of the calculation are available on <a href="https://en.wikipedia.org/wiki/Accumulated_cyclone_energy" target="_blank"> Wikipedia</a>. </p>
+  </div>
+</div>
+
+<div class="dropdown">
+  <div onclick="myFunction('a8')" class="dropbtn">8. Why do the hemispheric totals not equal the global total in a particular year?</div>
+  <div id="a8" class="dropdown-content">
+    <p>The Northern Hemisphere season is defined to run from January 1 through December 31, while the Southern Hemisphere season is defined to run from
+July 1 through June 30. Global totals are based on the calendar year (January 1 – December 31), but the Northern Hemisphere and Southern Hemisphere
+totals have a six-month offset. </p>
+  </div>
+</div>
+
+<div class="dropdown">
+  <div onclick="myFunction('a9')" class="dropbtn">9. How do you account for tropical cyclones that cross basin boundaries?</div>
+  <div id="a9" class="dropdown-content">
+    <p> Occasionally tropical cyclones will cross boundaries between basins. This most frequently occurs between the Northeast Pacific and Northwest Pacific basins, as well as the South Indian and South Pacific basins. In this case, days as a tropical cyclone are counted in the basin where the storm was located. So, if a storm was in the Northeast Pacific as a tropical storm for 4 days, then passed into the Northwest Pacific as a tropical storm for 2 more days, it would count as 4 named storm days for the Northeast Pacific and 2 named storm days for the Northwest Pacific. In terms of storm counting, this particular tropical cyclone would count as 1 named storm in the Northeast Pacific and 0 named storms in the Northwest Pacific (in order to avoid double-counting).</p>
+
+    <p>As another example, if a system becomes named in the Northeast Pacific but intensifies into a typhoon in the Northwest Pacific, it would count as 1 named storm and 0 hurricanes in the Northeast Pacific and as 0 named storms and 1 hurricane/typhoon in the Northwest Pacific.</p>
+
+    <p>All statistics for an individual storm are displayed under the basin in which it formed. This is to avoid confusion of having TCs listed in multiple basins. Consequently, if there are basin crossers in a particular year, the named storm days for each tropical cyclone in a basin may not add up to the total days observed in a basin. </p>
+  </div>
+</div>
+
+
+
+<script>
+/* When the user clicks on the button,
+toggle between hiding and showing the dropdown content */
+function myFunction(divID) {
+  var x = document.getElementById(divID)
+  x.classList.toggle("show");
+
+}
+
+// Close the dropdown if the user clicks outside of it
+window.onclick = function(event) {
+  if (!event.target.matches('.dropbtn')) {
+    var dropdowns = document.getElementsByClassName("dropdown-content");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+}
+</script>
+
+</html>
+
+					</div>
+					</div>
+				</div>
+        </section>
+
+
+<!-- Footer -->
+			<footer id="footer">
+				<div class="container">
+				<!-- <div class="row">
+					<div class="6u 12u$(medium)">
+					</div>
+					<div class="6u$ 12u$(medium)">
+					</div>
+				</div> -->
+					<h4><b> Contact Us </b> </h4>
+					<ul class="icons" style="text-align:center;">
+						<li style="color:gray"><i class="fas fa-map-marker-alt" style="color:white"></i>&nbsp; Dept. of Atmospheric Science, 1371 Campus Delivery, Fort Collins, CO, 80523, USA </li>
+						<br><li style="color:gray"><i class="fas fa-phone-alt" style="color:white"></i>&nbsp; </li>
+					  <li style="color:gray"><i class="far fa-envelope" style="color:white"></i>&nbsp; csu-tropical at lists.colostate.edu </li>
+					</ul>
+				</div>
+
+					<!-- <div class="4u 12u$(medium)">
+						<div class="copyright">
+						<h4><b>&copy; 2026 Colorado State University.</b><br> All rights reserved.</h4>
+						<span class="image center"><img src="/images/logo/CSU-Ram-Rev.png" alt="CSU logo" style="float:left;width:80px;height:80px;margin:10px" /></span>
+						<span class="image center"><img src="/images/logo/BellTClogo.png" alt="Team logo" style="float:left;width:80px;height:80px;margin:10px" /></span>
+						</div>
+					</div> -->
+
+				<div>
+						<ul class="actions small" style="text-align:left;">
+							<li><a href="http://www.atmos.colostate.edu/" class="button small" target="_blank"><i class="fas fa-link"></i> Department of Atmospheric Science</a></li>
+							<li><a href="https://www.engr.colostate.edu/" class="button alt small" target="_blank"><i class="fas fa-link"></i> Walter Scott, Jr. College of engineering</a></li>
+							<li><a href="https://www.colostate.edu/" class="button small" target="_blank"><i class="fas fa-link"></i> Colorado State University</a></li>
+						</ul>
+
+				</div>
+
+				<div>
+					<div class="box">
+						<br>
+					<h4><b> Our Supporters </b> </h4>
+					<p>We gratefully acknowledge support from the following organizations.</p>
+					<div class="sponsor-logos">
+						<img src="/images/logo/partner1.png" alt="NSF" style="max-width:150px" />
+						<img src="/images/logo/partner2.png" alt="NOAA" style="max-width:250px" />
+						<img src="/images/logo/partner3.png" alt="ONR" style="max-width:130px" />
+						<img src="/images/logo/nasa.png" alt="NASA" style="max-width:140px" />
+						<img src="/images/logo/partner4.png" alt="Supporter" style="max-width:180px" />
+						<img src="/images/logo/partnerGallagherRe.png" alt="Gallagher Re" style="max-width:240px" />
+						<img src="/images/logo/partnerCWG.jpg" alt="Capital Weather Gang" style="max-width:140px" />
+						<img src="/images/logo/partnerIII.jpg" alt="III" style="max-width:190px" />
+						<img src="/images/logo/partner7.jpg" alt="Supporter" style="max-width:190px" />
+						<img src="/images/logo/partner8.jpg" alt="Supporter" style="max-width:180px" />
+						<img src="/images/logo/partner9.jpg" alt="Supporter" style="max-width:130px" />
+					</div>	
+					</div>
+				</div>
+
+				<div class="copyright">
+				<h4><b>&copy; 2026 Colorado State University.</b> All rights reserved.</h4>
+				<span class="image center"><img src="/images/logo/CSU-Ram-Rev.png" alt="CSU logo" style="width:80px;height:auto;margin:10px;display:inline-block" /></span>
+				<span class="image center"><img src="/images/logo/BellTClogo.png" alt="Team logo" style="width:80px;height:auto;margin:10px;display:inline-block" /></span>
+				<div style="padding: 20px 0;display:block">
+				<h4><b> Acknowledgement </b></h4>
+					<p>Website design and development by <a href="/research_group.html#nam">Chelsea Nam</a>, <a href="/research_group.html#cha">Ting-Yu Cha</a>,
+						<a href="/research_group.html#casas">Ellie Casas</a>, <a href="/research_group.html#klotzbach">Phil Klotzbach</a>, <a href="/research_group.html#young">Kate Young</a>, <a href="/research_group.html#silvers">Levi Silvers</a>,
+						and <a href="/research_group.html#bell">Michael Bell</a> based on the <a href="https://templated.co/hielo" target="_blank">hielo template.</a></p>
+
+			  </div>
+				</div>
+
+			</footer>
+
+		<!-- Scripts -->
+		<script src="/assets/js/jquery.min.js"></script>
+		<script src="/assets/js/jquery.scrollex.min.js"></script>
+		<script src="/assets/js/skel.min.js"></script>
+		<script src="/assets/js/util.js"></script>
+		<script src="/assets/js/main.js"></script>
+
+	</body>
+</html>

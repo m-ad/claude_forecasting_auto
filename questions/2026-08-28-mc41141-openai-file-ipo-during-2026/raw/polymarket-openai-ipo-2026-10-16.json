@@ -1,0 +1,79 @@
+{
+ "retrieved": "2026-10-16",
+ "source": "https://gamma-api.polymarket.com/events?slug=openai-ipo-by",
+ "event_volume": 3058314.693555004,
+ "markets": [
+  {
+   "question": "Will OpenAI IPO by August 31 2026?",
+   "outcomePrices": "[\"0\", \"1\"]",
+   "bestBid": null,
+   "bestAsk": 0.001,
+   "lastTradePrice": 0.001,
+   "volume": "207400.69542999996",
+   "endDate": null
+  },
+  {
+   "question": "Will OpenAI IPO by September 30 2026?",
+   "outcomePrices": "[\"0\", \"1\"]",
+   "bestBid": null,
+   "bestAsk": 0.001,
+   "lastTradePrice": 0.002,
+   "volume": "150889.900779",
+   "endDate": "2026-10-01T03:59:00Z"
+  },
+  {
+   "question": "Will OpenAI IPO by July 31 2026?",
+   "outcomePrices": "[\"0\", \"1\"]",
+   "bestBid": null,
+   "bestAsk": 0.001,
+   "lastTradePrice": 0.001,
+   "volume": "184102.198102",
+   "endDate": null
+  },
+  {
+   "question": "Will OpenAI IPO by December 31 2025?",
+   "outcomePrices": "[\"0\", \"1\"]",
+   "bestBid": null,
+   "bestAsk": 0.001,
+   "lastTradePrice": 1,
+   "volume": "495527.497211",
+   "endDate": null
+  },
+  {
+   "question": "Will OpenAI IPO by June 30 2026?",
+   "outcomePrices": "[\"0\", \"1\"]",
+   "bestBid": null,
+   "bestAsk": 0.001,
+   "lastTradePrice": 0.001,
+   "volume": "957464.5272240035",
+   "endDate": null
+  },
+  {
+   "question": "Will OpenAI IPO by December 31 2026?",
+   "outcomePrices": "[\"0.0425\", \"0.9575\"]",
+   "bestBid": 0.042,
+   "bestAsk": 0.043,
+   "lastTradePrice": 0.042,
+   "volume": "1055944.3266390003",
+   "endDate": "2027-01-01T04:59:00Z"
+  },
+  {
+   "question": "Will OpenAI IPO by March 31 2027?",
+   "outcomePrices": "[\"0.205\", \"0.795\"]",
+   "bestBid": 0.2,
+   "bestAsk": 0.21,
+   "lastTradePrice": 0.2,
+   "volume": "2269.619992",
+   "endDate": "2027-04-01T03:59:00Z"
+  },
+  {
+   "question": "Will OpenAI IPO by June 30, 2027?",
+   "outcomePrices": "[\"0.345\", \"0.655\"]",
+   "bestBid": 0.34,
+   "bestAsk": 0.35,
+   "lastTradePrice": 0.34,
+   "volume": "4715.928178",
+   "endDate": "2027-07-01T03:59:00Z"
+  }
+ ]
+}

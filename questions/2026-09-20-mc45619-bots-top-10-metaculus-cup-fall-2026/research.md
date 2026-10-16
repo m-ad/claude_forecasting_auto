@@ -241,3 +241,11 @@ the participation-risk weighting, and the model-averaging that widened the IQR f
 2. Admin answer on `symbiosis`.
 3. Fall FutureEval early standings — are the elite five all active?
 4. Any statement by laertes (Jeffrey Liang) / Mantic / FutureSearch / Preseen about Fall Cup participation.
+
+## 2026-10-16 — v3 update log
+
+- Metaculus (pre-fetched `raw/metaculus-2026-10-16.json`): CP 5.06 [3.98, 6.14] n=118; Pro 5.05 [4.16, 6.03] n=10; gold 5.22 [4.23, 6.23] n=32. Flat since 2026-10-02. The comment list came back empty. Criteria, fine print and background are identical to the 2026-10-02 snapshot.
+- Web searches ("Metaculus Cup Fall 2026 bots leaderboard", "Mantic/laertes/FutureSearch October 2026", "Metaculus Cup fall 2026 AI bot news", "metaculus cup fall 2026 bot github") found only Summer 2026 coverage. No Fall standings, no incumbent withdrawal, no rule change.
+- Fetching the EA Forum Fall FutureEval announcement returned 403. The GitHub search API is not available from this session.
+- metac-bot-template PR #120 (merged 2026-10-15): a stale lock pointed fresh forks' Cup mode at the Summer Cup until the fix. Cached to `raw/github-metac-bot-template-2026-10-16.json`. Effect: only marginal pressure down on template-bot challengers.
+- Open questions are unchanged. The next check is the interim leaderboard in early November.
