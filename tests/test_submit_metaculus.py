@@ -224,13 +224,86 @@ def test_unchanged_compares_against_the_bots_live_forecast():
         my_forecasts={"latest": {"forecast_values": [0.77, 0.23], "end_time": None}},
     )
     p = sm.build_payload("s", _record("binary", 0.23), post, None)
-    assert sm.unchanged(p, post)
+    assert sm.unchanged(p, post["question"])
     p = sm.build_payload("s", _record("binary", 0.25), post, None)
-    assert not sm.unchanged(p, post)
+    assert not sm.unchanged(p, post["question"])
 
 
-def test_group_posts_are_refused_rather_than_guessed():
-    with pytest.raises(sm.SubmitError, match="group-of-questions"):
+# ------------------------------------------------------------ group posts
+# A group-of-questions post (one binary per year on post 21095, say) has no
+# top-level ``question``: each sub-question carries its own id, type, status and
+# the bot's ``my_forecasts``. The slug's meta.yaml URL pins one with
+# ``?sub-question=<id>``, the form Metaculus itself links to.
+GROUP_URL = (
+    "https://www.metaculus.com/questions/21095/will-the-following-years-be-the-"
+    "warmest-year-on-record-according-to-nasa/?sub-question=21098"
+)
+
+
+def _group_post(overrides: dict[int, dict] | None = None) -> dict:
+    subs = [
+        {"id": 21097, "type": "binary", "label": "2025", "status": "resolved"},
+        {"id": 21098, "type": "binary", "label": "2026", "status": "open"},
+        {"id": 45424, "type": "binary", "label": "2027", "status": "open"},
+    ]
+    for q in subs:
+        q.update((overrides or {}).get(q["id"], {}))
+    return {
+        "id": 21095,
+        "status": "open",
+        "question": None,
+        "group_of_questions": {"questions": subs},
+    }
+
+
+def test_subquestion_id_is_read_from_the_metaculus_url():
+    assert sm.subquestion_id(GROUP_URL) == 21098
+    assert sm.subquestion_id("https://www.metaculus.com/questions/21095/x/") is None
+    assert sm.subquestion_id(None) is None
+
+
+def test_group_post_submits_to_the_pinned_subquestion():
+    p = sm.build_payload("s", _record("binary", 0.62), _group_post(), None, 21098)
+    assert (p.post_id, p.question_id) == (21095, 21098)
+    assert p.body()[0]["question"] == 21098
+    assert p.values == {"probability_yes": 0.62}
+
+
+def test_group_post_without_a_pinned_subquestion_is_refused_not_guessed():
+    with pytest.raises(sm.SubmitError, match=r"sub-question=.*2026=21098"):
+        sm.build_payload("s", _record("binary", 0.62), _group_post(), None)
+
+
+def test_subquestion_missing_from_the_group_is_refused():
+    with pytest.raises(sm.SubmitError, match="not in post 21095"):
+        sm.build_payload("s", _record("binary", 0.62), _group_post(), None, 99)
+
+
+def test_subquestion_type_is_checked_against_the_ledger():
+    post = _group_post({21098: {"type": "numeric"}})
+    with pytest.raises(sm.SubmitError, match="Metaculus says 'numeric'"):
+        sm.build_payload("s", _record("binary", 0.62), post, None, 21098)
+
+
+def test_a_closed_subquestion_reads_closed_while_its_post_is_open():
+    """Post 15240 stayed open after its September 2026 sub-question closed."""
+    post = _group_post({21098: {"status": "closed"}})
+    assert sm.select_question(post, 21098)["status"] == "closed"
+    assert post["status"] == "open"
+
+
+def test_unchanged_reads_the_subquestions_own_live_forecast():
+    live = {"latest": {"forecast_values": [0.38, 0.62], "end_time": None}}
+    post = _group_post({21098: {"my_forecasts": live}})
+    q = sm.select_question(post, 21098)
+    p = sm.build_payload("s", _record("binary", 0.62), post, None, 21098)
+    assert sm.unchanged(p, q)
+    other = sm.build_payload("s", _record("binary", 0.62), post, None, 45424)
+    assert not sm.unchanged(other, sm.select_question(post, 45424))
+
+
+def test_non_group_post_without_a_question_is_refused():
+    with pytest.raises(sm.SubmitError, match="no question"):
         sm.build_payload(
             "s", _record("numeric", 1.0), {"id": 1, "question": None}, None
         )

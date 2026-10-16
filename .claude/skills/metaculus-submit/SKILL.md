@@ -117,14 +117,20 @@ Same command without `--dry-run`. Each line reports `→ submitted`, `= already 
 
 Give the operator one table: slug, version submitted, what was submitted (P(yes), the
 option vector, or median/IQR), and the outcome. List separately what was **not** submitted
-and why: unchanged, closed, group post, legacy record without a spec, or rejected. Also flag questions whose latest
+and why: unchanged, closed (post or sub-question), group slug without a pinned sub-question, legacy
+record without a spec, or rejected. Also flag questions whose latest
 version is old, or which close soon, as candidates for `/update`. **Do not** offer to log the
 submission to the ledger; the ledger records forecasts, not submissions.
 
 ## Limits
 
-- **Group-of-questions posts** (one post, several sub-questions, e.g. the SPR `mc15240`
-  pair) are refused; the ledger does not map slugs to sub-question ids.
+- **Group-of-questions posts** (one post, several sub-questions, e.g. the NASA `mc21095`
+  years or the SPR `mc15240` dates) are submitted per slug. The `?sub-question=<id>` at the
+  end of the slug's `meta.yaml` `url` names the sub-question; a group slug whose URL lacks it
+  is refused with the post's `label=id` list, so add the right id to the URL rather than
+  guess. A sub-question that has closed is skipped even while its post stays open. The
+  sub-question URL also works as a target (`/metaculus-submit <url>?sub-question=21098`); a
+  bare group post id is ambiguous.
 - **Quartile-only CDFs** are an approximation: the tails are exponential beyond the quartiles,
   heavier than a normal distribution. A recorded `percentiles` distribution with p5/p95, or a
   PMF, is always better.

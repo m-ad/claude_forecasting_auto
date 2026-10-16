@@ -36,10 +36,17 @@ and a spec entry for a record that already carries a distribution is refused:
 the ledger is the record, a spec only fills its gaps. Both sources pass the
 same validation as ``log_forecast.py`` (``distribution_problems``).
 
+Group-of-questions posts (one post, one sub-question per year, say) are
+submitted per slug: the ``?sub-question=<id>`` in the slug's ``meta.yaml`` URL
+names the sub-question, and a group slug whose URL lacks it is refused rather
+than guessed. Each post is fetched once per run, however many of its
+sub-questions are targets.
+
 Examples
 --------
     uv run scripts/submit_metaculus.py 2026-09-05-mc45230-united-states-attack-oman-before-2027
     uv run scripts/submit_metaculus.py 45230 45464 --dry-run
+    uv run scripts/submit_metaculus.py "https://www.metaculus.com/questions/21095/x/?sub-question=21098"
     uv run scripts/submit_metaculus.py --all --project "Metaculus Cup Fall 2026" --spec spec.json
 """
 
@@ -58,9 +65,10 @@ from dataclasses import dataclass
 from itertools import pairwise
 from pathlib import Path
 from typing import Any
+from urllib.parse import parse_qs, urlparse
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from _common import all_questions, distribution_problems, find_slug
+from _common import all_questions, distribution_problems, find_slug, load_meta
 from calibration import read_ledger
 
 API = "https://www.metaculus.com/api"
@@ -166,6 +174,47 @@ def project_names(post: dict[str, Any]) -> set[str]:
             if isinstance(proj, dict) and proj.get("name"):
                 names.add(proj["name"])
     return names
+
+
+def subquestion_id(url: str | None) -> int | None:
+    """The sub-question a Metaculus URL pins with ``?sub-question=<id>``, if any."""
+    raw = parse_qs(urlparse(url or "").query).get("sub-question")
+    if not raw:
+        return None
+    try:
+        return int(raw[0])
+    except ValueError:
+        raise SubmitError(f"sub-question {raw[0]!r} in {url} is not an id") from None
+
+
+def select_question(post: dict[str, Any], sub_id: int | None) -> dict[str, Any]:
+    """The question a slug forecasts: the post's own, or one of its group's.
+
+    A group post has no top-level ``question``; picking a sub-question by
+    position or label would silently submit to the wrong year, so the id must
+    be pinned explicitly.
+    """
+    q = post.get("question")
+    if q:
+        if sub_id is not None and sub_id != q["id"]:
+            raise SubmitError(
+                f"URL pins sub-question {sub_id}, but post {post['id']} is the "
+                f"single question {q['id']}"
+            )
+        return q
+    group = (post.get("group_of_questions") or {}).get("questions") or []
+    if not group:
+        raise SubmitError(f"post {post['id']} has no question to forecast")
+    if sub_id is None:
+        ids = ", ".join(f"{g.get('label')}={g['id']}" for g in group)
+        raise SubmitError(
+            "group-of-questions post; add ?sub-question=<id> to the url in "
+            f"meta.yaml ({ids})"
+        )
+    for g in group:
+        if g["id"] == sub_id:
+            return g
+    raise SubmitError(f"sub-question {sub_id} is not in post {post['id']}")
 
 
 # ------------------------------------------------------------------ geometry
@@ -335,12 +384,17 @@ def quantile(cdf: list[float], scaling: dict[str, Any], p: float) -> float | Non
 
 # ------------------------------------------------------------------ payloads
 def build_payload(
-    slug: str, record: dict[str, Any], post: dict[str, Any], spec: dict[str, Any] | None
+    slug: str,
+    record: dict[str, Any],
+    post: dict[str, Any],
+    spec: dict[str, Any] | None,
+    sub_id: int | None = None,
 ) -> Payload:
-    """Turn the latest ledger record (+ optional spec entry) into a submission."""
-    q = post.get("question")
-    if not q:
-        raise SubmitError("group-of-questions post; submit its sub-questions by hand")
+    """Turn the latest ledger record (+ optional spec entry) into a submission.
+
+    ``sub_id`` pins the sub-question of a group post (see ``select_question``).
+    """
+    q = select_question(post, sub_id)
     qtype = q["type"]
     if qtype != record.get("type"):
         raise SubmitError(
@@ -403,30 +457,28 @@ def build_payload(
     return Payload(**base, values={"continuous_cdf": cdf}, note=note)
 
 
-def live_values(post: dict[str, Any]) -> list[float] | None:
+def live_values(q: dict[str, Any]) -> list[float] | None:
     """The bot's current forecast on this question, as Metaculus stores it."""
-    latest = ((post.get("question") or {}).get("my_forecasts") or {}).get("latest")
+    latest = (q.get("my_forecasts") or {}).get("latest")
     if not latest or latest.get("end_time"):
         return None
     return latest.get("forecast_values")
 
 
-def as_forecast_values(payload: Payload, post: dict[str, Any]) -> list[float]:
+def as_forecast_values(payload: Payload, q: dict[str, Any]) -> list[float]:
     """The payload in Metaculus' ``forecast_values`` layout, for comparison."""
     v = payload.values
     if "probability_yes" in v:
         return [1 - v["probability_yes"], v["probability_yes"]]
     if "probability_yes_per_category" in v:
-        return [
-            v["probability_yes_per_category"][o] for o in post["question"]["options"]
-        ]
+        return [v["probability_yes_per_category"][o] for o in q["options"]]
     return v["continuous_cdf"]
 
 
-def unchanged(payload: Payload, post: dict[str, Any], tol: float = 1e-4) -> bool:
-    """True when the bot's live forecast already equals this payload."""
-    live = live_values(post)
-    new = as_forecast_values(payload, post)
+def unchanged(payload: Payload, q: dict[str, Any], tol: float = 1e-4) -> bool:
+    """True when the bot's live forecast on question ``q`` equals this payload."""
+    live = live_values(q)
+    new = as_forecast_values(payload, q)
     return (
         live is not None
         and len(live) == len(new)
@@ -434,7 +486,7 @@ def unchanged(payload: Payload, post: dict[str, Any], tol: float = 1e-4) -> bool
     )
 
 
-def describe(payload: Payload, post: dict[str, Any]) -> str:
+def describe(payload: Payload, q: dict[str, Any]) -> str:
     """One-line human summary of what would be submitted."""
     v = payload.values
     if "probability_yes" in v:
@@ -443,7 +495,7 @@ def describe(payload: Payload, post: dict[str, Any]) -> str:
         return " · ".join(
             f"{o}: {p:.3f}" for o, p in v["probability_yes_per_category"].items()
         )
-    scaling = post["question"]["scaling"]
+    scaling = q["scaling"]
     qs = [quantile(v["continuous_cdf"], scaling, p) for p in (0.25, 0.5, 0.75)]
     fmt = ["off-range" if x is None else f"{x:.6g}" for x in qs]
     cdf = v["continuous_cdf"]
@@ -517,6 +569,10 @@ def main() -> None:
     if unknown:
         print(f"! spec entries with no open ledger forecast, ignored: {unknown}")
 
+    # Sibling slugs of a group share one post; fetching it once per run keeps
+    # the IP rate limit quiet and needs no refresh, since a submission only
+    # changes the sub-question it targets.
+    posts: dict[int, dict[str, Any]] = {}
     tally = {
         "submitted": 0,
         "would submit": 0,
@@ -533,22 +589,32 @@ def main() -> None:
             tally["skipped"] += 1
             continue
         try:
-            post = fetch_post(int(rec["post_id"]))
+            sub_id = subquestion_id(load_meta(slug).get("url"))
+            pid = int(rec["post_id"])
+            if pid not in posts:
+                posts[pid] = fetch_post(pid)
+            post = posts[pid]
             if args.project and args.project not in project_names(post):
                 continue
             if post.get("status") in CLOSED_STATUSES:
                 print(f"- {slug}: post is {post.get('status')}")
                 tally["skipped"] += 1
                 continue
-            payload = build_payload(slug, rec, post, specs.get(slug))
+            q = select_question(post, sub_id)
+            # A group post stays open while its earlier sub-questions close.
+            if q.get("status") in CLOSED_STATUSES:
+                print(f"- {slug}: sub-question {q['id']} is {q.get('status')}")
+                tally["skipped"] += 1
+                continue
+            payload = build_payload(slug, rec, post, specs.get(slug), sub_id)
         except SubmitError as exc:
             print(f"! {slug}: {exc}")
             tally["failed"] += 1
             continue
         head = f"{slug} v{rec['version']} (q{payload.question_id}, {payload.qtype})"
         note = f"  [{payload.note}]" if payload.note else ""
-        print(f"{head}: {describe(payload, post)}{note}")
-        if not args.force and unchanged(payload, post):
+        print(f"{head}: {describe(payload, q)}{note}")
+        if not args.force and unchanged(payload, q):
             print("  = already live, not resubmitted")
             tally["unchanged"] += 1
             continue

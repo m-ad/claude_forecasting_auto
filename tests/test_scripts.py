@@ -167,6 +167,23 @@ def test_find_slug_returns_none_when_nothing_or_too_much_matches():
         assert _common.find_slug("20") is None
 
 
+def test_find_slug_resolves_a_group_subquestion_url(tmp_path, monkeypatch):
+    """Sibling slugs share a post id; ``?sub-question=`` tells them apart."""
+    monkeypatch.setattr(_common, "QUESTIONS", tmp_path)
+    base = "https://www.metaculus.com/questions/21095/warmest-year/"
+    for year, qid in (("2026", 21098), ("2027", 45424)):
+        slug = f"2026-10-04-mc21095-warmest-{year}"
+        (tmp_path / slug).mkdir()
+        _common.save_meta(
+            slug,
+            {"slug": slug, "post_id": 21095, "url": f"{base}?sub-question={qid}"},
+        )
+    assert _common.find_slug(f"{base}?sub-question=45424") == (
+        "2026-10-04-mc21095-warmest-2027"
+    )
+    assert _common.find_slug("21095") is None  # the bare post id stays ambiguous
+
+
 # ----------------------------------------------------------- outcome coercion
 @pytest.mark.parametrize(
     "raw,expected",
@@ -547,6 +564,8 @@ def test_group_post_is_scaffolded_with_its_real_type(monkeypatch, tmp_path, caps
     assert meta["dates"]["closes"] == "2028-07-01"
     assert "group of 2 subquestions" in err
     assert "2027: question 45575 (numeric)" in err
+    # Submission maps a group slug to its subquestion through the URL alone.
+    assert "?sub-question=<id>" in err
 
 
 # ------------------------------------- new_question.py: pre-open ("upcoming") posts
