@@ -1,0 +1,65 @@
+slug: 2026-10-17-mc45418-first-round-vote-share-jos-maria-neves
+title: What first round vote share will José Maria Neves win in the 2026 Cape Verdean presidential election?
+source: metaculus
+url: https://www.metaculus.com/questions/45418/
+post_id: 45418
+type: numeric
+unit: '%'
+tags:
+- elections
+- africa
+dates:
+  created: '2026-10-17'
+  opened: '2026-10-19'
+  closes: '2026-11-13'
+  resolves: '2026-11-26'
+status: open
+current:
+  version: 1
+  date: '2026-10-17'
+  median: 56.5
+  iqr:
+  - 52.5
+  - 60.5
+  community:
+    cp: null
+    pro: null
+    gold: null
+    n_forecasters: 5
+    as_of: '2026-10-17'
+next_review: '2026-10-24'
+tripwires:
+- signal: Published poll with Neves >= 55% of decided voters (by 2026-11-10)
+  by: '2026-11-10'
+  direction: up
+  magnitude: 3
+  magnitude_unit: '%'
+  fired: null
+- signal: Published poll with Neves <= 48% of decided voters (by 2026-11-10)
+  by: '2026-11-10'
+  direction: down
+  magnitude: 3
+  magnitude_unit: '%'
+  fired: null
+- signal: 'MpD split: prominent MpD figures endorse Neves or call abstention (by 2026-11-08)'
+  by: '2026-11-08'
+  direction: up
+  magnitude: 2
+  magnitude_unit: '%'
+  fired: null
+- signal: Scandal or crisis hitting the PAICV government before 2026-11-13
+  by: '2026-11-13'
+  direction: down
+  magnitude: 2
+  magnitude_unit: '%'
+  fired: null
+- signal: CNE provisional result on election night 2026-11-15 -> mechanical re-forecast
+  by: '2026-11-15'
+  direction: either
+  magnitude: 0
+  magnitude_unit: '%'
+  fired: null
+resolution:
+  outcome: null
+  date: null
+  source: null
