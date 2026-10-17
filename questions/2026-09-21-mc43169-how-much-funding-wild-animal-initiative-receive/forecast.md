@@ -6,9 +6,272 @@
 | **Type** | numeric (USD millions, both bounds open, scale 1–7) |
 | **Opened / Closes / Resolves** | — / 2026-12-31 / ~2027-08 to 2027-11 (when the FY2026 Form 990 is filed) |
 | **Status** | open |
-| **Current forecast** | **Median $3.72M, IQR [$2.91M, $4.68M]** (v1, 2026-09-21) |
-| **Community (as of 2026-09-19)** | CP $4.25M IQR [3.31, 5.27] (n=29) · Pro $4.41M (n=5) · Gold $4.23M (n=15) · 48 forecasters total |
+| **Current forecast** | **Median $3.09M, IQR [$2.16M, $4.09M]** (v3, 2026-10-17) |
+| **Community (as of 2026-10-17, operator-supplied)** | CP $3.87M IQR [2.85, 4.88] · Pro / Gold not available (fetch blocked) |
 | **Next review** | 2026-11-20 |
+
+---
+
+## v3 — Update — 2026-10-17
+
+### Revision
+
+| Driver | Direction | Effect (median, $M) |
+|---|---|---|
+| Prior (v2, 2026-10-17) | — | Median $3.09M, IQR [$2.16M, $4.09M] |
+| Metaculus CP, supplied by the operator: **$3.873M, IQR [2.846, 4.883]**, down from $4.245M IQR [3.31, 5.27] on 2026-09-19 (−0.37, −9%; the lower quartile fell 0.46). The CP moved *toward* v2 with no public news I can find. The 2026-08-14 spike from WAI's $5.55M projection is partly unwinding, or other forecasters have found the same accrual-timing point. This confirms my direction; it is not new information about WAI's funders. The gap to the crowd shrinks from $1.16M to $0.78M (−20%) | → | 0 |
+| Pro / gold-medalist cohorts: still unavailable (proxy blocks the Cloudflare challenge host) | → | 0 |
+| **New forecast** | | **Median $3.09M, IQR [$2.16M, $4.09M]** — no change |
+
+Why not move? Moving down to "lead" the crowd would be anti-herding without evidence. Moving up
+toward the CP would discard the specific accrual-timing fact behind v2. Had I given the CP a
+standing 15–20% weight, the drop would lower my median by ~$0.06M, which is inside rounding.
+So the number stays.
+
+### Tripwire check
+
+| Tripwire from v2 | Fired? | Note |
+|---|---|---|
+| Metaculus CP, once re-fetched, outside [3.4, 4.9] with no news | Not fired | $3.87M, inside the band |
+| All other v2 tripwires (giving-season post, ≥ $1.5M grant, FY2025 audit/990, TNF 2027 commitment, Coefficient Giving WAW grant) | Not fired | Checked in v2 earlier today, and nothing has changed in the past hour |
+
+### What resolves YES
+Unchanged from v2.
+
+### Outside view
+Unchanged from v2.
+
+### Inside view
+Unchanged from v2.
+
+### Evidence
+Unchanged from v2, plus the CP move above.
+
+### Other forecasters
+
+| Source | Value | As of | Note |
+|---|---|---|---|
+| Metaculus CP (recency-weighted) | **$3.87M**, IQR [2.85, 4.88] | 2026-10-17 | supplied by the operator; n not available |
+| Metaculus Pro | not available | — | last seen $4.41M (2026-09-19) |
+| Metaculus gold medalists | not available | — | last seen $4.23M (2026-09-19) |
+| Markets | none | 2026-10-17 | no WAI-funding contract |
+
+The CP's IQR [2.85, 4.88] now overlaps most of mine [2.16, 4.09], and its lower quartile is close
+to my median. The remaining disagreement sits mainly in the lower tail: I put ~32% below
+$2.4M (no large item signed in 2026), and the crowd appears to put ~15–20% there.
+
+### Scenarios
+Unchanged from v2.
+
+### Sensitivity
+Unchanged from v2.
+
+### What would change my mind (tripwires)
+Unchanged from v2 (see `meta.yaml`). Re-fetch the Pro and gold cohorts at the next review. If
+both sit ≥ $1M above me, look for a fact I missed before defending the gap.
+
+### Sources
+
+1. Unchanged from v2; plus the Metaculus CP for post 43169 as supplied by the operator on 2026-10-17 (no raw snapshot: the fetch was blocked).
+
+**Question**: [How much funding will Wild Animal Initiative receive in 2026?](https://www.metaculus.com/questions/43169/how-much-funding-will-wild-animal-initiative-receive-in-2026/)
+**Date**: 2026-10-17
+**Forecast**: Median $3.09M, IQR [$2.16M, $4.09M]
+**Thesis**: No change. The CP fell from $4.25M to $3.87M, toward my number and inside my
+tripwire band, with no news trigger; that confirms the direction rather than adding new evidence.
+The v2 thesis stands: the TNF bridge grant for H2 2026 is already on the FY2025 990, so FY2026
+is a ~$1.95M base plus whatever large grant (most plausibly TNF's 2027 renewal) is signed by
+31 December.
+
+---
+
+## v2 — Update — 2026-10-17
+
+![Funder decomposition 2024–2026](charts/funder-decomposition-2024-2026-v2.png)
+
+### Revision
+
+| Driver | Direction | Effect (median, $M) |
+|---|---|---|
+| Prior (v1, 2026-09-21) | — | Median $3.72M, IQR [$2.91M, $4.68M] |
+| **The Navigation Fund's (TNF) ~$1M grant for July–December 2026 was booked in FY2025, not FY2026** (P ≈ 0.8). TNF said in Oct 2024 it would make WAI *one* ~$1M grant covering 2026-07-01 to 2026-12-31 and "won't be making any more grants in the WAW space at least until 2027" [18]. WAI's 2025 report shows TNF $1,075,000 in 2025 [3]. The FY2024 audit shows no TNF receivable at end-2024 [19]. v1 counted TNF as $1.0–1.5M of *recurring* 2026 money. Under accrual it is already spent on the FY2025 990 | ↓ | −1.00 |
+| TNF's **2027 renewal** becomes a 2026 lump only if the letter is signed by 2026-12-31. P(renewal) ≈ 0.55 (WAI in 2024: "more likely than not"); P(signed in 2026 \| renewal) ≈ 0.65 (TNF signed the bridge ~a year ahead; the decision is due "late 2026"). P ≈ 0.36–0.42 overall, size ~$1.6M | ↑ | +0.45 |
+| **Lumpy individual major gifts exist.** The FY2024 audit names one donor at $900,000 (39% of support), booked as an *unrestricted contribution*, not a grant [19]. No such gift appears in 2025 [3]. A repeat in 2026 is possible: P(other ≥ ~$1M item) ≈ 0.30 | ↑ | +0.10 |
+| **WAI's $5,552,333 projection is less informative than I assumed.** Without TNF, the projection now needs ~$3.3M beyond the known base, not ~$2M. One identified mechanism explains part of the gap: an *operating* budget counts the 2026 release of the TNF bridge (~$1.08M) as 2026 revenue, while the 990 does not. Likelihood ratio (LR) for a high year cut from ~2.5 to ~1.8 | ↓ | −0.15 |
+| 26 quiet days: no WAI funding post, no Animal Welfare Fund payout report, the RP sheet is unchanged byte-for-byte. Q4, the signing window, is still mostly ahead | ↓ | −0.03 |
+| ACE recommendation risk (v1 tripwire): WAI's November 2025 recommendation is a **two-year** status, so it is not re-evaluated in 2026 [13][20] | → | 0 |
+| **New forecast** | | **Median $3.09M, IQR [$2.16M, $4.09M]** |
+
+(The row effects are an approximate attribution of the −0.63 total, read off the Monte Carlo by switching each component on and off one at a time.)
+
+### Tripwire check
+
+| Tripwire from v1 | Fired? | Note |
+|---|---|---|
+| WAI funding-priorities / Marginal Funding Week post states 2026 revenue ≥ $5M or a secured multi-year commitment (by 2026-12-05) | Not fired (pending) | No post yet. 2025's post was dated 2025-11-18. WAI's EA Forum activity since 2026-09-21: none. The last post, "Phase 3 of field-building" (2026-08-19), says nothing about revenue [21] |
+| Same post repeats an unfilled gap against the $4.1–4.28M budget | Not fired (pending) | As above |
+| Public announcement of a new institutional grant ≥ $1.5M signed by 2026-12-31 | Not fired | WAI blog: latest post 2026-08-12, none about funding [22]. No TNF, Coefficient Giving or foundation release found |
+| FY2025 Form 990 filed; line 8 differs from $2,716,044 by > 10% (by 2026-11-30) | Not fired | Not on ProPublica (latest: FY2024, processed 2026-01-20) and not on WAI's transparency page. The FY2025 audit is also absent. The FY2024 audit was issued 2025-08-12 [16][19] |
+| TNF confirms a 2027+ wild-animal-welfare commitment signed in 2026 (by 2027-01-31) | Not fired | TNF's grants page lists no wild-animal-welfare focus area at all [23]. Weak evidence: TNF never listed wild animal welfare (WAW) publicly, even while funding it |
+| ACE's November 2026 round drops WAI | **Retired**: cannot fire | WAI holds a two-year recommendation from November 2025 [20] |
+| Metaculus CP moves outside [3.6, 4.9] without a news trigger | **Unknown** | The Metaculus fetch failed three times on 2026-10-17: the sandbox proxy refused CONNECT to Cloudflare's challenge host `brunhild.challenges.cloudflare.com`. The fallback scraper failed too. Cohort numbers are **not** refreshed in this version |
+
+### What resolves YES
+
+Unchanged from v1 (Form 990 FY2026, Part I line 8, accrual, interest excluded). One point is now
+load-bearing: **accrual timing works in both directions.** In 2021 and 2023 it pulled future
+years' money *into* the year of the question. In 2025 it did the same to a grant meant for
+2026. That money is no longer available to FY2026.
+
+### Outside view
+
+v1's reference class, the "lump-free years" $1.72M → $2.33M → $2.72M, was wrong. **2024 and
+2025 were not lump-free.** Each contained exactly one ~$1M item:
+
+| Year | Line 8 | One large item | Base without it |
+|---|---|---|---|
+| 2023 | $6.818M | Open Philanthropy $5.62M (present value of $6M) [19] | ~$1.20M |
+| 2024 | $2.325M | single donor $0.90M, unrestricted [19] | ~$1.43M |
+| 2025 | $2.716M | TNF $1.075M (bridge for H2 2026) [3][18] | ~$1.64M |
+| 2026 | ? | none signed as of 2026-10-17 | ~$1.95M (trend + ACE known at $0.444M) |
+
+So there are two reference classes. The base grows steadily: +19%, +15%. And one item of
+**≥ $0.9M landed in 4 of the last 5 years** (2021, 2023, 2024, 2025; not 2022). That gives an
+outside-view rate of roughly 0.6–0.7 for "some large item lands in 2026". Open Philanthropy's
+exit pulls the rate down.
+
+### Inside view
+
+`line 8 (2026) = B + H + R + L`
+
+| Component | Model | Basis |
+|---|---|---|
+| B: recurring base | lognormal, median $1.95M, σ 0.15 | individuals ~$1.0M (2025: $0.87M); ACE $0.444M (known); EA Animal Welfare Fund (AWF) $0–0.3M (paused new grants mid-2025; no 2026 payout report); CAF Canada + small foundations ~$0.15M; new foundations $0–0.5M |
+| H: TNF bridge booked in 2026 after all | P 0.20, ~$1.0M | residual on the main finding (e.g. TNF split the payment, or the 2025 figure was something else) |
+| R: TNF 2027 renewal signed in 2026 | P 0.42, lognormal median $1.6M, σ 0.4 | the bridge ran at $2M/yr; WAI expected tapering ("low chance" after 2027) |
+| L: other large item (major donor, new foundation, multi-year gift) | P 0.30, lognormal median $1.1M, σ 0.6 | the 2024 $0.9M donor; Foundation Relations Manager hired for 2026; a long right tail stands in for the LJMU / endowed-chair asks |
+
+### Evidence
+
+New since v1, in order of weight:
+
+1. **TNF's own plan, verbatim** [18]: *"TNF is planning to make us a grant of ~$1 million"*
+   covering *"the amount of time between the end of our current OP grant on June 30, 2026 and
+   the end of the 2026 calendar year"*; *"They won't be making any more grants in the WAW space
+   at least until 2027"*; *"In late 2026, TNF will decide whether to support WAI … through
+   2027"*. Combined with TNF = $1,075,000 in WAI's 2025 accounts [3], the bridge is in FY2025.
+2. **WAI's FY2024 audited statements** [19]. Open Philanthropy's $6M was booked in 2023 and fully
+   receivable within one year by end-2024 ($1.5M gross), so no Open Philanthropy money is left
+   to book. Long-term grants receivable at end-2024 were **$0**, so no TNF promise was
+   outstanding then. The 2024 concentration note shows one donor at $900,000, booked as an
+   unrestricted contribution. This confirms that large one-off individual gifts happen at WAI.
+3. **The November 2025 "$267,000 short" statement** [8] fits this reading. By November 2025
+   WAI counted ~$3.83M of its 2026 budget as covered. Only money it already held or had
+   been promised in 2025 (TNF bridge + reserves) can do that.
+4. **The RP/ACE sheet is unchanged** (re-downloaded 2026-10-17; identical to the 2026-09-21 snapshot).
+
+**Why WAI's $5.55M projection might still be right.** A 2026 projection made in mid-2026 sits
+$3.3M above the known base. Either WAI expected new money, most naturally TNF's 2027 renewal
+plus something else, or the figure is an operating-budget number. I can only partly explain
+it away. That is why R + L together still carry a ~60% chance of *some* large item, and
+P(> $4.28M) stays at 21%.
+
+**What I could not find.** No Metaculus refresh (blocked, see tripwire table). No FY2025 audit
+or 990. No AWF 2026 payout reports. No Coefficient Giving WAW grant. No Kalshi or Polymarket
+contract (Manifold has only an ACE-recommendations market, which is irrelevant now that WAI's
+status is two-year).
+
+### Other forecasters
+
+| Source | Value | As of | Note |
+|---|---|---|---|
+| Metaculus CP | $4.25M, IQR [3.31, 5.27] (n=29) | 2026-09-19 | **stale**: fetch blocked 2026-10-17 |
+| Metaculus Pro | $4.41M (n=5) | 2026-09-19 | stale |
+| Metaculus gold medalists | $4.23M (n=15) | 2026-09-19 | stale |
+| Markets | none | 2026-10-17 | no WAI-funding contract anywhere |
+
+I now sit **$1.16M (−27%) below the last-seen CP** and $1.3M below the Pros. That is a large gap,
+and the rule is to look for the fact I missed. I think the fact runs the other way here. The CP
+jumped on 2026-08-14/15 when the $5.55M projection was posted as the question's only
+comment, and the question page shows the raw 990 series. Nothing visible on the page shows
+that the 2026 TNF money is already on the FY2025 990. That is a specific, checkable claim. If
+it is wrong (the FY2025 audit shows TNF as unrestricted 2025 support), I move back up by ~$0.6M.
+
+### Scenarios
+
+| # | Scenario | Weight | Implies (line 8, $M) |
+|---|---|---|---|
+| 1 | No large item: TNF decides in 2027 or not at all, no major gift | 32% | 1.6 – 2.4 |
+| 2 | One ~$1–1.6M item (TNF renewal signed in December, or a repeat major donor) | 37% | 2.4 – 3.8 |
+| 3 | One larger item, or two items | 20% | 3.8 – 5.0 |
+| 4 | WAI's projection lands or is exceeded (multi-year TNF letter, new foundation) | 11% | > 5.0 |
+
+Monte Carlo (2M draws, components as in the inside view):
+
+| p05 | p10 | **p25** | **p50** | **p75** | p90 | p95 |
+|---|---|---|---|---|---|---|
+| 1.67 | 1.81 | **2.16** | **3.09** | **4.09** | 5.10 | 5.77 |
+
+P(> $2.716M, i.e. above 2025) = 61%; P(> $4.28M, the 2026 budget) = 21%; P(> $5.26M, WAI's projection) = 8.5%.
+The distribution is **bimodal**: one mode near $1.95M (no lump) and a broad shoulder at
+$3.3–4.5M. The median sits in the trough between them, so the IQR is the more honest summary.
+
+### Sensitivity
+
+| Assumption | If instead | Forecast becomes |
+|---|---|---|
+| P(TNF bridge booked in FY2026 after all) 0.20 | 0.40 | median $3.26M, IQR [2.45, 4.33] |
+| P(bridge in FY2026) 0.20 | 0 (certain it is in FY2025) | median $2.87M, IQR [2.03, 3.86] |
+| P(TNF renewal signed in 2026) 0.42 | 0.25 | median $2.74M, IQR [2.02, 3.66] |
+| P(TNF renewal signed in 2026) 0.42 | 0.55 | median $3.38M, IQR [2.41, 4.35] |
+| Base B median $1.95M | $2.30M | median $3.45M, IQR [2.54, 4.46] |
+| P(other large item) 0.30 | 0.45 | median $3.29M, IQR [2.36, 4.33] |
+
+The load-bearing parameter is now **P(TNF signs a 2027 letter before 2027-01-01)**. It is a date
+on one letter, as v1 said, but now it is a *known* letter with a stated decision window.
+
+### What would change my mind (tripwires)
+
+- [ ] **WAI's 2026 giving-season post** (EA Forum, expect ~2026-11-15, by **2026-12-05**) says
+      TNF has renewed for 2027, or states 2026 revenue ≥ $4.5M → **up, +1.0 $M**. If it says
+      TNF has not yet decided, or decides in 2027, or it repeats a 2026 gap → **down, −0.5 $M**.
+- [ ] **A new grant of ≥ $1.5M to WAI is announced**, signed on or before **2026-12-31** → **up, +1.3 $M**.
+- [ ] **WAI's FY2025 audit or Form 990** is published by **2026-12-31**. If it shows ≥ $0.9M
+      time-restricted net assets or grants receivable at end-2025 (the TNF bridge held for H2
+      2026) → **down, −0.25 $M** (confirms the main driver). If it shows < $0.3M time-restricted,
+      i.e. TNF's $1.075M was 2025 operating support → **up, +0.6 $M**.
+- [ ] **TNF publishes or confirms a 2027+ commitment to WAI with a 2026 signature** by
+      **2027-01-31** → **up, +1.2 $M**. Explicit TNF exit → **down, −0.4 $M**.
+- [ ] **Coefficient Giving announces any WAW grant to WAI** (Good Ventures or a non-GV partner)
+      with a 2026 signature, by **2026-12-31** → **up, +1.0 $M** (carried over from the
+      2026-09-23 research addendum).
+- [ ] **The Metaculus CP, once re-fetched, sits outside [3.4, 4.9]** with no identifiable news → **either, 0**: re-analyse.
+
+### Sources
+
+Sources 1–17 as in v1. New or re-used in v2:
+
+3. Wild Animal Initiative, *2025 Annual Report*, pp. 30–32 — https://www.wildanimalinitiative.org/s/2025-WildAnimalInitiative-AnnualReport.pdf (accessed 2026-10-17, re-read)
+8. "Funding priorities for Wild Animal Initiative in 2026", EA Forum, 2025-11-18 — https://forum.effectivealtruism.org/posts/wJnEm7hbKBvDaAa6p/funding-priorities-for-wild-animal-initiative-in-2026-1 (accessed 2026-10-17, re-read)
+18. Wild Animal Initiative (Cameron Meyer Shorb), "Update on the wild animal welfare funding landscape", EA Forum, 2024-10-02 — https://forum.effectivealtruism.org/posts/BL7ennvpCZKXJbbYH/update-on-the-wild-animal-welfare-funding-landscape (accessed 2026-10-17; TNF quotations)
+19. Wild Animal Initiative, *Audited financial statements, years ended 2024-12-31 and 2023-12-31* (issued 2025-08-12): Statements of Financial Position and Activities, Notes 3, 6, 7 — https://www.wildanimalinitiative.org/s/Wild-Animal-Inititative-Audit.pdf (accessed 2026-10-17; extract in `raw/wai-audit-fy2024-extract-2026-10-17.csv`)
+20. Animal Charity Evaluators, 2025 evaluation cycle (WAI among six charities re-evaluated in 2025 and awarded two-year recommendation status, 2025-11-04) — https://beta.effectivealtruism.org/posts/Fw8AMFZEqGYPLeCsz/announcing-the-animal-charities-under-evaluation-in-2025 (accessed 2026-10-17, via search-index summary; I did not open the full post)
+21. Luke Hecht, "WAI is starting Phase 3 of field-building for wild animal welfare science", EA Forum, 2026-08-19 — https://forum.effectivealtruism.org/posts/EZumX6KDGH9YNuYFf/wai-is-starting-phase-3-of-field-building-for-wild-animal (accessed 2026-10-17)
+22. Wild Animal Initiative blog index — https://www.wildanimalinitiative.org/blog (accessed 2026-10-17; latest post 2026-08-12)
+23. The Navigation Fund, grants page — https://www.navigation.org/grants (accessed 2026-10-17; focus areas: climate, farm animal welfare, criminal justice, open science, nuclear safety)
+24. ProPublica Nonprofit Explorer API, WAI filings — https://projects.propublica.org/nonprofits/api/v2/organizations/822281466.json (accessed 2026-10-17; latest filing FY2024)
+25. RP/ACE "Financials and future plans" sheet, re-downloaded — snapshot `raw/wai-ace-rp-financials-2026-10-17.csv` (accessed 2026-10-17; identical to 2026-09-21)
+
+**Question**: [How much funding will Wild Animal Initiative receive in 2026?](https://www.metaculus.com/questions/43169/how-much-funding-will-wild-animal-initiative-receive-in-2026/)
+**Date**: 2026-10-17
+**Forecast**: Median $3.09M, IQR [$2.16M, $4.09M]
+**Thesis**: v1 counted The Navigation Fund's ~$1M grant for H2 2026 as 2026 money, but TNF's own
+plan (one bridge grant, no other WAW grants before 2027) and WAI's 2025 report (TNF $1,075,000
+in 2025) put it on the FY2025 990. That leaves a ~$1.95M recurring base plus whatever large item
+is *signed* by 31 December. The most likely candidate is TNF's 2027 renewal, due "late 2026"
+(P ≈ 0.42 that it lands in 2026). WAI's $5.55M projection is discounted because part of the gap
+is a budget-vs-accrual artefact. I now sit ~27% below a stale (2026-09-19) CP that I could not
+re-fetch.
 
 ---
 
