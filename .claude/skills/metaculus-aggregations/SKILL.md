@@ -74,7 +74,21 @@ python <skill_dir>/scripts/metaculus_aggregations.py <POST_ID> --json
 
 # Skip resolution criteria / fine print / background if you only need numbers
 python <skill_dir>/scripts/metaculus_aggregations.py <POST_ID> --no-details
+
+# Several posts through one browser (JSON: an object keyed by post id)
+python <skill_dir>/scripts/metaculus_aggregations.py <ID1> <ID2> <ID3> --json
 ```
+
+In this repository, prefer `uv run scripts/fetch_metaculus.py <slug> [<slug> ...]`. It wraps the
+batch call, and it writes each result into `questions/<slug>/raw/` under the right name.
+
+**Exit status:**
+
+| Code | Meaning |
+|---|---|
+| 0 | Everything fetched |
+| 3 | At least one post came back `blocked` (see "Pool blocks" below) |
+| 1 | A post failed outright (error on stderr) |
 
 By default it fetches all three cohorts: `recency_weighted` (the community prediction),
 `metaculus_pros`, and `gold_medalists`.
@@ -195,7 +209,33 @@ Three invariants remain. Do not "fix" them out:
    calls returning empty cohorts was about the **pipe** separator `a|b`; comma is verified against
    all three.)
 3. **Keep the backoff long.** `_BACKOFF` totals ~3 min because the block was measured to clear only
-   after ~2 min. Short retries are wasted requests that re-arm the limit.
+   after ~2 min. Short retries are wasted requests that re-arm the limit. A challenge that outlasts
+   it is a pool block, and is handled by the circuit breaker below, not by more retries.
+
+### Pool blocks (v4.6)
+
+Cloud sessions leave through a shared, rotating pool of exit addresses (`160.79.106.0/24`,
+AS396982). Cloudflare intermittently challenges that pool **as a whole**. On 2026-10-17, five
+cold launches on five different exit IPs were all challenged. The block lasted at least 29 min
+(11:45–12:14 UTC) and began after only 4 requests from the session. Earlier blocks lasted
+50 min to 8 h. Our own request rate does not cause it, and no retry schedule outlasts it.
+
+Headless Chromium cannot pass the Turnstile stage. Do not try: it is circumventing
+Cloudflare. The token-authenticated `/api/` keeps answering throughout.
+
+**The circuit breaker:**
+
+1. The first request whose challenge survives the full backoff writes
+   `$TMPDIR/metaculus-block.json` (30 min TTL, `_BLOCK_TTL`).
+2. From then on, every request in this process, and in any later process in the same
+   container, answers at once without touching the network.
+3. A post whose explorer was blocked returns `blocked=True`. Its `methods` and `comments` are
+   empty, and its title, status, criteria and forecaster count come from `METACULUS_API_KEY`.
+   `aggregation_note` says the cohorts were **not fetched**. This is never "no forecasters".
+4. Without the key there is no metadata, so the post still raises.
+5. To force a fresh probe inside the TTL, delete the marker. Don't, unless ~90 min have passed.
+
+Recovery is not more retries: it is one deferred re-fetch. See AGENTS.md §4.
 
 ### The environment can break this independently of Metaculus
 
@@ -264,12 +304,22 @@ Moved here from the script's docstring; the measurements are the reason each pie
   the failed explorer raised before the post was ever looked up. An open question, or an
   upcoming one whose text cannot be fetched either, still raises: a missing CP or missing
   criteria must never read as "none".
+- **v4.6 (2026-10-17) — pool blocks.** Every post in a blocked run spent the full ~3 min backoff
+  and then raised: 17 posts on 2026-10-09 04:22, 5 on 10-12, 4 on 10-15. v4.6 adds:
+  - a circuit breaker with a marker file;
+  - a `blocked` result built from API-key metadata;
+  - `fetch_many` (one browser for N posts) and multi-id CLI calls;
+  - exit code 3.
+
+  Measured live: two posts in 194 s, of which 190 s was the first post's backoff and 1 s the
+  second post, where the old code needed ~7 min and raised twice. A follow-up process: 1 s.
 
 ## Troubleshooting
 
 | Symptom | Cause | Fix |
 |---|---|---|
-| `RuntimeError: No aggregation JSON ... last status 403` after the full backoff | IP-level rate-limit block (it blocks plain HTML pages too, so it is not path-specific) | Wait ~2–3 min and retry. A shared sandbox egress IP trips this easily; batch your questions and don't re-run in a loop |
+| `blocked: true`, exit 3, `POOL BLOCK` on stderr | Pool block (v4.6): the challenge outlasted the ~3 min backoff | Expected during a block. Cohorts were not fetched; cache the metadata as `metaculus-api-<date>.json` and re-fetch **once** after ~90 min (AGENTS.md §4) |
+| `RuntimeError: No aggregation JSON ... last status 403` after the full backoff | A pool block with no `METACULUS_API_KEY` metadata to fall back on, or a post that does not exist | Check the post id; set the key; otherwise as for `blocked` |
 | `last status 0` (no HTTP response at all) | Chromium has no egress: `www.metaculus.com` not allowlisted, or the proxy is not reaching the browser. Since v4.1 the TLS 1.3 reset is *not* a cause — it is retried on TLS 1.2 automatically, so reaching this message means TLS 1.2 failed too | Check the allowlist and `HTTPS_PROXY`; confirm a plain page loads at all. Setting `METACULUS_FORCE_TLS12=1` will not help here — it is already being tried |
 | `Executable doesn't exist at .../chromium_headless_shell-<n>` | Playwright was upgraded past the Chromium build the image ships | The script pins `/opt/pw-browsers/chromium`; don't remove that, or override `PLAYWRIGHT_CHROMIUM_EXECUTABLE_PATH` |
 | `Looks like Playwright was just installed... run playwright install` | `PLAYWRIGHT_BROWSERS_PATH` unset | The script sets it when `/opt/pw-browsers` exists; don't remove that |

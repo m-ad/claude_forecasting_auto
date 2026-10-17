@@ -32,9 +32,12 @@ title if the question is really about something else.
 ## Step 2 — Read the question properly
 
 ```bash
-uv run .claude/skills/metaculus-aggregations/scripts/metaculus_aggregations.py <POST_ID> \
-    --comments 10 --history --json > questions/<slug>/raw/metaculus-<YYYY-MM-DD>.json
+uv run scripts/fetch_metaculus.py <slug> --comments 10
 ```
+
+Exit status 3 means a pool block, and you got metadata only. Criteria and fine print come from
+`METACULUS_API_KEY` and are usable, except before the question opens (then they are `null`;
+see below). There are no cohorts and no comments. Follow the deferred re-fetch in AGENTS.md §4.
 
 Read resolution criteria, fine print, background, and the top comments (comments frequently
 contain the resolution ambiguity everyone else already found). Write the "What resolves YES"

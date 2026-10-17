@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Metaculus Aggregation Explorer fetcher (v4.5, October 2026).
+Metaculus Aggregation Explorer fetcher (v4.6, October 2026).
 
 Pulls **structured numeric** aggregations straight from the JSON the Metaculus
 frontend consumes, for any aggregation method the Aggregation Explorer exposes:
@@ -14,7 +14,7 @@ Also fetches question metadata (resolution criteria / fine print / background)
 and comments, both of which the ``/api-proxy/`` surface exposes anonymously.
 
 Design, in one paragraph each -- the measurements behind every point, and the
-version history (v3 -> v4.5), live in ``../SKILL.md`` ("How it works",
+version history (v3 -> v4.6), live in ``../SKILL.md`` ("How it works",
 "Group posts", "Version history"):
 
 - **Every request goes through a real Chromium** (a navigation or a same-origin
@@ -31,10 +31,14 @@ version history (v3 -> v4.5), live in ``../SKILL.md`` ("How it works",
   up and every subquestion fetched with its ``question_id`` pinned.
 - **Upcoming posts** whose explorer request is challenged still return their
   criteria, with ``methods`` empty and ``aggregation_note`` saying why.
+- **Pool blocks.** A challenge that outlasts the backoff is Cloudflare blocking
+  the shared egress pool for tens of minutes or more: a marker file makes every
+  later request fail fast, and the post comes back ``blocked`` with API-key
+  metadata only (CLI exit code 3). ``fetch_many`` serves N posts per browser.
 
 Usage
 -----
-    python metaculus_aggregations.py <post_id> \
+    python metaculus_aggregations.py <post_id> [<post_id> ...] \
         [--methods recency_weighted,metaculus_pros,gold_medalists] \
         [--include-bots] [--history] [--comments N] [--json]
 
@@ -53,9 +57,12 @@ import argparse
 import datetime as _dt
 import json
 import os
+import sys
+import tempfile
 import time
 import urllib.request
 from dataclasses import asdict, dataclass, field
+from pathlib import Path
 from typing import Any
 from urllib.parse import unquote, urlparse
 
@@ -99,6 +106,15 @@ _BACKOFF = (5, 30, 60, 75)
 # Seconds to leave between two *successful* requests, to stay under the limit
 # rather than recovering from it.
 _PACE = 1.5
+
+# A challenge that outlasts the whole backoff is not the ~2 min rate limit: it is
+# Cloudflare challenging the shared cloud egress pool as a whole, which lasts tens
+# of minutes to hours (measured 2026-10-17, ../SKILL.md "Pool blocks"). Retrying
+# cannot clear it, so the first request that sees one records it here, and every
+# later request -- in this run and in later runs in the same container -- fails at
+# once instead of spending the backoff again. Delete the file to force a probe.
+_BLOCK_TTL = 30 * 60
+_BLOCK_MARKER = Path(tempfile.gettempdir()) / "metaculus-block.json"
 
 # Same-origin XHR used once a real page is loaded; the fallback when a bare
 # navigation to /api-proxy/ is challenged.
@@ -203,8 +219,12 @@ class AggregationResult:
     label: str | None = None
     subquestions: list = field(default_factory=list)
     # Set when the Aggregation Explorer was skipped (an upcoming question whose
-    # explorer request failed): says why ``methods`` is empty.
+    # explorer request failed, or a pool block): says why ``methods`` is empty.
     aggregation_note: str | None = None
+    # True when a pool block stopped the browser path: ``methods`` and
+    # ``comments`` are empty because they were never fetched, not because the
+    # question has none. Metadata comes from the API key.
+    blocked: bool = False
 
 
 # --------------------------------------------------------------------------- #
@@ -245,6 +265,28 @@ def _is_challenge(body: str) -> bool:
     """True when a response body is a Cloudflare interstitial rather than data."""
     head = body[:2000]
     return "Just a moment" in head or "challenges.cloudflare.com" in head
+
+
+def block_active() -> dict | None:
+    """The recorded pool block, if one is still within :data:`_BLOCK_TTL`; else None."""
+    try:
+        marker = json.loads(_BLOCK_MARKER.read_text(encoding="utf-8"))
+    # Missing, unreadable or half-written: no block on record.
+    except (OSError, ValueError):
+        return None
+    if not isinstance(marker, dict):
+        return None
+    return marker if marker.get("until", 0) > time.time() else None
+
+
+def _record_block() -> None:
+    """Write the pool-block marker; a failed write only costs the fail-fast."""
+    now = time.time()
+    marker = {"since": _iso(now), "until": now + _BLOCK_TTL}
+    try:
+        _BLOCK_MARKER.write_text(json.dumps(marker), encoding="utf-8")
+    except OSError:
+        pass
 
 
 def _api_get_json(path: str, timeout: float = 30.0) -> dict | None:
@@ -307,6 +349,10 @@ class _Fetcher:
         self._warmed = False
         self._browser = None
         self._last_request = 0.0
+        # Whether the latest attempt came back as a Cloudflare interstitial, and
+        # whether a pool block has stopped this fetcher (see _BLOCK_TTL).
+        self._last_challenged = False
+        self.blocked = False
         self._open()
 
     # ---------------------------------------------------------------- browser
@@ -401,12 +447,20 @@ class _Fetcher:
         does. Retries follow :data:`_BACKOFF`, sized to outlast the measured
         ~2 min IP block rather than to retry quickly.
 
+        A challenge that survives every retry is a pool block: it is recorded
+        (:func:`block_active`), ``self.blocked`` is set, and from then on this
+        method answers ``(403, {})`` at once without a request.
+
         Returns
         -------
         (int, dict)
             HTTP status and decoded JSON; the dict is empty on persistent
             failure, and the status is 0 when no HTTP response was ever seen.
         """
+        if self.blocked or block_active():
+            self.blocked = True
+            return 403, {}
+
         # Space successive requests out: staying under the limit is much cheaper
         # than waiting one out.
         gap = time.monotonic() - self._last_request
@@ -443,12 +497,19 @@ class _Fetcher:
             # "load a page, then XHR from it" for the remaining attempts.
             if i == 0 and not self._warmed:
                 self._warm()
+        # Still a challenge after ~3 min, from a warmed page: the rate limit
+        # would have cleared by now, so this is the pool block. A final status
+        # 0 or a plain 403 is a different failure and leaves no marker.
+        if self._last_challenged:
+            _record_block()
+            self.blocked = True
         return last_status, {}
 
     def _attempt(self, url: str) -> tuple[int, dict | None]:
         """One transport attempt; the dict is None unless it returned real JSON."""
         status, body = self._page_fetch(url) if self._warmed else self._navigate(url)
         self._last_request = time.monotonic()
+        self._last_challenged = status == 403 and _is_challenge(body)
         if status == 200 and body and not _is_challenge(body):
             try:
                 return status, json.loads(body)
@@ -585,6 +646,29 @@ def _extract_history(qtype: str, hist: list, scaling: dict) -> list:
 # --------------------------------------------------------------------------- #
 # Core fetch
 # --------------------------------------------------------------------------- #
+def _explorer_url(post_id: int, include_bots: bool) -> Any:
+    """Aggregation Explorer URL builder for one post: ``(methods, qid=None) -> url``.
+
+    A **comma**-separated ``aggregation_methods`` list returns every cohort in a
+    single response, which matters a lot: Metaculus rate-limits by IP and a
+    tripped limit costs ~2 minutes (see ../SKILL.md), so the request count is
+    the binding constraint, not the payload size. v3 sent one request per cohort
+    because the page's own ``methods=a|b`` form was seen to come back empty for
+    some cohorts -- that is the *pipe* separator; comma works and is verified
+    against all three cohorts.
+    """
+
+    def _url(mths: list[str], qid: int | None = None) -> str:
+        qid_part = f"&question_id={qid}" if qid is not None else ""
+        return (
+            f"{_AGG}?post_id={post_id}{qid_part}"
+            f"&include_bots={str(include_bots).lower()}"
+            f"&aggregation_methods={','.join(mths)}&joined_before_date="
+        )
+
+    return _url
+
+
 def fetch_aggregations(
     post_id: int,
     methods: list[str] | None = None,
@@ -618,53 +702,74 @@ def fetch_aggregations(
         ``result.methods[m].latest`` is None when a method has no forecasters
         on this question, or when the CP has not been revealed yet. For a
         group post, ``result.methods`` is empty and ``result.subquestions``
-        holds one result per subquestion (``label`` names it).
+        holds one result per subquestion (``label`` names it). On a pool block
+        ``result.blocked`` is True and only the API-key metadata is filled.
 
     Raises
     ------
     RuntimeError
-        If the probe never returns valid JSON (a non-existent post, or a
-        Cloudflare challenge that survived all retries), or a group
-        subquestion's aggregation cannot be fetched.
+        If the probe never returns valid JSON (a non-existent post, a dead
+        egress, or a pool block with no API-key metadata to fall back on), or
+        a group subquestion's aggregation cannot be fetched.
+    """
+    res = fetch_many(
+        [post_id],
+        methods=methods,
+        include_bots=include_bots,
+        include_history=include_history,
+        n_comments=n_comments,
+        include_details=include_details,
+    )[post_id]
+    if isinstance(res, Exception):
+        raise res
+    return res
+
+
+def fetch_many(
+    post_ids: list[int],
+    methods: list[str] | None = None,
+    include_bots: bool = False,
+    include_history: bool = False,
+    n_comments: int = 0,
+    include_details: bool = True,
+) -> dict[int, AggregationResult | Exception]:
+    """:func:`fetch_aggregations` for several posts through one browser.
+
+    One Chromium and one warmed page serve the whole batch, so a batch makes
+    one first-contact request instead of one per post, and the first post that
+    meets a pool block stops the browser path for the rest of the batch at once.
+
+    Returns
+    -------
+    dict
+        Post id -> its :class:`AggregationResult`, or the exception that post
+        raised. One post failing never costs the others their result.
     """
     from playwright.sync_api import sync_playwright
 
     methods = methods or DEFAULT_METHODS
-
-    def _url(mths: list[str], qid: int | None = None) -> str:
-        """Aggregation Explorer URL for one or more cohorts.
-
-        A **comma**-separated ``aggregation_methods`` list returns every cohort
-        in a single response, which matters a lot: Metaculus rate-limits by IP
-        and a tripped limit costs ~2 minutes (see ../SKILL.md), so the
-        request count is the binding constraint, not the payload size. v3 sent
-        one request per cohort because the page's own ``methods=a|b`` form was
-        seen to come back empty for some cohorts -- that is the *pipe*
-        separator; comma works and is verified against all three cohorts.
-        """
-        qid_part = f"&question_id={qid}" if qid is not None else ""
-        return (
-            f"{_AGG}?post_id={post_id}{qid_part}"
-            f"&include_bots={str(include_bots).lower()}"
-            f"&aggregation_methods={','.join(mths)}&joined_before_date="
-        )
-
+    out: dict[int, AggregationResult | Exception] = {}
     with sync_playwright() as p:
-        fetcher = _Fetcher(p, post_id)
+        fetcher = _Fetcher(p, post_ids[0])
         try:
-            result = _collect(
-                fetcher,
-                post_id,
-                _url,
-                methods,
-                include_history,
-                n_comments,
-                include_details,
-            )
+            for pid in post_ids:
+                # Only matters while the page is cold: warm on this post's page.
+                fetcher._post_id = pid
+                try:
+                    out[pid] = _collect(
+                        fetcher,
+                        pid,
+                        _explorer_url(pid, include_bots),
+                        methods,
+                        include_history,
+                        n_comments,
+                        include_details,
+                    )
+                except Exception as exc:  # noqa: BLE001 - reported per post
+                    out[pid] = exc
         finally:
             fetcher.close()
-
-    return result
+    return out
 
 
 def _group_questions(post: dict | None) -> list[dict]:
@@ -693,24 +798,28 @@ def _is_upcoming(post: dict | None) -> bool:
     return all(q.get("status") == "upcoming" for q in qs)
 
 
-def _from_upcoming_post(post_id: int, post: dict, status: int) -> AggregationResult:
-    """Metadata-only result for an upcoming post whose explorer request failed."""
+def _metadata_result(post_id: int, post: dict, note: str) -> AggregationResult:
+    """Metadata-only result for a post whose explorer request was skipped or failed.
+
+    ``note`` becomes ``aggregation_note``, saying why ``methods`` is empty.
+    """
     q = post.get("question") or {}
+    subqs = _group_questions(post)
+    types = {sq.get("type") for sq in subqs}
     return AggregationResult(
         post_id=post_id,
         question_id=q.get("id"),
         title=post.get("title"),
-        question_type=q.get("type"),
-        status=q.get("status"),
+        # A group has no top-level question; its subquestions' shared type is
+        # what scaffolding and the caller need.
+        question_type=q.get("type") or (types.pop() if len(types) == 1 else None),
+        status=q.get("status") or post.get("status"),
         resolution=None,
         scheduled_close_time=post.get("scheduled_close_time"),
         cp_reveal_time=q.get("cp_reveal_time"),
         options=q.get("options"),
         scaling=q.get("scaling"),
-        aggregation_note=(
-            f"Aggregation Explorer failed (last status {status}); skipped because "
-            "the question is upcoming and has no aggregations before its CP reveal."
-        ),
+        aggregation_note=note,
     )
 
 
@@ -812,14 +921,32 @@ def _collect(
             # has no aggregations yet; one post lookup decides.
             post = _lookup_post(fetcher, post_id)
             if _is_upcoming(post) and (_has_text(post) or not include_details):
-                result = _from_upcoming_post(post_id, post, status)
+                result = _metadata_result(
+                    post_id,
+                    post,
+                    f"Aggregation Explorer failed (last status {status}); skipped "
+                    "because the question is upcoming and has no aggregations "
+                    "before its CP reveal.",
+                )
+            elif post and getattr(fetcher, "blocked", False):
+                # A pool block is not "no forecasters": say so loudly, keep the
+                # API-key metadata, and let the caller decide (CLI exit code 3).
+                result = _metadata_result(
+                    post_id,
+                    post,
+                    "Pool block: Cloudflare is challenging the shared egress pool, "
+                    "so cohorts and comments were NOT fetched (the question may "
+                    "well have forecasters). Re-fetch in ~90 min.",
+                )
+                result.blocked = True
         if not subqs and result is None:
             raise RuntimeError(
                 f"No aggregation JSON for post {post_id} (last status {status}). "
                 "403 means the post does not exist or Cloudflare challenged every "
                 "retry -- wait ~3 min. Status 0 means no HTTP response at all, on "
                 "TLS 1.2 as well as 1.3 (the downgrade is automatic), so this is "
-                "egress: check HTTPS_PROXY and that www.metaculus.com is allowlisted."
+                "egress: check HTTPS_PROXY and that www.metaculus.com is allowlisted. "
+                "A pool block with no METACULUS_API_KEY metadata also ends here."
             )
 
     if result is not None:
@@ -878,6 +1005,12 @@ def _collect(
                     text=(c.get("text") or "").strip(),
                 )
             )
+        # A block that began after the cohorts arrived only costs the comments;
+        # an empty list must not read as "nobody commented".
+        if getattr(fetcher, "blocked", False) and not result.blocked:
+            result.aggregation_note = (
+                (result.aggregation_note + " ") if result.aggregation_note else ""
+            ) + "Comments NOT fetched (pool block)."
 
     return result
 
@@ -953,7 +1086,13 @@ def main() -> None:
     parser = argparse.ArgumentParser(
         description="Fetch Metaculus Aggregation Explorer data"
     )
-    parser.add_argument("post_id", type=int, help="Metaculus post id (from the URL)")
+    parser.add_argument(
+        "post_ids",
+        type=int,
+        nargs="+",
+        metavar="post_id",
+        help="Metaculus post id(s) from the URL; several share one browser",
+    )
     parser.add_argument(
         "--methods",
         type=str,
@@ -984,19 +1123,62 @@ def main() -> None:
     parser.add_argument("--json", action="store_true", help="Emit JSON")
     args = parser.parse_args()
 
-    res = fetch_aggregations(
-        post_id=args.post_id,
+    results = fetch_many(
+        args.post_ids,
         methods=[m.strip() for m in args.methods.split(",") if m.strip()],
         include_bots=args.include_bots,
         include_history=args.history,
         n_comments=args.comments,
         include_details=not args.no_details,
     )
+    sys.exit(_report(results, as_json=args.json))
 
-    if args.json:
-        print(json.dumps(asdict(res), indent=2, ensure_ascii=False))
+
+def _report(results: dict[int, AggregationResult | Exception], as_json: bool) -> int:
+    """Print every result and return the exit code.
+
+    Returns
+    -------
+    int
+        1 if any post failed outright, else 3 if any came back ``blocked``
+        (metadata only, cohorts not fetched), else 0. The distinct 3 is what
+        lets a workflow tell "fetched, nothing to see" from "never fetched".
+    """
+    failed = {pid: r for pid, r in results.items() if isinstance(r, Exception)}
+    ok = {pid: r for pid, r in results.items() if pid not in failed}
+    for pid, exc in failed.items():
+        print(f"ERROR post {pid}: {exc}", file=sys.stderr)
+    if as_json:
+        # One post keeps the old single-object shape that the raw/ caches use.
+        if len(results) == 1:
+            if ok:
+                print(
+                    json.dumps(
+                        asdict(next(iter(ok.values()))), indent=2, ensure_ascii=False
+                    )
+                )
+        else:
+            payload = {
+                str(pid): asdict(r) if pid in ok else {"error": str(r)}
+                for pid, r in results.items()
+            }
+            print(json.dumps(payload, indent=2, ensure_ascii=False))
     else:
-        _print_human(res)
+        for i, res in enumerate(ok.values()):
+            if i:
+                print("\n" + "=" * 72)
+            _print_human(res)
+    blocked = [pid for pid, r in ok.items() if r.blocked]
+    if blocked:
+        print(
+            f"POOL BLOCK: cohorts not fetched for {blocked}; metadata is from the "
+            f"API key. Marker {_BLOCK_MARKER} makes repeat calls fail fast for "
+            f"{_BLOCK_TTL // 60} min. Re-fetch once in ~90 min.",
+            file=sys.stderr,
+        )
+    if failed:
+        return 1
+    return 3 if blocked else 0
 
 
 if __name__ == "__main__":
