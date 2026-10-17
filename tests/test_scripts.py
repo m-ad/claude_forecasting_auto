@@ -335,6 +335,11 @@ def test_status_skips_dropped_questions_like_resolved_ones():
     assert status.urgency({"status": "dropped", "current": {"version": 2}})[0] < 0
 
 
+def test_status_triage_leaves_one_shot_questions_to_the_sweep():
+    meta = {"status": "open", "current": {}, "tournament": {"mode": "one_shot", "slug": "m"}}
+    assert status.urgency(meta)[0] < 0
+
+
 def test_status_resolution_column_falls_back_to_the_close_date():
     """The table must show the date the urgency score was computed from."""
     assert status.resolves_on({"dates": {"closes": "2027-01-01"}}) == "2027-01-01"

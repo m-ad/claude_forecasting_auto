@@ -2,15 +2,21 @@
 name: forecast-update
 description: >-
   Revisit, revise, or resolve an existing forecast in this repository: check the tripwires from
-  the previous version, re-fetch live Metaculus and market numbers, update Bayesianly from the
+  the previous version, re-fetch live market and source numbers, update Bayesianly from the
   previous forecast as prior, prepend a new version with a revision table to forecast.md, and
   log it to the ledger. Also covers resolution and post-mortem scoring. Use whenever the user
   says update, revisit, re-check, refresh, "any news on", "has this changed", "did it resolve",
   or invokes /update, /resolve or /status. Do not use for a brand-new question — that is
-  forecast-workflow.
+  forecast-workflow — and never for a one-shot tournament question, which is never revisited.
 ---
 
 # Update workflow
+
+**Hard stop first.** If `meta.yaml` has `tournament.mode: one_shot`, refuse: a bot-tournament
+question takes exactly one forecast, and a second submission is a rules violation. Say so and
+stop. (Its resolution is recorded by the daily `tournament-sync`, not here.) An operator who
+wants a private re-analysis for the calibration record can have one in chat, but it is never
+logged and never submitted.
 
 Read `docs/update-protocol.md`. The previous version's tripwire list is your search plan.
 
@@ -38,14 +44,12 @@ table. **Then** search generally for developments since the last version date.
 ## Step 4 — Re-fetch live numbers
 
 ```bash
-uv run scripts/fetch_metaculus.py <slug>
+uv run scripts/metaculus_api.py post <post_id> > questions/<slug>/raw/metaculus-question-<YYYY-MM-DD>.json
 ```
 
-Exit status 3 means a pool block. Only API metadata was cached (`raw/metaculus-api-<date>.json`).
-Carry the last cached cohorts forward with their date, marked stale, and follow the deferred
-re-fetch in AGENTS.md §4.
-
-Plus market prices and the underlying data series. Compare against the snapshot from last time —
+That refreshes the question text (criteria edits happen; staff clarifications too). The
+community prediction is not available to the bot token. Then market prices and the underlying
+data series. Compare against the snapshot from last time —
 the *movement* is the signal, not the level.
 
 ## Step 5 — Update
@@ -114,11 +118,11 @@ gate above before committing.
 ## Triage
 
 `uv run scripts/status.py` lists open questions by urgency (review overdue, resolution imminent,
-last version stale, wide gap to the CP). Use it at the start of any "what should I look at" session.
+last version stale). One-shot tournament questions never need review. Use it at the start of any "what should I look at" session.
 
 When acting on the triage (`/status --act`) and **more than 2** questions are due, fan out: one
 subagent per question, each running this skill end to end for a single slug, with the Metaculus
-JSON pre-fetched serially by the parent (parallel fetches trip the per-IP rate limit). Never
+question text pre-fetched serially by the parent (the API rate-limits per IP). Never
 split one question across agents — the integration step is where calibration lives. The one
 exception runs the other way: two or three questions that share a resolution source or evidence
 base (the cage-free/broiler commitment pair, say) go to *one* agent, so the research happens once

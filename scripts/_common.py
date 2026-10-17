@@ -1,7 +1,7 @@
 """Shared helpers for the forecasting workbench scripts.
 
-Kept dependency-light on purpose: only PyYAML, so the tooling still runs when a
-Playwright/browser install is broken.
+Kept dependency-light on purpose: only PyYAML, so the sweep's per-run install
+stays seconds long.
 """
 
 from __future__ import annotations

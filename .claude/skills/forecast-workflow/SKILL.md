@@ -1,20 +1,24 @@
 ---
 name: forecast-workflow
 description: >-
-  End-to-end workflow for producing a new calibrated probabilistic forecast in this repository:
-  scaffolding the question folder, reading resolution criteria, establishing a reference-class
-  base rate, pulling the Metaculus community/Pro/gold-medalist aggregations and prediction-market
-  prices, building scenarios and an interquartile range, and writing forecast.md plus the ledger
-  entry. Use whenever the user asks for a forecast, a probability, a prediction, gives a
+  End-to-end workflow for producing a new calibrated probabilistic forecast for an operator
+  question in this repository: scaffolding the question folder, reading resolution criteria,
+  establishing a reference-class base rate, checking prediction-market prices, building scenarios
+  and an interquartile range, and writing forecast.md plus the ledger entry. Use whenever the user asks for a forecast, a probability, a prediction, gives a
   Metaculus/Kalshi/Polymarket/Manifold URL or question ID, says "forecast this", "what are the
   odds", "how likely is", or invokes /forecast. Do not use for revisiting an existing forecast —
-  that is forecast-update.
+  that is forecast-update — or for a bot-tournament question, which is tournament-forecast.
 ---
 
 # New forecast workflow
 
 Read `docs/methodology.md` and `docs/output-format.md` before writing anything. High effort.
 Create a task list; this has more than six steps.
+
+**Mode check first.** If the question belongs to a bot tournament (MiniBench, a FutureEval
+season — the post's `tournaments` in its `raw/` snapshot, or a `tournament` block with
+`mode: one_shot` in `meta.yaml`), stop and use `tournament-forecast` instead: one forecast per
+question, no human in the loop, and the sweep submits it. This skill is for everything else.
 
 ## Step 1 — Scaffold
 
@@ -23,32 +27,24 @@ uv run scripts/new_question.py --url "<metaculus url>"     # or --title "..." --
 ```
 
 It creates `questions/<YYYY-MM-DD>-<src><id>-<slug>/` with `meta.yaml`, `forecast.md`,
-`research.md`, `raw/` and `charts/`, pre-filled from the templates. It prints the slug — use it below.
+`research.md` and `raw/`, pre-filled from the templates, and prints the slug — use it below.
 
-For a Metaculus question it also pre-fills the title, type, and resolution dates by calling
-the aggregations script. Verify the fields; do not trust the slug it derived from a truncated
-title if the question is really about something else.
+For a Metaculus question it fills title, type, `question_id`, unit and dates from the official
+API and caches the question text to `raw/metaculus-question-<date>.json`. Verify the fields; do
+not trust the slug it derived from a truncated title if the question is really about something
+else.
 
 ## Step 2 — Read the question properly
 
-```bash
-uv run scripts/fetch_metaculus.py <slug> --comments 10
-```
+Read `raw/metaculus-question-<date>.json`: resolution criteria, fine print, background, bounds
+and options. (`uv run scripts/metaculus_api.py post <post_id>` prints the same, fresh.) Staff
+comments are available to the bot token; other comments and the community prediction are not.
 
-Exit status 3 means a pool block, and you got metadata only. Criteria and fine print come from
-`METACULUS_API_KEY` and are usable, except before the question opens (then they are `null`;
-see below). There are no cohorts and no comments. Follow the deferred re-fetch in AGENTS.md §4.
+Write the "What resolves YES" digest into `forecast.md` now, before forming any opinion.
 
-Read resolution criteria, fine print, background, and the top comments (comments frequently
-contain the resolution ambiguity everyone else already found). Write the "What resolves YES"
-digest into `forecast.md` now, before forming any opinion.
-
-Metaculus always publishes the criteria, including for questions still in the pre-prediction
-phase (`status: upcoming` — `new_question.py` warns). If they come back `null`, that is a fetch
-failure, not "not yet published": re-run once after ~3 min, and never forecast on an assumed
-resolution source while the real text is one fetch away.
-
-**Deliberately do not anchor yet**: note the CP but do your own Step 3–4 before reconciling.
+Bot tokens see `null` question text before a question opens (`status: upcoming` —
+`new_question.py` warns). The criteria are published on the page; scaffold again once the
+question opens rather than forecast on an assumed resolution source.
 
 ## Step 3 — Outside view
 
@@ -71,11 +67,11 @@ Snapshot volatile numbers into `raw/` with dated filenames.
 
 ## Step 6 — Other forecasters
 
-Fill the market-comparison table: Metaculus CP / Pro / gold, Kalshi, Polymarket, Manifold
-(discounted), Sentinel, Mantic, GJOpen/INFER if applicable. Flag disagreement between the
-Metaculus cohorts explicitly. If you differ from a liquid market or from agreeing Pro + gold
-cohorts by more than 10 percentage points, search again for the fact you are missing before
-you write the justification.
+Fill the market-comparison table: Kalshi, Polymarket, Manifold (discounted), Sentinel, Mantic,
+GJOpen/INFER if applicable. The Metaculus community prediction is hidden from the bot token on
+almost all questions: record it only if the operator supplied it, otherwise "hidden". If you
+differ from a liquid market by more than 10 percentage points, search again for the fact you
+are missing before you write the justification.
 
 ## Step 7 — Scenarios, distribution, sensitivity
 
@@ -95,8 +91,7 @@ then:
 ```bash
 uv run scripts/log_forecast.py add <slug> \
     --median 0.12 --lower 0.08 --upper 0.18 \
-    --cp 0.09 --pro 0.07 --gold 0.08 --n-forecasters 312 \
-    --thesis "..." --next-review 2026-10-31
+    --thesis "..." --next-review 2026-10-31      # --cp only if the operator supplied it
 ```
 
 **Record the full distribution with `--distribution`** whenever the median and IQR are not the
@@ -104,7 +99,7 @@ whole forecast. The ledger is the only machine-readable record, and a summary ca
 against an outcome it doesn't describe:
 
 - **multiple choice — required** (`log_forecast.py` refuses without it). The option vector,
-  keyed by the **exact Metaculus option labels** (from the cached `raw/metaculus-*.json`, not
+  keyed by the **exact Metaculus option labels** (from the cached `raw/metaculus-question-*.json`, not
   the shortened names in `forecast.md`), as fractions summing to 1. `--median` is the leading
   option's probability and must equal its entry. Put the vector in a JSON file and pass it as
   `@file` when a label contains quotes:
@@ -128,12 +123,14 @@ uv run pytest -q
 
 Reply in chat with: the market-comparison table, the 3–5 line reasoning core, and the summary
 block — which opens with the clickable `**Question**: [title](url)` line (from `meta.yaml`),
-then Date / Forecast / Thesis. Give the path to `forecast.md`. A chart (probability decomposition or scenario weights)
-only if it aids understanding — horizontal bars, saved to `questions/<slug>/charts/`.
+then Date / Forecast / Thesis. Give the path to `forecast.md`. No charts (AGENTS.md §7).
+
+Submitting to Metaculus is a separate step the operator requests explicitly; never part of
+this workflow.
 
 ## Non-Metaculus questions
 
-Same workflow, minus Step 2's Metaculus fetch. Use `--title/--type` on `new_question.py`,
+Same workflow, minus Step 2's Metaculus snapshot. Use `--title/--type` on `new_question.py`,
 `src` = `ks`/`pm`/`mf`/`x`. Write your own resolution criteria into `forecast.md` and make them
 explicit and falsifiable — an unfalsifiable question cannot be scored, and a forecast that
 cannot be scored does not belong in the ledger.

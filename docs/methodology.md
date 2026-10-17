@@ -44,14 +44,15 @@ put weight on the resolver's likely reading, and say so.
 
 ## 4. Other forecasters
 
-Pull the Metaculus cohorts and any market prices. Treat them as an informed prior held by
-people with skin in the game, not as noise to be corrected.
+Pull any market prices (the Metaculus community prediction is hidden from the bot token on
+almost every question, and on tournament questions until after close). Treat markets as an
+informed prior held by people with skin in the game, not as noise to be corrected.
 
 - Adjust market prices for known biases: longshot bias (low-probability contracts trade
   rich), time-value/interest drag on long-dated Polymarket contracts, low-volume noise on
   Manifold.
-- A gap of > 10 percentage points against a liquid market or against agreeing Pro + gold
-  cohorts requires an explicit, written justification. Most of the time you are wrong.
+- A gap of > 10 percentage points against a liquid market requires an explicit, written
+  justification. Most of the time you are wrong.
 
 ## 5. Scenarios and the distribution
 
@@ -111,3 +112,30 @@ resolution-criteria reading · herding on the community prediction without indep
 
 **Do your own decomposition before you look at the community prediction** where practical,
 then reconcile. Anchoring on the CP first destroys most of the value you could add.
+
+## Tournament mode (one-shot bot-tournament questions)
+
+MiniBench and the FutureEval seasons give each question a 3-hour window, allow one forecast,
+hide the community prediction, and score with the spot peer score (a log score at close,
+relative to the other bots). The bot gets ~25 minutes per question. The checklist shrinks to
+what drives calibration; what serves a *revisitable* forecast goes:
+
+| Kept | Why it stays |
+|---|---|
+| The "What resolves YES" digest, first | Misreading resolution is the commonest loss — more so on LLM-written MiniBench questions |
+| Outside view with a named base rate | Without the crowd anchor, the base rate is the main defence against overconfidence |
+| One deliberate disconfirming search | Cheap, and the classic failure mode of a fast forecast |
+| Median, IQR, and the full distribution | The log score punishes a too-narrow numeric distribution or an extreme binary miss hardest |
+| Market prices where a market exists | Public forecasts on other platforms are allowed and are the best crowd signal left |
+
+| Dropped | Why it is safe to drop |
+|---|---|
+| ≥ 15 sources (now 5–8) | The marginal source rarely moves a 3-hour question; time-outs score nothing |
+| Scenario and sensitivity tables | Their job is to make the next update cheap; there is no next update |
+| Tripwires and `next_review` | Nothing ever comes back to the question |
+| `research.md` | A log with no second reader; sources go into `forecast.md` |
+| The Metaculus CP / Pro / gold comparison | Not visible to the bot |
+
+Binary probabilities stay within [2 %, 98 %] unless the outcome is already essentially
+determined by data in hand: a peer log score rewards being right with confidence only
+modestly and punishes being wrong with confidence severely.

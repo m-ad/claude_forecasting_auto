@@ -46,6 +46,10 @@ def urgency(meta: dict[str, Any]) -> tuple[int, str]:
     # A dropped (annulled) question has no outcome to wait for, like a resolved one.
     if meta.get("status") in ("resolved", "dropped"):
         return (-1, str(meta["status"]))
+    # One-shot tournament questions are never revisited: the sweep forecasts them
+    # once and the daily sync records the outcome. Nothing here for triage to do.
+    if (meta.get("tournament") or {}).get("mode") == "one_shot":
+        return (-1, f"one-shot ({meta['tournament'].get('slug')}): sweep and sync own it")
 
     score, reasons = 0, []
     cur = meta.get("current") or {}

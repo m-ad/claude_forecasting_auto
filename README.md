@@ -1,164 +1,121 @@
-# Forecasting workbench
+# Claude forecasting bot
 
-A Claude Code project for producing calibrated probabilistic forecasts — mostly Metaculus
-questions, sometimes anything else — and for keeping them honest over time.
+An autonomous Metaculus bot. GitHub Actions polls the bot tournaments (MiniBench and the
+FutureEval seasons); for every open question the bot has not forecast yet, it starts one
+Claude Code session that reads the resolution criteria, researches, and logs a calibrated
+forecast; deterministic code then submits it through the official Metaculus API with the
+private rationale comment the rules require, and commits the record here.
 
-Design goal: **every forecast is auditable and every forecast is scoreable.** The reasoning
-lives in a per-question folder that reads like a lab notebook; the numbers live in an
-append-only ledger that can be scored against reality.
+It grew out of the operator-driven workbench `m-ad/claude_forecasting` (merged in as the
+base, so upstream improvements arrive with `git merge upstream/main`). The same files still
+serve the operator interactively: `/forecast`, `/update`, `/resolve`, `/status`.
 
-## Setup
+Design goals: **every forecast is auditable and scoreable** (a per-question folder plus an
+append-only ledger), **no human in the loop on tournament questions** (a rule), **one forecast
+per question** (a rule), and **failure handled by Python, never by the model** (cost).
+
+## How a tournament question is handled
+
+```
+every 30 min   tournament-sweep.yml
+  gate         scripts/tournament_poll.py         (no model; 1 billed minute)
+               budget ok? token ok? open questions the bot has not forecast?
+  per question one matrix job, up to MAX_PARALLEL at once
+    scaffold   scripts/new_question.py --tournament      question text cached to raw/
+    forecast   claude -p  (tournament-forecast skill)   ~25 min cap, no Metaculus token
+    submit     scripts/submit_metaculus.py              guards -> forecast -> private comment
+    record     scripts/record_usage.py                  tokens and cost-equivalent
+    commit     scripts/ci_commit.sh                     validate, rebase, push to main
+daily 03:23    tournament-sync.yml                      missed windows, comment retries,
+               scripts/tournament_sync.py               resolutions + official scores, INDEX.md
+```
+
+Tournament questions open at random hours for **3 hours** each; MiniBench rounds start every
+other Monday with most of their ~60 questions in the first days. The rules this repository
+follows, with sources: `docs/tournament-protocol.md`.
+
+## Setup (operator, once)
+
+1. **Metaculus bot account** — create it from your human account (Settings → My Forecasting
+   Bots), copy its API token. Fill in the participation form (3 required questions).
+2. **Claude token** — `claude setup-token` on your subscription; it prints a long-lived
+   OAuth token. Put a reminder in your calendar for its expiry.
+3. **Repository secrets** (Settings → Secrets and variables → Actions): `METACULUS_API_KEY`,
+   `CLAUDE_CODE_OAUTH_TOKEN`.
+4. **Actions spending limit** (private repo): set it above $0, or the schedule stops
+   silently when the included minutes run out. See `docs/runbook.md` for the arithmetic.
+5. **Smoke test**: Actions → tournament-sweep → Run workflow, `tournament: bot-testing-area`,
+   `max_questions: 1`, `dry_run` ticked: the model forecasts, the folder is uploaded as an
+   artifact, nothing is submitted or committed. Then once more without `dry_run`, and check
+   the forecast and the private comment on the question page (as the bot: Settings → My
+   Forecasting Bots → Switch to Bot Account).
+6. **Go live**: repository variable `SWEEP_ENABLED` = `true`. Set it to anything else to stop.
+
+Optional variables (defaults in brackets): `MODEL_FORECAST` [`opus`], `EFFORT_FORECAST`
+[`high`], `MAX_MINUTES_PER_QUESTION` [`25`], `MAX_USD_PER_QUESTION` [`15`],
+`MAX_QUESTIONS_PER_RUN` [`6`], `MAX_PARALLEL` [`3`], `WEEKLY_BUDGET_USD_EQUIV` [none],
+`CLAUDE_CODE_VERSION` [`2.1.302`].
+
+Which tournaments are polled is `tournaments/registry.yaml`:
 
 ```bash
-uv sync
-uv run playwright install chromium     # once; needed for Metaculus access
-claude                                 # start a session in this directory
+uv run scripts/tournament_registry.py list
+uv run scripts/tournament_registry.py set fall-futureeval-2026 --active
 ```
 
-`www.metaculus.com` must be reachable. `CLAUDE.md` imports `AGENTS.md`, which is the agent's
-operating manual — read it if you want to know what the agent will do.
+## Watching it
 
-## Use
+- Each sweep's **Step Summary** shows the gate's decision, the submission, and the run's cost.
+- `uv run scripts/record_usage.py report` — rolling 7/30-day cost-equivalent per question.
+- An open **`bot-health`** issue means a run failed; it carries the run links.
+- `INDEX.md` lists every question; `uv run scripts/calibration.py` scores resolved ones.
+- Symptom → command table: `docs/runbook.md`.
 
+Do not change the bot because of what it forecast on a question that is still open: that is
+"previewing" under the tournament rules. Read the outputs after close.
+
+## Local use
+
+```bash
+uv sync --group dev
+export METACULUS_API_KEY=...            # read-only use is fine; submission needs intent
+uv run scripts/metaculus_api.py open minibench
+claude                                  # /forecast, /update, /resolve, /status
 ```
-/forecast https://www.metaculus.com/questions/43505/...   # new question, full workflow
-/forecast Will the ECB cut rates below 1.5% before July 2027?
-/update 2026-08-27-mc43505-us-recession-2027              # tripwire-driven Bayesian update
-/review <slug>                                            # red-team, changes nothing
-/resolve <slug> yes                                       # score it, write the post-mortem
-/status                                                   # what needs attention today
-```
 
-Slug arguments are fuzzy — a URL, a post id, or a fragment of the title works.
+Reproduce one CI job by hand: `uv run scripts/new_question.py --post-id <id> --tournament
+bot-testing-area`, then ask Claude to follow `.claude/skills/tournament-forecast/SKILL.md`
+on the slug, then `uv run scripts/submit_metaculus.py <slug> --dry-run`.
 
 ## Layout
 
 ```
 AGENTS.md                 agent operating manual (CLAUDE.md imports it)
-SKILLS.md                 index of skills, commands and scripts
+SKILLS.md                 index of skills, commands, scripts and workflows
 INDEX.md                  generated table of all questions
 docs/
-  methodology.md          the forecasting checklist: base rates, decomposition, IQR, biases
-  output-format.md        the fixed deliverable format
-  update-protocol.md      when and how to revisit; resolution and post-mortem
-  sources.md              where to look, and how much to trust it
-questions/<slug>/
-  meta.yaml               identifiers, dates, current forecast, tripwires, next review
-  forecast.md             the deliverable — newest version on top, append-only history
-  research.md             working log: searches, base rates, dead ends
-  raw/                    dated snapshots of Metaculus aggregations and market prices
-  charts/                 generated figures
-ledger/forecasts.jsonl    append-only scoreable record of every forecast and resolution
-scripts/                  new_question · log_forecast · status · calibration · submit_metaculus
-templates/                what new_question.py renders into each question folder
-tests/                    data and unit tests (see tests/README.md)
-.claude/skills/           forecast-workflow · forecast-update · metaculus-aggregations
-                          · metaculus-scraper · metaculus-submit
-.claude/commands/         the slash commands above
+  tournament-protocol.md  the bot-tournament rules and how the bot meets each
+  runbook.md              what to do when something is red
+  bot-migration-plan.md   the plan (rev 3) and bot-migration-progress.md, the step tracker
+  methodology.md          the forecasting checklist, incl. tournament mode
+  output-format.md        the fixed deliverable format, incl. the short tournament form
+  update-protocol.md      when and how to revisit (operator questions); resolution
+questions/<slug>/         meta.yaml · forecast.md · research.md (operator only) · raw/
+ledger/forecasts.jsonl    append-only: forecasts, submissions, comments, resolutions
+ledger/usage.jsonl        one line per Claude run: tokens, cost-equivalent, turns
+tournaments/registry.yaml which tournaments the gate polls
+scripts/                  see SKILLS.md
+.claude/                  skills, commands, the research-scout agent, settings(.ci).json
+.github/workflows/        tournament-sweep · tournament-sync · tests
 ```
-
-## Output format
-
-Fixed, so that forecasts stay comparable across months. Every version ends with the block
-below, which always opens with a clickable link to the question (the chat reply opens with it too):
-
-```
-**Question**: [Will X happen by 2027?](https://www.metaculus.com/questions/12345/)
-**Date**: 2026-08-27
-**Forecast**: Median 12.0%, IQR [8.0%, 18.0%]
-**Thesis**: One to three sentences naming the drivers and the sources they rest on.
-```
-
-Updates additionally open with a revision table — prior median/IQR → new, one driver per row —
-and a tripwire check. Full template in `docs/output-format.md`.
-
-## The update loop
-
-This is the part most forecasting setups get wrong, so it is mechanised here:
-
-1. Each forecast ends with **tripwires** — dated, observable signals with a direction and a
-   magnitude ("IAEA Board resolution referring the file to the UNSC before 2026-11-30 → +15pp").
-   In `meta.yaml` the magnitude is unsigned and carries an explicit `magnitude_unit`:
-   `pp` for probability questions, `days`/`weeks`/`months` for date questions, and the
-   question's own `unit` for numeric ones (`magnitude: 6000`, `magnitude_unit: cases`).
-   Vague ones ("further escalation") are not accepted.
-2. Each forecast sets a **`next_review` date** from the time-to-resolution cadence table in
-   `docs/update-protocol.md`.
-3. `/status` ranks open questions by urgency: review overdue, resolution imminent, last version
-   stale, or a large gap to the community prediction.
-4. `/update <slug>` searches the **tripwires by name first**, then generally; re-fetches the live
-   Metaculus cohorts and market prices; and prepends a new version with a revision table. It
-   switches to a full de-novo re-analysis when the market contradicts you, when a third of the
-   remaining time has elapsed, or when your last two updates drifted the same way.
-5. `/resolve` scores every version against the outcome — and against the community prediction at
-   the same timestamps — and forces one question: *which tripwire should have existed and did not?*
-
-To run the loop unattended, e.g. weekly:
-
-```bash
-claude -p "/status --act" --permission-mode acceptEdits
-```
-
-Start without `--act` until you trust it.
-
-## Calibration
-
-```bash
-uv run scripts/calibration.py --plot calibration.png
-```
-
-Brier score, log score, calibration by bucket, interquartile coverage for numeric questions,
-and — the number that actually matters — whether you are beating the Metaculus community
-prediction at the same points in time. A forecasting setup that never checks this is a
-diary, not a discipline.
-
-## Submitting to Metaculus
-
-The ledger can be posted to Metaculus under the bot account behind `METACULUS_API_KEY`.
-This is a publishing step, so **only the operator starts it** — ask for it explicitly or run
-`/metaculus-submit`. No other workflow (`/forecast`, `/update`, `/resolve`, `/status --act`)
-submits anything, and a test fails if one ever references the script.
-
-**On merge, automatically.** `.github/workflows/submit-metaculus.yml` runs when a pull request
-is merged into `main`. `scripts/changed_forecasts.py` lists the Metaculus questions with a new
-`forecast` record in the ledger between the PR's base and its merge commit, and only those are
-submitted. The merge is the human approval, so a routine's PR is reviewed before anything is
-posted. It needs a `METACULUS_API_KEY` secret (repository-wide or on the `metaculus`
-environment); without one it warns and does nothing. **Run workflow** (`workflow_dispatch`)
-submits named targets by hand and defaults to a dry run.
-
-```bash
-uv run scripts/submit_metaculus.py <slug|post id|url> [...] --dry-run   # show, do not post
-uv run scripts/submit_metaculus.py --all --project "Metaculus Cup Fall 2026"
-```
-
-It submits the **latest ledger version** of each question and writes nothing back to the repo:
-
-- binary: the median, clipped to Metaculus' [0.1%, 99.9%];
-- multiple choice: the recorded option vector (`distribution.probabilities`);
-- numeric/date/discrete: the recorded `percentiles`/`pmf`, or — flagged in the output — a
-  CDF extrapolated from the quartiles when the version has no `distribution`.
-
-Questions whose live bot forecast already matches are skipped (`--force` resubmits). Details,
-including the spec file for versions logged before the `distribution` field existed, are in
-`.claude/skills/metaculus-submit/SKILL.md`.
 
 ## Tests
 
 ```bash
-uv run pytest
+uv run ruff check . && uv run pytest -q
 ```
 
-Mostly data tests: the ledger's JSONL shape and timestamp ordering, the `meta.yaml` schema,
-the fixed `forecast.md` format, and agreement between `meta.yaml`, the ledger and `INDEX.md`.
-Every ledger line and every question folder becomes its own test case, so a failure names the
-record to fix. See `tests/README.md`.
-
-## Metaculus access
-
-`.claude/skills/metaculus-aggregations/` fetches the community prediction, the Metaculus Pro
-cohort and the gold-medalist cohort as structured JSON, plus resolution criteria, fine print
-and comments. The Pro and gold cohorts are weighted above the raw community prediction, and
-disagreement between the three is treated as signal in its own right. The REST API needs a
-token; `curl`/`WebFetch` return 403. The skill's SKILL.md documents the two non-obvious
-invariants that keep it working — do not "simplify" them away.
+Mostly data tests: the ledger's shape and one-submission-per-question rule, the `meta.yaml`
+schema (including the tournament block), the fixed `forecast.md` format, and agreement between
+`meta.yaml`, the ledger and `INDEX.md`; plus unit tests of the API client, the gate, the CDF
+builder and the one-shot submit path against fakes. See `tests/README.md`.

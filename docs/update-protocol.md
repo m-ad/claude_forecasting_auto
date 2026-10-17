@@ -1,5 +1,10 @@
 # Update protocol
 
+> **One-shot tournament questions are out of scope.** A question with
+> `tournament.mode: one_shot` takes exactly one forecast and is never updated (Metaculus bot
+> tournament rule; see `docs/tournament-protocol.md`). Its resolution is recorded by the daily
+> `tournament-sync` workflow, not by `/resolve`.
+
 A forecast that is never revisited is a guess with a timestamp. This repo treats updating
 as a first-class workflow with its own trigger, its own checklist, and its own record.
 
@@ -34,8 +39,8 @@ scheduled release (then just review shortly before the release).
    tripwire list. That list is your search plan.
 2. **Search specifically for the tripwires**, by name and date, before general news search.
    Record each as fired / not fired / partially fired.
-3. **Re-fetch the live numbers**: Metaculus all three cohorts, market prices, the underlying
-   data series. Snapshot into `raw/` with today's date in the filename.
+3. **Re-fetch the live numbers**: the Metaculus question text (criteria get edited), market
+   prices, the underlying data series. Snapshot into `raw/` with today's date in the filename.
 4. **Distinguish new evidence from no evidence.** "Nothing happened" is informative: for a
    question requiring an event, elapsed quiet time *lowers* the probability mechanically.
    An update that changes nothing is a valid update — write it down as such with the reason.

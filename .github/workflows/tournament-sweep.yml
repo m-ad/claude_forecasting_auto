@@ -31,6 +31,11 @@ on:
         description: "Cap on questions for this run."
         required: false
         default: ""
+      dry_run:
+        description: "Forecast but do not submit, and commit nothing (smoke test of the model step)."
+        type: boolean
+        required: false
+        default: false
 
 # One sweep at a time: the next gate must see the previous sweep's submissions,
 # or two jobs could forecast the same question.
@@ -133,7 +138,10 @@ jobs:
         run: |
           slug="$(uv run scripts/new_question.py --post-id "$POST_ID" \
             --tournament "$TOURNAMENT" --reuse | head -n1)"
-          [ -d "questions/$slug" ] || { echo "::error::scaffold failed for $POST_ID"; exit 1; }
+          if [ -z "$slug" ] || [ ! -f "questions/$slug/meta.yaml" ]; then
+            echo "::error::scaffold failed for post $POST_ID"
+            exit 1
+          fi
           version="$(uv run python -c "import sys,yaml; print((yaml.safe_load(open(sys.argv[1]))['current'] or {}).get('version') or 0)" "questions/$slug/meta.yaml")"
           echo "slug=$slug" >> "$GITHUB_OUTPUT"
           echo "version=$version" >> "$GITHUB_OUTPUT"
@@ -147,6 +155,7 @@ jobs:
         timeout-minutes: ${{ fromJSON(vars.MAX_MINUTES_PER_QUESTION || '25') }}
         env:
           CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          DISABLE_AUTOUPDATER: "1"
           SLUG: ${{ steps.prep.outputs.slug }}
           EFFORT: ${{ vars.EFFORT_FORECAST || 'high' }}
           MAX_USD: ${{ vars.MAX_USD_PER_QUESTION || '15' }}
@@ -154,6 +163,10 @@ jobs:
         run: |
           export FORECAST_DEADLINE="$(date -u -d "+${MINUTES} minutes" +%Y-%m-%dT%H:%M:%SZ)"
           prompt="Forecast the bot-tournament question in questions/${SLUG}/. First read .claude/skills/tournament-forecast/SKILL.md and follow it exactly. The session is killed at ${FORECAST_DEADLINE} (UTC); log your forecast at least 5 minutes before that."
+          # MAX_USD_PER_QUESTION=0 drops the per-session cap (e.g. if a CLI version
+          # rejects it for subscription auth); the step timeout still applies.
+          budget=()
+          [ "$MAX_USD" != "0" ] && budget=(--max-budget-usd "$MAX_USD")
           set +e
           claude -p "$prompt" \
             --model "$MODEL" \
@@ -161,7 +174,7 @@ jobs:
             --output-format json \
             --permission-mode dontAsk \
             --settings .claude/settings.ci.json \
-            --max-budget-usd "$MAX_USD" \
+            "${budget[@]}" \
             > "$RUNNER_TEMP/claude.json"
           code=$?
           set -e
@@ -174,9 +187,12 @@ jobs:
         env:
           METACULUS_API_KEY: ${{ secrets.METACULUS_API_KEY }}
           SLUG: ${{ steps.prep.outputs.slug }}
+          DRY_RUN: ${{ inputs.dry_run }}
         run: |
+          flags=()
+          [ "$DRY_RUN" = "true" ] && flags+=(--dry-run)
           set +e
-          uv run scripts/submit_metaculus.py "$SLUG" 2>&1 | tee "$RUNNER_TEMP/submit.log"
+          uv run scripts/submit_metaculus.py "$SLUG" "${flags[@]}" 2>&1 | tee "$RUNNER_TEMP/submit.log"
           status=${PIPESTATUS[0]}
           set -e
           { echo '### Submission'; echo '```'; cat "$RUNNER_TEMP/submit.log"; echo '```'; } >> "$GITHUB_STEP_SUMMARY"
@@ -192,8 +208,17 @@ jobs:
             --job tournament-sweep --run-id "$GITHUB_RUN_ID" --slug "$SLUG" --model "$MODEL" \
             ${EXIT_CODE:+--exit-code "$EXIT_CODE"} --summary >> "$GITHUB_STEP_SUMMARY"
 
+      - name: Upload the dry-run folder
+        if: always() && inputs.dry_run && steps.prep.outputs.slug != ''
+        uses: actions/upload-artifact@v4
+        with:
+          name: dry-run-${{ matrix.q.post_id }}
+          path: questions/${{ steps.prep.outputs.slug }}
+
+      # A dry-run forecast is never committed: the next real sweep would reuse the
+      # logged-but-unsent folder and submit it without a fresh forecast.
       - name: Commit and push the record
-        if: always() && steps.prep.outputs.slug != ''
+        if: always() && steps.prep.outputs.slug != '' && !inputs.dry_run
         env:
           GITHUB_TOKEN: ${{ github.token }}
           SLUG: ${{ steps.prep.outputs.slug }}

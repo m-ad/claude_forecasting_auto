@@ -2,7 +2,7 @@
 
 `forecasts.jsonl` — one JSON object per line, append-only, never edited.
 
-Two record shapes:
+Four record shapes (`log_forecast.py` is the only writer of all four):
 
 ```jsonc
 // a forecast version
@@ -15,7 +15,24 @@ Two record shapes:
 // a resolution
 {"ts":"2027-01-15T09:00:00+00:00","event":"resolution","slug":"2026-08-27-mc43505-...",
  "type":"binary","outcome":1.0,"resolution_source":"BEA advance estimate, 2027-01-15"}
+
+// a submission the Metaculus API accepted (one-shot tournament questions)
+{"ts":"2026-10-19T14:31:02+00:00","event":"submission","slug":"2026-10-19-mc46101-...",
+ "post_id":46101,"question_id":46340,"tournament":"minibench",
+ "payload":{"probability_yes":0.12},"comment_posted":true,"api_status":201}
+
+// a rationale comment that went up after its submission (the daily sync's retry)
+{"ts":"2026-10-20T03:24:10+00:00","event":"comment","slug":"2026-10-19-mc46101-...",
+ "post_id":46101,"api_status":201}
 ```
+
+One-shot rule, enforced by the tests: a slug has at most one `submission`, and it follows a
+`forecast` for the same slug. Timestamps run forward per slug (parallel sweep jobs interleave
+different questions; `.gitattributes` merges the file with git's `union` driver).
+
+`usage.jsonl` — one line per Claude Code run in CI: job, slug, model, turns, duration,
+tokens, API-equivalent `cost_usd_equiv`, web searches, permission denials. Written by
+`scripts/record_usage.py`; the gate's weekly budget guard reads it.
 
 Optional on a forecast record: `distribution`, the full forecast where median and IQR are
 not all of it — `{"probabilities": {...}}` (required for multiple choice, exact option

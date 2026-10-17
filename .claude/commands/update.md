@@ -11,7 +11,7 @@ and confirm the match before proceeding.
 Load the `forecast-update` skill and follow it. Read `docs/update-protocol.md`.
 
 Order matters: read the prior version first, decide Update vs. Re-analysis, check the v(N−1)
-tripwires **by name** before general news search, then re-fetch the live Metaculus cohorts and
+tripwires **by name** before general news search, then refresh the Metaculus question text and
 market prices and compare against the previous snapshot in `raw/`.
 
 Your prior is your own last forecast, not the community prediction. State a direction and an

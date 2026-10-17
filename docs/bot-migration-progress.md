@@ -1,240 +1,165 @@
 # Bot migration — step tracker
 
-Companion to [`bot-migration-plan.md`](bot-migration-plan.md). The plan says **what** to build
-and why; this file says **what is done** and gives every unit of work a stable handle.
+Companion to [`bot-migration-plan.md`](bot-migration-plan.md) (rev 3, 2026-10-17). The plan
+says **what** and why; this file says **what is done**, and gives every unit of work a stable
+handle.
 
-**How to use it**: say *"implement step P1.2"*. Steps are numbered `P<phase>.<n>` and the number
-never changes once assigned — if the plan is revised, a step is marked `dropped` or a new one is
-appended, never renumbered.
+**How to use it**: say *"implement step P11.2"*. Step numbers never change once assigned: when
+the plan is revised a step is marked `dropped`/`superseded` or a new one is appended.
 
 **Rules for whoever works on a step:**
 
-1. Read the plan section named in the step's **Plan §** column before starting. The plan is the
-   contract; this file is only the index.
-2. Do not start a step whose `Blocked by` is unmet. Phases are ordered by dependency.
-3. On finishing, update the step's row here (status, date, commit) **in the same commit** as the
-   work. A tracker that lags the code is worse than no tracker.
-4. If a step turns out to be wrong or impossible as written, mark it `blocked` with a one-line
-   reason in **Notes** and say so to the operator. Do not silently redefine it.
+1. Read the plan section named in the step before starting.
+2. Do not start a step whose `Blocked by` is unmet.
+3. On finishing, update the step's row here **in the same commit** as the work.
+4. If a step is wrong or impossible as written, mark it `blocked` with a one-line reason and
+   say so to the operator. Do not silently redefine it.
 
-**Status vocabulary**: `todo` · `in progress` · `done` · `blocked` · `deferred` (correct, but
-belongs to a later phase than the plan says) · `dropped` (no longer wanted).
+**Status vocabulary**: `todo` · `in progress` · `done` · `blocked` · `deferred` · `dropped` ·
+`superseded` (replaced by a later step, named in the notes).
 
 ---
 
-## Progress at a glance
+## Progress at a glance (2026-10-17)
 
-| Phase | Name | Steps | Done |
+| Phase | Name | State |
+|---|---|---|
+| **M** | Operator setup | M.1 done; M.2–M.9 open — **the critical path to MiniBench** |
+| P0 | Clean state, delete dead weight | done (P0.7 done via P10.3) |
+| P1 | Metaculus API layer | done, superseded in part by upstream's CDF builder (P10) |
+| P2 | Schema | done; re-applied on the new base (P10.4) |
+| P3 | Skills | done in rev-3 form (P11) |
+| P4 | Subagents, models, gate, usage | done in rev-3 form; P4.2/P4.6 dropped |
+| P5 | Failure handling, budget guards | partly done; breaker and error log deferred (P12) |
+| P6 | Data integrity | superseded by tests + `ci_commit.sh` |
+| P7 | GitHub Actions | written and linted; **never run on GitHub yet** |
+| P8 | Docs | done |
+| P9 | Soak and go live | todo — needs M |
+| **P10** | Restart from upstream (rev 3) | done |
+| **P11** | MiniBench pipeline (rev 3) | done (verified offline + live dry run) |
+| **P12** | After the first round | todo |
+
+---
+
+## M — Operator setup (human only)
+
+Plan §4. These are the only things between this branch and MiniBench.
+
+| Step | Task | Status | Notes |
 |---|---|---|---|
-| **M** | Operator setup (manual — not agent work) | 5 | 0 / 5 |
-| **P0** | Clean the state, delete dead weight | 8 | 7 / 8 |
-| **P1** | Metaculus API layer | 5 | 0 / 5 |
-| **P2** | Schema changes | 3 | **3 / 3** |
-| **P3** | Skills | 5 | 0 / 5 |
-| **P4** | Subagents, models, gate, usage accounting | 6 | 0 / 6 |
-| **P5** | Failure handling and budget guards | 6 | 0 / 6 |
-| **P6** | Data integrity: validator, pre-commit, fast tests | 4 | 0 / 4 |
-| **P7** | GitHub Actions workflows | 5 | 0 / 5 |
-| **P8** | Docs | 3 | 0 / 3 |
-| **P9** | Soak and go live | 4 | 0 / 4 |
-| | | **54** | **10** |
-
-Recommended order: P0 → P1.1–P1.2 → P2 → P1.3–P1.5 → P6 → P3 → P4 → P5 → P7 → P8 → P9.
-P6 lands before P3 on purpose: the validator guards every later phase from its first commit.
+| M.1 | Metaculus bot account + API token | **done** | `my-claude-forecasting`, `is_bot: true` (API, 2026-10-17). Still confirm it is the **primary** bot and that the participation form is filled |
+| M.2 | `claude setup-token` → secret `CLAUDE_CODE_OAUTH_TOKEN`; expiry reminder | todo | |
+| M.3 | Secret `METACULUS_API_KEY` | todo | renamed from rev 2's `METACULUS_BOT_TOKEN` |
+| M.4 | Merge the branch into `main`; no branch protection blocking `github-actions[bot]` | todo | was "create `live-bot`" — dropped with the branch (D10) |
+| M.5 | Actions spending limit > $0 + alert (private repo), or make the repo public | todo | |
+| M.6 | Smoke test on `bot-testing-area` (dry run, then real) | todo | plan §4 M.6 |
+| M.7 | `SWEEP_ENABLED=true` | todo | |
+| M.8 | `WEEKLY_BUDGET_USD_EQUIV` from measured spend | todo | after the first round |
+| M.9 | Seasonal bot survey; AskNews renewal if used | todo | required for prizes |
 
 ---
 
-## M — Operator setup (human only, no agent can do these)
+## P0–P9 — rev-2 steps, status under rev 3
 
-Plan §3. **[blocking]** items stop the phase named in *Blocks*.
-
-| Step | Task | Plan § | Blocks | Status |
-|---|---|---|---|---|
-| M.1 | Create the Metaculus **bot account**, register it at `/futureeval/participate/`, copy the API token | 3.1 | P1, P9 | todo |
-| M.2 | `claude setup-token` → `CLAUDE_CODE_OAUTH_TOKEN`; install the Claude GitHub App; calendar reminder for token expiry | 3.2 | P7 | todo |
-| M.3 | Repo secrets: `CLAUDE_CODE_OAUTH_TOKEN`, `METACULUS_BOT_TOKEN` | 3.3 | P7 | todo |
-| M.4 | Create the `live-bot` branch; keep `main` default; set a **non-zero Actions spending limit** with a 75% alert | 3.5 | P7 | todo |
-| M.5 | Repo variables (models, `MAX_*`, `WEEKLY_BUDGET_USD_EQUIV`, `SWEEP_ENABLED`) — all optional, defaults exist | 3.4 | — | todo |
-
-> M.4's spending limit defaults to **$0** on most accounts, which stops every workflow
-> mid-month with no failed run to notice. It is the one setup item with a silent failure mode.
-
----
-
-## P0 — Clean the state, delete dead weight
-
-Plan §5.
-
-| Step | Task | Plan § | Status | Done | Notes |
-|---|---|---|---|---|---|
-| P0.1 | `git rm -r questions/*/`, add `questions/.gitkeep` | 5.1 | **done** | 2026-09-14 | All 17 folders and 127 files removed; `questions/.gitkeep` was already tracked. Run by the **operator locally** (commit `c1a8693`) — see *Deviations* D9 |
-| P0.2 | Truncate `ledger/forecasts.jsonl`; regenerate `INDEX.md` via `status.py --index` | 5.1 | **done** | 2026-09-14 | Ledger is 0 bytes; `INDEX.md` regenerated to a bare header. Same commit as P0.1 |
-| P0.3 | Make the test suite pass on empty state | 5.1 | **done** | 2026-09-13 | `test_ledger_is_append_only_against_the_last_commit` now exempts a *fully* empty working copy; a partial line drop still fails. **Verified against the real empty state 2026-09-14**, once P0.1/P0.2 landed: `ruff` clean, `pytest` 0 failures, the rest skipped as designed |
-| P0.4 | Delete `.claude/skills/metaculus-scraper/` and its `SKILLS.md` row | 5.2 | **done** | 2026-09-14 | Directory gone (commit `c1a8693`). Three surviving pointers in `metaculus-aggregations/SKILL.md` — the frontmatter `description`, the "why this beats the alternatives" paragraph, and a whole `## Fallback` section — named a file that no longer exists; rewritten to state there is no fallback, per `AGENTS.md` §4 |
-| P0.5 | Delete `.claude/commands/review.md` (`/review`) and its references | 5.2 | **done** | 2026-09-14 | File gone (commit `c1a8693`). No references survive outside this tracker and the plan, which are historical records |
-| P0.6 | Remove the **whole visualization path**: `matplotlib`, `calibration.py --plot`, `charts/` creation, the "add a chart" instruction | 5.2 | **done** | 2026-09-14 | Widened past the plan on operator instruction — the plan only moved matplotlib to an optional group. See *Deviations* below |
-| P0.7 | Gut the Playwright/Cloudflare path in `metaculus_aggregations.py`; drop the `playwright` dependency | 5.2 | deferred → P1.5 | | Its replacement is `metaculus_api.py`, which is P1.1. Doing it here leaves **no working Metaculus access at all** until P1 lands |
-| P0.8 | Skip `research.md` for tournament questions | 5.2 | **done** | 2026-09-14 | Landed with P2.1, as deferred. `new_question.py --tournament <slug>` with `--tournament-mode one_shot` does not scaffold `research.md`, and `test_scaffolded_files_all_exist` exempts exactly those questions |
-
----
-
-## P1 — Metaculus API layer
-
-Plan §6. The riskiest code in the migration; build and test it in isolation.
-
-| Step | Task | Plan § | Blocked by | Status |
-|---|---|---|---|---|
-| P1.1 | `scripts/metaculus_api.py` — token client: `list_tournament_posts`, `get_post`, `my_forecast_exists`, `submit_forecast`, `post_comment`, `get_tournament`, `get_aggregations`. Typed `MetaculusError` / `MetaculusAuthError`; one retry on 5xx, **none on 4xx**. Add `requests>=2.32` | 6.1 | M.1 | todo |
-| P1.2 | `scripts/metaculus_cdf.py` — **port** `Percentile`/`NumericDistribution` from the bot template, do not rewrite. Plus `tests/test_cdf.py`: monotonicity, length 201, endpoints, open/closed bounds, `zero_point`, non-monotone rejection | 6.2 | P1.1 | todo |
-| P1.3 | `scripts/metaculus_submit.py` — deterministic submit + private comment for one slug, `--dry-run`, four one-shot guards, `missed_window` exit 0, comment-failure exit 0 | 6.3 | P1.1, P1.2, P2.1, P2.2 | todo |
-| P1.4 | Verify §16 open questions 2–4: `aggregation_explorer` auth path and params; comment length limit and `included_forecast` ordering; bot-token rate limits | 16.2–16.4 | P1.1 | todo |
-| P1.5 | Rewrite `metaculus_aggregations.py` as a thin wrapper over `metaculus_api.py` (same CLI, same `fetch_aggregations()` signature); strip the Cloudflare essay from SKILL.md; drop `playwright`. (The scraper skill is already deleted — P0.4) | 6.4 | P1.1 | todo |
-
----
-
-## P2 — Schema changes
-
-Plan §7.
-
-| Step | Task | Plan § | Blocked by | Status | Done | Notes |
-|---|---|---|---|---|---|---|
-| P2.1 | `meta.yaml`: add `question_id`, the `tournament` block, `percentiles`. Update `templates/meta.yaml`, `conftest.py`'s `META_KEYS`, and the five new `test_meta.py` cases | 7.1 | — | **done** | 2026-09-14 | All five cases landed, plus a registry cross-check and a percentile/IQR agreement check. Writers added so the fields are not write-only: `new_question.py --tournament/--question-id` and `log_forecast.py add --p10/--p90`. The 17 legacy folders were migrated; see deviations D5–D6 |
-| P2.2 | Ledger: third event type `submission`. Extend `EVENTS`; assert every `submission` has a preceding `forecast` and **no slug has two** | 7.2 | — | **done** | 2026-09-14 | Both invariants landed, plus record shape, 2xx-only, and `meta.tournament` ↔ ledger agreement in `test_consistency.py`. Writer: `log_forecast.py submit`, which P1.3 calls rather than appending itself (deviation D7) |
-| P2.3 | `tournaments/registry.yaml` + `scripts/tournament_registry.py` — multi-tournament from day one, with `priority` and `mode` | 7.3 | — | **done** | 2026-09-14 | CLI `list/get/add/set/touch` + module API (`active_tournaments()`, `mark_seen()`) for the P4.3 gate. Seeded with `bot-testing-area` (active) and `minibench` (**parked**, see D8) |
-
----
-
-## P3 — Skills
-
-Plan §8.
-
-| Step | Task | Plan § | Blocked by | Status |
-|---|---|---|---|---|
-| P3.1 | `add-tournament` skill + `/add-tournament` command — thin wrapper over `tournament_registry.py add <url>` | 8.1 | P2.3, P1.1 | todo |
-| P3.2 | `update-tournament` skill — daily reconcile: roster, new questions at v0, missed windows, comment retries, resolutions with **official peer scores**, criteria drift, `INDEX.md` | 8.2 | P3.1, P1.3 | todo |
-| P3.3 | `tournament-sweep` skill — the fast path. Resolution digest first, outside view, 2–3 research subagents, 5–8 sources, median + IQR + percentiles, submit, commit once per run | 8.3 | P3.2, P4.1, P5.3 | todo |
-| P3.4 | `forecast-workflow`: add the **Mode** step (tournament vs standard); CP recorded as "hidden — bot tournament"; the submit call; the new pre-commit gate | 8.4 | P3.3 | todo |
-| P3.5 | `forecast-update`: **hard stop** on a submitted one-shot question; local re-analysis allowed but must never call `metaculus_submit.py` | 8.5 | P2.1 | todo |
-
----
-
-## P4 — Subagents, models, the gate, usage accounting
-
-Plan §9.
-
-| Step | Task | Plan § | Blocked by | Status |
-|---|---|---|---|---|
-| P4.1 | `.claude/agents/*.md.tmpl` — `research-scout`, `source-checker`, `resolution-reader`. Read-only tools; hard "never spawn further agents" instruction | 9.1 | — | todo |
-| P4.2 | `scripts/render_agents.py` — substitute `{{MODEL_*}}` from env into `.claude/agents/*.md`; gitignore the rendered files | 9.3 | P4.1 | todo |
-| P4.3 | `scripts/tournament_poll.py` — the **no-LLM gate**: breaker, budget, token validation, open posts across all tournaments, `my_forecast_exists` filter, priority order, `--github-output` | 9.2 | P2.3, P1.1, P5.4, P5.5 | todo |
-| P4.4 | `scripts/record_usage.py` — parse `execution_file` → `ledger/usage.jsonl` + Step Summary. **Defensive**: missing fields ⟹ `parse_failed: true`, never fail the job | 9.4, 16.7 | — | todo |
-| P4.5 | `scripts/usage_report.py` — rolling 7/30-day spend table, cost per forecast, `--check` for the budget guard | 9.4 | P4.4 | todo |
-| P4.6 | Actions-minutes meter in `record_usage.py` via `BILLING_READ_TOKEN`; verify which billing endpoint this account answers on; `unavailable: true` on failure | 9.5, 16.9 | P4.4 | todo |
-
----
-
-## P5 — Failure handling and budget guards
-
-Plan §10. **The division of labour is the whole point: Python does all failure handling, the
-model does none.**
-
-| Step | Task | Plan § | Blocked by | Status |
-|---|---|---|---|---|
-| P5.1 | `scripts/record_error.py` + `ledger/errors.jsonl` — one line per failure, every record carrying a working `reproduce` command | 10.2 | — | todo |
-| P5.2 | **Secret redaction** in `record_error.py`, with a unit test proving an `Authorization: Token …` header in an error body is redacted | 12.6, 18 | P5.1 | todo |
-| P5.3 | The seven budget rules, verbatim, in `tournament-sweep/SKILL.md`; `scripts/budget.py --remaining` | 10.3 | — | todo |
-| P5.4 | The weekly spend guard: `usage_report.py --check`, 80% soft landing (`MAX_FORECASTS_PER_RUN` → 2), rolling reset | 10.4 | P4.5 | todo |
-| P5.5 | Circuit breaker `ledger/health.json` — 3 failed sweeps ⟹ 6 h open; auth failure ⟹ 24 h. Plus the single reused `bot-health` issue | 10.5 | P5.1 | todo |
-| P5.6 | The Actions-minutes guard: 85% ⟹ skip unscored tournaments, 95% ⟹ skip all sweeps. **Delete this step's code when the repo goes public** | 10.7 | P4.6, P4.3 | todo |
-
----
-
-## P6 — Data integrity
-
-Plan §11. Land this **before** P3 so every later phase is guarded from its first commit.
-
-| Step | Task | Plan § | Blocked by | Status |
-|---|---|---|---|---|
-| P6.1 | `scripts/validate_state.py` — one validator, two callers. `--changed` mode | 11.1 | P2.1, P2.2, P2.3 | todo |
-| P6.2 | `.pre-commit-config.yaml` (ruff, yaml/json, validate-state, fast tests). **Never run `pre-commit` in CI** | 11.2 | P6.1 | todo |
-| P6.3 | `scripts/ci_commit.sh` — `ruff` → `validate_state --changed` → fast tests → commit → rebase-push with 4-attempt backoff | 11.2 | P6.1 | todo |
-| P6.4 | `--changed-only` pytest option in `conftest.py`, on by default under `CI_FAST=1`; sync job runs the full suite | 11.3 | — | todo |
-
----
-
-## P7 — GitHub Actions
-
-Plan §12. **Add `workflow_dispatch` first and `schedule:` last** — no `cron` line until the gate
-(P4.3) and the guards (P5.4, P5.5) exist and all three workflows have run green manually.
-
-| Step | Task | Plan § | Blocked by | Status |
-|---|---|---|---|---|
-| P7.1 | Branch strategy: `live-bot` write target, `merge origin/main` per job, shared `concurrency: live-bot-writer`, extend `tests.yml` to `live-bot` | 12.1 | M.4 | todo |
-| P7.2 | `tournament-sweep.yml` — gate job + Claude job, `CI_FAST=1`, usage recording, failure reporting | 12.2 | P4.3, P3.3, P6.3 | todo |
-| P7.3 | `tournament-sync.yml` — daily 03:23 UTC, full test suite, `timeout-minutes: 45` | 12.3 | P3.2, P6.3 | todo |
-| P7.4 | `triage.yml` — Tue/Fri; `status.py --act` must **skip `one_shot` questions** | 12.4 | P3.5, P2.1 | todo |
-| P7.5 | Verify §16.6: `claude-code-action`'s human-actor check attributes scheduled runs to whoever last edited the `cron` line — confirm that is a human account | 16.6 | P7.2 | todo |
-
----
-
-## P8 — Docs
-
-Plan §15. Do these as the phases land, not in one lump at the end.
-
-| Step | Task | Plan § | Status |
+| Step | Task (rev 2) | Status | Notes |
 |---|---|---|---|
-| P8.1 | `docs/tournament-protocol.md` (NEW) — 90-minute window, one shot, private comment format, hidden CP, MiniBench vs FutureEval, missed windows | 15 | todo |
-| P8.2 | `docs/runbook.md` (NEW) — the symptom→command table | 10.8 | todo |
-| P8.3 | Amend `AGENTS.md` (operating modes, §4, §5, rule 8 carve-out), `CLAUDE.md`, `methodology.md`, `update-protocol.md`, `output-format.md`, `SKILLS.md`, `README.md` | 15 | **partly done** — see note |
-
-> **P8.3, partial (2026-09-14).** P2 landed schema rules the docs contradicted, so the
-> contradictions were fixed with it rather than left for later: the one-shot carve-out to rule 3
-> and the ledger's three event types in `AGENTS.md`, the tournament pointer in `update-protocol.md`,
-> the new layout and script rows in `README.md`/`SKILLS.md`, and the new invariants in
-> `tests/README.md`. P8.3 still owns everything else on its list — operating modes, §4 and §5 of
-> `AGENTS.md`, `methodology.md` and `output-format.md` — which depends on P1 and P3 existing.
+| P0.1 | `git rm` question folders | done | 2026-09-14, operator (`c1a8693`) |
+| P0.2 | Truncate the ledger, regenerate INDEX | done | 2026-09-14 |
+| P0.3 | Test suite passes on empty state | done | still holds on the new base |
+| P0.4 | Delete `metaculus-scraper` | done | upstream reintroduced it; deleted again in the merge (`27fd744`) |
+| P0.5 | Delete `/review` | done | stays deleted on the new base |
+| P0.6 | Remove the visualization path | done | re-applied on the new base: no matplotlib, no `--plot`, no `charts/` |
+| P0.7 | Gut the Playwright path, drop `playwright` | **done** | 2026-10-17, P10.3: deleted outright instead of wrapped |
+| P0.8 | No `research.md` for one-shot questions | done | re-applied (P10.4) |
+| P1.1 | `metaculus_api.py` token client | **done** | 2026-10-17. stdlib urllib, typed errors, one 5xx retry, no 4xx retry, 429 backoff, redaction. `get_tournament` uses `/api/projects/tournaments/<slug>/` (the rev-2 path 404s) |
+| P1.2 | Port the template's CDF classes + `test_cdf.py` | superseded | upstream's `submit_metaculus.py` builder (point masses, max-step cap, bound rules) with `tests/test_submit_metaculus.py`; verified live against real scalings |
+| P1.3 | Deterministic submit + private comment, guards, missed window | **done** | 2026-10-17, inside `submit_metaculus.py` (one-shot path) rather than a new script |
+| P1.4 | Verify aggregation explorer, comment limits, rate limits | partly | explorer: moot (no aggregations). Comment length/ordering: first real submission (plan §8.4). Rate limits: the scripts pace and back off |
+| P1.5 | Aggregations as an API wrapper | dropped | no aggregation lookups at all (operator instruction) |
+| P2.1 | `meta.yaml`: `question_id`, `tournament`, `percentiles` | done | re-applied; `percentiles` replaced by the ledger `distribution` (D12) |
+| P2.2 | Ledger `submission` event | done | re-applied; plus a `comment` event for late comments |
+| P2.3 | Tournament registry | done | simplified: operator-only, no bot-written fields (D11) |
+| P3.1 | `add-tournament` skill | dropped | `tournament_registry.py add` is enough for a handful of tournaments |
+| P3.2 | `update-tournament` skill (daily reconcile) | superseded | P11.6, deterministic script, no model |
+| P3.3 | `tournament-sweep` skill | superseded | P11.4 `tournament-forecast`, one question per session |
+| P3.4 | `forecast-workflow` Mode step | done | redirects tournament questions to `tournament-forecast` |
+| P3.5 | `forecast-update` hard stop on one-shot | done | |
+| P4.1 | Subagent templates | done | `research-scout` only; `source-checker`/`resolution-reader` dropped (criteria are cached to `raw/`) |
+| P4.2 | `render_agents.py` | dropped | model alias in frontmatter |
+| P4.3 | `tournament_poll.py` gate | **done** | 2026-10-17, stateless; verified live |
+| P4.4 | `record_usage.py` | **done** | parses `claude -p --output-format json`; defensive |
+| P4.5 | `usage_report.py` | done | as `record_usage.py report` |
+| P4.6 | Actions-minutes billing meter | dropped | not worth a PAT and an unstable endpoint; the runbook has the arithmetic |
+| P5.1 | `record_error.py` + `errors.jsonl` | deferred | P12.2 |
+| P5.2 | Secret redaction | **done** | in `metaculus_api.redact()`, unit-tested; extend to `errors.jsonl` with P12.2 |
+| P5.3 | Budget rules in the skill | done | seven rules in `tournament-forecast`; step timeout instead of `budget.py` |
+| P5.4 | Weekly spend guard | **done** | in the gate, with the 80 % soft landing |
+| P5.5 | Circuit breaker | deferred | P12.2 |
+| P5.6 | Actions-minutes guard | dropped | with P4.6 |
+| P6.1 | `validate_state.py` | dropped | the data tests are the validator |
+| P6.2 | Pre-commit config | deferred | optional, local only |
+| P6.3 | `ci_commit.sh` | **done** | plus INDEX regeneration and union merge |
+| P6.4 | `--changed-only` pytest | deferred | needed only at a few hundred questions |
+| P7.1 | `live-bot` branch strategy | dropped | D10: the bot commits to `main` |
+| P7.2 | `tournament-sweep.yml` | **done** | written, actionlint-clean; not yet run on GitHub |
+| P7.3 | `tournament-sync.yml` | **done** | same |
+| P7.4 | `triage.yml` | deferred | no long-horizon bot questions yet |
+| P7.5 | Verify the action's human-actor check | dropped | CLI instead of the action |
+| P8.1 | `docs/tournament-protocol.md` | done | |
+| P8.2 | `docs/runbook.md` | done | |
+| P8.3 | Amend AGENTS/CLAUDE/methodology/output-format/README/SKILLS | done | 2026-10-17 |
+| P9.1 | Definition-of-done checklist on `bot-testing-area` | todo | = M.6 |
+| P9.2 | Soak a week on `bot-testing-area` | dropped | no week left before the round; the dry-run + real smoke test replaces it, and MiniBench's first day is watched instead |
+| P9.3 | First MiniBench round end to end; measure cost | todo | round of 2026-10-19 |
+| P9.4 | Register the Fall 2026 season | done | registered **inactive** (`fall-futureeval-2026`); activation is P12.5 |
 
 ---
 
-## P9 — Soak and go live
+## P10 — Restart from upstream (rev 3)
 
-Plan §19 step 10, §18.
+| Step | Task | Status | Commit |
+|---|---|---|---|
+| P10.1 | Merge `upstream/main` (3ef2827) with provenance; keep upstream code/tests/templates, not its questions or ledger | done | `27fd744` |
+| P10.2 | Delete browser/scraper/aggregation skills, `fetch_metaculus.py`, fetch-robustness doc, their tests | done | `27fd744` |
+| P10.3 | Delete the merge-to-submit workflow and `changed_forecasts.py` (a human approval is a human in the loop); drop playwright/matplotlib | done | `27fd744` |
+| P10.4 | Re-apply the fork's schema on upstream: `question_id`, `tournament`, submission/comment events, registry, one-shot tests | done | `27fd744` |
+| P10.5 | `new_question.py` from the API; question text cached to `raw/` | done | `27fd744` |
 
-| Step | Task | Plan § | Blocked by | Status |
-|---|---|---|---|---|
-| P9.1 | Register `bot-testing-area`; run the full definition-of-done checklist (§18) against it | 18 | P7 | todo |
-| P9.2 | Soak on `bot-testing-area` for a week. Confirm `SWEEP_ENABLED=false` stops the sweep within one cycle, and `WEEKLY_BUDGET_USD_EQUIV=0` starts no Claude job | 19 | P9.1 | todo |
-| P9.3 | Register `minibench`; run one full round end to end; **measure real cost per forecast** over two rounds before deciding Sonnet vs Opus | 19, 16.8 | P9.2 | todo |
-| P9.4 | Register the Fall 2026 FutureEval season once its slug is public (§16.1 — not knowable today) | 16.1 | P9.3 | todo |
+## P11 — MiniBench pipeline (rev 3)
+
+| Step | Task | Status | Commit |
+|---|---|---|---|
+| P11.1 | One-shot path in `submit_metaculus.py`: guards, forecast, private comment (newest version block), ledger record, missed window | done | `27fd744`, `9fee1ed` |
+| P11.2 | Gate `tournament_poll.py` with budget guard | done | `9fee1ed` |
+| P11.3 | `tournament-sweep.yml`: matrix per question, CLI, step timeout, no secrets in the model step, dry-run mode, `bot-health` issue | done | `9fee1ed` + docs commit |
+| P11.4 | `tournament-forecast` skill, `research-scout` agent, `settings.ci.json` | done | `9fee1ed` |
+| P11.5 | `record_usage.py`; `ci_commit.sh` with union merge and INDEX regeneration (simulated with two concurrent clones) | done | `9fee1ed` |
+| P11.6 | `tournament_sync.py` + `tournament-sync.yml` | done | `9fee1ed` |
+| P11.7 | Live read-only verification: gate, scaffold, payloads for binary/MC/numeric/discrete | done | 2026-10-17, nothing submitted |
+
+## P12 — After the first round
+
+| Step | Task | Blocked by | Status |
+|---|---|---|---|
+| P12.1 | Review the first day's runs: permission denials, timeouts, comment POST, cost per question (plan §8) | M.7 | todo |
+| P12.2 | `errors.jsonl` with redaction and `reproduce`; circuit breaker | P12.1 | todo |
+| P12.3 | Set `WEEKLY_BUDGET_USD_EQUIV`; decide `MODEL_FORECAST` on measured cost | P9.3 | todo |
+| P12.4 | Calibration review on resolved MiniBench questions; backtest prompt changes on closed questions only | round resolves (~2026-11-06) | todo |
+| P12.5 | Activate `fall-futureeval-2026` | P12.1 | todo |
+| P12.6 | Cache the npm install of Claude Code in the forecast job | — | todo |
 
 ---
 
 ## Deviations from the plan
 
-Recorded here rather than edited into the plan, so the plan stays the written contract and the
-divergence stays visible.
+D1–D9 (rev 2) are in git history (`git show 393bda3:docs/bot-migration-progress.md`); their
+substance survives in the rows above. New with rev 3:
 
-| # | Plan says | We did | Why |
+| # | Plan (rev 2) said | Rev 3 does | Why |
 |---|---|---|---|
-| D1 | §5.2: move `matplotlib` to an optional `viz` group | Removed the visualization path **entirely** — the dependency, `calibration.py --plot`, `charts/` directory creation, and the "add a chart" instruction in `AGENTS.md` §7 and `forecast-workflow` | Operator instruction, 2026-09-14: keep it simple. An optional group is still a code path to maintain, and the bot has no reader who needs a figure. Also removes the binary-file problem in the GitHub MCP push fallback |
-| D2 | §5.2 puts the `metaculus_aggregations.py` gutting and the `playwright` removal in Phase 0 | Deferred to **P1.5** | §6.4 defines the replacement as a wrapper over `metaculus_api.py`, which is P1.1, and §19's own ordering agrees. Doing it in P0 leaves the repo with no working Metaculus access for the whole gap |
-| D3 | §5.2 puts skipping `research.md` for tournament questions in Phase 0 | Deferred to **P2.1** | Conditioned on `tournament.mode == one_shot`, which P2.1 introduces. Nothing can identify a tournament question today |
-| D4 | §5.1: `git worktree prune`, delete local `testing` and `claude/us-model-evaluations-forecast-672746` | Not applicable in CI | Those live on the operator's Windows machine, not in the container. Operator to run locally |
-| D5 | §7.1: "`question_id` is an int whenever `source == metaculus`" | Enforced, briefly with **one named exemption** in `test_meta.py` (`GROUP_FOLDER_EXEMPTIONS`). **Closed 2026-09-14**: P0.1 removed the folder, so the exemption and its `pytest.skip` were deleted and the rule is now unconditional | `questions/2026-09-04-mc45386-givewell-…` was a single folder covering *two* subquestions of one group post, so no single `question_id` described it. The bot scaffolds one folder per subquestion (the SPR pair is the precedent), so the rule was right going forward and this was legacy debt. It emptied itself on schedule |
-| D6 | The plan does not say where the legacy `question_id`s come from | Backfilled from each folder's own `raw/*.json` snapshots, not re-fetched | Rule 4 ("fresh data only") governs *forecast* numbers; a Metaculus question id is an immutable identifier, and the repo's own snapshot trail is a better source than a live fetch that Cloudflare 403s today (D2). 16 of 17 resolved this way |
-| D7 | §7.2 defines the `submission` record; §6.3 gives the writer to `metaculus_submit.py` (P1.3) | Added `log_forecast.py submit` now, as the only writer | An event type with no producer is not a schema, it is a comment. Writing the ledger line and `meta.tournament.{submitted, submitted_forecast, comment_posted}` in one place is also what lets `test_consistency.py` assert they agree. P1.3 keeps its job — call the API — and calls this to record the result |
-| D8 | §7.3's example registry has MiniBench `active: true` | Seeded `active: false` | §19/P9 soaks on `bot-testing-area` first and only registers MiniBench at P9.3. An active MiniBench row would let the first working sweep (P4.3) spend real, *scored* forecasts before the soak. P9.3 flips it with `tournament_registry.py set minibench --active` |
-| D9 | §5.1/§5.2 read as agent work | P0.1, P0.2, P0.4 and P0.5 were run by the **operator on their own machine** (commit `c1a8693`), not by an agent session | `git rm` is denied by the Claude Code auto-mode permission classifier as "Irreversible Local Destruction", in this session as in the one before it. It is the right call for a tool that deletes 127 tracked files. Anything in a future phase that must delete tracked files (P1.5 drops `playwright` and rewrites `metaculus_aggregations.py`; P4.2 gitignores rendered agent files) needs either an explicit `Bash(git rm:*)` permission rule or the same operator hand-off — and note that the `mcp__github__push_files` fallback in `CLAUDE.md` **cannot delete files either**, so there is no agent-side workaround today |
-
-**Writers added ahead of their phase**: P2 is a schema phase, but three small writers landed
-with it — `new_question.py --tournament`, `log_forecast.py add --p10/--p90`, and
-`log_forecast.py submit`. Each exists so that a schema field has exactly one producer and the
-test suite can hold two records against each other; none of them talks to Metaculus, which stays
-P1's job.
-
-**Resolved 2026-09-14** (was: "known inconsistency while P0.4 is blocked"). The scraper skill is
-gone and `metaculus-aggregations/SKILL.md` no longer points at it — its `## Fallback` section now
-says there is none, matching `AGENTS.md` §4. What is left of the old access path is genuinely
-P1.5's: `metaculus_aggregations.py` still carries its Playwright/Cloudflare code and `playwright`
-is still in `[project.dependencies]`, so `README.md`'s `uv run playwright install chromium` line
-stays correct until P1.5 lands.
+| D10 | Bot state on `live-bot` | Commits to `main` | Parallel per-question jobs each merging `main` into `live-bot` create duplicate merge commits on rebase; one branch removes that and a setup step |
+| D11 | Registry stores `seen_post_ids`, `last_sweep`, `last_sync` | Operator-only registry | Stateless gate; no bot writes, no conflicts |
+| D12 | `meta.percentiles` + `--p10/--p90` | Ledger `distribution` | Upstream's single, validated record of the full forecast |
+| D13 | Comment = 3-line summary | Comment = newest version block | The rules want the comment to represent the reasoning |
+| D14 | `claude-code-action` | Claude Code CLI | Simpler auth, no actor checks, cost in the JSON result |
+| D15 | Sonnet everywhere | Opus forecaster, Sonnet subagent | Frontier-model effect in the FutureEval survey; measured cost decides (P12.3) |

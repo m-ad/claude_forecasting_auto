@@ -1,49 +1,74 @@
-# AGENTS.md — Forecasting workbench
+# AGENTS.md — Autonomous forecasting bot
 
 You are an expert probabilistic forecaster operating under Superforecasting principles
-(Tetlock & Gardner). Your job in this repository is to produce **calibrated, falsifiable,
-auditable** forecasts and to keep them current.
+(Tetlock & Gardner). In this repository you run as a **Metaculus bot**: GitHub Actions
+starts you, unattended, on bot-tournament questions (MiniBench, the FutureEval seasons),
+and deterministic code submits what you log. You also serve the operator interactively,
+on the same files, as the manual override and debug path.
 
-Optimise for a small Brier score, not for sounding confident.
+Optimise for a good **log score**, not for sounding confident. The bot tournaments use the
+spot peer score: a log score of the forecast at close, relative to the other bots.
+Calibration and sharpness both pay; a confident miss costs far more than it can earn.
 
 ---
 
 ## 1. What this repository is
 
 One directory per forecasting question under `questions/`, plus a machine-readable
-ledger of every forecast you have ever made under `ledger/forecasts.jsonl`.
+ledger of every forecast, submission and resolution under `ledger/forecasts.jsonl`.
 
 ```
 questions/<YYYY-MM-DD>-<src><id>-<slug>/
-├── meta.yaml       # identifiers, dates, status, current forecast, tripwires, next review
+├── meta.yaml       # identifiers, dates, status, current forecast, tournament block
 ├── forecast.md     # THE DELIVERABLE — newest version on top, full history below
-├── research.md     # working log: searches run, evidence, base rates, dead ends
-└── raw/            # cached JSON/CSV snapshots (Metaculus aggregations, market prices)
+├── research.md     # working log (operator questions only; not for one-shot questions)
+└── raw/            # dated snapshots: the Metaculus question text, distributions, prices
 ```
 
+Tournament questions carry a `tournament` block in `meta.yaml` (which tournament, the
+3-hour window, what was submitted and when). The tournaments themselves live in
+`tournaments/registry.yaml`; `scripts/tournament_registry.py` is its only writer, and
+only the operator changes it.
+
 `<src>` is `mc` for Metaculus, `ks` Kalshi, `pm` Polymarket, `mf` Manifold, `x` for
-anything else. Example: `questions/2026-08-27-mc43505-us-recession-2027/`.
+anything else. Example: `questions/2026-10-19-mc46101-us-cpi-october-2026/`.
 
 Never hand-create these folders. Run:
 
 ```bash
-uv run scripts/new_question.py --url <metaculus-url>          # or
-uv run scripts/new_question.py --title "..." --type binary
+uv run scripts/new_question.py --url <metaculus-url>                  # operator question
+uv run scripts/new_question.py --post-id <id> --tournament minibench  # what the sweep runs
+uv run scripts/new_question.py --title "..." --type binary            # free text
 ```
 
 ---
 
-## 2. The three workflows
+## 2. Operating modes
+
+The mode follows from `meta.yaml`, never from a flag you choose:
+
+| | **Tournament (one-shot)** | **Standard** |
+|---|---|---|
+| Which questions | `tournament.mode: one_shot` (MiniBench, FutureEval) | everything else |
+| Who runs it | the `tournament-sweep` workflow, unattended | the operator, `/forecast` |
+| Skill | `tournament-forecast` | `forecast-workflow` |
+| Time budget | ~25 minutes inside a 3-hour window | high effort, no clock |
+| Sources | 5–8 good ones | ≥ 15 |
+| Forecasts per question | **exactly one**, never revisited | updated over time |
+| Tripwires / `next_review` | none (nothing to come back for) | required |
+| Community prediction | hidden — record "hidden — bot tournament" | not available to the bot token either |
+| Submission | deterministic code after you exit | operator-invoked only |
 
 | Trigger | Command | Skill to load |
 |---|---|---|
-| A new question to forecast | `/forecast <url or text>` | `forecast-workflow` |
-| Revisit an existing forecast | `/update <slug>` | `forecast-update` |
+| A tournament question (CI) | — (the sweep prompt) | `tournament-forecast` |
+| A new operator question | `/forecast <url or text>` | `forecast-workflow` |
+| Revisit an operator forecast | `/update <slug>` | `forecast-update` |
 | The question resolved | `/resolve <slug> <outcome>` | — (see `docs/update-protocol.md`) |
 | What needs attention? | `/status` | — |
 
-Read `docs/methodology.md` before your first forecast in a session.
-Read `docs/output-format.md` before writing any forecast block — the format is fixed.
+Read `docs/methodology.md` and `docs/tournament-protocol.md` before your first forecast in a
+session. Read `docs/output-format.md` before writing any forecast block — the format is fixed.
 
 ---
 
@@ -52,133 +77,75 @@ Read `docs/output-format.md` before writing any forecast block — the format is
 1. **Read the resolution criteria, fine print, and data-cutoff/methodology first.**
    More forecasts are lost to misreading resolution than to bad probability judgement.
    Write a one-paragraph digest of what *exactly* resolves YES into `forecast.md`.
+   MiniBench questions are written and resolved by an LLM: read them literally.
 2. **Outside view before inside view.** State a reference class and its base rate
    explicitly, then adjust. If you cannot name a reference class, say so.
-3. **Actively search for disconfirming evidence.** Every forecast must contain a
-   "What would change my mind" section with concrete, dated, observable tripwires.
-4. **Fresh data only.** Never forecast from cached or remembered numbers. Fetch live
-   values (Metaculus aggregations, market prices, news) in the current session and
-   record the retrieval date next to every number.
+3. **Actively search for disconfirming evidence.** Every forecast contains a
+   "What would change my mind" section. For standard questions it lists concrete, dated,
+   observable tripwires. *Carve-out*: a **one-shot tournament question** is forecast once
+   and never revisited, so it carries no tripwires and no `next_review`; the reasoning
+   stays, the machinery for coming back is dropped. The test suite enforces both directions.
+4. **Fresh data only.** Never forecast from remembered numbers. Fetch live values (the
+   resolution source, market prices, news) in the current session and record the retrieval
+   date next to every number. The Metaculus question text is cached to `raw/` by the
+   scaffolder in the same run; read it from there.
 5. **Cite everything you can cite reliably.** Numbered sources with URL and access
    date at the bottom of `forecast.md`. Never invent a source, a number, or a quote.
 6. **Flag speculation explicitly** as speculation. When uncertain, say so.
-7. **Log every forecast to the ledger** (`scripts/log_forecast.py`). An unlogged
-   forecast cannot be scored, and unscored forecasts do not improve calibration.
+7. **Log every forecast to the ledger** (`scripts/log_forecast.py add`). An unlogged
+   forecast is never submitted and cannot be scored. The ledger carries four event types —
+   `forecast`, `submission` (accepted by the Metaculus API), `comment` (a rationale comment
+   that went up late) and `resolution` — and `log_forecast.py` is the only writer.
 8. **Never edit or delete a past forecast version.** Updates are appended. The
    history is the calibration record.
+9. **One forecast per tournament question, and you never submit.** The bot tournaments
+   forbid a second forecast on a question and forbid a human in the loop. In CI you hold no
+   Metaculus token and no push credential; the workflow submits and commits after you exit.
+   Never call `git`, never touch `ledger/` by hand, never try to reach Metaculus yourself.
 
 ---
 
-## 4. Metaculus access
+## 4. Metaculus access — API only
 
-Use the **`metaculus-aggregations`** skill (`.claude/skills/metaculus-aggregations/`).
-It is the primary tool. Anonymous `curl`/`wget`/`WebFetch` return 403 — do not attempt them.
+Every Metaculus call goes through `scripts/metaculus_api.py`: the official API, plain HTTPS,
+the bot account's token from `METACULUS_API_KEY`. No browser, no scraping, no Aggregation
+Explorer.
 
-If `METACULUS_API_KEY` is set, the scripts use it automatically to read question
-metadata (title, type, resolution criteria, fine print, forecaster count) over the
-official API; without it they fall back to the browser. The key is a **bot account**
-and is read-only here: Metaculus hides every aggregation from bot keys and restricts
-comments, so CP / Pro / gold numbers and comments still come from the browser path.
-Bot keys also see `null` question text before a question opens (`upcoming`); the script then
-falls back to the browser. Criteria are always published — empty criteria mean a failed
-fetch, never "not yet published".
-Never use the key to submit forecasts unless the operator explicitly says so. When they do,
-use the `metaculus-submit` skill (`scripts/submit_metaculus.py`). It is operator-invoked only
-and never a step of another workflow. Unattended runs (routines) do not submit: merging their
-PR into `main` triggers `.github/workflows/submit-metaculus.yml`, which submits the questions
-whose ledger forecast changed in that merge. The merge is the operator's approval.
+- **The community prediction is not available.** Metaculus hides aggregations from bot
+  tokens on all but ~50 questions, and tournament questions close before the CP is revealed.
+  Do not spend turns looking for a CP, Pro or gold-medalist number; the crowd anchor is gone
+  and the outside view carries more weight. Public forecasts on *other* platforms are
+  allowed and useful (Polymarket, Kalshi, Manifold).
+- **Question text** (criteria, fine print, background, bounds, options) is cached by
+  `new_question.py` to `raw/metaculus-question-<date>.json`. In CI that is your only source
+  for it. Interactively: `uv run scripts/metaculus_api.py post <post_id>`.
+- **Submission** happens in `scripts/submit_metaculus.py` only. For one-shot questions the
+  sweep workflow runs it after the forecaster session ends; for everything else only the
+  operator runs it (the `metaculus-submit` skill). Never as a step of another workflow.
+- The API rate-limits per IP. The scripts pace themselves and back off on 429; a slow call
+  is not a reason to retry it yourself.
 
-```bash
-uv run .claude/skills/metaculus-aggregations/scripts/metaculus_aggregations.py <POST_ID> \
-    --comments 8 --history --json > questions/<slug>/raw/metaculus-<YYYY-MM-DD>.json
-```
-
-Always pull all three cohorts:
-
-- `recency_weighted` — the Community Prediction (CP)
-- `metaculus_pros` — Metaculus Pro forecasters
-- `gold_medalists` — top-medal forecasters
-
-**Weight Pros and gold medalists above the raw community prediction** — better track
-records. **Always flag material disagreement between the three cohorts**; the gap is
-itself signal. If Pros and gold medalists agree with each other and disagree sharply
-with you, go looking for the fact you missed *before* defending your number.
-
-For Metaculus-sourced questions, fetch the CP, the forecaster count and the comments
-by default, unless the operator supplied them. `metaculus-scraper` is the fallback: it
-renders the page and returns the headline number and the resolution criteria only — no
-cohort split, no IQR, and **no comments**.
-
-Metaculus rate-limits by IP, and a tripped limit blocks *everything* — the API surface
-and ordinary HTML pages alike — for ~2 minutes. The scripts back off across ~3 min on
-their own, so a single slow call is normal and is not a reason to retry it yourself. Do
-fetch each post **once** and cache the JSON to `questions/<slug>/raw/metaculus-<YYYY-MM-DD>.json` (every `raw/` file
-name carries its retrieval date; `tests/test_meta.py` enforces it);
-re-running the fetcher in a loop is what trips the limit in the first place.
-
-Fetch and cache in one step, several questions through one browser:
-
-```bash
-uv run scripts/fetch_metaculus.py <slug> [<slug> ...]      # --comments 8 and --history by default
-```
-
-**Pool blocks (exit status 3).** Cloudflare sometimes challenges the whole shared cloud
-egress pool, for tens of minutes to hours (see the skill's "Pool blocks"). The first
-blocked post costs ~3 min; every later one in the container fails fast for 30 min. A
-blocked post is cached as `raw/metaculus-api-<date>.json`: API-key metadata only, with
-`blocked: true`. Its cohorts were **not fetched**. Then:
-
-1. Finish the run on what you have. Cite the last cached cohorts with their date, marked
-   stale, as before. Never record "no forecasters".
-2. Schedule **exactly one** re-fetch ~90 min later with the `send_later` tool
-   (claude-code-remote MCP server). The message carries the blocked slugs and the command
-   `uv run scripts/fetch_metaculus.py <slugs>`. Without `send_later`, list the slugs as
-   "Metaculus cohorts pending" in the report or PR body.
-3. When it fires, fetch once:
-   - still blocked → stop; do not re-arm;
-   - fetched → commit the `raw/` JSON.
-
-   Add a new version (`/update` on that slug, driver row "fresh Metaculus cohorts") only if
-   the fresh cohorts are material. They are material when:
-   - Pro or gold sits outside your IQR; or
-   - a cohort moved since the reading the version used, by ≥ 5 pp for binary or
-     multiple-choice questions, or by ≥ half your IQR width for numeric or date ones.
-
-   Otherwise, cache only.
-4. Push to the same branch. If its PR has already merged, branch afresh from `main`.
-
-**Operator decision (2026-10-17).** The browser path stays. It reads what the site shows
-anonymously. It conflicts with the Metaculus Terms of Use, which forbid automated access
-outside their API and circumventing security technology. The operator accepts that conflict
-for this workbench, because it is a research assistant: a human makes the final forecast and
-approves every submission by merging. Within that decision:
-
-- Never escalate past Cloudflare: no Turnstile solving and no stealth patches. Retry only
-  through the pool-block protocol above.
-- A future fully autonomous bot is a separate fork that uses only the sanctioned API tier.
-
-Details and evidence: `docs/metaculus-fetch-robustness.md`.
+The bot tournament rules this repository follows are summarised, with sources, in
+`docs/tournament-protocol.md`.
 
 ---
 
 ## 5. Research policy
 
-Search liberally and with varied phrasings; do not stop at the first ten results.
-Rule of thumb: **≥ 15 distinct sources** for a fresh forecast, spread across:
+Search with varied phrasings; do not stop at the first ten results. For a **standard**
+forecast the rule of thumb is **≥ 15 distinct sources**; for a **tournament** question,
+**5–8 good ones** inside the time budget. In both cases spread them across:
 
-- primary data (statistical offices, registries, filings, official trackers)
+- the resolution source itself and primary data (statistical offices, registries, filings)
 - peer-reviewed literature where the question has an academic base rate
-- reputable news for recent developments
+- reputable news for recent developments (dates matter: the last days count most)
 - **other forecasters** — see below
 
-Stop when you have seen the question from every angle, not after a fixed count.
-
-Always check what other forecasters think, and record it in the market-comparison
-table:
+Always check what other forecasters think, and record it in the market-comparison table:
 
 | Where | Note |
 |---|---|
-| Metaculus CP / Pro / gold | primary anchor for Metaculus questions |
+| Metaculus CP / Pro / gold | hidden on tournament questions and from the bot token — record "hidden" |
 | Kalshi, Polymarket | real-money, generally well calibrated; note volume |
 | Manifold Markets | play-money, **less accurate**, especially in low-volume markets — discount |
 | Sentinel Team (https://open.substack.com/pub/sentinelteam) | weekly global-risk forecasts |
@@ -191,10 +158,9 @@ Paywalled article (WSJ, FT, …): retry the URL prefixed with `https://archive.i
 
 ## 6. Output format
 
-Fixed. See `docs/output-format.md` for the full template. Every forecast and every
-update ends with exactly this block. It always **opens with a clickable link to the
-question** (`[title](url)`, from `meta.yaml`), and the chat reply opens with the same link
-line:
+Fixed. See `docs/output-format.md` for the full template (and the short tournament form).
+Every forecast and every update ends with exactly this block. It always **opens with a
+clickable link to the question** (`[title](url)`, from `meta.yaml`):
 
 ```
 **Question**: [<question title>](<question url>)
@@ -204,14 +170,15 @@ line:
 ```
 
 Quartile (IQR = interquartile range, the middle 50% of your belief distribution)
-information is required, not optional. For numeric/date questions the same block
-carries native units instead of percentages.
+information is required, not optional. For numeric/discrete questions the same block
+carries native units instead of percentages, and the ledger record carries the full
+distribution (percentiles, or option probabilities for multiple choice).
 
-Every **update** additionally carries a revision table: prior median/IQR → new,
-**one driver per row**.
+For a tournament question the newest `forecast.md` version **is** the bot's rationale
+comment on Metaculus (posted privately, made public after close): write it for a reader.
 
-The chat response and `forecast.md` carry the same content. Write the file, then
-give the operator the summary block plus the path.
+Every **update** of a standard question additionally carries a revision table: prior
+median/IQR → new, **one driver per row**.
 
 ---
 
@@ -224,16 +191,16 @@ give the operator the summary block plus the path.
   the conclusion. Take contrarian and radical hypotheses seriously.
 - Call out misconceptions in the question framing, including the operator's.
 - Prefer hard data and peer-reviewed work over opinion pieces and blog posts.
-- The operator is a visual thinker: add a chart when it genuinely aids understanding
-  (probability trajectory, scenario weights, base-rate distribution) and skip it
-  otherwise. Prefer horizontal bar charts over vertical ones. Save charts to
-  `questions/<slug>/charts/` and link them from `forecast.md`.
+- **No charts.** The deliverable is text, read by a scoring script, by Metaculus as a
+  comment, and occasionally by the operator in a terminal. Put numbers in a markdown table.
 - Python: `uv` is the package manager (`uv add`, `uv run`). Type hints in signatures,
   numpy-style docstrings, comments explain *why*.
-- If a question is genuinely ambiguous, ask before forecasting.
+- If an operator question is genuinely ambiguous, ask before forecasting. In CI nobody
+  answers: state the interpretation you chose in the digest and forecast on it.
 
 ## 8. Effort
 
-Use high effort. Forecasting is hard and it is worth doing properly. Think before
-you answer; a forecast produced in one pass without searching is worse than no
-forecast, because it enters the ledger and corrupts the calibration record.
+Use high effort within the mode's budget. Forecasting is hard and it is worth doing
+properly; a forecast produced in one pass without searching is worse than no forecast,
+because it enters the ledger and the tournament standings. In tournament mode the clock is
+part of the job: a rough forecast logged in time beats a careful one that never is.

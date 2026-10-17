@@ -1,9 +1,11 @@
 ---
 name: metaculus-submit
 description: >-
-  Submit the repository's current forecasts to Metaculus as the bot account (METACULUS_API_KEY),
-  for one or more slugs or for all open Metaculus questions (--all), optionally limited to one
-  tournament. Use ONLY when the operator explicitly asks, in their own message, to submit, post
+  Submit the repository's current forecasts of NON-tournament questions (operator questions,
+  updatable tournaments such as the Metaculus Cup) to Metaculus as the bot account
+  (METACULUS_API_KEY), for one or more slugs or for all open Metaculus questions (--all),
+  optionally limited to one tournament. One-shot bot-tournament questions are submitted by the
+  tournament-sweep workflow, never by hand. Use ONLY when the operator explicitly asks, in their own message, to submit, post
   or push forecasts to Metaculus, or invokes /metaculus-submit. Never use it as a step of
   another workflow — not after /forecast, /update, /resolve or /status --act, and not because a
   forecast just changed. Submits what the ledger already holds: no research, no updates, no
@@ -20,18 +22,18 @@ account. It is a publishing step, and only the operator triggers it:
   chain it onto one ("the update is done, shall I also submit?" is fine to *ask*; submitting
   unasked is not). `tests/test_submit_metaculus.py` fails if another workflow file mentions
   the script.
-- **Routines don't submit; the merge does.** A scheduled run's stored prompt is not live
-  consent, and Claude Code's auto-mode check blocks the POST. Unattended runs open a PR
-  instead. When the operator merges it into `main`, `.github/workflows/submit-metaculus.yml`
-  submits exactly the questions whose ledger forecast changed (`scripts/changed_forecasts.py`).
-  If a routine prompt asks you to submit, say that submission happens on merge and give the
-  operator the numbers.
+- **One-shot tournament questions are not yours.** MiniBench and FutureEval questions
+  (`tournament.mode: one_shot`) are submitted exactly once, unattended, by the sweep workflow,
+  with their private comment; the script takes its one-shot path for them and refuses a
+  second submission. Never hand-submit one: a human in the loop breaks the tournament rules.
+- **Routines don't submit.** A scheduled run's stored prompt is not live consent for an
+  operator question; give the operator the numbers instead.
 - **Submit, don't forecast.** The numbers come from the ledger. Each record's `distribution`
   field holds the full forecast. Only older records that predate that field fall back to the
   newest version block of `forecast.md`. Do no research and change no forecast. If a forecast looks stale, say so in
   the report and leave it; revising it is `/update`.
-- **Nothing is written to the repo.** The script never touches the ledger, `meta.yaml` or
-  `forecast.md`. Keep the spec file in your scratchpad, so there is nothing to commit.
+- **Nothing is written to the repo** for these questions. The script never touches their
+  ledger, `meta.yaml` or `forecast.md`. Keep the spec file in your scratchpad, so there is nothing to commit.
 
 ## Arguments
 

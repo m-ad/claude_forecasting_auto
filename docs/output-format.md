@@ -47,7 +47,8 @@ resolution source and its release schedule. Flag edge cases.>
 | Polymarket | 11% | 2026-08-27 | $1.2M volume |
 | Manifold | 15% | 2026-08-27 | low volume, discounted |
 
-<explicit note on any material disagreement between cohorts, and where you sit vs. them and why>
+<explicit note on any material disagreement between sources, and where you sit vs. them and why>
+<the Metaculus rows only when the operator supplied the numbers: the bot token cannot see them>
 
 ### Scenarios
 | # | Scenario | Weight | Implies |
@@ -125,3 +126,37 @@ then reads `other — no URL (free-text question)`. `new_question.py` does both 
 
 One decimal place on percentages. Do not imply precision you do not have — but do not round
 to the nearest 5% either; that discards real information.
+
+## Tournament short form (one-shot questions)
+
+`new_question.py --tournament` scaffolds `templates/forecast-tournament.md`. Same header
+block (with a **Tournament** row and **Community**: hidden — bot tournament) and the same
+closing summary block; the version section carries only:
+
+```markdown
+## v1 — Initial forecast — 2026-10-19
+
+### What resolves YES
+### Outside view
+### Inside view
+### Evidence
+### Other forecasters        (Metaculus: "hidden — bot tournament"; markets if any)
+### What would change my mind
+### Sources                  (≥ 5, numbered, `URL (accessed YYYY-MM-DD)`)
+
+**Question**: [<title>](<url>)
+**Date**: 2026-10-19
+**Forecast**: Median 12.0%, IQR [8.0%, 18.0%]
+**Thesis**: <1–3 sentences>
+```
+
+There is exactly one version: a tournament question is never revisited.
+`log_forecast.py add` rewrites the header's **Current forecast** row from the logged numbers.
+
+### The Metaculus comment
+
+Bots must post a comment with every forecast (private; Metaculus publishes it after close).
+`submit_metaculus.py` posts **the newest version block verbatim** — from the `## v1` heading
+through the summary block, HTML comments removed — so it represents the actual reasoning and
+final decision. Over 9,000 characters the middle is cut and marked `[... truncated ...]`; the
+summary block always survives. Nothing is written twice and no model composes the comment.

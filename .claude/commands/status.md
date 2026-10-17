@@ -54,22 +54,14 @@ corners on the later questions.
 
 Before spawning, do two things yourself, in the parent:
 
-1. **Pre-fetch the Metaculus JSON, in one call.** Metaculus rate-limits by IP and a tripped limit
-   blocks every subagent at once for ~2 minutes, so parallel fetches are the one thing
-   guaranteed to stall the whole fan-out. Fetch every Metaculus-sourced slug in the due set
-   through one browser:
+1. **Pre-fetch the Metaculus question text, serially.** The API rate-limits per IP, so let
+   the parent fetch every Metaculus-sourced slug in the due set, one after another:
 
    ```bash
-   uv run scripts/fetch_metaculus.py <slug> [<slug> ...]
+   uv run scripts/metaculus_api.py post <post_id> > questions/<slug>/raw/metaculus-question-<YYYY-MM-DD>.json
    ```
 
-   These are live numbers fetched in this session, so rule 4 is satisfied; the agent reads the
-   file instead of re-fetching.
-
-   **Exit status 3 means a pool block.** Those slugs got `raw/metaculus-api-<date>.json`
-   (metadata only). Tell their agents the cohorts are not fetched and that they should use the
-   last cached ones, marked stale. After integrating, schedule the one deferred re-fetch
-   (AGENTS.md §4) for those slugs.
+   The community prediction is not available to the bot token; agents record it as hidden.
 2. **Cap concurrency at 4 agents in flight** (agents, not questions — a cluster agent counts
    once). Launch the next batch as slots free up.
 
@@ -77,8 +69,8 @@ Give every subagent the same brief, with its own slug substituted:
 
 - Load the `forecast-update` skill and follow it end to end; read `docs/update-protocol.md`.
 - Its prior is *that question's own last forecast*, not the community prediction.
-- Read the pre-fetched `questions/<slug>/raw/metaculus-<date>.json`; **do not** call the
-  aggregations script or any other Metaculus endpoint. Market prices, news and primary data
+- Read the pre-fetched `questions/<slug>/raw/metaculus-question-<date>.json`; **do not** call
+  any Metaculus endpoint. Market prices, news and primary data
   series it fetches itself.
 - It writes `questions/<slug>/forecast.md` (prepend the new version), `meta.yaml`, and its own
   ledger entry via `scripts/log_forecast.py`. Ledger appends are per-slug and append-only, so
