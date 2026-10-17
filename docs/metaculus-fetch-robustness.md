@@ -77,96 +77,81 @@ to tell). They are also consistent with other bots on the pool running at the sa
 **Core issue:** the only data channel that carries the numbers, the anonymous `/api-proxy/`,
 depends on Cloudflare's bot verdict for an address pool we share and cannot influence. The
 channel that is exempt from the challenge, the authenticated `/api/`, is the one where
-Metaculus hides the numbers from our bot key.
+Metaculus withholds the numbers: every account starts on the `restricted` API tier (§3).
 
-## 3. Plan, ordered by robustness gained per unit of effort
+## 3. Rules check (2026-10-17)
 
-### P1: get the numbers over an authenticated channel (the real fix; needs the operator)
+Read from Metaculus's published source, `github.com/Metaculus/metaculus` at `b1c6b52`
+(2026-10-16). The live pages were behind the same block.
 
-Only this removes the dependency on Cloudflare's verdict. Options, in order of preference:
+- **Tournament rules do not apply, and do not forbid using the CP (community prediction).**
+  `tournament-rules`: accounts "officially registered as bot accounts, are ineligible for
+  tournament prizes" unless a competition's rules allow them. The AIB rules (AI Forecasting
+  Benchmark, `aib/contest-rules`: no human in the loop, one bot per person) bind only bots
+  entered in AIB. This bot isn't entered.
+- **Bot account: correct for this setup.** UI string `apiForecastingAccessBotNotice`:
+  "Accounts used for AI bot forecasts, automated forecast generation, or other non-human
+  forecasting systems must use a linked bot account." A human-supervised hybrid that submits
+  through the API falls under this. Human accounts that submit through the API get paused.
+- **API access is tiered for every account, not just bots.** `docs/openapi.yml`: all
+  authenticated accounts get the CP on "a small set of ~50 questions" only. The tiers are
+  `restricted` (the default), `benchmarking` (~250 open + ~250 resolved questions) and
+  `unrestricted`. A tier can be granted per account, per project or per post
+  (`misc/models.py`). Requests go through the "Metaculus Data Needs Form" or
+  api-requests@metaculus.com. **Correction to the first draft:** a human-account token would
+  not help; it starts on `restricted` too.
+- **The current browser path conflicts with the Terms of Use** (last modified 2026-09-21).
+  The Terms forbid procuring content "by automated means (such as scripts, bots, spiders,
+  crawlers, or scrapers)", "except as may be a result of standard search engine or Internet
+  browser usage or through and subject to the terms of an API provided by Metaculus". They
+  also forbid "circumventing … any security technology". Three points against the path:
+  - headless Playwright is automated, not standard browser use;
+  - `/api-proxy/` is the website's own internal route, and from there it returns the CP that
+    the official API withholds from our tier;
+  - the spoofed UA exists to avoid Cloudflare's challenge.
 
-1. **Ask Metaculus** (support or the bot-benchmark team) whether the bot account can be given
-   read access to aggregations, or what the sanctioned way is. Metaculus hides the community
-   prediction (CP) from bot keys on purpose: in the AI benchmark, bots must not copy the crowd.
-   This workbench reads the CP anonymously and then **submits as that bot**
-   (`submit-metaculus.yml`). Check the rules of each tournament the bot enters. The question
-   that would make the pipeline robust also settles whether it is allowed.
-2. **A separate human-account read token** (`METACULUS_READ_TOKEN`), used only for GETs,
-   never for submissions. Test first:
-   - Does `/api/posts/<id>/?with_cp=true` return `aggregations.recency_weighted.latest` for
-     that token?
-   - Does `/api/aggregation_explorer/` return `metaculus_pros` and `gold_medalists`?
-   - Does `/api/comments/?post=` work?
+  The AI Products Supplement §5.2 repeats it: automated access to "Metaculus Data … by any
+  other automated means (including scraping the Metaculus website) remains prohibited". The
+  `metaculus-scraper` skill and comment fetching fall under the same clauses.
+- **Evaluation clause.** API data "may not be used to train, evaluate, or otherwise create or
+  develop AI/ML models or algorithms without Metaculus's prior written permission". Scoring
+  the bot against the CP is arguably evaluation. Name it in the access request.
 
-   I could not test these (no such token here), and I don't know the answers. If only the CP
-   comes back, Pro/gold stays on the browser path, but the headline number becomes reliable.
-3. Script change, whichever token it is: `_api_get_json` becomes the first transport for the
-   explorer, post and comments. The browser path is kept as a fallback.
+## 4. Plan (revised after the rules check)
 
-### P2: fail fast, recover later (in-repo, small, do now)
+### P1: request a higher API tier (the real fix; operator)
 
-This does not prevent blocks. It stops them costing ~3.5 min per post and stops them silently
-degrading the forecasts.
+Use the Data Needs Form / api-requests@metaculus.com. Ask for:
 
-- **Circuit breaker.** When the first browser request gets `cf-mitigated: challenge`, and the
-  warm-up question page is challenged too, treat it as a **pool block**:
-  - stop retrying (skip `_BACKOFF`);
-  - write a marker with a timestamp (e.g. `$TMPDIR/metaculus-block.json`), so later calls in
-    the session fail fast for 30 min;
-  - exit with a distinct code (e.g. 3) and a partial result: API metadata, plus
-    `aggregation_note="pool block"`.
+- `benchmarking` or `unrestricted` tier for the bot account, or per-post grants for the
+  questions it forecasts;
+- Aggregation Explorer access for `metaculus_pros` and `gold_medalists`;
+- comment read access.
 
-  Keep `_BACKOFF` only for a real rate-limit signature, i.e. a 429, or a 403 on a page that
-  was 200 moments earlier from the same session.
-- **Deferred re-fetch.** On a pool block, the routine finishes with API metadata and stale
-  cohorts, as today. It then schedules **one** follow-up (`send_later` +90 min, or a second
-  daily routine slot around 13:00 UTC) that only re-fetches cohorts. The follow-up appends an
-  update only if a cohort moved materially. The record shows a clean fetch 51 min to 8 h after
-  every block.
-- **Batch mode.** `metaculus_aggregations.py 45262 45219 45617 … --out-dir` runs one browser
-  and one warm page for N posts, instead of N cold launches. That means fewer first-contact
-  requests, and one probe decides the whole batch.
+State the use: non-commercial, a human-supervised hybrid bot that is not in any tournament;
+comparison scoring only; no model training.
 
-### P3: an off-pool fetcher (medium effort; test before building)
+Once granted, the whole client becomes `urllib` + token:
 
-A `workflow_dispatch` + cron GitHub Action that runs the unchanged browser script from GitHub's
-runners. Those are Azure addresses, so a different pool and ASN. It would write the JSON as a
-workflow artifact or to a `metaculus-cache` branch.
+- `/api/posts/<id>/?with_cp=true`;
+- `/api/aggregation_explorer/`;
+- `/api/comments/`.
 
-- Cloud sessions can trigger it through `mcp__github__actions_run_trigger` and read the result
-  back. No new secret is needed: the bot key is already in CI for submissions.
-- **Unverified:** whether Metaculus also challenges GitHub runner addresses, which are popular
-  with scrapers too. Test first with one `workflow_dispatch` run during a block window.
-- Rule 4 ("fresh data, fetched in the current session") would need an amendment, e.g.
-  "retrieved ≤ 6 h before the forecast, with its retrieval timestamp recorded".
+That route was not challenged during the 2026-10-17 block, and it needs no Chromium.
 
-### P4: instrumentation (cheap; needed to confirm the timing hypothesis)
+### P2: interim (operator's choice)
 
-Add a `fetch_meta` block to every cached JSON, and to a `…-FETCH-FAILED.json` stub on failure:
+(a) Stop the browser path now. Forecast from API metadata and markets, and mark Metaculus
+cohorts "not retrieved".
 
-- `fetched_at`;
-- egress IP from `/cdn-cgi/trace`, which still answered 200 during the block;
-- `cf-ray`, the status and `cf-mitigated` of each attempt;
-- transport (api/browser/ci);
-- browser version.
+(b) Keep it until Metaculus replies, accepting the ToS conflict. With (b), the
+circuit breaker from the first draft still pays: on a pool block, stop at once instead of
+spending ~3.5 min per post. It also avoids adding load during blocks.
 
-After a few weeks this shows whether blocks cluster by hour, and so whether moving the routine
-cron off 04:00–05:30 UTC is worth doing.
+### Dropped from the first draft
 
-### P5: client hygiene (optional, low value)
-
-- Derive the UA from `browser.version` instead of hard-coding `Chrome/122`.
-- Add `--disable-blink-features=AutomationControlled`.
-
-This removes self-inconsistent signals that can only lower the bot score outside block windows.
-It does **not** get through a block (finding 6). Go no further: solving or evading Turnstile is
-an arms race against a control the site chose to deploy, and it breaks again at the next
-Cloudflare change.
-
-### Docs to correct in `.claude/skills/metaculus-aggregations/SKILL.md`
-
-- The "IP-level rate limit, clears in ~2 min" troubleshooting row: add the pool block
-  (hours, all addresses), and say that waiting 3 min does not help.
-- TLS 1.3 reset: did not reproduce on 2026-10-17; keep the fallback, but mark it historical.
-- The "keep the spoofed `Chrome/122` UA" invariant: what matters is the absence of
-  `HeadlessChrome`, not the 122. P5 replaces it.
+- **Off-pool CI fetcher (P3) and client hardening (P5):** both are the scraping and
+  security-circumvention patterns the Terms prohibit.
+- **Instrumentation (P4):** it only diagnosed block timing for the browser path. Once P1
+  lands it is moot. Under P2(b), the circuit breaker's own status check (`cf-mitigated`
+  on the first request) is enough.
