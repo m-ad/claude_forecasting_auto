@@ -1,0 +1,225 @@
+name: tournament-sweep
+
+# The competition path. Every 30 minutes a no-LLM gate asks Metaculus which open
+# tournament questions the bot has not forecast yet. Each one gets its own job:
+# scaffold from the API, one Claude Code session that researches and logs a
+# forecast, then deterministic code submits it with its private comment and
+# commits the record. No human is in the loop -- the bot tournaments require that.
+#
+# Opt-in: the schedule does nothing until the repository variable SWEEP_ENABLED is
+# "true". A manual run (workflow_dispatch) always runs -- that is the smoke test.
+#
+# Why every 30 minutes: tournament questions open at random hours for 3 hours
+# (FutureEval resources page, checked 2026-10-17). Worst case a question is seen
+# ~30 min + scheduler delay after opening, leaving ~2 h for a ~25 min forecast.
+# Each gate run bills one Actions minute while the repo is private (~1,440/month).
+
+on:
+  schedule:
+    - cron: "11,41 * * * *"
+  workflow_dispatch:
+    inputs:
+      tournament:
+        description: "Poll only this tournament slug (e.g. bot-testing-area). Blank = active registry entries."
+        required: false
+        default: ""
+      post_ids:
+        description: "Space-separated post ids to forecast (still open and not yet forecast by the bot)."
+        required: false
+        default: ""
+      max_questions:
+        description: "Cap on questions for this run."
+        required: false
+        default: ""
+
+# One sweep at a time: the next gate must see the previous sweep's submissions,
+# or two jobs could forecast the same question.
+concurrency:
+  group: tournament-sweep
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+  issues: write
+
+env:
+  BOT_BRANCH: main
+  PYTHON_VERSION: "3.13"
+
+jobs:
+  gate:
+    if: vars.SWEEP_ENABLED == 'true' || github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    outputs:
+      has_work: ${{ steps.poll.outputs.has_work }}
+      questions: ${{ steps.poll.outputs.questions }}
+      question_count: ${{ steps.poll.outputs.question_count }}
+      reason: ${{ steps.poll.outputs.reason }}
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          ref: ${{ env.BOT_BRANCH }}
+          persist-credentials: false
+      - uses: astral-sh/setup-uv@v7
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+          enable-cache: true
+          cache-dependency-glob: "pyproject.toml"
+      - name: Poll Metaculus
+        id: poll
+        env:
+          METACULUS_API_KEY: ${{ secrets.METACULUS_API_KEY }}
+          WEEKLY_BUDGET_USD_EQUIV: ${{ vars.WEEKLY_BUDGET_USD_EQUIV }}
+          MAX_QUESTIONS_PER_RUN: ${{ inputs.max_questions || vars.MAX_QUESTIONS_PER_RUN || '6' }}
+          # Passed through env, never interpolated into the script: dispatch input is free text.
+          IN_TOURNAMENT: ${{ inputs.tournament }}
+          IN_POST_IDS: ${{ inputs.post_ids }}
+        run: |
+          args=(--github-output)
+          if [ -n "$IN_TOURNAMENT" ]; then
+            [[ "$IN_TOURNAMENT" =~ ^[a-z0-9-]+$ ]] || { echo "::error::bad tournament slug"; exit 1; }
+            args+=(--tournament "$IN_TOURNAMENT")
+          fi
+          if [ -n "$IN_POST_IDS" ]; then
+            [[ "$IN_POST_IDS" =~ ^[0-9\ ]+$ ]] || { echo "::error::post_ids must be numbers"; exit 1; }
+            # shellcheck disable=SC2206  # word-splitting the id list is intended
+            args+=(--post-ids $IN_POST_IDS)
+          fi
+          uv run --no-dev scripts/tournament_poll.py "${args[@]}"
+
+  forecast:
+    needs: gate
+    if: needs.gate.outputs.has_work == 'true'
+    name: forecast ${{ matrix.q.tournament }} ${{ matrix.q.post_id }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 50
+    strategy:
+      fail-fast: false
+      max-parallel: ${{ fromJSON(vars.MAX_PARALLEL || '3') }}
+      matrix:
+        q: ${{ fromJSON(needs.gate.outputs.questions) }}
+    concurrency:
+      group: question-${{ matrix.q.post_id }}
+      cancel-in-progress: false
+    env:
+      POST_ID: ${{ matrix.q.post_id }}
+      TOURNAMENT: ${{ matrix.q.tournament }}
+      MODEL: ${{ vars.MODEL_FORECAST || 'opus' }}
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          ref: ${{ env.BOT_BRANCH }}
+          fetch-depth: 0
+          # The forecaster session must not be able to read a push token from
+          # .git/config; the commit step sets credentials only after it has exited.
+          persist-credentials: false
+      - uses: astral-sh/setup-uv@v7
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+          enable-cache: true
+          cache-dependency-glob: "pyproject.toml"
+      - name: Install dependencies and Claude Code
+        env:
+          CLAUDE_CODE_VERSION: ${{ vars.CLAUDE_CODE_VERSION || '2.1.302' }}
+        run: |
+          uv sync --group dev
+          npm install -g --no-fund --no-audit "@anthropic-ai/claude-code@${CLAUDE_CODE_VERSION}"
+
+      - name: Scaffold (or reuse) the question folder
+        id: prep
+        env:
+          METACULUS_API_KEY: ${{ secrets.METACULUS_API_KEY }}
+        run: |
+          slug="$(uv run scripts/new_question.py --post-id "$POST_ID" \
+            --tournament "$TOURNAMENT" --reuse | head -n1)"
+          [ -d "questions/$slug" ] || { echo "::error::scaffold failed for $POST_ID"; exit 1; }
+          version="$(uv run python -c "import sys,yaml; print((yaml.safe_load(open(sys.argv[1]))['current'] or {}).get('version') or 0)" "questions/$slug/meta.yaml")"
+          echo "slug=$slug" >> "$GITHUB_OUTPUT"
+          echo "version=$version" >> "$GITHUB_OUTPUT"
+          echo "Question folder: \`questions/$slug\` (v$version)" >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Forecast (Claude Code)
+        id: claude
+        if: steps.prep.outputs.version == '0'
+        # Step-level timeout: when it fires, the job still runs the submit, usage
+        # and commit steps below, so whatever was logged in time is not lost.
+        timeout-minutes: ${{ fromJSON(vars.MAX_MINUTES_PER_QUESTION || '25') }}
+        env:
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          SLUG: ${{ steps.prep.outputs.slug }}
+          EFFORT: ${{ vars.EFFORT_FORECAST || 'high' }}
+          MAX_USD: ${{ vars.MAX_USD_PER_QUESTION || '15' }}
+          MINUTES: ${{ vars.MAX_MINUTES_PER_QUESTION || '25' }}
+        run: |
+          export FORECAST_DEADLINE="$(date -u -d "+${MINUTES} minutes" +%Y-%m-%dT%H:%M:%SZ)"
+          prompt="Forecast the bot-tournament question in questions/${SLUG}/. First read .claude/skills/tournament-forecast/SKILL.md and follow it exactly. The session is killed at ${FORECAST_DEADLINE} (UTC); log your forecast at least 5 minutes before that."
+          set +e
+          claude -p "$prompt" \
+            --model "$MODEL" \
+            --effort "$EFFORT" \
+            --output-format json \
+            --permission-mode dontAsk \
+            --settings .claude/settings.ci.json \
+            --max-budget-usd "$MAX_USD" \
+            > "$RUNNER_TEMP/claude.json"
+          code=$?
+          set -e
+          echo "exit_code=$code" >> "$GITHUB_OUTPUT"
+          exit "$code"
+
+      - name: Submit to Metaculus (forecast + private comment)
+        id: submit
+        if: always() && steps.prep.outputs.slug != ''
+        env:
+          METACULUS_API_KEY: ${{ secrets.METACULUS_API_KEY }}
+          SLUG: ${{ steps.prep.outputs.slug }}
+        run: |
+          set +e
+          uv run scripts/submit_metaculus.py "$SLUG" 2>&1 | tee "$RUNNER_TEMP/submit.log"
+          status=${PIPESTATUS[0]}
+          set -e
+          { echo '### Submission'; echo '```'; cat "$RUNNER_TEMP/submit.log"; echo '```'; } >> "$GITHUB_STEP_SUMMARY"
+          exit "$status"
+
+      - name: Record token usage
+        if: always() && steps.claude.outcome != 'skipped' && steps.prep.outputs.slug != ''
+        env:
+          SLUG: ${{ steps.prep.outputs.slug }}
+          EXIT_CODE: ${{ steps.claude.outputs.exit_code }}
+        run: |
+          uv run scripts/record_usage.py record --result "$RUNNER_TEMP/claude.json" \
+            --job tournament-sweep --run-id "$GITHUB_RUN_ID" --slug "$SLUG" --model "$MODEL" \
+            ${EXIT_CODE:+--exit-code "$EXIT_CODE"} --summary >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Commit and push the record
+        if: always() && steps.prep.outputs.slug != ''
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+          SLUG: ${{ steps.prep.outputs.slug }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git remote set-url origin "https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
+          ./scripts/ci_commit.sh "sweep: ${TOURNAMENT} ${SLUG}"
+
+  report-failure:
+    needs: [gate, forecast]
+    if: failure()
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Open or update the bot-health issue
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          body="$(date -u +%FT%TZ) tournament-sweep failed: $RUN_URL"
+          gh label create bot-health --color B60205 --description "The forecasting bot is failing" 2>/dev/null || true
+          num="$(gh issue list --label bot-health --state open --json number -q '.[0].number')"
+          if [ -n "$num" ]; then
+            gh issue comment "$num" --body "$body"
+          else
+            gh issue create --label bot-health --title "bot: sweep failing" --body "$body"
+          fi

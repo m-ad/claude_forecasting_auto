@@ -1097,7 +1097,7 @@ def test_logging_rewrites_the_header_row_to_match_meta(tmp_path, monkeypatch):
     (folder / "forecast.md").write_text(
         "| **Current forecast** | *not yet forecast* |\n", encoding="utf-8"
     )
-    monkeypatch.setattr(log_forecast, "QUESTIONS", tmp_path)
+    monkeypatch.setattr(_common, "QUESTIONS", tmp_path)
     monkeypatch.setattr(log_forecast, "today", lambda: "2026-10-19")
     log_forecast._refresh_header("s", "binary", 1, 0.12, 0.08, 0.18)
     assert (folder / "forecast.md").read_text(encoding="utf-8") == (

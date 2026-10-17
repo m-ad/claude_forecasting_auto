@@ -1,0 +1,77 @@
+name: tournament-sync
+
+# Daily deterministic reconcile (no model, no tokens): missed windows, comment
+# retries, closed/resolved questions with the bot's official scores, INDEX.md.
+# Runs the full test suite before committing. See scripts/tournament_sync.py.
+#
+# 03:23 UTC: off the hour (GitHub's scheduler is congested at :00) and clear of the
+# sweep's :11/:41 slots.
+
+on:
+  schedule:
+    - cron: "23 3 * * *"
+  workflow_dispatch:
+
+concurrency:
+  group: tournament-sync
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+  issues: write
+
+env:
+  BOT_BRANCH: main
+
+jobs:
+  sync:
+    if: vars.SWEEP_ENABLED == 'true' || github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          ref: ${{ env.BOT_BRANCH }}
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: astral-sh/setup-uv@v7
+        with:
+          python-version: "3.13"
+          enable-cache: true
+          cache-dependency-glob: "pyproject.toml"
+      - run: uv sync --group dev
+      - name: Reconcile with Metaculus
+        env:
+          METACULUS_API_KEY: ${{ secrets.METACULUS_API_KEY }}
+        run: |
+          set +e
+          uv run scripts/tournament_sync.py 2>&1 | tee "$RUNNER_TEMP/sync.log"
+          status=${PIPESTATUS[0]}
+          set -e
+          { echo '### Tournament sync'; echo '```'; cat "$RUNNER_TEMP/sync.log"; echo '```'; } >> "$GITHUB_STEP_SUMMARY"
+          uv run scripts/record_usage.py report >> "$GITHUB_STEP_SUMMARY" || true
+          exit "$status"
+      - name: Commit and push
+        if: always()
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git remote set-url origin "https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
+          ./scripts/ci_commit.sh "sync: $(date -u +%F)" full
+      - name: Open or update the bot-health issue
+        if: failure()
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          body="$(date -u +%FT%TZ) tournament-sync failed: $RUN_URL"
+          gh label create bot-health --color B60205 --description "The forecasting bot is failing" 2>/dev/null || true
+          num="$(gh issue list --label bot-health --state open --json number -q '.[0].number')"
+          if [ -n "$num" ]; then
+            gh issue comment "$num" --body "$body"
+          else
+            gh issue create --label bot-health --title "bot: sync failing" --body "$body"
+          fi

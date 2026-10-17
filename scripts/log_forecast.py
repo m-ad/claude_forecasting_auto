@@ -51,6 +51,7 @@ from _common import (
     ledger_records,
     load_meta,
     save_meta,
+    set_forecast_header,
     today,
 )
 
@@ -300,24 +301,18 @@ def _refresh_header(
 ) -> None:
     """Rewrite ``forecast.md``'s Current forecast row from what was just logged.
 
-    The header is the one part of ``forecast.md`` rewritten in place, and the row
-    must agree with ``meta.yaml`` to the decimal (``tests/test_forecast_md.py``).
+    The row must agree with ``meta.yaml`` to the decimal (``tests/test_forecast_md.py``).
     Deriving it from the logged numbers instead of trusting a hand-typed copy
     removes a formatting failure an unattended run cannot recover from.
     """
-    path = QUESTIONS / slug / "forecast.md"
-    if not path.exists():
-        return
-    row = (
-        f"| **Current forecast** | Median {fmt_value(med, qtype)}, IQR "
-        f"[{fmt_value(lo, qtype)}, {fmt_value(hi, qtype)}] (v{version}, {today()}) |"
+    # A multiple-choice median is the leading option's probability: a percentage.
+    shown = "binary" if qtype in PROBABILITY_TYPES else qtype
+    set_forecast_header(
+        slug,
+        "Current forecast",
+        f"Median {fmt_value(med, shown)}, IQR [{fmt_value(lo, shown)}, "
+        f"{fmt_value(hi, shown)}] (v{version}, {today()})",
     )
-    text = path.read_text(encoding="utf-8")
-    new = re.sub(
-        r"(?m)^\|[ \t]*\*\*Current forecast\*\*[ \t]*\|.*\|[ \t]*$", row, text, count=1
-    )
-    if new != text:
-        path.write_text(new, encoding="utf-8")
 
 
 def _logged_submissions(slug: str) -> list[dict[str, Any]]:

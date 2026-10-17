@@ -356,6 +356,9 @@ def question_snapshot(post: dict[str, Any], question: dict[str, Any]) -> dict[st
         "url": f"https://www.metaculus.com/questions/{post.get('id')}/",
         "post_title": post.get("title"),
         "tournaments": [t for t in tournaments if t],
+        # Top level as well as under `question`: log_forecast.py checks a
+        # multiple-choice forecast's labels against a cached `options` list.
+        "options": question.get("options"),
         "question": {k: question.get(k) for k in SNAPSHOT_QUESTION_KEYS},
     }
 

@@ -147,6 +147,25 @@ def save_meta(slug: str, meta: dict[str, Any]) -> None:
         yaml.safe_dump(meta, fh, sort_keys=False, allow_unicode=True, width=100)
 
 
+def set_forecast_header(slug: str, row: str, value: str) -> bool:
+    """Rewrite one row of ``forecast.md``'s header table; True if it changed.
+
+    The header is the one part of ``forecast.md`` rewritten in place, and the test
+    suite holds its rows (Status, Current forecast) against ``meta.yaml``. Scripts
+    that change those fields rewrite the row with them rather than leave it stale.
+    """
+    path = QUESTIONS / slug / "forecast.md"
+    if not path.exists():
+        return False
+    text = path.read_text(encoding="utf-8")
+    pattern = rf"(?m)^\|[ \t]*\*\*{re.escape(row)}\*\*[ \t]*\|.*\|[ \t]*$"
+    new = re.sub(pattern, lambda _: f"| **{row}** | {value} |", text, count=1)
+    if new == text:
+        return False
+    path.write_text(new, encoding="utf-8")
+    return True
+
+
 def ledger_records(path: Path = LEDGER) -> list[dict[str, Any]]:
     """Every parseable ledger record, in file order.
 

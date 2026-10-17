@@ -84,6 +84,7 @@ from _common import (
     find_slug,
     load_meta,
     save_meta,
+    set_forecast_header,
 )
 from calibration import read_ledger
 from log_forecast import _logged_submissions, record_submission
@@ -548,18 +549,7 @@ def mark_missed_window(slug: str) -> None:
     meta["status"] = "dropped"
     meta["next_review"] = None
     save_meta(slug, meta)
-    path = QUESTIONS / slug / "forecast.md"
-    if path.exists():
-        text = path.read_text(encoding="utf-8")
-        path.write_text(
-            re.sub(
-                r"(?m)^(\|[ \t]*\*\*Status\*\*[ \t]*\|).*\|[ \t]*$",
-                r"\1 dropped |",
-                text,
-                count=1,
-            ),
-            encoding="utf-8",
-        )
+    set_forecast_header(slug, "Status", "dropped")
 
 
 def submit_one_shot(slug: str, rec: dict[str, Any] | None, dry_run: bool) -> str:
