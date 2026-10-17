@@ -1,0 +1,66 @@
+slug: 2026-10-17-mc45869-all-time-highest-close-price-nvda-before
+title: What will be the all-time highest close price of NVDA before January 1, 2027?
+source: metaculus
+url: https://www.metaculus.com/questions/45869/
+post_id: 45869
+type: numeric
+unit: USD
+tags:
+- markets
+- equities
+- ai
+dates:
+  created: '2026-10-17'
+  opened: '2026-10-19'
+  closes: '2026-12-01'
+  resolves: '2027-01-01'
+status: open
+current:
+  version: 1
+  date: '2026-10-17'
+  median: 239.24
+  iqr:
+  - 239.24
+  - 262.0
+  community:
+    cp: null
+    pro: null
+    gold: null
+    n_forecasters: 11
+    as_of: '2026-10-17'
+next_review: '2026-10-31'
+tripwires:
+- signal: NVDA close >= $230 on or before 2026-10-30 (median/p75 move up)
+  by: '2026-10-30'
+  direction: up
+  magnitude: 4
+  magnitude_unit: USD
+  fired: null
+- signal: NVDA close <= $195 on or before 2026-11-13 (p75 moves down)
+  by: '2026-11-13'
+  direction: down
+  magnitude: 12
+  magnitude_unit: USD
+  fired: null
+- signal: 'Q3 FY27 report (~2026-11-18): Q4 revenue guide >= $122B and stock +5% next day (p75 up)'
+  by: '2026-11-20'
+  direction: up
+  magnitude: 12
+  magnitude_unit: USD
+  fired: null
+- signal: Hyperscaler Q3 earnings calls cut 2027 capex guidance (p75 down)
+  by: '2026-10-31'
+  direction: down
+  magnitude: 8
+  magnitude_unit: USD
+  fired: null
+- signal: Any NVDA close above $239.24 before 2026-12-01 re-anchors the floor
+  by: '2026-12-01'
+  direction: either
+  magnitude: 0
+  magnitude_unit: USD
+  fired: null
+resolution:
+  outcome: null
+  date: null
+  source: null

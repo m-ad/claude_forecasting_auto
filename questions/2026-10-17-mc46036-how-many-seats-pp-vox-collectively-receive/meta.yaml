@@ -1,0 +1,65 @@
+slug: 2026-10-17-mc46036-how-many-seats-pp-vox-collectively-receive
+title: How many seats will PP and Vox collectively receive in the 2026 Spanish general election?
+source: metaculus
+url: https://www.metaculus.com/questions/46036/
+post_id: 46036
+type: discrete
+unit: seats
+tags:
+- elections
+- europe
+dates:
+  created: '2026-10-17'
+  opened: '2026-10-18'
+  closes: '2026-11-29'
+  resolves: '2026-11-30'
+status: open
+current:
+  version: 1
+  date: '2026-10-17'
+  median: 197.0
+  iqr:
+  - 189.0
+  - 205.0
+  community:
+    cp: null
+    pro: null
+    gold: null
+    n_forecasters: 5
+    as_of: '2026-10-17'
+next_review: '2026-10-24'
+tripwires:
+- signal: CIS pre-electoral macro-survey or >= 3 private polls (13-23 Nov) with PP+Vox <= 190
+  by: '2026-11-23'
+  direction: down
+  magnitude: 6
+  magnitude_unit: seats
+  fired: null
+- signal: Private-poll PP+Vox median >= 205 in the final publishable week
+  by: '2026-11-23'
+  direction: up
+  magnitude: 4
+  magnitude_unit: seats
+  fired: null
+- signal: Vox <= 16% average in polls published 2026-11-13 to 2026-11-23
+  by: '2026-11-23'
+  direction: down
+  magnitude: 4
+  magnitude_unit: seats
+  fired: null
+- signal: Proclaimed candidacies show UPN running separately from PP in Navarre -> re-check attribution
+  by: '2026-10-31'
+  direction: either
+  magnitude: 0
+  magnitude_unit: seats
+  fired: null
+- signal: Election-night provisional count 2026-11-29 -> mechanical re-forecast
+  by: '2026-11-29'
+  direction: either
+  magnitude: 0
+  magnitude_unit: seats
+  fired: null
+resolution:
+  outcome: null
+  date: null
+  source: null
