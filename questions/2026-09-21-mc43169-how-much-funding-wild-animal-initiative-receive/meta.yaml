@@ -18,62 +18,69 @@ dates:
   resolves: '2027-11-15'
 status: open
 current:
-  version: 1
-  date: '2026-09-21'
-  median: 3.72
+  version: 2
+  date: '2026-10-17'
+  median: 3.09
   iqr:
-  - 2.91
-  - 4.68
+  - 2.16
+  - 4.09
   community:
-    cp: 4.245
-    pro: 4.412
-    gold: 4.226
-    n_forecasters: 48
-    as_of: '2026-09-21'
+    cp: null
+    pro: null
+    gold: null
+    n_forecasters: null
+    as_of: '2026-10-17'
 next_review: '2026-11-20'
 tripwires:
-- signal: WAI's annual funding-priorities / Marginal Funding Week post on the EA Forum states 2026 revenue
-    at or above $5M, or names a secured multi-year commitment
+- signal: WAI's 2026 giving-season / funding-priorities post on the EA Forum says The Navigation Fund
+    has renewed for 2027, or states 2026 revenue at or above $4.5M
   by: '2026-12-05'
   direction: up
-  magnitude: 1.2
+  magnitude: 1.0
   magnitude_unit: USD millions
   fired: null
-- signal: That same post instead repeats an unfilled gap against the $4.1-4.28M 2026 budget
+- signal: That same post says TNF has not yet decided (or decides in 2027), or repeats an unfilled 2026
+    gap
   by: '2026-12-05'
   direction: down
-  magnitude: 0.6
+  magnitude: 0.5
   magnitude_unit: USD millions
   fired: null
-- signal: Public announcement (WAI blog, EA Forum, Navigation Fund, or a foundation release) of a new
-    institutional grant to WAI of >= $1.5M signed on or before 2026-12-31
+- signal: Public announcement of a new grant to WAI of >= $1.5M signed on or before 2026-12-31
   by: '2026-12-31'
   direction: up
   magnitude: 1.3
   magnitude_unit: USD millions
   fired: null
-- signal: WAI's FY2025 Form 990 is filed and Part I line 8 differs from the draft $2,716,044 by more than
-    10%
-  by: '2026-11-30'
-  direction: either
-  magnitude: 0
+- signal: WAI's FY2025 audit or Form 990 shows >= $0.9M time-restricted net assets or grants receivable
+    at end-2025 (the TNF H2-2026 bridge already booked)
+  by: '2026-12-31'
+  direction: down
+  magnitude: 0.25
   magnitude_unit: USD millions
   fired: null
-- signal: The Navigation Fund confirms (or is confirmed to have signed in 2026) a 2027+ wild-animal-welfare
-    commitment to WAI
+- signal: WAI's FY2025 audit or Form 990 shows < $0.3M time-restricted net assets at end-2025, i.e. TNF's
+    $1.075M was 2025 operating support
+  by: '2026-12-31'
+  direction: up
+  magnitude: 0.6
+  magnitude_unit: USD millions
+  fired: null
+- signal: The Navigation Fund confirms a 2027+ commitment to WAI with a 2026 signature date
   by: '2027-01-31'
+  direction: up
+  magnitude: 1.2
+  magnitude_unit: USD millions
+  fired: null
+- signal: Coefficient Giving announces any wild-animal-welfare grant to WAI (Good Ventures or non-GV partner)
+    signed in 2026
+  by: '2026-12-31'
   direction: up
   magnitude: 1.0
   magnitude_unit: USD millions
   fired: null
-- signal: ACE's November 2026 recommendation round drops Wild Animal Initiative from the Recommended Charity
-    list
-  by: '2026-12-01'
-  direction: down
-  magnitude: 0.3
-  magnitude_unit: USD millions
-  fired: null
-- signal: Metaculus community prediction moves outside [3.6, 4.9] with no public news trigger I can identify
+- signal: Metaculus community prediction, once re-fetched, sits outside [3.4, 4.9] with no identifiable
+    news trigger
   by: '2026-12-31'
   direction: either
   magnitude: 0

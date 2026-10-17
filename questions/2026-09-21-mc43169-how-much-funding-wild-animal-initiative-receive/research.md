@@ -245,3 +245,53 @@ variance did not go away when Open Philanthropy left — it changed which desk i
 **New tripwire for the next update** (not added to `meta.yaml`, which belongs to v1):
 Coefficient Giving announces *any* wild-animal-welfare grant, from Good Ventures or a
 non-GV partner, with a 2026 signature date, by 2026-12-31 → up, +1.0 USD millions.
+
+---
+
+## v2 working notes — 2026-10-17
+
+### Search log
+
+| Date | Query / source | Finding | Effect |
+|---|---|---|---|
+| 2026-10-17 | `metaculus_aggregations.py 43169` ×3 (11:14, ~11:20, ~11:26 UTC) + `metaculus_scrape.py` ×1 | All failed: 403 Cloudflare challenge; agent-proxy status shows `connect_rejected` for `brunhild.challenges.cloudflare.com:443` | CP/Pro/gold **not refreshed**; meta.yaml community set to null rather than carrying a stale snapshot |
+| 2026-10-17 | EA Forum, TNF funding-landscape post (2024-10-02), full text | Verbatim: one ~$1M TNF grant for 2026-07-01..12-31; "won't be making any more grants in the WAW space at least until 2027"; 2027 decision "late 2026"; WAI: "more likely than not that they'll extend funding for WAI through 2027" | **Key driver**: the H2-2026 bridge is the 2025 TNF $1,075,000 |
+| 2026-10-17 | WAI FY2024 audited statements (transparency page) | Grants receivable end-2024: $1.5M gross, all < 1 yr (OP tail); 1–5 yr: $0. Contributions w/o restriction $2,050,033; grants $275,294. Concentration: single donor $900,000 = 39% of 2024 support (2023: $5,622,192 = 82%) | No TNF promise outstanding at end-2024 → bridge booked 2025. 2024 also had a one-off ~$0.9M item |
+| 2026-10-17 | WAI 2024 Form 990 public copy | Line 1f $2,325,327; Schedule B not in public copy | Confirms 2024 line 8 |
+| 2026-10-17 | WAI 2025 annual report p.32 (re-read) | TNF $1,075,000; "draft, unaudited" | — |
+| 2026-10-17 | EA Forum "Funding priorities for WAI in 2026" (re-read) | "$267,000 short" of $4.1M 2026 budget in Nov 2025, i.e. ~$3.83M already covered — only possible with the TNF bridge in hand | Consistent with driver |
+| 2026-10-17 | ProPublica API, WAI | Latest filing FY2024 (no data fields; PDF processed 2026-01-20). No FY2025 | Tripwire 4 not fired |
+| 2026-10-17 | WAI transparency page | Latest 990/audit: 2024. No FY2025 audit yet (FY2024 audit issued 2025-08-12) | — |
+| 2026-10-17 | WAI blog index | Latest post 2026-08-12; nothing on funding since June grants round | Quiet |
+| 2026-10-17 | EA Forum WAI tag | Latest: "Phase 3 of field-building" (2026-08-19), no revenue info; critical comment thread on cost-effectiveness | Neutral; weak negative for donor sentiment |
+| 2026-10-17 | RP/ACE sheet CSV re-export | Byte-identical to 2026-09-21 | Projection not revised |
+| 2026-10-17 | navigation.org/grants | Focus areas: climate, farm animal welfare, criminal justice, open science, nuclear (via Longview). No WAW | Weak negative on renewal |
+| 2026-10-17 | ProPublica search "Navigation Fund" | Navigation Charitable Fund, EIN 92-1117448 (public charity). FY2024 990 PDF blocked by Cloudflare | Could not check whether the $900k 2024 donor was TNF; the audit books it as an unrestricted contribution, and TNF said only one bridge grant → probably not TNF |
+| 2026-10-17 | ACE 2026 recommendations | Not out yet. WAI re-evaluated in 2025 and holds two-year status from 2025-11-04 | v1's ACE tripwire retired |
+| 2026-10-17 | Coefficient Giving / AWF 2026 | No WAW grant to WAI found; no AWF 2026 payout report found | AWF 2026 uncertain, kept $0–0.3M |
+
+### The accrual-timing finding, stated carefully
+
+- **Claim:** TNF's 2025 contribution of $1,075,000 is the ~$1M bridge for July–Dec 2026, recognised
+  in FY2025 when promised or paid. It therefore will not appear on the FY2026 990.
+- **For:** TNF's stated plan is one bridge grant and no other WAW grants until 2027. The amount
+  matches (~$1M). OP covered 2025 in full ($2M/yr through 2026-06-30), so WAI needed no TNF
+  money for 2025 operations. No TNF receivable existed at end-2024. In Nov 2025 WAI said its 2026
+  budget was ~93% covered.
+- **Against / residual:** TNF could have given extra 2025 support and still made the bridge in
+  2026; the $75k excess over "~$1M" is unexplained; the 2025 figures are draft. → P(claim) ≈ 0.8.
+- **Decisive check:** FY2025 audit Note "Net assets with donor restrictions — time restricted"
+  at 2025-12-31. ≈ $1M → claim confirmed.
+
+### Monte Carlo (v2)
+
+`B ~ LN(1.95, 0.15)`; `H ~ Bern(0.20)·LN(1.0, 0.1)`; `R ~ Bern(0.42)·LN(1.6, 0.4)`;
+`L ~ Bern(0.30)·LN(1.1, 0.6)`; independent; 2M draws, seed 43169.
+Quantiles p5..p95: 1.67, 1.81, 2.16, 3.09, 4.09, 5.10, 5.77.
+
+### Open questions for v3
+
+1. The WAI giving-season post (mid-Nov): does it mention TNF's 2027 decision?
+2. The FY2025 audit: what is time-restricted at end-2025?
+3. Re-fetch the Metaculus cohorts. If they have moved below ~3.6 without news, someone may have
+   found the same accrual point.
