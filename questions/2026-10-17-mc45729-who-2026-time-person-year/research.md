@@ -65,3 +65,9 @@ TIME's pattern in non-US-election years: often a group/concept or a symbol of a 
   Texas would be a TIME-sized story).
 - TIME shortlist (~Dec 9) — historically the winner is on it.
 - Any new war escalation / peace deal (Iran, Ukraine) in Nov.
+
+## Resolution-text retrieval attempts (2026-10-17, second pass)
+
+- Real criteria still unreadable: bot-key API returns `null` description/criteria/fine print on every endpoint (`/api/posts/<id>/`, `/api/questions/<qid>/`, `/api/posts/?ids=`, `?lang=` variants) while the post is pre-open; browser path fails because the proxy denies `brunhild.challenges.cloudflare.com` (Cloudflare challenge); no Wayback/archive.ph copies; unauthenticated API 403.
+- The key-authenticated API **does** return text for open posts (verified on 45515, 45262, 45617, 45670), so the real text becomes readable without Cloudflare once the post opens (open_time below).
+- open_time 2026-10-19T17:00Z. Author darkives; their open multiple-choice award question 45617 (Ballon d'Or) has fine print *"If the winner is not one of the listed options, the question will resolve as Other. If [it] is not awarded ... before January 1, 2027, this question will be annulled."* **Template evidence only** — supports the v1 reading that any unlisted honoree resolves Other. Still unknown: joint picks containing a listed name, and what exactly "Astronaut(s)" and "Artificial Intelligence" cover.

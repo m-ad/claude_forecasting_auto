@@ -59,3 +59,9 @@ monitoring overstates; discrete closes + Itô drift → ~0.48–0.50).
 - Confirmed earnings date and the Q4 guide; hyperscaler capex commentary in late-Oct earnings
   (MSFT/GOOGL/META/AMZN ~Oct 27–30).
 - FOMC 2026-10-28 and 10y yield path.
+
+## Resolution-text retrieval attempts (2026-10-17, second pass)
+
+- Real criteria still unreadable: bot-key API returns `null` description/criteria/fine print on every endpoint (`/api/posts/<id>/`, `/api/questions/<qid>/`, `/api/posts/?ids=`, `?lang=` variants) while the post is pre-open; browser path fails because the proxy denies `brunhild.challenges.cloudflare.com` (Cloudflare challenge); no Wayback/archive.ph copies; unauthenticated API 403.
+- The key-authenticated API **does** return text for open posts (verified on 45515, 45262, 45617, 45670), so the real text becomes readable without Cloudflare once the post opens (open_time below).
+- open_time 2026-10-19T17:00Z. Author darkives. Closest open price-extreme template is 45515 (VIX, author Capital): resolves on Yahoo Finance history, CBOE as fallback, no revisions after the window. **Template evidence only** — by analogy NVDA likely resolves on Yahoo Finance daily Close (split-adjusted); Yahoo's max close in the cached data is 239.24 (2026-10-06).

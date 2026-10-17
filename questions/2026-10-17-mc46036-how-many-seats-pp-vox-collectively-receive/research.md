@@ -60,3 +60,9 @@ learn what was already checked and what was already ruled out.
 - Official candidate lists (any PP joint lists with UPN/others? whether they count).
 - Debates schedule; first campaign-period polls (campaign starts 13 Nov; poll publication ban from 24 Nov).
 - CIS pre-electoral macro-survey (usually ~2 weeks before election).
+
+## Resolution-text retrieval attempts (2026-10-17, second pass)
+
+- Real criteria still unreadable: bot-key API returns `null` description/criteria/fine print on every endpoint (`/api/posts/<id>/`, `/api/questions/<qid>/`, `/api/posts/?ids=`, `?lang=` variants) while the post is pre-open; browser path fails because the proxy denies `brunhild.challenges.cloudflare.com` (Cloudflare challenge); no Wayback/archive.ph copies; unauthenticated API 403.
+- The key-authenticated API **does** return text for open posts (verified on 45515, 45262, 45617, 45670), so the real text becomes readable without Cloudflare once the post opens (open_time below).
+- open_time 2026-10-18T17:00Z. Author darkives; their open election question 45670 (Israel, most seats) resolves on the officially reported result and is annulled if the election is cancelled/postponed past 2026-12-31. **Template evidence only** — the PP–UPN joint-list attribution question remains open.

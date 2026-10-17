@@ -60,3 +60,9 @@ Share = (1 − minors) × two-party share(Neves vs Rosa).
 - Any poll published during the campaign (29 Oct–13 Nov).
 - Turnout signal (low turnout historically helps the better-organised machine).
 - Whether MpD is fully mobilised behind Rosa (internal leadership fight after May defeat?).
+
+## Resolution-text retrieval attempts (2026-10-17, second pass)
+
+- Real criteria still unreadable: bot-key API returns `null` description/criteria/fine print on every endpoint (`/api/posts/<id>/`, `/api/questions/<qid>/`, `/api/posts/?ids=`, `?lang=` variants) while the post is pre-open; browser path fails because the proxy denies `brunhild.challenges.cloudflare.com` (Cloudflare challenge); no Wayback/archive.ph copies; unauthenticated API 403.
+- The key-authenticated API **does** return text for open posts (verified on 45515, 45262, 45617, 45670), so the real text becomes readable without Cloudflare once the post opens (open_time below).
+- open_time 2026-10-19T17:00Z. Same author (DaAdCh) and same series as open post 45262 ("What first round vote share will Iliana Iotova win in the 2026 Bulgarian Presidential election?"), whose text reads: *"This question will resolve as the percentage vote share received by Iliana Iotova in the first round of the Bulgarian presidential election scheduled to be held on October 25, 2026, as declared by the Bulgarian Central Election Commission."* Fine print: annulled if no result is declared by 2026-12-31. **Template evidence only** — by analogy 45418 most likely resolves on the CNE-declared first-round percentage for Neves (CNE publishes % of valid votes), consistent with the v1 inferred digest.
