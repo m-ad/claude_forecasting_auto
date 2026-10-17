@@ -1,7 +1,7 @@
 # Metaculus fetch failures: diagnosis and plan (2026-10-17)
 
 Status: **plan, nothing implemented yet.** Measurements were taken in one cloud session on
-2026-10-17, 11:42–11:55 UTC. Scripts: `metaculus_aggregations.py` v4.5, Playwright 1.64,
+2026-10-17, 11:42–11:51 UTC; the block was still on at the last probe (11:51). Scripts: `metaculus_aggregations.py` v4.5, Playwright 1.64,
 Chromium 141.0.7390.37.
 
 ## 1. What fails
