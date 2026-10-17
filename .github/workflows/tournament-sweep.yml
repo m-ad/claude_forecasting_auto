@@ -91,7 +91,7 @@ jobs:
             # shellcheck disable=SC2206  # word-splitting the id list is intended
             args+=(--post-ids $IN_POST_IDS)
           fi
-          uv run --no-dev scripts/tournament_poll.py "${args[@]}"
+          uv run --no-default-groups scripts/tournament_poll.py "${args[@]}"
 
   forecast:
     needs: gate
@@ -128,7 +128,7 @@ jobs:
         env:
           CLAUDE_CODE_VERSION: ${{ vars.CLAUDE_CODE_VERSION || '2.1.302' }}
         run: |
-          uv sync --group dev
+          uv sync
           npm install -g --no-fund --no-audit "@anthropic-ai/claude-code@${CLAUDE_CODE_VERSION}"
 
       - name: Scaffold (or reuse) the question folder
@@ -181,9 +181,25 @@ jobs:
           echo "exit_code=$code" >> "$GITHUB_OUTPUT"
           exit "$code"
 
+      # The session may run Python (Monte Carlo, distribution fits), which the
+      # permission rules do not bind, and the steps below hold the Metaculus token
+      # and a push credential. Undo every change outside the question folder and
+      # the session's own ledger lines -- running the guard committed at HEAD with
+      # the system interpreter -- then rebuild the virtualenv the next steps use.
+      - name: Undo changes outside the question folder
+        id: guard
+        if: always() && steps.prep.outputs.slug != ''
+        env:
+          SLUG: ${{ steps.prep.outputs.slug }}
+        run: |
+          set -o pipefail
+          git show HEAD:scripts/ci_guard.py | python3 -I - "$SLUG" | tee -a "$GITHUB_STEP_SUMMARY"
+          rm -rf .venv
+          uv sync -q
+
       - name: Submit to Metaculus (forecast + private comment)
         id: submit
-        if: always() && steps.prep.outputs.slug != ''
+        if: always() && steps.guard.outcome == 'success'
         env:
           METACULUS_API_KEY: ${{ secrets.METACULUS_API_KEY }}
           SLUG: ${{ steps.prep.outputs.slug }}
@@ -199,7 +215,7 @@ jobs:
           exit "$status"
 
       - name: Record token usage
-        if: always() && steps.claude.outcome != 'skipped' && steps.prep.outputs.slug != ''
+        if: always() && steps.claude.outcome != 'skipped' && steps.guard.outcome == 'success'
         env:
           SLUG: ${{ steps.prep.outputs.slug }}
           EXIT_CODE: ${{ steps.claude.outputs.exit_code }}
@@ -218,7 +234,7 @@ jobs:
       # A dry-run forecast is never committed: the next real sweep would reuse the
       # logged-but-unsent folder and submit it without a fresh forecast.
       - name: Commit and push the record
-        if: always() && steps.prep.outputs.slug != '' && !inputs.dry_run
+        if: always() && steps.guard.outcome == 'success' && !inputs.dry_run
         env:
           GITHUB_TOKEN: ${{ github.token }}
           SLUG: ${{ steps.prep.outputs.slug }}

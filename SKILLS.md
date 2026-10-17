@@ -35,6 +35,7 @@ stream, read-only, returns a dated digest. At most two per tournament question.
 | `scripts/tournament_registry.py` | Read/write `tournaments/registry.yaml` (operator only). |
 | `scripts/record_usage.py` | Token/cost record per Claude run (`ledger/usage.jsonl`) and the rolling spend report. |
 | `scripts/ci_commit.sh` | The workflows' commit step: validate, commit, rebase-push with backoff. |
+| `scripts/ci_guard.py` | After the forecaster session: undo every change outside its question folder and its own ledger lines (stdlib only, run from `HEAD`). |
 | `scripts/status.py` | List questions by urgency; `--index` regenerates `INDEX.md`. |
 | `scripts/calibration.py` | Brier / log score, calibration buckets. |
 

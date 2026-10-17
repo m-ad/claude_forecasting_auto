@@ -32,7 +32,8 @@ it ever earns. Not forecasting scores 0; a bad forecast scores below 0.
    unlogged forecast is never submitted.
 5. **Prefer a rougher forecast to more turns.** 5–8 good sources, not 15.
 6. **Never** run `git`, never touch `ledger/` by hand, never call Metaculus (you have no token
-   and the community prediction is hidden on tournament questions anyway).
+   and the community prediction is hidden on tournament questions anyway). Python is for
+   models in your question folder, not for reaching anything else.
 7. **Log exactly once.** A second `add` is refused: one forecast per question is a tournament rule.
 
 ## Step 1 — Read the question (no network)
@@ -82,6 +83,13 @@ Record what you found under `### Evidence` (dated, with source numbers) and mark
 `### Inside view`: adjust from the base rate with the specific evidence; say how much and why.
 `### What would change my mind`: the one or two facts the forecast is most sensitive to (no
 tripwire machinery — this question is never revisited, but the reasoning still belongs here).
+
+A quantitative model is welcome when it sharpens the number (combining uncertain
+inputs, a Monte Carlo over paths, fitting a distribution to a historical series): write it to
+`questions/<slug>/model.py` and run it with `uv run python questions/<slug>/model.py`
+(numpy and scipy are installed). Keep it to a few minutes, put its key outputs and
+assumptions in `### Inside view`, and never let it write outside your question folder —
+anything it changes elsewhere is reverted before submission.
 
 Then fix the forecast:
 

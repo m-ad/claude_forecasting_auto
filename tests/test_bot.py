@@ -10,9 +10,11 @@ from __future__ import annotations
 import datetime as dt
 import io
 import json
+import subprocess
 import urllib.error
 
 import _common
+import ci_guard
 import log_forecast
 import metaculus_api as mapi
 import pytest
@@ -502,3 +504,96 @@ def test_ci_settings_keep_the_model_away_from_submission_and_secrets():
     )
     checkout = steps[0]
     assert checkout["with"]["persist-credentials"] is False
+    names = [s.get("id") for s in steps]
+    assert names.index("claude") < names.index("guard") < names.index("submit"), (
+        "the guard must run between the session and the steps that hold secrets"
+    )
+    for step in steps[names.index("guard") + 1 :]:
+        if "METACULUS_API_KEY" in step.get("env", {}) or "GITHUB_TOKEN" in step.get(
+            "env", {}
+        ):
+            assert "steps.guard.outcome == 'success'" in step["if"], step["name"]
+
+
+# ================================================================ CI guard
+
+
+@pytest.fixture
+def session_repo(tmp_path):
+    """A committed repo, then a session that wrote both where it may and may not."""
+
+    def git(*args):
+        subprocess.run(["git", *args], cwd=tmp_path, check=True, capture_output=True)
+
+    slug = "2026-10-19-mc46044-will-x"
+    files = {
+        "scripts/submit_metaculus.py": "SAFE = True\n",
+        "pyproject.toml": "[project]\n",
+        f"questions/{slug}/meta.yaml": "current: {}\n",
+        "questions/other/meta.yaml": "x: 1\n",
+        "ledger/forecasts.jsonl": '{"event": "forecast", "slug": "old"}\n',
+    }
+    for rel, text in files.items():
+        (tmp_path / rel).parent.mkdir(parents=True, exist_ok=True)
+        (tmp_path / rel).write_text(text, encoding="utf-8")
+    git("init", "-q")
+    git("add", "-A")
+    git("-c", "user.name=t", "-c", "user.email=t@t", "commit", "-qm", "seed")
+    return tmp_path, slug
+
+
+def test_guard_keeps_the_question_folder_and_undoes_everything_else(session_repo):
+    repo, slug = session_repo
+    (repo / "scripts/submit_metaculus.py").write_text("SAFE = False\n", encoding="utf-8")
+    (repo / "pyproject.toml").unlink()
+    (repo / "questions/other/meta.yaml").write_text("x: 2\n", encoding="utf-8")
+    (repo / "planted.py").write_text("evil\n", encoding="utf-8")
+    (repo / f"questions/{slug}/model.py").write_text("import numpy\n", encoding="utf-8")
+    (repo / f"questions/{slug}/meta.yaml").write_text("current: {version: 1}\n")
+    actions = ci_guard.guard(slug, repo)
+    assert (repo / "scripts/submit_metaculus.py").read_text() == "SAFE = True\n"
+    assert (repo / "pyproject.toml").exists()
+    assert (repo / "questions/other/meta.yaml").read_text() == "x: 1\n"
+    assert not (repo / "planted.py").exists()
+    assert (repo / f"questions/{slug}/model.py").exists(), "the session's own model stays"
+    assert "version: 1" in (repo / f"questions/{slug}/meta.yaml").read_text()
+    assert len(actions) == 4
+
+
+def test_guard_keeps_only_this_slugs_new_forecast_lines(session_repo):
+    repo, slug = session_repo
+    ledger = repo / "ledger/forecasts.jsonl"
+    good = json.dumps({"event": "forecast", "slug": slug, "version": 1})
+    fake_sub = json.dumps({"event": "submission", "slug": slug})
+    other = json.dumps({"event": "forecast", "slug": "someone-else"})
+    ledger.write_text(ledger.read_text() + f"{good}\n{fake_sub}\n{other}\njunk\n")
+    actions = ci_guard.guard(slug, repo)
+    lines = ledger.read_text().splitlines()
+    assert lines == ['{"event": "forecast", "slug": "old"}', good]
+    assert any("dropped 3" in a for a in actions)
+
+
+def test_guard_restores_a_rewritten_ledger_prefix(session_repo):
+    repo, slug = session_repo
+    good = json.dumps({"event": "forecast", "slug": slug, "version": 1})
+    (repo / "ledger/forecasts.jsonl").write_text(good + "\n", encoding="utf-8")
+    ci_guard.guard(slug, repo)
+    assert (repo / "ledger/forecasts.jsonl").read_text().splitlines() == [
+        '{"event": "forecast", "slug": "old"}',
+        good,
+    ]
+
+
+def test_guard_changes_nothing_after_a_clean_session(session_repo):
+    repo, slug = session_repo
+    good = json.dumps({"event": "forecast", "slug": slug, "version": 1})
+    ledger = repo / "ledger/forecasts.jsonl"
+    ledger.write_text(ledger.read_text() + good + "\n", encoding="utf-8")
+    assert ci_guard.guard(slug, repo) == []
+
+
+@pytest.mark.parametrize("bad", ["", "../x", ".hidden", "a/b"])
+def test_guard_refuses_a_slug_that_could_escape_questions(session_repo, bad):
+    repo, _slug = session_repo
+    with pytest.raises(ValueError):
+        ci_guard.guard(bad, repo)

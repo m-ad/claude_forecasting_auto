@@ -136,6 +136,7 @@ Plan §4. These are the only things between this branch and MiniBench.
 | P11.5 | `record_usage.py`; `ci_commit.sh` with union merge and INDEX regeneration (simulated with two concurrent clones) | done | `9fee1ed` |
 | P11.6 | `tournament_sync.py` + `tournament-sync.yml` | done | `9fee1ed` |
 | P11.7 | Live read-only verification: gate, scaffold, payloads for binary/MC/numeric/discrete | done | 2026-10-17, nothing submitted |
+| P11.8 | Let the forecaster run Python models (`uv run python`, numpy/scipy); `scripts/ci_guard.py` restores everything outside the question folder before submit; venv rebuilt, git hooks off | done | operator review on PR #4, 2026-10-17 |
 
 ## P12 — After the first round
 
@@ -147,6 +148,7 @@ Plan §4. These are the only things between this branch and MiniBench.
 | P12.4 | Calibration review on resolved MiniBench questions; backtest prompt changes on closed questions only | round resolves (~2026-11-06) | todo |
 | P12.5 | Activate `fall-futureeval-2026` | P12.1 | todo |
 | P12.6 | Cache the npm install of Claude Code in the forecast job | — | todo |
+| P12.7 | Optional hard isolation: forecaster in a read-only job, submit/commit in a fresh job that takes only the question folder (reusable workflow per matrix entry) | operator decision | todo |
 
 ---
 

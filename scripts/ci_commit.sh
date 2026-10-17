@@ -43,13 +43,14 @@ else
 fi
 [ "$validation" = ok ] || msg="$msg [validation failed]"
 
-git commit -q -m "$msg" || { echo "::error::git commit failed"; exit 1; }
+# No hooks: .git is untracked, and the forecaster session could have written there.
+git -c core.hooksPath=/dev/null commit -q -m "$msg" || { echo "::error::git commit failed"; exit 1; }
 
 pushed=""
 for wait in 2 4 8 16 0; do
   if git pull --rebase -q origin "$branch"; then
     reindex
-    git diff --cached --quiet || git commit -q --amend --no-edit
+    git diff --cached --quiet || git -c core.hooksPath=/dev/null commit -q --amend --no-edit
     if git push -q origin "HEAD:$branch"; then
       pushed=1
       break

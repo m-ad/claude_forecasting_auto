@@ -11,6 +11,9 @@ dependencies = [
 
 [tool.uv]
 package = false
+# `sim` is for the forecaster's own quantitative models (Monte Carlo, distribution
+# fits) in CI; default so a plain `uv run python` has it.
+default-groups = ["dev", "sim"]
 
 [dependency-groups]
 dev = [
@@ -18,6 +21,10 @@ dev = [
     # Pinned: ruff changes its default rule set between releases, and an
     # unpinned upgrade can turn CI red on code nobody touched.
     "ruff==0.17.0",
+]
+sim = [
+    "numpy>=2.0",
+    "scipy>=1.13",
 ]
 
 [tool.pytest.ini_options]

@@ -188,7 +188,7 @@ Every run's API-equivalent cost lands in `ledger/usage.jsonl`. After the first r
 | OAuth token expiry stops the bot | Medium | Fails loudly; `bot-health` issue; calendar reminder |
 | Actions minutes exhausted (private) | Medium | Spending limit > $0; hourly cadence or public repo |
 | LLM-written MiniBench criteria resolve counter-intuitively | Medium | Digest-first rule; the criteria are cached and read literally |
-| Prompt injection from a web page | Medium | No Metaculus token, no push credential, no general shell in the session; deny rules on `.git`, `/proc`, `env` |
+| Prompt injection from a web page | Medium | No Metaculus token and no push credential in the session; `ci_guard.py` undoes every change outside the question folder before the secret-holding steps; the virtualenv is rebuilt and git hooks are disabled. **Residual**: the session may run Python (for models), so injected code could read the session's own `CLAUDE_CODE_OAUTH_TOKEN` (revocable). Hard isolation — the session in a separate read-only job that hands over only its question folder — is the upgrade path |
 | Operator "previews" an open question and tunes the bot | Medium | Documented in the protocol and README: read outputs after close |
 
 ---
