@@ -19,6 +19,7 @@ from typing import Any
 
 import _common
 import calibration
+import fetch_metaculus
 import log_forecast
 import pytest
 import status
@@ -880,6 +881,71 @@ def test_calibration_scores_multiple_choice_instead_of_crashing(
     assert "== multiple choice ==" in out and "forecasts scored : 1" in out
     assert "multiple choice (no option vector)" in out
     assert "non-numeric outcome" in out
+
+
+# -------------------------------------------- fetch_metaculus.py: cache naming
+# A pool-blocked fetch carries metadata only. Cached as ``metaculus-<date>.json`` it
+# would read, months later, as "the cohorts had no forecasters that day".
+class _Res:
+    def __init__(self, pid: int, blocked: bool = False) -> None:
+        self.post_id = pid
+        self.blocked = blocked
+
+
+@pytest.fixture
+def plain_results(monkeypatch):
+    # cache_results serialises with dataclasses.asdict; a stand-in is enough here.
+    monkeypatch.setattr(fetch_metaculus, "asdict", lambda r: {"post_id": r.post_id})
+
+
+def test_fetch_metaculus_names_a_blocked_snapshot_as_api_only():
+    assert fetch_metaculus.snapshot_name(_Res(1), "2026-10-17") == (
+        "metaculus-2026-10-17.json"
+    )
+    assert fetch_metaculus.snapshot_name(_Res(1, blocked=True), "2026-10-17") == (
+        "metaculus-api-2026-10-17.json"
+    )
+
+
+def test_fetch_metaculus_writes_each_slug_of_a_shared_post(tmp_path, plain_results):
+    by_post = {45386: ["a-2027", "a-2028"], 45262: ["b"]}
+    results = {45386: _Res(45386), 45262: _Res(45262, blocked=True)}
+    lines, code = fetch_metaculus.cache_results(
+        by_post, results, "2026-10-17", root=tmp_path / "questions"
+    )
+    q = tmp_path / "questions"
+    assert (q / "a-2027/raw/metaculus-2026-10-17.json").is_file()
+    assert (q / "a-2028/raw/metaculus-2026-10-17.json").is_file()
+    assert (q / "b/raw/metaculus-api-2026-10-17.json").is_file()
+    assert not (q / "b/raw/metaculus-2026-10-17.json").exists()
+    assert code == 3
+    assert [line.split(" | ")[1] for line in lines] == [
+        "fetched",
+        "fetched",
+        "BLOCKED (metadata only)",
+    ]
+
+
+def test_fetch_metaculus_writes_nothing_for_a_failed_post(tmp_path, plain_results):
+    lines, code = fetch_metaculus.cache_results(
+        {1: ["a"], 2: ["b"]},
+        {1: RuntimeError("no aggregation JSON"), 2: _Res(2, blocked=True)},
+        "2026-10-17",
+        root=tmp_path / "questions",
+    )
+    assert code == 1, "a failure outranks a block"
+    assert not (tmp_path / "questions" / "a").exists()
+    assert "FAILED" in lines[0] and "no aggregation JSON" in lines[0]
+
+
+def test_fetch_metaculus_resolves_slugs_and_rejects_strangers():
+    known = [(s, m) for s, m in metas() if m.get("source") == "metaculus"]
+    if not known:
+        pytest.skip("no Metaculus questions scaffolded")
+    slug, meta = known[0]
+    by_post, errors = fetch_metaculus.resolve([slug, slug, "no-such-question-xyz"])
+    assert by_post == {int(meta["post_id"]): [slug]}, "duplicates collapse"
+    assert len(errors) == 1 and "no-such-question-xyz" in errors[0]
 
 
 # ------------------------------------------------------------- smoke: the CLIs

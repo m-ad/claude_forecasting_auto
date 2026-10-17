@@ -116,6 +116,49 @@ fetch each post **once** and cache the JSON to `questions/<slug>/raw/metaculus-<
 name carries its retrieval date; `tests/test_meta.py` enforces it);
 re-running the fetcher in a loop is what trips the limit in the first place.
 
+Fetch and cache in one step, several questions through one browser:
+
+```bash
+uv run scripts/fetch_metaculus.py <slug> [<slug> ...]      # --comments 8 and --history by default
+```
+
+**Pool blocks (exit status 3).** Cloudflare sometimes challenges the whole shared cloud
+egress pool, for tens of minutes to hours (see the skill's "Pool blocks"). The first
+blocked post costs ~3 min; every later one in the container fails fast for 30 min. A
+blocked post is cached as `raw/metaculus-api-<date>.json`: API-key metadata only, with
+`blocked: true`. Its cohorts were **not fetched**. Then:
+
+1. Finish the run on what you have. Cite the last cached cohorts with their date, marked
+   stale, as before. Never record "no forecasters".
+2. Schedule **exactly one** re-fetch ~90 min later with the `send_later` tool
+   (claude-code-remote MCP server). The message carries the blocked slugs and the command
+   `uv run scripts/fetch_metaculus.py <slugs>`. Without `send_later`, list the slugs as
+   "Metaculus cohorts pending" in the report or PR body.
+3. When it fires, fetch once:
+   - still blocked → stop; do not re-arm;
+   - fetched → commit the `raw/` JSON.
+
+   Add a new version (`/update` on that slug, driver row "fresh Metaculus cohorts") only if
+   the fresh cohorts are material. They are material when:
+   - Pro or gold sits outside your IQR; or
+   - a cohort moved since the reading the version used, by ≥ 5 pp for binary or
+     multiple-choice questions, or by ≥ half your IQR width for numeric or date ones.
+
+   Otherwise, cache only.
+4. Push to the same branch. If its PR has already merged, branch afresh from `main`.
+
+**Operator decision (2026-10-17).** The browser path stays. It reads what the site shows
+anonymously. It conflicts with the Metaculus Terms of Use, which forbid automated access
+outside their API and circumventing security technology. The operator accepts that conflict
+for this workbench, because it is a research assistant: a human makes the final forecast and
+approves every submission by merging. Within that decision:
+
+- Never escalate past Cloudflare: no Turnstile solving and no stealth patches. Retry only
+  through the pool-block protocol above.
+- A future fully autonomous bot is a separate fork that uses only the sanctioned API tier.
+
+Details and evidence: `docs/metaculus-fetch-robustness.md`.
+
 ---
 
 ## 5. Research policy

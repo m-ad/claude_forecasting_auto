@@ -42,6 +42,12 @@ def agg():
     )
 
 
+@pytest.fixture(autouse=True)
+def _isolated_block_marker(agg, tmp_path, monkeypatch):
+    """No test may see, or leave behind, a real pool-block marker in the temp dir."""
+    monkeypatch.setattr(agg, "_BLOCK_MARKER", tmp_path / "metaculus-block.json")
+
+
 @pytest.fixture(scope="module")
 def scrape():
     return _load(
@@ -353,6 +359,8 @@ class _FakeFetcher:
         self.warms = 0
         self._warmed = False
         self._last_request = 0.0
+        self._last_challenged = False
+        self.blocked = False
 
     def _attempt(self, url):
         self.attempts += 1
@@ -977,3 +985,261 @@ def test_an_answering_explorer_leaves_no_aggregation_note(agg):
         include_details=False,
     )
     assert res.aggregation_note is None
+
+
+# ----------------------------------------------------------------- pool blocks
+# The bug: Cloudflare intermittently challenges the whole shared cloud egress pool
+# (five different exit IPs, all challenged, measured 2026-10-17) for tens of
+# minutes to hours. Every post then spent the full ~3 min backoff before failing,
+# and a 17-post /status run spent most of an hour learning one fact. The first
+# confirmed block must stop the browser path for the rest of the run, and leave
+# an explicit "not fetched" result rather than an exception or a silent gap.
+_CHALLENGE_HTML = "<html><head><title>Just a moment...</title></head></html>"
+
+
+def _challenged_fake(agg):
+    """A _FakeFetcher whose every attempt is a Cloudflare interstitial."""
+    fake = _FakeFetcher(agg, {"id": 1})
+    fake.tls12 = True
+
+    def attempt(_url):
+        fake.attempts += 1
+        fake._last_challenged = True
+        return 403, None
+
+    fake._attempt = attempt
+    return fake
+
+
+def test_a_challenge_that_outlasts_the_backoff_is_recorded_as_a_pool_block(
+    agg, monkeypatch
+):
+    monkeypatch.setattr(agg.time, "sleep", lambda _s: None)
+    fake = _challenged_fake(agg)
+
+    assert agg._Fetcher.get_json(fake, "https://www.metaculus.com/api-proxy/x") == (
+        403,
+        {},
+    )
+    # The rate-limit backoff still runs once in full: only its exhaustion is
+    # what tells a pool block from the ~2 min limit.
+    assert fake.attempts == 1 + len(agg._BACKOFF)
+    assert fake.blocked
+    assert agg.block_active() is not None
+
+
+def test_a_recorded_block_answers_at_once_without_a_request(agg, monkeypatch):
+    agg._record_block()
+    monkeypatch.setattr(agg.time, "sleep", lambda _s: pytest.fail("must not wait"))
+    fake = _FakeFetcher(agg, {"id": 1})
+
+    assert agg._Fetcher.get_json(fake, "https://www.metaculus.com/api-proxy/x") == (
+        403,
+        {},
+    )
+    assert fake.attempts == 0
+    assert fake.blocked, "a later process must inherit the block from the marker"
+
+
+@pytest.mark.parametrize(
+    "content",
+    ['{"since": "x", "until": 1.0}', "not json", "[1, 2]"],
+    ids=["expired", "garbled", "wrong-shape"],
+)
+def test_an_expired_or_unreadable_marker_is_no_block(agg, content):
+    agg._BLOCK_MARKER.write_text(content, encoding="utf-8")
+    assert agg.block_active() is None
+
+
+@pytest.mark.parametrize("status", [403, 0])
+def test_a_failure_that_is_not_a_challenge_leaves_no_marker(agg, monkeypatch, status):
+    # A plain 403 (post does not exist) and a dead egress are different faults;
+    # recording them as a block would stop the next, healthy run for 30 min.
+    monkeypatch.setattr(agg.time, "sleep", lambda _s: None)
+    fake = _FakeFetcher(agg, {"id": 1})
+    fake.tls12 = True
+    fake._attempt = lambda _url: (status, None)
+
+    agg._Fetcher.get_json(fake, "https://www.metaculus.com/api-proxy/x")
+    assert not fake.blocked
+    assert agg.block_active() is None
+
+
+@pytest.mark.parametrize(
+    "status,body,challenged",
+    [
+        (403, _CHALLENGE_HTML, True),
+        (403, '{"detail": "Not found."}', False),
+        (200, _CHALLENGE_HTML, False),
+    ],
+)
+def test_only_a_403_interstitial_counts_as_challenged(agg, status, body, challenged):
+    class F:
+        _warmed = False
+
+        def _navigate(self, _url):
+            return status, body
+
+    f = F()
+    agg._Fetcher._attempt(f, "https://www.metaculus.com/api-proxy/x")
+    assert f._last_challenged is challenged
+
+
+class _PoolBlocked:
+    """A fetcher after a confirmed pool block: every request answers at once."""
+
+    blocked = True
+
+    def __init__(self):
+        self.captured: list[str] = []
+
+    def get_json(self, url):
+        self.captured.append(url)
+        return 403, {}
+
+
+_OPEN_API_POST = {
+    "id": 45262,
+    "title": "Open title",
+    "status": "approved",
+    "nr_forecasters": 141,
+    "scheduled_close_time": "2026-10-24T22:59:00Z",
+    "question": {
+        "id": 45270,
+        "status": "open",
+        "type": "numeric",
+        "scaling": {"range_min": 0.0, "range_max": 100.0, "zero_point": None},
+        "resolution_criteria": "rc",
+        "fine_print": "fp",
+        "description": "bg",
+    },
+}
+
+
+def test_a_pool_block_on_an_open_post_returns_marked_metadata(agg, monkeypatch):
+    monkeypatch.setattr(agg, "fetch_post_api", lambda _pid: _OPEN_API_POST)
+    res = agg._collect(
+        _PoolBlocked(),
+        45262,
+        _url_for,
+        agg_methods(),
+        include_history=False,
+        n_comments=8,
+        include_details=True,
+    )
+    assert res.blocked
+    assert res.methods == {} and res.comments == []
+    assert "NOT fetched" in res.aggregation_note
+    assert (res.title, res.question_id, res.question_type, res.status) == (
+        "Open title",
+        45270,
+        "numeric",
+        "open",
+    )
+    assert (res.resolution_criteria, res.nr_forecasters) == ("rc", 141)
+
+
+def test_a_pool_block_without_api_metadata_still_raises(agg, monkeypatch):
+    monkeypatch.setattr(agg, "fetch_post_api", lambda _pid: None)
+    with pytest.raises(RuntimeError, match="last status 403"):
+        agg._collect(
+            _PoolBlocked(),
+            45262,
+            _url_for,
+            agg_methods(),
+            include_history=False,
+            n_comments=0,
+            include_details=True,
+        )
+
+
+def test_a_block_that_starts_after_the_cohorts_flags_the_missing_comments(agg):
+    class F:
+        blocked = False
+
+        def get_json(self, url):
+            if "/comments/" in url:
+                self.blocked = True
+                return 403, {}
+            return 200, _explorer_json(40839, 0.5)
+
+    res = agg._collect(
+        F(),
+        40839,
+        _url_for,
+        agg_methods(),
+        include_history=False,
+        n_comments=5,
+        include_details=False,
+    )
+    assert not res.blocked, "the cohorts were fetched"
+    assert res.methods["recency_weighted"].latest is not None
+    assert "Comments NOT fetched" in res.aggregation_note
+
+
+def test_fetch_many_shares_one_browser_and_isolates_failures(agg, monkeypatch):
+    import contextlib
+    import types
+
+    fake_pw = types.ModuleType("playwright.sync_api")
+    fake_pw.sync_playwright = lambda: contextlib.nullcontext(object())
+    monkeypatch.setitem(sys.modules, "playwright.sync_api", fake_pw)
+
+    made: list = []
+
+    class OneFetcher:
+        def __init__(self, _pw, post_id):
+            self._post_id = post_id
+            self.closed = False
+            made.append(self)
+
+        def close(self):
+            self.closed = True
+
+    seen: list[tuple[int, int]] = []
+
+    def collect(fetcher, pid, url, *_args):
+        seen.append((pid, fetcher._post_id))
+        if pid == 2:
+            raise RuntimeError("boom")
+        return f"result {pid}"
+
+    monkeypatch.setattr(agg, "_Fetcher", OneFetcher)
+    monkeypatch.setattr(agg, "_collect", collect)
+
+    out = agg.fetch_many([1, 2, 3])
+    assert len(made) == 1 and made[0].closed
+    assert seen == [(1, 1), (2, 2), (3, 3)], "each post warms on its own page"
+    assert out[1] == "result 1" and out[3] == "result 3"
+    assert isinstance(out[2], RuntimeError)
+    with pytest.raises(RuntimeError, match="boom"):
+        agg.fetch_aggregations(2)
+
+
+def _result(agg, pid, blocked=False):
+    r = agg.AggregationResult(pid, None, "t", "binary", "open", None, None)
+    r.blocked = blocked
+    return r
+
+
+@pytest.mark.parametrize(
+    "kinds,code",
+    [
+        (["ok", "ok"], 0),
+        (["ok", "blocked"], 3),
+        (["blocked", "error"], 1),
+    ],
+)
+def test_exit_code_tells_fetched_from_blocked_from_failed(agg, capsys, kinds, code):
+    results = {
+        i: RuntimeError("x") if k == "error" else _result(agg, i, k == "blocked")
+        for i, k in enumerate(kinds, start=1)
+    }
+    assert agg._report(results, as_json=True) == code
+
+
+def test_single_post_json_keeps_the_raw_cache_shape(agg, capsys):
+    import json
+
+    assert agg._report({7: _result(agg, 7)}, as_json=True) == 0
+    assert json.loads(capsys.readouterr().out)["post_id"] == 7

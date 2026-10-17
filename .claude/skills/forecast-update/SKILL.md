@@ -38,9 +38,12 @@ table. **Then** search generally for developments since the last version date.
 ## Step 4 — Re-fetch live numbers
 
 ```bash
-uv run .claude/skills/metaculus-aggregations/scripts/metaculus_aggregations.py <POST_ID> \
-    --comments 8 --history --json > questions/<slug>/raw/metaculus-<YYYY-MM-DD>.json
+uv run scripts/fetch_metaculus.py <slug>
 ```
+
+Exit status 3 means a pool block. Only API metadata was cached (`raw/metaculus-api-<date>.json`).
+Carry the last cached cohorts forward with their date, marked stale, and follow the deferred
+re-fetch in AGENTS.md §4.
 
 Plus market prices and the underlying data series. Compare against the snapshot from last time —
 the *movement* is the signal, not the level.

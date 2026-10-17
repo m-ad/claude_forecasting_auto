@@ -1,6 +1,7 @@
 # Metaculus fetch failures: diagnosis and plan (2026-10-17)
 
-Status: **plan, nothing implemented yet.** Measurements were taken in one cloud session on
+Status: **P2(b) implemented 2026-10-17** (`metaculus_aggregations.py` v4.6, `scripts/fetch_metaculus.py`);
+P1 open. Measurements were taken in one cloud session on
 2026-10-17, 11:42–11:51 UTC; the block was still on at the last probe (11:51). Scripts: `metaculus_aggregations.py` v4.5, Playwright 1.64,
 Chromium 141.0.7390.37.
 
@@ -155,3 +156,45 @@ spending ~3.5 min per post. It also avoids adding load during blocks.
 - **Instrumentation (P4):** it only diagnosed block timing for the browser path. Once P1
   lands it is moot. Under P2(b), the circuit breaker's own status check (`cf-mitigated`
   on the first request) is enough.
+
+## 5. Decision and implementation (2026-10-17)
+
+**Decision (operator): P2(b).** The browser path stays for this workbench. The operator's
+reasoning:
+
+- the workbench is a research assistant: a human makes every final forecast, and approves each
+  submission by merging;
+- the operator can see the CP and the cohorts on the site anyway, so the fetcher replaces
+  copy-pasting them by hand;
+- the conflict with the Terms of Use (§3) is acknowledged and accepted.
+
+A future fully autonomous bot will be a separate fork that uses only sanctioned API access. P1
+(asking for a higher tier) remains the long-term fix. The constraints that follow are recorded
+in AGENTS.md §4:
+
+- no escalation past Cloudflare (no Turnstile solving, no stealth patches);
+- no retry loops beyond the pool-block protocol.
+
+**Implemented:**
+
+- **Circuit breaker.** A challenge that survives the whole backoff writes
+  `$TMPDIR/metaculus-block.json` (30 min TTL). Every later request in the process, and in later
+  processes in the container, then answers at once.
+- **Blocked result.** A blocked post comes back with `blocked: true`, API-key metadata, empty
+  `methods`/`comments`, and an `aggregation_note` saying the cohorts were not fetched. A block
+  that starts after the cohorts flags the missing comments in the note. Exit status: 3 for a
+  block, 1 for a failure, 0 when everything was fetched.
+- **Batch.** `fetch_many` and a multi-id CLI serve N posts through one browser.
+  `scripts/fetch_metaculus.py <slugs>` fetches each post once and writes
+  `raw/metaculus-<date>.json`, or `raw/metaculus-api-<date>.json` when blocked, into every
+  matching slug.
+- **Deferred re-fetch.** This is workflow text, not code: AGENTS.md §4, `/status`,
+  `forecast-update` and `forecast-workflow`. One `send_later` re-fetch ~90 min after a block,
+  and a new version only if the fresh cohorts are material.
+
+**Verified live, during the block** (still on at 12:14 UTC, i.e. ≥ 29 min):
+
+| Run | Time | Exit | Note |
+|---|---|---|---|
+| Two posts (45262, 45617), one call | 194 s | 3 | Both posts came back `blocked` with titles and forecaster counts from the key. About 190 s of the 194 was the first post's backoff, and the second post took about 1 s. The old code needed ~7 min and raised twice |
+| A second process, 45262 | 1 s | 3 | Inherited the block from the marker file |
