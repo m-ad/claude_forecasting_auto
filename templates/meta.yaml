@@ -18,7 +18,7 @@ dates:
 
 status: "open"                # open | closed | resolved | dropped
 
-tournament: null              # null for operator-added questions. Bot-tournament
+tournament: null              # null for individually added questions. Bot-tournament
                               # questions carry the block below instead:
 #   slug: "minibench"             # must exist in tournaments/registry.yaml
 #   mode: "one_shot"              # one_shot | updatable

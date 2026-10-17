@@ -6,9 +6,13 @@ Claude Code session that reads the resolution criteria, researches, and logs a c
 forecast; deterministic code then submits it through the official Metaculus API with the
 private rationale comment the rules require, and commits the record here.
 
-It grew out of the operator-driven workbench `m-ad/claude_forecasting` (merged in as the
-base, so upstream improvements arrive with `git merge upstream/main`). The same files still
-serve the operator interactively: `/forecast`, `/update`, `/resolve`, `/status`.
+Nobody needs to prompt it. A maintainer configures it — which tournaments it enters
+(`tournaments/registry.yaml`), its secrets and variables (`docs/configuration.md`), and
+occasionally an individual Metaculus question — and otherwise only watches.
+
+It grew out of the interactive workbench `m-ad/claude_forecasting` (merged in as the base, so
+upstream improvements arrive with `git merge upstream/main`). Its commands (`/forecast`,
+`/update`, `/resolve`, `/status`) remain for individual questions and for debugging.
 
 Design goals: **every forecast is auditable and scoreable** (a per-question folder plus an
 append-only ledger), **no human in the loop on tournament questions** (a rule), **one forecast
@@ -34,7 +38,7 @@ Tournament questions open at random hours for **3 hours** each; MiniBench rounds
 other Monday with most of their ~60 questions in the first days. The rules this repository
 follows, with sources: `docs/tournament-protocol.md`.
 
-## Setup (operator, once)
+## Setup (maintainer, once)
 
 1. **Metaculus bot account** — create it from your human account (Settings → My Forecasting
    Bots), copy its API token. Fill in the participation form (3 required questions).
@@ -51,10 +55,8 @@ follows, with sources: `docs/tournament-protocol.md`.
    Forecasting Bots → Switch to Bot Account).
 6. **Go live**: repository variable `SWEEP_ENABLED` = `true`. Set it to anything else to stop.
 
-Optional variables (defaults in brackets): `MODEL_FORECAST` [`opus`], `EFFORT_FORECAST`
-[`high`], `MAX_MINUTES_PER_QUESTION` [`25`], `MAX_USD_PER_QUESTION` [`15`],
-`MAX_QUESTIONS_PER_RUN` [`6`], `MAX_PARALLEL` [`3`], `WEEKLY_BUDGET_USD_EQUIV` [none],
-`CLAUDE_CODE_VERSION` [`2.1.302`].
+Everything else is optional, with defaults: model, effort, timeouts, budgets, parallelism,
+the Claude Code version. All of it is in `docs/configuration.md`.
 
 Which tournaments are polled is `tournaments/registry.yaml`:
 
@@ -99,8 +101,9 @@ docs/
   bot-migration-plan.md   the plan (rev 3) and bot-migration-progress.md, the step tracker
   methodology.md          the forecasting checklist, incl. tournament mode
   output-format.md        the fixed deliverable format, incl. the short tournament form
-  update-protocol.md      when and how to revisit (operator questions); resolution
-questions/<slug>/         meta.yaml · forecast.md · research.md (operator only) · raw/
+  configuration.md        every secret and variable: required or optional, defaults
+  update-protocol.md      when and how to revisit (individual questions); resolution
+questions/<slug>/         meta.yaml · forecast.md · research.md (individual questions) · raw/
 ledger/forecasts.jsonl    append-only: forecasts, submissions, comments, resolutions
 ledger/usage.jsonl        one line per Claude run: tokens, cost-equivalent, turns
 tournaments/registry.yaml which tournaments the gate polls

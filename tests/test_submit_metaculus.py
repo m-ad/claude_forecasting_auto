@@ -351,22 +351,19 @@ def test_non_group_post_without_a_question_is_refused():
         )
 
 
-# ------------------------------------------------------------ operator-only
+# ------------------------------------------------------------- CI-only
 def test_no_model_facing_instruction_invokes_the_submit_script():
     """The model never submits: deterministic code does, after the model exits.
 
-    In the bot, the sweep workflow runs the submit step after the forecaster's
-    session ends, with the Metaculus token kept out of that session entirely. The
-    files that instruct the model (skills, commands, agents) must therefore never
-    tell it to run the script -- the operator-only ``metaculus-submit`` skill is the
-    one exception -- and the CI permission set must deny it outright.
+    The sweep workflow runs the submit step after the forecaster's session ends,
+    with the Metaculus token kept out of that session entirely. The files that
+    instruct the model (skills, commands, agents) must therefore never tell it to
+    run the script, and the CI permission set must deny it outright.
     """
-    allowed = {".claude/skills/metaculus-submit/SKILL.md"}
     offenders = [
         path.relative_to(REPO).as_posix()
         for path in REPO.glob(".claude/**/*.md")
-        if path.relative_to(REPO).as_posix() not in allowed
-        and re.search(r"submit_metaculus|metaculus-submit", path.read_text("utf-8"))
+        if re.search(r"submit_metaculus|metaculus-submit", path.read_text("utf-8"))
     ]
     assert not offenders, f"model-facing files reference submission: {offenders}"
     ci = REPO / ".claude" / "settings.ci.json"

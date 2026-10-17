@@ -126,10 +126,14 @@ jobs:
           cache-dependency-glob: "pyproject.toml"
       - name: Install dependencies and Claude Code
         env:
-          CLAUDE_CODE_VERSION: ${{ vars.CLAUDE_CODE_VERSION || '2.1.302' }}
+          # Unpinned by default: model aliases (`opus`, `sonnet`) resolve inside the CLI,
+          # so a pinned CLI would stay on the models it knew. Pin via the variable if a
+          # release breaks the sweep; the version used is in the Step Summary.
+          CLAUDE_CODE_VERSION: ${{ vars.CLAUDE_CODE_VERSION || 'latest' }}
         run: |
           uv sync
           npm install -g --no-fund --no-audit "@anthropic-ai/claude-code@${CLAUDE_CODE_VERSION}"
+          echo "Claude Code $(claude --version)" >> "$GITHUB_STEP_SUMMARY"
 
       - name: Scaffold (or reuse) the question folder
         id: prep

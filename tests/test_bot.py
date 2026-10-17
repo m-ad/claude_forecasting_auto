@@ -597,3 +597,17 @@ def test_guard_refuses_a_slug_that_could_escape_questions(session_repo, bad):
     repo, _slug = session_repo
     with pytest.raises(ValueError):
         ci_guard.guard(bad, repo)
+
+
+def test_every_workflow_secret_and_variable_is_documented():
+    """docs/configuration.md is the one list of what the bot reads; keep it complete."""
+    import re
+
+    from conftest import REPO
+
+    doc = (REPO / "docs" / "configuration.md").read_text("utf-8")
+    used = set()
+    for wf in (REPO / ".github" / "workflows").glob("*.yml"):
+        used |= set(re.findall(r"\b(?:secrets|vars)\.([A-Z][A-Z0-9_]*)", wf.read_text("utf-8")))
+    missing = sorted(name for name in used if f"`{name}`" not in doc)
+    assert not missing, f"docs/configuration.md does not document {missing}"

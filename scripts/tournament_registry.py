@@ -3,7 +3,7 @@
 
 The registry is the single place that answers "which tournaments are live, and in
 what order do they get the budget?". The sweep gate reads it before spending a
-token; the operator writes it, through this script. The bot never does: the gate is
+token; the maintainer writes it, through this script. The bot never does: the gate is
 stateless (it asks Metaculus which questions the bot has already forecast), so the
 registry only changes when a human changes policy -- and a file only humans write
 cannot conflict when ``main`` is merged into ``live-bot``.

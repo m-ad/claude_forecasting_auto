@@ -1,5 +1,5 @@
 # Tournaments the bot competes in. Read by scripts/tournament_registry.py (the only
-# writer) and by the sweep gate, scripts/tournament_poll.py. The operator changes
+# writer) and by the sweep gate, scripts/tournament_poll.py. The maintainer changes
 # this file; the bot never does -- see `uv run scripts/tournament_registry.py --help`.
 #
 # priority  lower number wins when a run's question budget cannot cover every open

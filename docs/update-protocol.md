@@ -18,7 +18,7 @@ as a first-class workflow with its own trigger, its own checklist, and its own r
 | A tripwire fired | check the news feed for the signals listed in `meta.yaml` |
 | Community moved | Metaculus CP moved > 5 pp (percentage points), or > 1/3 of the gap between you and CP closed/opened |
 | Resolution approaching | at T−30d, T−7d, T−1d for questions still live |
-| Operator asks | `/update <slug>` |
+| Manual request (development, debugging) | `/update <slug>` |
 
 Default `next_review` cadence, set by time-to-resolution at the moment of forecasting:
 

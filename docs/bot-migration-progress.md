@@ -13,7 +13,7 @@ the plan is revised a step is marked `dropped`/`superseded` or a new one is appe
 2. Do not start a step whose `Blocked by` is unmet.
 3. On finishing, update the step's row here **in the same commit** as the work.
 4. If a step is wrong or impossible as written, mark it `blocked` with a one-line reason and
-   say so to the operator. Do not silently redefine it.
+   say so to the maintainer. Do not silently redefine it.
 
 **Status vocabulary**: `todo` · `in progress` · `done` · `blocked` · `deferred` · `dropped` ·
 `superseded` (replaced by a later step, named in the notes).
@@ -24,7 +24,7 @@ the plan is revised a step is marked `dropped`/`superseded` or a new one is appe
 
 | Phase | Name | State |
 |---|---|---|
-| **M** | Operator setup | M.1 done; M.2–M.9 open — **the critical path to MiniBench** |
+| **M** | Maintainer setup | M.1 done; M.2–M.9 open — **the critical path to MiniBench** |
 | P0 | Clean state, delete dead weight | done (P0.7 done via P10.3) |
 | P1 | Metaculus API layer | done, superseded in part by upstream's CDF builder (P10) |
 | P2 | Schema | done; re-applied on the new base (P10.4) |
@@ -41,7 +41,7 @@ the plan is revised a step is marked `dropped`/`superseded` or a new one is appe
 
 ---
 
-## M — Operator setup (human only)
+## M — Maintainer setup (human only)
 
 Plan §4. These are the only things between this branch and MiniBench.
 
@@ -63,7 +63,7 @@ Plan §4. These are the only things between this branch and MiniBench.
 
 | Step | Task (rev 2) | Status | Notes |
 |---|---|---|---|
-| P0.1 | `git rm` question folders | done | 2026-09-14, operator (`c1a8693`) |
+| P0.1 | `git rm` question folders | done | 2026-09-14, maintainer (`c1a8693`) |
 | P0.2 | Truncate the ledger, regenerate INDEX | done | 2026-09-14 |
 | P0.3 | Test suite passes on empty state | done | still holds on the new base |
 | P0.4 | Delete `metaculus-scraper` | done | upstream reintroduced it; deleted again in the merge (`27fd744`) |
@@ -75,10 +75,10 @@ Plan §4. These are the only things between this branch and MiniBench.
 | P1.2 | Port the template's CDF classes + `test_cdf.py` | superseded | upstream's `submit_metaculus.py` builder (point masses, max-step cap, bound rules) with `tests/test_submit_metaculus.py`; verified live against real scalings |
 | P1.3 | Deterministic submit + private comment, guards, missed window | **done** | 2026-10-17, inside `submit_metaculus.py` (one-shot path) rather than a new script |
 | P1.4 | Verify aggregation explorer, comment limits, rate limits | partly | explorer: moot (no aggregations). Comment length/ordering: first real submission (plan §8.4). Rate limits: the scripts pace and back off |
-| P1.5 | Aggregations as an API wrapper | dropped | no aggregation lookups at all (operator instruction) |
+| P1.5 | Aggregations as an API wrapper | dropped | no aggregation lookups at all (maintainer instruction) |
 | P2.1 | `meta.yaml`: `question_id`, `tournament`, `percentiles` | done | re-applied; `percentiles` replaced by the ledger `distribution` (D12) |
 | P2.2 | Ledger `submission` event | done | re-applied; plus a `comment` event for late comments |
-| P2.3 | Tournament registry | done | simplified: operator-only, no bot-written fields (D11) |
+| P2.3 | Tournament registry | done | simplified: maintainer-only, no bot-written fields (D11) |
 | P3.1 | `add-tournament` skill | dropped | `tournament_registry.py add` is enough for a handful of tournaments |
 | P3.2 | `update-tournament` skill (daily reconcile) | superseded | P11.6, deterministic script, no model |
 | P3.3 | `tournament-sweep` skill | superseded | P11.4 `tournament-forecast`, one question per session |
@@ -136,7 +136,8 @@ Plan §4. These are the only things between this branch and MiniBench.
 | P11.5 | `record_usage.py`; `ci_commit.sh` with union merge and INDEX regeneration (simulated with two concurrent clones) | done | `9fee1ed` |
 | P11.6 | `tournament_sync.py` + `tournament-sync.yml` | done | `9fee1ed` |
 | P11.7 | Live read-only verification: gate, scaffold, payloads for binary/MC/numeric/discrete | done | 2026-10-17, nothing submitted |
-| P11.8 | Let the forecaster run Python models (`uv run python`, numpy/scipy); `scripts/ci_guard.py` restores everything outside the question folder before submit; venv rebuilt, git hooks off | done | operator review on PR #4, 2026-10-17 |
+| P11.8 | Let the forecaster run Python models (`uv run python`, numpy/scipy); `scripts/ci_guard.py` restores everything outside the question folder before submit; venv rebuilt, git hooks off | done | maintainer review on PR #4, 2026-10-17 |
+| P11.9 | Review round on PR #4: submit skill removed (CI is the only submission path); the human is a *maintainer* who only configures; no CP recorded anywhere; `docs/configuration.md` (+ a test that every workflow secret/variable is documented); Claude Code unpinned by default | done | 2026-10-17 |
 
 ## P12 — After the first round
 
@@ -148,7 +149,8 @@ Plan §4. These are the only things between this branch and MiniBench.
 | P12.4 | Calibration review on resolved MiniBench questions; backtest prompt changes on closed questions only | round resolves (~2026-11-06) | todo |
 | P12.5 | Activate `fall-futureeval-2026` | P12.1 | todo |
 | P12.6 | Cache the npm install of Claude Code in the forecast job | — | todo |
-| P12.7 | Optional hard isolation: forecaster in a read-only job, submit/commit in a fresh job that takes only the question folder (reusable workflow per matrix entry) | operator decision | todo |
+| P12.7 | Optional hard isolation: forecaster in a read-only job, submit/commit in a fresh job that takes only the question folder (reusable workflow per matrix entry) | maintainer decision | todo |
+| P12.8 | Let the bot forecast individual questions the maintainer adds (updatable mode: sweep or a scheduled update job, plus automated submission of updates) | maintainer decision | todo |
 
 ---
 
@@ -160,7 +162,7 @@ substance survives in the rows above. New with rev 3:
 | # | Plan (rev 2) said | Rev 3 does | Why |
 |---|---|---|---|
 | D10 | Bot state on `live-bot` | Commits to `main` | Parallel per-question jobs each merging `main` into `live-bot` create duplicate merge commits on rebase; one branch removes that and a setup step |
-| D11 | Registry stores `seen_post_ids`, `last_sweep`, `last_sync` | Operator-only registry | Stateless gate; no bot writes, no conflicts |
+| D11 | Registry stores `seen_post_ids`, `last_sweep`, `last_sync` | Maintainer-only registry | Stateless gate; no bot writes, no conflicts |
 | D12 | `meta.percentiles` + `--p10/--p90` | Ledger `distribution` | Upstream's single, validated record of the full forecast |
 | D13 | Comment = 3-line summary | Comment = newest version block | The rules want the comment to represent the reasoning |
 | D14 | `claude-code-action` | Claude Code CLI | Simpler auth, no actor checks, cost in the JSON result |

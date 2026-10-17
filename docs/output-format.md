@@ -14,7 +14,7 @@ The format is fixed. Same content in `questions/<slug>/forecast.md` and in the c
 | **Opened / Closes / Resolves** | 2026-01-14 / 2027-12-31 / 2028-01-15 |
 | **Status** | open |
 | **Current forecast** | **Median 12.0%, IQR [8.0%, 18.0%]** (v2, 2026-09-30) |
-| **Community (as of 2026-09-30)** | CP 9.0% (n=312) · Pro 7.0% · Gold 8.0% |
+| **Community** | hidden — not visible to the bot token |
 | **Next review** | 2026-10-31 |
 ```
 
@@ -41,14 +41,11 @@ resolution source and its release schedule. Flag edge cases.>
 ### Other forecasters
 | Source | Value | As of | Note |
 |---|---|---|---|
-| Metaculus CP (recency-weighted) | 9.0% (n=312) | 2026-08-27 | |
-| Metaculus Pro | 7.0% (n=11) | 2026-08-27 | below CP |
-| Metaculus gold medalists | 8.0% (n=24) | 2026-08-27 | |
+| Metaculus | hidden | — | the bot token cannot see the community prediction; no CP is logged |
 | Polymarket | 11% | 2026-08-27 | $1.2M volume |
 | Manifold | 15% | 2026-08-27 | low volume, discounted |
 
 <explicit note on any material disagreement between sources, and where you sit vs. them and why>
-<the Metaculus rows only when the operator supplied the numbers: the bot token cannot see them>
 
 ### Scenarios
 | # | Scenario | Weight | Implies |

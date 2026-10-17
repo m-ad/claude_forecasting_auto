@@ -14,9 +14,9 @@ description: >-
 
 **Hard stop first.** If `meta.yaml` has `tournament.mode: one_shot`, refuse: a bot-tournament
 question takes exactly one forecast, and a second submission is a rules violation. Say so and
-stop. (Its resolution is recorded by the daily `tournament-sync`, not here.) An operator who
-wants a private re-analysis for the calibration record can have one in chat, but it is never
-logged and never submitted.
+stop. (Its resolution is recorded by the daily `tournament-sync`, not here.) A re-analysis
+for the calibration record may be written in chat only; it is never logged and never
+submitted.
 
 Read `docs/update-protocol.md`. The previous version's tripwire list is your search plan.
 

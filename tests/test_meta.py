@@ -226,7 +226,7 @@ def test_question_id_is_an_int_for_metaculus_questions(slug, meta):
 def test_tournament_block_shape(slug, meta):
     tour = meta.get("tournament")
     if tour is None:
-        return  # operator-added question; the whole block is absent by design
+        return  # individually added question; the whole block is absent by design
     assert isinstance(tour, dict), f"{slug}: tournament must be a mapping or null"
     assert set(tour) == TOURNAMENT_KEYS, (
         f"{slug}: tournament keys missing={sorted(TOURNAMENT_KEYS - set(tour))} "
@@ -648,7 +648,7 @@ def test_template_meta_renders_to_the_same_schema():
     assert set(data["current"]["community"]) == COMMUNITY_KEYS
     assert set(data["resolution"]) == RESOLUTION_KEYS
     assert data["current"]["version"] == 0 and data["status"] == "open"
-    # The scaffold is the operator path, which has no tournament. new_question.py
+    # The plain scaffold (no --tournament) has no tournament. new_question.py
     # fills the block in for bot questions, so the template renders it as null.
     assert data["tournament"] is None, "templates/meta.yaml must scaffold tournament: null"
     assert data["question_id"] is None, (

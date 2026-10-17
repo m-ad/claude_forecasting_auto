@@ -14,7 +14,7 @@ driven entirely by GitHub Actions and the official Metaculus API.
 | Rev 2 said | Rev 3 does | Why |
 |---|---|---|
 | Keep developing the September fork | **Restart from upstream `claude_forecasting`**, recorded as a real merge (`27fd744`) | Upstream had moved 168 commits: ledger `distribution`s, a tested Metaculus CDF builder, group sub-questions, Windows stdio fixes. A real merge keeps provenance, so later upstream work arrives as `git merge upstream/main` |
-| Keep the Playwright aggregation fetcher until a token client exists (P0.7 → P1.5) | **API only, now.** Browser fetcher, scraper, CP/Pro/gold lookups and `fetch_metaculus.py` are deleted; `scripts/metaculus_api.py` is the single client | Operator instruction. Bot tokens cannot see aggregations anyway ([1] "Community Prediction (limited)"), and tournament CPs are hidden until close |
+| Keep the Playwright aggregation fetcher until a token client exists (P0.7 → P1.5) | **API only, now.** Browser fetcher, scraper, CP/Pro/gold lookups and `fetch_metaculus.py` are deleted; `scripts/metaculus_api.py` is the single client | Maintainer instruction. Bot tokens cannot see aggregations anyway ([1] "Community Prediction (limited)"), and tournament CPs are hidden until close |
 | Questions open for 90 minutes; sweep every 20–30 min | **3-hour windows** [1]; sweep every **30 min** | Verified 2026-10-17. The longer window halves the needed cadence |
 | Bot state on a `live-bot` branch, `main` merged in per job | **The bot commits to `main`** | With parallel per-question jobs, a merge of `main` into `live-bot` in every job produced duplicate merge commits on rebase; one branch removes the merge step, the bootstrap step and a manual setup item. Revert = set `BOT_BRANCH` and add the merge step back |
 | `anthropics/claude-code-action` | **The Claude Code CLI** (`claude -p --output-format json`) with `CLAUDE_CODE_OAUTH_TOKEN` | No GitHub App token exchange, no actor checks on scheduled runs (rev 2 §16.6), and the JSON result carries cost/usage directly |
@@ -22,7 +22,7 @@ driven entirely by GitHub Actions and the official Metaculus API.
 | The model calls `metaculus_submit.py` | **Deterministic submit step after the model exits**; the model holds no Metaculus token and no push credential | The irreversible step is never the model's. It also makes a model-initiated second submission impossible |
 | Comment = the 3-line summary block | **Comment = the newest `forecast.md` version block** (≤ 9,000 chars, summary always kept) | The rules ask that comments "accurately represent the reasoning process and final decision" [1][2]; a thesis line is thin for that. Still extracted mechanically |
 | `update-tournament` sync as an LLM skill | **`scripts/tournament_sync.py`, deterministic, no model** | Missed windows, comment retries, resolutions and scores are bookkeeping. Zero tokens |
-| Registry written by the bot (`seen_post_ids`, `last_sweep`) | **Registry is operator-only**; the gate is stateless | The gate asks Metaculus which questions the bot already forecast. A file only humans write cannot conflict with bot commits |
+| Registry written by the bot (`seen_post_ids`, `last_sweep`) | **Registry is maintainer-only**; the gate is stateless | The gate asks Metaculus which questions the bot already forecast. A file only humans write cannot conflict with bot commits |
 | `percentiles` field in `meta.yaml`, `--p10/--p90` | **The ledger's `distribution`** (from upstream) | One record of the full forecast, already validated and used by the CDF builder |
 | `METACULUS_BOT_TOKEN` | **`METACULUS_API_KEY`** | Upstream's name, and the one this environment already uses |
 | Default models Sonnet | **`opus` for the forecaster**, Sonnet for the research subagent; one variable each | The FutureEval survey found frontier models the clearest correlate of performance [2]; peer scores are relative to bots that mostly use them. Revisit after measuring a round (§7) |
@@ -88,7 +88,7 @@ bot-testing-area registered, inactive).
 
 ---
 
-## 4. Operator setup — what only a human can do
+## 4. Maintainer setup — what only a human can do
 
 | # | Task | Blocks |
 |---|---|---|
@@ -130,7 +130,7 @@ bot-testing-area registered, inactive).
 
 ## 6. What remains
 
-**Phase A — first round (needs the operator, then watching):** M.2–M.7; watch the first
+**Phase A — first round (needs the maintainer, then watching):** M.2–M.7; watch the first
 MiniBench day closely (Step Summaries, `bot-health`), especially the first real submission and
 comment, and the CLI's behaviour in Actions (§8).
 
@@ -189,7 +189,7 @@ Every run's API-equivalent cost lands in `ledger/usage.jsonl`. After the first r
 | Actions minutes exhausted (private) | Medium | Spending limit > $0; hourly cadence or public repo |
 | LLM-written MiniBench criteria resolve counter-intuitively | Medium | Digest-first rule; the criteria are cached and read literally |
 | Prompt injection from a web page | Medium | No Metaculus token and no push credential in the session; `ci_guard.py` undoes every change outside the question folder before the secret-holding steps; the virtualenv is rebuilt and git hooks are disabled. **Residual**: the session may run Python (for models), so injected code could read the session's own `CLAUDE_CODE_OAUTH_TOKEN` (revocable). Hard isolation — the session in a separate read-only job that hands over only its question folder — is the upgrade path |
-| Operator "previews" an open question and tunes the bot | Medium | Documented in the protocol and README: read outputs after close |
+| Maintainer "previews" an open question and tunes the bot | Medium | Documented in the protocol and README: read outputs after close |
 
 ---
 

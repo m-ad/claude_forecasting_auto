@@ -13,7 +13,7 @@ Two honest limitations:
 - ``total_cost_usd`` is the **API-equivalent** price. On a subscription token it
   is not billed; it is the best available proxy for how much allowance a run used.
 - Remaining subscription allowance is not exposed to CI, so the guard is a
-  cumulative weekly budget the operator sets, not a reading of what is left.
+  cumulative weekly budget the maintainer sets, not a reading of what is left.
 
 Parsing is defensive by design: a missing or truncated file (a run killed by its
 timeout) records ``parse_failed: true`` and zero cost, and never fails the job.

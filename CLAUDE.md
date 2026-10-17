@@ -9,7 +9,7 @@
   scenario branch or per data source), then integrate yourself. Do **not** delegate
   the final probability judgement — integration is where calibration lives. In tournament
   mode use the `research-scout` subagent (`.claude/agents/`), at most two per question.
-- Use the TodoWrite/task list for any operator forecast: the workflow has ≥ 6 steps.
+- Use the TodoWrite/task list for any interactive forecast: the workflow has ≥ 6 steps.
 
 ## Running unattended (CI)
 
@@ -22,17 +22,16 @@ In that session:
   records usage and commits after you exit. Never try to do any of the three yourself.
 - `$FORECAST_DEADLINE` is when the session is killed. Log the forecast before it.
 
-Configuration lives in repository variables, not code: `MODEL_FORECAST` (default `opus`),
-`EFFORT_FORECAST` (`high`), `MAX_MINUTES_PER_QUESTION` (`25`), `MAX_USD_PER_QUESTION`
-(`15`), `MAX_QUESTIONS_PER_RUN` (`6`), `MAX_PARALLEL` (`3`), `WEEKLY_BUDGET_USD_EQUIV`,
-`CLAUDE_CODE_VERSION`, and the kill switch `SWEEP_ENABLED`. See `docs/runbook.md`.
+Configuration lives in repository secrets and variables, not code; every one, with its
+default and whether it is required, is in `docs/configuration.md`. When something breaks,
+`docs/runbook.md`.
 
 ## Git
 
-- Never `git commit` unless asked. Committing forecasts is the operator's call.
-  (An explicit instruction to commit and push — e.g. from a harness running you on a
-  feature branch — supersedes this.) The bot's own commits to `main` are made by
-  `scripts/ci_commit.sh` in the workflows, never by the model.
+- The bot's commits to `main` are made by `scripts/ci_commit.sh` in the workflows, never by
+  the model. An interactive session never runs `git commit` unless asked (an explicit
+  instruction to commit and push — e.g. from a harness running you on a feature branch —
+  is such a request).
 - **Lint and test before every commit.** Any workflow that edits files in the repo
   (`/forecast`, `/update`, `/resolve`, and anything else that touches `questions/`,
   `scripts/`, or the ledger) must run both, in this repo's root, right before staging:
@@ -90,4 +89,4 @@ Know the limits before relying on it:
   payload if the branch moved.
 
 Say which path succeeded — `git push` or the MCP fallback — in the summary you give the
-operator, along with anything the fallback could not carry.
+maintainer, along with anything the fallback could not carry.

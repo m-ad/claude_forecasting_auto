@@ -6,7 +6,7 @@ description: >-
   plus IQR (and full distribution), the short-form forecast.md, and exactly one ledger entry.
   Used by the tournament-sweep workflow, one session per question; also the local debug path
   for the same job. Never submits and never commits -- the workflow does both after you exit.
-  Do not use for operator questions (forecast-workflow) or for revisiting anything (a
+  Do not use for non-tournament questions (forecast-workflow) or for revisiting anything (a
   tournament question is never revisited).
 ---
 
@@ -31,9 +31,11 @@ it ever earns. Not forecasting scores 0; a bad forecast scores below 0.
    killed. Log your forecast **at least 5 minutes before the deadline**, however rough. An
    unlogged forecast is never submitted.
 5. **Prefer a rougher forecast to more turns.** 5–8 good sources, not 15.
-6. **Never** run `git`, never touch `ledger/` by hand, never call Metaculus (you have no token
-   and the community prediction is hidden on tournament questions anyway). Python is for
-   models in your question folder, not for reaching anything else.
+6. **Never** run `git`, never touch `ledger/` by hand, never call Metaculus. The Metaculus token
+   is not in this session's environment (GitHub injects secrets per step; only the scaffold
+   and submit steps receive it), and the community prediction is hidden on tournament
+   questions anyway. Python is for models in your question folder, not for reaching
+   anything else.
 7. **Log exactly once.** A second `add` is refused: one forecast per question is a tournament rule.
 
 ## Step 1 — Read the question (no network)

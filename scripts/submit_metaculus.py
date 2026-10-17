@@ -13,10 +13,10 @@ Two paths, chosen per question by ``meta.yaml``, never by a flag:
   mechanically), and records both in the ledger and ``meta.yaml``. A closed
   window is a normal outcome (``missed_window``), not a crash; a forecast that went
   up without its comment is recorded as such and retried by the daily sync.
-- **Everything else** (operator questions, ``updatable`` tournaments such as the
-  Metaculus Cup). Operator-invoked only, never a step of another workflow. It
-  skips a question whose live forecast already matches and writes nothing to the
-  repository.
+- **Everything else** (individual questions the maintainer added, ``updatable``
+  tournaments such as the Metaculus Cup). No automation runs this path yet; it is
+  kept for manual use from upstream. It skips a question whose live forecast
+  already matches and writes nothing to the repository.
 
 What gets submitted is the latest ``forecast`` record in the ledger for each
 target slug:

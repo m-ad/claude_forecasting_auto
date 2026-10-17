@@ -896,7 +896,7 @@ def test_cli_output_survives_a_non_utf8_console(argv):
     """The scripts print ``→``, ``·`` and ``—``; a cp1252 stdout must not kill them.
 
     This is the default on a Windows console and whenever output is piped there,
-    so a script that only works under UTF-8 is a script the operator cannot run.
+    so a script that only works under UTF-8 is a script nobody can run there.
     """
     proc = _run_cli(argv, encoding="cp1252")
     assert "UnicodeEncodeError" not in proc.stderr, (

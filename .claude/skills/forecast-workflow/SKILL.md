@@ -1,8 +1,9 @@
 ---
 name: forecast-workflow
 description: >-
-  End-to-end workflow for producing a new calibrated probabilistic forecast for an operator
-  question in this repository: scaffolding the question folder, reading resolution criteria,
+  End-to-end workflow for producing a new calibrated probabilistic forecast for an individual,
+  non-tournament question in this repository (a Metaculus question the maintainer added, or a
+  free-text question): scaffolding the question folder, reading resolution criteria,
   establishing a reference-class base rate, checking prediction-market prices, building scenarios
   and an interquartile range, and writing forecast.md plus the ledger entry. Use whenever the user asks for a forecast, a probability, a prediction, gives a
   Metaculus/Kalshi/Polymarket/Manifold URL or question ID, says "forecast this", "what are the
@@ -68,10 +69,10 @@ Snapshot volatile numbers into `raw/` with dated filenames.
 ## Step 6 — Other forecasters
 
 Fill the market-comparison table: Kalshi, Polymarket, Manifold (discounted), Sentinel, Mantic,
-GJOpen/INFER if applicable. The Metaculus community prediction is hidden from the bot token on
-almost all questions: record it only if the operator supplied it, otherwise "hidden". If you
-differ from a liquid market by more than 10 percentage points, search again for the fact you
-are missing before you write the justification.
+GJOpen/INFER if applicable. Record the Metaculus row as "hidden": the bot token cannot see the
+community prediction, and no CP is logged. If you differ from a liquid market by more than 10
+percentage points, search again for the fact you are missing before you write the
+justification.
 
 ## Step 7 — Scenarios, distribution, sensitivity
 
@@ -91,8 +92,11 @@ then:
 ```bash
 uv run scripts/log_forecast.py add <slug> \
     --median 0.12 --lower 0.08 --upper 0.18 \
-    --thesis "..." --next-review 2026-10-31      # --cp only if the operator supplied it
+    --thesis "..." --next-review 2026-10-31
 ```
+
+`--next-review` belongs to updatable questions only. A one-shot tournament question never gets
+one — and never reaches this workflow: `log_forecast.py` refuses `--next-review` on it.
 
 **Record the full distribution with `--distribution`** whenever the median and IQR are not the
 whole forecast. The ledger is the only machine-readable record, and a summary can't be scored
@@ -125,8 +129,8 @@ Reply in chat with: the market-comparison table, the 3–5 line reasoning core, 
 block — which opens with the clickable `**Question**: [title](url)` line (from `meta.yaml`),
 then Date / Forecast / Thesis. Give the path to `forecast.md`. No charts (AGENTS.md §7).
 
-Submitting to Metaculus is a separate step the operator requests explicitly; never part of
-this workflow.
+This workflow never submits to Metaculus. Only the sweep submits, and only one-shot
+tournament questions.
 
 ## Non-Metaculus questions
 
