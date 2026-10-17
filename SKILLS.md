@@ -8,6 +8,8 @@ description matches. This file is the human-readable map.
 | **forecast-workflow** | A new question needs a forecast from scratch. | `.claude/skills/forecast-workflow/SKILL.md` |
 | **forecast-update** | An existing question needs revisiting, or resolved and needs a post-mortem. | `.claude/skills/forecast-update/SKILL.md` |
 | **metaculus-aggregations** | Any Metaculus lookup: community prediction, Pro and gold-medalist cohorts, resolution criteria, comments, history. **Primary Metaculus tool.** | `.claude/skills/metaculus-aggregations/SKILL.md` |
+| **metaculus-submit** | **Operator request only:** submit the current ledger forecasts to Metaculus as the bot, by slug or `--all`. Never part of another workflow. | `.claude/skills/metaculus-submit/SKILL.md` |
+| **metaculus-scraper** | Fallback only, when the api-proxy is hard-blocked. Headline CP only — no cohorts, no comments. | `.claude/skills/metaculus-scraper/SKILL.md` |
 
 ## Slash commands
 
@@ -17,15 +19,16 @@ description matches. This file is the human-readable map.
 | `/update <slug>` | Tripwire-driven Bayesian update of an existing forecast. |
 | `/resolve <slug> <outcome>` | Record resolution, score it, write the post-mortem. |
 | `/status` | Triage: what is due for review, what resolves soon, what is stale. |
+| `/review <slug>` | Red-team an existing forecast without changing it. |
 
 ## Scripts
 
 | Script | Does |
 |---|---|
 | `scripts/new_question.py` | Scaffold a question folder from a Metaculus URL or a title. |
-| `scripts/log_forecast.py` | Append a forecast, a submission or a resolution to `ledger/forecasts.jsonl`, keeping `meta.yaml` in step. |
+| `scripts/log_forecast.py` | Append a forecast (with its full `--distribution`; required for multiple choice) or a resolution to `ledger/forecasts.jsonl`. |
 | `scripts/status.py` | List questions by urgency; `--index` regenerates `INDEX.md`. |
+| `scripts/submit_metaculus.py` | Submit ledger forecasts to Metaculus as the bot (operator-invoked only, via `metaculus-submit`). |
 | `scripts/calibration.py` | Brier / log score, calibration buckets, skill vs. the community. |
-| `scripts/tournament_registry.py` | Read and write `tournaments/registry.yaml`: which tournaments are live, in what priority order, and what the sweep has already seen. |
 
 All run under `uv run <path>`.

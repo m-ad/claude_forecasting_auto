@@ -1,11 +1,12 @@
 [project]
 name = "claude-forecasting"
 version = "0.1.0"
-description = "Superforecasting workbench for Claude Code: per-question research folders, a scoreable forecast ledger, and Metaculus aggregation tooling."
-requires-python = ">=3.10"
+description = "Autonomous Metaculus forecasting bot driven by Claude Code in GitHub Actions: per-question folders, a scoreable ledger, and an API-only Metaculus client."
+requires-python = ">=3.12"
+# Deliberately tiny: the sweep installs this on every run. Metaculus is reached
+# with the stdlib (urllib), so there is no HTTP client, and no browser.
 dependencies = [
     "pyyaml>=6.0",
-    "playwright>=1.44",   # required by the metaculus-aggregations skill
 ]
 
 [tool.uv]
@@ -14,7 +15,9 @@ package = false
 [dependency-groups]
 dev = [
     "pytest>=9.1.1",
-    "ruff>=0.16.5",
+    # Pinned: ruff changes its default rule set between releases, and an
+    # unpinned upgrade can turn CI red on code nobody touched.
+    "ruff==0.17.0",
 ]
 
 [tool.pytest.ini_options]
@@ -29,6 +32,13 @@ addopts = "-q --strict-markers"
 include = ["scripts", "tests"]
 extraPaths = ["scripts", "tests"]
 
+[tool.ruff]
+# Question folders hold one-off helper scripts (charts, scenario models) that are
+# part of a forecast's evidence trail, not maintained tooling.
+extend-exclude = ["questions"]
+# Honour the exclusion even when an editor or hook passes file paths explicitly.
+force-exclude = true
+
 [tool.ruff.lint]
 ignore = [
     # This workbench reasons in the operator's local calendar date on purpose:
@@ -36,6 +46,6 @@ ignore = [
     # calendar-day quantities, not instants, so `date.today()` is the right call
     # and `datetime.now(tz=...).date()` would only add a spurious timezone.
     # Ledger timestamps are a different thing and *are* tz-aware UTC
-    # (`datetime.now(timezone.utc)`), which the rest of the DTZ rules still check.
+    # (`datetime.now(UTC)`), which the rest of the DTZ rules still check.
     "DTZ011",
 ]

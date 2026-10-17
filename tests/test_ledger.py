@@ -24,6 +24,7 @@ from conftest import (
     REPO,
     SOURCES,
     SRC_ABBREV,
+    comment_records,
     forecast_records,
     ids_for,
     is_number,
@@ -39,9 +40,10 @@ RECORDS = ledger_records()
 FORECASTS = forecast_records()
 RESOLUTIONS = resolution_records()
 SUBMISSIONS = submission_records()
+COMMENTS = comment_records()
 LINES = ledger_lines()
-# Only these two event kinds name a question type; a submission is a transport
-# record and carries the ids instead.
+# Only these two event kinds name a question type; a submission or comment is a
+# transport record and carries the ids instead.
 TYPED = FORECASTS + RESOLUTIONS
 
 FORECAST_KEYS = {
@@ -58,6 +60,17 @@ FORECAST_KEYS = {
     "thesis",
     "mode",
 }
+# Optional: added when the ledger learned to record full forecasts. Records from
+# before carry only median/IQR, and the ledger is append-only, so they stay so.
+OPTIONAL_FORECAST_KEYS = {"distribution"}
+# Re-declared rather than imported from _common.DISTRIBUTION_SHAPES (see
+# tests/README.md): the allowed shape per question type.
+DISTRIBUTION_SHAPES = {
+    "multiple_choice": {"probabilities"},
+    "numeric": {"percentiles"},
+    "date": {"percentiles"},
+    "discrete": {"pmf", "percentiles"},
+}
 RESOLUTION_KEYS = {"ts", "event", "slug", "type", "outcome", "resolution_source"}
 SUBMISSION_KEYS = {
     "ts",
@@ -70,6 +83,8 @@ SUBMISSION_KEYS = {
     "comment_posted",
     "api_status",
 }
+# A rationale comment that went up later than its forecast (the daily sync's retry).
+COMMENT_KEYS = {"ts", "event", "slug", "post_id", "api_status"}
 
 
 # ------------------------------------------------------------- file structure
@@ -121,28 +136,30 @@ def test_timestamp_is_timezone_aware_utc_iso8601(lineno, rec):
     )
 
 
-def test_timestamps_are_non_decreasing_in_file_order():
-    """The headline assumption: file order == chronological order.
+def test_timestamps_are_non_decreasing_in_file_order_per_slug():
+    """The headline assumption: per question, file order == chronological order.
 
     Append-only writing guarantees it; a hand-edit, a bad ledger merge, or a
     machine with a wrong clock breaks it, and every downstream "latest version"
-    read then silently returns the wrong record.
+    read then silently returns the wrong record. Checked per slug, not across the
+    file: parallel sweep jobs each append their own question's records and the
+    union merge of their pushes interleaves *different* questions out of clock
+    order, which no reader depends on.
     """
-    stamps = [
-        (n, dt.datetime.fromisoformat(r["ts"]))
-        for n, r in RECORDS
-        if isinstance(r.get("ts"), str)
-    ]
-    offenders = [
-        (stamps[i - 1][0], stamps[i][0])
-        for i in range(1, len(stamps))
-        if stamps[i][1] < stamps[i - 1][1]
-    ]
+    last: dict[str, tuple[int, dt.datetime]] = {}
+    offenders = []
+    for n, r in RECORDS:
+        if not isinstance(r.get("ts"), str):
+            continue
+        ts, slug = dt.datetime.fromisoformat(r["ts"]), str(r.get("slug"))
+        if slug in last and ts < last[slug][1]:
+            offenders.append((last[slug][0], n))
+        last[slug] = (n, ts)
     assert not offenders, f"ledger timestamps go backwards at line pairs {offenders}"
 
 
 def test_no_timestamp_is_in_the_future():
-    now = dt.datetime.now(dt.timezone.utc) + dt.timedelta(minutes=5)  # clock slack
+    now = dt.datetime.now(dt.UTC) + dt.timedelta(minutes=5)  # clock slack
     future = [
         n
         for n, r in RECORDS
@@ -179,9 +196,10 @@ def test_type_is_known(lineno, rec):
 
 @pytest.mark.parametrize("lineno,rec", FORECASTS, ids=ids_for(FORECASTS))
 def test_forecast_record_has_exactly_the_expected_keys(lineno, rec):
-    assert set(rec) == FORECAST_KEYS, (
+    extra = set(rec) - FORECAST_KEYS - OPTIONAL_FORECAST_KEYS
+    assert FORECAST_KEYS <= set(rec) and not extra, (
         f"line {lineno}: key mismatch, missing={sorted(FORECAST_KEYS - set(rec))} "
-        f"extra={sorted(set(rec) - FORECAST_KEYS)}"
+        f"extra={sorted(extra)}"
     )
 
 
@@ -204,12 +222,7 @@ def test_submission_record_has_exactly_the_expected_keys(lineno, rec):
 
 @pytest.mark.parametrize("lineno,rec", SUBMISSIONS, ids=ids_for(SUBMISSIONS))
 def test_submission_identifies_the_question_it_wrote_to(lineno, rec):
-    """``post_id`` is the page, ``question_id`` is what the API actually wrote to.
-
-    Both are recorded because a group post's subquestions share a ``post_id``: with
-    only that, a submission on the wrong subquestion is indistinguishable from a
-    correct one after the fact.
-    """
+    """``post_id`` is the page, ``question_id`` is what the API actually wrote to."""
     for key in ("post_id", "question_id"):
         val = rec.get(key)
         assert isinstance(val, int) and val > 0, (
@@ -230,12 +243,7 @@ def test_submission_identifies_the_question_it_wrote_to(lineno, rec):
 
 @pytest.mark.parametrize("lineno,rec", SUBMISSIONS, ids=ids_for(SUBMISSIONS))
 def test_submission_records_what_was_sent_and_that_it_was_accepted(lineno, rec):
-    """The ledger holds accepted submissions only.
-
-    A rejected call is a failure, and failures go to ``ledger/errors.jsonl`` - if a
-    4xx could land here, "did the bot forecast this question?" would stop having a
-    single answer.
-    """
+    """The ledger holds accepted submissions only; a rejected call is a job failure."""
     payload = rec.get("payload")
     assert isinstance(payload, dict) and payload, (
         f"line {lineno}: payload must be the non-empty object that was sent, "
@@ -264,13 +272,32 @@ def test_no_slug_is_submitted_twice():
     """The append-only enforcement of the one-shot rule.
 
     A bot tournament accepts one forecast per question. A second submission record
-    means either a re-run that did not check, or a guard that failed open; both
-    are silent in the tournament standings and loud only here.
+    means either a re-run that did not check, or a guard that failed open.
     """
     dupes = [
         s for s, c in Counter(r.get("slug") for _, r in SUBMISSIONS).items() if c > 1
     ]
     assert not dupes, f"more than one submission logged for {dupes}"
+
+
+@pytest.mark.parametrize("lineno,rec", COMMENTS, ids=ids_for(COMMENTS))
+def test_late_comment_record_shape_and_order(lineno, rec):
+    """A late comment completes a submission that went up without one."""
+    assert set(rec) == COMMENT_KEYS, (
+        f"line {lineno}: key mismatch, missing={sorted(COMMENT_KEYS - set(rec))} "
+        f"extra={sorted(set(rec) - COMMENT_KEYS)}"
+    )
+    status = rec.get("api_status")
+    assert isinstance(status, int) and 200 <= status < 300, (
+        f"line {lineno}: api_status {status!r} is not a 2xx"
+    )
+    subs = [(n, s) for n, s in SUBMISSIONS if s.get("slug") == rec.get("slug")]
+    assert subs and subs[0][0] < lineno, (
+        f"line {lineno}: comment for {rec.get('slug')} precedes its submission"
+    )
+    assert subs[0][1].get("comment_posted") is False, (
+        f"line {lineno}: {rec.get('slug')} already had its comment at submission"
+    )
 
 
 @pytest.mark.parametrize("lineno,rec", FORECASTS, ids=ids_for(FORECASTS))
@@ -344,6 +371,91 @@ def test_binary_forecasts_are_probabilities_not_percentages(lineno, rec):
         assert is_probability(val), (
             f"line {lineno}: binary {name} {val!r} is not in [0, 1] - "
             "probabilities are stored as fractions, not percent"
+        )
+
+
+# ------------------------------------------------------------- distributions
+DISTRIBUTIONS = [(n, r) for n, r in FORECASTS if "distribution" in r]
+
+
+def _one_shape(lineno, rec):
+    """The (kind, body) of a record's distribution, asserting its shape."""
+    dist, qtype = rec["distribution"], rec.get("type")
+    allowed = DISTRIBUTION_SHAPES.get(qtype, set())
+    assert allowed, f"line {lineno}: {qtype} records carry no distribution"
+    assert isinstance(dist, dict) and len(dist) == 1 and set(dist) <= allowed, (
+        f"line {lineno}: {qtype} distribution must be one of {sorted(allowed)}"
+    )
+    ((kind, body),) = dist.items()
+    assert isinstance(body, dict) and len(body) >= 2, (
+        f"line {lineno}: {kind} must map at least two keys"
+    )
+    assert all(isinstance(k, str) and is_number(v) for k, v in body.items()), (
+        f"line {lineno}: {kind} must map string keys to numbers"
+    )
+    return kind, body
+
+
+@pytest.mark.parametrize("lineno,rec", DISTRIBUTIONS, ids=ids_for(DISTRIBUTIONS))
+def test_distribution_agrees_with_its_own_median_and_iqr(lineno, rec):
+    """The distribution is the forecast; median/IQR are its summary. They must agree.
+
+    A vector copied from the wrong forecast.md block, or percent stored where a
+    fraction belongs, fails here instead of being submitted or scored.
+    """
+    kind, body = _one_shape(lineno, rec)
+    med, (lo, hi) = rec["median"], rec["iqr"]
+    if kind in ("probabilities", "pmf"):
+        assert all(0 <= v <= 1 for v in body.values()), (
+            f"line {lineno}: {kind} values must be fractions, not percent"
+        )
+        assert abs(sum(body.values()) - 1) <= 0.01, (
+            f"line {lineno}: {kind} sums to {sum(body.values()):.4f}, not 1"
+        )
+    if kind == "probabilities":
+        assert abs(max(body.values()) - med) <= 5e-4, (
+            f"line {lineno}: leading option {max(body.values())} != median {med} "
+            "(for multiple choice the median is the leading option's probability)"
+        )
+    elif kind == "pmf":
+        pts = sorted((float(k), v) for k, v in body.items())
+        below = sum(v for x, v in pts if x < med)
+        upto = sum(v for x, v in pts if x <= med)
+        assert below <= 0.51 and upto >= 0.49, (
+            f"line {lineno}: median {med} is not a median of the pmf"
+        )
+    else:
+        pts = sorted((float(k), v) for k, v in body.items())
+        assert all(0 < k < 100 for k, _ in pts), f"line {lineno}: bad percentile key"
+        vals = [v for _, v in pts]
+        assert vals == sorted(vals), f"line {lineno}: percentiles decrease"
+        by = dict(pts)
+        assert 50.0 in by, f"line {lineno}: percentiles must include '50'"
+        for key, want in ((50.0, med), (25.0, lo), (75.0, hi)):
+            if key in by:
+                assert by[key] == pytest.approx(want, rel=1e-9), (
+                    f"line {lineno}: p{key:g} {by[key]} != {want}"
+                )
+
+
+@pytest.mark.parametrize("lineno,rec", RESOLUTIONS, ids=ids_for(RESOLUTIONS))
+def test_multiple_choice_resolution_names_one_of_the_options(lineno, rec):
+    """The scorer matches the outcome to an option label; a coerced 0.0 cannot."""
+    if rec.get("type") != "multiple_choice":
+        pytest.skip("not a multiple-choice resolution")
+    outcome = rec.get("outcome")
+    assert isinstance(outcome, str), (
+        f"line {lineno}: multiple-choice outcome must be the option label, got {outcome!r}"
+    )
+    labels = {
+        k
+        for _, r in FORECASTS
+        if r.get("slug") == rec.get("slug")
+        for k in (r.get("distribution") or {}).get("probabilities", {})
+    }
+    if labels:
+        assert outcome in labels, (
+            f"line {lineno}: {outcome!r} is not one of {sorted(labels)}"
         )
 
 
@@ -458,12 +570,6 @@ def test_ledger_is_append_only_against_the_last_commit():
 
     Compares the working tree against ``HEAD``; a ledger merge conflict resolved
     by dropping a line shows up here.
-
-    A working copy that is *completely* empty is exempt. That is not a lost
-    record, it is a deliberate reset of the calibration record: the only way to
-    produce it is to truncate the file on purpose (bot migration Phase 0), and
-    an empty ledger is the bot's legitimate starting condition. Dropping *some*
-    lines - the merge-conflict failure this guard exists for - still fails.
     """
     try:
         committed = subprocess.run(
@@ -476,8 +582,6 @@ def test_ledger_is_append_only_against_the_last_commit():
         pytest.skip(f"no committed ledger to compare against ({exc})")
     old = committed.splitlines()
     new = LEDGER.read_text(encoding="utf-8").splitlines()
-    if old and not new:
-        pytest.skip("ledger deliberately truncated - a full reset, not a dropped record")
     assert new[: len(old)] == old, (
         "the committed ledger is no longer a prefix of the working copy - "
         "a past record was edited or deleted"

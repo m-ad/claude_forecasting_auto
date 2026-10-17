@@ -1,41 +1,47 @@
-# Tournaments the bot competes in. Read by scripts/tournament_registry.py; every
-# field is written by that script, not by hand — `uv run scripts/tournament_registry.py
-# --help`. See docs/bot-migration-plan.md §7.3.
+# Tournaments the bot competes in. Read by scripts/tournament_registry.py (the only
+# writer) and by the sweep gate, scripts/tournament_poll.py. The operator changes
+# this file; the bot never does -- see `uv run scripts/tournament_registry.py --help`.
 #
-# priority  lower number wins when a run's forecast budget cannot cover every open
-#           question: the sweep takes them in (priority, soonest closes) order, so a
+# priority  lower number wins when a run's question budget cannot cover every open
+#           question: the gate takes them in (priority, soonest close) order, so a
 #           scored tournament is always forecast before a smoke-test one.
-# mode      one_shot  — bot tournaments: one forecast per question, inside its window,
-#                       never revisited.
-#           updatable — normal tripwire/update loop (e.g. the Metaculus Cup).
+# mode      one_shot  -- bot tournaments: one forecast per question, inside its
+#                        3-hour window, never revisited (Metaculus rule).
+#           updatable -- normal tripwire/update loop (e.g. the Metaculus Cup).
 # scored    whether results affect a public ranking. False means it is safe to
 #           experiment in.
-# active    false parks a tournament without losing its history. MiniBench is
-#           registered but parked until the soak on bot-testing-area passes
-#           (step P9.2); step P9.3 activates it.
+# active    false parks a tournament without losing its history. The sweep only
+#           polls active tournaments; bot-testing-area is reached on demand through
+#           the sweep workflow's manual `tournament` input instead.
 #
-# Only the comment block above survives a write by the script — per-entry comments
+# Slugs verified against the Metaculus API on 2026-10-17: `minibench` always names
+# the current MiniBench round (project 33132 for the 2026-10-19 round), and
+# `fall-futureeval-2026` is project 33121.
+#
+# Only the comment block above survives a write by the script -- per-entry comments
 # do not, so notes belong here.
 tournaments:
-  - slug: "bot-testing-area"
-    url: "https://www.metaculus.com/tournament/bot-testing-area/"
-    name: "Bot Testing Area"
-    added: "2026-09-14"
-    active: true
-    mode: "one_shot"
-    scored: false
-    priority: 3
-    last_sync: null
-    last_sweep: null
-    seen_post_ids: []
   - slug: "minibench"
     url: "https://www.metaculus.com/tournament/minibench/"
     name: "MiniBench"
     added: "2026-09-14"
-    active: false
+    active: true
     mode: "one_shot"
     scored: true
     priority: 1
-    last_sync: null
-    last_sweep: null
-    seen_post_ids: []
+  - slug: "fall-futureeval-2026"
+    url: "https://www.metaculus.com/tournament/fall-futureeval-2026/"
+    name: "Fall 2026 FutureEval Bot Tournament"
+    added: "2026-10-17"
+    active: false
+    mode: "one_shot"
+    scored: true
+    priority: 2
+  - slug: "bot-testing-area"
+    url: "https://www.metaculus.com/tournament/bot-testing-area/"
+    name: "Bot Testing Area"
+    added: "2026-09-14"
+    active: false
+    mode: "one_shot"
+    scored: false
+    priority: 9

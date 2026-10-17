@@ -2,7 +2,7 @@
 slug: "{{SLUG}}"
 title: "{{TITLE}}"
 source: "{{SOURCE}}"          # metaculus | kalshi | polymarket | manifold | other
-url: "{{URL}}"
+url: {{URL_YAML}}                # null for free-text questions with no URL
 post_id: {{POST_ID}}          # null for non-Metaculus — identifies the *page*
 question_id: {{QUESTION_ID}}  # Metaculus's internal question id — what the API submits
                               # against, and != post_id. Null for non-Metaculus.
@@ -22,14 +22,14 @@ tournament: null              # null for operator-added questions. Bot-tournamen
                               # questions carry the block below instead:
 #   slug: "minibench"             # must exist in tournaments/registry.yaml
 #   mode: "one_shot"              # one_shot | updatable
-#   registered: "2026-09-14"      # date the bot first saw the question
-#   opened: "2026-09-14T11:03:00Z"
-#   closes: "2026-09-14T12:33:00Z"
+#   registered: "2026-10-19"      # date the bot first saw the question
+#   opened: "2026-10-19T14:00:00Z"
+#   closes: "2026-10-19T17:00:00Z"
 #   submitted: null               # ISO-8601 UTC of a successful submission, or null
 #   submitted_forecast: null      # exactly what was sent — the audit trail
 #   comment_posted: false
 #   official_score: null          # the peer score Metaculus reports after resolution
-#   missed_window: false          # discovered too late, or budget-skipped
+#   missed_window: false          # closed before anything was submitted
 
 current:
   version: 0
@@ -42,11 +42,6 @@ current:
     gold: null
     n_forecasters: null
     as_of: null
-
-percentiles: null             # numeric/date/discrete only: the five-point CDF the
-                              # Metaculus API wants, as {10, 25, 50, 75, 90} -> value.
-                              # 25/50/75 must equal current.iqr[0]/median/iqr[1], so
-                              # only the 10th and 90th carry new information.
 
 next_review: null             # YYYY-MM-DD — see docs/update-protocol.md cadence table
                               # A one_shot tournament question never gets one: it is
@@ -73,6 +68,6 @@ tripwires: []
 #   fired: null
 
 resolution:
-  outcome: null               # 1/0 for binary, value for numeric/date, option for MC
+  outcome: null               # 1/0 binary, value numeric, Unix s date, option label MC
   date: null
   source: null

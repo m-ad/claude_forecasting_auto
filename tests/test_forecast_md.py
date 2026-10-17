@@ -35,6 +35,20 @@ REQUIRED_SECTIONS = [
     "### What would change my mind",
     "### Sources",
 ]
+# A one-shot tournament question is forecast once inside a 3-hour window and never
+# revisited, so the short form drops what serves a revisitable forecast: scenario
+# and sensitivity tables. Everything that drives calibration stays.
+ONE_SHOT_SECTIONS = [
+    "### What resolves YES",
+    "### Outside view",
+    "### Inside view",
+    "### Evidence",
+    "### What would change my mind",
+    "### Sources",
+]
+# docs/methodology.md "Tournament mode": 5-8 sources, not 15.
+MIN_SOURCES = 10
+MIN_SOURCES_ONE_SHOT = 5
 REQUIRED_HEADER_ROWS = [
     "Source",
     "Type",
@@ -47,6 +61,21 @@ REQUIRED_HEADER_ROWS = [
 
 def _text(folder):
     return (folder / "forecast.md").read_text(encoding="utf-8")
+
+
+def _one_shot(folder) -> bool:
+    return ((METAS.get(folder.name) or {}).get("tournament") or {}).get("mode") == (
+        "one_shot"
+    )
+
+
+def _forecast_done(folder) -> bool:
+    """False for a scaffolded draft (v0): its template v1 heading is not a version.
+
+    A sweep job that ran out of time before logging leaves such a draft behind, and
+    the next sweep reuses it; it is checked once a forecast is logged.
+    """
+    return bool(((METAS.get(folder.name) or {}).get("current") or {}).get("version"))
 
 
 def _header_rows(text):
@@ -167,6 +196,8 @@ def test_header_status_and_next_review_match_meta(folder):
 # ------------------------------------------------------------------ versions
 @pytest.mark.parametrize("folder", DIRS, ids=DIR_IDS)
 def test_version_sections_are_newest_first_and_complete(folder):
+    if not _forecast_done(folder):
+        pytest.skip("draft: nothing logged yet")
     blocks = _version_blocks(_text(folder))
     assert blocks, f"{folder.name}: no '## vN - ... - DATE' section found"
     numbers = [b[0] for b in blocks]
@@ -180,6 +211,8 @@ def test_version_sections_are_newest_first_and_complete(folder):
 
 @pytest.mark.parametrize("folder", DIRS, ids=DIR_IDS)
 def test_version_count_matches_meta_current_version(folder):
+    if not _forecast_done(folder):
+        pytest.skip("draft: nothing logged yet")
     blocks = _version_blocks(_text(folder))
     expected = (METAS[folder.name].get("current") or {}).get("version") or 0
     assert len(blocks) == expected, (
@@ -190,13 +223,18 @@ def test_version_count_matches_meta_current_version(folder):
 
 @pytest.mark.parametrize("folder", DIRS, ids=DIR_IDS)
 def test_every_version_has_the_required_sections(folder):
+    if not _forecast_done(folder):
+        pytest.skip("draft: nothing logged yet")
+    required = ONE_SHOT_SECTIONS if _one_shot(folder) else REQUIRED_SECTIONS
     for version, _kind, _date, body in _version_blocks(_text(folder)):
-        missing = [s for s in REQUIRED_SECTIONS if s not in body]
+        missing = [s for s in required if s not in body]
         assert not missing, f"{folder.name} v{version}: missing sections {missing}"
 
 
 @pytest.mark.parametrize("folder", DIRS, ids=DIR_IDS)
 def test_every_version_ends_with_the_fixed_summary_block(folder):
+    if not _forecast_done(folder):
+        pytest.skip("draft: nothing logged yet")
     for version, _kind, date, body in _version_blocks(_text(folder)):
         m = re.search(
             r"\*\*Date\*\*:\s*(\d{4}-\d{2}-\d{2})\s*\n"
@@ -220,6 +258,8 @@ def test_every_version_ends_with_the_fixed_summary_block(folder):
 @pytest.mark.parametrize("folder", DIRS, ids=DIR_IDS)
 def test_summary_forecast_line_quotes_percentages_to_one_decimal(folder):
     """``docs/output-format.md``: one decimal place, and never rounded to 5%."""
+    if not _forecast_done(folder):
+        pytest.skip("draft: nothing logged yet")
     if METAS[folder.name].get("type") != "binary":
         pytest.skip("binary formatting only")
     for version, _kind, _date, body in _version_blocks(_text(folder)):
@@ -268,13 +308,17 @@ def test_update_versions_open_with_a_revision_table(folder):
 # ------------------------------------------------------------------- sources
 @pytest.mark.parametrize("folder", DIRS, ids=DIR_IDS)
 def test_sources_are_numbered_with_urls_and_access_dates(folder):
+    if not _forecast_done(folder):
+        pytest.skip("draft: nothing logged yet")
     for version, _kind, _date, body in _version_blocks(_text(folder)):
         entries = _source_entries(body)
         if len(entries) == 1 and "unchanged from v" in entries[0].lower():
             continue
-        assert len(entries) >= 10, (
+        floor = MIN_SOURCES_ONE_SHOT if _one_shot(folder) else MIN_SOURCES
+        assert len(entries) >= floor, (
             f"{folder.name} v{version}: {len(entries)} numbered sources "
-            "(the research policy's rule of thumb is >= 15)"
+            f"(need >= {floor}; the research policy's rule of thumb is >= 15, "
+            "5-8 in tournament mode)"
         )
         for entry in entries:
             if "http" not in entry:
@@ -310,6 +354,8 @@ def test_resolved_questions_carry_a_post_mortem(folder):
     assert re.search(r"^## Resolution", text, re.MULTILINE), (
         f"{folder.name}: resolved but forecast.md has no '## Resolution' post-mortem"
     )
+    if _one_shot(folder):
+        return  # never revisited, so it had no tripwires to discuss
     assert "tripwire" in text.lower().split("## resolution")[-1], (
         f"{folder.name}: post-mortem does not discuss the tripwire that should have existed"
     )
@@ -317,6 +363,8 @@ def test_resolved_questions_carry_a_post_mortem(folder):
 
 @pytest.mark.parametrize("folder", DIRS, ids=DIR_IDS)
 def test_research_log_is_not_an_empty_stub(folder):
+    if _one_shot(folder) and not (folder / "research.md").exists():
+        pytest.skip("one-shot tournament question: no research log by design")
     body = (folder / "research.md").read_text(encoding="utf-8")
     if not (METAS[folder.name].get("current") or {}).get("version"):
         pytest.skip("not forecast yet")

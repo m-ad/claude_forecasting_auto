@@ -17,6 +17,16 @@ Two record shapes:
  "type":"binary","outcome":1.0,"resolution_source":"BEA advance estimate, 2027-01-15"}
 ```
 
+Optional on a forecast record: `distribution`, the full forecast where median and IQR are
+not all of it — `{"probabilities": {...}}` (required for multiple choice, exact option
+labels), `{"percentiles": {...}}` (numeric/date/discrete) or `{"pmf": {...}}` (discrete).
+`log_forecast.py add --distribution` validates it against the median and IQR.
+
+Units: binary and multiple-choice values are fractions in [0, 1]; numeric values are native
+units; date values (median, IQR and the resolution `outcome`) are Unix seconds.
+`log_forecast.py` refuses a malformed forecast or outcome *before* appending, because a bad
+line cannot be removed afterwards.
+
 Why a separate ledger when `forecast.md` already has the numbers: scoring across
 questions needs a stable machine-readable record. Parsing markdown for calibration
 analysis works right up until the day it doesn't, and by then the history is
@@ -29,4 +39,5 @@ community prediction at the same points in time.
 ```bash
 uv run scripts/calibration.py                 # all versions
 uv run scripts/calibration.py --latest-only   # final version per question only
+uv run scripts/calibration.py --plot cal.png
 ```
