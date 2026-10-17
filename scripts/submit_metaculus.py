@@ -224,20 +224,28 @@ def cdf_from_knots(x: float, knots: list[tuple[float, float]]) -> float:
     Linear between knots. Beyond the outer knots the tails are exponential with
     the density of the adjacent segment, so the curve stays smooth at the knot
     and the tail mass decays instead of stopping dead at an arbitrary point.
+    Knots that share a value are a point mass there (e.g. a record close the
+    answer cannot fall below): the CDF jumps from their lowest probability to
+    their highest, and the tails take the density of the nearest sloped segment.
     """
-    ps = [p for p, _ in knots]
-    xs = [v for _, v in knots]
-    if x <= xs[0]:
-        scale = ps[0] * (xs[1] - xs[0]) / (ps[1] - ps[0])
-        return ps[0] * math.exp((x - xs[0]) / scale)
-    if x >= xs[-1]:
-        scale = (1 - ps[-1]) * (xs[-1] - xs[-2]) / (ps[-1] - ps[-2])
-        return 1 - (1 - ps[-1]) * math.exp(-(x - xs[-1]) / scale)
-    for i in range(len(xs) - 1):
-        if xs[i] <= x <= xs[i + 1]:
-            if xs[i + 1] == xs[i]:
-                return ps[i + 1]
-            return ps[i] + (ps[i + 1] - ps[i]) * (x - xs[i]) / (xs[i + 1] - xs[i])
+    # (value, P just below it, P at it); merging ties keeps every segment sloped
+    pts: list[tuple[float, float, float]] = []
+    for p, v in knots:
+        if pts and pts[-1][0] == v:
+            pts[-1] = (v, pts[-1][1], p)
+        else:
+            pts.append((v, p, p))
+    (x0, below0, at0), (x1, below1, _) = pts[0], pts[1]
+    if x < x0:
+        scale = below0 * (x1 - x0) / (below1 - at0)
+        return below0 * math.exp((x - x0) / scale)
+    (xm, _, atm), (xn, belown, atn) = pts[-2], pts[-1]
+    if x >= xn:
+        scale = (1 - atn) * (xn - xm) / (belown - atm)
+        return 1 - (1 - atn) * math.exp(-(x - xn) / scale)
+    for (a, _, pa), (b, pb, _) in pairwise(pts):
+        if a <= x < b:
+            return pa + (pb - pa) * (x - a) / (b - a)
     raise AssertionError("unreachable")
 
 
@@ -300,8 +308,8 @@ def continuous_cdf(
 ) -> list[float]:
     """Metaculus CDF for a numeric or date question from quantile knots."""
     knots = sorted(knots)
-    if len(knots) < 2:
-        raise SubmitError("need at least two percentiles to build a CDF")
+    if len({v for _, v in knots}) < 2:
+        raise SubmitError("need percentiles on at least two distinct values")
     if any(b[1] < a[1] for a, b in pairwise(knots)):
         raise SubmitError(f"percentile values are not monotone: {knots}")
     raw = [cdf_from_knots(x, knots) for x in _grid(scaling)]

@@ -154,6 +154,30 @@ def test_numeric_submits_the_ledgers_percentiles_without_the_quartile_note():
     assert sm.quantile(cdf, NUMERIC_SCALING, 0.05) == pytest.approx(38.0, abs=0.3)
 
 
+def test_tied_percentiles_become_a_point_mass_instead_of_crashing():
+    # A record close the answer cannot fall below puts p5..p50 on one value.
+    scaling = {**NUMERIC_SCALING, "range_min": 236, "range_max": 275}
+    pct = {"5": 239.24, "25": 239.24, "50": 239.24, "75": 262.0, "95": 309.0}
+    rec = _record("numeric", 239.24, (239.24, 262.0), distribution={"percentiles": pct})
+    p = sm.build_payload("s", rec, _post("numeric", scaling=scaling), None)
+    cdf = p.values["continuous_cdf"]
+    sm.validate_cdf(cdf, scaling)
+    xs = sm._grid(scaling)
+    below = max(c for x, c in zip(xs, cdf) if x < 239.24)
+    above = min(c for x, c in zip(xs, cdf) if x > 239.24)
+    assert below == pytest.approx(0.05, abs=0.01)
+    assert above == pytest.approx(0.50, abs=0.01)
+    # the uniform mix shifts in-range quantiles by ~1 here, ties or not
+    assert sm.quantile(cdf, scaling, 0.75) == pytest.approx(262.0, abs=1.0)
+
+
+def test_percentiles_on_a_single_value_are_refused():
+    pct = {"25": 40, "50": 40, "75": 40}
+    rec = _record("numeric", 40, (40, 40), distribution={"percentiles": pct})
+    with pytest.raises(sm.SubmitError, match="distinct"):
+        sm.build_payload("s", rec, _post("numeric", scaling=NUMERIC_SCALING), None)
+
+
 def test_log_scaled_grid_matches_metaculus_unscaling():
     scaling = {
         "range_min": 1.0,
