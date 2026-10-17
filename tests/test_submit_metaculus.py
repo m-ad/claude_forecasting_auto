@@ -154,21 +154,38 @@ def test_numeric_submits_the_ledgers_percentiles_without_the_quartile_note():
     assert sm.quantile(cdf, NUMERIC_SCALING, 0.05) == pytest.approx(38.0, abs=0.3)
 
 
-def test_tied_percentiles_become_a_point_mass_instead_of_crashing():
+def test_tied_percentiles_become_a_point_mass_spread_upward_under_the_max_step():
     # A record close the answer cannot fall below puts p5..p50 on one value.
     scaling = {**NUMERIC_SCALING, "range_min": 236, "range_max": 275}
     pct = {"5": 239.24, "25": 239.24, "50": 239.24, "75": 262.0, "95": 309.0}
     rec = _record("numeric", 239.24, (239.24, 262.0), distribution={"percentiles": pct})
     p = sm.build_payload("s", rec, _post("numeric", scaling=scaling), None)
     cdf = p.values["continuous_cdf"]
-    sm.validate_cdf(cdf, scaling)
+    sm.validate_cdf(cdf, scaling)  # would raise on a step above 0.2
     xs = sm._grid(scaling)
     below = max(c for x, c in zip(xs, cdf) if x < 239.24)
-    above = min(c for x, c in zip(xs, cdf) if x > 239.24)
     assert below == pytest.approx(0.05, abs=0.01)
-    assert above == pytest.approx(0.50, abs=0.01)
+    # the 45% jump spreads over the bins just above the floor, none below it
+    assert 239.24 <= sm.quantile(cdf, scaling, 0.5) <= 240.5
     # the uniform mix shifts in-range quantiles by ~1 here, ties or not
     assert sm.quantile(cdf, scaling, 0.75) == pytest.approx(262.0, abs=1.0)
+
+
+def test_cdf_step_above_metaculus_maximum_is_refused():
+    n = NUMERIC_SCALING["inbound_outcome_count"]
+    cdf = [0.001 + 0.5 * i / n for i in range(n + 1)]
+    cdf[n // 2 + 1 :] = [c + 0.25 for c in cdf[n // 2 + 1 :]]
+    with pytest.raises(sm.SubmitError, match="above"):
+        sm.validate_cdf(cdf, NUMERIC_SCALING)
+
+
+def test_max_step_scales_with_the_outcome_count_like_metaculus():
+    # 0.2 * 200 / 11 > 1, so a discrete PMF with a 0.6 outcome is valid.
+    pmf = {str(k): 0.04 for k in range(11)}
+    pmf["5"] = 0.6
+    rec = _record("discrete", 5, (5, 5), distribution={"pmf": pmf})
+    p = sm.build_payload("s", rec, _post("discrete", scaling=DISCRETE_SCALING), None)
+    sm.validate_cdf(p.values["continuous_cdf"], DISCRETE_SCALING)
 
 
 def test_percentiles_on_a_single_value_are_refused():

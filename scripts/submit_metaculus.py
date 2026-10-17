@@ -82,6 +82,7 @@ RETRY_WAITS_S = (30.0, 60.0, 120.0)
 P_MIN, P_MAX = 0.001, 0.999
 OPEN_BOUND_MASS = 0.001  # minimum tail mass outside an open bound
 MIN_STEP_PER_BIN = 0.01  # CDF must rise by >= this / inbound_outcome_count per bin
+MAX_STEP_PER_BIN = 40.0  # ... and by <= this / inbound_outcome_count (0.2 at 200)
 UNIFORM_MIX = 0.02  # default uniform mixture that guarantees the minimum step
 CLOSED_STATUSES = {"closed", "resolved", "deleted"}
 
@@ -303,6 +304,31 @@ def _fit_to_bounds(raw: list[float], scaling: dict[str, Any]) -> list[float]:
     return [lo + (hi - lo) * ((1 - mix) * s + mix * i / n) for i, s in enumerate(shape)]
 
 
+def _cap_steps(cdf: list[float], scaling: dict[str, Any]) -> list[float]:
+    """Spread any bin above Metaculus' maximum step into the bins above it.
+
+    A point mass (tied percentiles) lands in a single bin. Its excess moves
+    upward because ties usually mark a floor, such as a record close the answer
+    cannot fall below; only what would overflow the top bin goes back down.
+    """
+    n = len(cdf) - 1
+    # headroom for the rounding Metaculus applies before comparing
+    cap = MAX_STEP_PER_BIN / int(scaling["inbound_outcome_count"]) * (1 - 1e-6)
+    steps = [b - a for a, b in pairwise(cdf)]
+    if max(steps) <= cap:
+        return cdf
+    carry = 0.0
+    for i in [*range(n), *reversed(range(n))]:
+        steps[i] += carry
+        carry = max(steps[i] - cap, 0.0)
+        steps[i] -= carry
+    out = [cdf[0]]
+    for step in steps:
+        out.append(out[-1] + step)
+    out[-1] = cdf[-1]  # keep a closed bound at exactly 1 despite float drift
+    return out
+
+
 def continuous_cdf(
     knots: list[tuple[float, float]], scaling: dict[str, Any]
 ) -> list[float]:
@@ -313,7 +339,7 @@ def continuous_cdf(
     if any(b[1] < a[1] for a, b in pairwise(knots)):
         raise SubmitError(f"percentile values are not monotone: {knots}")
     raw = [cdf_from_knots(x, knots) for x in _grid(scaling)]
-    return _fit_to_bounds(raw, scaling)
+    return _cap_steps(_fit_to_bounds(raw, scaling), scaling)
 
 
 def discrete_cdf(pmf: dict[str, float], scaling: dict[str, Any]) -> list[float]:
@@ -368,6 +394,10 @@ def validate_cdf(cdf: list[float], scaling: dict[str, Any]) -> None:
     if min(steps) < MIN_STEP_PER_BIN / n - 1e-12:
         raise SubmitError(
             f"CDF step {min(steps):.2e} is below {MIN_STEP_PER_BIN / n:.2e}"
+        )
+    if max(steps) > MAX_STEP_PER_BIN / n + 1e-12:
+        raise SubmitError(
+            f"CDF step {max(steps):.3f} is above {MAX_STEP_PER_BIN / n:.3f}"
         )
     if scaling.get("open_lower_bound"):
         if cdf[0] < OPEN_BOUND_MASS - 1e-12:
