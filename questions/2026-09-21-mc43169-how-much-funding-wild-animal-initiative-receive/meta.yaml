@@ -18,14 +18,14 @@ dates:
   resolves: '2027-11-15'
 status: open
 current:
-  version: 2
+  version: 3
   date: '2026-10-17'
   median: 3.09
   iqr:
   - 2.16
   - 4.09
   community:
-    cp: null
+    cp: 3.873
     pro: null
     gold: null
     n_forecasters: null

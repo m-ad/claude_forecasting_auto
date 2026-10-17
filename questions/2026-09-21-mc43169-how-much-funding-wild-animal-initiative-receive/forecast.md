@@ -6,9 +6,84 @@
 | **Type** | numeric (USD millions, both bounds open, scale 1–7) |
 | **Opened / Closes / Resolves** | — / 2026-12-31 / ~2027-08 to 2027-11 (when the FY2026 Form 990 is filed) |
 | **Status** | open |
-| **Current forecast** | **Median $3.09M, IQR [$2.16M, $4.09M]** (v2, 2026-10-17) |
-| **Community (as of 2026-09-19 — not refreshed; fetch blocked 2026-10-17)** | CP $4.25M IQR [3.31, 5.27] (n=29) · Pro $4.41M (n=5) · Gold $4.23M (n=15) · 48 forecasters total |
+| **Current forecast** | **Median $3.09M, IQR [$2.16M, $4.09M]** (v3, 2026-10-17) |
+| **Community (as of 2026-10-17, operator-supplied)** | CP $3.87M IQR [2.85, 4.88] · Pro / Gold not available (fetch blocked) |
 | **Next review** | 2026-11-20 |
+
+---
+
+## v3 — Update — 2026-10-17
+
+### Revision
+
+| Driver | Direction | Effect (median, $M) |
+|---|---|---|
+| Prior (v2, 2026-10-17) | — | Median $3.09M, IQR [$2.16M, $4.09M] |
+| Metaculus CP, supplied by the operator: **$3.873M, IQR [2.846, 4.883]**, down from $4.245M IQR [3.31, 5.27] on 2026-09-19 (−0.37, −9%; the lower quartile fell 0.46). The CP moved *toward* v2 with no public news I can find. The 2026-08-14 spike from WAI's $5.55M projection is partly unwinding, or other forecasters have found the same accrual-timing point. This confirms my direction; it is not new information about WAI's funders. The gap to the crowd shrinks from $1.16M to $0.78M (−20%) | → | 0 |
+| Pro / gold-medalist cohorts: still unavailable (proxy blocks the Cloudflare challenge host) | → | 0 |
+| **New forecast** | | **Median $3.09M, IQR [$2.16M, $4.09M]** — no change |
+
+Why not move? Moving down to "lead" the crowd would be anti-herding without evidence. Moving up
+toward the CP would discard the specific accrual-timing fact behind v2. Had I given the CP a
+standing 15–20% weight, the drop would lower my median by ~$0.06M, which is inside rounding.
+So the number stays.
+
+### Tripwire check
+
+| Tripwire from v2 | Fired? | Note |
+|---|---|---|
+| Metaculus CP, once re-fetched, outside [3.4, 4.9] with no news | Not fired | $3.87M, inside the band |
+| All other v2 tripwires (giving-season post, ≥ $1.5M grant, FY2025 audit/990, TNF 2027 commitment, Coefficient Giving WAW grant) | Not fired | Checked in v2 earlier today, and nothing has changed in the past hour |
+
+### What resolves YES
+Unchanged from v2.
+
+### Outside view
+Unchanged from v2.
+
+### Inside view
+Unchanged from v2.
+
+### Evidence
+Unchanged from v2, plus the CP move above.
+
+### Other forecasters
+
+| Source | Value | As of | Note |
+|---|---|---|---|
+| Metaculus CP (recency-weighted) | **$3.87M**, IQR [2.85, 4.88] | 2026-10-17 | supplied by the operator; n not available |
+| Metaculus Pro | not available | — | last seen $4.41M (2026-09-19) |
+| Metaculus gold medalists | not available | — | last seen $4.23M (2026-09-19) |
+| Markets | none | 2026-10-17 | no WAI-funding contract |
+
+The CP's IQR [2.85, 4.88] now overlaps most of mine [2.16, 4.09], and its lower quartile is close
+to my median. The remaining disagreement sits mainly in the lower tail: I put ~32% below
+$2.4M (no large item signed in 2026), and the crowd appears to put ~15–20% there.
+
+### Scenarios
+Unchanged from v2.
+
+### Sensitivity
+Unchanged from v2.
+
+### What would change my mind (tripwires)
+Unchanged from v2 (see `meta.yaml`). Re-fetch the Pro and gold cohorts at the next review. If
+both sit ≥ $1M above me, look for a fact I missed before defending the gap.
+
+### Sources
+
+1. Unchanged from v2; plus the Metaculus CP for post 43169 as supplied by the operator on 2026-10-17 (no raw snapshot: the fetch was blocked).
+
+**Question**: [How much funding will Wild Animal Initiative receive in 2026?](https://www.metaculus.com/questions/43169/how-much-funding-will-wild-animal-initiative-receive-in-2026/)
+**Date**: 2026-10-17
+**Forecast**: Median $3.09M, IQR [$2.16M, $4.09M]
+**Thesis**: No change. The CP fell from $4.25M to $3.87M, toward my number and inside my
+tripwire band, with no news trigger; that confirms the direction rather than adding new evidence.
+The v2 thesis stands: the TNF bridge grant for H2 2026 is already on the FY2025 990, so FY2026
+is a ~$1.95M base plus whatever large grant (most plausibly TNF's 2027 renewal) is signed by
+31 December.
+
+---
 
 ## v2 — Update — 2026-10-17
 
