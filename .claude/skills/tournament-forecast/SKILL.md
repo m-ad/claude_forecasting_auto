@@ -30,7 +30,10 @@ it ever earns. Not forecasting scores 0; a bad forecast scores below 0.
 4. **Watch the clock.** `date -u` tells the time; `$FORECAST_DEADLINE` is when this session is
    killed. Log your forecast **at least 5 minutes before the deadline**, however rough. An
    unlogged forecast is never submitted.
-5. **Prefer a rougher forecast to more turns.** 5–8 good sources, not 15.
+5. **Search enough, then stop.** Aim for **8–16 searches** in total (yours plus any
+   `research-scout`'s); go up to **32** when the question needs it — a hard-to-find
+   resolution source, conflicting evidence, several independent streams. Cite at least 5
+   sources. The clock still wins: rule 4 comes first.
 6. **Never** run `git`, never touch `ledger/` by hand, never call Metaculus. The Metaculus token
    is not in this session's environment (GitHub injects secrets per step; only the scaffold
    and submit steps receive it), and the community prediction is hidden on tournament
@@ -69,6 +72,8 @@ the typical volatility over the horizon.
 Use `WebSearch` / `WebFetch`. Priorities, in order:
 
 1. **The resolution source itself** — the current value, the latest release, its schedule.
+   When it is a public page, open it with `WebFetch`: a number the forecast rests on never
+   comes from a search snippet alone.
 2. **Recent news** (the last days matter most; note dates).
 3. **Prediction markets** on the same event (Polymarket, Kalshi, Manifold — discount
    low-volume Manifold). Using other platforms' public forecasts is allowed by the rules.

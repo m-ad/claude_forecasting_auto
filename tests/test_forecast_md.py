@@ -46,7 +46,7 @@ ONE_SHOT_SECTIONS = [
     "### What would change my mind",
     "### Sources",
 ]
-# docs/methodology.md "Tournament mode": 5-8 sources, not 15.
+# docs/methodology.md "Tournament mode": >= 5 sources (from 8-16 searches), not 15.
 MIN_SOURCES = 10
 MIN_SOURCES_ONE_SHOT = 5
 REQUIRED_HEADER_ROWS = [
@@ -318,7 +318,7 @@ def test_sources_are_numbered_with_urls_and_access_dates(folder):
         assert len(entries) >= floor, (
             f"{folder.name} v{version}: {len(entries)} numbered sources "
             f"(need >= {floor}; the research policy's rule of thumb is >= 15, "
-            "5-8 in tournament mode)"
+            ">= 5 in tournament mode)"
         )
         for entry in entries:
             if "http" not in entry:
