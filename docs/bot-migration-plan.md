@@ -57,7 +57,7 @@ the official template [4]; details and the rule-by-rule mapping in
 
 ---
 
-## 3. Architecture (as built on branch `claude/inspiring-lamport-wyf3qe`)
+## 3. Architecture (as built on `claude/inspiring-lamport-wyf3qe`, merged into `main` 2026-10-18)
 
 ```
 tournament-sweep.yml  cron 11,41 * * * *  (opt-in SWEEP_ENABLED; manual runs always allowed)
@@ -90,16 +90,18 @@ bot-testing-area registered, inactive).
 
 ## 4. Maintainer setup — what only a human can do
 
+M.1–M.8 done 2026-10-18; M.9 recurs every season. Details in the tracker.
+
 | # | Task | Blocks |
 |---|---|---|
 | M.1 | Bot account and token — **done** (`my-claude-forecasting`). Confirm in Metaculus settings that it is your **primary** (prize-eligible) bot, and fill in the participation form | — |
-| M.2 | `claude setup-token` → secret `CLAUDE_CODE_OAUTH_TOKEN`; calendar reminder for expiry | everything |
-| M.3 | Secret `METACULUS_API_KEY` (the bot token) | everything |
-| M.4 | Merge the branch into `main` (schedules only fire from the default branch); keep `main` free of branch protection that blocks `github-actions[bot]` pushes | everything |
-| M.5 | Private repo: Actions spending limit > $0 with an alert (or make the repo public) | the schedule |
-| M.6 | Smoke test: Run workflow → `tournament: bot-testing-area`, `max_questions: 1` (first with `dry_run` ticked: forecasts, uploads the folder as an artifact, submits and commits nothing; then without it); check the forecast and the private comment as the bot | go-live |
-| M.7 | `SWEEP_ENABLED=true` | go-live |
-| M.8 | After the first round: set `WEEKLY_BUDGET_USD_EQUIV` from the measured spend | budget guard |
+| M.2 | `claude setup-token` → secret `CLAUDE_CODE_OAUTH_TOKEN`; calendar reminder for expiry — **done** | everything |
+| M.3 | Secret `METACULUS_API_KEY` (the bot token) — **done** | everything |
+| M.4 | Merge the branch into `main` (schedules only fire from the default branch); keep `main` free of branch protection that blocks `github-actions[bot]` pushes — **done** | everything |
+| M.5 | Private repo: Actions spending limit > $0 with an alert (or make the repo public) — **done** | the schedule |
+| M.6 | Smoke test: Run workflow → `tournament: bot-testing-area`, `max_questions: 1` (first with `dry_run` ticked: forecasts, uploads the folder as an artifact, submits and commits nothing; then without it); check the forecast and the private comment as the bot — **done** | go-live |
+| M.7 | `SWEEP_ENABLED=true` — **done** | go-live |
+| M.8 | After the first round: set `WEEKLY_BUDGET_USD_EQUIV` from the measured spend — **done** (set before the round, from the smoke test; re-derived in §7) | budget guard |
 | M.9 | Seasonal: bot survey (required for prizes), AskNews renewal if used | prizes |
 
 ---
@@ -130,9 +132,9 @@ bot-testing-area registered, inactive).
 
 ## 6. What remains
 
-**Phase A — first round (needs the maintainer, then watching):** M.2–M.7; watch the first
-MiniBench day closely (Step Summaries, `bot-health`), especially the first real submission and
-comment, and the CLI's behaviour in Actions (§8).
+**Phase A — first round (needs the maintainer, then watching):** M.2–M.7 done 2026-10-18;
+what remains is to watch the first MiniBench day closely (Step Summaries, `bot-health`),
+especially the first real submissions and comments, and the CLI's behaviour in Actions (§8).
 
 **Phase B — hardening (agent work, after the first real runs):**
 - `ledger/errors.jsonl` + `record_error.py` with secret redaction and a `reproduce` command;
@@ -157,24 +159,33 @@ tokens, consider mid-season visibility of the scaffold; afterwards Actions minut
 ## 7. Cost and model choice
 
 Every run's API-equivalent cost lands in `ledger/usage.jsonl`. After the first round:
-`uv run scripts/record_usage.py report` → cost per question → set
-`WEEKLY_BUDGET_USD_EQUIV` (≈ 2× the measured weekly spend) and decide `MODEL_FORECAST`
-(`opus` vs `sonnet`) on measured cost against the subscription's limits. Per-question backstop:
+`uv run scripts/record_usage.py report` → cost per question → re-set
+`WEEKLY_BUDGET_USD_EQUIV` (≈ 2× the measured weekly spend; M.8 set a first value from the
+smoke test) and decide `MODEL_FORECAST` (`opus` vs `sonnet`) on measured cost against the
+subscription's limits. Per-question backstop:
 `--max-budget-usd` (`MAX_USD_PER_QUESTION`, default 15) and the step timeout.
 
 ---
 
 ## 8. Open questions — verify on the first real runs
 
+In brackets: the status after the smoke test of 2026-10-18 (one run, two `bot-testing-area`
+questions).
+
 1. `claude -p` in Actions with `CLAUDE_CODE_OAUTH_TOKEN` — expected to work (that is what
-   `setup-token` is for); unverified here.
+   `setup-token` is for). [Works.]
 2. `--permission-mode dontAsk` with the CI allowlist: confirm `WebSearch`, `WebFetch` and the
    `research-scout` subagent are usable, and that `permission_denials` in `usage.jsonl` stays 0.
-3. `--max-budget-usd` on a subscription token: expected to cap on the computed cost.
-4. The comment POST (`included_forecast: true`, private) — first real submission.
+   [Open: 2 denials in each session, tools not yet identified. `web_searches` reads 0 although
+   both forecasts cite search results: check the counter too.]
+3. `--max-budget-usd` on a subscription token: expected to cap on the computed cost. [Not
+   reached: $0.22–0.26 per session.]
+4. The comment POST (`included_forecast: true`, private) — first real submission. [Works:
+   `comment_posted: true`, HTTP 201, on both.]
 5. The score field name in `my_forecasts.score_data` (the sync tries `spot_peer_score`, then
-   `peer_score`).
-6. GitHub's union merge on runners behaves as in the local simulation.
+   `peer_score`). [Open until a question resolves.]
+6. GitHub's union merge on runners behaves as in the local simulation. [Two parallel jobs
+   both landed on `main` a second apart (`23cff82`, `18a99d7`).]
 
 ---
 
@@ -198,7 +209,7 @@ Every run's API-equivalent cost lands in `ledger/usage.jsonl`. After the first r
 - [x] API-only client; no browser path; tests green.
 - [x] Gate, scaffold and payload construction verified live (dry run, all four types).
 - [x] One-shot guards, private comment, ledger record — unit-tested against fakes.
-- [ ] Secrets set; branch merged; smoke test on `bot-testing-area` shows the forecast **and**
+- [x] Secrets set; branch merged; smoke test on `bot-testing-area` shows the forecast **and**
       the private comment on the question page.
 - [ ] `SWEEP_ENABLED=true`; the first MiniBench questions forecast and commented within their
       windows; no `bot-health` issue left open.
