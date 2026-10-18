@@ -1,0 +1,49 @@
+slug: 2026-10-18-mc43326-which-party-hold-most-seats-us-house
+title: Which party will hold the most seats in the US House of Representatives after the 2026 elections?
+source: metaculus
+url: https://www.metaculus.com/questions/43326/
+post_id: 43326
+question_id: 43331
+type: multiple_choice
+unit: null
+tags: []
+dates:
+  created: '2026-10-18'
+  opened: '2026-04-27'
+  closes: '2026-11-02'
+  resolves: '2026-11-05'
+status: open
+tournament:
+  slug: bot-testing-area
+  mode: one_shot
+  registered: '2026-10-18'
+  opened: '2026-04-27T15:18:00Z'
+  closes: '2026-11-02T00:00:00Z'
+  submitted: '2026-10-18T10:54:53+00:00'
+  submitted_forecast:
+    probability_yes_per_category:
+      Democrats: 0.9
+      Republicans: 0.095
+      Other: 0.005
+  comment_posted: true
+  official_score: null
+  missed_window: false
+current:
+  version: 1
+  date: '2026-10-18'
+  median: 0.9
+  iqr:
+  - 0.86
+  - 0.93
+  community:
+    cp: null
+    pro: null
+    gold: null
+    n_forecasters: null
+    as_of: '2026-10-18'
+next_review: null
+tripwires: []
+resolution:
+  outcome: null
+  date: null
+  source: null

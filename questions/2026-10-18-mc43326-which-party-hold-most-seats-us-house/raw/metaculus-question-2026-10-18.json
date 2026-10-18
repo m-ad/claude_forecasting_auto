@@ -1,0 +1,46 @@
+{
+  "post_id": 43326,
+  "url": "https://www.metaculus.com/questions/43326/",
+  "post_title": "Which party will hold the most seats in the US House of Representatives after the 2026 elections?",
+  "tournaments": [
+    "bot-testing-area"
+  ],
+  "options": [
+    "Democrats",
+    "Republicans",
+    "Other"
+  ],
+  "question": {
+    "id": 43331,
+    "title": "Which party will hold the most seats in the US House of Representatives after the 2026 elections?",
+    "type": "multiple_choice",
+    "status": "open",
+    "description": "The 2026 midterm elections are scheduled for Tuesday, November 3. The US House of Representatives has 435 seats. [As of early 2025](https://ballotpedia.org/119th_United_States_Congress), 218 are held by members of the Republican Party, 215 are held by Democrats, and 2 are vacant.\n\nRepresentatives are elected for 2-year terms, and elections are held every two years; so all of the seats are up for contest in every election. The winners of the 2026 House elections will join the Senate to form the 120th Congress.",
+    "resolution_criteria": "This question will resolve as the party that holds more House of Representatives seats than any other party in the 120th Congress, which is the one scheduled to be elected November 3, 2026 and take office in January 3, 2027.\n\nIndependent representatives will be counted as part of the party they caucus with.\n\nThis question will resolve as **Other** if:\n\n* Republicans and Democrats hold an equal number of seats.\n* A third party holds more seats than both Republicans and Democrats.\n* Independents that do not caucus with either party hold more seats than both Republicans and Democrats.\n* More seats are vacant than the ones held by both Republicans and Democrats.",
+    "fine_print": "Metaculus will resolve this question based on the final result of the elections, including special elections, recounts, or run-offs.\n\nIf Democrats or Republicans change name, the options will be renamed accordingly.",
+    "unit": "",
+    "options": [
+      "Democrats",
+      "Republicans",
+      "Other"
+    ],
+    "scaling": {
+      "range_min": null,
+      "range_max": null,
+      "nominal_min": null,
+      "nominal_max": null,
+      "zero_point": null,
+      "open_upper_bound": false,
+      "open_lower_bound": false,
+      "inbound_outcome_count": null,
+      "continuous_range": null
+    },
+    "open_lower_bound": false,
+    "open_upper_bound": false,
+    "inbound_outcome_count": null,
+    "open_time": "2026-04-27T15:18:00Z",
+    "scheduled_close_time": "2026-11-02T00:00:00Z",
+    "scheduled_resolve_time": "2026-11-05T00:00:00Z",
+    "resolution": null
+  }
+}
