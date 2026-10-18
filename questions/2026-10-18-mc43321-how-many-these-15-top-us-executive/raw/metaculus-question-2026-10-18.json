@@ -1,0 +1,56 @@
+{
+  "post_id": 43321,
+  "url": "https://www.metaculus.com/questions/43321/",
+  "post_title": "How many of these 15 top US executive branch officials will be out before 2027?",
+  "tournaments": [
+    "bot-testing-area"
+  ],
+  "options": null,
+  "question": {
+    "id": 43322,
+    "title": "How many of these 15 top US executive branch officials will be out before 2027?",
+    "type": "discrete",
+    "status": "open",
+    "description": "Donald Trump's first term was characterized by a historic amount of turnover. According to the [Brookings Institution](https://www.brookings.edu/articles/tracking-turnover-in-the-trump-administration/), the occupants of senior level positions got fired, quit, or otherwise left their positions in the following numbers:\r\n\r\n| President        | N      | Year 1  | Year 2  | Year 3  | Year 4 | Total turnover |\r\n| ---------------- | ------ | ------- | ------- | ------- | ------ | -------------- |\r\n| Ronald Reagan    | 60     | 17%     | 40%     | 13%     | 8%     | 78%            |\r\n| George H.W. Bush | 57     | 7%      | 18%     | 32%     | 9%     | 66%            |\r\n| Bill Clinton     | 70     | 11%     | 27%     | 20%     | 16%    | 74%            |\r\n| George W. Bush   | 63     | 6%      | 27%     | 25%     | 5%     | 63%            |\r\n| Barack Obama     | 53     | 9%      | 15%     | 43%     | 4%     | 71%            |\r\n| **Donald Trump** | **65** | **35%** | **31%** | **17%** | **9%** | **92%**        |\r\n\r\nAdditionally, several roles under Trump had what Brookings calls \"serial turnover,\" such as four National Security Advisors in the four years, four White House Chiefs of Staff and four Press Secretaries.\r\n\r\nAt the time of this question's writing, none of the listed roles had turned over. However, there have been calls for many to resign or be fired:\r\n\r\n* In December 2025 there were [calls](https://thehill.com/homenews/senate/5634559-republicans-hegseth-leadership-pentagon/) for Pete Hegseth to resign over the killing of four crew members of an alleged drug smuggling boat.&#x20;\r\n* Calls for Pam Bondi to resign, which [gained](https://www.newsweek.com/petition-pam-bondi-signatures-resign-2098711) [steam](https://www.cnn.com/2025/07/07/politics/bondi-epstein-files-client-list-suicide-memo) over her handling of files related to convicted child molester Jeffrey Epstein. Dan Bongino [nearly resigned](https://www.nbcnews.com/politics/justice-department/dan-bongino-weighs-resigning-fbi-heated-confrontation-pam-bondi-epstei-rcna218388) over the controversy in July.\r\n* Scrutiny over Kash Patel's handling of FBI resources, [such as](https://www.ms.now/news/kash-patel-girlfriend-fbi-detail-wilkins-ride-home) having FBI agents drive one of his girlfriend's inebriated friends home after a night of drinking.",
+    "resolution_criteria": "This question resolves as the number of the following 15 officials who leave their position, formally announce they will leave their position, or whose agency announces that they have left or will leave their position, before January 1, 2027:\r\n\r\n| Role                                                           | Incumbent             |\r\n| -------------------------------------------------------------- | --------------------- |\r\n| Secretary of State and National Security Advisor               | Marco Rubio           |\r\n| Secretary of the Treasury                                      | Scott Bessent         |\r\n| Secretary of Defense                                           | Pete Hegseth          |\r\n| Attorney General                                               | Pam Bondi             |\r\n| Secretary of Health & Human Services                           | Robert F. Kennedy Jr. |\r\n| Secretary of Commerce                                          | Howard Lutnick        |\r\n| Secretary of Homeland Security                                 | Kristi Noem           |\r\n| Director of National Intelligence                              | Tulsi Gabbard         |\r\n| Director of the Central Intelligence Agency                    | John Ratcliffe        |\r\n| OMB Director                                                   | Russell Vought        |\r\n| White House Chief of Staff                                     | Susie Wiles           |\r\n| DOJ (FBI) Director                                             | Kash Patel            |\r\n| Border Czar                                                    | Tom Homan             |\r\n| Senior Counselor for Trade/Manufacturing                       | Peter Navarro         |\r\n| Deputy Chief of Staff for Policy and Homeland Security Advisor | Stephen Miller        |",
+    "fine_print": "Any person in more than one listed role at the opening of this question must leave both roles in order to count.",
+    "unit": "Officials",
+    "options": null,
+    "scaling": {
+      "range_min": -0.5,
+      "range_max": 15.5,
+      "nominal_min": 0,
+      "nominal_max": 15,
+      "zero_point": null,
+      "open_upper_bound": false,
+      "open_lower_bound": false,
+      "inbound_outcome_count": 16,
+      "continuous_range": [
+        -0.5,
+        0.5,
+        1.5,
+        2.5,
+        3.5,
+        4.5,
+        5.5,
+        6.5,
+        7.5,
+        8.5,
+        9.5,
+        10.5,
+        11.5,
+        12.5,
+        13.5,
+        14.5,
+        15.5
+      ]
+    },
+    "open_lower_bound": false,
+    "open_upper_bound": false,
+    "inbound_outcome_count": 16,
+    "open_time": "2026-04-27T14:56:00Z",
+    "scheduled_close_time": "2027-01-01T00:00:00Z",
+    "scheduled_resolve_time": "2027-01-01T18:00:00Z",
+    "resolution": null
+  }
+}

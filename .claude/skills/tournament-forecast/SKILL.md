@@ -35,7 +35,8 @@ it ever earns. Not forecasting scores 0; a bad forecast scores below 0.
    is not in this session's environment (GitHub injects secrets per step; only the scaffold
    and submit steps receive it), and the community prediction is hidden on tournament
    questions anyway. Python is for models in your question folder, not for reaching
-   anything else.
+   anything else. The session starts in the repository root: never `cd`, and run Python
+   only as `uv run python` — `cd` and bare `python3` are denied and cost a turn.
 7. **Log exactly once.** A second `add` is refused: one forecast per question is a tournament rule.
 
 ## Step 1 — Read the question (no network)

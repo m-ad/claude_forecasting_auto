@@ -1,0 +1,63 @@
+slug: 2026-10-18-mc43321-how-many-these-15-top-us-executive
+title: How many of these 15 top US executive branch officials will be out before 2027?
+source: metaculus
+url: https://www.metaculus.com/questions/43321/
+post_id: 43321
+question_id: 43322
+type: discrete
+unit: Officials
+tags: []
+dates:
+  created: '2026-10-18'
+  opened: '2026-04-27'
+  closes: '2027-01-01'
+  resolves: '2027-01-01'
+status: open
+tournament:
+  slug: bot-testing-area
+  mode: one_shot
+  registered: '2026-10-18'
+  opened: '2026-04-27T14:56:00Z'
+  closes: '2027-01-01T00:00:00Z'
+  submitted: '2026-10-18T11:30:48+00:00'
+  submitted_forecast:
+    continuous_cdf:
+    - 0.0
+    - 0.0012513410178194807
+    - 0.0027003657088214513
+    - 0.03348824883983822
+    - 0.27466553218019374
+    - 0.5169801827158688
+    - 0.7225222594410171
+    - 0.8177466147345853
+    - 0.8958104355832411
+    - 0.9297471678592649
+    - 0.9602361013576817
+    - 0.9774780651441358
+    - 0.9869386131190506
+    - 0.9924040490060103
+    - 0.9958183259545595
+    - 0.9981795027902726
+    - 1.0
+  comment_posted: true
+  official_score: null
+  missed_window: false
+current:
+  version: 1
+  date: '2026-10-18'
+  median: 4.4
+  iqr:
+  - 3.4
+  - 5.6
+  community:
+    cp: null
+    pro: null
+    gold: null
+    n_forecasters: null
+    as_of: '2026-10-18'
+next_review: null
+tripwires: []
+resolution:
+  outcome: null
+  date: null
+  source: null
