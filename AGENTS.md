@@ -55,7 +55,7 @@ The mode follows from `meta.yaml`, never from a flag you choose:
 | Who runs it | the `tournament-sweep` workflow, unattended | an interactive session, `/forecast` (no automation yet) |
 | Skill | `tournament-forecast` | `forecast-workflow` |
 | Time budget | ~25 minutes inside a 3-hour window | high effort, no clock |
-| Sources | 5–8 good ones | ≥ 15 |
+| Sources | ≥ 5 cited, from 8–16 searches (up to 32 if useful) | ≥ 15 |
 | Forecasts per question | **exactly one**, never revisited | updated over time |
 | Tripwires / `next_review` | none (nothing to come back for) | required |
 | Community prediction | hidden — record "hidden — bot tournament" | not visible to the bot token — record "hidden", log no CP |
@@ -136,7 +136,8 @@ The bot tournament rules this repository follows are summarised, with sources, i
 
 Search with varied phrasings; do not stop at the first ten results. For a **standard**
 forecast the rule of thumb is **≥ 15 distinct sources**; for a **tournament** question,
-**5–8 good ones** inside the time budget. In both cases spread them across:
+**at least 5**, from **8–16 searches** (up to 32 when useful) inside the time budget. In
+both cases spread them across:
 
 - the resolution source itself and primary data (statistical offices, registries, filings)
 - peer-reviewed literature where the question has an academic base rate
