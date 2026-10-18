@@ -171,6 +171,10 @@ jobs:
           # rejects it for subscription auth); the step timeout still applies.
           budget=()
           [ "$MAX_USD" != "0" ] && budget=(--max-budget-usd "$MAX_USD")
+          # The CLI warns that it ignores the allow list in .claude/settings.json because
+          # the checkout is untrusted. Intended: that list is for interactive sessions and
+          # is broader; this session must run on settings.ci.json alone. Never mark the
+          # runner's checkout trusted (hasTrustDialogAccepted) to silence it.
           set +e
           claude -p "$prompt" \
             --model "$MODEL" \
