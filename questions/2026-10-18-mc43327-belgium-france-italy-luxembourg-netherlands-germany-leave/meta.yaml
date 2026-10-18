@@ -1,0 +1,47 @@
+slug: 2026-10-18-mc43327-belgium-france-italy-luxembourg-netherlands-germany-leave
+title: Will any of Belgium, France, Italy, Luxembourg, Netherlands, and/or Germany leave the EU before
+  2027?
+source: metaculus
+url: https://www.metaculus.com/questions/43327/
+post_id: 43327
+question_id: 43332
+type: binary
+unit: null
+tags: []
+dates:
+  created: '2026-10-18'
+  opened: '2026-04-27'
+  closes: '2026-12-31'
+  resolves: '2027-01-31'
+status: open
+tournament:
+  slug: bot-testing-area
+  mode: one_shot
+  registered: '2026-10-18'
+  opened: '2026-04-27T15:39:00Z'
+  closes: '2026-12-31T23:59:00Z'
+  submitted: '2026-10-18T11:30:24+00:00'
+  submitted_forecast:
+    probability_yes: 0.01
+  comment_posted: true
+  official_score: null
+  missed_window: false
+current:
+  version: 1
+  date: '2026-10-18'
+  median: 0.01
+  iqr:
+  - 0.005
+  - 0.02
+  community:
+    cp: null
+    pro: null
+    gold: null
+    n_forecasters: null
+    as_of: '2026-10-18'
+next_review: null
+tripwires: []
+resolution:
+  outcome: null
+  date: null
+  source: null

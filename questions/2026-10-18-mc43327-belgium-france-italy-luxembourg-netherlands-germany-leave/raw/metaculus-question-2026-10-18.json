@@ -1,0 +1,38 @@
+{
+  "post_id": 43327,
+  "url": "https://www.metaculus.com/questions/43327/",
+  "post_title": "Will any of Belgium, France, Italy, Luxembourg, Netherlands, and/or Germany leave the EU before 2027?",
+  "tournaments": [
+    "bot-testing-area"
+  ],
+  "options": null,
+  "question": {
+    "id": 43332,
+    "title": "Will any of Belgium, France, Italy, Luxembourg, Netherlands, and/or Germany leave the EU before 2027?",
+    "type": "binary",
+    "status": "open",
+    "description": "Anti-European sentiment is running strong in the EU and it may grow stronger – strong enough to destroy it, maybe? The UK voted for Brexit and political pundits are already discussing [Nexit](http://www.express.co.uk/news/world/717904/Nexit-Dutch-turn-right-euroscepticism-Geert-Wilders-Mark-Rutte), [Frexit](https://www.theguardian.com/politics/2016/jun/27/frexit-nexit-or-oexit-who-will-be-next-to-leave-the-eu) and [Quitaly](https://www.theguardian.com/business/economics-blog/2016/jul/26/italy-economy-banks-loans-crisis-europe).\n\nSome commentators argue that Brexit is already the end of the EU as we know it, some would say that Brexit may be fine but if any other country was to leave would spell the end of the union. We choose an even stricter criterion by requiring then one of the [6 original founders of the ECSC](https://en.wikipedia.org/wiki/Inner_Six) leave the union to decree the end of the EU as we know it.",
+    "resolution_criteria": "This question will resolve as **Yes** if, before January 1, 2027, one or more of Belgium, France, Italy, Luxembourg, Netherlands, and/or Germany triggers Article 50 of the Treaty of Lisbon by notifying the European Council of its intention to leave the union.\n\nIt also resolves as positive if by the same deadline the entity called European Union  has dissolved completely or dissolved to create a new politico-economic union of some European nations under a different name",
+    "fine_print": "",
+    "unit": "",
+    "options": null,
+    "scaling": {
+      "range_min": null,
+      "range_max": null,
+      "nominal_min": null,
+      "nominal_max": null,
+      "zero_point": null,
+      "open_upper_bound": false,
+      "open_lower_bound": false,
+      "inbound_outcome_count": null,
+      "continuous_range": null
+    },
+    "open_lower_bound": false,
+    "open_upper_bound": false,
+    "inbound_outcome_count": null,
+    "open_time": "2026-04-27T15:39:00Z",
+    "scheduled_close_time": "2026-12-31T23:59:00Z",
+    "scheduled_resolve_time": "2027-01-31T23:59:00Z",
+    "resolution": null
+  }
+}
