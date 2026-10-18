@@ -30,6 +30,7 @@ from __future__ import annotations
 import argparse
 import datetime as dt
 import json
+import re
 import sys
 from pathlib import Path
 from typing import Any
@@ -42,6 +43,21 @@ USAGE = REPO / "ledger" / "usage.jsonl"
 
 def _num(value: Any) -> float:
     return float(value) if isinstance(value, (int, float)) and not isinstance(value, bool) else 0.0
+
+
+def _denied(result: dict[str, Any]) -> list[str]:
+    """Name each denied tool call: ``Bash:<program>`` for shell commands, else the tool.
+
+    Only the program name is kept, never the arguments: this line is committed, and a
+    denied command built by an injected prompt could carry a secret it had read.
+    """
+    names = []
+    for d in result.get("permission_denials") or []:
+        tool = str((d or {}).get("tool_name") or "?")
+        command = str(((d or {}).get("tool_input") or {}).get("command") or "")
+        program = re.match(r"[\w./-]{1,40}", command.strip())
+        names.append(f"{tool}:{program.group(0)}" if tool == "Bash" and program else tool)
+    return names
 
 
 def parse_result(text: str) -> dict[str, Any] | None:
@@ -92,10 +108,17 @@ def usage_record(
             "cost_usd_equiv": 0.0,
         }
     usage = result.get("usage") or {}
+    model_usage = (result.get("modelUsage") or {}).values()
     by_model = {
         name: round(_num((m or {}).get("costUSD")), 4)
         for name, m in (result.get("modelUsage") or {}).items()
     }
+    # The CLI's WebSearch tool runs its own model call, so its searches show up in
+    # modelUsage and not in the top-level server_tool_use; take whichever saw more.
+    web_searches = max(
+        sum(_num((m or {}).get("webSearchRequests")) for m in model_usage),
+        _num((usage.get("server_tool_use") or {}).get("web_search_requests")),
+    )
     return {
         **rec,
         "conclusion": result.get("subtype") or ("error" if result.get("is_error") else "success"),
@@ -109,8 +132,9 @@ def usage_record(
             "cache_read": int(_num(usage.get("cache_read_input_tokens"))),
             "cache_write": int(_num(usage.get("cache_creation_input_tokens"))),
         },
-        "web_searches": int(_num((usage.get("server_tool_use") or {}).get("web_search_requests"))),
+        "web_searches": int(web_searches),
         "permission_denials": len(result.get("permission_denials") or []),
+        "denied": _denied(result),
         "by_model": by_model,
     }
 
@@ -162,6 +186,7 @@ def summary_table(rec: dict[str, Any]) -> str:
         ),
         ("web searches", rec.get("web_searches", "-")),
         ("permission denials", rec.get("permission_denials", "-")),
+        ("denied", ", ".join(rec.get("denied") or []) or "-"),
     ]
     week = weekly_spend()
     return "\n".join(

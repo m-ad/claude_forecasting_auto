@@ -3,8 +3,10 @@
 | Symptom | Likely cause | First thing to do |
 |---|---|---|
 | Sweep runs but every gate says `nothing_open` | No open tournament questions (normal in MiniBench's second week) | Nothing. `uv run scripts/metaculus_api.py open minibench` to confirm |
+| Gate fails: `[auth] no token (set METACULUS_API_KEY)` | The secret is missing, or stored as an *environment* secret; the job log then shows `METACULUS_API_KEY: ` empty | Add it under Settings → Secrets and variables → Actions → **Repository secrets** (same for `CLAUDE_CODE_OAUTH_TOKEN`) |
 | Gate fails: "Metaculus token refused" | `METACULUS_API_KEY` wrong, rotated or revoked | Regenerate in Metaculus → Settings → My Forecasting Bots; update the secret |
 | Gate fails: "Cloudflare challenge" | Metaculus' edge blocked the runner's IP range | Wait; the next cycle retries from another runner. Never work around it (rule) |
+| Forecast step logs `Ignoring 22 permissions.allow entries from .claude/settings.json: this workspace has not been trusted` | Expected. The runner's checkout is never marked trusted, so the CLI drops the *interactive* allowlist and the session runs on `.claude/settings.ci.json` alone, as designed | Nothing. Do **not** set `hasTrustDialogAccepted`: it would add `Bash(uv run:*)` and `Bash(python3 scripts/:*)` to the forecaster's allowlist |
 | Forecast step fails at once with an auth error | `CLAUDE_CODE_OAUTH_TOKEN` expired | `claude setup-token`, update the secret |
 | `reason=budget_exceeded` in the gate summary | Trailing-7-day spend ≥ `WEEKLY_BUDGET_USD_EQUIV` | `uv run scripts/record_usage.py report`; raise the budget or wait (rolling window) |
 | Nothing runs at all, no failed runs | Actions spending limit hit (private repo), or `SWEEP_ENABLED` not `true` | Settings → Billing → Spending limits; Settings → Variables |
