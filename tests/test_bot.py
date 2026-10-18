@@ -249,6 +249,27 @@ def test_usage_parses_every_output_shape(text):
     assert rec["by_model"]["claude-sonnet-x"] == 0.2345
 
 
+def test_usage_counts_searches_per_model_and_names_denied_tools():
+    # The CLI's WebSearch runs as its own model call: the count lands in modelUsage,
+    # not in the top-level usage.server_tool_use.
+    result = {
+        **RESULT,
+        "usage": {"input_tokens": 1},
+        "modelUsage": {
+            "claude-sonnet-x": {"costUSD": 0.2, "webSearchRequests": 0},
+            "claude-haiku-x": {"costUSD": 0.02, "webSearchRequests": 4},
+        },
+        "permission_denials": [
+            {"tool_name": "Bash", "tool_input": {"command": "cat questions/x/raw/q.json | head"}},
+            {"tool_name": "Skill", "tool_input": {"skill": "tournament-forecast"}},
+        ],
+    }
+    rec = record_usage.usage_record(result, job="j", run_id="1", slug="s", model="sonnet")
+    assert rec["web_searches"] == 4
+    assert rec["permission_denials"] == 2
+    assert rec["denied"] == ["Bash:cat", "Skill"]
+
+
 def test_a_killed_run_records_zero_cost_instead_of_failing():
     assert record_usage.parse_result("") is None
     rec = record_usage.usage_record(None, job="j", run_id="1", slug="s", model="m", exit_code=143)
