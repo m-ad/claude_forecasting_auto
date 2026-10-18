@@ -3,6 +3,7 @@
 | Symptom | Likely cause | First thing to do |
 |---|---|---|
 | Sweep runs but every gate says `nothing_open` | No open tournament questions (normal in MiniBench's second week) | Nothing. `uv run scripts/metaculus_api.py open minibench` to confirm |
+| Gate fails: `[auth] no token (set METACULUS_API_KEY)` | The secret is missing, or stored as an *environment* secret; the job log then shows `METACULUS_API_KEY: ` empty | Add it under Settings → Secrets and variables → Actions → **Repository secrets** (same for `CLAUDE_CODE_OAUTH_TOKEN`) |
 | Gate fails: "Metaculus token refused" | `METACULUS_API_KEY` wrong, rotated or revoked | Regenerate in Metaculus → Settings → My Forecasting Bots; update the secret |
 | Gate fails: "Cloudflare challenge" | Metaculus' edge blocked the runner's IP range | Wait; the next cycle retries from another runner. Never work around it (rule) |
 | Forecast step fails at once with an auth error | `CLAUDE_CODE_OAUTH_TOKEN` expired | `claude setup-token`, update the secret |

@@ -1,8 +1,10 @@
 # Configuration
 
 Everything the bot reads from its environment, in one place. GitHub: Settings → Secrets and
-variables → Actions. `tests/test_bot.py` fails if a workflow uses a secret or variable that
-is not listed here.
+variables → Actions, as **repository** secrets and variables. Environment secrets (Settings →
+Environments) do not reach these jobs: no job declares an `environment:`, so GitHub passes
+them in as empty strings. `tests/test_bot.py` fails if a workflow uses a secret or variable
+that is not listed here.
 
 ## Secrets (required)
 
