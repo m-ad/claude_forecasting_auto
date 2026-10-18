@@ -3,7 +3,10 @@
 
 The registry is the single place that answers "which tournaments are live, and in
 what order do they get the budget?". The sweep gate reads it before spending a
-token; ``/add-tournament`` writes to it; nothing else may.
+token; the maintainer writes it, through this script. The bot never does: the gate is
+stateless (it asks Metaculus which questions the bot has already forecast), so the
+registry only changes when a human changes policy -- and a file only humans write
+cannot conflict when ``main`` is merged into ``live-bot``.
 
 Multi-tournament is the default rather than a later generalisation because
 MiniBench and a FutureEval season can burst at the same time, and the resolution
@@ -16,13 +19,11 @@ Examples
     uv run scripts/tournament_registry.py add https://www.metaculus.com/tournament/minibench/ \
         --name MiniBench --priority 1 --scored
     uv run scripts/tournament_registry.py set minibench --active
-    uv run scripts/tournament_registry.py touch minibench --sweep --seen 45501 45502
 """
 
 from __future__ import annotations
 
 import argparse
-import datetime as dt
 import json
 import re
 import sys
@@ -46,9 +47,6 @@ ENTRY_KEYS = (
     "mode",
     "scored",
     "priority",
-    "last_sync",
-    "last_sweep",
-    "seen_post_ids",
 )
 SLUG_RE = re.compile(r"^[a-z0-9]+(?:-[a-z0-9]+)*$")
 
@@ -194,9 +192,6 @@ def add(
         "mode": mode,
         "scored": bool(scored),
         "priority": int(priority),
-        "last_sync": None,
-        "last_sweep": None,
-        "seen_post_ids": [],
     }
     entries.append(entry)
     save_registry(entries)
@@ -218,47 +213,18 @@ def update(slug: str, **fields: Any) -> dict[str, Any]:
     raise RegistryError(f"no tournament {slug!r} in the registry")
 
 
-def mark_seen(slug: str, post_ids: list[int]) -> list[int]:
-    """Record post ids the bot has now seen; returns the full sorted set.
-
-    ``seen_post_ids`` is what keeps a question from being re-scaffolded on every
-    sweep, so it is a union and never a replacement — a sweep that saw fewer
-    questions than the last one has not un-seen the others.
-    """
-    entry = get(slug)
-    merged = sorted(set(entry.get("seen_post_ids") or []) | set(post_ids))
-    update(slug, seen_post_ids=merged)
-    return merged
-
-
-def touch(slug: str, *, sync: bool = False, sweep: bool = False) -> dict[str, Any]:
-    """Stamp ``last_sync`` and/or ``last_sweep`` with the current UTC instant."""
-    now = dt.datetime.now(dt.timezone.utc).isoformat(timespec="seconds")
-    fields: dict[str, Any] = {}
-    if sync:
-        fields["last_sync"] = now
-    if sweep:
-        fields["last_sweep"] = now
-    if not fields:
-        raise RegistryError("touch needs --sync, --sweep, or both")
-    return update(slug, **fields)
-
-
 # ------------------------------------------------------------------------ CLI
 def _print_table(entries: list[dict[str, Any]]) -> None:
     if not entries:
         print("(no tournaments registered)")
         return
-    head = (
-        f"{'slug':<22} {'pri':>3} {'mode':<10} {'scored':<6} {'active':<6} last sweep"
-    )
+    head = f"{'slug':<22} {'pri':>3} {'mode':<10} {'scored':<6} active"
     print(head)
     print("-" * len(head))
     for e in entries:
         print(
             f"{e.get('slug')!s:<22} {e.get('priority', ''):>3} "
-            f"{e.get('mode')!s:<10} {e.get('scored')!s:<6} "
-            f"{e.get('active')!s:<6} {e.get('last_sweep') or '—'}"
+            f"{e.get('mode')!s:<10} {e.get('scored')!s:<6} {e.get('active')!s}"
         )
 
 
@@ -298,11 +264,6 @@ def main() -> None:
     scoring.add_argument("--scored", dest="scored", action="store_true", default=None)
     scoring.add_argument("--unscored", dest="scored", action="store_false")
 
-    t = sub.add_parser("touch", help="stamp last_sync/last_sweep, record seen posts")
-    t.add_argument("slug")
-    t.add_argument("--sync", action="store_true")
-    t.add_argument("--sweep", action="store_true")
-    t.add_argument("--seen", type=int, nargs="*", default=[], help="post ids seen")
 
     args = ap.parse_args()
     try:
@@ -335,14 +296,6 @@ def main() -> None:
                 scored=args.scored,
             )
             _print_table([entry])
-        elif args.cmd == "touch":
-            if args.seen:
-                mark_seen(args.slug, args.seen)
-            if args.sync or args.sweep:
-                touch(args.slug, sync=args.sync, sweep=args.sweep)
-            elif not args.seen:
-                raise RegistryError("touch needs --sync, --sweep or --seen")
-            _print_table([get(args.slug)])
     except RegistryError as exc:
         sys.exit(f"! {exc}")
 

@@ -1,0 +1,48 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-settings.json",
+  "permissions": {
+    "allow": [
+      "Read",
+      "Glob",
+      "Grep",
+      "WebSearch",
+      "WebFetch",
+      "Agent",
+      "Task",
+      "TodoWrite",
+      "Edit(questions/**)",
+      "Write(questions/**)",
+      "Bash(uv run scripts/log_forecast.py add:*)",
+      "Bash(uv run python:*)",
+      "Bash(date:*)",
+      "Bash(ls:*)"
+    ],
+    "deny": [
+      "Bash(uv run scripts/submit_metaculus.py:*)",
+      "Bash(uv run scripts/metaculus_api.py:*)",
+      "Bash(uv run scripts/log_forecast.py submit:*)",
+      "Bash(uv run scripts/log_forecast.py resolve:*)",
+      "Bash(git:*)",
+      "Bash(curl:*)",
+      "Bash(wget:*)",
+      "Bash(rm:*)",
+      "Read(.git/**)",
+      "Read(//proc/**)",
+      "Read(//etc/**)",
+      "Edit(ledger/**)",
+      "Write(ledger/**)",
+      "Edit(scripts/**)",
+      "Edit(.claude/**)",
+      "Edit(.github/**)",
+      "Bash(uv add:*)",
+      "Bash(uv sync:*)",
+      "Bash(uv pip:*)",
+      "Bash(cat:*)",
+      "Bash(sed:*)",
+      "Bash(rg:*)",
+      "Bash(env:*)",
+      "Bash(printenv:*)",
+      "Edit(INDEX.md)"
+    ]
+  }
+}

@@ -1,5 +1,10 @@
 # Update protocol
 
+> **One-shot tournament questions are out of scope.** A question with
+> `tournament.mode: one_shot` takes exactly one forecast and is never updated (Metaculus bot
+> tournament rule; see `docs/tournament-protocol.md`). Its resolution is recorded by the daily
+> `tournament-sync` workflow, not by `/resolve`.
+
 A forecast that is never revisited is a guess with a timestamp. This repo treats updating
 as a first-class workflow with its own trigger, its own checklist, and its own record.
 
@@ -13,13 +18,7 @@ as a first-class workflow with its own trigger, its own checklist, and its own r
 | A tripwire fired | check the news feed for the signals listed in `meta.yaml` |
 | Community moved | Metaculus CP moved > 5 pp (percentage points), or > 1/3 of the gap between you and CP closed/opened |
 | Resolution approaching | at T−30d, T−7d, T−1d for questions still live |
-| Operator asks | `/update <slug>` |
-
-**Not in this loop**: a question whose `meta.yaml` carries `tournament.mode: one_shot`. It is
-forecast once inside its submission window and never revisited — it has no tripwires and no
-`next_review` by design, and once `tournament.submitted` is set the forecast that was sent cannot
-be changed. Re-analysing one locally is fine; re-submitting is not, and the ledger refuses a
-second `submission` record for the same slug.
+| Manual request (development, debugging) | `/update <slug>` |
 
 Default `next_review` cadence, set by time-to-resolution at the moment of forecasting:
 
@@ -40,8 +39,8 @@ scheduled release (then just review shortly before the release).
    tripwire list. That list is your search plan.
 2. **Search specifically for the tripwires**, by name and date, before general news search.
    Record each as fired / not fired / partially fired.
-3. **Re-fetch the live numbers**: Metaculus all three cohorts, market prices, the underlying
-   data series. Snapshot into `raw/` with today's date in the filename.
+3. **Re-fetch the live numbers**: the Metaculus question text (criteria get edited), market
+   prices, the underlying data series. Snapshot into `raw/` with today's date in the filename.
 4. **Distinguish new evidence from no evidence.** "Nothing happened" is informative: for a
    question requiring an event, elapsed quiet time *lowers* the probability mechanically.
    An update that changes nothing is a valid update — write it down as such with the reason.
@@ -69,10 +68,22 @@ scheduled release (then just review shortly before the release).
 
 When a question resolves:
 
+**Metaculus questions resolve only on Metaculus's own posted resolution.** Look it up; do not
+infer it from the event. If it is not posted yet, do not run `log_forecast.py resolve`.
+
 ```bash
 uv run scripts/log_forecast.py resolve <slug> --outcome yes        # binary
-uv run scripts/log_forecast.py resolve <slug> --outcome 87.4       # numeric/date
+uv run scripts/log_forecast.py resolve <slug> --outcome 87.4       # numeric
+uv run scripts/log_forecast.py resolve <slug> --outcome 2031-03-31 # date, stored as Unix seconds
+uv run scripts/log_forecast.py resolve <slug> --outcome "Labour Party"  # multiple choice
 ```
+
+A multiple-choice outcome is the **exact option label**, stored verbatim (an option named `"0"`
+stays the string `"0"`). `log_forecast.py` refuses a label that is not among the question's
+options.
+
+A binary outcome must be yes or no; `log_forecast.py` refuses anything else. An annulled
+question is dropped, not resolved — see [below](#annulled-or-ambiguous-questions).
 
 Then append a short **post-mortem** section to `forecast.md`:
 
@@ -84,7 +95,22 @@ Then append a short **post-mortem** section to `forecast.md`:
 
 `uv run scripts/calibration.py` then recomputes the calibration record across all resolved
 questions: Brier score, log score, calibration-by-bucket, and skill relative to the Metaculus
-community prediction at the same timestamps.
+community prediction at the same timestamps. Multiple-choice versions are scored with the
+multi-class Brier score and the log score from their recorded option vector; versions logged
+without one (before the ledger had a `distribution` field) are listed as not scored.
+
+## Annulled or ambiguous questions
+
+An annulled question (Metaculus "annulled" or "ambiguous") has no outcome to score, so it is
+**not** a resolution: do not run `log_forecast.py resolve`. Instead:
+
+1. In `meta.yaml` set `status: dropped` and `next_review: null`, and leave the `resolution`
+   block null.
+2. Append an `## Annulled — <date>` note to `forecast.md`, citing Metaculus's annulment, and
+   set the header's Status row to `dropped`.
+3. Leave the ledger alone. The forecast versions stay as they are and go unscored:
+   `calibration.py` scores only slugs with a resolution record, and `status.py` stops
+   listing the question.
 
 ## Automating the cadence
 

@@ -7,14 +7,31 @@
 - Slash commands: `/forecast`, `/update`, `/resolve`, `/status`.
 - Long research runs: spawn subagents for independent evidence streams (e.g. one per
   scenario branch or per data source), then integrate yourself. Do **not** delegate
-  the final probability judgement — integration is where calibration lives.
-- Use the TodoWrite/task list for any forecast: the workflow has ≥ 6 steps.
+  the final probability judgement — integration is where calibration lives. In tournament
+  mode use the `research-scout` subagent (`.claude/agents/`), at most two per question.
+- Use the TodoWrite/task list for any interactive forecast: the workflow has ≥ 6 steps.
+
+## Running unattended (CI)
+
+The `tournament-sweep` workflow starts `claude -p` once per tournament question with
+`.claude/settings.ci.json` (permission mode `dontAsk`: anything not allowlisted is denied).
+In that session:
+
+- Follow `.claude/skills/tournament-forecast/SKILL.md`. Its seven budget rules are binding.
+- You hold no Metaculus token and no push credential, by design. The workflow submits,
+  records usage and commits after you exit. Never try to do any of the three yourself.
+- `$FORECAST_DEADLINE` is when the session is killed. Log the forecast before it.
+
+Configuration lives in repository secrets and variables, not code; every one, with its
+default and whether it is required, is in `docs/configuration.md`. When something breaks,
+`docs/runbook.md`.
 
 ## Git
 
-- Never `git commit` unless asked. Committing forecasts is the operator's call.
-  (An explicit instruction to commit and push — e.g. from a harness running you on a
-  feature branch — supersedes this.)
+- The bot's commits to `main` are made by `scripts/ci_commit.sh` in the workflows, never by
+  the model. An interactive session never runs `git commit` unless asked (an explicit
+  instruction to commit and push — e.g. from a harness running you on a feature branch —
+  is such a request).
 - **Lint and test before every commit.** Any workflow that edits files in the repo
   (`/forecast`, `/update`, `/resolve`, and anything else that touches `questions/`,
   `scripts/`, or the ledger) must run both, in this repo's root, right before staging:
@@ -50,7 +67,7 @@ The container is ephemeral; an unpushed forecast is a lost forecast. Fall back t
 GitHub MCP tools (`mcp__github__*`), which authenticate independently of git:
 
 1. `mcp__github__create_branch` — only if the branch does not exist on the remote yet
-   (`owner: m-ad`, `repo: claude_forecasting`, `from_branch: main`).
+   (`owner: m-ad`, `repo: claude_forecasting_auto`, `from_branch: main`).
 2. `mcp__github__push_files` — all changed files in one commit. Pass each file's full
    post-edit content, not a diff. This is the right tool for a forecast: `meta.yaml`,
    `forecast.md`, `research.md`, `raw/*.json` and the ledger file go in a single call.
@@ -72,4 +89,4 @@ Know the limits before relying on it:
   payload if the branch moved.
 
 Say which path succeeded — `git push` or the MCP fallback — in the summary you give the
-operator, along with anything the fallback could not carry.
+maintainer, along with anything the fallback could not carry.

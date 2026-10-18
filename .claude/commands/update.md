@@ -11,7 +11,7 @@ and confirm the match before proceeding.
 Load the `forecast-update` skill and follow it. Read `docs/update-protocol.md`.
 
 Order matters: read the prior version first, decide Update vs. Re-analysis, check the v(N−1)
-tripwires **by name** before general news search, then re-fetch the live Metaculus cohorts and
+tripwires **by name** before general news search, then refresh the Metaculus question text and
 market prices and compare against the previous snapshot in `raw/`.
 
 Your prior is your own last forecast, not the community prediction. State a direction and an
@@ -21,3 +21,6 @@ number alone. "No change" is a valid, publishable update.
 
 Prepend the new version with its revision table and tripwire-check table, rewrite the header
 block, update `meta.yaml`, log to the ledger, refresh `INDEX.md`.
+
+The version's closing summary block and your chat reply both open with the clickable
+`**Question**: [title](url)` line (from `meta.yaml`), then Date / Forecast / Thesis.

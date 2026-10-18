@@ -1,0 +1,11 @@
+# Append-only JSON Lines ledgers: parallel sweep jobs append different lines to the
+# same file. git's built-in union driver keeps both sides on rebase instead of
+# raising a conflict -- exactly what CLAUDE.md prescribes for a ledger conflict by
+# hand ("keep both sides; never drop a line").
+ledger/*.jsonl merge=union
+
+# Generated from questions/ by scripts/status.py --index. On a rebase conflict
+# between parallel sweep jobs either side will do: ci_commit.sh defines the `ours`
+# driver and regenerates the file right after the rebase. (Without that config,
+# e.g. on a contributor's machine, git falls back to its normal text merge.)
+INDEX.md merge=ours

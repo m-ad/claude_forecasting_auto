@@ -8,6 +8,7 @@ re-derives the numbers.
 
 from __future__ import annotations
 
+import argparse
 import datetime as dt
 import json
 import math
@@ -20,6 +21,7 @@ import _common
 import calibration
 import log_forecast
 import pytest
+import status
 import yaml
 from conftest import QUESTION_TYPES, REPO, SCRIPTS, SOURCES, SRC_ABBREV, metas
 
@@ -125,6 +127,21 @@ def test_fmt_forecast_numeric_does_not_go_scientific_on_large_units():
     assert _common.fmt_number(-1500000.4) == "-1,500,000"
 
 
+def test_fmt_forecast_date_renders_iso_dates_in_utc():
+    """Date questions store Unix timestamps; INDEX.md must show calendar dates."""
+    meta = {
+        "type": "date",
+        "current": {"median": 2069539200.0, "iqr": [2009145600.0, 2143238400.0]},
+    }
+    assert _common.fmt_forecast(meta) == "2035-08-01 [2033-09-01, 2037-12-01]"
+    # Midnight UTC must not slip to the previous day under a local-time conversion.
+    assert _common.fmt_date(0) == "1970-01-01"
+    # Community values carry seconds; the date is truncated, not rounded.
+    assert _common.fmt_value(2011139602.0, "date") == "2033-09-24"
+    assert _common.fmt_value(0.25, "binary") == "25.0%"
+    assert _common.fmt_value(87.8, "numeric") == "87.8"
+
+
 # ------------------------------------------------------------------ find_slug
 def test_find_slug_resolves_exact_slug_post_id_and_url():
     known = metas()
@@ -150,6 +167,23 @@ def test_find_slug_returns_none_when_nothing_or_too_much_matches():
         assert _common.find_slug("20") is None
 
 
+def test_find_slug_resolves_a_group_subquestion_url(tmp_path, monkeypatch):
+    """Sibling slugs share a post id; ``?sub-question=`` tells them apart."""
+    monkeypatch.setattr(_common, "QUESTIONS", tmp_path)
+    base = "https://www.metaculus.com/questions/21095/warmest-year/"
+    for year, qid in (("2026", 21098), ("2027", 45424)):
+        slug = f"2026-10-04-mc21095-warmest-{year}"
+        (tmp_path / slug).mkdir()
+        _common.save_meta(
+            slug,
+            {"slug": slug, "post_id": 21095, "url": f"{base}?sub-question={qid}"},
+        )
+    assert _common.find_slug(f"{base}?sub-question=45424") == (
+        "2026-10-04-mc21095-warmest-2027"
+    )
+    assert _common.find_slug("21095") is None  # the bare post id stays ambiguous
+
+
 # ----------------------------------------------------------- outcome coercion
 @pytest.mark.parametrize(
     "raw,expected",
@@ -172,190 +206,66 @@ def test_outcome_value_coercion(raw, expected):
     assert log_forecast._outcome_value(raw) == expected
 
 
-# ----------------------------------------------------------------- percentiles
-def test_percentiles_are_none_until_both_tails_are_given():
-    assert log_forecast._percentiles(None, 9.0, 12.0, 16.0, None) is None
+# ------------------------------------------------------- ledger-derived version
+def _write_ledger(path, records) -> None:
+    path.write_text(
+        "".join(json.dumps(r, ensure_ascii=False) + "\n" for r in records),
+        encoding="utf-8",
+    )
 
 
-def test_percentiles_take_their_middle_from_the_forecast_itself():
-    """25/50/75 are not arguments: they are the IQR and the median, by definition."""
-    assert log_forecast._percentiles(7.5, 9.0, 12.0, 16.0, 21.0) == {
-        10: 7.5,
-        25: 9.0,
-        50: 12.0,
-        75: 16.0,
-        90: 21.0,
-    }
+def test_count_forecasts_is_zero_without_a_ledger(monkeypatch, tmp_path):
+    monkeypatch.setattr(log_forecast, "LEDGER", tmp_path / "nope.jsonl")
+    assert log_forecast._count_forecasts("some-slug") == 0
 
 
-@pytest.mark.parametrize(
-    "p10,p90,why",
-    [
-        (7.5, None, "only the lower tail"),
-        (None, 21.0, "only the upper tail"),
-        (20.0, 21.0, "10th percentile above the IQR"),
-        (7.5, 10.0, "90th percentile inside the IQR"),
-    ],
-)
-def test_percentiles_reject_a_half_or_non_monotone_cdf(p10, p90, why):
-    """Metaculus answers a non-monotone CDF with a 400 that names no field."""
-    with pytest.raises(SystemExit):
-        log_forecast._percentiles(p10, 9.0, 12.0, 16.0, p90)
+def test_count_forecasts_counts_only_this_slugs_forecast_records(
+    monkeypatch, tmp_path
+):
+    """Resolutions and other slugs must not shift a slug's next version number."""
+    path = tmp_path / "forecasts.jsonl"
+    _write_ledger(
+        path,
+        [
+            {"event": "forecast", "slug": "a", "version": 1},
+            {"event": "forecast", "slug": "b", "version": 1},
+            {"event": "forecast", "slug": "a", "version": 2},
+            {"event": "resolution", "slug": "a", "outcome": 1.0},
+            {"slug": "a", "version": 3},  # legacy record with no event key
+        ],
+    )
+    monkeypatch.setattr(log_forecast, "LEDGER", path)
+    assert log_forecast._count_forecasts("a") == 3
+    assert log_forecast._count_forecasts("b") == 1
+    assert log_forecast._count_forecasts("c") == 0
 
 
-# ------------------------------------------------------- the submission writer
-@pytest.fixture
-def sandbox(tmp_path, monkeypatch):
-    """A throwaway questions/ tree and ledger, wired into the scripts.
-
-    The submit path writes to two files at once; testing it against the real repo
-    would either pollute the calibration record or need a cleanup step that rule 8
-    forbids anyone from getting wrong.
-    """
-    import new_question
-
-    questions = tmp_path / "questions"
-    questions.mkdir()
-    monkeypatch.setattr(_common, "QUESTIONS", questions)
-    monkeypatch.setattr(new_question, "QUESTIONS", questions)
-    monkeypatch.setattr(new_question, "REPO", tmp_path)
-    monkeypatch.setattr(log_forecast, "LEDGER", tmp_path / "forecasts.jsonl")
-    # The scaffolder tries Metaculus for the title and close date; the sandbox
-    # supplies both, so stub the call out rather than depend on the network.
-    monkeypatch.setattr(new_question, "fetch_metaculus", lambda post_id: {})
-
-    def scaffold(*argv: str) -> str:
-        monkeypatch.setattr(sys, "argv", ["new_question.py", *argv])
-        new_question.main()
-        return next(d.name for d in questions.iterdir())
-
-    def run(*argv: str) -> None:
-        monkeypatch.setattr(sys, "argv", ["log_forecast.py", *argv])
-        log_forecast.main()
-
-    def ledger() -> list[dict[str, Any]]:
-        path = log_forecast.LEDGER
-        if not path.exists():
-            return []
-        return [json.loads(line) for line in path.read_text().splitlines() if line]
-
-    return scaffold, run, ledger
+def test_count_forecasts_survives_a_malformed_line(monkeypatch, tmp_path):
+    """One unparseable line must not block appending to an append-only ledger."""
+    path = tmp_path / "forecasts.jsonl"
+    path.write_text(
+        json.dumps({"event": "forecast", "slug": "a", "version": 1})
+        + "\n{ this is not json\n\n"
+        + json.dumps({"event": "forecast", "slug": "a", "version": 2})
+        + "\n",
+        encoding="utf-8",
+    )
+    monkeypatch.setattr(log_forecast, "LEDGER", path)
+    assert log_forecast._count_forecasts("a") == 2
 
 
-TOURNAMENT_ARGS = (
-    "--post-id",
-    "45501",
-    "--question-id",
-    "45507",
-    "--title",
-    "Will the sandbox question resolve YES?",
-    "--type",
-    "binary",
-    "--tournament",
-    "bot-testing-area",
-    "--opened",
-    "2026-09-14T11:03:00Z",
-    "--closes",
-    "2026-09-14T12:33:00Z",
-)
-THESIS = "A thesis long enough to clear the forty-character floor the ledger enforces."
-
-
-def test_a_one_shot_question_scaffolds_without_a_research_log(sandbox):
-    """Step P0.8: the sweep has no second reader for a working log."""
-    scaffold, _run, _ledger = sandbox
-    slug = scaffold(*TOURNAMENT_ARGS)
-    folder = _common.QUESTIONS / slug
-    assert (folder / "forecast.md").is_file() and (folder / "raw").is_dir()
-    assert not (folder / "research.md").exists()
-    meta = _common.load_meta(slug)
-    assert meta["question_id"] == 45507
-    assert meta["tournament"]["mode"] == "one_shot"
-    assert meta["tournament"]["submitted"] is None
-
-
-def test_submit_writes_the_ledger_and_meta_together(sandbox):
-    scaffold, run, ledger = sandbox
-    slug = scaffold(*TOURNAMENT_ARGS)
-    run("add", slug, "--median", "0.12", "--lower", "0.09", "--upper", "0.16",
-        "--thesis", THESIS)
-    run("submit", slug, "--tournament", "bot-testing-area",
-        "--payload", '{"probability_yes": 0.12}', "--api-status", "201",
-        "--comment-posted")
-
-    rec = ledger()[-1]
-    assert rec["event"] == "submission"
-    assert (rec["post_id"], rec["question_id"]) == (45501, 45507)
-    assert rec["payload"] == {"probability_yes": 0.12}
-    assert rec["comment_posted"] is True and rec["api_status"] == 201
-
-    tour = _common.load_meta(slug)["tournament"]
-    assert tour["submitted"] == rec["ts"]
-    assert tour["submitted_forecast"] == rec["payload"]
-    assert tour["comment_posted"] is True
-
-
-def test_a_one_shot_question_is_never_submitted_twice(sandbox):
-    """The guard that keeps the tournament standings honest."""
-    scaffold, run, ledger = sandbox
-    slug = scaffold(*TOURNAMENT_ARGS)
-    run("add", slug, "--median", "0.12", "--lower", "0.09", "--upper", "0.16",
-        "--thesis", THESIS)
-    run("submit", slug, "--payload", '{"probability_yes": 0.12}', "--api-status", "201")
-    with pytest.raises(SystemExit):
-        run("submit", slug, "--payload", '{"probability_yes": 0.2}', "--api-status",
-            "201")
-    assert sum(r["event"] == "submission" for r in ledger()) == 1
-
-
-@pytest.mark.parametrize(
-    "argv,why",
-    [
-        (("--payload", '{"p": 1}', "--api-status", "400"), "a rejected call"),
-        (("--payload", "not json", "--api-status", "201"), "an unparseable payload"),
-        (("--payload", "{}", "--api-status", "201"), "an empty payload"),
-        (
-            ("--tournament", "minibench", "--payload", '{"p": 1}', "--api-status", "201"),
-            "the wrong tournament",
-        ),
-    ],
-)
-def test_submit_refuses_and_writes_nothing(sandbox, argv, why):
-    scaffold, run, ledger = sandbox
-    slug = scaffold(*TOURNAMENT_ARGS)
-    run("add", slug, "--median", "0.12", "--lower", "0.09", "--upper", "0.16",
-        "--thesis", THESIS)
-    before = len(ledger())
-    with pytest.raises(SystemExit):
-        run("submit", slug, *argv)
-    assert len(ledger()) == before, f"{why} still appended a record"
-    assert _common.load_meta(slug)["tournament"]["submitted"] is None
-
-
-def test_submit_refuses_a_question_with_no_forecast(sandbox):
-    """Rule 7 in submission order: nothing is sent that was not written down first."""
-    scaffold, run, ledger = sandbox
-    slug = scaffold(*TOURNAMENT_ARGS)
-    with pytest.raises(SystemExit):
-        run("submit", slug, "--payload", '{"p": 1}', "--api-status", "201")
-    assert ledger() == []
-
-
-def test_submit_refuses_a_question_with_no_tournament_block(sandbox):
-    scaffold, run, _ledger = sandbox
-    slug = scaffold("--title", "An operator question?", "--type", "binary",
-                    "--source", "other")
-    with pytest.raises(SystemExit):
-        run("submit", slug, "--payload", '{"p": 1}', "--api-status", "201")
-
-
-def test_percentiles_are_refused_on_a_binary_question(sandbox):
-    scaffold, run, ledger = sandbox
-    slug = scaffold(*TOURNAMENT_ARGS)
-    with pytest.raises(SystemExit):
-        run("add", slug, "--median", "0.12", "--lower", "0.09", "--upper", "0.16",
-            "--p10", "0.05", "--p90", "0.3", "--thesis", THESIS)
-    assert ledger() == [], "the forecast record was appended before the check"
+def test_count_forecasts_ignores_a_wrong_version_number(monkeypatch, tmp_path):
+    """Counting, not max()+1: a stray version must not open a permanent gap."""
+    path = tmp_path / "forecasts.jsonl"
+    _write_ledger(
+        path,
+        [
+            {"event": "forecast", "slug": "a", "version": 1},
+            {"event": "forecast", "slug": "a", "version": 7},
+        ],
+    )
+    monkeypatch.setattr(log_forecast, "LEDGER", path)
+    assert log_forecast._count_forecasts("a") + 1 == 3
 
 
 # ------------------------------------------------------------- scoring rules
@@ -420,6 +330,23 @@ def test_buckets_cover_the_whole_unit_interval():
     assert sum(b[1] for b in calibration.buckets(pairs)) == len(pairs)
 
 
+# ------------------------------------------------------------------- triage
+def test_status_skips_dropped_questions_like_resolved_ones():
+    assert status.urgency({"status": "dropped", "current": {"version": 2}})[0] < 0
+
+
+def test_status_triage_leaves_one_shot_questions_to_the_sweep():
+    meta = {"status": "open", "current": {}, "tournament": {"mode": "one_shot", "slug": "m"}}
+    assert status.urgency(meta)[0] < 0
+
+
+def test_status_resolution_column_falls_back_to_the_close_date():
+    """The table must show the date the urgency score was computed from."""
+    assert status.resolves_on({"dates": {"closes": "2027-01-01"}}) == "2027-01-01"
+    meta = {"dates": {"closes": "2027-01-01", "resolves": "2027-02-01"}}
+    assert status.resolves_on(meta) == "2027-02-01"
+
+
 # --------------------------------------------------------------- ledger reads
 def test_read_ledger_groups_by_slug_and_keeps_resolutions_apart():
     forecasts, resolutions = calibration.read_ledger()
@@ -445,6 +372,16 @@ def test_read_ledger_tolerates_trailing_blank_lines(tmp_path, monkeypatch):
     monkeypatch.setattr(calibration, "LEDGER", path)
     forecasts, resolutions = calibration.read_ledger()
     assert list(forecasts) == ["s"] and not resolutions
+
+
+def test_read_ledger_skips_a_malformed_line_instead_of_crashing(tmp_path, monkeypatch):
+    """Scoring shares log_forecast's tolerance; test_ledger.py flags the bad line."""
+    path = tmp_path / "forecasts.jsonl"
+    rec = {"event": "forecast", "slug": "s", "version": 1, "median": 0.5}
+    path.write_text("{ not json\n" + json.dumps(rec) + "\n", encoding="utf-8")
+    monkeypatch.setattr(calibration, "LEDGER", path)
+    forecasts, _ = calibration.read_ledger()
+    assert [r["version"] for r in forecasts["s"]] == [1]
 
 
 def test_read_ledger_on_a_missing_file_returns_empty(tmp_path, monkeypatch):
@@ -500,6 +437,422 @@ def test_abbreviations_are_unique():
     assert len(set(_common.SRC_ABBREV.values())) == len(_common.SRC_ABBREV)
 
 
+# ------------------------------------------------ new_question.py: group posts
+# The bug: a group-of-questions post (one subquestion per year, say) has no
+# top-level ``question`` in its API JSON, so the type came back None and the
+# folder was silently scaffolded as the ``--type`` default, "binary".
+_GROUP_POST = {
+    "title": "What will be the percentage change in funds raised by GiveWell?",
+    "scheduled_close_time": "2028-07-01T00:00:00Z",
+    "status": "open",
+    "nr_forecasters": 5,
+    "group_of_questions": {
+        "questions": [
+            {"id": 45576, "label": "2028", "type": "numeric"},
+            {"id": 45575, "label": "2027", "type": "numeric"},
+        ]
+    },
+}
+
+
+def _fake_api(monkeypatch, post):
+    """Answer ``metaculus_api.get_post`` with ``post`` instead of the network."""
+    import metaculus_api
+
+    monkeypatch.setattr(metaculus_api, "get_post", lambda _pid, stage="api": post)
+
+
+def test_group_post_via_the_api_takes_its_subquestions_shared_type(monkeypatch):
+    import new_question
+
+    _fake_api(monkeypatch, _GROUP_POST)
+    got = new_question.fetch_metaculus(45386)
+    assert got["type"] == "numeric"
+    assert got["closes"] == "2028-07-01"
+    assert got["subquestions"] == [
+        {"label": "2028", "id": 45576, "type": "numeric"},
+        {"label": "2027", "id": 45575, "type": "numeric"},
+    ]
+
+
+def test_mixed_type_group_reports_no_type_rather_than_guessing(monkeypatch):
+    import new_question
+
+    post = json.loads(json.dumps(_GROUP_POST))
+    post["group_of_questions"]["questions"][0]["type"] = "binary"
+    _fake_api(monkeypatch, post)
+    assert new_question.fetch_metaculus(45386)["type"] is None
+
+
+def test_single_question_post_via_the_api_is_unchanged(monkeypatch):
+    import new_question
+
+    post = {
+        "title": "Will OpenAI file for an IPO during 2026?",
+        "scheduled_close_time": "2026-12-31T00:00:00Z",
+        "status": "open",
+        "nr_forecasters": 40,
+        "question": {"type": "binary"},
+    }
+    _fake_api(monkeypatch, post)
+    got = new_question.fetch_metaculus(41141)
+    assert (got["type"], got["closes"], got["subquestions"]) == (
+        "binary",
+        "2026-12-31",
+        [],
+    )
+
+
+def test_group_post_is_scaffolded_with_its_real_type(monkeypatch, tmp_path, capsys):
+    import new_question
+
+    # main() prints the folder relative to REPO, so both must move to tmp_path.
+    monkeypatch.setattr(new_question, "REPO", tmp_path)
+    monkeypatch.setattr(new_question, "QUESTIONS", tmp_path / "questions")
+    monkeypatch.setattr(
+        new_question,
+        "fetch_metaculus",
+        lambda _pid: {
+            "title": _GROUP_POST["title"],
+            "type": "numeric",
+            "closes": "2028-07-01",
+            "subquestions": [
+                {"label": "2027", "id": 45575, "type": "numeric"},
+                {"label": "2028", "id": 45576, "type": "numeric"},
+            ],
+        },
+    )
+    monkeypatch.setattr(
+        sys,
+        "argv",
+        ["new_question.py", "--url", "https://www.metaculus.com/questions/45386/x/"],
+    )
+    new_question.main()
+    out, err = capsys.readouterr()
+    slug = out.splitlines()[0]
+    assert "mc45386" in slug, "stdout must still open with the slug"
+    folder = tmp_path / "questions" / slug
+    meta = yaml.safe_load((folder / "meta.yaml").read_text(encoding="utf-8"))
+    assert meta["type"] == "numeric", "a group must not fall back to --type binary"
+    assert meta["dates"]["closes"] == "2028-07-01"
+    assert "group of 2 subquestions" in err
+    assert "2027: question 45575 (numeric)" in err
+    # Submission maps a group slug to its subquestion through the URL alone.
+    assert "?sub-question=<id>" in err
+
+
+# ------------------------------------- new_question.py: pre-open ("upcoming") posts
+# A question can be scaffolded in its pre-prediction phase, before open_time. The
+# post-level status then reads "approved" and only question.status says "upcoming";
+# the bot-key API also hides the question text until it opens (post 45255,
+# verified 2026-10-09). The sweep only scaffolds open questions.
+_UPCOMING_POST = {
+    "title": "How many executions will be carried out in the US in 2026?",
+    "status": "approved",
+    "open_time": "2026-10-12T17:00:00Z",
+    "scheduled_close_time": "2026-12-02T23:59:00Z",
+    "scheduled_resolve_time": "2027-01-01T17:09:00Z",
+    "nr_forecasters": 1,
+    "question": {
+        "type": "multiple_choice",
+        "status": "upcoming",
+        "open_time": "2026-10-12T17:00:00Z",
+        "cp_reveal_time": "2026-10-15T17:00:00Z",
+        "resolution_criteria": None,
+    },
+}
+
+
+def test_api_post_carries_open_and_resolve_dates_and_the_question_status(monkeypatch):
+    import new_question
+
+    _fake_api(monkeypatch, _UPCOMING_POST)
+    got = new_question.fetch_metaculus(45255)
+    assert (got["opens"], got["closes"], got["resolves"]) == (
+        "2026-10-12",
+        "2026-12-02",
+        "2027-01-01",
+    )
+    assert got["status"] == "upcoming", "the question status, not the post's 'approved'"
+
+
+def test_upcoming_question_is_scaffolded_with_dates_and_a_warning(
+    monkeypatch, tmp_path, capsys
+):
+    import new_question
+
+    monkeypatch.setattr(new_question, "REPO", tmp_path)
+    monkeypatch.setattr(new_question, "QUESTIONS", tmp_path / "questions")
+    _fake_api(monkeypatch, _UPCOMING_POST)
+    monkeypatch.setattr(
+        sys,
+        "argv",
+        ["new_question.py", "--url", "https://www.metaculus.com/questions/45255/x/"],
+    )
+    new_question.main()
+    out, err = capsys.readouterr()
+    folder = tmp_path / "questions" / out.splitlines()[0]
+    meta = yaml.safe_load((folder / "meta.yaml").read_text(encoding="utf-8"))
+    assert meta["dates"]["opened"] == "2026-10-12"
+    assert meta["dates"]["resolves"] == "2027-01-01"
+    assert "not open yet" in err and "2026-10-12" in err
+
+
+# ------------------------------------------------------- full distributions
+MC = {"probabilities": {"Likud": 0.381, "Yashar": 0.61, "Other": 0.009}}
+
+
+@pytest.mark.parametrize(
+    "qtype,dist,median,iqr,options,fragment",
+    [
+        ("binary", {"probabilities": {"a": 1.0, "b": 0.0}}, 0.5, [0.4, 0.6], None,
+         "take no distribution"),
+        ("multiple_choice", {"percentiles": {"25": 1, "50": 2}}, 0.6, [0.5, 0.7], None,
+         "exactly one of"),
+        ("multiple_choice", {"probabilities": {"A": 62.0, "B": 38.0}}, 62.0, [50, 70],
+         None, "not percent"),
+        ("multiple_choice", {"probabilities": {"A": 0.6, "B": 0.3}}, 0.6, [0.5, 0.7],
+         None, "sum to"),
+        ("multiple_choice", MC, 0.5, [0.4, 0.6], None, "leading option"),
+        ("multiple_choice", MC, 0.61, [0.55, 0.67], ["Likud", "Yesh Atid", "Other"],
+         "options exactly"),
+        ("numeric", {"percentiles": {"25": 1.0, "75": 3.0}}, 2.0, [1.0, 3.0], None,
+         "include '50'"),
+        ("numeric", {"percentiles": {"25": 1.0, "50": 2.5, "75": 3.0}}, 2.0, [1.0, 3.0],
+         None, "differs from the median"),
+        ("numeric", {"percentiles": {"10": 5.0, "50": 2.0}}, 2.0, [1.0, 3.0], None,
+         "must not decrease"),
+        ("discrete", {"pmf": {"3": 0.2, "4": 0.5, "5": 0.3}}, 5.0, [4.0, 5.0], None,
+         "not a median"),
+    ],
+)
+def test_distribution_problems_catches_each_kind_of_mismatch(
+    qtype, dist, median, iqr, options, fragment
+):
+    problems = _common.distribution_problems(qtype, dist, median, iqr, options)
+    assert any(fragment in p for p in problems), problems
+
+
+@pytest.mark.parametrize(
+    "qtype,dist,median,iqr",
+    [
+        ("multiple_choice", MC, 0.61, [0.55, 0.67]),
+        ("numeric", {"percentiles": {"5": 38, "25": 43.3, "50": 46.5, "75": 49.7}},
+         46.5, [43.3, 49.7]),
+        ("discrete", {"pmf": {"3": 0.2, "4": 0.5, "5": 0.3}}, 4.0, [3.0, 5.0]),
+        ("discrete", {"percentiles": {"25": 3.0, "50": 4.0, "75": 5.0}}, 4.0, [3, 5]),
+    ],
+)
+def test_distribution_problems_accepts_consistent_distributions(qtype, dist, median, iqr):
+    options = list(dist.get("probabilities", {})) or None
+    assert _common.distribution_problems(qtype, dist, median, iqr, options) == []
+
+
+def _snapshot(folder, name, post_id, options):
+    (folder / "raw").mkdir(parents=True, exist_ok=True)
+    (folder / "raw" / name).write_text(
+        json.dumps({"post_id": post_id, "options": options}), encoding="utf-8"
+    )
+
+
+def test_cached_options_takes_the_newest_snapshot_of_this_post(tmp_path, monkeypatch):
+    monkeypatch.setattr(log_forecast, "QUESTIONS", tmp_path)
+    q = tmp_path / "s"
+    _snapshot(q, "metaculus-2026-09-01.json", 7, ["A", "B"])
+    _snapshot(q, "metaculus-2026-09-20.json", 7, ["A", "B", "C"])
+    # A related post cached in the same folder must not be mistaken for this one.
+    _snapshot(q, "metaculus-99-2026-09-25.json", 99, ["X", "Y"])
+    assert log_forecast.cached_options("s", 7) == ["A", "B", "C"]
+    assert log_forecast.cached_options("s", 8) is None
+    assert log_forecast.cached_options("s", None) is None
+
+
+def _add_args(**over) -> argparse.Namespace:
+    base = {
+        "slug": "s", "median": 0.61, "lower": 0.55, "upper": 0.67, "cp": None,
+        "pro": None, "gold": None, "n_forecasters": None, "distribution": None,
+        "thesis": "t", "mode": "initial", "next_review": None,
+    }
+    return argparse.Namespace(**{**base, **over})
+
+
+@pytest.fixture
+def mc_question(tmp_path, monkeypatch):
+    """A throwaway multiple-choice question wired into log_forecast."""
+    meta = {"type": "multiple_choice", "source": "metaculus", "post_id": 7, "current": {}}
+    ledger = tmp_path / "forecasts.jsonl"
+    monkeypatch.setattr(log_forecast, "LEDGER", ledger)
+    monkeypatch.setattr(log_forecast, "QUESTIONS", tmp_path)
+    monkeypatch.setattr(log_forecast, "find_slug", lambda s: s)
+    monkeypatch.setattr(log_forecast, "load_meta", lambda s: meta)
+    monkeypatch.setattr(log_forecast, "save_meta", lambda s, m: None)
+    _snapshot(tmp_path / "s", "metaculus-2026-09-20.json", 7, ["Likud", "Yashar", "Other"])
+    return ledger
+
+
+def _records(ledger) -> list[dict]:
+    return [json.loads(x) for x in ledger.read_text(encoding="utf-8").splitlines()]
+
+
+def test_log_add_refuses_multiple_choice_without_a_distribution(mc_question):
+    with pytest.raises(SystemExit, match="need --distribution"):
+        log_forecast.cmd_add(_add_args())
+    assert not mc_question.exists(), "a refused forecast must not reach the ledger"
+
+
+def test_log_add_refuses_labels_that_differ_from_the_cached_options(mc_question):
+    bad = {"probabilities": {"Likud": 0.381, "Yesh": 0.61, "Other": 0.009}}
+    with pytest.raises(SystemExit, match="options exactly"):
+        log_forecast.cmd_add(_add_args(distribution=json.dumps(bad)))
+    assert not mc_question.exists()
+
+
+def test_log_add_records_the_distribution_inline_or_from_a_file(mc_question, tmp_path):
+    log_forecast.cmd_add(_add_args(distribution=json.dumps(MC)))
+    spec = tmp_path / "d.json"
+    spec.write_text(json.dumps(MC), encoding="utf-8")
+    log_forecast.cmd_add(_add_args(distribution=f"@{spec}", mode="update"))
+    recs = _records(mc_question)
+    assert [r["distribution"] for r in recs] == [MC, MC]
+    assert [r["version"] for r in recs] == [1, 2]
+
+
+def test_log_add_leaves_the_key_out_when_no_distribution_is_given(tmp_path, monkeypatch):
+    """Binary records keep the pre-existing shape exactly."""
+    meta = {"type": "binary", "source": "metaculus", "post_id": 7, "current": {}}
+    ledger = tmp_path / "forecasts.jsonl"
+    monkeypatch.setattr(log_forecast, "LEDGER", ledger)
+    monkeypatch.setattr(log_forecast, "find_slug", lambda s: s)
+    monkeypatch.setattr(log_forecast, "load_meta", lambda s: meta)
+    monkeypatch.setattr(log_forecast, "save_meta", lambda s, m: None)
+    log_forecast.cmd_add(_add_args(median=0.2, lower=0.1, upper=0.3))
+    assert "distribution" not in _records(ledger)[0]
+
+
+def test_log_resolve_keeps_a_multiple_choice_label_verbatim(mc_question):
+    """An option called "0" must stay "0", not become the number 0.0."""
+    ns = argparse.Namespace(slug="s", outcome="Yashar", date=None, source="x")
+    log_forecast.cmd_resolve(ns)
+    assert _records(mc_question)[-1]["outcome"] == "Yashar"
+    with pytest.raises(SystemExit, match="not an option"):
+        log_forecast.cmd_resolve(argparse.Namespace(**{**vars(ns), "outcome": "Kadima"}))
+
+
+@pytest.fixture
+def binary_question(tmp_path, monkeypatch):
+    """A throwaway question wired into log_forecast; set ``meta["type"]`` to taste."""
+    meta = {"type": "binary", "source": "metaculus", "post_id": 7, "current": {}}
+    ledger = tmp_path / "forecasts.jsonl"
+    monkeypatch.setattr(log_forecast, "LEDGER", ledger)
+    monkeypatch.setattr(log_forecast, "find_slug", lambda s: s)
+    monkeypatch.setattr(log_forecast, "load_meta", lambda s: meta)
+    monkeypatch.setattr(log_forecast, "save_meta", lambda s, m: None)
+    return ledger, meta
+
+
+@pytest.mark.parametrize(
+    "median,lower,upper,match",
+    [
+        (12.0, 8.0, 18.0, "not percent"),  # percent typed for a probability
+        (0.5, 0.6, 0.7, "outside the IQR"),
+        (0.5, 0.5, 0.5, "degenerate"),
+        (float("nan"), 0.1, 0.9, "finite"),
+    ],
+)
+def test_log_add_refuses_a_bad_forecast_before_it_reaches_the_ledger(
+    binary_question, median, lower, upper, match
+):
+    """The ledger is append-only, so a bad line caught afterwards stays forever."""
+    ledger, _ = binary_question
+    with pytest.raises(SystemExit, match=match):
+        log_forecast.cmd_add(_add_args(median=median, lower=lower, upper=upper))
+    assert not ledger.exists()
+
+
+def test_log_add_accepts_native_units_outside_the_unit_interval(binary_question):
+    ledger, meta = binary_question
+    meta["type"] = "numeric"
+    log_forecast.cmd_add(_add_args(median=87.8, lower=80.4, upper=97.0))
+    assert _records(ledger)[0]["median"] == 87.8
+
+
+@pytest.mark.parametrize("raw", ["annulled", "ambiguous", "0.5"])
+def test_log_resolve_refuses_a_binary_outcome_that_is_not_yes_or_no(
+    binary_question, raw
+):
+    """An annulled question is dropped, not resolved: calibration.py cannot score it."""
+    ledger, _ = binary_question
+    ns = argparse.Namespace(slug="s", outcome=raw, date=None, source="x")
+    with pytest.raises(SystemExit, match="dropped"):
+        log_forecast.cmd_resolve(ns)
+    assert not ledger.exists()
+
+
+def test_log_resolve_stores_a_date_outcome_in_unix_seconds(binary_question):
+    """Date IQRs are Unix seconds; an ISO-string outcome could never be scored."""
+    ledger, meta = binary_question
+    meta["type"] = "date"
+    ns = argparse.Namespace(slug="s", outcome="2031-03-31", date=None, source="x")
+    log_forecast.cmd_resolve(ns)
+    outcome = _records(ledger)[-1]["outcome"]
+    assert outcome == dt.datetime(2031, 3, 31, tzinfo=dt.UTC).timestamp()
+    with pytest.raises(SystemExit, match="YYYY-MM-DD"):
+        log_forecast.cmd_resolve(argparse.Namespace(**{**vars(ns), "outcome": "soon"}))
+
+
+# ------------------------------------------------------ multiple-choice scoring
+def test_mc_brier_and_log_score():
+    probs = MC["probabilities"]
+    assert calibration.mc_brier(probs, "Yashar") == pytest.approx(
+        0.381**2 + 0.39**2 + 0.009**2
+    )
+    assert calibration.mc_brier({"a": 1.0, "b": 0.0}, "a") == 0.0
+    assert calibration.mc_brier({"a": 1.0, "b": 0.0}, "b") == pytest.approx(2.0)
+    assert calibration.mc_log_score(probs, "Yashar") == pytest.approx(-math.log(0.61))
+    assert math.isfinite(calibration.mc_log_score({"a": 1.0, "b": 0.0}, "b"))
+
+
+def test_mc_label_recovers_a_legacy_numeric_coding():
+    assert calibration.mc_label("1", ["0", "1", "2"]) == "1"
+    assert calibration.mc_label(1.0, ["0", "1", "2"]) == "1"
+    assert calibration.mc_label("Kadima", ["Likud", "Yashar"]) is None
+
+
+def test_summarise_mc_skill_is_zero_for_a_uniform_forecaster():
+    uniform = {"a": 1 / 3, "b": 1 / 3, "c": 1 / 3}
+    stats = calibration.summarise_mc([(uniform, "a"), (uniform, "c")])
+    assert stats["skill_vs_uniform"] == pytest.approx(0.0, abs=1e-12)
+
+
+def test_calibration_scores_multiple_choice_instead_of_crashing(
+    tmp_path, monkeypatch, capsys
+):
+    """Regression: a label outcome used to hit float("Yashar") and kill the run."""
+    base = {"source": "metaculus", "post_id": 1, "iqr": [0.55, 0.67], "median": 0.61}
+    _write_ledger(
+        tmp_path / "l.jsonl",
+        [
+            {**base, "event": "forecast", "slug": "a", "version": 1,
+             "type": "multiple_choice"},
+            {**base, "event": "forecast", "slug": "a", "version": 2,
+             "type": "multiple_choice", "distribution": MC},
+            {"event": "resolution", "slug": "a", "type": "multiple_choice",
+             "outcome": "Yashar"},
+            {"event": "forecast", "slug": "n", "version": 1, "type": "numeric",
+             "median": 5.0, "iqr": [4.0, 6.0]},
+            {"event": "resolution", "slug": "n", "type": "numeric",
+             "outcome": "above upper bound"},
+        ],
+    )
+    monkeypatch.setattr(calibration, "LEDGER", tmp_path / "l.jsonl")
+    monkeypatch.setattr(sys, "argv", ["calibration.py"])
+    calibration.main()
+    out = capsys.readouterr().out
+    assert "== multiple choice ==" in out and "forecasts scored : 1" in out
+    assert "multiple choice (no option vector)" in out
+    assert "non-numeric outcome" in out
+
+
 # ------------------------------------------------------------- smoke: the CLIs
 CLI_INVOCATIONS = [
     ["status.py"],
@@ -508,6 +861,7 @@ CLI_INVOCATIONS = [
     ["calibration.py", "--latest-only"],
     ["log_forecast.py", "--help"],
     ["new_question.py", "--help"],
+    ["submit_metaculus.py", "--help"],
 ]
 
 
@@ -542,7 +896,7 @@ def test_cli_output_survives_a_non_utf8_console(argv):
     """The scripts print ``→``, ``·`` and ``—``; a cp1252 stdout must not kill them.
 
     This is the default on a Windows console and whenever output is piped there,
-    so a script that only works under UTF-8 is a script the operator cannot run.
+    so a script that only works under UTF-8 is a script nobody can run there.
     """
     proc = _run_cli(argv, encoding="cp1252")
     assert "UnicodeEncodeError" not in proc.stderr, (
@@ -568,3 +922,189 @@ def test_status_find_resolves_a_real_slug():
 
 def test_all_questions_sees_every_folder():
     assert {s for s, _ in _common.all_questions()} == {s for s, _ in metas()}
+
+
+# ------------------------------------------------ tournament scaffolding (bot)
+_TOURNAMENT_POST = {
+    "id": 46044,
+    "title": "How many cultural sites in Ukraine will be damaged as of December 31, 2026?",
+    "status": "open",
+    "open_time": "2026-10-17T14:00:00Z",
+    "scheduled_close_time": "2026-10-17T17:00:00Z",
+    "scheduled_resolve_time": "2027-01-01T17:00:00Z",
+    "projects": {"tournament": [{"slug": "minibench", "id": 33132}]},
+    "question": {
+        "id": 46283,
+        "type": "discrete",
+        "status": "open",
+        "title": "How many cultural sites ...?",
+        "description": "Background.",
+        "resolution_criteria": "Resolves as the UNESCO count.",
+        "fine_print": "Last update before the date counts.",
+        "unit": "Cultural Sites",
+        "open_time": "2026-10-17T14:00:00Z",
+        "scheduled_close_time": "2026-10-17T17:00:00Z",
+        "my_forecasts": {"latest": None},
+        "scaling": {"range_min": 559.5, "range_max": 660.5},
+    },
+}
+
+
+def _scaffold_tournament(monkeypatch, tmp_path, capsys, *extra):
+    import new_question
+
+    monkeypatch.setattr(new_question, "REPO", tmp_path)
+    monkeypatch.setattr(new_question, "QUESTIONS", tmp_path / "questions")
+    _fake_api(monkeypatch, _TOURNAMENT_POST)
+    monkeypatch.setattr(
+        sys,
+        "argv",
+        ["new_question.py", "--post-id", "46044", "--tournament", "minibench", *extra],
+    )
+    new_question.main()
+    out, _err = capsys.readouterr()
+    return tmp_path / "questions" / out.splitlines()[0]
+
+
+def test_tournament_question_is_scaffolded_one_shot_with_its_window(
+    monkeypatch, tmp_path, capsys
+):
+    folder = _scaffold_tournament(monkeypatch, tmp_path, capsys)
+    meta = yaml.safe_load((folder / "meta.yaml").read_text(encoding="utf-8"))
+    assert meta["question_id"] == 46283, "the id the API submits against"
+    assert meta["unit"] == "Cultural Sites"
+    tour = meta["tournament"]
+    assert (tour["slug"], tour["mode"]) == ("minibench", "one_shot")
+    assert (tour["opened"], tour["closes"]) == (
+        "2026-10-17T14:00:00Z",
+        "2026-10-17T17:00:00Z",
+    )
+    assert tour["submitted"] is None and tour["comment_posted"] is False
+    assert not (folder / "research.md").exists(), "one-shot: no research log"
+    text = (folder / "forecast.md").read_text(encoding="utf-8")
+    assert "hidden — bot tournament" in text and "### Scenarios" not in text
+
+
+def test_tournament_scaffold_caches_the_criteria_without_per_user_state(
+    monkeypatch, tmp_path, capsys
+):
+    """The forecaster reads criteria from raw/, so it never calls Metaculus itself."""
+    folder = _scaffold_tournament(monkeypatch, tmp_path, capsys)
+    (snap,) = list((folder / "raw").glob("metaculus-question-*.json"))
+    data = json.loads(snap.read_text(encoding="utf-8"))
+    assert data["question"]["resolution_criteria"] == "Resolves as the UNESCO count."
+    assert data["tournaments"] == ["minibench"]
+    assert "my_forecasts" not in json.dumps(data), "per-user state stays out of git"
+
+
+def test_reuse_returns_the_existing_folder_instead_of_a_second_one(
+    monkeypatch, tmp_path, capsys
+):
+    import new_question
+
+    folder = _scaffold_tournament(monkeypatch, tmp_path, capsys)
+    monkeypatch.setattr(
+        new_question,
+        "all_questions",
+        lambda: [(folder.name, {"post_id": 46044, "tournament": {"slug": "minibench"}})],
+    )
+    again = _scaffold_tournament(monkeypatch, tmp_path, capsys, "--reuse")
+    assert again == folder
+    assert len(list((tmp_path / "questions").iterdir())) == 1
+
+
+# ------------------------------------------------ one-shot guards in log_forecast
+@pytest.fixture
+def one_shot_question(tmp_path, monkeypatch):
+    """A submitted-nothing-yet one-shot question wired into log_forecast."""
+    meta = {
+        "type": "binary",
+        "source": "metaculus",
+        "post_id": 46044,
+        "question_id": 46283,
+        "current": {},
+        "tournament": {
+            "slug": "minibench",
+            "mode": "one_shot",
+            "submitted": None,
+            "submitted_forecast": None,
+            "comment_posted": False,
+        },
+    }
+    ledger = tmp_path / "forecasts.jsonl"
+    monkeypatch.setattr(log_forecast, "LEDGER", ledger)
+    monkeypatch.setattr(log_forecast, "find_slug", lambda s: s)
+    monkeypatch.setattr(log_forecast, "load_meta", lambda s: meta)
+    monkeypatch.setattr(log_forecast, "save_meta", lambda s, m: None)
+    return ledger, meta
+
+
+def test_one_shot_question_refuses_a_second_forecast(one_shot_question):
+    ledger, _meta = one_shot_question
+    log_forecast.cmd_add(_add_args(median=0.2, lower=0.1, upper=0.3))
+    with pytest.raises(SystemExit, match="one-shot"):
+        log_forecast.cmd_add(_add_args(median=0.3, lower=0.2, upper=0.4, mode="update"))
+    assert len(_records(ledger)) == 1
+
+
+def test_one_shot_question_refuses_a_next_review(one_shot_question):
+    with pytest.raises(SystemExit, match="never revisited"):
+        log_forecast.cmd_add(
+            _add_args(median=0.2, lower=0.1, upper=0.3, next_review="2026-11-01")
+        )
+
+
+def test_record_submission_writes_ledger_and_meta_together(one_shot_question):
+    ledger, meta = one_shot_question
+    log_forecast.cmd_add(_add_args(median=0.2, lower=0.1, upper=0.3))
+    meta["current"] = {"version": 1}
+    ts = log_forecast.record_submission("s", {"probability_yes": 0.2}, 201, True)
+    rec = _records(ledger)[-1]
+    assert rec["event"] == "submission" and rec["ts"] == ts
+    assert (rec["post_id"], rec["question_id"], rec["tournament"]) == (
+        46044,
+        46283,
+        "minibench",
+    )
+    assert meta["tournament"]["submitted"] == ts
+    assert meta["tournament"]["submitted_forecast"] == {"probability_yes": 0.2}
+    with pytest.raises(ValueError, match="one shot"):
+        log_forecast.record_submission("s", {"probability_yes": 0.2}, 201, True)
+
+
+def test_record_submission_refuses_a_failed_call_and_an_unforecast_question(
+    one_shot_question,
+):
+    _ledger, meta = one_shot_question
+    with pytest.raises(ValueError, match="no forecast"):
+        log_forecast.record_submission("s", {"probability_yes": 0.2}, 201, True)
+    meta["current"] = {"version": 1}
+    with pytest.raises(ValueError, match="not a success"):
+        log_forecast.record_submission("s", {"probability_yes": 0.2}, 400, True)
+
+
+def test_late_comment_completes_a_submission_without_one(one_shot_question):
+    ledger, meta = one_shot_question
+    log_forecast.cmd_add(_add_args(median=0.2, lower=0.1, upper=0.3))
+    meta["current"] = {"version": 1}
+    log_forecast.record_submission("s", {"probability_yes": 0.2}, 201, False)
+    log_forecast.record_late_comment("s", 201)
+    assert _records(ledger)[-1]["event"] == "comment"
+    assert meta["tournament"]["comment_posted"] is True
+    with pytest.raises(ValueError, match="already"):
+        log_forecast.record_late_comment("s", 201)
+
+
+def test_logging_rewrites_the_header_row_to_match_meta(tmp_path, monkeypatch):
+    """The header must agree with meta.yaml to the decimal; derive, don't retype."""
+    folder = tmp_path / "s"
+    folder.mkdir()
+    (folder / "forecast.md").write_text(
+        "| **Current forecast** | *not yet forecast* |\n", encoding="utf-8"
+    )
+    monkeypatch.setattr(_common, "QUESTIONS", tmp_path)
+    monkeypatch.setattr(log_forecast, "today", lambda: "2026-10-19")
+    log_forecast._refresh_header("s", "binary", 1, 0.12, 0.08, 0.18)
+    assert (folder / "forecast.md").read_text(encoding="utf-8") == (
+        "| **Current forecast** | Median 12.0%, IQR [8.0%, 18.0%] (v1, 2026-10-19) |\n"
+    )

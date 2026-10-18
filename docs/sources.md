@@ -6,7 +6,7 @@ Where to look, in rough order of evidential weight.
 
 | Source | URL | Notes |
 |---|---|---|
-| Metaculus | metaculus.com | Primary. Use the `metaculus-aggregations` skill; take CP + Pro + gold. |
+| Metaculus | metaculus.com | Question text via `scripts/metaculus_api.py`. The community prediction is hidden from the bot token (and on tournament questions until close). |
 | Kalshi | kalshi.com | Real-money, CFTC-regulated, US-centric. Good on macro/econ/politics. |
 | Polymarket | polymarket.com | Real-money, deep on geopolitics/elections. Check volume; long-dated contracts carry a time-value discount. |
 | Manifold | manifold.markets | Play-money. **Less accurate**, especially thin markets. Use as idea source, discount as evidence. |

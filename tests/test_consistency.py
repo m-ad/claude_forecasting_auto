@@ -14,6 +14,7 @@ import pytest
 from conftest import (
     REPO,
     as_date,
+    comment_records,
     forecast_records,
     metas,
     question_dirs,
@@ -27,6 +28,7 @@ IDS = [slug for slug, _ in METAS]
 FORECASTS = [r for _, r in forecast_records()]
 RESOLUTIONS = [r for _, r in resolution_records()]
 SUBMISSIONS = [r for _, r in submission_records()]
+COMMENTS = [r for _, r in comment_records()]
 
 
 def _ledger_versions(slug):
@@ -130,8 +132,10 @@ def test_submission_is_recorded_in_both_places_or_neither(slug, meta):
     assert rec["payload"] == tour.get("submitted_forecast"), (
         f"{slug}: the payload in the ledger is not what meta.yaml says was sent"
     )
-    assert rec["comment_posted"] == tour.get("comment_posted"), (
-        f"{slug}: comment_posted differs between meta.yaml and the ledger"
+    late = any(c.get("slug") == slug for c in COMMENTS)
+    assert (rec["comment_posted"] or late) == tour.get("comment_posted"), (
+        f"{slug}: comment_posted differs between meta.yaml and the ledger "
+        "(submission record plus any late comment record)"
     )
     for key in ("post_id", "question_id"):
         assert rec[key] == meta.get(key), (
@@ -156,7 +160,9 @@ def test_every_submitted_tournament_is_registered():
 
 def test_ledger_has_no_records_for_deleted_questions():
     known = {d.name for d in question_dirs()}
-    logged = {str(r.get("slug")) for r in FORECASTS + RESOLUTIONS + SUBMISSIONS}
+    logged = {
+        str(r.get("slug")) for r in FORECASTS + RESOLUTIONS + SUBMISSIONS + COMMENTS
+    }
     orphans = sorted(logged - known)
     assert not orphans, (
         f"the ledger scores questions with no folder: {orphans} - "

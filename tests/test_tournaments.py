@@ -22,7 +22,6 @@ from conftest import (
     SCRIPTS,
     TOURNAMENT_MODES,
     as_date,
-    as_utc_datetime,
     registry_entries,
 )
 
@@ -91,29 +90,6 @@ def test_policy_fields(slug, entry):
     assert priority >= 1, f"{slug}: priority is 1-based, got {priority}"
 
 
-@pytest.mark.parametrize("slug,entry", ENTRIES, ids=IDS)
-def test_activity_stamps_and_seen_ids(slug, entry):
-    for key in ("last_sync", "last_sweep"):
-        val = entry.get(key)
-        if val is None:
-            continue
-        parsed = as_utc_datetime(val)
-        assert parsed is not None, (
-            f"{slug}: {key}={val!r} is not a tz-aware ISO-8601 instant"
-        )
-        assert parsed <= dt.datetime.now(dt.timezone.utc) + dt.timedelta(minutes=5), (
-            f"{slug}: {key} {val} is in the future"
-        )
-    seen = entry.get("seen_post_ids")
-    assert isinstance(seen, list), f"{slug}: seen_post_ids must be a list"
-    assert all(isinstance(p, int) and p > 0 for p in seen), (
-        f"{slug}: seen_post_ids must be positive ints, got {seen!r}"
-    )
-    assert seen == sorted(set(seen)), (
-        f"{slug}: seen_post_ids must be a sorted set - mark_seen() unions, "
-        "it never replaces"
-    )
-
 
 def test_a_scored_tournament_outranks_an_unscored_one():
     """Priority is the whole point of the field: ranking-affecting work goes first.
@@ -172,7 +148,7 @@ def test_add_then_read_back_round_trips(tmp_path, monkeypatch):
     )
     assert entry["slug"] == "minibench" and entry["scored"] is True
     assert tr.get("minibench")["url"].endswith("/minibench/")
-    assert tr.load_registry()[0]["seen_post_ids"] == []
+    assert set(tr.load_registry()[0]) == REGISTRY_ENTRY_KEYS
 
 
 def test_add_derives_a_url_from_a_bare_slug(tmp_path, monkeypatch):
@@ -212,33 +188,6 @@ def test_update_rejects_an_unknown_field(tmp_path, monkeypatch):
         tr.update("minibench", tournament_mode="one_shot")
 
 
-def test_mark_seen_unions_and_never_forgets(tmp_path, monkeypatch):
-    """A sweep that sees fewer questions has not un-seen the others."""
-    _isolate(tmp_path, monkeypatch)
-    tr.add("minibench")
-    assert tr.mark_seen("minibench", [45502, 45501]) == [45501, 45502]
-    assert tr.mark_seen("minibench", [45501]) == [45501, 45502]
-    assert tr.mark_seen("minibench", [45503]) == [45501, 45502, 45503]
-
-
-def test_touch_stamps_a_utc_instant(tmp_path, monkeypatch):
-    _isolate(tmp_path, monkeypatch)
-    tr.add("minibench")
-    entry = tr.touch("minibench", sweep=True)
-    assert entry["last_sync"] is None
-    stamped = as_utc_datetime(entry["last_sweep"])
-    assert stamped is not None
-    assert abs((dt.datetime.now(dt.timezone.utc) - stamped).total_seconds()) < 120, (
-        "last_sweep is not the current instant"
-    )
-
-
-def test_touch_without_a_flag_raises(tmp_path, monkeypatch):
-    _isolate(tmp_path, monkeypatch)
-    tr.add("minibench")
-    with pytest.raises(tr.RegistryError):
-        tr.touch("minibench")
-
 
 def test_writing_preserves_the_header_comments(tmp_path, monkeypatch):
     """The comments are the only documentation at the point of use."""
@@ -256,7 +205,7 @@ def test_load_registry_on_a_missing_file_is_empty(tmp_path, monkeypatch):
 # ---------------------------------------------------------------- the real CLI
 @pytest.mark.parametrize(
     "argv",
-    [["list"], ["list", "--active"], ["list", "--json"], ["get", "bot-testing-area"]],
+    [["list"], ["list", "--active"], ["list", "--json"], ["get", "minibench"]],
     ids=lambda a: " ".join(a),
 )
 def test_cli_runs_clean_against_the_real_registry(argv):
