@@ -20,11 +20,11 @@ the plan is revised a step is marked `dropped`/`superseded` or a new one is appe
 
 ---
 
-## Progress at a glance (2026-10-17)
+## Progress at a glance (2026-10-18)
 
 | Phase | Name | State |
 |---|---|---|
-| **M** | Maintainer setup | M.1 done; M.2–M.9 open — **the critical path to MiniBench** |
+| **M** | Maintainer setup | M.1–M.8 done (2026-10-18); M.9 open (seasonal) |
 | P0 | Clean state, delete dead weight | done (P0.7 done via P10.3) |
 | P1 | Metaculus API layer | done, superseded in part by upstream's CDF builder (P10) |
 | P2 | Schema | done; re-applied on the new base (P10.4) |
@@ -32,9 +32,9 @@ the plan is revised a step is marked `dropped`/`superseded` or a new one is appe
 | P4 | Subagents, models, gate, usage | done in rev-3 form; P4.2/P4.6 dropped |
 | P5 | Failure handling, budget guards | partly done; breaker and error log deferred (P12) |
 | P6 | Data integrity | superseded by tests + `ci_commit.sh` |
-| P7 | GitHub Actions | written and linted; **never run on GitHub yet** |
+| P7 | GitHub Actions | sweep run on GitHub (manual smoke test, 2026-10-18); first scheduled sweep and `tournament-sync` not yet observed |
 | P8 | Docs | done |
-| P9 | Soak and go live | todo — needs M |
+| P9 | Soak and go live | P9.1 done (= M.6); P9.3 is the round starting 2026-10-19 |
 | **P10** | Restart from upstream (rev 3) | done |
 | **P11** | MiniBench pipeline (rev 3) | done (verified offline + live dry run) |
 | **P12** | After the first round | todo |
@@ -43,18 +43,19 @@ the plan is revised a step is marked `dropped`/`superseded` or a new one is appe
 
 ## M — Maintainer setup (human only)
 
-Plan §4. These are the only things between this branch and MiniBench.
+Plan §4. M.1–M.8 done 2026-10-18 (marked by the maintainer): nothing on the maintainer side
+stands between `main` and the MiniBench round of 2026-10-19. M.9 recurs every season.
 
 | Step | Task | Status | Notes |
 |---|---|---|---|
-| M.1 | Metaculus bot account + API token | **done** | `my-claude-forecasting`, `is_bot: true` (API, 2026-10-17). Still confirm it is the **primary** bot and that the participation form is filled |
-| M.2 | `claude setup-token` → secret `CLAUDE_CODE_OAUTH_TOKEN`; expiry reminder | todo | |
-| M.3 | Secret `METACULUS_API_KEY` | todo | renamed from rev 2's `METACULUS_BOT_TOKEN` |
-| M.4 | Merge the branch into `main`; no branch protection blocking `github-actions[bot]` | todo | was "create `live-bot`" — dropped with the branch (D10) |
-| M.5 | Actions spending limit > $0 + alert (private repo), or make the repo public | todo | |
-| M.6 | Smoke test on `bot-testing-area` (dry run, then real) | todo | plan §4 M.6 |
-| M.7 | `SWEEP_ENABLED=true` | todo | |
-| M.8 | `WEEKLY_BUDGET_USD_EQUIV` from measured spend | todo | after the first round |
+| M.1 | Metaculus bot account + API token | **done** | `my-claude-forecasting`, `is_bot: true` (API, 2026-10-17); primary-bot setting and participation form included in the maintainer's sign-off, 2026-10-18 |
+| M.2 | `claude setup-token` → secret `CLAUDE_CODE_OAUTH_TOKEN`; expiry reminder | **done** | 2026-10-18; the forecast step authenticated in Actions ([run 39119704362](https://github.com/m-ad/claude_forecasting_auto/actions/runs/39119704362), [run 39120996084](https://github.com/m-ad/claude_forecasting_auto/actions/runs/39120996084)) |
+| M.3 | Secret `METACULUS_API_KEY` | **done** | 2026-10-18; gate, scaffold and submit authenticated. Renamed from rev 2's `METACULUS_BOT_TOKEN` |
+| M.4 | Merge the branch into `main`; no branch protection blocking `github-actions[bot]` | **done** | [PR #4](https://github.com/m-ad/claude_forecasting_auto/pull/4) merged 2026-10-18 (`5bcb529`); `github-actions[bot]` pushed to `main` (`23cff82`, `18a99d7`). Was "create `live-bot`" — dropped with the branch (D10) |
+| M.5 | Actions spending limit > $0 + alert (private repo), or make the repo public | **done** | 2026-10-18, maintainer |
+| M.6 | Smoke test on `bot-testing-area` (dry run, then real) | **done** | 2026-10-18. Dry run [39119704362](https://github.com/m-ad/claude_forecasting_auto/actions/runs/39119704362) (artifact `dry-run-43326`); real run [39120996084](https://github.com/m-ad/claude_forecasting_auto/actions/runs/39120996084): posts 43326 (multiple choice) and 43323 (numeric) submitted, `comment_posted: true`, HTTP 201. Findings for P12.1 in plan §8 |
+| M.7 | `SWEEP_ENABLED=true` | **done** | 2026-10-18 |
+| M.8 | `WEEKLY_BUDGET_USD_EQUIV` from measured spend | **done** | 2026-10-18, before the first round; the only measured spend then was the smoke test ($0.22–0.26 per question on `sonnet`, `ledger/usage.jsonl`). Re-derive from the round's spend in P12.3 |
 | M.9 | Seasonal bot survey; AskNews renewal if used | todo | required for prizes |
 
 ---
@@ -74,7 +75,7 @@ Plan §4. These are the only things between this branch and MiniBench.
 | P1.1 | `metaculus_api.py` token client | **done** | 2026-10-17. stdlib urllib, typed errors, one 5xx retry, no 4xx retry, 429 backoff, redaction. `get_tournament` uses `/api/projects/tournaments/<slug>/` (the rev-2 path 404s) |
 | P1.2 | Port the template's CDF classes + `test_cdf.py` | superseded | upstream's `submit_metaculus.py` builder (point masses, max-step cap, bound rules) with `tests/test_submit_metaculus.py`; verified live against real scalings |
 | P1.3 | Deterministic submit + private comment, guards, missed window | **done** | 2026-10-17, inside `submit_metaculus.py` (one-shot path) rather than a new script |
-| P1.4 | Verify aggregation explorer, comment limits, rate limits | partly | explorer: moot (no aggregations). Comment length/ordering: first real submission (plan §8.4). Rate limits: the scripts pace and back off |
+| P1.4 | Verify aggregation explorer, comment limits, rate limits | partly | explorer: moot (no aggregations). Comment POST: works (smoke test, 2026-10-18; plan §8.4); length limit not yet hit. Rate limits: the scripts pace and back off |
 | P1.5 | Aggregations as an API wrapper | dropped | no aggregation lookups at all (maintainer instruction) |
 | P2.1 | `meta.yaml`: `question_id`, `tournament`, `percentiles` | done | re-applied; `percentiles` replaced by the ledger `distribution` (D12) |
 | P2.2 | Ledger `submission` event | done | re-applied; plus a `comment` event for late comments |
@@ -101,14 +102,14 @@ Plan §4. These are the only things between this branch and MiniBench.
 | P6.3 | `ci_commit.sh` | **done** | plus INDEX regeneration and union merge |
 | P6.4 | `--changed-only` pytest | deferred | needed only at a few hundred questions |
 | P7.1 | `live-bot` branch strategy | dropped | D10: the bot commits to `main` |
-| P7.2 | `tournament-sweep.yml` | **done** | written, actionlint-clean; not yet run on GitHub |
-| P7.3 | `tournament-sync.yml` | **done** | same |
+| P7.2 | `tournament-sweep.yml` | **done** | written, actionlint-clean; run on GitHub 2026-10-18 (manual: dry run, then real) |
+| P7.3 | `tournament-sync.yml` | **done** | written, actionlint-clean; not yet run on GitHub (first schedule 2026-10-19 03:23 UTC) |
 | P7.4 | `triage.yml` | deferred | no long-horizon bot questions yet |
 | P7.5 | Verify the action's human-actor check | dropped | CLI instead of the action |
 | P8.1 | `docs/tournament-protocol.md` | done | |
 | P8.2 | `docs/runbook.md` | done | |
 | P8.3 | Amend AGENTS/CLAUDE/methodology/output-format/README/SKILLS | done | 2026-10-17 |
-| P9.1 | Definition-of-done checklist on `bot-testing-area` | todo | = M.6 |
+| P9.1 | Definition-of-done checklist on `bot-testing-area` | **done** | = M.6, 2026-10-18 |
 | P9.2 | Soak a week on `bot-testing-area` | dropped | no week left before the round; the dry-run + real smoke test replaces it, and MiniBench's first day is watched instead |
 | P9.3 | First MiniBench round end to end; measure cost | todo | round of 2026-10-19 |
 | P9.4 | Register the Fall 2026 season | done | registered **inactive** (`fall-futureeval-2026`); activation is P12.5 |
