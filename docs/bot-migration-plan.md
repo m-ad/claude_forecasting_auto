@@ -176,9 +176,10 @@ questions).
    `setup-token` is for). [Works.]
 2. `--permission-mode dontAsk` with the CI allowlist: confirm `WebSearch`, `WebFetch` and the
    `research-scout` subagent are usable, and that `permission_denials` in `usage.jsonl` stays 0.
-   [Open: 2 denials in each session. `usage.jsonl` names the denied tools (`denied`) from the
-   next run on (`4cab879`). The smoke test's `web_searches: 0` was a counting bug, fixed in the
-   same commit: both forecasts cite search results.]
+   [Open: 1–2 denials in every session so far. Run 39123409555 named them: `Bash:cd` in both
+   sessions, `Bash:python3` in one. The skill now forbids `cd` and runs Python only via
+   `uv run python` (`524819f`); the next run shows whether that brings them to 0. The smoke
+   test's `web_searches: 0` was a counting bug (`4cab879`); that run counted 3 and 5.]
 3. `--max-budget-usd` on a subscription token: expected to cap on the computed cost. [Not
    reached: $0.22–0.26 per session.]
 4. The comment POST (`included_forecast: true`, private) — first real submission. [Works:
