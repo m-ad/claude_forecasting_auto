@@ -39,11 +39,11 @@ research. Each question is forecast once and never revisited, so this is the onl
 4. **Watch the clock.** `date -u` tells the time; `$FORECAST_DEADLINE` is when this session is
    killed. Log your forecast **at least 5 minutes before the deadline**, however rough. An
    unlogged forecast is never submitted. Until then, use the time.
-5. **Search deeply.** At least **8 searches done** (yours plus your scouts'), covering the
+5. **Search deeply.** At least **15 searches done** (yours plus your scouts'), covering the
    resolution source, recent news, markets, the base rate and one search against your
-   view — `log_forecast.py` refuses the forecast below that floor. **Aim for 12–20**; go up to
-   **40** when the question needs it (a hard-to-find resolution source, conflicting evidence,
-   several independent streams). Cite at least 5 sources, primary ones first.
+   view — `log_forecast.py` refuses the forecast below that floor. Go up to **40** when the
+   question needs it (a hard-to-find resolution source, conflicting evidence, several
+   independent streams). Cite at least 5 sources, primary ones first.
 6. **Never** run `git`, never touch `ledger/` by hand, never call Metaculus. The Metaculus token
    is not in this session's environment (GitHub injects secrets per step; only the scaffold
    and submit steps receive it), and the community prediction is hidden on tournament
@@ -98,7 +98,7 @@ the typical volatility over the horizon.
 ### 3a. Write the research plan first
 
 Before the first search, write `questions/<slug>/raw/research-log-<YYYY-MM-DD>.json` (today,
-UTC) with **at least 8 planned queries**, at least one per required category:
+UTC) with **at least 15 planned queries**, at least one per required category:
 
 ```json
 {"searches": [
@@ -124,16 +124,16 @@ UTC) with **at least 8 planned queries**, at least one per required category:
 `status` is `planned`, `done` or `skipped`; `by` is `main` or `scout-<n>`. As research proceeds,
 set each entry to `done` with a one-line `finding` (the number and its date, or "nothing
 relevant"), add the queries you and your scouts actually ran, and mark dropped ones `skipped`.
-**`log_forecast.py add` refuses the forecast until at least 8 entries are `done` and every
+**`log_forecast.py add` refuses the forecast until at least 15 entries are `done` and every
 required category has one** (waived automatically in the last 8 minutes before the deadline,
 so it can never cost you the forecast). Record honestly: the log is committed next to the
 forecast and audited.
 
 ### 3b. Spawn research-scouts — the default, not the exception
 
-Right after the plan, spawn **2–3 `research-scout` subagents in one message** so they run in
-parallel; use **up to 5** when the question has that many independent streams (several
-data sources, several actors, a market and a separate base-rate history). Scouts run on a
+Right after the plan, spawn **`research-scout` subagents in one message** so they run in
+parallel, one per independent stream (several data sources, several actors, a market and a
+separate base-rate history); use **up to 8**. Scouts run on a
 cheaper model and in the background, so they add evidence without adding much wall-clock
 time. Skip them only for a question whose whole answer is one number on one page — and say
 so in the log (`"by": "main"` throughout).

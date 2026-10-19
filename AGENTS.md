@@ -55,7 +55,7 @@ The mode follows from `meta.yaml`, never from a flag you choose:
 | Who runs it | the `tournament-sweep` workflow, unattended | an interactive session, `/forecast` (no automation yet) |
 | Skill | `tournament-forecast` | `forecast-workflow` |
 | Time budget | ~25 minutes inside a 3-hour window | high effort, no clock |
-| Sources | ≥ 5 cited, from ≥ 8 searches (enforced; aim 12–20, up to 40), 2–5 research-scouts | ≥ 15 |
+| Sources | ≥ 5 cited, from ≥ 15 searches (enforced; up to 40), up to 8 research-scouts | ≥ 15 |
 | Forecasts per question | **exactly one**, never revisited | updated over time |
 | Tripwires / `next_review` | none (nothing to come back for) | required |
 | Community prediction | hidden — record "hidden — bot tournament" | not visible to the bot token — record "hidden", log no CP |
@@ -136,9 +136,9 @@ The bot tournament rules this repository follows are summarised, with sources, i
 
 Search with varied phrasings; do not stop at the first ten results. For a **standard**
 forecast the rule of thumb is **≥ 15 distinct sources**; for a **tournament** question,
-**at least 5**, from **at least 8 searches** — a floor `log_forecast.py` enforces through the
-question's research log — aiming for 12–20 and up to 40 when useful, split between you and
-2–5 parallel `research-scout` subagents. In both cases spread them across:
+**at least 5**, from **at least 15 searches** — a floor `log_forecast.py` enforces through
+the question's research log — and up to 40 when useful, split between you and up to 8
+parallel `research-scout` subagents. In both cases spread them across:
 
 - the resolution source itself and primary data (statistical offices, registries, filings)
 - peer-reviewed literature where the question has an academic base rate

@@ -158,7 +158,7 @@ def _outcome_value(raw: str) -> float | str:
 # Tournament sessions stopped after a median of 4 searches (23 sessions, 2026-10-19)
 # although the skill asked for 8-16 and the clock allowed far more. A target in the
 # prompt did not hold; a check before the one irreversible step does.
-MIN_SEARCHES = 8
+MIN_SEARCHES = 15
 RESEARCH_CATEGORIES = {
     "resolution_source",  # the current value / latest release of what resolves it
     "schedule",  # when the source publishes next, what happens if it does not

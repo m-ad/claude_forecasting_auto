@@ -130,7 +130,7 @@ what drives calibration; what serves a *revisitable* forecast goes:
 
 | Dropped | Why it is safe to drop |
 |---|---|
-| ≥ 15 sources (now ≥ 5 cited, from ≥ 8 searches, aiming for 12–20) | The marginal source rarely moves a 3-hour question; time-outs score nothing. The floor of 8 is enforced, because sessions left to judge "enough" stopped at a median of 4 (2026-10-19) |
+| ≥ 15 sources (now ≥ 5 cited, from ≥ 15 searches) | The marginal *cited* source rarely moves a 3-hour question; time-outs score nothing. The search floor is enforced, because sessions left to judge "enough" stopped at a median of 4 (2026-10-19) |
 | Scenario and sensitivity tables | Their job is to make the next update cheap; there is no next update |
 | Tripwires and `next_review` | Nothing ever comes back to the question |
 | `research.md` | A log with no second reader; sources go into `forecast.md` |

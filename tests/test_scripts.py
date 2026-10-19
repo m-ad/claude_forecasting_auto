@@ -1047,10 +1047,10 @@ def _search(category: str, status: str = "done") -> dict:
             "status": status, "finding": "f"}
 
 
-# Eight done searches covering every required category: the floor, exactly.
+# Done searches covering every required category, as many as the floor: exactly enough.
 DEEP_RESEARCH = {
     "searches": [_search(c) for c in log_forecast.REQUIRED_CATEGORIES]
-    + [_search("schedule"), _search("consensus"), _search("news")]
+    + [_search("news")] * (log_forecast.MIN_SEARCHES - len(log_forecast.REQUIRED_CATEGORIES))
 }
 
 
@@ -1064,8 +1064,9 @@ def _research_log(folder, log, date="2026-10-19") -> None:
 def test_research_floor_counts_only_done_searches_and_required_categories():
     assert log_forecast.research_log_problems(DEEP_RESEARCH) == []
     planned = {"searches": DEEP_RESEARCH["searches"][:-1] + [_search("news", "planned")]}
+    floor = log_forecast.MIN_SEARCHES
     assert log_forecast.research_log_problems(planned) == [
-        "7 searches done, the floor is 8"
+        f"{floor - 1} searches done, the floor is {floor}"
     ]
     no_markets = {
         "searches": [s for s in DEEP_RESEARCH["searches"] if s["category"] != "markets"]

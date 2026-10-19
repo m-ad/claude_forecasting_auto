@@ -10,8 +10,8 @@ description matches. This file is the human-readable map.
 | **forecast-update** | An individual question needs revisiting, or resolved and needs a post-mortem. Refuses one-shot questions. | `.claude/skills/forecast-update/SKILL.md` |
 
 Subagent: **research-scout** (`.claude/agents/research-scout.md`) — one narrow evidence
-stream, read-only, returns a dated digest and the queries it ran. Two to three per tournament
-question by default, up to five.
+stream, read-only, returns a dated digest and the queries it ran. Up to eight per tournament
+question.
 
 ## Slash commands
 
@@ -28,7 +28,7 @@ question by default, up to five.
 |---|---|
 | `scripts/metaculus_api.py` | The only Metaculus client: official API, bot token, typed errors, redaction. CLI: `whoami`, `post`, `open`, `tournament`. |
 | `scripts/new_question.py` | Scaffold a question folder (from the API for Metaculus), cache the question text to `raw/`; `--tournament` for bot questions, `--reuse` for the sweep. |
-| `scripts/log_forecast.py` | Append a forecast (with `--distribution`), a resolution, or (from the submit script) a submission/late comment to `ledger/forecasts.jsonl`. Refuses a second forecast on a one-shot question, and the first until its research log (`raw/research-log-<date>.json`) shows ≥ 8 searches across the required categories (waived in the last 8 minutes before `$FORECAST_DEADLINE`). |
+| `scripts/log_forecast.py` | Append a forecast (with `--distribution`), a resolution, or (from the submit script) a submission/late comment to `ledger/forecasts.jsonl`. Refuses a second forecast on a one-shot question, and the first until its research log (`raw/research-log-<date>.json`) shows ≥ 15 searches across the required categories (waived in the last 8 minutes before `$FORECAST_DEADLINE`). |
 | `scripts/submit_metaculus.py` | Submit to Metaculus. One-shot questions: guards, forecast, private comment, ledger record (run by the sweep, the only submission path). Others: manual use only, nothing automated. |
 | `scripts/tournament_poll.py` | The sweep's no-LLM gate: budget, token, open unforecast questions in priority order. |
 | `scripts/tournament_sync.py` | Daily reconcile: missed windows, comment retries, resolutions with official scores, `INDEX.md`. |

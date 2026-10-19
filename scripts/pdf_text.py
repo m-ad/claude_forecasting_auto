@@ -38,10 +38,10 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from _common import QUESTIONS, find_slug, today
 
-# Plain bot agent with a contact URL, deliberately not "Mozilla/...": bot shields
-# (USDA's, checked 2026-10-19) reset the connection when a browser agent arrives
-# over Python's TLS fingerprint, but let an honest bot agent through.
-USER_AGENT = "claude-forecasting-bot/1.0 (+https://github.com/m-ad/claude_forecasting_auto)"
+# Generic agent, deliberately not "Mozilla/...": bot shields (USDA's, checked
+# 2026-10-19) reset the connection when a browser agent arrives over Python's TLS
+# fingerprint, but let a plain tool agent through. It names neither repo nor owner.
+USER_AGENT = "pdf-text/1.0"
 MAX_BYTES = 50 * 1024 * 1024
 # Layout analysis costs ~0.1-0.5 s a page; 30 pages keeps a default run well under a
 # minute and covers every weekly bulletin seen so far. Longer reports: pass --pages.
