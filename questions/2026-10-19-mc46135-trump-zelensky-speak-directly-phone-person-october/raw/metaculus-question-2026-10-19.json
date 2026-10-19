@@ -1,0 +1,38 @@
+{
+  "post_id": 46135,
+  "url": "https://www.metaculus.com/questions/46135/",
+  "post_title": "Will Trump and Zelensky speak directly — by phone or in person — on October 29 or 30, 2026?",
+  "tournaments": [
+    "minibench"
+  ],
+  "options": null,
+  "question": {
+    "id": 46364,
+    "title": "Will Trump and Zelensky speak directly — by phone or in person — on October 29 or 30, 2026?",
+    "type": "binary",
+    "status": "open",
+    "description": "US President Donald Trump and Ukrainian President Volodymyr Zelensky have maintained frequent direct leader-level contact throughout 2026, mixing in-person meetings with phone calls. They met in person on the sidelines of the NATO summit in Ankara (July 8), at the White House (July 28), and on the margins of the UN General Assembly in New York (September 22), and spoke by phone on multiple occasions, including September 21 and October 13, 2026.\n\nBy mid-October 2026, their relationship had cooled sharply. In an October 15 interview with Newsmax, Trump called Zelensky \"not a good guy for us to deal with\" and said he found him \"more difficult to deal with than Putin,\" criticizing Ukraine's resumption of long-range strikes on Russian oil refineries, which Trump called \"a disgrace.\" Tensions also grew over reported restrictions on Ukraine's Starlink access and over a US deal allowing Russian diesel back into the US market ahead of the November midterm elections.\n\nDespite the friction, diplomacy continued intensively. US envoys Steve Witkoff and Jared Kushner met Ukrainian officials in the US in early October, Trump and Putin spoke by phone on October 9, and Zelensky said Washington wanted to broker a fresh round of Russia-Ukraine talks by the end of October 2026. As of mid-October, no in-person Trump-Zelensky meeting had been publicly scheduled for late October, but direct leader-level contact had been occurring roughly every one to two weeks.\n\n`{\"format\": \"llm_question\", \"info\": {\"sdk_version\": \"0.6.0\", \"rating\": {\"quality\": 3, \"ambiguity\": 4, \"resolvability\": 4, \"passes\": true}}}`",
+    "resolution_criteria": "This question resolves YES if US President Donald Trump and Ukrainian President Volodymyr Zelensky engage in direct leader-to-leader communication — either an in-person meeting or a telephone/video call between the two men themselves — at any point on October 29 or October 30, 2026 (UTC), as reported by [credible sources](https://www.metaculus.com/faq/#definitions) such as an official White House or Ukrainian presidential readout or major wire reporting. Any direct bilateral contact counts, whether a scheduled call, a pull-aside, or a meeting on the sidelines of a larger event, provided the two principals personally communicate with each other. Communication conducted only through aides, envoys, or intermediaries (e.g., talks involving Steve Witkoff or other officials without Trump and Zelensky themselves speaking) does not count. If no such direct contact between the two men is reported to have occurred on either of those two days, the question resolves NO.",
+    "fine_print": "Contact counts regardless of its duration, format, or whether a formal readout is issued, as long as credible reporting confirms Trump and Zelensky personally communicated (in person or by phone/video) on October 29 or 30, 2026. A public exchange of statements, social-media posts, or letters, without the two men actually speaking to each other, does not count. Contact occurring only before October 29 or only after October 30, 2026 does not count.",
+    "unit": "",
+    "options": null,
+    "scaling": {
+      "range_min": null,
+      "range_max": null,
+      "nominal_min": null,
+      "nominal_max": null,
+      "zero_point": null,
+      "open_upper_bound": false,
+      "open_lower_bound": false,
+      "inbound_outcome_count": null,
+      "continuous_range": null
+    },
+    "open_lower_bound": false,
+    "open_upper_bound": false,
+    "inbound_outcome_count": null,
+    "open_time": "2026-10-19T08:08:50Z",
+    "scheduled_close_time": "2026-10-19T11:08:50Z",
+    "scheduled_resolve_time": "2026-10-30T23:59:00Z",
+    "resolution": null
+  }
+}
