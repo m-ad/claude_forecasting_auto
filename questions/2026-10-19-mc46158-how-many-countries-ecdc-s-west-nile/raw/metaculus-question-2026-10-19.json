@@ -1,0 +1,46 @@
+{
+  "post_id": 46158,
+  "url": "https://www.metaculus.com/questions/46158/",
+  "post_title": "How many countries will ECDC's West Nile virus weekly report published around 30 October 2026 list as affected during the 2026 season?",
+  "tournaments": [
+    "minibench"
+  ],
+  "options": null,
+  "question": {
+    "id": 46387,
+    "title": "How many countries will ECDC's West Nile virus weekly report published around 30 October 2026 list as affected during the 2026 season?",
+    "type": "discrete",
+    "status": "open",
+    "description": "The European Centre for Disease Prevention and Control (ECDC) publishes a weekly surveillance report on locally acquired human West Nile virus (WNV) infections in Europe during the transmission season (roughly June–November), updated each Friday at https://wnv-weekly.ecdc.europa.eu/. Each report's \"Current situation\" section states the cumulative number of affected areas and the number of countries in which they are located, e.g. \"208 areas affected by West Nile virus (WNV) have been identified in 18 countries across Europe\".\n\nThe 2026 season has been the most intense on record. Country counts in recent reports: Week 40 (data to 30 Sep) = 16 countries / 202 areas; Week 41 (data to 7 Oct) = 18 countries / 208 areas; Week 42 (data to 14 Oct) = 19 countries / 222 areas. As of 7 October the affected countries were Italy, France, Greece, Romania, the Netherlands, Serbia, Belgium, Spain, Croatia, North Macedonia, Hungary, Kosovo, Austria, Germany, Albania, Bulgaria and Cyprus; Belgium and Bulgaria were recent first-time additions, and a 19th country was added by Week 42. ECDC has warned the virus continues to spread northward into previously unaffected regions.\n\nThe count is cumulative within a season, so it can only stay flat or increase as the season progresses. The season typically peaks in August/early September and slows afterward, so weekly additions of new countries become less frequent late in the season, though not impossible. The report expected on Friday 30 October 2026 (Week 44, based on data up to ~28 October) will be the basis for resolution.\n\n`{\"format\": \"llm_question\", \"info\": {\"sdk_version\": \"0.6.0\", \"rating\": {\"quality\": 3, \"ambiguity\": 4, \"resolvability\": 4, \"passes\": true}}}`",
+    "resolution_criteria": "This question resolves as the number of countries stated in the \"Current situation\" section of the ECDC West Nile Virus weekly surveillance report (https://wnv-weekly.ecdc.europa.eu/) in the first report published on or after 29 October 2026 — expected to be the report published on Friday 30 October 2026. That section reads \"... areas affected by West Nile virus (WNV) have been identified in Y countries across Europe\"; the question resolves to the integer Y stated there. For example, if the report states areas \"have been identified in 20 countries across Europe\", this resolves as 20.",
+    "fine_print": "If no new report is published on or after 29 October 2026 but a report for the 2026 season remains available at the source, the most recent 2026-season report available as of 31 October 2026 is used. If the ECDC weekly report page is unavailable, [credible sources](https://www.metaculus.com/faq/#definitions) reporting the ECDC figure for the same report will be used. If ECDC stops publishing the figure entirely for the 2026 season, the question is annulled.",
+    "unit": "countries",
+    "options": null,
+    "scaling": {
+      "range_min": 18.5,
+      "range_max": 24.5,
+      "nominal_min": 19,
+      "nominal_max": 24,
+      "zero_point": null,
+      "open_upper_bound": true,
+      "open_lower_bound": false,
+      "inbound_outcome_count": 6,
+      "continuous_range": [
+        18.5,
+        19.5,
+        20.5,
+        21.5,
+        22.5,
+        23.5,
+        24.5
+      ]
+    },
+    "open_lower_bound": false,
+    "open_upper_bound": true,
+    "inbound_outcome_count": 6,
+    "open_time": "2026-10-19T22:50:55Z",
+    "scheduled_close_time": "2026-10-20T01:50:55Z",
+    "scheduled_resolve_time": "2026-10-31T00:00:00Z",
+    "resolution": null
+  }
+}

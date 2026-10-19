@@ -1,0 +1,54 @@
+slug: 2026-10-19-mc46158-how-many-countries-ecdc-s-west-nile
+title: How many countries will ECDC's West Nile virus weekly report published around 30 October 2026 list
+  as affected during the 2026 season?
+source: metaculus
+url: https://www.metaculus.com/questions/46158/
+post_id: 46158
+question_id: 46387
+type: discrete
+unit: countries
+tags: []
+dates:
+  created: '2026-10-19'
+  opened: '2026-10-19'
+  closes: '2026-10-20'
+  resolves: '2026-10-31'
+status: open
+tournament:
+  slug: minibench
+  mode: one_shot
+  registered: '2026-10-19'
+  opened: '2026-10-19T22:50:55Z'
+  closes: '2026-10-20T01:50:55Z'
+  submitted: '2026-10-19T23:15:13+00:00'
+  submitted_forecast:
+    continuous_cdf:
+    - 0.0
+    - 0.4977774096888739
+    - 0.7872493422485385
+    - 0.9392999231244634
+    - 0.9870094961795486
+    - 0.9951488227829599
+    - 0.999
+  comment_posted: true
+  official_score: null
+  missed_window: false
+current:
+  version: 1
+  date: '2026-10-19'
+  median: 19.46
+  iqr:
+  - 18.98
+  - 20.22
+  community:
+    cp: null
+    pro: null
+    gold: null
+    n_forecasters: null
+    as_of: '2026-10-19'
+next_review: null
+tripwires: []
+resolution:
+  outcome: null
+  date: null
+  source: null
