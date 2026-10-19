@@ -1,0 +1,38 @@
+{
+  "post_id": 46125,
+  "url": "https://www.metaculus.com/questions/46125/",
+  "post_title": "At its October 30, 2026 meeting, will the FDA Dermatologic and Ophthalmic Drugs Advisory Committee vote in favor of SYD-101 (atropine 0.01%) for pediatric progressive myopia?",
+  "tournaments": [
+    "minibench"
+  ],
+  "options": null,
+  "question": {
+    "id": 46354,
+    "title": "At its October 30, 2026 meeting, will the FDA Dermatologic and Ophthalmic Drugs Advisory Committee vote in favor of SYD-101 (atropine 0.01%) for pediatric progressive myopia?",
+    "type": "binary",
+    "status": "open",
+    "description": "Sydnexis's SYD-101 is a low-dose atropine sulfate ophthalmic solution (0.01%) intended to slow the progression of myopia (nearsightedness) in children aged 3 and older. There is currently no FDA-approved pharmaceutical therapy for pediatric progressive myopia in the United States; practitioners who use atropine rely on compounded formulations. SYD-101 is already approved in the European Union and United Kingdom, where it is licensed to Santen and marketed as Ryjunea.\n\nThe NDA (219694) is supported by the Phase 3 STAR trial, a global, randomized, vehicle-controlled study of 847 children aged 3–14 in the U.S. and Europe. The trial met its prespecified primary endpoint — reducing the proportion of children with confirmed myopia progression beyond −0.75 D at Month 36 (p=0.0226) — and its key secondary endpoint, annual progression rate (p=0.0002), with no new safety signals through Month 48.\n\nOn October 23, 2025, the FDA issued a Complete Response Letter (CRL) acknowledging that the primary endpoint was met but stating its view that the submitted data \"did not support the effectiveness\" of low-dose atropine in children with myopia. Sydnexis filed a Formal Dispute Resolution Request with the FDA's Office of Specialty Medicine, and in July 2026 the FDA announced its intent to convene an advisory committee. The Dermatologic and Ophthalmic Drugs Advisory Committee (DODAC) is scheduled to meet on October 30, 2026 (8:30 a.m.–3:00 p.m. ET) at FDA White Oak to discuss the application (docket FDA-2026-N-10606).\n\nFDA advisory committees provide non-binding recommendations; the agency makes the final regulatory decision separately. Committee members typically vote on one or more questions posed by the FDA, which may concern overall benefit-risk balance or support for approval. The FDA posts the agenda, questions, and voting tallies in the meeting's materials/minutes. The tension here — a met primary endpoint versus the FDA's own prior conclusion that effectiveness was not demonstrated — makes the committee's vote genuinely uncertain.\n\n`{\"format\": \"llm_question\", \"info\": {\"sdk_version\": \"0.6.0\", \"rating\": {\"quality\": 4, \"ambiguity\": 4, \"resolvability\": 4, \"passes\": true}}}`",
+    "resolution_criteria": "This question resolves YES if, at the Dermatologic and Ophthalmic Drugs Advisory Committee (DODAC) meeting held on October 30, 2026 to discuss NDA 219694 for Sydnexis's atropine sulfate ophthalmic solution 0.01% (SYD-101), the committee takes a formal vote on a question asking whether SYD-101's benefits outweigh its risks (or, equivalently worded, whether the committee supports approval/marketing of SYD-101 for the proposed pediatric myopia indication), and more members vote \"Yes\"/in favor than vote \"No\"/against. It resolves NO if more members vote \"No\"/against than \"Yes\"/in favor, or if the vote is a tie. Resolution is based on the official voting results posted by the FDA in the meeting materials/minutes for this meeting at https://www.fda.gov/advisory-committees/dermatologic-and-ophthalmic-drugs-advisory-committee/2026-meeting-materials-dermatologic-and-ophthalmic-drugs-advisory-committee or as reported by [credible sources](https://www.metaculus.com/faq/#definitions). Abstentions are not counted as \"Yes\" or \"No\" votes.",
+    "fine_print": "If the committee holds more than one formal vote, the question used for resolution is the one most directly addressing overall benefit-risk balance or support for approval/marketing of SYD-101 for the proposed indication; if multiple such votes are taken, the one taken latest in the meeting governs. If the meeting is cancelled, postponed to a date after October 30, 2026, or the committee takes no formal benefit-risk/approval-oriented vote (e.g., it is convened only for discussion with no vote), the question is annulled. If the FDA meeting-materials page is unavailable, resolution relies on [credible sources](https://www.metaculus.com/faq/#definitions) reporting the official vote tally.",
+    "unit": "",
+    "options": null,
+    "scaling": {
+      "range_min": null,
+      "range_max": null,
+      "nominal_min": null,
+      "nominal_max": null,
+      "zero_point": null,
+      "open_upper_bound": false,
+      "open_lower_bound": false,
+      "inbound_outcome_count": null,
+      "continuous_range": null
+    },
+    "open_lower_bound": false,
+    "open_upper_bound": false,
+    "inbound_outcome_count": null,
+    "open_time": "2026-10-19T00:28:46Z",
+    "scheduled_close_time": "2026-10-19T03:28:46Z",
+    "scheduled_resolve_time": "2026-10-30T23:00:00Z",
+    "resolution": null
+  }
+}

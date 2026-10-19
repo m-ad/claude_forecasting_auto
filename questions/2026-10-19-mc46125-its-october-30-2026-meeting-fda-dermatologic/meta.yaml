@@ -1,0 +1,47 @@
+slug: 2026-10-19-mc46125-its-october-30-2026-meeting-fda-dermatologic
+title: At its October 30, 2026 meeting, will the FDA Dermatologic and Ophthalmic Drugs Advisory Committee
+  vote in favor of SYD-101 (atropine 0.01%) for pediatric progressive myopia?
+source: metaculus
+url: https://www.metaculus.com/questions/46125/
+post_id: 46125
+question_id: 46354
+type: binary
+unit: null
+tags: []
+dates:
+  created: '2026-10-19'
+  opened: '2026-10-19'
+  closes: '2026-10-19'
+  resolves: '2026-10-30'
+status: open
+tournament:
+  slug: minibench
+  mode: one_shot
+  registered: '2026-10-19'
+  opened: '2026-10-19T00:28:46Z'
+  closes: '2026-10-19T03:28:46Z'
+  submitted: '2026-10-19T00:44:18+00:00'
+  submitted_forecast:
+    probability_yes: 0.62
+  comment_posted: true
+  official_score: null
+  missed_window: false
+current:
+  version: 1
+  date: '2026-10-19'
+  median: 0.62
+  iqr:
+  - 0.5
+  - 0.72
+  community:
+    cp: null
+    pro: null
+    gold: null
+    n_forecasters: null
+    as_of: '2026-10-19'
+next_review: null
+tripwires: []
+resolution:
+  outcome: null
+  date: null
+  source: null
