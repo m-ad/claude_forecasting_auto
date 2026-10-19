@@ -1,0 +1,47 @@
+slug: 2026-10-19-mc46157-united-states-authorize-transfer-tomahawk-cruise-missiles
+title: Will the United States authorize the transfer of Tomahawk cruise missiles to Ukraine by October
+  30, 2026?
+source: metaculus
+url: https://www.metaculus.com/questions/46157/
+post_id: 46157
+question_id: 46386
+type: binary
+unit: null
+tags: []
+dates:
+  created: '2026-10-19'
+  opened: '2026-10-19'
+  closes: '2026-10-20'
+  resolves: '2026-10-30'
+status: open
+tournament:
+  slug: minibench
+  mode: one_shot
+  registered: '2026-10-19'
+  opened: '2026-10-19T21:42:50Z'
+  closes: '2026-10-20T00:42:50Z'
+  submitted: '2026-10-19T22:14:24+00:00'
+  submitted_forecast:
+    probability_yes: 0.015
+  comment_posted: true
+  official_score: null
+  missed_window: false
+current:
+  version: 1
+  date: '2026-10-19'
+  median: 0.015
+  iqr:
+  - 0.008
+  - 0.03
+  community:
+    cp: null
+    pro: null
+    gold: null
+    n_forecasters: null
+    as_of: '2026-10-19'
+next_review: null
+tripwires: []
+resolution:
+  outcome: null
+  date: null
+  source: null

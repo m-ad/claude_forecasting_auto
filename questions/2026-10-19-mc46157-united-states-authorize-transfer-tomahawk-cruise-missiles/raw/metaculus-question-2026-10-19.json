@@ -1,0 +1,38 @@
+{
+  "post_id": 46157,
+  "url": "https://www.metaculus.com/questions/46157/",
+  "post_title": "Will the United States authorize the transfer of Tomahawk cruise missiles to Ukraine by October 30, 2026?",
+  "tournaments": [
+    "minibench"
+  ],
+  "options": null,
+  "question": {
+    "id": 46386,
+    "title": "Will the United States authorize the transfer of Tomahawk cruise missiles to Ukraine by October 30, 2026?",
+    "type": "binary",
+    "status": "open",
+    "description": "Ukraine formally requested US Tomahawk long-range cruise missiles in September 2025. Through October 2025, President Donald Trump repeatedly said he had \"sort of made a decision\" but imposed conditions and did not give an unequivocal yes. On October 31, 2025, CNN reported the Pentagon had given the White House a \"green light,\" assessing that a transfer would not harm US stockpiles — but the final decision was left to Trump, who did not order a transfer. At an October 17, 2025 meeting, Zelensky failed to obtain the missiles, and Trump urged both sides to \"stop the war immediately.\"\n\nAs of mid-October 2026, no transfer or delivery of Tomahawks to Ukraine has been authorized. On October 15–16, 2026, Trump told Newsmax he is \"not a big fan\" of Zelensky, criticized Ukraine's resumed strikes on Russian oil refineries, and said the US had temporarily halted ammunition sales to allies to replenish its own stockpiles — stating that only after replenishing \"really\" would the US again let allies buy US weapons. He noted US production of Patriot and Tomahawk missiles was increasing at a record pace. Reporting also indicated severe US interceptor-missile shortages following a 2025 conflict involving Iran, with some stocks not expected to be replenished before 2030. The situation remains volatile, with high tension between Washington and Kyiv and ongoing large-scale Russian strikes on Ukrainian energy infrastructure.\n\n`{\"format\": \"llm_question\", \"info\": {\"sdk_version\": \"0.6.0\", \"rating\": {\"quality\": 3, \"ambiguity\": 4, \"resolvability\": 4, \"passes\": true}}}`",
+    "resolution_criteria": "This question resolves YES if, at any time before 23:59 UTC on October 30, 2026, the United States government has publicly authorized the transfer or delivery of Tomahawk cruise missiles (the BGM-109/RGM-109 Tomahawk Land Attack Missile) to Ukraine — whether directly from US stocks, via sale, or via transfer through a third country or NATO mechanism — as reported by [credible sources](https://www.metaculus.com/faq/#definitions). A qualifying authorization means an official decision, order, or approval by the President, the Department of Defense/Pentagon, or the White House to provide Tomahawks to Ukraine (for example, an explicit presidential order to proceed with delivery, or a signed or officially announced sale/transfer). Statements that the US is merely \"considering,\" \"not ruling out,\" or willing to allow such transfers in the future, without an actual decision to proceed, do NOT count. As of October 16, 2026 no such authorization has been made, so the question resolves YES only if the authorization occurs on or after October 17, 2026 and before the deadline; otherwise it resolves NO.",
+    "fine_print": "A Pentagon-only internal assessment or \"green light\" that leaves the final decision to the President (as reported on October 31, 2025) does not by itself count — an actual decision by the US government to proceed with providing Tomahawks to Ukraine is required. Physical arrival of missiles in Ukraine is not required; a clear, officially reported authorization to transfer, deliver, or sell suffices. A general policy statement about resuming weapons sales to allies, without specifically authorizing Tomahawks for Ukraine, does not count. If no such authorization is publicly reported by credible sources before the deadline, the question resolves NO.",
+    "unit": "",
+    "options": null,
+    "scaling": {
+      "range_min": null,
+      "range_max": null,
+      "nominal_min": null,
+      "nominal_max": null,
+      "zero_point": null,
+      "open_upper_bound": false,
+      "open_lower_bound": false,
+      "inbound_outcome_count": null,
+      "continuous_range": null
+    },
+    "open_lower_bound": false,
+    "open_upper_bound": false,
+    "inbound_outcome_count": null,
+    "open_time": "2026-10-19T21:42:50Z",
+    "scheduled_close_time": "2026-10-20T00:42:50Z",
+    "scheduled_resolve_time": "2026-10-30T23:59:00Z",
+    "resolution": null
+  }
+}
