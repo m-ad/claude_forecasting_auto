@@ -1,0 +1,38 @@
+{
+  "post_id": 46155,
+  "url": "https://www.metaculus.com/questions/46155/",
+  "post_title": "Will Israel or the United States conduct a military strike on Iranian territory between October 29 and October 30, 2026?",
+  "tournaments": [
+    "minibench"
+  ],
+  "options": null,
+  "question": {
+    "id": 46384,
+    "title": "Will Israel or the United States conduct a military strike on Iranian territory between October 29 and October 30, 2026?",
+    "type": "binary",
+    "status": "open",
+    "description": "As of October 16, 2026, Iran, the United States, and Israel have been in a state of conflict (widely termed the \"2026 Iran war\") since US and Israeli forces attacked Iran on February 28, 2026. After a 40-day active phase that ended with an April 8 ceasefire, the US announced a naval blockade on April 13. Israel and Iran have not traded fire since June 2026, and no US or Israeli strike on Iranian land territory had been confirmed for several weeks as of mid-October (per globalsecurity.org daily updates).\n\nTensions remain high. US President Donald Trump stated on October 8, 2026 that the US would not attack Iran before the November 3 midterm elections, though he said on October 13 the pause \"might be running out in a few weeks.\" The Pentagon has reportedly ordered US Central Command to complete preparations for renewed operations, and US naval/air assets have been building up in the region. Israeli Prime Minister Benjamin Netanyahu said on October 14 that he does not favor a preemptive strike before Israel's October 27 election, warning Iran against attacking Israel; Israeli sources told Washington they would prefer any military action to begin after the October 27 vote.\n\nThis question covers the two-day window of October 29–30, 2026 — after the Israeli election (October 27) but before the US midterms (November 3). This is a period in which both the Israeli pre-election restraint and the stated US pre-midterm pause remain potentially binding, but after which Israeli political constraints have lifted.\n\n`{\"format\": \"llm_question\", \"info\": {\"sdk_version\": \"0.6.0\", \"rating\": {\"quality\": 3, \"ambiguity\": 4, \"resolvability\": 4, \"passes\": true}}}`",
+    "resolution_criteria": "This question resolves YES if, at any point between 00:00 UTC on October 29, 2026 and 23:59 UTC on October 30, 2026, Israeli or United States armed forces carry out at least one direct military strike (an air strike, missile strike, drone strike, or other munition delivery) that impacts land territory internationally recognized as part of Iran, as reported by [credible sources](https://www.metaculus.com/faq/#definitions). The strike must be attributed to Israeli or US forces by credible reporting or by an official Israeli or US government/military statement. Otherwise, the question resolves NO.",
+    "fine_print": "Only strikes occurring within the October 29–30, 2026 (UTC) window count; strikes before or after do not count, regardless of when reported. Strikes on Iranian naval vessels, aircraft, or assets outside Iran's land territory and territorial waters do not count — the munition must impact Iran's internationally recognized land territory. Interceptions of Iranian missiles/drones, cyber operations, covert sabotage not involving a munition strike, and strikes conducted solely by parties other than Israel or the United States do not count. If credible reporting attributes a strike to Israel or the US even without an official claim of responsibility, that suffices. Accidental or errant munition impacts attributed to Israeli or US forces do count.",
+    "unit": "",
+    "options": null,
+    "scaling": {
+      "range_min": null,
+      "range_max": null,
+      "nominal_min": null,
+      "nominal_max": null,
+      "zero_point": null,
+      "open_upper_bound": false,
+      "open_lower_bound": false,
+      "inbound_outcome_count": null,
+      "continuous_range": null
+    },
+    "open_lower_bound": false,
+    "open_upper_bound": false,
+    "inbound_outcome_count": null,
+    "open_time": "2026-10-19T19:38:37Z",
+    "scheduled_close_time": "2026-10-19T22:38:37Z",
+    "scheduled_resolve_time": "2026-10-31T00:00:00Z",
+    "resolution": null
+  }
+}
