@@ -1,0 +1,49 @@
+{
+  "post_id": 46136,
+  "url": "https://www.metaculus.com/questions/46136/",
+  "post_title": "How many 'red alert' dengue clusters (10+ cases) will Singapore's NEA list as active on 29 October 2026?",
+  "tournaments": [
+    "minibench"
+  ],
+  "options": null,
+  "question": {
+    "id": 46365,
+    "title": "How many 'red alert' dengue clusters (10+ cases) will Singapore's NEA list as active on 29 October 2026?",
+    "type": "discrete",
+    "status": "open",
+    "description": "Dengue is endemic to Singapore, with a traditional peak season from May to October. The National Environment Agency (NEA) maintains a continuously updated dengue clusters page classifying active clusters by colour alert: \"Red\" for a high-risk area with 10 or more cases, \"Yellow\" for a high-risk area with fewer than 10 cases, and \"Green\" for areas with no new cases under 21-day surveillance. Clusters open and close as transmission continues or stops.\n\nIn 2026, weekly case counts peaked in mid-June (119 cases in the week ending 13 June), when NEA listed 12 active clusters, 4 of them Red-alert, concentrated in northern Singapore. By the autumn the picture had eased: the week ending 10 October saw 79 cases, with cumulative 2026 cases at 2,643 through 40 epidemiological weeks. As of 15–16 October 2026, NEA listed roughly 7–9 active clusters, of which 2 were Red-alert: a large cluster at Ho Ching Road / Kang Ching Road (90+ cases, though with few recent-onset cases) and a cluster at Bishan Street 12 (around 16 cases). A Red-alert cluster remains Red until case activity subsides and it is downgraded or closed; large long-running clusters can persist on the list for weeks even as new cases slow.\n\n`{\"format\": \"llm_question\", \"info\": {\"sdk_version\": \"0.6.0\", \"rating\": {\"quality\": 3, \"ambiguity\": 4, \"resolvability\": 4, \"passes\": true}}}`",
+    "resolution_criteria": "This question resolves as the number of active dengue clusters classified under the \"Red\" colour alert on Singapore's National Environment Agency (NEA) dengue clusters page (https://www.nea.gov.sg/dengue-zika/dengue/dengue-clusters) according to the first snapshot whose \"information provided in this listing is accurate as at\" date falls on or after 29 October 2026. On that page, \"Red\" alert is NEA's own classification for a \"High-risk area with 10 or more cases.\" The resolver counts the number of listed localities whose Alert Level is \"Red\". For example, if the page shows three localities at Red alert level, this resolves as 3.",
+    "fine_print": "If the NEA clusters page is unavailable, the equivalent figure reported in NEA's weekly dengue update (https://www.nea.gov.sg/dengue-zika/dengue/dengue-cases) or by [credible sources](https://www.metaculus.com/faq/#definitions) for the reference period on or after 29 October 2026 will be used. If NEA permanently ceases publishing dengue cluster alert classifications, the question is annulled. The count uses NEA's own Red-alert classification as displayed; the resolver does not independently reclassify clusters by case count.",
+    "unit": "clusters",
+    "options": null,
+    "scaling": {
+      "range_min": -0.5,
+      "range_max": 8.5,
+      "nominal_min": 0,
+      "nominal_max": 8,
+      "zero_point": null,
+      "open_upper_bound": true,
+      "open_lower_bound": false,
+      "inbound_outcome_count": 9,
+      "continuous_range": [
+        -0.5,
+        0.5,
+        1.5,
+        2.5,
+        3.5,
+        4.5,
+        5.5,
+        6.499999999999999,
+        7.5,
+        8.5
+      ]
+    },
+    "open_lower_bound": false,
+    "open_upper_bound": true,
+    "inbound_outcome_count": 9,
+    "open_time": "2026-10-19T11:15:33Z",
+    "scheduled_close_time": "2026-10-19T14:15:33Z",
+    "scheduled_resolve_time": "2026-10-30T00:00:00Z",
+    "resolution": null
+  }
+}

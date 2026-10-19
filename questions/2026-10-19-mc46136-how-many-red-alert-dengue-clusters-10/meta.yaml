@@ -1,0 +1,57 @@
+slug: 2026-10-19-mc46136-how-many-red-alert-dengue-clusters-10
+title: How many 'red alert' dengue clusters (10+ cases) will Singapore's NEA list as active on 29 October
+  2026?
+source: metaculus
+url: https://www.metaculus.com/questions/46136/
+post_id: 46136
+question_id: 46365
+type: discrete
+unit: clusters
+tags: []
+dates:
+  created: '2026-10-19'
+  opened: '2026-10-19'
+  closes: '2026-10-19'
+  resolves: '2026-10-30'
+status: open
+tournament:
+  slug: minibench
+  mode: one_shot
+  registered: '2026-10-19'
+  opened: '2026-10-19T11:15:33Z'
+  closes: '2026-10-19T14:15:33Z'
+  submitted: '2026-10-19T11:20:40+00:00'
+  submitted_forecast:
+    continuous_cdf:
+    - 0.0
+    - 0.026419136549848725
+    - 0.15891794691494204
+    - 0.4355751044414795
+    - 0.7616772730246942
+    - 0.9189863511548688
+    - 0.982366048799761
+    - 0.9932832318507826
+    - 0.9966331925576778
+    - 0.999
+  comment_posted: true
+  official_score: null
+  missed_window: false
+current:
+  version: 1
+  date: '2026-10-19'
+  median: 2.69
+  iqr:
+  - 1.9
+  - 3.39
+  community:
+    cp: null
+    pro: null
+    gold: null
+    n_forecasters: null
+    as_of: '2026-10-19'
+next_review: null
+tripwires: []
+resolution:
+  outcome: null
+  date: null
+  source: null
