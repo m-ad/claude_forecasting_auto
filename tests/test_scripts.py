@@ -1033,10 +1033,98 @@ def one_shot_question(tmp_path, monkeypatch):
     }
     ledger = tmp_path / "forecasts.jsonl"
     monkeypatch.setattr(log_forecast, "LEDGER", ledger)
+    monkeypatch.setattr(log_forecast, "QUESTIONS", tmp_path)
     monkeypatch.setattr(log_forecast, "find_slug", lambda s: s)
     monkeypatch.setattr(log_forecast, "load_meta", lambda s: meta)
     monkeypatch.setattr(log_forecast, "save_meta", lambda s, m: None)
+    monkeypatch.delenv("FORECAST_DEADLINE", raising=False)
+    _research_log(tmp_path / "s", DEEP_RESEARCH)
     return ledger, meta
+
+
+def _search(category: str, status: str = "done") -> dict:
+    return {"category": category, "query": f"q {category}", "by": "main",
+            "status": status, "finding": "f"}
+
+
+# Eight done searches covering every required category: the floor, exactly.
+DEEP_RESEARCH = {
+    "searches": [_search(c) for c in log_forecast.REQUIRED_CATEGORIES]
+    + [_search("schedule"), _search("consensus"), _search("news")]
+}
+
+
+def _research_log(folder, log, date="2026-10-19") -> None:
+    (folder / "raw").mkdir(parents=True, exist_ok=True)
+    (folder / "raw" / f"research-log-{date}.json").write_text(
+        json.dumps(log), encoding="utf-8"
+    )
+
+
+def test_research_floor_counts_only_done_searches_and_required_categories():
+    assert log_forecast.research_log_problems(DEEP_RESEARCH) == []
+    planned = {"searches": DEEP_RESEARCH["searches"][:-1] + [_search("news", "planned")]}
+    assert log_forecast.research_log_problems(planned) == [
+        "7 searches done, the floor is 8"
+    ]
+    no_markets = {
+        "searches": [s for s in DEEP_RESEARCH["searches"] if s["category"] != "markets"]
+        + [_search("other")]
+    }
+    assert log_forecast.research_log_problems(no_markets) == [
+        "no search done yet for: markets"
+    ]
+
+
+def test_research_log_shape_problems_are_named_per_entry():
+    bad = {"searches": [{"category": "gossip", "query": " ", "status": "maybe"}, 3]}
+    problems = log_forecast.research_log_problems(bad, floor=False)
+    assert any("entry 1: category 'gossip'" in p for p in problems)
+    assert any("entry 1: empty query" in p for p in problems)
+    assert any("entry 1: status 'maybe'" in p for p in problems)
+    assert "entry 2 is not an object" in problems
+    assert log_forecast.research_log_problems([]) != []
+
+
+@pytest.mark.parametrize(
+    "log", [None, {"searches": DEEP_RESEARCH["searches"][:3]}], ids=["missing", "thin"]
+)
+def test_one_shot_forecast_waits_for_the_research_floor(one_shot_question, tmp_path, log):
+    ledger, _meta = one_shot_question
+    for f in (tmp_path / "s" / "raw").glob("research-log-*.json"):
+        f.unlink()
+    if log is not None:
+        _research_log(tmp_path / "s", log)
+    with pytest.raises(SystemExit, match="research floor not met"):
+        log_forecast.cmd_add(_add_args(median=0.2, lower=0.1, upper=0.3))
+    assert not ledger.exists(), "a refused forecast must not reach the ledger"
+
+
+def test_the_newest_research_log_is_the_one_checked(one_shot_question, tmp_path):
+    ledger, _meta = one_shot_question
+    _research_log(tmp_path / "s", {"searches": []}, date="2026-10-18")
+    log_forecast.cmd_add(_add_args(median=0.2, lower=0.1, upper=0.3))
+    assert len(_records(ledger)) == 1
+
+
+def test_the_research_floor_is_waived_near_the_deadline(
+    one_shot_question, tmp_path, monkeypatch, capsys
+):
+    ledger, _meta = one_shot_question
+    _research_log(tmp_path / "s", {"searches": []}, date="2026-10-20")
+    soon = dt.datetime.now(dt.UTC) + dt.timedelta(minutes=log_forecast.WAIVER_MINUTES - 2)
+    monkeypatch.setenv("FORECAST_DEADLINE", soon.strftime("%Y-%m-%dT%H:%M:%SZ"))
+    log_forecast.cmd_add(_add_args(median=0.2, lower=0.1, upper=0.3))
+    assert len(_records(ledger)) == 1
+    assert "research floor waived" in capsys.readouterr().err
+
+
+def test_the_research_floor_holds_while_time_remains(one_shot_question, tmp_path, monkeypatch):
+    _research_log(tmp_path / "s", {"searches": []}, date="2026-10-20")
+    later = dt.datetime.now(dt.UTC) + dt.timedelta(minutes=20)
+    monkeypatch.setenv("FORECAST_DEADLINE", later.strftime("%Y-%m-%dT%H:%M:%SZ"))
+    with pytest.raises(SystemExit, match="research floor not met"):
+        log_forecast.cmd_add(_add_args(median=0.2, lower=0.1, upper=0.3))
 
 
 def test_one_shot_question_refuses_a_second_forecast(one_shot_question):
@@ -1108,3 +1196,71 @@ def test_logging_rewrites_the_header_row_to_match_meta(tmp_path, monkeypatch):
     assert (folder / "forecast.md").read_text(encoding="utf-8") == (
         "| **Current forecast** | Median 12.0%, IQR [8.0%, 18.0%] (v1, 2026-10-19) |\n"
     )
+
+
+# ------------------------------------------------------------------ pdf_text.py
+def test_pdf_page_specs_are_one_based_and_clipped_to_the_document():
+    import pdf_text
+
+    assert pdf_text.parse_pages("1-3,9", 5) == [0, 1, 2]
+    assert pdf_text.parse_pages("2, 4-5", 10) == [1, 3, 4]
+    assert pdf_text.page_label([0, 1, 2, 4, 7, 8]) == "1-3,5,8-9"
+    for bad in ("0", "3-1", "a-b", "9"):
+        with pytest.raises(ValueError):
+            pdf_text.parse_pages(bad, 5)
+
+
+def test_pdf_stem_comes_from_the_url_or_the_given_name():
+    import pdf_text
+
+    url = "https://apps.fas.usda.gov/esrqs/StaticReports/WeeklyHighlightsReport.pdf?x=1"
+    assert pdf_text.stem_for(url, None) == "weeklyhighlightsreport"
+    assert pdf_text.stem_for(url, "FDOH Arbovirus W40") == "fdoh-arbovirus-w40"
+
+
+def test_pdf_text_writes_dated_markdown_into_the_question_and_keeps_tables(
+    tmp_path, monkeypatch, capsys
+):
+    pymupdf = pytest.importorskip("pymupdf")
+    import pdf_text
+
+    pdf = tmp_path / "report.pdf"
+    doc = pymupdf.open()
+    for i in range(3):
+        doc.new_page().insert_text((72, 72), f"Wheat net sales page {i + 1}: 319,900 MT")
+    doc.save(pdf)
+    (tmp_path / "q" / "s").mkdir(parents=True)
+    monkeypatch.setattr(pdf_text, "QUESTIONS", tmp_path / "q")
+    monkeypatch.setattr(pdf_text, "find_slug", lambda s: s)
+    monkeypatch.setattr(pdf_text, "today", lambda: "2026-10-19")
+    monkeypatch.setattr(sys, "argv", ["pdf_text.py", str(pdf), "s", "--pages", "2-3"])
+    pdf_text.main()
+    out = tmp_path / "q" / "s" / "raw" / "report-2026-10-19.md"
+    text = out.read_text(encoding="utf-8")
+    assert text.startswith(f"<!-- source: {pdf} | retrieved: ")
+    assert "pages 2-3 of 3" in text
+    assert "page 2: 319,900 MT" in text and "page 1:" not in text
+    assert "wrote" in capsys.readouterr().out
+
+
+def test_pdf_fetch_refuses_a_web_page_and_points_to_webfetch(monkeypatch):
+    import io
+
+    import pdf_text
+
+    class Resp(io.BytesIO):
+        def __init__(self, body: bytes) -> None:
+            super().__init__(body)
+            self.headers = {"Content-Type": "text/html"}
+
+        def __enter__(self):
+            return self
+
+        def __exit__(self, *a):
+            return False
+
+    monkeypatch.setattr(
+        pdf_text.urllib.request, "urlopen", lambda req, timeout: Resp(b"<html>hi</html>")
+    )
+    with pytest.raises(RuntimeError, match="WebFetch"):
+        pdf_text.fetch("https://example.org/report")

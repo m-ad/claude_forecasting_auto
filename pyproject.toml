@@ -13,7 +13,7 @@ dependencies = [
 package = false
 # `sim` is for the forecaster's own quantitative models (Monte Carlo, distribution
 # fits) in CI; default so a plain `uv run python` has it.
-default-groups = ["dev", "sim"]
+default-groups = ["dev", "research", "sim"]
 
 [dependency-groups]
 dev = [
@@ -21,6 +21,13 @@ dev = [
     # Pinned: ruff changes its default rule set between releases, and an
     # unpinned upgrade can turn CI red on code nobody touched.
     "ruff==0.17.0",
+]
+# PDF -> Markdown for scripts/pdf_text.py (resolution sources published as PDF).
+# Pinned below 2.0: pymupdf4llm 2.0 (2026-10-19) is an empty shim whose code moved
+# into pymupdf 2.x, released the same day; stay on the proven 1.x line until 2.x
+# has a track record. AGPL-3.0, which is fine for running it inside our own CI.
+research = [
+    "pymupdf4llm==1.28.2",
 ]
 sim = [
     "numpy>=2.0",

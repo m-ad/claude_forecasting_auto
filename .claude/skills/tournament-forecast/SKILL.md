@@ -21,26 +21,52 @@ Scoring is the **spot peer score**: a log score of your forecast at close, relat
 bots. Calibration and sharpness both pay; overconfidence on a wrong side costs far more than
 it ever earns. Not forecasting scores 0; a bad forecast scores below 0.
 
-## Rules (budget protection — follow verbatim)
+**Evidence is the binding constraint, not tokens.** The first 23 sessions of this bot finished
+in a median of 93 seconds of their 25 minutes, after 4 searches, and none spawned a scout.
+That is the failure mode to avoid: a forecast resting on three search snippets is sharp
+without being informed. The session has a cost cap and a clock; inside them, spend on
+research. Each question is forecast once and never revisited, so this is the only chance.
 
-1. **One retry maximum** per failing operation (a fetch, a search), then move on.
+## Rules
+
+1. **One retry maximum** per *failing* operation (a fetch, a search), then move on to another
+   source. A failure is not a reason to stop researching.
 2. **Never debug a script or tool failure.** If `log_forecast.py` rejects your input, read its
-   message, fix the *input*, retry once. Do not read or edit scripts.
-3. **Never re-read a file already read** and never re-run a search that returned usable results.
+   message, fix the *input*, retry. Do not read or edit scripts. A **research-floor refusal**
+   is not a failure: it means do the research it lists, then call `add` again.
+3. **Never re-read a file already read** and never re-run a query that returned usable
+   results; a *different* query on the same topic is research, not repetition.
 4. **Watch the clock.** `date -u` tells the time; `$FORECAST_DEADLINE` is when this session is
    killed. Log your forecast **at least 5 minutes before the deadline**, however rough. An
-   unlogged forecast is never submitted.
-5. **Search enough, then stop.** Aim for **8–16 searches** in total (yours plus any
-   `research-scout`'s); go up to **32** when the question needs it — a hard-to-find
-   resolution source, conflicting evidence, several independent streams. Cite at least 5
-   sources. The clock still wins: rule 4 comes first.
+   unlogged forecast is never submitted. Until then, use the time.
+5. **Search deeply.** At least **8 searches done** (yours plus your scouts'), covering the
+   resolution source, recent news, markets, the base rate and one search against your
+   view — `log_forecast.py` refuses the forecast below that floor. **Aim for 12–20**; go up to
+   **40** when the question needs it (a hard-to-find resolution source, conflicting evidence,
+   several independent streams). Cite at least 5 sources, primary ones first.
 6. **Never** run `git`, never touch `ledger/` by hand, never call Metaculus. The Metaculus token
    is not in this session's environment (GitHub injects secrets per step; only the scaffold
    and submit steps receive it), and the community prediction is hidden on tournament
-   questions anyway. Python is for models in your question folder, not for reaching
-   anything else. The session starts in the repository root: never `cd`, and run Python
-   only as `uv run python` — `cd` and bare `python3` are denied and cost a turn.
+   questions anyway. Python is for models in your question folder and for the PDF helper
+   (below), not for reaching anything else. Paths are relative to the repository root,
+   where the session starts; run Python only as `uv run python` — bare `python3` is denied.
 7. **Log exactly once.** A second `add` is refused: one forecast per question is a tournament rule.
+
+## Which tool for what
+
+The session runs in `dontAsk` mode: a command outside the allow list fails with no hint and
+costs a turn. Use these:
+
+| To … | Use | Not |
+|---|---|---|
+| read a file | `Read` (whole file; `offset`/`limit` for long ones) | `cat`, `head`, `sed` (denied) |
+| find files / search inside them | `Glob` / `Grep` | `find`, `rg`, `grep` in Bash |
+| know the time | `date -u` on its own | `date … && echo …` (`echo` is not allowed) |
+| read a web page | `WebFetch` with a prompt that asks for **exact figures, verbatim, with dates** (a small model summarises the page for you; vague prompts get vague numbers) | `curl`, `wget` (denied) |
+| read a **PDF** (by URL or path) | `uv run python scripts/pdf_text.py <url> <slug>` — writes `raw/<name>-<date>.md` (tables as Markdown tables) and prints the start; `Read`/`Grep` that file for the rest; `--pages 1-5,9` for long reports | `pdftotext` (denied), `WebFetch` on a PDF (often fails) |
+| run a model / parse JSON | `uv run python questions/<slug>/model.py`, `uv run python -c "…"` | `python3` (denied), `pip`, `uv add` (denied) |
+| spawn research | `Agent` with `subagent_type: research-scout` | — |
+| log | `uv run scripts/log_forecast.py add …` (once) | editing `ledger/` |
 
 ## Step 1 — Read the question (no network)
 
@@ -69,19 +95,74 @@ the typical volatility over the horizon.
 
 ## Step 3 — Research
 
-Use `WebSearch` / `WebFetch`. Priorities, in order:
+### 3a. Write the research plan first
+
+Before the first search, write `questions/<slug>/raw/research-log-<YYYY-MM-DD>.json` (today,
+UTC) with **at least 8 planned queries**, at least one per required category:
+
+```json
+{"searches": [
+  {"category": "resolution_source", "query": "USDA weekly export sales wheat October 2026",
+   "by": "main", "status": "planned", "finding": ""},
+  {"category": "markets", "query": "Polymarket OR Kalshi AMZN close October 30",
+   "by": "scout-2", "status": "planned", "finding": ""}
+]}
+```
+
+| `category` | What it covers | Required |
+|---|---|---|
+| `resolution_source` | the current value / latest release of exactly what resolves the question | yes |
+| `news` | developments of the last days (dates matter) | yes |
+| `markets` | Polymarket, Kalshi, Manifold, options-implied moves — "none found" is a finding | yes |
+| `base_rate` | historical data for the reference class of Step 2 | yes |
+| `disconfirmation` | the deliberate search for evidence against your emerging view | yes |
+| `schedule` | when the source publishes next; what happens if it does not | |
+| `consensus` | analyst / official forecasts, other forecasters' write-ups | |
+| `upcoming_events` | scheduled events inside the horizon (data releases, meetings, votes) | |
+| `other` | anything else | |
+
+`status` is `planned`, `done` or `skipped`; `by` is `main` or `scout-<n>`. As research proceeds,
+set each entry to `done` with a one-line `finding` (the number and its date, or "nothing
+relevant"), add the queries you and your scouts actually ran, and mark dropped ones `skipped`.
+**`log_forecast.py add` refuses the forecast until at least 8 entries are `done` and every
+required category has one** (waived automatically in the last 8 minutes before the deadline,
+so it can never cost you the forecast). Record honestly: the log is committed next to the
+forecast and audited.
+
+### 3b. Spawn research-scouts — the default, not the exception
+
+Right after the plan, spawn **2–3 `research-scout` subagents in one message** so they run in
+parallel; use **up to 5** when the question has that many independent streams (several
+data sources, several actors, a market and a separate base-rate history). Scouts run on a
+cheaper model and in the background, so they add evidence without adding much wall-clock
+time. Skip them only for a question whose whole answer is one number on one page — and say
+so in the log (`"by": "main"` throughout).
+
+Give each scout one narrow brief from your plan, e.g. "the latest value and release
+schedule of <source>; fetch the source itself", "news from the last 14 days about <X>",
+"prediction-market and options prices for <event>", "historical frequency of <reference
+class> since <year>". Ask for the queries it ran (to copy into the log), a dated digest with
+URLs, and the URL of any PDF it could not read (run `pdf_text.py` on it yourself — scouts
+have no shell).
+
+While they work, do your own research (3c). **Do not log before every scout has reported**,
+unless the deadline forces it. Integrate their digests yourself; never delegate the number.
+
+### 3c. Your own research
+
+Use `WebSearch` / `WebFetch` (and `pdf_text.py` for PDFs). Priorities, in order:
 
 1. **The resolution source itself** — the current value, the latest release, its schedule.
-   When it is a public page, open it with `WebFetch`: a number the forecast rests on never
-   comes from a search snippet alone.
+   Open it with `WebFetch` (or `pdf_text.py`): a number the forecast rests on never comes from
+   a search snippet alone.
 2. **Recent news** (the last days matter most; note dates).
 3. **Prediction markets** on the same event (Polymarket, Kalshi, Manifold — discount
    low-volume Manifold). Using other platforms' public forecasts is allowed by the rules.
-4. **Disconfirmation**: one deliberate search for evidence against your emerging view.
+4. **Base-rate data** for the outside view, when Step 2 rested on memory or a single number.
+5. **Disconfirmation**: at least one deliberate search for evidence against your emerging view.
 
-For a question with genuinely independent streams you may spawn up to **2** `research-scout`
-subagents in parallel (e.g. resolution-source data vs. news). Give each a narrow brief and ask
-for a dated digest with URLs. Integrate yourself; never delegate the number.
+Prefer primary sources (the statistical office, the company's filing, the agency's bulletin)
+over aggregator blogs; when only a secondary source has a number, say so.
 
 Record what you found under `### Evidence` (dated, with source numbers) and market prices under
 `### Other forecasters` (Metaculus row: "hidden — bot tournament").
@@ -152,5 +233,7 @@ uv run scripts/log_forecast.py add <slug> --median 622 --lower 610 --upper 635 \
     --distribution @questions/<slug>/raw/distribution-2026-10-19.json --thesis "..."
 ```
 
-No `--next-review`, no `--cp/--pro/--gold`. If it refuses, fix the input per its message and
-retry once. Then **stop**: reply with the summary block and exit.
+No `--next-review`, no `--cp/--pro/--gold`. If it refuses an input, fix the input per its
+message and retry. If it refuses for the **research floor**, run the searches it names, mark
+them `done` in the research log, and call `add` again. After the forecast is logged,
+**stop**: reply with the summary block and exit.

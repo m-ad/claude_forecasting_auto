@@ -36,6 +36,8 @@ Without both, the sweep fails at its first step and opens a `bot-health` issue.
 | Sweep cadence | `.github/workflows/tournament-sweep.yml` (`cron`) | every 30 min, at :11 and :41 |
 | Daily sync time | `.github/workflows/tournament-sync.yml` (`cron`) | 03:23 UTC |
 | Research subagent model | `.claude/agents/research-scout.md` (`model:`) | `sonnet` |
+| Research floor for one-shot questions | `scripts/log_forecast.py` (`MIN_SEARCHES`, `REQUIRED_CATEGORIES`, `WAIVER_MINUTES`) | 8 searches done; resolution source, news, markets, base rate, disconfirmation; waived 8 min before the deadline |
+| PDF extraction | `pyproject.toml` group `research` (`pymupdf4llm`), `scripts/pdf_text.py` | pinned `1.28.2`; first 30 pages unless `--pages` |
 | Tool permissions of the forecaster session | `.claude/settings.ci.json` | allowlist; `dontAsk` mode |
 | Which tournaments are polled, in what priority | `tournaments/registry.yaml` (`uv run scripts/tournament_registry.py`) | `minibench` active |
 | Too late to start a question | `scripts/tournament_poll.py` (`MIN_MINUTES_LEFT`) | 20 minutes before close |

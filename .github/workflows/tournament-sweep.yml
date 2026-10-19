@@ -175,15 +175,19 @@ jobs:
           # the checkout is untrusted. Intended: that list is for interactive sessions and
           # is broader; this session must run on settings.ci.json alone. Never mark the
           # runner's checkout trusted (hasTrustDialogAccepted) to silence it.
+          # stream-json, not json: research-scouts run in the background, which splits
+          # the session into several turns, and json reports only the last one's cost
+          # and denials. record_usage.py merges the per-turn result events.
           set +e
           claude -p "$prompt" \
             --model "$MODEL" \
             --effort "$EFFORT" \
-            --output-format json \
+            --output-format stream-json \
+            --verbose \
             --permission-mode dontAsk \
             --settings .claude/settings.ci.json \
             "${budget[@]}" \
-            > "$RUNNER_TEMP/claude.json"
+            > "$RUNNER_TEMP/claude.jsonl"
           code=$?
           set -e
           echo "exit_code=$code" >> "$GITHUB_OUTPUT"
@@ -228,7 +232,7 @@ jobs:
           SLUG: ${{ steps.prep.outputs.slug }}
           EXIT_CODE: ${{ steps.claude.outputs.exit_code }}
         run: |
-          uv run scripts/record_usage.py record --result "$RUNNER_TEMP/claude.json" \
+          uv run scripts/record_usage.py record --result "$RUNNER_TEMP/claude.jsonl" \
             --job tournament-sweep --run-id "$GITHUB_RUN_ID" --slug "$SLUG" --model "$MODEL" \
             ${EXIT_CODE:+--exit-code "$EXIT_CODE"} --summary >> "$GITHUB_STEP_SUMMARY"
 

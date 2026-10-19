@@ -10,7 +10,8 @@ description matches. This file is the human-readable map.
 | **forecast-update** | An individual question needs revisiting, or resolved and needs a post-mortem. Refuses one-shot questions. | `.claude/skills/forecast-update/SKILL.md` |
 
 Subagent: **research-scout** (`.claude/agents/research-scout.md`) — one narrow evidence
-stream, read-only, returns a dated digest. At most two per tournament question.
+stream, read-only, returns a dated digest and the queries it ran. Two to three per tournament
+question by default, up to five.
 
 ## Slash commands
 
@@ -27,12 +28,13 @@ stream, read-only, returns a dated digest. At most two per tournament question.
 |---|---|
 | `scripts/metaculus_api.py` | The only Metaculus client: official API, bot token, typed errors, redaction. CLI: `whoami`, `post`, `open`, `tournament`. |
 | `scripts/new_question.py` | Scaffold a question folder (from the API for Metaculus), cache the question text to `raw/`; `--tournament` for bot questions, `--reuse` for the sweep. |
-| `scripts/log_forecast.py` | Append a forecast (with `--distribution`), a resolution, or (from the submit script) a submission/late comment to `ledger/forecasts.jsonl`. Refuses a second forecast on a one-shot question. |
+| `scripts/log_forecast.py` | Append a forecast (with `--distribution`), a resolution, or (from the submit script) a submission/late comment to `ledger/forecasts.jsonl`. Refuses a second forecast on a one-shot question, and the first until its research log (`raw/research-log-<date>.json`) shows ≥ 8 searches across the required categories (waived in the last 8 minutes before `$FORECAST_DEADLINE`). |
 | `scripts/submit_metaculus.py` | Submit to Metaculus. One-shot questions: guards, forecast, private comment, ledger record (run by the sweep, the only submission path). Others: manual use only, nothing automated. |
 | `scripts/tournament_poll.py` | The sweep's no-LLM gate: budget, token, open unforecast questions in priority order. |
 | `scripts/tournament_sync.py` | Daily reconcile: missed windows, comment retries, resolutions with official scores, `INDEX.md`. |
 | `scripts/tournament_registry.py` | Read/write `tournaments/registry.yaml` (maintainer only). |
-| `scripts/record_usage.py` | Token/cost record per Claude run (`ledger/usage.jsonl`) and the rolling spend report. |
+| `scripts/record_usage.py` | Token/cost record per Claude run (`ledger/usage.jsonl`: cost, turns, searches, subagents spawned, denied tools) and the rolling spend report. Merges the per-turn results of a `stream-json` session. |
+| `scripts/pdf_text.py` | PDF (URL or path) → Markdown in `questions/<slug>/raw/<name>-<date>.md`, tables kept (pymupdf4llm). The forecaster's way to read a PDF resolution source: `uv run python scripts/pdf_text.py <url> <slug> [--pages 1-5]`. |
 | `scripts/ci_commit.sh` | The workflows' commit step: validate, commit, rebase-push with backoff. |
 | `scripts/ci_guard.py` | After the forecaster session: undo every change outside its question folder and its own ledger lines (stdlib only, run from `HEAD`). |
 | `scripts/status.py` | List questions by urgency; `--index` regenerates `INDEX.md`. |
