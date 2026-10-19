@@ -1,0 +1,47 @@
+slug: 2026-10-19-mc46128-2026-eastern-pacific-hurricane-season-s-accumulated
+title: Will the 2026 Eastern Pacific hurricane season's accumulated cyclone energy exceed 350 units as
+  of October 29, 2026?
+source: metaculus
+url: https://www.metaculus.com/questions/46128/
+post_id: 46128
+question_id: 46357
+type: binary
+unit: null
+tags: []
+dates:
+  created: '2026-10-19'
+  opened: '2026-10-19'
+  closes: '2026-10-19'
+  resolves: '2026-10-29'
+status: open
+tournament:
+  slug: minibench
+  mode: one_shot
+  registered: '2026-10-19'
+  opened: '2026-10-19T02:21:37Z'
+  closes: '2026-10-19T05:21:37Z'
+  submitted: '2026-10-19T02:45:47+00:00'
+  submitted_forecast:
+    probability_yes: 0.6
+  comment_posted: true
+  official_score: null
+  missed_window: false
+current:
+  version: 1
+  date: '2026-10-19'
+  median: 0.6
+  iqr:
+  - 0.48
+  - 0.72
+  community:
+    cp: null
+    pro: null
+    gold: null
+    n_forecasters: null
+    as_of: '2026-10-19'
+next_review: null
+tripwires: []
+resolution:
+  outcome: null
+  date: null
+  source: null

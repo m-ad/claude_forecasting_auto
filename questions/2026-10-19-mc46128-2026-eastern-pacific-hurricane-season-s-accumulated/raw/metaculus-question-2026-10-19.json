@@ -1,0 +1,38 @@
+{
+  "post_id": 46128,
+  "url": "https://www.metaculus.com/questions/46128/",
+  "post_title": "Will the 2026 Eastern Pacific hurricane season's accumulated cyclone energy exceed 350 units as of October 29, 2026?",
+  "tournaments": [
+    "minibench"
+  ],
+  "options": null,
+  "question": {
+    "id": 46357,
+    "title": "Will the 2026 Eastern Pacific hurricane season's accumulated cyclone energy exceed 350 units as of October 29, 2026?",
+    "type": "binary",
+    "status": "open",
+    "description": "Accumulated cyclone energy (ACE) is a metric that combines the intensity and duration of tropical cyclones, computed as the sum of the squares of maximum sustained winds (in knots) measured every six hours for all named storms while at least at tropical-storm strength (see https://en.wikipedia.org/wiki/Accumulated_cyclone_energy). The Eastern (Northeast) Pacific basin covers the area east of 140°W.\n\nThe 2026 Pacific hurricane season has been extraordinarily active. In mid-October 2026 it surpassed the 2018 season (ACE ~318) to set the all-time record for the basin. As of October 16, 2026, Colorado State University's real-time tracker and Ryan Maue's Climatlas showed a Northeast Pacific season total of roughly 336.7, with Hurricane Trudy still active and contributing. (Earlier mid-October figures ranged from about 330 to 337 across sources as the total climbed.) The Washington Post (Oct 12, 2026) reported the Pacific ACE at more than twice the typical mid-October value.\n\nThe official Eastern Pacific season runs June 1–November 30, but activity drops sharply in late October and November. Further ACE accrual before the resolution date depends on whether Trudy persists/intensifies and whether new storms form. Reaching a season total above 350 would require roughly 13+ additional ACE units from the mid-October baseline of about 336.7.\n\nColorado State University's Real-Time Global Tropical Cyclone Activity page (https://tropical.atmos.colostate.edu/Realtime/) compiles per-storm and season-total ACE for each basin from operational best tracks of the NHC, CPHC, and JTWC, and is updated frequently throughout the season.\n\n`{\"format\": \"llm_question\", \"info\": {\"sdk_version\": \"0.6.0\", \"rating\": {\"quality\": 3, \"ambiguity\": 3, \"resolvability\": 4, \"passes\": true}}}`",
+    "resolution_criteria": "This question resolves YES if the Northeast Pacific Ocean Accumulated Cyclone Energy (ACE) value for the 2026 season, as reported on Colorado State University's Real-Time Global Tropical Cyclone Activity page for the Northeast Pacific basin (https://tropical.atmos.colostate.edu/Realtime/index.php?loc=northeastpacific), is greater than 350.0 when the value is read on October 29, 2026 (using the \"Current Season Northeast Pacific Ocean ACE\" total shown at the bottom of the per-storm table). Otherwise it resolves NO. For example, a reported season total of 352.4 resolves YES; a total of 348.0 resolves NO.",
+    "fine_print": "The ACE figure is the full-season cumulative Northeast Pacific total (basin east of 140°W), which already incorporates activity accrued earlier in the 2026 season; the question turns on whether the cumulative total exceeds 350.0 as read on the resolution date. If the CSU page is temporarily not updated, the most recent value it displays on October 29, 2026 is used. If the CSU real-time page is permanently unavailable, the equivalent real-time Northeast Pacific ACE total from Climatlas (https://climatlas.com/tropical/) is used instead. If neither source is available, the question is annulled.",
+    "unit": "",
+    "options": null,
+    "scaling": {
+      "range_min": null,
+      "range_max": null,
+      "nominal_min": null,
+      "nominal_max": null,
+      "zero_point": null,
+      "open_upper_bound": false,
+      "open_lower_bound": false,
+      "inbound_outcome_count": null,
+      "continuous_range": null
+    },
+    "open_lower_bound": false,
+    "open_upper_bound": false,
+    "inbound_outcome_count": null,
+    "open_time": "2026-10-19T02:21:37Z",
+    "scheduled_close_time": "2026-10-19T05:21:37Z",
+    "scheduled_resolve_time": "2026-10-29T18:00:00Z",
+    "resolution": null
+  }
+}
