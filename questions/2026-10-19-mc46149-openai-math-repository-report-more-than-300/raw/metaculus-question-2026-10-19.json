@@ -1,0 +1,38 @@
+{
+  "post_id": 46149,
+  "url": "https://www.metaculus.com/questions/46149/",
+  "post_title": "Will the openai/math repository report more than 300 top-line results formalized in Lean as of October 29, 2026?",
+  "tournaments": [
+    "minibench"
+  ],
+  "options": null,
+  "question": {
+    "id": 46378,
+    "title": "Will the openai/math repository report more than 300 top-line results formalized in Lean as of October 29, 2026?",
+    "type": "binary",
+    "status": "open",
+    "description": "On October 6, 2026, OpenAI published a repository at https://github.com/openai/math containing 719 mathematical manuscripts organized into 372 families, produced by an unreleased internal OpenAI model, along with Lean formalizations of many of the proofs. Lean is a programming language and proof assistant that allows mathematical proofs to be checked by a computer. OpenAI stated: \"We will update the repository with more formalizations as we obtain them.\"\n\nAt launch (October 6, 2026), the repository reported 162 of 722 top-line results formalized. Shortly after, three manuscripts were withdrawn due to a sign error, reducing the denominator to 719. The repository's history log (history.md) entry dated around October 13, 2026 states: \"We have added an additional 6 formalizations and 5 other additions covering supporting results. This brings the total percentage of top-line results formalized to 300 / 719 = ~42%.\" The repository's main README currently states \"~42% top-line results formalized.\"\n\nA \"top-line result\" refers to the main result of a manuscript/family, as counted by OpenAI in its reported fraction. The count jumped from 162 to 300 within roughly a week (a substantial one-time backfill), but the most recent commit to the repository as of mid-October 2026 was dated October 12, 2026, and the repository has only five commits total. OpenAI has not announced any committed cadence for adding further formalizations. The central question is therefore whether OpenAI will add any additional top-line formalizations — pushing the reported count above 300 — by late October 2026, or whether the figure will remain at 300.\n\n`{\"format\": \"llm_question\", \"info\": {\"sdk_version\": \"0.6.0\", \"rating\": {\"quality\": 3, \"ambiguity\": 3, \"resolvability\": 4, \"passes\": true}}}`",
+    "resolution_criteria": "This question resolves YES if, when the openai/math repository's history log at https://github.com/openai/math/blob/main/history.md is read on October 29, 2026 (UTC), the most recent entry reports more than 300 top-line results formalized in Lean. The relevant figure is the numerator of the \"total percentage of top-line results formalized\" fraction in the most recent history entry (for example, the October 13, 2026 entry states \"300 / 719 = ~42%\", a numerator of 300, which would resolve NO). If the most recent entry instead reports a cumulative count of top-line results formalized, that count is used. The question resolves NO if that figure is 300 or fewer.",
+    "fine_print": "If history.md does not state an explicit numerator but the repository's main README (https://github.com/openai/math) states a percentage of top-line results formalized, the figure is that percentage multiplied by the total number of top-line results the repository states at that time (currently 719), rounded to the nearest whole number. A decrease in the reported figure (for example from further manuscript withdrawals) resolves NO. If the openai/math repository and its history log are permanently unavailable on October 29, 2026, the question is annulled. Only the value as reported on October 29, 2026 (UTC) is used.",
+    "unit": "",
+    "options": null,
+    "scaling": {
+      "range_min": null,
+      "range_max": null,
+      "nominal_min": null,
+      "nominal_max": null,
+      "zero_point": null,
+      "open_upper_bound": false,
+      "open_lower_bound": false,
+      "inbound_outcome_count": null,
+      "continuous_range": null
+    },
+    "open_lower_bound": false,
+    "open_upper_bound": false,
+    "inbound_outcome_count": null,
+    "open_time": "2026-10-19T16:57:22Z",
+    "scheduled_close_time": "2026-10-19T19:57:22Z",
+    "scheduled_resolve_time": "2026-10-29T23:59:00Z",
+    "resolution": null
+  }
+}

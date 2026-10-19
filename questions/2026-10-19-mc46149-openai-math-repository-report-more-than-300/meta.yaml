@@ -1,0 +1,47 @@
+slug: 2026-10-19-mc46149-openai-math-repository-report-more-than-300
+title: Will the openai/math repository report more than 300 top-line results formalized in Lean as of
+  October 29, 2026?
+source: metaculus
+url: https://www.metaculus.com/questions/46149/
+post_id: 46149
+question_id: 46378
+type: binary
+unit: null
+tags: []
+dates:
+  created: '2026-10-19'
+  opened: '2026-10-19'
+  closes: '2026-10-19'
+  resolves: '2026-10-29'
+status: open
+tournament:
+  slug: minibench
+  mode: one_shot
+  registered: '2026-10-19'
+  opened: '2026-10-19T16:57:22Z'
+  closes: '2026-10-19T19:57:22Z'
+  submitted: '2026-10-19T17:15:16+00:00'
+  submitted_forecast:
+    probability_yes: 0.2
+  comment_posted: true
+  official_score: null
+  missed_window: false
+current:
+  version: 1
+  date: '2026-10-19'
+  median: 0.2
+  iqr:
+  - 0.12
+  - 0.3
+  community:
+    cp: null
+    pro: null
+    gold: null
+    n_forecasters: null
+    as_of: '2026-10-19'
+next_review: null
+tripwires: []
+resolution:
+  outcome: null
+  date: null
+  source: null
