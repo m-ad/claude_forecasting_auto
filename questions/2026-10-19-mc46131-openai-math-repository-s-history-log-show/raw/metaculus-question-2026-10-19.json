@@ -1,0 +1,38 @@
+{
+  "post_id": 46131,
+  "url": "https://www.metaculus.com/questions/46131/",
+  "post_title": "Will the openai/math repository's history log show more than three total withdrawn manuscripts as of October 29, 2026?",
+  "tournaments": [
+    "minibench"
+  ],
+  "options": null,
+  "question": {
+    "id": 46360,
+    "title": "Will the openai/math repository's history log show more than three total withdrawn manuscripts as of October 29, 2026?",
+    "type": "binary",
+    "status": "open",
+    "description": "On October 6, 2026, OpenAI released a public GitHub repository (openai/math) containing 722 AI-generated mathematical manuscripts covering 372 \"result families\" across geometry, algebra, computer science and other fields. On October 7, 2026 — less than 24 hours after release — OpenAI withdrew three manuscripts after a sign error in \"Algebraicity of Weil classes on split abelian eightfolds\" was found to invalidate its central argument and the construction relied on by two dependent papers (\"Algebraicity of Kuga–Satake Correspondences for K3 Surfaces\" and \"The rational Hodge conjecture for products of K3 surfaces\"). The repository then listed 719 manuscripts. Fourteen other manuscripts were revised with fixes. OpenAI stated that where errors are identified it will \"correct them promptly and withdraw papers if no fixes can be found,\" and a research lead said the repo would be updated with errata. Independent scrutiny has been intense: commentators noted that a large share of top-line results lacked machine-checkable (Lean) certificates (about 42% of top-line results were reported formalized as of early October), that few humans had yet verified the proofs, and the Association for Human Mathematics urged a boycott. Withdrawals are logged in the repository's history file (history.md), which as of mid-October 2026 records only the three October 7 withdrawals. The question tracks whether further scrutiny leads to at least one additional manuscript being withdrawn.\n\n`{\"format\": \"llm_question\", \"info\": {\"sdk_version\": \"0.6.0\", \"rating\": {\"quality\": 3, \"ambiguity\": 4, \"resolvability\": 4, \"passes\": true}}}`",
+    "resolution_criteria": "This question resolves YES if, as of 23:59 UTC on October 29, 2026, the history log at https://github.com/openai/math/blob/main/history.md lists more than three (i.e., four or more) distinct manuscripts as withdrawn, counting all withdrawal entries in the log cumulatively since the repository's launch. As of the question's creation the log records exactly three withdrawn manuscripts (announced October 7, 2026: \"Algebraicity of Weil classes on split abelian eightfolds\", \"Algebraicity of Kuga–Satake Correspondences for K3 Surfaces\", and \"The rational Hodge conjecture for products of K3 surfaces\"). The question resolves YES only if at least one additional, distinct manuscript (beyond those three) appears as withdrawn in the log. If history.md is unavailable, resolution will rely on equivalent withdrawal records elsewhere in the repository or on [credible sources](https://www.metaculus.com/faq/#definitions); if no withdrawal information is published anywhere, the question is annulled.",
+    "fine_print": "A manuscript counts as \"withdrawn\" only if the history log (or an equivalent official repository record) explicitly designates it as withdrawn/retracted. Manuscripts that are merely revised, corrected, updated, or re-titled without being designated as withdrawn do not count. Re-listing or re-describing any of the three already-withdrawn October 7, 2026 manuscripts does not count toward the \"more than three\" threshold; only distinct additional manuscripts do.",
+    "unit": "",
+    "options": null,
+    "scaling": {
+      "range_min": null,
+      "range_max": null,
+      "nominal_min": null,
+      "nominal_max": null,
+      "zero_point": null,
+      "open_upper_bound": false,
+      "open_lower_bound": false,
+      "inbound_outcome_count": null,
+      "continuous_range": null
+    },
+    "open_lower_bound": false,
+    "open_upper_bound": false,
+    "inbound_outcome_count": null,
+    "open_time": "2026-10-19T03:18:17Z",
+    "scheduled_close_time": "2026-10-19T06:18:17Z",
+    "scheduled_resolve_time": "2026-10-30T00:00:00Z",
+    "resolution": null
+  }
+}

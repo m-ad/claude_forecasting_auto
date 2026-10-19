@@ -1,0 +1,47 @@
+slug: 2026-10-19-mc46131-openai-math-repository-s-history-log-show
+title: Will the openai/math repository's history log show more than three total withdrawn manuscripts
+  as of October 29, 2026?
+source: metaculus
+url: https://www.metaculus.com/questions/46131/
+post_id: 46131
+question_id: 46360
+type: binary
+unit: null
+tags: []
+dates:
+  created: '2026-10-19'
+  opened: '2026-10-19'
+  closes: '2026-10-19'
+  resolves: '2026-10-30'
+status: open
+tournament:
+  slug: minibench
+  mode: one_shot
+  registered: '2026-10-19'
+  opened: '2026-10-19T03:18:17Z'
+  closes: '2026-10-19T06:18:17Z'
+  submitted: '2026-10-19T03:43:49+00:00'
+  submitted_forecast:
+    probability_yes: 0.12
+  comment_posted: true
+  official_score: null
+  missed_window: false
+current:
+  version: 1
+  date: '2026-10-19'
+  median: 0.12
+  iqr:
+  - 0.07
+  - 0.19
+  community:
+    cp: null
+    pro: null
+    gold: null
+    n_forecasters: null
+    as_of: '2026-10-19'
+next_review: null
+tripwires: []
+resolution:
+  outcome: null
+  date: null
+  source: null
