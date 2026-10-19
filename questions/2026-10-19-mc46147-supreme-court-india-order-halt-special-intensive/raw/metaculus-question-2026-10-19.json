@@ -1,0 +1,38 @@
+{
+  "post_id": 46147,
+  "url": "https://www.metaculus.com/questions/46147/",
+  "post_title": "Will the Supreme Court of India order a halt to the Special Intensive Revision of electoral rolls before October 30, 2026?",
+  "tournaments": [
+    "minibench"
+  ],
+  "options": null,
+  "question": {
+    "id": 46376,
+    "title": "Will the Supreme Court of India order a halt to the Special Intensive Revision of electoral rolls before October 30, 2026?",
+    "type": "binary",
+    "status": "open",
+    "description": "Since September 2026, India has seen near-daily protests across Delhi, Mumbai, Hyderabad and other cities demanding the resignation of Chief Election Commissioner Gyanesh Kumar and the scrapping of the Election Commission of India's (ECI) Special Intensive Revision (SIR) of electoral rolls. Critics, including the Congress-led INDIA opposition bloc and the youth-led \"Cockroach Janta Party\" (CJP) movement, allege the SIR has led to the deletion of roughly 130 million (13 crore) names from voter lists and has given the ruling BJP an electoral advantage in states such as Bihar and West Bengal.\n\nThe Supreme Court of India previously validated the SIR exercise in a May 27, 2026 ruling (Association for Democratic Reforms v Election Commission of India), affirming the ECI's constitutional mandate under Article 324. However, in subsequent hearings the Court has repeatedly questioned the ECI's implementation — in September 2026 it criticised \"mechanical,\" \"machine-generated\" notices and asked the ECI to examine whether additional filters were needed before issuing them.\n\nMultiple petitions are pending. On October 14, 2026, the Court (a Bench of Chief Justice Surya Kant and Justice Joymalya Bagchi) advanced to October 28, 2026 the hearing on a petition seeking disclosure of the list of Delhi electors issued notices, and was reported to be \"thinking of passing an order.\" On October 15, 2026, the Court issued notice to the ECI and CEC on a Rahul Gandhi/INDIA bloc plea challenging the revision and alleging voter deletions; the opposition is separately seeking a halt to the SIR. As of mid-October 2026, the Court had not stayed or halted the SIR, and the ECI was continuing the exercise.\n\n`{\"format\": \"llm_question\", \"info\": {\"sdk_version\": \"0.6.0\", \"rating\": {\"quality\": 4, \"ambiguity\": 3, \"resolvability\": 4, \"passes\": true}}}`",
+    "resolution_criteria": "This question resolves YES if, as of 23:59 IST on October 29, 2026, the Supreme Court of India has issued a judicial order (interim or final) that stays, halts, suspends, or directs the discontinuation of the Election Commission of India's ongoing Special Intensive Revision (SIR) of electoral rolls — either the exercise as a whole or its core step of deleting names from, or finalising, the electoral rolls — in one or more specific states/union territories where it is in progress or nationwide, and that order is in effect at that time. It resolves NO if no such order has been issued, including if the Court declines to stay the SIR, issues only procedural directions (such as ordering disclosure of lists of notices, adding filters, adjourning the matter, or seeking responses from the Election Commission) without halting the exercise or its core deletion/finalisation step, or reserves/postpones its order. Resolution is based on reporting from [credible sources](https://www.metaculus.com/faq/#definitions), including the official Supreme Court of India record of the relevant proceedings.",
+    "fine_print": "An order that merely requires the Election Commission to modify procedures (e.g., add filters before issuing notices, publish reasons for deletions, or provide a re-inclusion mechanism) while the SIR's core deletion/finalisation of rolls continues does NOT count as a halt. A pause limited to one ancillary sub-step of the SIR (such as the issuance of notices) while the broader revision and roll finalisation continue does NOT count. A stay of the SIR (or its core deletion/finalisation step) limited to a single state/union territory DOES count as YES. If the SIR has already concluded or been withdrawn by the Election Commission on its own, and no Court order halting it has been issued, the question resolves NO.",
+    "unit": "",
+    "options": null,
+    "scaling": {
+      "range_min": null,
+      "range_max": null,
+      "nominal_min": null,
+      "nominal_max": null,
+      "zero_point": null,
+      "open_upper_bound": false,
+      "open_lower_bound": false,
+      "inbound_outcome_count": null,
+      "continuous_range": null
+    },
+    "open_lower_bound": false,
+    "open_upper_bound": false,
+    "inbound_outcome_count": null,
+    "open_time": "2026-10-19T16:14:14Z",
+    "scheduled_close_time": "2026-10-19T19:14:14Z",
+    "scheduled_resolve_time": "2026-10-30T00:00:00Z",
+    "resolution": null
+  }
+}

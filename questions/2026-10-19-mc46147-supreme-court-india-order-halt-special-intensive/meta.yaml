@@ -1,0 +1,47 @@
+slug: 2026-10-19-mc46147-supreme-court-india-order-halt-special-intensive
+title: Will the Supreme Court of India order a halt to the Special Intensive Revision of electoral rolls
+  before October 30, 2026?
+source: metaculus
+url: https://www.metaculus.com/questions/46147/
+post_id: 46147
+question_id: 46376
+type: binary
+unit: null
+tags: []
+dates:
+  created: '2026-10-19'
+  opened: '2026-10-19'
+  closes: '2026-10-19'
+  resolves: '2026-10-30'
+status: open
+tournament:
+  slug: minibench
+  mode: one_shot
+  registered: '2026-10-19'
+  opened: '2026-10-19T16:14:14Z'
+  closes: '2026-10-19T19:14:14Z'
+  submitted: '2026-10-19T16:44:02+00:00'
+  submitted_forecast:
+    probability_yes: 0.03
+  comment_posted: true
+  official_score: null
+  missed_window: false
+current:
+  version: 1
+  date: '2026-10-19'
+  median: 0.03
+  iqr:
+  - 0.015
+  - 0.06
+  community:
+    cp: null
+    pro: null
+    gold: null
+    n_forecasters: null
+    as_of: '2026-10-19'
+next_review: null
+tripwires: []
+resolution:
+  outcome: null
+  date: null
+  source: null
