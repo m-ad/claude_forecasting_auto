@@ -1,0 +1,89 @@
+slug: 2026-10-19-mc46153-how-many-japan-s-47-prefectures-influenza
+title: How many of Japan's 47 prefectures will be at the influenza warning level (≥30 cases per sentinel
+  institution) in the MHLW weekly report for the week ending October 25, 2026?
+source: metaculus
+url: https://www.metaculus.com/questions/46153/
+post_id: 46153
+question_id: 46382
+type: discrete
+unit: prefectures
+tags: []
+dates:
+  created: '2026-10-19'
+  opened: '2026-10-19'
+  closes: '2026-10-19'
+  resolves: '2026-10-30'
+status: open
+tournament:
+  slug: minibench
+  mode: one_shot
+  registered: '2026-10-19'
+  opened: '2026-10-19T18:37:08Z'
+  closes: '2026-10-19T21:37:08Z'
+  submitted: '2026-10-19T18:46:27+00:00'
+  submitted_forecast:
+    continuous_cdf:
+    - 0.0
+    - 0.33702398418078994
+    - 0.6128613017413848
+    - 0.7724397302072893
+    - 0.8463537140771065
+    - 0.8957921423480414
+    - 0.9207550150200943
+    - 0.9443080573574361
+    - 0.959795670514311
+    - 0.9693811270670157
+    - 0.9753867446808657
+    - 0.9792210802214673
+    - 0.9817384666137593
+    - 0.9834570829703189
+    - 0.9846912208101471
+    - 0.9856315075756058
+    - 0.9863935646550698
+    - 0.987047519965507
+    - 0.9876359082386603
+    - 0.9881845280934345
+    - 0.9887090271831733
+    - 0.9892188962893824
+    - 0.9897198918620299
+    - 0.9902155053645122
+    - 0.9907078544764265
+    - 0.9911982236353761
+    - 0.9916873918921477
+    - 0.9921758317649292
+    - 0.9926638298504885
+    - 0.9931515599785525
+    - 0.9936391275821803
+    - 0.9941265966097544
+    - 0.9946140058479296
+    - 0.9951013788220012
+    - 0.9955887298007824
+    - 0.9960760674387453
+    - 0.996563396985093
+    - 0.9970507216236281
+    - 0.9975380432854242
+    - 0.9980253631417368
+    - 0.9985126819029686
+    - 0.999
+  comment_posted: true
+  official_score: null
+  missed_window: false
+current:
+  version: 1
+  date: '2026-10-19'
+  median: 1.0
+  iqr:
+  - 0.2
+  - 2.0
+  community:
+    cp: null
+    pro: null
+    gold: null
+    n_forecasters: null
+    as_of: '2026-10-19'
+next_review: null
+tripwires: []
+resolution:
+  outcome: null
+  date: null
+  source: null
