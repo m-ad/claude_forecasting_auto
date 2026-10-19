@@ -1,0 +1,38 @@
+{
+  "post_id": 46150,
+  "url": "https://www.metaculus.com/questions/46150/",
+  "post_title": "Will Russia and Ukraine have a Black Sea maritime ceasefire or safe-passage agreement in effect as of October 30, 2026?",
+  "tournaments": [
+    "minibench"
+  ],
+  "options": null,
+  "question": {
+    "id": 46379,
+    "title": "Will Russia and Ukraine have a Black Sea maritime ceasefire or safe-passage agreement in effect as of October 30, 2026?",
+    "type": "binary",
+    "status": "open",
+    "description": "As of mid-October 2026, Russia and Ukraine have no agreement protecting Black Sea commercial shipping. The 2022 Black Sea Grain Initiative, brokered by Türkiye and the UN, collapsed in July 2023 after Russia withdrew. Through 2026, attacks on each other's Black Sea port infrastructure intensified, pushing wheat futures to a three-year high in August 2026.\n\nIn late September 2026, a new diplomatic effort began on the sidelines of the UN General Assembly, with Türkiye, the UN, the US, European countries, India, and Egypt involved. Türkiye and the UN set up fresh talks (reported by Bloomberg on October 1, 2026), with envoys from the Swiss NGO Centre for Humanitarian Dialogue serving as mediators, aiming to protect grain shipments as global food prices surged.\n\nHowever, Russia has repeatedly rejected ceasefire proposals. On September 28, 2026, Ukraine's agriculture minister Taras Vysotsky said Russia had rejected all options for a grain truce and that a deal was difficult to imagine \"in the coming months.\" On October 3, 2026, Russia again rejected a limited Black Sea truce, and on October 12 rejected a proposed 60-day ceasefire. A brief energy-infrastructure truce (covering strikes on energy facilities, not shipping) announced in mid-October collapsed by October 16, 2026, when Ukraine resumed strikes on a Russian oil refinery and Zelenskyy said he felt \"betrayed\" by Trump.\n\nThe status quo as of mid-October 2026 is that no bilateral Black Sea maritime/shipping ceasefire or safe-passage agreement is in effect, though mediated talks remain ongoing.\n\n`{\"format\": \"llm_question\", \"info\": {\"sdk_version\": \"0.6.0\", \"rating\": {\"quality\": 3, \"ambiguity\": 3, \"resolvability\": 4, \"passes\": true}}}`",
+    "resolution_criteria": "This question resolves YES if, at any point from October 29, 2026 (00:00 UTC) through October 30, 2026 (23:59 UTC), official representatives of both Russia and Ukraine have publicly confirmed a mutually agreed arrangement — whether called a ceasefire, truce, moratorium, safe-passage corridor, or grain/shipping agreement — under which both sides commit to halt military attacks on commercial (civilian) shipping and/or port infrastructure in the Black Sea, as reported by [credible sources](https://www.metaculus.com/faq/#definitions). The agreement must be bilateral (committed to by both Russia and Ukraine, directly or through named mediators such as Türkiye or the UN) and must specifically cover Black Sea maritime shipping and/or port facilities. Otherwise the question resolves NO.",
+    "fine_print": "A unilateral declaration, a proposal, or an agreement in principle that one side publicly rejects or that is not confirmed by both parties does not count. An agreement limited solely to energy infrastructure (e.g. strikes on oil refineries or power facilities) with no provision covering Black Sea shipping or ports does not count. A broader general ceasefire covering the entire war counts if it is in effect and necessarily includes Black Sea operations. If such an agreement was announced before October 29, 2026 and remains publicly in effect (not withdrawn, suspended, or declared void by either party) as of the resolution window, the question resolves YES. If sources conflict on whether a confirmed bilateral agreement exists, the question resolves based on the preponderance of reporting from credible sources.",
+    "unit": "",
+    "options": null,
+    "scaling": {
+      "range_min": null,
+      "range_max": null,
+      "nominal_min": null,
+      "nominal_max": null,
+      "zero_point": null,
+      "open_upper_bound": false,
+      "open_lower_bound": false,
+      "inbound_outcome_count": null,
+      "continuous_range": null
+    },
+    "open_lower_bound": false,
+    "open_upper_bound": false,
+    "inbound_outcome_count": null,
+    "open_time": "2026-10-19T17:47:40Z",
+    "scheduled_close_time": "2026-10-19T20:47:40Z",
+    "scheduled_resolve_time": "2026-10-30T23:59:00Z",
+    "resolution": null
+  }
+}

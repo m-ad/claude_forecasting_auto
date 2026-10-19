@@ -1,0 +1,47 @@
+slug: 2026-10-19-mc46150-russia-ukraine-have-black-sea-maritime-ceasefire
+title: Will Russia and Ukraine have a Black Sea maritime ceasefire or safe-passage agreement in effect
+  as of October 30, 2026?
+source: metaculus
+url: https://www.metaculus.com/questions/46150/
+post_id: 46150
+question_id: 46379
+type: binary
+unit: null
+tags: []
+dates:
+  created: '2026-10-19'
+  opened: '2026-10-19'
+  closes: '2026-10-19'
+  resolves: '2026-10-30'
+status: open
+tournament:
+  slug: minibench
+  mode: one_shot
+  registered: '2026-10-19'
+  opened: '2026-10-19T17:47:40Z'
+  closes: '2026-10-19T20:47:40Z'
+  submitted: '2026-10-19T18:16:02+00:00'
+  submitted_forecast:
+    probability_yes: 0.025
+  comment_posted: true
+  official_score: null
+  missed_window: false
+current:
+  version: 1
+  date: '2026-10-19'
+  median: 0.025
+  iqr:
+  - 0.015
+  - 0.04
+  community:
+    cp: null
+    pro: null
+    gold: null
+    n_forecasters: null
+    as_of: '2026-10-19'
+next_review: null
+tripwires: []
+resolution:
+  outcome: null
+  date: null
+  source: null
