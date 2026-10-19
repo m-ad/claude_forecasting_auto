@@ -1,0 +1,38 @@
+{
+  "post_id": 46137,
+  "url": "https://www.metaculus.com/questions/46137/",
+  "post_title": "Will the White House have a named permanent press secretary succeeding Katie Zacharia as of October 30, 2026?",
+  "tournaments": [
+    "minibench"
+  ],
+  "options": null,
+  "question": {
+    "id": 46366,
+    "title": "Will the White House have a named permanent press secretary succeeding Katie Zacharia as of October 30, 2026?",
+    "type": "binary",
+    "status": "open",
+    "description": "Karoline Leavitt stepped down as White House Press Secretary in late August 2026. After a search that reportedly stalled repeatedly — CNN reported that candidates were disqualified after officials discovered past criticism of President Trump — Trump announced conservative commentator Katie Zacharia for the role via Truth Social on October 9, 2026. Zacharia gave her debut briefing on October 13, 2026, but her tenure quickly unraveled amid scrutiny of her background, including her acknowledgment on October 15–16 that she had represented herself as a lawyer despite failing the California bar exam. On October 16, 2026, multiple outlets (Reuters, NYT, Politico, Guardian) reported she was \"let go\"/\"transitioning out\" after just five days — making her the shortest-serving press secretary in White House history. Wikipedia lists the office as \"Vacant since October 16, 2026.\" As of mid-October 2026, the White House had not indicated who would replace Zacharia. Scott Jennings had previously been floated as a candidate during the earlier search. Trump has typically announced press secretary selections on Truth Social. The prior search (Leavitt's departure to Zacharia's naming) took roughly six weeks, suggesting it is genuinely uncertain whether a new permanent press secretary will be in place within two weeks of Zacharia's exit.\n\n`{\"format\": \"llm_question\", \"info\": {\"sdk_version\": \"0.6.0\", \"rating\": {\"quality\": 3, \"ambiguity\": 4, \"resolvability\": 4, \"passes\": true}}}`",
+    "resolution_criteria": "This question resolves YES if, as of October 30, 2026 (23:59 US Eastern Time), the President of the United States or the White House has publicly announced a named individual (other than Katie Zacharia) as the White House Press Secretary, and that announcement has not been withdrawn or reversed by that time. The announcement may take any public form, including a post on President Trump's Truth Social account, an official White House statement, or confirmation by a named White House official reported by [credible sources](https://www.metaculus.com/faq/#definitions). A person designated only in an \"acting\" or \"interim\" capacity does not count; the named person must be designated as the (permanent) White House Press Secretary. Otherwise, the question resolves NO. Resolution can be checked against the \"Incumbent\" field and officeholder list on the [White House Press Secretary Wikipedia page](https://en.wikipedia.org/wiki/White_House_Press_Secretary).",
+    "fine_print": "Katie Zacharia departed the role on October 16, 2026, leaving the position vacant. A successor who was announced at any time between October 16, 2026 and October 30, 2026 (23:59 ET) and still holds (or is still slated to hold) the title as of that moment counts for YES; re-naming Zacharia herself does not count. If the only designation in place as of October 30, 2026 is an Acting or Interim Press Secretary (or a Principal Deputy Press Secretary handling briefings without the full title), the question resolves NO. If the White House's official communications or the Wikipedia page are unavailable, resolution relies on [credible sources](https://www.metaculus.com/faq/#definitions).",
+    "unit": "",
+    "options": null,
+    "scaling": {
+      "range_min": null,
+      "range_max": null,
+      "nominal_min": null,
+      "nominal_max": null,
+      "zero_point": null,
+      "open_upper_bound": false,
+      "open_lower_bound": false,
+      "inbound_outcome_count": null,
+      "continuous_range": null
+    },
+    "open_lower_bound": false,
+    "open_upper_bound": false,
+    "inbound_outcome_count": null,
+    "open_time": "2026-10-19T11:37:12Z",
+    "scheduled_close_time": "2026-10-19T14:37:12Z",
+    "scheduled_resolve_time": "2026-10-31T03:59:00Z",
+    "resolution": null
+  }
+}

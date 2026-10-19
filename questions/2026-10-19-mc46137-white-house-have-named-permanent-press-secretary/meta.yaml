@@ -1,0 +1,47 @@
+slug: 2026-10-19-mc46137-white-house-have-named-permanent-press-secretary
+title: Will the White House have a named permanent press secretary succeeding Katie Zacharia as of October
+  30, 2026?
+source: metaculus
+url: https://www.metaculus.com/questions/46137/
+post_id: 46137
+question_id: 46366
+type: binary
+unit: null
+tags: []
+dates:
+  created: '2026-10-19'
+  opened: '2026-10-19'
+  closes: '2026-10-19'
+  resolves: '2026-10-31'
+status: open
+tournament:
+  slug: minibench
+  mode: one_shot
+  registered: '2026-10-19'
+  opened: '2026-10-19T11:37:12Z'
+  closes: '2026-10-19T14:37:12Z'
+  submitted: '2026-10-19T11:43:22+00:00'
+  submitted_forecast:
+    probability_yes: 0.2
+  comment_posted: true
+  official_score: null
+  missed_window: false
+current:
+  version: 1
+  date: '2026-10-19'
+  median: 0.2
+  iqr:
+  - 0.13
+  - 0.28
+  community:
+    cp: null
+    pro: null
+    gold: null
+    n_forecasters: null
+    as_of: '2026-10-19'
+next_review: null
+tripwires: []
+resolution:
+  outcome: null
+  date: null
+  source: null
