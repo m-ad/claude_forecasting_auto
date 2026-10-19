@@ -1,12 +1,19 @@
 #!/usr/bin/env python3
 """Record what a Claude Code run spent, and report rolling spend.
 
-The sweep runs ``claude -p ... --output-format json``; the final JSON object
-carries ``total_cost_usd``, ``usage`` (input, output, cache read/write tokens),
-``num_turns``, ``duration_ms`` and a per-model ``modelUsage`` breakdown. ``record``
-turns that into one line of ``ledger/usage.jsonl`` and a small table for the
-run's GitHub Step Summary; ``report`` prints the rolling 7/30-day view; the gate
-reads ``weekly_spend()`` for the budget guard.
+The sweep runs ``claude -p ... --output-format stream-json --verbose``; every turn
+of the session ends in a ``type: result`` event carrying ``total_cost_usd``,
+``usage`` (input, output, cache read/write tokens), ``num_turns``, ``duration_ms``,
+a per-model ``modelUsage`` breakdown, the turn's ``permission_denials`` and the
+session's cumulative ``subagent_stats``. ``record`` merges those events into one
+line of ``ledger/usage.jsonl`` and a small table for the run's GitHub Step Summary;
+``report`` prints the rolling 7/30-day view; the gate reads ``weekly_spend()`` for
+the budget guard.
+
+Why the stream and not ``--output-format json``: a subagent runs in the background,
+so the main agent's turn ends while it works and a second turn starts when it
+reports. ``json`` prints only the last turn's result and silently drops the
+earlier turns' cost and denials (checked with CLI 2.1.303 on 2026-10-19).
 
 Two honest limitations:
 
@@ -20,7 +27,7 @@ timeout) records ``parse_failed: true`` and zero cost, and never fails the job.
 
 Examples
 --------
-    uv run scripts/record_usage.py record --result claude.json --job sweep \\
+    uv run scripts/record_usage.py record --result claude.jsonl --job sweep \\
         --slug 2026-10-19-mc46101-x --run-id 123 --summary >> "$GITHUB_STEP_SUMMARY"
     uv run scripts/record_usage.py report
 """
@@ -61,10 +68,11 @@ def _denied(result: dict[str, Any]) -> list[str]:
 
 
 def parse_result(text: str) -> dict[str, Any] | None:
-    """The ``result`` object from ``claude -p --output-format json`` output, or None.
+    """The session's ``result`` from ``claude -p`` output, or None.
 
     Accepts a single object, a JSON array of messages, or JSON Lines (stream
-    output), and takes the last ``type: result`` record found.
+    output). Several ``type: result`` records -- one per turn -- are merged into
+    one (``merge_results``).
     """
     text = text.strip()
     if not text:
@@ -80,7 +88,46 @@ def parse_result(text: str) -> dict[str, Any] | None:
             except json.JSONDecodeError:
                 continue
     results = [c for c in candidates if isinstance(c, dict) and c.get("type") == "result"]
-    return results[-1] if results else None
+    return merge_results(results) if results else None
+
+
+def _sum_numbers(dicts: list[dict[str, Any]]) -> dict[str, Any]:
+    """Key-wise sum of the numeric fields of ``dicts``, recursing into sub-dicts.
+
+    Non-numeric fields keep the last value seen.
+    """
+    out: dict[str, Any] = {}
+    for d in dicts:
+        for key, value in d.items():
+            if isinstance(value, dict):
+                out[key] = _sum_numbers([out.get(key) or {}, value])
+            elif isinstance(value, (int, float)) and not isinstance(value, bool):
+                out[key] = _num(out.get(key)) + value
+            else:
+                out[key] = value
+    return out
+
+
+def merge_results(results: list[dict[str, Any]]) -> dict[str, Any]:
+    """One result for the whole session from its per-turn ``result`` events.
+
+    Cost, tokens, turns, duration and per-model usage are per turn, so they are
+    summed; ``permission_denials`` are per turn, so they are concatenated;
+    ``subagent_stats`` and ``subtype`` are the session's state, so the last turn's
+    value stands (verified 2026-10-19: a denial appears only in the turn that hit
+    it, while ``subagent_stats.spawned`` repeats in every turn).
+    """
+    if len(results) == 1:
+        return results[0]
+    merged = dict(results[-1])
+    for key in ("total_cost_usd", "duration_ms", "num_turns"):
+        merged[key] = sum(_num(r.get(key)) for r in results)
+    merged["usage"] = _sum_numbers([r.get("usage") or {} for r in results])
+    merged["modelUsage"] = _sum_numbers([r.get("modelUsage") or {} for r in results])
+    merged["permission_denials"] = [
+        d for r in results for d in (r.get("permission_denials") or [])
+    ]
+    return merged
 
 
 def usage_record(
@@ -115,6 +162,7 @@ def usage_record(
     }
     # The CLI's WebSearch tool runs its own model call, so its searches show up in
     # modelUsage and not in the top-level server_tool_use; take whichever saw more.
+    stats = result.get("subagent_stats") or {}
     web_searches = max(
         sum(_num((m or {}).get("webSearchRequests")) for m in model_usage),
         _num((usage.get("server_tool_use") or {}).get("web_search_requests")),
@@ -133,6 +181,10 @@ def usage_record(
             "cache_write": int(_num(usage.get("cache_creation_input_tokens"))),
         },
         "web_searches": int(web_searches),
+        # Subagents (the research-scouts) spawned by the session; absent before the
+        # CLI reported subagent_stats, so None there rather than a misleading 0.
+        "subagents": int(_num(stats.get("spawned"))) if stats else None,
+        "subagent_types": dict(stats.get("by_type") or {}) if stats else {},
         "permission_denials": len(result.get("permission_denials") or []),
         "denied": _denied(result),
         "by_model": by_model,
@@ -184,7 +236,14 @@ def summary_table(rec: dict[str, Any]) -> str:
                 f"{tok.get('cache_read', 0)}/{tok.get('cache_write', 0)}"
             ),
         ),
-        ("web searches", rec.get("web_searches", "-")),
+        ("web searches (all agents)", rec.get("web_searches", "-")),
+        (
+            "subagents",
+            "-"
+            if rec.get("subagents") is None
+            else f"{rec['subagents']} "
+            + str(rec.get("subagent_types") or {}).replace("|", "/"),
+        ),
         ("permission denials", rec.get("permission_denials", "-")),
         ("denied", ", ".join(rec.get("denied") or []) or "-"),
     ]
@@ -212,7 +271,9 @@ def main() -> None:
     )
     sub = ap.add_subparsers(dest="cmd", required=True)
     r = sub.add_parser("record", help="append one run to ledger/usage.jsonl")
-    r.add_argument("--result", type=Path, required=True, help="claude -p JSON output")
+    r.add_argument(
+        "--result", type=Path, required=True, help="claude -p output (stream-json or json)"
+    )
     r.add_argument("--job", required=True)
     r.add_argument("--run-id")
     r.add_argument("--slug")

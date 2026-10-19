@@ -25,7 +25,10 @@ or as ``@path/to/file.json``. See ``DISTRIBUTION_SHAPES`` in ``_common.py``.
 
 A one-shot tournament question (``tournament.mode: one_shot``) takes exactly one
 forecast: ``add`` refuses a second, because a second would be a second submission,
-which the bot tournaments forbid. ``submit`` and ``comment`` record what the
+which the bot tournaments forbid. It also refuses the first until the session's
+research log (``raw/research-log-<date>.json``, see ``research_log_problems``)
+shows the search floor was met -- unless ``$FORECAST_DEADLINE`` is close, because
+a shallow forecast still beats none. ``submit`` and ``comment`` record what the
 Metaculus API accepted; ``scripts/submit_metaculus.py`` calls them in-process so
 the ledger and ``meta.yaml`` are written in one place.
 """
@@ -36,6 +39,7 @@ import argparse
 import datetime as dt
 import json
 import math
+import os
 import re
 import sys
 from pathlib import Path
@@ -150,6 +154,122 @@ def _outcome_value(raw: str) -> float | str:
         return raw
 
 
+# ------------------------------------------------------------ research floor
+# Tournament sessions stopped after a median of 4 searches (23 sessions, 2026-10-19)
+# although the skill asked for 8-16 and the clock allowed far more. A target in the
+# prompt did not hold; a check before the one irreversible step does.
+MIN_SEARCHES = 15
+RESEARCH_CATEGORIES = {
+    "resolution_source",  # the current value / latest release of what resolves it
+    "schedule",  # when the source publishes next, what happens if it does not
+    "news",  # the last days' developments
+    "markets",  # Polymarket, Kalshi, Manifold, options -- even "none found" counts
+    "base_rate",  # historical data for the reference class
+    "consensus",  # analysts, official forecasts, other forecasters
+    "upcoming_events",  # scheduled events inside the horizon
+    "disconfirmation",  # the deliberate search against the emerging view
+    "other",
+}
+REQUIRED_CATEGORIES = ("resolution_source", "news", "markets", "base_rate", "disconfirmation")
+SEARCH_STATUSES = {"planned", "done", "skipped"}
+# Inside this many minutes of $FORECAST_DEADLINE the floor is waived: the skill asks
+# for the forecast to be logged 5 minutes before the kill, and refusing then would
+# turn a shallow forecast into no forecast (a peer score of 0 or worse is certain).
+WAIVER_MINUTES = 8
+
+
+def research_log_path(slug: str) -> Path | None:
+    """The newest ``raw/research-log-<YYYY-MM-DD>.json`` of ``slug``, or None."""
+    logs = sorted((QUESTIONS / slug / "raw").glob("research-log-*.json"))
+    return logs[-1] if logs else None
+
+
+def research_log_problems(log: Any, *, floor: bool = True) -> list[str]:
+    """Reasons a research log is malformed or, with ``floor``, too thin; empty if fine.
+
+    The log is ``{"searches": [{"category", "query", "by", "status", "finding"}]}``.
+    ``floor`` adds the depth requirement: at least ``MIN_SEARCHES`` entries with
+    ``status: done``, covering every one of ``REQUIRED_CATEGORIES``.
+    """
+    if not isinstance(log, dict) or not isinstance(log.get("searches"), list):
+        return ['the log must be an object with a "searches" list']
+    out: list[str] = []
+    done: list[dict[str, Any]] = []
+    for i, entry in enumerate(log["searches"], 1):
+        if not isinstance(entry, dict):
+            out.append(f"entry {i} is not an object")
+            continue
+        if entry.get("category") not in RESEARCH_CATEGORIES:
+            out.append(
+                f"entry {i}: category {entry.get('category')!r} is not one of "
+                f"{sorted(RESEARCH_CATEGORIES)}"
+            )
+        if not str(entry.get("query") or "").strip():
+            out.append(f"entry {i}: empty query")
+        if entry.get("status") not in SEARCH_STATUSES:
+            out.append(
+                f"entry {i}: status {entry.get('status')!r} is not one of "
+                f"{sorted(SEARCH_STATUSES)}"
+            )
+        elif entry["status"] == "done":
+            done.append(entry)
+    if out or not floor:
+        return out
+    if len(done) < MIN_SEARCHES:
+        out.append(f"{len(done)} searches done, the floor is {MIN_SEARCHES}")
+    covered = {e.get("category") for e in done}
+    missing = [c for c in REQUIRED_CATEGORIES if c not in covered]
+    if missing:
+        out.append(f"no search done yet for: {', '.join(missing)}")
+    return out
+
+
+def _minutes_to_deadline() -> float | None:
+    """Minutes until ``$FORECAST_DEADLINE`` (ISO-8601 UTC), or None if unset/unparseable."""
+    raw = os.environ.get("FORECAST_DEADLINE", "").strip()
+    if not raw:
+        return None
+    try:
+        deadline = dt.datetime.fromisoformat(raw)
+    except ValueError:
+        return None
+    if deadline.tzinfo is None:
+        deadline = deadline.replace(tzinfo=dt.UTC)
+    return (deadline - dt.datetime.now(dt.UTC)).total_seconds() / 60
+
+
+def _check_research(slug: str) -> None:
+    """Exit unless the research log meets the floor or the deadline waives it."""
+    path = research_log_path(slug)
+    if path is None:
+        problems = [f"no raw/research-log-<date>.json in questions/{slug}/"]
+    else:
+        try:
+            log = json.loads(path.read_text(encoding="utf-8"))
+        except (OSError, ValueError) as exc:
+            log, problems = None, [f"{path.name} is not valid JSON: {exc}"]
+        else:
+            problems = research_log_problems(log)
+    if not problems:
+        return
+    left = _minutes_to_deadline()
+    if left is not None and left <= WAIVER_MINUTES:
+        print(
+            f"! {slug}: research floor waived, {left:.0f} min to the deadline: "
+            + "; ".join(problems),
+            file=sys.stderr,
+        )
+        return
+    sys.exit(
+        f"! {slug}: research floor not met, forecast not logged:\n  "
+        + "\n  ".join(problems)
+        + "\nRun the missing searches, record them in the research log, then run "
+        "add again. This is not a tool failure: the one-retry rule does not apply. "
+        f"The floor is waived automatically within {WAIVER_MINUTES} minutes of "
+        "$FORECAST_DEADLINE."
+    )
+
+
 # The median of a multiple-choice record is its leading option's probability.
 PROBABILITY_TYPES = {"binary", "multiple_choice"}
 
@@ -253,6 +373,9 @@ def cmd_add(args: argparse.Namespace) -> None:
         )
         if problems:
             sys.exit(f"! {slug}: --distribution rejected:\n  " + "\n  ".join(problems))
+    # Last, so a malformed forecast is reported first: research may still move it.
+    if _is_one_shot(meta):
+        _check_research(slug)
 
     record = {
         "ts": _utc_now(),

@@ -8,7 +8,8 @@
 - Long research runs: spawn subagents for independent evidence streams (e.g. one per
   scenario branch or per data source), then integrate yourself. Do **not** delegate
   the final probability judgement — integration is where calibration lives. In tournament
-  mode use the `research-scout` subagent (`.claude/agents/`), at most two per question.
+  mode use the `research-scout` subagent (`.claude/agents/`): up to eight per question,
+  spawned in one message so they run in parallel.
 - Use the TodoWrite/task list for any interactive forecast: the workflow has ≥ 6 steps.
 
 ## Running unattended (CI)

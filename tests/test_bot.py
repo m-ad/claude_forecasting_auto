@@ -270,6 +270,46 @@ def test_usage_counts_searches_per_model_and_names_denied_tools():
     assert rec["denied"] == ["Bash:cat", "Skill"]
 
 
+def test_usage_merges_the_turns_a_background_subagent_splits_a_session_into():
+    # Shapes as CLI 2.1.303 emits them (2026-10-19): cost, turns and denials are per
+    # turn; subagent_stats is the session's running total, repeated every turn.
+    stats = {"spawned": 3, "by_type": {"research-scout": 3}}
+    turn1 = {
+        **RESULT,
+        "num_turns": 30,
+        "total_cost_usd": 1.0,
+        "permission_denials": [{"tool_name": "Bash", "tool_input": {"command": "cd x"}}],
+        "modelUsage": {"claude-opus-x": {"costUSD": 1.0, "webSearchRequests": 5}},
+        "subagent_stats": stats,
+    }
+    turn2 = {
+        **RESULT,
+        "num_turns": 8,
+        "total_cost_usd": 0.5,
+        "permission_denials": [],
+        "modelUsage": {
+            "claude-opus-x": {"costUSD": 0.3, "webSearchRequests": 2},
+            "claude-sonnet-x": {"costUSD": 0.2, "webSearchRequests": 9},
+        },
+        "subagent_stats": stats,
+    }
+    text = "\n".join(json.dumps(x) for x in ({"type": "assistant"}, turn1, turn2))
+    rec = record_usage.usage_record(
+        record_usage.parse_result(text), job="j", run_id="1", slug="s", model="opus"
+    )
+    assert rec["cost_usd_equiv"] == 1.5 and rec["num_turns"] == 38
+    assert rec["web_searches"] == 16
+    assert rec["by_model"] == {"claude-opus-x": 1.3, "claude-sonnet-x": 0.2}
+    assert rec["denied"] == ["Bash:cd"]
+    assert rec["subagents"] == 3 and rec["subagent_types"] == {"research-scout": 3}
+    assert rec["tokens"]["input"] == 200
+
+
+def test_usage_marks_subagents_unknown_when_the_cli_does_not_report_them():
+    rec = record_usage.usage_record(RESULT, job="j", run_id="1", slug="s", model="opus")
+    assert rec["subagents"] is None
+
+
 def test_a_killed_run_records_zero_cost_instead_of_failing():
     assert record_usage.parse_result("") is None
     rec = record_usage.usage_record(None, job="j", run_id="1", slug="s", model="m", exit_code=143)
@@ -515,6 +555,9 @@ def test_ci_settings_keep_the_model_away_from_submission_and_secrets():
         "Edit(ledger/**)",
     ):
         assert rule in deny, f"settings.ci.json must deny {rule}"
+    # `cd` was denied in 22 of 27 sessions despite the skill forbidding it, a wasted
+    # turn each; `uv run python` already allows anything `cd` could enable.
+    assert "Bash(cd:*)" in settings["permissions"]["allow"]
     workflow = yaml.safe_load(
         (REPO / ".github" / "workflows" / "tournament-sweep.yml").read_text("utf-8")
     )

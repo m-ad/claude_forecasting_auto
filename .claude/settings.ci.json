@@ -15,7 +15,8 @@
       "Bash(uv run scripts/log_forecast.py add:*)",
       "Bash(uv run python:*)",
       "Bash(date:*)",
-      "Bash(ls:*)"
+      "Bash(ls:*)",
+      "Bash(cd:*)"
     ],
     "deny": [
       "Bash(uv run scripts/submit_metaculus.py:*)",

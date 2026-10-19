@@ -722,3 +722,24 @@ def test_a_forecast_question_has_at_least_one_raw_snapshot(folder):
         pytest.skip("not forecast yet")
     files = [p for p in (folder / "raw").iterdir() if p.is_file()]
     assert files, f"{folder.name}: forecast logged but raw/ is empty"
+
+
+@pytest.mark.parametrize("folder", DIRS, ids=DIR_IDS)
+def test_research_logs_follow_the_schema_log_forecast_checks(folder):
+    """A malformed log would let a later floor check pass or fail for the wrong reason.
+
+    Only the shape is asserted, not the floor: a log may legitimately stay thin when
+    the deadline waived it, and tournament folders from before 2026-10-20 have none.
+    """
+    import json
+
+    import log_forecast
+
+    logs = sorted((folder / "raw").glob("research-log-*.json"))
+    if not logs:
+        pytest.skip("no research log")
+    for path in logs:
+        problems = log_forecast.research_log_problems(
+            json.loads(path.read_text(encoding="utf-8")), floor=False
+        )
+        assert not problems, f"{folder.name}/raw/{path.name}: " + "; ".join(problems)
