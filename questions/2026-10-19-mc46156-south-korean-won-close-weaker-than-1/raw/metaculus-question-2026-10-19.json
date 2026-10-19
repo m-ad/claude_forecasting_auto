@@ -1,0 +1,38 @@
+{
+  "post_id": 46156,
+  "url": "https://www.metaculus.com/questions/46156/",
+  "post_title": "Will the South Korean won close weaker than 1,340 per US dollar on October 29, 2026?",
+  "tournaments": [
+    "minibench"
+  ],
+  "options": null,
+  "question": {
+    "id": 46385,
+    "title": "Will the South Korean won close weaker than 1,340 per US dollar on October 29, 2026?",
+    "type": "binary",
+    "status": "open",
+    "description": "The South Korean won (KRW) has been volatile against the US dollar in 2026. It weakened sharply in the first quarter, briefly passing 1,500 per dollar in March 2026 and hitting a multi-year low of about 1,472.90 on March 31, 2026. Since then it has recovered substantially: as of mid-October 2026 the USD/KRW rate was trading around 1,332–1,341 won per dollar, having strengthened roughly 1.7% over the prior month and up several percent over 12 months (Trading Economics reported 1,339.27 on October 14 and 1,334.43 in a later intraday reading; Wise showed 1,332.14 on October 16, 2026).\n\nA higher USD/KRW number means a weaker won (more won needed per dollar); a lower number means a stronger won. Several near-term drivers bracket late October 2026: the Bank of Korea's base rate stood at 3.00% with a policy decision on October 22, 2026, and the US Federal Reserve's FOMC decision was scheduled for October 28, 2026 (markets leaning toward a hold in the 3.75–4.00% range). Recent pressure on the won has come from sustained foreign equity outflows — overseas investors recorded multiple consecutive sessions of net selling, cumulatively offloading over 13 trillion won in Korean shares — while a softer dollar following dovish Fed commentary has at times supported the won. With spot near 1,335 in mid-October, a threshold of 1,340 sits close to the prevailing level, so the outcome depends on day-to-day moves around the Fed and BOK meetings.\n\nTrading Economics (https://tradingeconomics.com/south-korea/currency) publishes a daily USD/KRW quote and states the latest closing value with its date in the page text.\n\n`{\"format\": \"llm_question\", \"info\": {\"sdk_version\": \"0.6.0\", \"rating\": {\"quality\": 3, \"ambiguity\": 3, \"resolvability\": 4, \"passes\": true}}}`",
+    "resolution_criteria": "This question resolves YES if the USD/KRW exchange rate (South Korean won per one US dollar) reported by Trading Economics at https://tradingeconomics.com/south-korea/currency for October 29, 2026 is greater than 1,340.00 (i.e. the won is weaker/more depreciated than 1,340 per dollar). It resolves NO if that reported rate is 1,340.00 or lower. A reported rate of, for example, 1,355.20 resolves YES; a reported rate of 1,332.10 resolves NO.",
+    "fine_print": "The relevant value is the USD/KRW spot rate shown on the Trading Economics South Korean Won page as the most recent closing value dated October 29, 2026 (Trading Economics reports this figure in its page text, e.g. \"The USD/KRW exchange rate fell to 1,339.2700 on October 14, 2026\"). If Trading Economics does not report a value dated October 29, 2026 (for instance due to a data gap), the closing USD/KRW spot rate for October 29, 2026 from [credible sources](https://www.metaculus.com/faq/#definitions) such as Wise or Investing.com will be used. If no closing value for that date is available from any such source, the question is annulled.",
+    "unit": "",
+    "options": null,
+    "scaling": {
+      "range_min": null,
+      "range_max": null,
+      "nominal_min": null,
+      "nominal_max": null,
+      "zero_point": null,
+      "open_upper_bound": false,
+      "open_lower_bound": false,
+      "inbound_outcome_count": null,
+      "continuous_range": null
+    },
+    "open_lower_bound": false,
+    "open_upper_bound": false,
+    "inbound_outcome_count": null,
+    "open_time": "2026-10-19T19:58:17Z",
+    "scheduled_close_time": "2026-10-19T22:58:17Z",
+    "scheduled_resolve_time": "2026-10-30T00:00:00Z",
+    "resolution": null
+  }
+}
