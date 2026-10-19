@@ -1,0 +1,61 @@
+slug: 2026-10-19-mc46132-us-core-pce-year-over-year-inflation
+title: What will the US core PCE year-over-year inflation rate for September 2026 be, released October
+  29, 2026?
+source: metaculus
+url: https://www.metaculus.com/questions/46132/
+post_id: 46132
+question_id: 46361
+type: discrete
+unit: '%'
+tags: []
+dates:
+  created: '2026-10-19'
+  opened: '2026-10-19'
+  closes: '2026-10-19'
+  resolves: '2026-10-29'
+status: open
+tournament:
+  slug: minibench
+  mode: one_shot
+  registered: '2026-10-19'
+  opened: '2026-10-19T06:37:15Z'
+  closes: '2026-10-19T09:37:15Z'
+  submitted: '2026-10-19T06:43:49+00:00'
+  submitted_forecast:
+    continuous_cdf:
+    - 0.001
+    - 0.002567262931422701
+    - 0.004491004939418682
+    - 0.01075755114488582
+    - 0.06826636743986875
+    - 0.2939365776672271
+    - 0.702989827031657
+    - 0.9164345013165461
+    - 0.9847049161087839
+    - 0.9923152324562912
+    - 0.9943492778345474
+    - 0.9959255950179661
+    - 0.9974643395831415
+    - 0.999
+  comment_posted: true
+  official_score: null
+  missed_window: false
+current:
+  version: 1
+  date: '2026-10-19'
+  median: 3.1
+  iqr:
+  - 3.04
+  - 3.16
+  community:
+    cp: null
+    pro: null
+    gold: null
+    n_forecasters: null
+    as_of: '2026-10-19'
+next_review: null
+tripwires: []
+resolution:
+  outcome: null
+  date: null
+  source: null

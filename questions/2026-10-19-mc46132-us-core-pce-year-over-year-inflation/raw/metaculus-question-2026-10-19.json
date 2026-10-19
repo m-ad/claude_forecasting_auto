@@ -1,0 +1,53 @@
+{
+  "post_id": 46132,
+  "url": "https://www.metaculus.com/questions/46132/",
+  "post_title": "What will the US core PCE year-over-year inflation rate for September 2026 be, released October 29, 2026?",
+  "tournaments": [
+    "minibench"
+  ],
+  "options": null,
+  "question": {
+    "id": 46361,
+    "title": "What will the US core PCE year-over-year inflation rate for September 2026 be, released October 29, 2026?",
+    "type": "discrete",
+    "status": "open",
+    "description": "The core PCE price index — the Personal Consumption Expenditures Price Index excluding food and energy — is the US Federal Reserve's preferred inflation gauge. It is published monthly by the Bureau of Economic Analysis (BEA) in its Personal Income and Outlays report, reported to one decimal place.\n\nAs of the most recent release (August 2026 data, published September 30, 2026), the core PCE year-over-year rate was +3.0%, below the roughly 3.3–3.4% economists had expected. The rate has held at 3.0% for three consecutive months (June, July, August 2026), after readings of 3.2% in May 2026. Headline PCE inflation was +3.4% year-over-year in August 2026. The BEA also noted a methodology change in its August release.\n\nThe September 2026 figure is scheduled for release on October 29, 2026 at 8:30 a.m. EDT. A hotter-than-expected September CPI report (released October 14, 2026, showing core CPI beating expectations and headline CPI at 3.7% year-over-year) raised concerns that inflation could tick up, and consensus forecasts (e.g., Trading Economics) pointed to roughly 3.3% for September core PCE — implying meaningful uncertainty over whether the rate holds at 3.0% or rises.\n\n`{\"format\": \"llm_question\", \"info\": {\"sdk_version\": \"0.6.0\", \"rating\": {\"quality\": 3, \"ambiguity\": 4, \"resolvability\": 4, \"passes\": true}}}`",
+    "resolution_criteria": "This question resolves to the year-over-year percent change in the Personal Consumption Expenditures (PCE) Price Index excluding food and energy (\"core PCE\") for September 2026, as published by the US Bureau of Economic Analysis (BEA) in the Personal Income and Outlays report scheduled for release on October 29, 2026 at 8:30 a.m. EDT. The resolution value is the figure shown for \"September 2026\" in the \"Change From Month One Year Ago\" table on the BEA core PCE page: https://www.bea.gov/data/personal-consumption-expenditures-price-index-excluding-food-and-energy — reported to one decimal place (e.g., a reading of 3.0% resolves as 3.0). Use the value as it first appears in the September 2026 release.",
+    "fine_print": "If the October 29, 2026 release is delayed (for example, due to a government shutdown or scheduling change), the question resolves based on the first official BEA publication of the September 2026 core PCE year-over-year figure whenever it appears, with resolution waiting as needed. If the BEA permanently ceases publishing this figure, the question is annulled. Resolution is based on the originally published September 2026 figure, not on any later revision.",
+    "unit": "%",
+    "options": null,
+    "scaling": {
+      "range_min": 2.5500000000000003,
+      "range_max": 3.8499999999999996,
+      "nominal_min": 2.6000000000000005,
+      "nominal_max": 3.8,
+      "zero_point": null,
+      "open_upper_bound": true,
+      "open_lower_bound": true,
+      "inbound_outcome_count": 13,
+      "continuous_range": [
+        2.5500000000000003,
+        2.6500000000000004,
+        2.75,
+        2.85,
+        2.95,
+        3.05,
+        3.15,
+        3.25,
+        3.35,
+        3.4499999999999997,
+        3.55,
+        3.65,
+        3.75,
+        3.8499999999999996
+      ]
+    },
+    "open_lower_bound": true,
+    "open_upper_bound": true,
+    "inbound_outcome_count": 13,
+    "open_time": "2026-10-19T06:37:15Z",
+    "scheduled_close_time": "2026-10-19T09:37:15Z",
+    "scheduled_resolve_time": "2026-10-29T13:00:00Z",
+    "resolution": null
+  }
+}
