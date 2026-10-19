@@ -1,0 +1,67 @@
+slug: 2026-10-19-mc46146-how-many-18-crew-still-missing-from
+title: How many of the 18 crew still missing from the HS Dignity and Wine Trader Black Sea attacks will
+  have their bodies recovered by October 29, 2026?
+source: metaculus
+url: https://www.metaculus.com/questions/46146/
+post_id: 46146
+question_id: 46375
+type: discrete
+unit: crew
+tags: []
+dates:
+  created: '2026-10-19'
+  opened: '2026-10-19'
+  closes: '2026-10-19'
+  resolves: '2026-10-30'
+status: open
+tournament:
+  slug: minibench
+  mode: one_shot
+  registered: '2026-10-19'
+  opened: '2026-10-19T15:27:13Z'
+  closes: '2026-10-19T18:27:13Z'
+  submitted: '2026-10-19T15:45:08+00:00'
+  submitted_forecast:
+    continuous_cdf:
+    - 0.0
+    - 0.4973327017565087
+    - 0.5932831526315137
+    - 0.6892336035065186
+    - 0.7624085777504698
+    - 0.8128080753633671
+    - 0.8632075729762643
+    - 0.9012703540806741
+    - 0.9269964186765965
+    - 0.9513012548886214
+    - 0.9674754553798991
+    - 0.9776997821271322
+    - 0.9843153280271831
+    - 0.9887420376992343
+    - 0.9918411510899139
+    - 0.994135036632221
+    - 0.995940526796436
+    - 0.997449790189776
+    - 0.9987793829643526
+    - 1.0
+  comment_posted: true
+  official_score: null
+  missed_window: false
+current:
+  version: 1
+  date: '2026-10-19'
+  median: 0.4
+  iqr:
+  - 0.0
+  - 3.0
+  community:
+    cp: null
+    pro: null
+    gold: null
+    n_forecasters: null
+    as_of: '2026-10-19'
+next_review: null
+tripwires: []
+resolution:
+  outcome: null
+  date: null
+  source: null

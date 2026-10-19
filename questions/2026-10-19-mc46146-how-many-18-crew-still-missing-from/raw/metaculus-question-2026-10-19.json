@@ -1,0 +1,59 @@
+{
+  "post_id": 46146,
+  "url": "https://www.metaculus.com/questions/46146/",
+  "post_title": "How many of the 18 crew still missing from the HS Dignity and Wine Trader Black Sea attacks will have their bodies recovered by October 29, 2026?",
+  "tournaments": [
+    "minibench"
+  ],
+  "options": null,
+  "question": {
+    "id": 46375,
+    "title": "How many of the 18 crew still missing from the HS Dignity and Wine Trader Black Sea attacks will have their bodies recovered by October 29, 2026?",
+    "type": "discrete",
+    "status": "open",
+    "description": "Beginning in early October 2026, a series of drone attacks and fires struck civilian merchant vessels in the Black Sea off Romania and Bulgaria, widely attributed to spillover from Russia's war against Ukraine (though no party had claimed responsibility as of mid-October 2026). By October 16, 2026, at least seven vessels had been affected, with roughly two dozen crew missing and at least two confirmed dead (from an October 5, 2026 incident).\n\nTwo incidents in mid-October 2026 account for the 18 crew still missing that this question tracks:\n- HS Dignity (Guinea-Bissau flag): sank off Krapets, Bulgaria, after a drone attack early on October 13, 2026. Of 16 crew, 5 were rescued; 11 remained missing.\n- Wine Trader (San Marino flag): caught fire about 13 nautical miles southeast of Sulina, Romania, on October 15, 2026. Of 12 crew, 5 were rescued; 7 remained missing.\n\nAs of October 16, 2026, no bodies of these 18 missing crew had been recovered; they remained classified as missing, with search-and-rescue operations hampered by rough seas and poor weather. Recovering bodies from vessels that have sunk or burned in open sea is often slow and uncertain: in many maritime disasters, missing crew are never recovered and are instead formally presumed dead. Romanian and Bulgarian naval/maritime authorities and major international news agencies (AP, Reuters, BBC, Al Jazeera, Guardian) have been providing ongoing updates on casualties and recovery efforts.\n\n`{\"format\": \"llm_question\", \"info\": {\"sdk_version\": \"0.6.0\", \"rating\": {\"quality\": 3, \"ambiguity\": 3, \"resolvability\": 4, \"passes\": true}}}`",
+    "resolution_criteria": "This question concerns the 18 crew members who, as of October 16, 2026, remained missing following two October 2026 attacks on merchant vessels in the Black Sea: the 11 missing crew of the Guinea-Bissau-flagged cargo ship HS Dignity (which sank off Krapets, Bulgaria, on October 13, 2026) and the 7 missing crew of the San Marino-flagged tanker Wine Trader (which caught fire off Sulina, Romania, on October 15, 2026). The question resolves as the total number of these 18 individuals whose bodies have been physically recovered — i.e., recovered from the sea or the wrecks and attributed by authorities to these two vessels' missing crew — as reported by [credible sources](https://www.metaculus.com/faq/#definitions), based on the most recent reporting available as of 23:59 UTC on October 29, 2026. For example, if four bodies from HS Dignity and one from Wine Trader have been recovered, this resolves as 5. Individuals who remain missing/unaccounted-for (including those officially declared or presumed dead without a body recovered), and any individuals later found alive, do not count toward the total.",
+    "fine_print": "Only recoveries of bodies attributed to the specific 18 individuals described (the 11 missing from HS Dignity and the 7 missing from Wine Trader) count; bodies or deaths associated with other vessels in the broader October 2026 Black Sea attacks (e.g., the two crew who died in the October 5, 2026 incident) are excluded. The 18-person cohort is fixed as reported around October 13–16, 2026 (HS Dignity: 16 crew, 5 rescued, 11 missing; Wine Trader: 12 crew, 5 rescued, 7 missing); if later reporting revises a vessel's missing count, the count of recovered bodies is still capped at and measured against these figures. If reporting is ambiguous about the exact number of bodies recovered, the lowest number firmly established by credible sources is used.",
+    "unit": "crew",
+    "options": null,
+    "scaling": {
+      "range_min": -0.5,
+      "range_max": 18.5,
+      "nominal_min": 0,
+      "nominal_max": 18,
+      "zero_point": null,
+      "open_upper_bound": false,
+      "open_lower_bound": false,
+      "inbound_outcome_count": 19,
+      "continuous_range": [
+        -0.5,
+        0.5,
+        1.5,
+        2.5,
+        3.5,
+        4.5,
+        5.5,
+        6.5,
+        7.5,
+        8.5,
+        9.5,
+        10.5,
+        11.5,
+        12.499999999999998,
+        13.5,
+        14.5,
+        15.5,
+        16.499999999999996,
+        17.5,
+        18.5
+      ]
+    },
+    "open_lower_bound": false,
+    "open_upper_bound": false,
+    "inbound_outcome_count": 19,
+    "open_time": "2026-10-19T15:27:13Z",
+    "scheduled_close_time": "2026-10-19T18:27:13Z",
+    "scheduled_resolve_time": "2026-10-30T00:00:00Z",
+    "resolution": null
+  }
+}
