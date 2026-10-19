@@ -1,0 +1,51 @@
+slug: 2026-10-19-mc46143-how-amazon-s-stock-close-october-30
+title: How will Amazon's stock close on October 30, 2026, the first full trading day after its Q3 report?
+source: metaculus
+url: https://www.metaculus.com/questions/46143/
+post_id: 46143
+question_id: 46372
+type: multiple_choice
+unit: null
+tags: []
+dates:
+  created: '2026-10-19'
+  opened: '2026-10-19'
+  closes: '2026-10-19'
+  resolves: '2026-10-30'
+status: open
+tournament:
+  slug: minibench
+  mode: one_shot
+  registered: '2026-10-19'
+  opened: '2026-10-19T13:10:03Z'
+  closes: '2026-10-19T16:10:03Z'
+  submitted: '2026-10-19T13:25:58+00:00'
+  submitted_forecast:
+    probability_yes_per_category:
+      Less than $235.00: 0.21
+      $235.00 to less than $250.00: 0.22
+      $250.00 to less than $265.00: 0.25
+      $265.00 to less than $280.00: 0.16
+      $280.00 or more: 0.16
+  comment_posted: true
+  official_score: null
+  missed_window: false
+current:
+  version: 1
+  date: '2026-10-19'
+  median: 0.25
+  iqr:
+  - 0.2
+  - 0.3
+  community:
+    cp: null
+    pro: null
+    gold: null
+    n_forecasters: null
+    as_of: '2026-10-19'
+next_review: null
+tripwires: []
+resolution:
+  outcome: null
+  date: null
+  source: null

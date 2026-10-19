@@ -1,0 +1,50 @@
+{
+  "post_id": 46143,
+  "url": "https://www.metaculus.com/questions/46143/",
+  "post_title": "How will Amazon's stock close on October 30, 2026, the first full trading day after its Q3 report?",
+  "tournaments": [
+    "minibench"
+  ],
+  "options": [
+    "Less than $235.00",
+    "$235.00 to less than $250.00",
+    "$250.00 to less than $265.00",
+    "$265.00 to less than $280.00",
+    "$280.00 or more"
+  ],
+  "question": {
+    "id": 46372,
+    "title": "How will Amazon's stock close on October 30, 2026, the first full trading day after its Q3 report?",
+    "type": "multiple_choice",
+    "status": "open",
+    "description": "Amazon.com, Inc. (NASDAQ: AMZN) is scheduled to report its third-quarter 2026 financial results after U.S. markets close on Thursday, October 29, 2026, with a conference call at 2:00 p.m. PT / 5:00 p.m. ET (confirmed on Amazon's investor relations site and corporate newsroom). The first full regular trading session after the report is therefore Friday, October 30, 2026.\n\nAmazon's stock has historically shown large single-day reactions to quarterly earnings. Recent examples: +15.3% the day after its Q2 2026 report (July 30, 2026), -5.6% after Q4 2025 (Feb 5, 2026), +0.8% after Q1 2026 (Apr 29, 2026), and +9.6% after Q3 2025 (Oct 30, 2025). Key investor focus points heading into Q3 2026 are AWS cloud growth (reported around 37-39% operating margin in Q2) and capital spending guidance (raised toward ~$220B).\n\nIn the weeks before the report, AMZN has traded in a relatively narrow range. Recent daily closes: $262.43 (Oct 9), $259.53 (Oct 12), $258.58 (Oct 13), $254.08 (Oct 14), $254.76 (Oct 15), and roughly $249-254 (Oct 16). The 52-week range is approximately $196.00 to $287.20, and the all-time closing high was $284.02 (Aug 3, 2026). With the stock near $250-255 and typical post-earnings moves of several percent to low double digits, the closing price on October 30, 2026 is highly uncertain.\n\n`{\"format\": \"llm_question\", \"info\": {\"sdk_version\": \"0.6.0\", \"rating\": {\"quality\": 4, \"ambiguity\": 4, \"resolvability\": 4, \"passes\": true}}}`",
+    "resolution_criteria": "This question resolves based on the official closing price of Amazon.com, Inc. (ticker AMZN) common stock on the Nasdaq for the regular trading session of Friday, October 30, 2026, as reported on the Yahoo Finance historical data page (https://finance.yahoo.com/quote/AMZN/history/), using the \"Close\" value for that date. Amazon is scheduled to report Q3 2026 earnings after market close on Thursday, October 29, 2026, making October 30, 2026 the first full regular trading session following the report. The question resolves to the single option below containing the October 30, 2026 closing price.",
+    "fine_print": "If Yahoo Finance is unavailable or does not report the value, the closing price reported by [credible sources](https://www.metaculus.com/faq/#definitions) (e.g. Nasdaq, Google Finance, or the Wall Street Journal) for the same regular session will be used. Bucket boundaries are inclusive of the lower bound and exclusive of the upper bound (e.g. a close of exactly $250.00 resolves \"$250.00 to less than $265.00\"). If Amazon reschedules its Q3 2026 earnings report such that October 30, 2026 is no longer the first full trading session after the report, the question still resolves on the October 30, 2026 regular-session closing price. If U.S. equity markets do not hold a regular trading session on October 30, 2026 for any reason, the question is annulled.",
+    "unit": "",
+    "options": [
+      "Less than $235.00",
+      "$235.00 to less than $250.00",
+      "$250.00 to less than $265.00",
+      "$265.00 to less than $280.00",
+      "$280.00 or more"
+    ],
+    "scaling": {
+      "range_min": null,
+      "range_max": null,
+      "nominal_min": null,
+      "nominal_max": null,
+      "zero_point": null,
+      "open_upper_bound": false,
+      "open_lower_bound": false,
+      "inbound_outcome_count": null,
+      "continuous_range": null
+    },
+    "open_lower_bound": false,
+    "open_upper_bound": false,
+    "inbound_outcome_count": null,
+    "open_time": "2026-10-19T13:10:03Z",
+    "scheduled_close_time": "2026-10-19T16:10:03Z",
+    "scheduled_resolve_time": "2026-10-30T23:00:00Z",
+    "resolution": null
+  }
+}
