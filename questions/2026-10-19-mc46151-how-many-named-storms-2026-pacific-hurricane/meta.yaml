@@ -1,0 +1,52 @@
+slug: 2026-10-19-mc46151-how-many-named-storms-2026-pacific-hurricane
+title: How many named storms will the 2026 Pacific hurricane season have recorded as of October 29, 2026?
+source: metaculus
+url: https://www.metaculus.com/questions/46151/
+post_id: 46151
+question_id: 46380
+type: discrete
+unit: named storms
+tags: []
+dates:
+  created: '2026-10-19'
+  opened: '2026-10-19'
+  closes: '2026-10-19'
+  resolves: '2026-10-30'
+status: open
+tournament:
+  slug: minibench
+  mode: one_shot
+  registered: '2026-10-19'
+  opened: '2026-10-19T18:04:08Z'
+  closes: '2026-10-19T21:04:08Z'
+  submitted: '2026-10-19T18:15:54+00:00'
+  submitted_forecast:
+    continuous_cdf:
+    - 0.0
+    - 0.1851238433456299
+    - 0.737671645118566
+    - 0.9607626926320922
+    - 0.9948015726666275
+    - 0.999
+  comment_posted: true
+  official_score: null
+  missed_window: false
+current:
+  version: 1
+  date: '2026-10-19'
+  median: 23.1
+  iqr:
+  - 22.7
+  - 23.5
+  community:
+    cp: null
+    pro: null
+    gold: null
+    n_forecasters: null
+    as_of: '2026-10-19'
+next_review: null
+tripwires: []
+resolution:
+  outcome: null
+  date: null
+  source: null

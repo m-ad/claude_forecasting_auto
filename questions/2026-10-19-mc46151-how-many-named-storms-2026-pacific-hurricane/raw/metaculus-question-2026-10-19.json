@@ -1,0 +1,45 @@
+{
+  "post_id": 46151,
+  "url": "https://www.metaculus.com/questions/46151/",
+  "post_title": "How many named storms will the 2026 Pacific hurricane season have recorded as of October 29, 2026?",
+  "tournaments": [
+    "minibench"
+  ],
+  "options": null,
+  "question": {
+    "id": 46380,
+    "title": "How many named storms will the 2026 Pacific hurricane season have recorded as of October 29, 2026?",
+    "type": "discrete",
+    "status": "open",
+    "description": "The eastern Pacific hurricane season runs from May 15 to November 30. Based on the 1991–2020 climate period, an average eastern Pacific season produces about 15 named storms. The 2026 season has been exceptionally active and record-breaking: as of October 16, 2026, the season had recorded 22 named storms, 12 hurricanes, and 10 major hurricanes, with an accumulated cyclone energy (ACE) of about 337 — the highest on record for the basin. The most recent named storm was Hurricane Trudy, which formed in mid-October near southwestern Mexico.\n\nEastern Pacific names for 2026 are drawn from a fixed alphabetical list. The names used through Trudy exhaust the list up to \"T\"; the remaining available names are Vance, Winnie, Xavier, Yolanda, and Zeke (storms crossing from, or forming in, the central Pacific receive separate Hawaiian-list names). As of October 16, 2026, the National Hurricane Center's Eastern Pacific Tropical Weather Outlook flagged a disturbance south of Mexico with a 60% chance of development over the following 7 days, which would become the 23rd named storm (Vance) if it is named.\n\nLate October is past the climatological peak of eastern Pacific activity, and formation rates decline into November, but new systems remain possible given the season's persistently favorable conditions. Whether additional storms form between mid-October and the end of October will determine the final cumulative count for this question.\n\n`{\"format\": \"llm_question\", \"info\": {\"sdk_version\": \"0.6.0\", \"rating\": {\"quality\": 3, \"ambiguity\": 3, \"resolvability\": 4, \"passes\": true}}}`",
+    "resolution_criteria": "This question resolves to the cumulative number of named storms recorded in the 2026 Pacific hurricane season (the eastern North Pacific basin east of 140°W plus any that form in the central Pacific), as shown in the \"Total storms\" figure of the season-statistics infobox on the Wikipedia article \"2026 Pacific hurricane season\" (https://en.wikipedia.org/wiki/2026_Pacific_hurricane_season) as of 23:59 UTC on October 29, 2026. A \"named storm\" is a tropical or subtropical cyclone that reached at least tropical-storm strength and was assigned a name by the National Hurricane Center or Central Pacific Hurricane Center. For example, if the infobox shows \"Total storms: 23\", this question resolves as 23. If the Wikipedia infobox is unavailable, the count published by the National Hurricane Center or [credible sources](https://www.metaculus.com/faq/#definitions) covering the 2026 season will be used.",
+    "fine_print": "The count reflects the cumulative season total as of 23:59 UTC on October 29, 2026, which includes all named storms that formed earlier in the 2026 season. Storms that form and are named at any point up to that time count, regardless of whether they are still active.",
+    "unit": "named storms",
+    "options": null,
+    "scaling": {
+      "range_min": 21.5,
+      "range_max": 26.5,
+      "nominal_min": 22,
+      "nominal_max": 26,
+      "zero_point": null,
+      "open_upper_bound": true,
+      "open_lower_bound": false,
+      "inbound_outcome_count": 5,
+      "continuous_range": [
+        21.5,
+        22.5,
+        23.5,
+        24.5,
+        25.5,
+        26.5
+      ]
+    },
+    "open_lower_bound": false,
+    "open_upper_bound": true,
+    "inbound_outcome_count": 5,
+    "open_time": "2026-10-19T18:04:08Z",
+    "scheduled_close_time": "2026-10-19T21:04:08Z",
+    "scheduled_resolve_time": "2026-10-30T00:00:00Z",
+    "resolution": null
+  }
+}
