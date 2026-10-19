@@ -1,0 +1,55 @@
+slug: 2026-10-19-mc46129-how-many-florida-counties-listed-as-reporting
+title: How many Florida counties will be listed as reporting locally acquired dengue in 2026 in the FDOH
+  Arbovirus Surveillance Report published on or around October 29, 2026?
+source: metaculus
+url: https://www.metaculus.com/questions/46129/
+post_id: 46129
+question_id: 46358
+type: discrete
+unit: counties
+tags: []
+dates:
+  created: '2026-10-19'
+  opened: '2026-10-19'
+  closes: '2026-10-19'
+  resolves: '2026-10-30'
+status: open
+tournament:
+  slug: minibench
+  mode: one_shot
+  registered: '2026-10-19'
+  opened: '2026-10-19T03:02:53Z'
+  closes: '2026-10-19T06:02:53Z'
+  submitted: '2026-10-19T03:14:44+00:00'
+  submitted_forecast:
+    continuous_cdf:
+    - 0.0
+    - 0.3721876955739748
+    - 0.7028404858075082
+    - 0.8729168599424496
+    - 0.947060656253973
+    - 0.9815818049372935
+    - 0.9935087219056571
+    - 0.998962283106315
+  comment_posted: true
+  official_score: null
+  missed_window: false
+current:
+  version: 1
+  date: '2026-10-19'
+  median: 8.8
+  iqr:
+  - 8.1
+  - 9.6
+  community:
+    cp: null
+    pro: null
+    gold: null
+    n_forecasters: null
+    as_of: '2026-10-19'
+next_review: null
+tripwires: []
+resolution:
+  outcome: null
+  date: null
+  source: null

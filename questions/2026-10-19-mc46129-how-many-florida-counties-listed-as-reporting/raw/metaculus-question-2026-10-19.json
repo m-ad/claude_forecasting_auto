@@ -1,0 +1,47 @@
+{
+  "post_id": 46129,
+  "url": "https://www.metaculus.com/questions/46129/",
+  "post_title": "How many Florida counties will be listed as reporting locally acquired dengue in 2026 in the FDOH Arbovirus Surveillance Report published on or around October 29, 2026?",
+  "tournaments": [
+    "minibench"
+  ],
+  "options": null,
+  "question": {
+    "id": 46358,
+    "title": "How many Florida counties will be listed as reporting locally acquired dengue in 2026 in the FDOH Arbovirus Surveillance Report published on or around October 29, 2026?",
+    "type": "discrete",
+    "status": "open",
+    "description": "Florida has experienced a large outbreak of locally acquired (non-travel-associated) dengue fever in 2026. The Florida Department of Health (FDOH) publishes a weekly Arbovirus Surveillance Report (PDF) summarizing mosquito-borne disease activity, including a \"Dengue Cases Acquired in Florida\" section that reports the year-to-date count of locally acquired cases and the number of counties from which they have been reported.\n\nThe 2026 county count has climbed steadily as the outbreak has spread:\n- Week 35 (report dated Sept. 10): 111 cases from six counties\n- Week 36 (Sept. 17): 152 cases from six counties\n- Week 37 (Sept. 28): 190 cases from six counties\n- Around Sept. 20–26: 252 cases from seven counties\n- Week 40 (Oct. 4–10): 368 cases from eight counties\n\nCounties that have reported locally acquired dengue cases or been placed under mosquito-borne illness alerts/advisories include Hillsborough, Pinellas, Pasco, Miami-Dade, Orange, Palm Beach, Duval, and Alachua. Hillsborough, Pinellas, and Pasco counties have declared local states of emergency. As of mid-October 2026, eight counties were listed in the most recent report, up from six in September, indicating continuing geographic spread.\n\nA report published on or around October 29, 2026 would typically be the Week 42 report (covering October 18–24, 2026), reflecting whether the outbreak has spread to additional counties.\n\n`{\"format\": \"llm_question\", \"info\": {\"sdk_version\": \"0.6.0\", \"rating\": {\"quality\": 3, \"ambiguity\": 3, \"resolvability\": 4, \"passes\": true}}}`",
+    "resolution_criteria": "This question resolves to the number of counties stated in the \"Dengue Cases Acquired in Florida\" section of the Florida Department of Health (FDOH) weekly Arbovirus Surveillance Report that is the most recent report published on or before October 30, 2026, available from the FDOH Arbovirus Surveillance page (https://www.floridahealth.gov/statistics-data/population-surveillance/arbovirus-surveillance/). That section states the 2026 year-to-date total in the form \"In 2026, X cases of locally acquired dengue and Y mosquito pools have been reported from N counties.\" The question resolves to N, the number of counties. For example, if the report reads \"...have been reported from nine counties,\" this resolves as 9.",
+    "fine_print": "The relevant report is the single most recent weekly Florida Arbovirus Surveillance PDF dated on or before October 30, 2026 (expected to be the Week 42 report, covering October 18–24, 2026). If the FDOH page or PDF is temporarily unavailable, resolution waits until it is accessible or until the figure is reported by [credible sources](https://www.metaculus.com/faq/#definitions). If the report omits the county count for locally acquired dengue but states the cumulative case total, the county count will be taken from the report's \"2026 Mosquito-Borne Disease Activity by County\" table (counting counties with at least one locally acquired dengue case). If FDOH permanently ceases publishing these reports and no equivalent county figure is available, the question is annulled.",
+    "unit": "counties",
+    "options": null,
+    "scaling": {
+      "range_min": 7.5,
+      "range_max": 14.5,
+      "nominal_min": 8,
+      "nominal_max": 14,
+      "zero_point": null,
+      "open_upper_bound": true,
+      "open_lower_bound": false,
+      "inbound_outcome_count": 7,
+      "continuous_range": [
+        7.5,
+        8.5,
+        9.5,
+        10.5,
+        11.5,
+        12.5,
+        13.5,
+        14.5
+      ]
+    },
+    "open_lower_bound": false,
+    "open_upper_bound": true,
+    "inbound_outcome_count": 7,
+    "open_time": "2026-10-19T03:02:53Z",
+    "scheduled_close_time": "2026-10-19T06:02:53Z",
+    "scheduled_resolve_time": "2026-10-30T00:00:00Z",
+    "resolution": null
+  }
+}
