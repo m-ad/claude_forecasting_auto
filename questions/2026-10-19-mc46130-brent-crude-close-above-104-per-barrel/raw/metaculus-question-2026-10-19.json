@@ -1,0 +1,38 @@
+{
+  "post_id": 46130,
+  "url": "https://www.metaculus.com/questions/46130/",
+  "post_title": "Will Brent crude close above $104 per barrel on October 29, 2026?",
+  "tournaments": [
+    "minibench"
+  ],
+  "options": null,
+  "question": {
+    "id": 46359,
+    "title": "Will Brent crude close above $104 per barrel on October 29, 2026?",
+    "type": "binary",
+    "status": "open",
+    "description": "Brent crude oil is the leading global benchmark for crude oil prices, priced in US dollars per barrel. Its price on trading days is widely tracked by financial data providers, including Trading Economics, which publishes a continuously updated Brent quote.\n\nThrough 2026, Brent prices have been elevated and highly volatile, driven largely by geopolitical tensions in the Middle East, including reported risks of US strikes on Iran and ongoing disruptions near the Strait of Hormuz. In mid-October 2026, Brent oscillated roughly between $103 and $109 per barrel. As of October 16, 2026, Trading Economics reported Brent around $109 per barrel, up roughly 3% on the day; on October 15, various providers reported values near $104–$107, and the 52-week range spanned roughly $58.72 to $126.41. The 2026 average has been in the low $90s.\n\nThe $104 per barrel threshold sits near the center of the market's recent oscillation and close to the mid-October spot level. The price has repeatedly swung several dollars within single sessions in response to news headlines (for example, rising on White House Iran-strike reports and falling on statements that no attack was imminent), which makes the outcome for any single named closing date genuinely uncertain.\n\n`{\"format\": \"llm_question\", \"info\": {\"sdk_version\": \"0.6.0\", \"rating\": {\"quality\": 3, \"ambiguity\": 3, \"resolvability\": 4, \"passes\": true}}}`",
+    "resolution_criteria": "This question resolves YES if the Brent Crude oil price reported by [Trading Economics](https://tradingeconomics.com/commodity/brent-crude-oil) for Thursday, October 29, 2026 is strictly above $104.00 per barrel. It resolves NO if the reported closing value for that date is $104.00 per barrel or lower. For example, a reported close of $106.67 resolves YES; a reported close of $101.36 resolves NO. If Trading Economics does not report a price for October 29, 2026, the closing/settlement value reported by [credible sources](https://www.metaculus.com/faq/#definitions) for the front-month ICE Brent Crude futures contract on that date will be used instead.",
+    "fine_print": "October 29, 2026 is a normal trading day. If the market is unexpectedly closed that day, the question resolves on the most recent prior trading day for which a Brent price is available.",
+    "unit": "",
+    "options": null,
+    "scaling": {
+      "range_min": null,
+      "range_max": null,
+      "nominal_min": null,
+      "nominal_max": null,
+      "zero_point": null,
+      "open_upper_bound": false,
+      "open_lower_bound": false,
+      "inbound_outcome_count": null,
+      "continuous_range": null
+    },
+    "open_lower_bound": false,
+    "open_upper_bound": false,
+    "inbound_outcome_count": null,
+    "open_time": "2026-10-19T03:04:24Z",
+    "scheduled_close_time": "2026-10-19T06:04:24Z",
+    "scheduled_resolve_time": "2026-10-30T00:00:00Z",
+    "resolution": null
+  }
+}
