@@ -1,0 +1,46 @@
+slug: 2026-10-19-mc46123-2026-world-series-require-game-6
+title: Will the 2026 World Series require a Game 6?
+source: metaculus
+url: https://www.metaculus.com/questions/46123/
+post_id: 46123
+question_id: 46352
+type: binary
+unit: null
+tags: []
+dates:
+  created: '2026-10-19'
+  opened: '2026-10-19'
+  closes: '2026-10-19'
+  resolves: '2026-10-31'
+status: open
+tournament:
+  slug: minibench
+  mode: one_shot
+  registered: '2026-10-19'
+  opened: '2026-10-19T00:19:04Z'
+  closes: '2026-10-19T03:19:04Z'
+  submitted: '2026-10-19T00:43:43+00:00'
+  submitted_forecast:
+    probability_yes: 0.57
+  comment_posted: true
+  official_score: null
+  missed_window: false
+current:
+  version: 1
+  date: '2026-10-19'
+  median: 0.57
+  iqr:
+  - 0.53
+  - 0.61
+  community:
+    cp: null
+    pro: null
+    gold: null
+    n_forecasters: null
+    as_of: '2026-10-19'
+next_review: null
+tripwires: []
+resolution:
+  outcome: null
+  date: null
+  source: null
