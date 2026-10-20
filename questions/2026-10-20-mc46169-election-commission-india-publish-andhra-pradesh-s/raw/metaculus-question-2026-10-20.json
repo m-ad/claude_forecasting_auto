@@ -1,0 +1,38 @@
+{
+  "post_id": 46169,
+  "url": "https://www.metaculus.com/questions/46169/",
+  "post_title": "Will the Election Commission of India publish Andhra Pradesh's final SIR electoral roll on October 29 or 30, 2026?",
+  "tournaments": [
+    "minibench"
+  ],
+  "options": null,
+  "question": {
+    "id": 46398,
+    "title": "Will the Election Commission of India publish Andhra Pradesh's final SIR electoral roll on October 29 or 30, 2026?",
+    "type": "binary",
+    "status": "open",
+    "description": "The Election Commission of India (ECI) is conducting a Special Intensive Revision (SIR) of electoral rolls across multiple states, including Andhra Pradesh, with July 1, 2026 as the qualifying date. The SIR involves house-to-house verification, publication of a draft roll, a claims-and-objections period, and finally the publication of a final electoral roll.\n\nIn Andhra Pradesh, the final roll publication date has been repeatedly postponed. The original schedule set final publication for September 22, 2026. It was then extended to October 16, and in a communique issued October 14, 2026 by ECI under secretary Sandeep Kumar to the Andhra Pradesh chief electoral officer, the final publication date was extended again — this time to October 30, 2026. The last date for issuing notices and disposing of claims and objections was simultaneously extended to October 22, 2026. By late September 2026, roughly 168,000 voters had been found ineligible for inclusion in Andhra Pradesh following the SIR process.\n\nGiven that the deadline has already been pushed back three times, there is genuine uncertainty about whether ECI will meet the October 30, 2026 target or extend it yet again. The final SIR roll, once published, is made available for download on the ECI voter portal (https://voters.eci.gov.in/download-eroll) under Roll Type \"SIR FinalRoll - 2026\", and publication is typically announced in ECI/CEO Andhra Pradesh communications and reported by Indian media.\n\n`{\"format\": \"llm_question\", \"info\": {\"sdk_version\": \"0.6.0\", \"rating\": {\"quality\": 3, \"ambiguity\": 4, \"resolvability\": 4, \"passes\": true}}}`",
+    "resolution_criteria": "This question resolves YES if, on October 29 or October 30, 2026 (IST), the Election Commission of India (ECI) publishes the final electoral roll for Andhra Pradesh resulting from the ongoing Special Intensive Revision (SIR). It resolves NO otherwise — including if publication is again postponed to a date after October 30, 2026, or has not occurred by 23:59 IST on October 30, 2026. \"Publishes the final electoral roll\" means the SIR final roll for Andhra Pradesh is made officially available, whether through an official ECI or Andhra Pradesh Chief Electoral Officer communication/press note announcing its publication, or as a downloadable \"SIR FinalRoll - 2026\" on the ECI voter portal (https://voters.eci.gov.in/download-eroll). Resolution will be determined from official ECI/CEO Andhra Pradesh statements or from [credible sources](https://www.metaculus.com/faq/#definitions) reporting the publication and its date.",
+    "fine_print": "The current ECI schedule (communique of October 14, 2026) sets final publication for October 30, 2026, with the claims-and-objections disposal period running to October 22, 2026; publication before October 29, 2026 is therefore not expected, and only publication occurring on October 29 or October 30, 2026 (IST) counts toward a YES. The release of a draft roll, a supplementary roll, or any revision other than the SIR final roll does not count.",
+    "unit": "",
+    "options": null,
+    "scaling": {
+      "range_min": null,
+      "range_max": null,
+      "nominal_min": null,
+      "nominal_max": null,
+      "zero_point": null,
+      "open_upper_bound": false,
+      "open_lower_bound": false,
+      "inbound_outcome_count": null,
+      "continuous_range": null
+    },
+    "open_lower_bound": false,
+    "open_upper_bound": false,
+    "inbound_outcome_count": null,
+    "open_time": "2026-10-20T07:21:14Z",
+    "scheduled_close_time": "2026-10-20T10:21:14Z",
+    "scheduled_resolve_time": "2026-10-30T18:29:00Z",
+    "resolution": null
+  }
+}
