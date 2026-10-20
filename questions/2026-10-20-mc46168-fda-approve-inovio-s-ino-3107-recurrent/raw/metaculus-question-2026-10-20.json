@@ -1,0 +1,38 @@
+{
+  "post_id": 46168,
+  "url": "https://www.metaculus.com/questions/46168/",
+  "post_title": "Will the FDA approve INOVIO's INO-3107 for recurrent respiratory papillomatosis on or before October 30, 2026?",
+  "tournaments": [
+    "minibench"
+  ],
+  "options": null,
+  "question": {
+    "id": 46397,
+    "title": "Will the FDA approve INOVIO's INO-3107 for recurrent respiratory papillomatosis on or before October 30, 2026?",
+    "type": "binary",
+    "status": "open",
+    "description": "Recurrent respiratory papillomatosis (RRP) is a rare disease of the respiratory tract caused by infection with human papillomavirus types HPV-6 and HPV-11, in which benign tumors (papillomas) recur and typically require repeated surgeries to control. INOVIO Pharmaceuticals' INO-3107 is a DNA medicine designed to prompt the immune system to generate T-cells that target HPV-6 and HPV-11 infected cells, reducing papilloma growth and the need for surgery.\n\nIn INOVIO's Phase 1/2 trial (RRP-001, 32 participants), 72% of patients saw a 50–100% reduction in the number of surgeries in the first year after treatment; a retrospective study (RRP-002, 28 of the original participants) reported 86% in the second year with no additional dosing.\n\nIn December 2025, the FDA accepted INOVIO's Biologics License Application (BLA) for INO-3107 for review under the accelerated approval program and set a Prescription Drug User Fee Act (PDUFA) target action date of October 30, 2026 — the date by which the FDA intends to take action. The FDA designated the review as Standard and indicated it did not plan to hold an advisory committee meeting. Notably, in its file acceptance letter the FDA flagged a potential review issue: a preliminary conclusion that INOVIO had not submitted adequate information to justify eligibility for the accelerated approval pathway. INOVIO maintains that INO-3107 meets the criteria for accelerated approval.\n\nAs of its Q2 2026 update (August 12, 2026), INOVIO reported that the FDA had completed the late-cycle review meeting and all scheduled pre-licensure inspections, and in September 2026 the company expected to begin label negotiations. Trade trackers estimated an approval probability in the range of roughly 65–75%. The FDA can act before, on, or after a PDUFA date, and outcomes include approval, a Complete Response Letter (a non-approval decision requesting more information), or a delay. As of the question's creation no FDA decision had been announced; the status check is performed at the end of October 30, 2026.\n\n`{\"format\": \"llm_question\", \"info\": {\"sdk_version\": \"0.6.0\", \"rating\": {\"quality\": 4, \"ambiguity\": 4, \"resolvability\": 4, \"passes\": true}}}`",
+    "resolution_criteria": "This question resolves YES if, as of the end of October 30, 2026 (US Eastern Time), the U.S. Food and Drug Administration (FDA) has granted marketing approval (including accelerated approval) to INOVIO Pharmaceuticals' biologic INO-3107 for the treatment of recurrent respiratory papillomatosis (RRP) in adults. Approval is evidenced by INO-3107 appearing as an approved original BLA in the FDA's [Drugs@FDA database](https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm), or by an FDA approval announcement or an INOVIO [investor-relations press release](https://ir.inovio.com/news/default.aspx) reporting FDA approval, or by [credible sources](https://www.metaculus.com/faq/#definitions). It resolves NO if, as of the end of October 30, 2026 (US Eastern Time), the FDA has not granted such approval.",
+    "fine_print": "A Complete Response Letter, a PDUFA-date extension, a refusal to approve, or the absence of any FDA decision by the end of October 30, 2026 (US Eastern Time) all resolve the question NO. Approval of a different formulation or label for INO-3107 still counts as YES so long as the approval covers treatment of RRP in adults.",
+    "unit": "",
+    "options": null,
+    "scaling": {
+      "range_min": null,
+      "range_max": null,
+      "nominal_min": null,
+      "nominal_max": null,
+      "zero_point": null,
+      "open_upper_bound": false,
+      "open_lower_bound": false,
+      "inbound_outcome_count": null,
+      "continuous_range": null
+    },
+    "open_lower_bound": false,
+    "open_upper_bound": false,
+    "inbound_outcome_count": null,
+    "open_time": "2026-10-20T06:30:33Z",
+    "scheduled_close_time": "2026-10-20T09:30:33Z",
+    "scheduled_resolve_time": "2026-10-31T03:59:00Z",
+    "resolution": null
+  }
+}
