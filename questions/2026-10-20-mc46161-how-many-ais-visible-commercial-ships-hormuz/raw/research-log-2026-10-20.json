@@ -1,0 +1,22 @@
+{"searches": [
+  {"category": "resolution_source", "query": "fetch hormuz.now/data", "by": "main", "status": "done", "finding": "Daily rows only since 19 Oct 2026; last 30 days 0 commercial crossings; status Restricted; 1,555 vessels in snapshot (20 Oct 02:12Z)"},
+  {"category": "resolution_source", "query": "fetch hormuz.now/api/daily.json", "by": "main", "status": "done", "finding": "2026-10-19 total 0 (live); 2026-10-20 total 0 partial"},
+  {"category": "resolution_source", "query": "fetch hormuz.now/methodology", "by": "main", "status": "done", "finding": "Gate line Musandam-Kuhestak, cargo/tanker >=80m; collector reads public AIS map tiles; changelog 19 Oct 2026 'first data, earliest crossing in log'"},
+  {"category": "resolution_source", "query": "fetch hormuz.now/traffic archive + /traffic/2026-10-19 + /traffic/2026-10-20", "by": "main", "status": "done", "finding": "19 Oct: 'no AIS-visible commercial ships crossed'; 20 Oct so far 0; archive starts 19 Oct"},
+  {"category": "resolution_source", "query": "fetch hormuz.now/status.json", "by": "main", "status": "done", "finding": "~0% of normal; 24h and 7d = 0; PortWatch latest 11 Oct = 2, 7d avg 4.1, Oct avg 3.5"},
+  {"category": "news", "query": "Strait of Hormuz shipping traffic October 2026", "by": "scout-1", "status": "done", "finding": "AFP 10 Oct: ~10/day commodity carriers since March; no deal; Iran permit regime"},
+  {"category": "news", "query": "Hormuz transits convoy US Navy Iran permits", "by": "scout-1", "status": "done", "finding": "No formal US convoy found; PGSA permits required"},
+  {"category": "news", "query": "Iran US talks Hormuz reopening October 2026", "by": "scout-1", "status": "done", "finding": "Iran reviewing US counterproposal; 7-day reopening plan 'on table' (straits.live 19 Oct); no agreement"},
+  {"category": "news", "query": "fetch straits.live/briefs/2026-10-19", "by": "main", "status": "done", "finding": "PortWatch 11 Oct = 2 transits; Iran attacked >=15 container ships in past 10 days; 157 vessels holding"},
+  {"category": "news", "query": "Iran attacked container ships Hormuz Guardian October 2026", "by": "main", "status": "done", "finding": "GFS Pride and Cape Dao sunk ~14 Oct; UKMTO 20 attacks since 1 Oct"},
+  {"category": "news", "query": "Strait of Hormuz ships crossed October 18 2026", "by": "main", "status": "done", "finding": "nothing dated Oct 18"},
+  {"category": "markets", "query": "Polymarket Strait of Hormuz reopen traffic market", "by": "scout-2", "status": "done", "finding": "No live Oct market with price; stale Polymarket/Kalshi snippets only"},
+  {"category": "markets", "query": "Kalshi OR Polymarket Hormuz transits November 2026 odds", "by": "scout-2", "status": "done", "finding": "Kalshi KXHORMUZWEEKLY exists, no current prices found"},
+  {"category": "base_rate", "query": "IMF PortWatch Strait of Hormuz transit calls", "by": "scout-2", "status": "done", "finding": "PortWatch 4 Oct = 4, 27 Sep = 1, 20 Sep = 1; Aug max 10"},
+  {"category": "base_rate", "query": "Hormuz ship transits Windward Lloyd's List Kpler vessels per day", "by": "scout-2", "status": "done", "finding": "Kpler 6 Oct = 7, 7 Oct = 10; Windward ~30 Sep = 17"},
+  {"category": "base_rate", "query": "Hormuz transits Kpler Windward Oct 15-17 2026 vessels crossed", "by": "main", "status": "done", "finding": "Only Oct 6-7 Kpler figures (7, 10) found"},
+  {"category": "disconfirmation", "query": "Hormuz shipping traffic resumes surge escorts late October 2026", "by": "main", "status": "done", "finding": "No late-Oct surge reports; earlier rebounds were temporary"},
+  {"category": "disconfirmation", "query": "fetch web.archive.org hormuz.now/traffic (check legacy non-zero history)", "by": "main", "status": "skipped", "finding": "fetch blocked"},
+  {"category": "disconfirmation", "query": "Hormuz tanker seized attack October 2026", "by": "scout-1", "status": "done", "finding": "Attacks late Sep/1 Oct on Emirati tankers; escalation continues"},
+  {"category": "other", "query": "hormuz.now tracker AIS crossings Strait of Hormuz October 2026", "by": "main", "status": "done", "finding": "No press coverage of hormuz.now; MarineTraffic/Kpler single digits to low teens in Aug"}
+]}

@@ -1,0 +1,73 @@
+slug: 2026-10-20-mc46161-how-many-ais-visible-commercial-ships-hormuz
+title: How many AIS-visible commercial ships will the hormuz.now tracker count crossing the Strait of
+  Hormuz on October 29, 2026?
+source: metaculus
+url: https://www.metaculus.com/questions/46161/
+post_id: 46161
+question_id: 46390
+type: discrete
+unit: ships
+tags: []
+dates:
+  created: '2026-10-20'
+  opened: '2026-10-20'
+  closes: '2026-10-20'
+  resolves: '2026-10-30'
+status: open
+tournament:
+  slug: minibench
+  mode: one_shot
+  registered: '2026-10-20'
+  opened: '2026-10-20T02:07:37Z'
+  closes: '2026-10-20T05:07:37Z'
+  submitted: '2026-10-20T02:14:44+00:00'
+  submitted_forecast:
+    continuous_cdf:
+    - 0.0
+    - 0.276662453158448
+    - 0.4346519631975475
+    - 0.5298916349599518
+    - 0.5982385188894866
+    - 0.6665854028190215
+    - 0.7349322867485564
+    - 0.7629944465344806
+    - 0.7910566063204046
+    - 0.8191187661063288
+    - 0.847180925892253
+    - 0.8752430856781771
+    - 0.8959207361984471
+    - 0.9092138774530626
+    - 0.9225070187076785
+    - 0.935800159962294
+    - 0.9487185501937736
+    - 0.9592727604283184
+    - 0.9676685240079378
+    - 0.9743832876424838
+    - 0.9797888872034634
+    - 0.9841749087587806
+    - 0.9877668821648853
+    - 0.9907404502505872
+    - 0.993232403788504
+    - 0.9953492755394668
+  comment_posted: true
+  official_score: null
+  missed_window: false
+current:
+  version: 1
+  date: '2026-10-20'
+  median: 1.8
+  iqr:
+  - 0.21
+  - 5.5
+  community:
+    cp: null
+    pro: null
+    gold: null
+    n_forecasters: null
+    as_of: '2026-10-20'
+next_review: null
+tripwires: []
+resolution:
+  outcome: null
+  date: null
+  source: null
