@@ -1,0 +1,21 @@
+{"searches": [
+  {"category": "resolution_source", "query": "이화영 재심청구서 수원고법 접수", "by": "main", "status": "done", "finding": "Only 'plan to file next week' reports (Dailian/News1/Kado, 2026-10-14); no receipt reported"},
+  {"category": "resolution_source", "query": "Lee Hwa-young retrial petition Suwon High Court", "by": "main", "status": "done", "finding": "English coverage: team reviewing retrial (Asiae 10-05, Herald 10-13); no filing"},
+  {"category": "news", "query": "이화영 재심 청구 제출", "by": "main", "status": "done", "finding": "YTN 10-13: decided to file at Suwon High Court this month; no parole/suspension sought"},
+  {"category": "news", "query": "이화영 재심 류재율 변호사", "by": "scout-1", "status": "done", "finding": "Kyeonggi Ilbo 10-14: filing 'next week', mail considered, petition still to be drafted after meetings with Lee"},
+  {"category": "news", "query": "이화영 재심 국정원 문건 연기", "by": "scout-1", "status": "done", "finding": "No postponement report found"},
+  {"category": "news", "query": "이화영 재심 류재율 우편", "by": "scout-1", "status": "done", "finding": "Mail submission under consideration (10-14)"},
+  {"category": "news", "query": "이화영 재심 청구 이번주 제출 변호인", "by": "scout-1", "status": "done", "finding": "Nothing newer than 10-14"},
+  {"category": "news", "query": "이화영 재심 청구서 접수 10월 20일", "by": "scout-1", "status": "done", "finding": "No filing report as of 10-20"},
+  {"category": "news", "query": "이화영 전 부지사 재심 청구서 냈다", "by": "main", "status": "done", "finding": "Segye/Hankook/Sisajournal 10-13: 'within October'; no filing yet"},
+  {"category": "news", "query": "이화영 재심청구 19일 OR 20일 수원고법", "by": "main", "status": "done", "finding": "No 10-19/10-20 filing report"},
+  {"category": "markets", "query": "Polymarket Kalshi Manifold Lee Hwa-young retrial", "by": "main", "status": "done", "finding": "No market found"},
+  {"category": "base_rate", "query": "재심 청구 예고 변호인단 실제 청구 늦어져", "by": "main", "status": "done", "finding": "Nothing directly relevant; general retrial procedure only"},
+  {"category": "base_rate", "query": "이화영 변호인 박상용 검사 고발 예고 제출 서민석 징계 청구", "by": "scout-2", "status": "done", "finding": "No prior announced-then-delayed filings by this team found; team moved fast 10-05 -> 10-13 -> 10-14"},
+  {"category": "disconfirmation", "query": "이화영 재심 연기 보류", "by": "main", "status": "done", "finding": "No delay/hold report found"},
+  {"category": "upcoming_events", "query": "수원고법 국정감사 이화영 재심 접수", "by": "main", "status": "done", "finding": "No article found on audit statement beyond question text"},
+  {"category": "other", "query": "이화영 국정원 2급 비밀 문건 재심 증거 확보", "by": "main", "status": "done", "finding": "NIS docs are core ground; experts doubt success (Dailian 10-13) - affects merit, not filing"},
+  {"category": "other", "query": "쌍방울 대북송금 재심 이화영 변호인단", "by": "scout-2", "status": "done", "finding": "Asiae 10-05: team 'cannot delay the retrial process due to uncertainty about a pardon'"},
+  {"category": "other", "query": "Lee Hwa-young retrial NIS document", "by": "scout-2", "status": "done", "finding": "NIS docs on Li Ho-nam movements, smart-farm; not submitted at trial"},
+  {"category": "disconfirmation", "query": "재심청구 예정 변호인단 \"재심청구서를 제출했다\" 수원고법", "by": "main", "status": "done", "finding": "No filed report"}
+]}

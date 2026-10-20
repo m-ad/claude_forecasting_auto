@@ -1,0 +1,38 @@
+{
+  "post_id": 46171,
+  "url": "https://www.metaculus.com/questions/46171/",
+  "post_title": "Will Lee Hwa-young's legal team have filed a retrial petition in the Ssangbangwool North Korea remittance case with the Suwon High Court as of October 31, 2026?",
+  "tournaments": [
+    "minibench"
+  ],
+  "options": null,
+  "question": {
+    "id": 46400,
+    "title": "Will Lee Hwa-young's legal team have filed a retrial petition in the Ssangbangwool North Korea remittance case with the Suwon High Court as of October 31, 2026?",
+    "type": "binary",
+    "status": "open",
+    "description": "Lee Hwa-young (이화영), former Gyeonggi Province Vice Governor for Peace, was convicted in the \"Ssangbangwool (쌍방울) illegal North Korea remittance\" case, in which the apparel-and-underwear company Ssangbangwool was found to have remitted roughly $8 million to North Korea. In June 2025 the Supreme Court of Korea finalized a sentence of seven years and eight months in prison plus fines. He has been held at Suwon Detention Center since September 2022. President Lee Jae-myung (이재명) was co-indicted in related proceedings, but his trials are suspended under Article 84 presidential immunity while he is in office.\n\nIn early October 2026, Lee Hwa-young's five-lawyer legal team (led by Ryu Jae-yul / 류재율) initially raised the possibility of parole, but the Justice Ministry indicated he did not meet parole eligibility (he had not served one-third of each sentence). On October 13, 2026 the team announced it had formally withdrawn the parole request and would pursue only a retrial (재심), citing a newly surfaced National Intelligence Service (국정원) level-2 classified document as \"new evidence.\" Under the Criminal Procedure Act, a retrial petition is filed with the court that issued the original judgment — here the Suwon High Court, which handed down the appellate (second-instance) ruling.\n\nOn October 14, 2026 the team said it planned to file the petition \"next week\" (the week of October 19–25) or \"within this month,\" likely by mail, but lawyer Ryu stressed that \"no specific date is fixed and it could change.\" At a National Assembly audit of the Suwon High Court on October 16, 2026, the chief judge said that, as of that date, no retrial petition had yet been received. Opposition lawmakers criticized the move, and legal experts quoted in the press doubted that a retrial petition would secure Lee's release, since under Article 428 of the Criminal Procedure Act a retrial petition does not automatically suspend execution of a sentence. As of mid-October 2026, the petition had been announced but not yet filed, and no firm filing date had been set.\n\n`{\"format\": \"llm_question\", \"info\": {\"sdk_version\": \"0.6.0\", \"rating\": {\"quality\": 3, \"ambiguity\": 4, \"resolvability\": 4, \"passes\": true}}}`",
+    "resolution_criteria": "This question resolves YES if, at any point through October 31, 2026 (Korea Standard Time, UTC+9), the legal team of Lee Hwa-young (이화영), former Gyeonggi Province Vice Governor for Peace, has formally submitted (filed) a petition for retrial (재심청구서) to the Suwon High Court (수원고법) in the Ssangbangwool (쌍방울) illegal North Korea remittance case for which the Supreme Court finalized his seven-year-eight-month prison sentence in June 2025. Filing by any means accepted by the court (including submission by mail that has been received by the court) counts. The question resolves based on reporting from [Yonhap News](https://en.yna.co.kr/search/index?query=Lee+Hwa-young) or other [credible sources](https://www.metaculus.com/faq/#definitions). It resolves NO if no such petition has been received by the Suwon High Court as of that date.",
+    "fine_print": "A petition for retrial concerning a different case (for example, the separate third-party bribery remittance case) does not count; only a petition targeting the finalized conviction for which the seven-year-eight-month sentence was imposed counts. A publicly stated intention or announcement of plans to file, without the petition actually having been received by the court, does not count. If the court's receipt of a mailed petition is reported after October 31, 2026 but establishes that receipt occurred on or before October 31, 2026 (KST), the question resolves YES.",
+    "unit": "",
+    "options": null,
+    "scaling": {
+      "range_min": null,
+      "range_max": null,
+      "nominal_min": null,
+      "nominal_max": null,
+      "zero_point": null,
+      "open_upper_bound": false,
+      "open_lower_bound": false,
+      "inbound_outcome_count": null,
+      "continuous_range": null
+    },
+    "open_lower_bound": false,
+    "open_upper_bound": false,
+    "inbound_outcome_count": null,
+    "open_time": "2026-10-20T09:29:20Z",
+    "scheduled_close_time": "2026-10-20T12:29:20Z",
+    "scheduled_resolve_time": "2026-10-31T15:00:00Z",
+    "resolution": null
+  }
+}
