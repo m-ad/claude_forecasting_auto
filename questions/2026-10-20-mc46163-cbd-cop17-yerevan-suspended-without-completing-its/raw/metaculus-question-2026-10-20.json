@@ -1,0 +1,38 @@
+{
+  "post_id": 46163,
+  "url": "https://www.metaculus.com/questions/46163/",
+  "post_title": "Will CBD COP17 in Yerevan be suspended without completing its agenda, as happened at COP16 in Cali?",
+  "tournaments": [
+    "minibench"
+  ],
+  "options": null,
+  "question": {
+    "id": 46392,
+    "title": "Will CBD COP17 in Yerevan be suspended without completing its agenda, as happened at COP16 in Cali?",
+    "type": "binary",
+    "status": "open",
+    "description": "The seventeenth meeting of the Conference of the Parties to the UN Convention on Biological Diversity (CBD COP17) runs 19–30 October 2026 in Yerevan, Armenia, under the theme \"Taking Action for Nature.\" It marks the first global review (stocktake) of collective progress toward the Kunming-Montreal Global Biodiversity Framework (KMGBF), adopted at COP15 in 2022, and features contentious agenda items including biodiversity finance and resource mobilization. The scheduled closing date is 30 October 2026.\n\nUN biodiversity COPs frequently run their final plenary deep into the night and past the scheduled closing date. The most relevant precedent is COP16 in Cali, Colombia (October–November 2024): its final plenary, scheduled to close on 1 November 2024, ran into the early morning of 2 November and was then formally SUSPENDED by the COP President at around 8:15 a.m. after the plenary lost quorum, leaving key decisions on resource mobilization, the financial mechanism, and KMGBF monitoring unadopted. A resumed session had to be convened later (online in December 2024 and in person in Rome, 25–27 February 2025) to complete the unfinished agenda.\n\nNot every COP ends in suspension — most conclude successfully, if late. The question is whether COP17 will end like Cali (a formal suspension with pending decisions, requiring a resumed session) or reach a normal close. The IISD Earth Negotiations Bulletin (ENB) provides authoritative daily coverage of the negotiations and will report whether the meeting is \"closed\" or \"suspended,\" as will official CBD channels.\n\n`{\"format\": \"llm_question\", \"info\": {\"sdk_version\": \"0.6.0\", \"rating\": {\"quality\": 3, \"ambiguity\": 4, \"resolvability\": 4, \"passes\": true}}}`",
+    "resolution_criteria": "This question resolves YES if the seventeenth meeting of the Conference of the Parties to the Convention on Biological Diversity (CBD COP17), held in Yerevan, Armenia (19–30 October 2026), is formally suspended by its President at the closing plenary with one or more substantive (non-procedural) agenda decisions left unadopted — such that a resumed session is required to complete the agenda, mirroring what occurred at COP16 in Cali in November 2024. It resolves NO if the closing plenary instead concludes/closes the meeting with the agenda completed (even if the plenary runs past midnight into 31 October 2026 Yerevan time).\n\nResolution will be based on the IISD Earth Negotiations Bulletin daily coverage of the conference ([enb.iisd.org/un-biodiversity-conference-cbd-cop17](https://enb.iisd.org/un-biodiversity-conference-cbd-cop17)) and/or official CBD announcements ([cbd.int/conferences/2026](https://www.cbd.int/conferences/2026)), or [credible sources](https://www.metaculus.com/faq/#definitions). Specifically, if these sources report that the COP17 closing plenary was \"suspended\" (as opposed to \"closed\"/\"concluded\") with decisions pending, the question resolves YES.",
+    "fine_print": "Only the status of the COP17 plenary itself matters; the status of the concurrent Cartagena Protocol (CP-MOP 12) and Nagoya Protocol (NP-MOP 6) meetings is not considered. A meeting that runs past its scheduled 30 October closing date into the early hours of 31 October (or slightly later) but then formally closes with its agenda completed resolves NO. If the conference has not formally closed or been suspended by the time of resolution because the plenary is still ongoing, the question resolves based on the status reported by the sources as of 23:59 Yerevan time on 31 October 2026. If the CBD and IISD sources become permanently unavailable, [credible sources](https://www.metaculus.com/faq/#definitions) will be used.",
+    "unit": "",
+    "options": null,
+    "scaling": {
+      "range_min": null,
+      "range_max": null,
+      "nominal_min": null,
+      "nominal_max": null,
+      "zero_point": null,
+      "open_upper_bound": false,
+      "open_lower_bound": false,
+      "inbound_outcome_count": null,
+      "continuous_range": null
+    },
+    "open_lower_bound": false,
+    "open_upper_bound": false,
+    "inbound_outcome_count": null,
+    "open_time": "2026-10-20T02:31:54Z",
+    "scheduled_close_time": "2026-10-20T05:31:54Z",
+    "scheduled_resolve_time": "2026-10-31T21:00:00Z",
+    "resolution": null
+  }
+}
