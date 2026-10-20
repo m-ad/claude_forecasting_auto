@@ -1,0 +1,38 @@
+{
+  "post_id": 46170,
+  "url": "https://www.metaculus.com/questions/46170/",
+  "post_title": "Will Bitcoin be at or above $85,000 at the start of October 31, 2026 (UTC)?",
+  "tournaments": [
+    "minibench"
+  ],
+  "options": null,
+  "question": {
+    "id": 46399,
+    "title": "Will Bitcoin be at or above $85,000 at the start of October 31, 2026 (UTC)?",
+    "type": "binary",
+    "status": "open",
+    "description": "Bitcoin (BTC) is the largest cryptocurrency by market capitalization. After reaching an all-time high near $126,000 in early October 2025, BTC trended lower through 2026. As of mid-October 2026, spot prices sit around $81,000: Yahoo Finance recorded a close of $82,096 on October 15, 2026, $81,562 on October 14, and $83,095 on October 13, 2026, with daily ranges roughly $79,800–$84,000 over that stretch. In early October 2026 BTC was notably higher — CryptoCompare/YCharts data show snapshot values of about $86,490 (Oct 5), $85,771 (Oct 6), and $85,540 (Oct 7), before a decline later in the month.\n\nOver the 30 days to October 16, 2026, BTC was up roughly 7%, while the 7-day change was slightly negative (about -1.5%). A hotter-than-expected September CPI report (released around October 14, 2026) and rising expectations around the October 28, 2026 FOMC meeting weighed on risk assets including crypto. Reaching $85,000 by the end of October would require roughly a 5% gain from mid-October spot levels — within normal two-week volatility for Bitcoin, but not the status quo. Model-based forecasts for late October 2026 cluster around $80,000–$82,000 but span a wide range.\n\nCoinGecko publishes a daily historical price table for Bitcoin (price in USD, market cap, and volume) at https://www.coingecko.com/en/coins/bitcoin/historical_data, where each dated row reflects a 00:00:00 UTC snapshot for that calendar date.\n\n`{\"format\": \"llm_question\", \"info\": {\"sdk_version\": \"0.6.0\", \"rating\": {\"quality\": 3, \"ambiguity\": 4, \"resolvability\": 4, \"passes\": true}}}`",
+    "resolution_criteria": "This question resolves YES if the price of Bitcoin (BTC) in US dollars at the 00:00:00 UTC snapshot beginning October 31, 2026 is at or above $85,000. The resolver will use the CoinGecko Bitcoin historical data page (https://www.coingecko.com/en/coins/bitcoin/historical_data), where each dated row reports a 00:00:00 UTC price snapshot for that date: the row dated 2026-10-31 will be used. If the price value shown for the 2026-10-31 row is $85,000.00 or higher, the question resolves YES; otherwise NO. For example, a value of $85,250 resolves YES and a value of $84,900 resolves NO. If CoinGecko no longer publishes this data, the Bitcoin USD price at 00:00:00 UTC on October 31, 2026 from [credible sources](https://www.metaculus.com/faq/#definitions) will be used.",
+    "fine_print": "Only Bitcoin (BTC) is relevant; no other cryptocurrency or wrapped/forked token counts. The relevant figure is the single 00:00:00 UTC snapshot value for the calendar date 2026-10-31 as reported by the source, not an intraday high/low or a volume-weighted average over the day.",
+    "unit": "",
+    "options": null,
+    "scaling": {
+      "range_min": null,
+      "range_max": null,
+      "nominal_min": null,
+      "nominal_max": null,
+      "zero_point": null,
+      "open_upper_bound": false,
+      "open_lower_bound": false,
+      "inbound_outcome_count": null,
+      "continuous_range": null
+    },
+    "open_lower_bound": false,
+    "open_upper_bound": false,
+    "inbound_outcome_count": null,
+    "open_time": "2026-10-20T09:17:04Z",
+    "scheduled_close_time": "2026-10-20T12:17:04Z",
+    "scheduled_resolve_time": "2026-10-31T06:00:00Z",
+    "resolution": null
+  }
+}

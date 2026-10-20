@@ -1,0 +1,46 @@
+slug: 2026-10-20-mc46170-bitcoin-above-85-000-start-october-31
+title: Will Bitcoin be at or above $85,000 at the start of October 31, 2026 (UTC)?
+source: metaculus
+url: https://www.metaculus.com/questions/46170/
+post_id: 46170
+question_id: 46399
+type: binary
+unit: null
+tags: []
+dates:
+  created: '2026-10-20'
+  opened: '2026-10-20'
+  closes: '2026-10-20'
+  resolves: '2026-10-31'
+status: open
+tournament:
+  slug: minibench
+  mode: one_shot
+  registered: '2026-10-20'
+  opened: '2026-10-20T09:17:04Z'
+  closes: '2026-10-20T12:17:04Z'
+  submitted: '2026-10-20T09:45:07+00:00'
+  submitted_forecast:
+    probability_yes: 0.22
+  comment_posted: true
+  official_score: null
+  missed_window: false
+current:
+  version: 1
+  date: '2026-10-20'
+  median: 0.22
+  iqr:
+  - 0.17
+  - 0.28
+  community:
+    cp: null
+    pro: null
+    gold: null
+    n_forecasters: null
+    as_of: '2026-10-20'
+next_review: null
+tripwires: []
+resolution:
+  outcome: null
+  date: null
+  source: null
