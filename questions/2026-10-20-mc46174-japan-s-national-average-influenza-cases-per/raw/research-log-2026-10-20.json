@@ -1,0 +1,23 @@
+{"searches": [
+  {"category": "resolution_source", "query": "JIHS IDWR rapid 2026 index page (fetch)", "by": "main", "status": "done", "finding": "Weeks 1-41 published; week 41 (Oct 5-11) latest; week 42 not yet posted as of 2026-10-20"},
+  {"category": "resolution_source", "query": "JIHS IDWR rapid 2026 week 41 page (fetch)", "by": "main", "status": "done", "finding": "Only CSV links, no inline per-sentinel value"},
+  {"category": "resolution_source", "query": "インフルエンザ 定点当たり 全国 10月 2026 患者数", "by": "main", "status": "done", "finding": "nk.jiho: wk37 5.54, wk38 8.48, wk39 7.17, wk40 11.35"},
+  {"category": "resolution_source", "query": "nk.jiho.jp article 305841 (fetch)", "by": "main", "status": "done", "finding": "wk40 11.35 up from 7.17; headline: 12.81 for Oct 5-11 (published Oct 19 2026)"},
+  {"category": "news", "query": "Japan influenza per sentinel October 2026 early season", "by": "main", "status": "done", "finding": "Only Tokyo IDSC weekly PDFs to wk34; nothing new"},
+  {"category": "news", "query": "インフルエンザ 12.81 定点 第41週 都道府県 沖縄", "by": "main", "status": "done", "finding": "Okinawa alert issued Sep 11 2026 at 10.34 (wk36); no wk41 breakdown"},
+  {"category": "disconfirmation", "query": "インフルエンザ 流行 減少 鈍化 2026年10月 学級閉鎖", "by": "main", "status": "done", "finding": "No reports of decline; Mie school-closure partial week Oct 12-18 revised upward"},
+  {"category": "resolution_source", "query": "インフルエンザ 全国 定点 12.81 前週 11.35 増加", "by": "main", "status": "done", "finding": "Confirms wk40 11.35 vs 7.17; season entry Aug 17-23"},
+  {"category": "news", "query": "東京都 インフルエンザ 定点 2026年 第42週 10月12日～10月18日", "by": "main", "status": "done", "finding": "No week-42 2026 data yet"},
+  {"category": "markets", "query": "Polymarket Kalshi Manifold Japan influenza 2026", "by": "main", "status": "done", "finding": "No markets found"},
+  {"category": "base_rate", "query": "インフルエンザ 2023年 第42週 第43週 第44週 定点当たり 全国 推移", "by": "main", "status": "done", "finding": "2023 wk44 21.13"},
+  {"category": "base_rate", "query": "インフル定点 2023年 第43週 10月23日~29日 全国", "by": "main", "status": "done", "finding": "2023 wk43 19.68, wk42 16.41"},
+  {"category": "base_rate", "query": "インフルエンザ 定点当たり 全国 2025年 第44週 第45週 第46週", "by": "scout-2", "status": "done", "finding": "2025: 14.90, 21.82, 37.73"},
+  {"category": "base_rate", "query": "インフルエンザ 定点当たり 全国 2024年12月 第49週 第50週 第51週 前週", "by": "scout-2", "status": "done", "finding": "2024: 9.03, 19.06, 42.66"},
+  {"category": "base_rate", "query": "インフルエンザ 全国 定点当たり 2023年 第40週 第41週 第42週 第43週 注意報 9月 10月 前週", "by": "scout-2", "status": "done", "finding": "2023: wk39 9.57, wk40 9.99, wk41 11.07"},
+  {"category": "base_rate", "query": "日本医事新報 インフルエンザ 全国 定点当たり 2023年 第46週 第47週 前週 減少", "by": "scout-2", "status": "done", "finding": "2023 wk45 dip 17.35, wk47 28.30"},
+  {"category": "resolution_source", "query": "インフルエンザ 定点当たり 2026年10月 全国 厚生労働省", "by": "scout-1", "status": "done", "finding": "wk41 12.81, 47,746 reports, released Oct 16"},
+  {"category": "news", "query": "インフルエンザ 第41週 10月5日~11日 定点当たり 全国 2026", "by": "scout-1", "status": "done", "finding": "29 prefectures >10; Okinawa 31.34 (down from 37.07); Kanagawa 21.60, Saitama 20.99"},
+  {"category": "news", "query": "Japan influenza early season 2026 October sentinel Okinawa warning level prefectures alert", "by": "scout-1", "status": "done", "finding": "Rising nationally; some prefectures (Shizuoka, Okayama) falling"},
+  {"category": "disconfirmation", "query": "インフルエンザ 全国 定点当たり 10月16日 厚労省 公表 28都道府県 注意報 沖縄 警報", "by": "scout-1", "status": "done", "finding": "Growth slowed from +58% to +13%; Aichi flat 11.88->11.47"},
+  {"category": "news", "query": "日本 流感 第41周 每家定点医疗机构 12.81 新华网", "by": "scout-1", "status": "done", "finding": "Xinhua: wk40 first time above 10 this season"}
+]}
