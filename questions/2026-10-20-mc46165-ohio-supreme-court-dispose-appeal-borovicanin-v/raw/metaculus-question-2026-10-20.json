@@ -1,0 +1,38 @@
+{
+  "post_id": 46165,
+  "url": "https://www.metaculus.com/questions/46165/",
+  "post_title": "Will the Ohio Supreme Court dispose of the appeal in Borovicanin v. NCAA (No. 2026-1353) on the merits by October 30, 2026?",
+  "tournaments": [
+    "minibench"
+  ],
+  "options": null,
+  "question": {
+    "id": 46394,
+    "title": "Will the Ohio Supreme Court dispose of the appeal in Borovicanin v. NCAA (No. 2026-1353) on the merits by October 30, 2026?",
+    "type": "binary",
+    "status": "open",
+    "description": "Borovicanin v. National Collegiate Athletic Assn. is an Ohio lawsuit brought by college basketball players — including Xavier's Filip Borovicanin, Cincinnati's MJ Collins Jr., Gonzaga's Javon Bennett, and St. John's Keyshawn Hall — challenging the NCAA's eligibility rules barring certain \"Class of 2022\" high-school graduates from playing a fifth year. A Hamilton County trial court granted a preliminary injunction allowing the players to compete; the First District Court of Appeals reversed that injunction on October 2, 2026 (2026-Ohio-3885), rendering the players ineligible.\n\nThe players sought review from the Supreme Court of Ohio (Case No. 2026-1353). On October 13, 2026, Ohio Governor Mike DeWine issued an executive order declaring Class of 2022 athletes at Ohio public colleges eligible; the NCAA then sued DeWine in federal court on October 16, 2026. On October 14, 2026, the Supreme Court of Ohio stayed the First District's October 2 judgment and mandate pending appeal (temporarily reinstating the players' eligibility) and ordered the parties to file simultaneous supplemental briefs (max 15 pages) on the effect of DeWine's executive order and potential mootness, due by 5:00 p.m. Monday, October 19, 2026.\n\nAs of October 16, 2026, the Supreme Court of Ohio had issued only procedural and stay orders (dated October 2, 6, and 14) and had not accepted jurisdiction or ruled on the merits of the appeal. The court has moved unusually quickly through the case. Whether it will finally dispose of the appeal — by ruling, dismissing, or declining jurisdiction — within roughly two weeks of the close of supplemental briefing is uncertain.\n\n`{\"format\": \"llm_question\", \"info\": {\"sdk_version\": \"0.6.0\", \"rating\": {\"quality\": 3, \"ambiguity\": 4, \"resolvability\": 4, \"passes\": true}}}`",
+    "resolution_criteria": "This question resolves YES if, as of October 30, 2026 (23:59 US Eastern Time), the Supreme Court of Ohio has issued an order or opinion in Case No. 2026-1353, Borovicanin v. Natl. Collegiate Athletic Assn., that disposes of the NCAA's appeal on the merits — i.e., an entry that either (a) accepts jurisdiction and rules on the appeal, (b) declines/dismisses the appeal (including dismissing it as improvidently allowed or as moot), or (c) affirms, reverses, or vacates the First District Court of Appeals' October 2, 2026 judgment (2026-Ohio-3885). It resolves NO if, as of that time, the court has issued no such disposition and the case remains pending (for example, only procedural, stay, or briefing orders have been entered). An order that merely extends, modifies, or lifts the existing stay, sets further briefing or argument, or otherwise does not finally dispose of the appeal does NOT count as a merits disposition. The case docket is available at https://www.supremecourt.ohio.gov/Clerk/ecms/#/caseinfo/2026/1353 (search Case No. 2026-1353) and daily case announcements at https://www.supremecourt.ohio.gov/opinions-cases/daily-archive/ .",
+    "fine_print": "Only actions by the Supreme Court of Ohio in Case No. 2026-1353 count; actions by lower courts, the Hamilton County Court of Appeals, the trial court, or any federal court (including the NCAA's separate federal suit against Governor DeWine) do not count. If the case is settled, voluntarily dismissed by the parties, or dismissed by the court as moot, that counts as a merits disposition and resolves the question YES. If the Supreme Court of Ohio docket and daily-archive pages are temporarily unavailable, resolution may rely on [credible sources](https://www.metaculus.com/faq/#definitions) reporting the court's action.",
+    "unit": "",
+    "options": null,
+    "scaling": {
+      "range_min": null,
+      "range_max": null,
+      "nominal_min": null,
+      "nominal_max": null,
+      "zero_point": null,
+      "open_upper_bound": false,
+      "open_lower_bound": false,
+      "inbound_outcome_count": null,
+      "continuous_range": null
+    },
+    "open_lower_bound": false,
+    "open_upper_bound": false,
+    "inbound_outcome_count": null,
+    "open_time": "2026-10-20T05:14:55Z",
+    "scheduled_close_time": "2026-10-20T08:14:55Z",
+    "scheduled_resolve_time": "2026-10-31T03:59:00Z",
+    "resolution": null
+  }
+}
