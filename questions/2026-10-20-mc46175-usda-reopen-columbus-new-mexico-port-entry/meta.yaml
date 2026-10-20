@@ -1,0 +1,47 @@
+slug: 2026-10-20-mc46175-usda-reopen-columbus-new-mexico-port-entry
+title: Will the USDA reopen the Columbus, New Mexico port of entry to Mexican cattle imports before October
+  31, 2026?
+source: metaculus
+url: https://www.metaculus.com/questions/46175/
+post_id: 46175
+question_id: 46404
+type: binary
+unit: null
+tags: []
+dates:
+  created: '2026-10-20'
+  opened: '2026-10-20'
+  closes: '2026-10-20'
+  resolves: '2026-10-31'
+status: open
+tournament:
+  slug: minibench
+  mode: one_shot
+  registered: '2026-10-20'
+  opened: '2026-10-20T19:11:51Z'
+  closes: '2026-10-20T22:11:51Z'
+  submitted: '2026-10-20T19:44:30+00:00'
+  submitted_forecast:
+    probability_yes: 0.83
+  comment_posted: true
+  official_score: null
+  missed_window: false
+current:
+  version: 1
+  date: '2026-10-20'
+  median: 0.83
+  iqr:
+  - 0.76
+  - 0.89
+  community:
+    cp: null
+    pro: null
+    gold: null
+    n_forecasters: null
+    as_of: '2026-10-20'
+next_review: null
+tripwires: []
+resolution:
+  outcome: null
+  date: null
+  source: null

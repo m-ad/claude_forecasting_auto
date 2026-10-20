@@ -1,0 +1,38 @@
+{
+  "post_id": 46175,
+  "url": "https://www.metaculus.com/questions/46175/",
+  "post_title": "Will the USDA reopen the Columbus, New Mexico port of entry to Mexican cattle imports before October 31, 2026?",
+  "tournaments": [
+    "minibench"
+  ],
+  "options": null,
+  "question": {
+    "id": 46404,
+    "title": "Will the USDA reopen the Columbus, New Mexico port of entry to Mexican cattle imports before October 31, 2026?",
+    "type": "binary",
+    "status": "open",
+    "description": "For over a year, the United States closed its southern border ports of entry to live cattle imports from Mexico due to the spread of New World screwworm (NWS), a damaging livestock parasite. On July 24, 2026, the USDA announced a coordinated, phased reopening contingent on Mexico's progress under a Joint Action Plan. The Douglas, Arizona port reopened to cattle trade on August 24, 2026, and the Santa Teresa, New Mexico port reopened on September 24, 2026 (cattle imports resumed there on September 28, 2026).\n\nThe Columbus, New Mexico port — one of the largest for livestock imports and the next in the announced sequence — remained listed as \"To be determined\" as of October 14, 2026, with all other southern border ports still closed. Columbus primarily serves cattle from Chihuahua, Mexico (via Palomas). USDA has stated that reopening timelines remain flexible and that further openings may be paused if increased NWS risk is identified in Sonora or Chihuahua. NWS detections in Mexican states near the border, including Chihuahua, have continued through mid-October 2026, with the APHIS detection table recording cases within a few miles of the border. Agriculture Secretary Brooke Rollins has indicated no near-term plans to reopen Texas ports.\n\nThe USDA APHIS \"Current Status of New World Screwworm\" page maintains a \"Port Closures and Reopening Updates\" section listing the reopening dates (or \"To be determined\" status) for each southern port.\n\n`{\"format\": \"llm_question\", \"info\": {\"sdk_version\": \"0.6.0\", \"rating\": {\"quality\": 3, \"ambiguity\": 4, \"resolvability\": 4, \"passes\": true}}}`",
+    "resolution_criteria": "This question resolves YES if, at any time between October 29, 2026 and 23:59 US Eastern Time on October 30, 2026, the USDA APHIS \"Current Status of New World Screwworm\" page (https://www.aphis.usda.gov/animals/animal-health/livestock-and-poultry-disease/stop-screwworm/current-status) indicates that the Columbus, New Mexico port of entry has reopened to the import of live cattle from Mexico — i.e., it lists a specific reopening date for Columbus, NM that is on or before October 30, 2026, or otherwise states that the Columbus, NM port is open to cattle imports. It resolves NO if, throughout that window, the page continues to list Columbus, NM as \"To be determined\", closed, or otherwise not yet reopened. As of October 14, 2026, the page lists Columbus, NM reopening as \"To be determined\".",
+    "fine_print": "If the APHIS current-status page is unavailable or no longer reports port reopening status, resolution will rely on [credible sources](https://www.metaculus.com/faq/#definitions) reporting on whether the Columbus, NM port has reopened to Mexican cattle imports. An official USDA announcement of a specific future reopening date for Columbus that falls after October 30, 2026 does not by itself resolve the question YES; the reopening date must be on or before October 30, 2026. A reopening that is announced and then paused or reversed before October 30, 2026 still resolves YES if the port was open to cattle imports at any point during the window.",
+    "unit": "",
+    "options": null,
+    "scaling": {
+      "range_min": null,
+      "range_max": null,
+      "nominal_min": null,
+      "nominal_max": null,
+      "zero_point": null,
+      "open_upper_bound": false,
+      "open_lower_bound": false,
+      "inbound_outcome_count": null,
+      "continuous_range": null
+    },
+    "open_lower_bound": false,
+    "open_upper_bound": false,
+    "inbound_outcome_count": null,
+    "open_time": "2026-10-20T19:11:51Z",
+    "scheduled_close_time": "2026-10-20T22:11:51Z",
+    "scheduled_resolve_time": "2026-10-31T03:59:00Z",
+    "resolution": null
+  }
+}

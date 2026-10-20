@@ -1,0 +1,19 @@
+{"searches": [
+  {"category": "resolution_source", "query": "WebFetch APHIS current-status page, Port Closures and Reopening Updates", "by": "main", "status": "done", "finding": "Last modified 2026-10-14; Columbus not yet given a date (fetch summary garbled Santa Teresa status)"},
+  {"category": "resolution_source", "query": "Columbus New Mexico port cattle imports reopen USDA", "by": "main", "status": "done", "finding": "Jul 24 2026 phased plan Douglas -> Santa Teresa -> Columbus; flexible timeline"},
+  {"category": "news", "query": "Columbus port cattle screwworm October 2026", "by": "main", "status": "done", "finding": "No Oct articles; APHIS page versions Oct 7; Sept 25 report USDA proceeding despite Grant County case"},
+  {"category": "schedule", "query": "Santa Teresa cattle imports resume September 2026 next Columbus", "by": "main", "status": "done", "finding": "Santa Teresa announced Sept 17, reopened Sept 24; Columbus no date then"},
+  {"category": "disconfirmation", "query": "screwworm Chihuahua detection October 2026 border", "by": "main", "status": "done", "finding": "Juarez/Samalayuca case Aug; Chihuahua 75+ active cases; pause clause for Sonora/Chihuahua risk"},
+  {"category": "base_rate", "query": "Texas screwworm infested zone October 2026", "by": "main", "status": "done", "finding": "Texas zones being released Aug-Oct 2026; US situation improving"},
+  {"category": "news", "query": "Rollins Columbus New Mexico port reopening date cattle", "by": "main", "status": "done", "finding": "Meatingplace Oct 19 2026: USDA said Monday Columbus reopens Oct 26; agbull Oct 19: Chihuahua union expects Oct 26"},
+  {"category": "news", "query": "Palomas Chihuahua ganado exportacion Columbus reapertura octubre 2026", "by": "main", "status": "done", "finding": "Tiempo Oct 6: US authorities notified Palomas-Columbus reopening Oct 26, 750 head/day, pending official confirmation"},
+  {"category": "markets", "query": "Polymarket Kalshi Mexico cattle imports border reopen", "by": "main", "status": "done", "finding": "No prediction market found"},
+  {"category": "resolution_source", "query": "WebFetch meatingplace third-border-crossing-to-open-next-week", "by": "main", "status": "done", "finding": "Oct 19 2026: USDA said Columbus will be third crossing reopened as of Oct 26; despite Grant County cases"},
+  {"category": "news", "query": "USDA Columbus port reopen October 26 cattle", "by": "main", "status": "done", "finding": "dairyherd headline: Columbus crossing to reopen; agbull Aug: Rollins 30-day cadence"},
+  {"category": "resolution_source", "query": "USDA Columbus New Mexico port reopen Mexican cattle screwworm", "by": "scout-1", "status": "done", "finding": "Jul 24 plan; contingent on Action Plan"},
+  {"category": "schedule", "query": "Santa Teresa port cattle imports reopen screwworm September 2026", "by": "scout-1", "status": "done", "finding": "Rollins announced Sept 17 for Sept 24"},
+  {"category": "news", "query": "screwworm Chihuahua detection October 2026 border cattle", "by": "scout-1", "status": "done", "finding": "nothing from October found"},
+  {"category": "schedule", "query": "Douglas Arizona port cattle imports resume Rollins phased reopening", "by": "scout-1", "status": "done", "finding": "Douglas reopened Aug 24; 31-day cadence"},
+  {"category": "news", "query": "Columbus New Mexico port livestock USDA October 2026", "by": "scout-1", "status": "done", "finding": "Sept 21 Insurance Journal: Rollins 'looking at reopening a port in Columbus' assuming containment"},
+  {"category": "upcoming_events", "query": "screwworm Mexico cattle imports news this week Santa Teresa Columbus next", "by": "scout-1", "status": "done", "finding": "nothing new after Sept 21"}
+]}
