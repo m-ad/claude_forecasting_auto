@@ -13,7 +13,7 @@ dates:
   opened: '2026-10-19'
   closes: '2026-10-19'
   resolves: '2026-10-31'
-status: open
+status: closed
 tournament:
   slug: minibench
   mode: one_shot
