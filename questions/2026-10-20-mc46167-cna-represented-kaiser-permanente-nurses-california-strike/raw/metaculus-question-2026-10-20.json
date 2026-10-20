@@ -1,0 +1,38 @@
+{
+  "post_id": 46167,
+  "url": "https://www.metaculus.com/questions/46167/",
+  "post_title": "Will CNA-represented Kaiser Permanente nurses in California be on strike on October 29 or 30, 2026?",
+  "tournaments": [
+    "minibench"
+  ],
+  "options": null,
+  "question": {
+    "id": 46396,
+    "title": "Will CNA-represented Kaiser Permanente nurses in California be on strike on October 29 or 30, 2026?",
+    "type": "binary",
+    "status": "open",
+    "description": "The California Nurses Association/National Nurses United (CNA/NNU) represents more than 25,000 registered nurses at 22 Kaiser Permanente facilities in California. Their most recent contract expired on September 30, 2026. As of mid-October 2026, Kaiser and CNA had met for 17 bargaining sessions since July, with additional sessions scheduled for October 21 and 22, 2026. Negotiations have been contentious: CNA held informational pickets at 22 hospitals on September 1, 2026, a joint protest on September 16, and its members held a 24-hour sympathy strike on March 18, 2026, in solidarity with NUHW mental health workers. According to Kaiser's October 8, 2026 open letters, CNA scheduled strike-authorization vote dates before wage proposals were exchanged, but as of mid-October 2026 no strike by CNA nurses had been announced or begun.\n\nUnder NNU's standard practice (as in 2018, 2022, and other actions), CNA provides at least 10 days' advance written notice before any strike. Separately, 31,000 UNAC/UHCP nurses and health professionals struck Kaiser for roughly five weeks beginning January 2026, and Kaiser's mental health therapists (NUHW) have also struck in 2026 — but these are different unions. This question concerns only CNA/NNU-represented registered nurses.\n\n`{\"format\": \"llm_question\", \"info\": {\"sdk_version\": \"0.6.0\", \"rating\": {\"quality\": 3, \"ambiguity\": 4, \"resolvability\": 4, \"passes\": true}}}`",
+    "resolution_criteria": "This question resolves YES if, at any point during October 29 or October 30, 2026 (Pacific Time), registered nurses represented by the California Nurses Association/National Nurses United (CNA/NNU) at Kaiser Permanente facilities in California are engaged in a work stoppage (strike) against Kaiser Permanente. A \"strike\" means an organized, union-sanctioned withholding of labor (including a full open-ended strike, a one-day or multi-day strike, or a sympathy strike) that CNA/NNU publicly confirms or that is reported by [credible sources](https://www.metaculus.com/faq/#definitions). Picketing, informational actions, or rallies conducted without a withholding of labor do NOT count. The strike must be ongoing on October 29 or 30, 2026; a strike that occurred entirely before October 29, 2026 does not count. Resolution will be based on CNA/NNU's press page (https://www.nationalnursesunited.org/press), Kaiser Permanente's CNA bargaining page (https://about.kaiserpermanente.org/who-we-are/labor-relations/cna-bargaining), or [credible sources](https://www.metaculus.com/faq/#definitions).",
+    "fine_print": "A strike by other Kaiser Permanente unions (e.g., UNAC/UHCP or NUHW) that does not involve CNA/NNU-represented registered nurses withholding labor does not count. If CNA/NNU nurses hold a sympathy strike in support of another union during October 29–30, 2026, that counts as YES.",
+    "unit": "",
+    "options": null,
+    "scaling": {
+      "range_min": null,
+      "range_max": null,
+      "nominal_min": null,
+      "nominal_max": null,
+      "zero_point": null,
+      "open_upper_bound": false,
+      "open_lower_bound": false,
+      "inbound_outcome_count": null,
+      "continuous_range": null
+    },
+    "open_lower_bound": false,
+    "open_upper_bound": false,
+    "inbound_outcome_count": null,
+    "open_time": "2026-10-20T06:09:57Z",
+    "scheduled_close_time": "2026-10-20T09:09:57Z",
+    "scheduled_resolve_time": "2026-10-31T00:00:00Z",
+    "resolution": null
+  }
+}
