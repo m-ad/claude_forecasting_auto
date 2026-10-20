@@ -1,0 +1,38 @@
+{
+  "post_id": 46159,
+  "url": "https://www.metaculus.com/questions/46159/",
+  "post_title": "Will a US halt of Ukraine arms deliveries under NATO's PURL mechanism be confirmed before November 1, 2026?",
+  "tournaments": [
+    "minibench"
+  ],
+  "options": null,
+  "question": {
+    "id": 46388,
+    "title": "Will a US halt of Ukraine arms deliveries under NATO's PURL mechanism be confirmed before November 1, 2026?",
+    "type": "binary",
+    "status": "open",
+    "description": "NATO's Prioritised Ukraine Requirements List (PURL) is a procurement mechanism, agreed by NATO Secretary General Mark Rutte and US President Donald Trump on 14 July 2025, through which NATO allies and partner states pay for US-made weapons (notably Patriot and HIMARS interceptors/missiles) delivered to Ukraine from US sources. By October 2026, allies had pledged and funded roughly $10 billion worth of equipment under PURL, with contributions from 29 countries.\n\nIn October 2026, tensions rose over Ukraine's deep strikes on Russian oil refineries. On 11 October 2026, the Financial Times reported that the Trump administration had warned Kyiv and European capitals it could suspend intelligence sharing and halt the PURL mechanism if Ukraine did not stop the refinery strikes. The same weekend, Trump announced a Russia-Ukraine \"energy ceasefire,\" though Ukrainian officials said they had not seen details, and the effort to secure an energy ceasefire subsequently appeared to collapse.\n\nDespite the threats, NATO and US officials stated that deliveries continued. A NATO official told European Pravda on 12 October that \"support for Ukraine via PURL continues to arrive,\" US envoy Matthew Whitaker said on 13 October that supplies \"remain unchanged\" (while acknowledging short-term challenges on air defence), and Rutte said on 16 October that deliveries \"continue uninterrupted.\" However, in a 15 October Newsmax interview, Trump said the US had \"stopped\" supplying ammunition to allies because \"we need them ourselves,\" adding that allies could buy again once US stocks were replenished. Ukraine also reported losing some advance warning of Russian strikes and running low on Patriot interceptors. As of mid-October 2026, the status of PURL deliveries was contested: official statements affirmed continuity even as US rhetoric signalled a possible cutoff. This question asks whether, before 1 November 2026, an official confirmation emerges that PURL-procured deliveries have actually been halted rather than merely threatened or delayed.\n\n`{\"format\": \"llm_question\", \"info\": {\"sdk_version\": \"0.6.0\", \"rating\": {\"quality\": 3, \"ambiguity\": 3, \"resolvability\": 4, \"passes\": true}}}`",
+    "resolution_criteria": "This question resolves YES if, at any point before November 1, 2026, a named official of the US government, NATO, or the Ukrainian government states on the record (as reported by [credible sources](https://www.metaculus.com/faq/#definitions)), OR an official US, NATO, or Ukrainian government statement confirms, that the United States has suspended, halted, or stopped the delivery of US-made weapons to Ukraine procured under NATO's Prioritised Ukraine Requirements List (PURL) mechanism. A qualifying confirmation must describe deliveries as suspended/halted/stopped (in substance), not merely delayed, slowed, late, or at risk. A confirmed halt of some PURL-procured deliveries (for example, air-defence interceptors specifically) counts even if other PURL items continue to flow. The question resolves NO if no such confirmation is reported before November 1, 2026 — including if officials continue to characterise PURL deliveries as ongoing, uninterrupted, or merely delayed.",
+    "fine_print": "A pause or halt affecting only intelligence sharing, satellite/Starshield access, or weapons supplied through channels other than PURL (such as direct US presidential drawdown authority or pre-PURL commitments) does not by itself resolve the question YES; the confirmed halt must specifically concern PURL-procured deliveries. A US statement that it will not sell or approve new/future PURL packages, without a reported halt of PURL deliveries already funded, agreed, or in transit, does not count. Threats, warnings, or statements that a halt is possible or being considered do not count. If sources conflict (for example, a US political figure describing deliveries as stopped while NATO or defence officials state they continue), the question resolves YES only if an official specifically confirms that PURL-procured deliveries — not weapons sales/transfers generally — have been suspended or halted; a general remark about keeping ammunition for US use, without reference to PURL deliveries being stopped, is insufficient.",
+    "unit": "",
+    "options": null,
+    "scaling": {
+      "range_min": null,
+      "range_max": null,
+      "nominal_min": null,
+      "nominal_max": null,
+      "zero_point": null,
+      "open_upper_bound": false,
+      "open_lower_bound": false,
+      "inbound_outcome_count": null,
+      "continuous_range": null
+    },
+    "open_lower_bound": false,
+    "open_upper_bound": false,
+    "inbound_outcome_count": null,
+    "open_time": "2026-10-20T00:05:42Z",
+    "scheduled_close_time": "2026-10-20T03:05:42Z",
+    "scheduled_resolve_time": "2026-10-31T23:59:00Z",
+    "resolution": null
+  }
+}

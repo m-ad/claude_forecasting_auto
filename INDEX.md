@@ -1,6 +1,6 @@
 # Question index
 
-_Regenerated 2026-10-19 by `scripts/status.py --index`._
+_Regenerated 2026-10-20 by `scripts/status.py --index`._
 
 | Question | Type | Current | v | Community (CP) | Resolves | Next review | Status |
 |---|---|---|---|---|---|---|---|
@@ -44,3 +44,4 @@ _Regenerated 2026-10-19 by `scripts/status.py --index`._
 | [Will the South Korean won close weaker than 1,340 per US dollar on October 29, 2026?](questions/2026-10-19-mc46156-south-korean-won-close-weaker-than-1/forecast.md) | binary | 30.0% [22.0%, 38.0%] | 1 | — | 2026-10-30 | — | open |
 | [Will the United States authorize the transfer of Tomahawk cruise missiles to Ukraine by October 30, 2026?](questions/2026-10-19-mc46157-united-states-authorize-transfer-tomahawk-cruise-missiles/forecast.md) | binary | 1.5% [0.8%, 3.0%] | 1 | — | 2026-10-30 | — | open |
 | [How many countries will ECDC's West Nile virus weekly report published around 30 October 2026 list as affected during the 2026 season?](questions/2026-10-19-mc46158-how-many-countries-ecdc-s-west-nile/forecast.md) | discrete | 19.46 [18.98, 20.22] | 1 | — | 2026-10-31 | — | open |
+| [Will a US halt of Ukraine arms deliveries under NATO's PURL mechanism be confirmed before November 1, 2026?](questions/2026-10-20-mc46159-us-halt-ukraine-arms-deliveries-under-nato/forecast.md) | binary | 20.0% [13.0%, 30.0%] | 1 | — | 2026-10-31 | — | open |
