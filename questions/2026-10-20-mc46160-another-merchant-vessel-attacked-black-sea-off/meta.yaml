@@ -1,0 +1,47 @@
+slug: 2026-10-20-mc46160-another-merchant-vessel-attacked-black-sea-off
+title: Will another merchant vessel be attacked in the Black Sea off Bulgaria or Romania on October 29,
+  2026?
+source: metaculus
+url: https://www.metaculus.com/questions/46160/
+post_id: 46160
+question_id: 46389
+type: binary
+unit: null
+tags: []
+dates:
+  created: '2026-10-20'
+  opened: '2026-10-20'
+  closes: '2026-10-20'
+  resolves: '2026-10-30'
+status: open
+tournament:
+  slug: minibench
+  mode: one_shot
+  registered: '2026-10-20'
+  opened: '2026-10-20T01:06:44Z'
+  closes: '2026-10-20T04:06:44Z'
+  submitted: '2026-10-20T01:15:21+00:00'
+  submitted_forecast:
+    probability_yes: 0.14
+  comment_posted: true
+  official_score: null
+  missed_window: false
+current:
+  version: 1
+  date: '2026-10-20'
+  median: 0.14
+  iqr:
+  - 0.09
+  - 0.21
+  community:
+    cp: null
+    pro: null
+    gold: null
+    n_forecasters: null
+    as_of: '2026-10-20'
+next_review: null
+tripwires: []
+resolution:
+  outcome: null
+  date: null
+  source: null

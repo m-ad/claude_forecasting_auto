@@ -1,0 +1,38 @@
+{
+  "post_id": 46160,
+  "url": "https://www.metaculus.com/questions/46160/",
+  "post_title": "Will another merchant vessel be attacked in the Black Sea off Bulgaria or Romania on October 29, 2026?",
+  "tournaments": [
+    "minibench"
+  ],
+  "options": null,
+  "question": {
+    "id": 46389,
+    "title": "Will another merchant vessel be attacked in the Black Sea off Bulgaria or Romania on October 29, 2026?",
+    "type": "binary",
+    "status": "open",
+    "description": "Beginning around October 5, 2026, a wave of drone and missile strikes hit merchant vessels in the western Black Sea, including in or near the territorial waters and exclusive economic zones (EEZs) of Bulgaria and Romania — both NATO member states. By October 16, 2026, credible reporting counted at least seven cargo vessels and tankers struck and three sunk (including the Guinea-Bissau-flagged Dignity and tankers such as Chelsea 3, HS Dignity, Wine Trader and Yara J), with roughly two dead and more than 20 seafarers missing. The attacks are widely linked to a spillover from Russia's war against Ukraine and its broader campaign against Black Sea shipping; Romania's Foreign Minister Oana Țoiu said Russia bears responsibility, while Bulgaria said it could not yet prove attribution. Russia has not claimed responsibility.\n\nThe strikes concentrate near the mouth of the Danube's Sulina Canal — a major export lane for Ukrainian and Romanian grain — where ships often anchor awaiting passage. In response, NATO Secretary-General Mark Rutte convened a North Atlantic Council discussion on the Black Sea and said allies would adjust their deterrence and defence posture; Bulgaria sought an EU-backed moratorium on attacks against civilian vessels, and Turkey pushed for a Black Sea ceasefire to protect commercial shipping. As of mid-October 2026 the attacks had been occurring at a high frequency (roughly seven vessels over about ten days), but a possible moratorium, enhanced NATO/allied protection, diplomatic de-escalation, deteriorating autumn weather, or simple lulls between clusters could interrupt the pattern. Live trackers such as blacksea.america2.news maintain a dated timeline of individual incidents compiled from major wire and national reporting.\n\n`{\"format\": \"llm_question\", \"info\": {\"sdk_version\": \"0.6.0\", \"rating\": {\"quality\": 3, \"ambiguity\": 3, \"resolvability\": 4, \"passes\": true}}}`",
+    "resolution_criteria": "This question resolves YES if [credible sources](https://www.metaculus.com/faq/#definitions) report that at least one merchant (civilian/commercial cargo or tanker) vessel was hit by a drone, missile, mine, or other munition while in or near the Black Sea territorial waters or exclusive economic zone of Bulgaria and/or Romania, with the strike occurring on October 29, 2026 (UTC). A strike counts if the vessel sustained physical damage, caught fire, sank, or suffered crew casualties as a result. It resolves NO if no such attack on a merchant vessel is reported for that date. The live tracker at https://blacksea.america2.news/ may be used as a reference aid for identifying and dating incidents.",
+    "fine_print": "Only attacks on merchant/civilian vessels count; strikes on naval warships, military patrol boats, or port infrastructure (rather than a vessel) do not count. The incident must be reported as an attack by a munition (drone, missile, mine, torpedo, or similar); an accidental fire, collision, grounding, or mechanical failure with no reported munition strike does not count. The attack must occur on October 29, 2026 (UTC); an attack on an earlier or later date does not count, even if first reported on October 29. The vessel must be in or near (within roughly its approach/anchorage waters off) the Bulgarian or Romanian coast or their Black Sea EEZ; attacks on ships in Ukrainian or Russian waters or at Ukrainian/Russian ports do not count. Attribution of the attack to any particular actor is not required.",
+    "unit": "",
+    "options": null,
+    "scaling": {
+      "range_min": null,
+      "range_max": null,
+      "nominal_min": null,
+      "nominal_max": null,
+      "zero_point": null,
+      "open_upper_bound": false,
+      "open_lower_bound": false,
+      "inbound_outcome_count": null,
+      "continuous_range": null
+    },
+    "open_lower_bound": false,
+    "open_upper_bound": false,
+    "inbound_outcome_count": null,
+    "open_time": "2026-10-20T01:06:44Z",
+    "scheduled_close_time": "2026-10-20T04:06:44Z",
+    "scheduled_resolve_time": "2026-10-30T12:00:00Z",
+    "resolution": null
+  }
+}
