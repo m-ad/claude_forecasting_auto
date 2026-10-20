@@ -1,0 +1,46 @@
+slug: 2026-10-20-mc46173-milwaukee-brewers-win-2026-world-series
+title: Will the Milwaukee Brewers win the 2026 World Series?
+source: metaculus
+url: https://www.metaculus.com/questions/46173/
+post_id: 46173
+question_id: 46402
+type: binary
+unit: null
+tags: []
+dates:
+  created: '2026-10-20'
+  opened: '2026-10-20'
+  closes: '2026-10-20'
+  resolves: '2026-11-01'
+status: open
+tournament:
+  slug: minibench
+  mode: one_shot
+  registered: '2026-10-20'
+  opened: '2026-10-20T16:38:24Z'
+  closes: '2026-10-20T19:38:24Z'
+  submitted: '2026-10-20T16:45:05+00:00'
+  submitted_forecast:
+    probability_yes: 0.59
+  comment_posted: true
+  official_score: null
+  missed_window: false
+current:
+  version: 1
+  date: '2026-10-20'
+  median: 0.59
+  iqr:
+  - 0.55
+  - 0.62
+  community:
+    cp: null
+    pro: null
+    gold: null
+    n_forecasters: null
+    as_of: '2026-10-20'
+next_review: null
+tripwires: []
+resolution:
+  outcome: null
+  date: null
+  source: null
