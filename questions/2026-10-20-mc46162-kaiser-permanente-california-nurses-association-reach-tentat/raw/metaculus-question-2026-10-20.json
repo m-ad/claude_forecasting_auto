@@ -1,0 +1,38 @@
+{
+  "post_id": 46162,
+  "url": "https://www.metaculus.com/questions/46162/",
+  "post_title": "Will Kaiser Permanente and the California Nurses Association reach a tentative agreement on a new Northern California contract before October 30, 2026?",
+  "tournaments": [
+    "minibench"
+  ],
+  "options": null,
+  "question": {
+    "id": 46391,
+    "title": "Will Kaiser Permanente and the California Nurses Association reach a tentative agreement on a new Northern California contract before October 30, 2026?",
+    "type": "binary",
+    "status": "open",
+    "description": "Kaiser Permanente and the California Nurses Association/National Nurses United (CNA/NNU) have been negotiating a new contract for roughly 25,000 registered nurses in Kaiser's Northern California region since early July 2026. As of an October 12, 2026 update from Kaiser, the parties had met 17 times since July without reaching a tentative agreement, and the tone has been contentious: Kaiser published open letters on October 8, 2026 criticizing CNA for scheduling strike-vote dates and declining additional bargaining dates, while CNA/NNU has rallied nurses around safe staffing, wages, and concerns over hospital use of artificial intelligence.\n\nA \"tentative agreement\" (TA) is the standard labor-relations milestone in which both bargaining teams sign off on a complete proposed contract and send it to union members for a ratification vote. No TA existed as of mid-October 2026. Under US labor law, CNA must give at least 10 days' advance notice before any strike; a separate CNA unit at Kaiser's Los Angeles Medical Center (contract expired September 30, 2026) is bargaining on a parallel track with sessions scheduled into December.\n\nKaiser's Northern California CNA bargaining page posts dated updates after each session, and CNA/NNU issues press releases on major developments such as tentative agreements, strike authorizations, and strike notices. Historically Kaiser–CNA disputes in Northern California have sometimes run for many months and involved large strikes (e.g., a near-strike in late 2022) before resolution.\n\n`{\"format\": \"llm_question\", \"info\": {\"sdk_version\": \"0.6.0\", \"rating\": {\"quality\": 3, \"ambiguity\": 4, \"resolvability\": 4, \"passes\": true}}}`",
+    "resolution_criteria": "This question resolves YES if, before October 30, 2026, Kaiser Permanente and the California Nurses Association/National Nurses United (CNA/NNU) announce that they have reached a tentative agreement (a full, signed-off-by-both-bargaining-teams proposed contract sent to union members for a ratification vote) covering the roughly 25,000 CNA-represented registered nurses in Kaiser Permanente's Northern California region whose negotiations began in July 2026. The primary resolution source is Kaiser Permanente's CNA bargaining page for Northern California (https://about.kaiserpermanente.org/who-we-are/labor-relations/cna-bargaining/cna-bargaining-northern-california); a tentative agreement reported there or by CNA/NNU (https://www.nationalnursesunited.org/press) or [credible sources](https://www.metaculus.com/faq/#definitions) resolves the question YES. Otherwise it resolves NO.",
+    "fine_print": "A \"tentative agreement\" means both bargaining teams have agreed to a complete proposed successor contract that is being forwarded to CNA-represented members for a ratification vote; an extension of the prior contract, a partial agreement on individual articles, a mediator's proposal not accepted by both sides, or a mere resumption/continuation of bargaining does not count. The agreement must cover the Northern California CNA registered-nurse units that began bargaining a new contract in July 2026; a tentative agreement covering only a different Kaiser unit or region (such as the separate Los Angeles Medical Center CNA nurses) does not by itself resolve this question YES. If the primary Kaiser Permanente page is unavailable, CNA/NNU press releases or credible sources will be used.",
+    "unit": "",
+    "options": null,
+    "scaling": {
+      "range_min": null,
+      "range_max": null,
+      "nominal_min": null,
+      "nominal_max": null,
+      "zero_point": null,
+      "open_upper_bound": false,
+      "open_lower_bound": false,
+      "inbound_outcome_count": null,
+      "continuous_range": null
+    },
+    "open_lower_bound": false,
+    "open_upper_bound": false,
+    "inbound_outcome_count": null,
+    "open_time": "2026-10-20T02:15:02Z",
+    "scheduled_close_time": "2026-10-20T05:15:02Z",
+    "scheduled_resolve_time": "2026-10-30T12:00:00Z",
+    "resolution": null
+  }
+}
