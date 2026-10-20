@@ -1,0 +1,38 @@
+{
+  "post_id": 46172,
+  "url": "https://www.metaculus.com/questions/46172/",
+  "post_title": "Will New Zealand beat Fiji by more than 12 points in their 2026 Rugby League World Cup pool match?",
+  "tournaments": [
+    "minibench"
+  ],
+  "options": null,
+  "question": {
+    "id": 46401,
+    "title": "Will New Zealand beat Fiji by more than 12 points in their 2026 Rugby League World Cup pool match?",
+    "type": "binary",
+    "status": "open",
+    "description": "The 2026 Men's Rugby League World Cup is hosted by Australia, New Zealand and Papua New Guinea, kicking off 15 October 2026. Pool A comprises Australia, New Zealand, Fiji and the Cook Islands, with the top two teams advancing to the semi-finals. New Zealand (the Kiwis) are among the tournament favourites; in their Round 1 pool match they lost narrowly to Australia 24–22, indicating they are highly competitive. Fiji, coached by Mick Potter, reached the semi-finals of the 2013 Rugby League World Cup but are generally rated below New Zealand; they played the Cook Islands (18 October, Newcastle) and Australia (25 October, Brisbane) earlier in the pool stage.\n\nThe New Zealand v Fiji pool match is the final Pool A (Round 3) fixture, scheduled for Saturday 31 October 2026 at Cbus Super Stadium (also known as Robina Stadium) on the Gold Coast, as part of a triple-header at that venue. In their two previous meetings New Zealand won 24–18 (2022) and Fiji won 4–2 (2017), so historically margins between these sides have been modest, though the Kiwis field a markedly stronger squad in 2026. As a strong favourite, the key uncertainty is whether New Zealand will cover a double-digit winning margin against a physical Fijian side.\n\nThe question asks whether New Zealand will win by a decisive margin (more than 12 points). Official results will be published on the NRL match centre and by major rugby league and sports outlets immediately after the match.\n\n`{\"format\": \"llm_question\", \"info\": {\"sdk_version\": \"0.6.0\", \"rating\": {\"quality\": 3, \"ambiguity\": 4, \"resolvability\": 4, \"passes\": true}}}`",
+    "resolution_criteria": "This question resolves YES if, in the 2026 Men's Rugby League World Cup Pool A match between the New Zealand Kiwis and Fiji played at Cbus Super Stadium (Robina Stadium), Gold Coast, on Saturday 31 October 2026, New Zealand's final score exceeds Fiji's final score by 13 or more points. It resolves NO if New Zealand wins by 12 or fewer points, draws, or loses. The result is taken from the official match page at https://www.nrl.com/draw/rugby-league-world-cup/2026/round-3/new-zealand-v-fiji/ (or [credible sources](https://www.metaculus.com/faq/#definitions)). For example, a 30–16 New Zealand win (margin 14) resolves YES, while a 24–14 win (margin 10) resolves NO.",
+    "fine_print": "The score used is the final score after full time, including any golden-point extra time if played. If the match is abandoned, postponed to a date after October 31, 2026, cancelled, or otherwise not completed as a normal contest with an official final score, the question is annulled. A forfeit or walkover without a played-out score also annuls the question.",
+    "unit": "",
+    "options": null,
+    "scaling": {
+      "range_min": null,
+      "range_max": null,
+      "nominal_min": null,
+      "nominal_max": null,
+      "zero_point": null,
+      "open_upper_bound": false,
+      "open_lower_bound": false,
+      "inbound_outcome_count": null,
+      "continuous_range": null
+    },
+    "open_lower_bound": false,
+    "open_upper_bound": false,
+    "inbound_outcome_count": null,
+    "open_time": "2026-10-20T15:28:31Z",
+    "scheduled_close_time": "2026-10-20T18:28:31Z",
+    "scheduled_resolve_time": "2026-10-31T23:00:00Z",
+    "resolution": null
+  }
+}

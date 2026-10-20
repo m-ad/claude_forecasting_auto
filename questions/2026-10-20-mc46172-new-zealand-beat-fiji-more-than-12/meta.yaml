@@ -1,0 +1,46 @@
+slug: 2026-10-20-mc46172-new-zealand-beat-fiji-more-than-12
+title: Will New Zealand beat Fiji by more than 12 points in their 2026 Rugby League World Cup pool match?
+source: metaculus
+url: https://www.metaculus.com/questions/46172/
+post_id: 46172
+question_id: 46401
+type: binary
+unit: null
+tags: []
+dates:
+  created: '2026-10-20'
+  opened: '2026-10-20'
+  closes: '2026-10-20'
+  resolves: '2026-10-31'
+status: open
+tournament:
+  slug: minibench
+  mode: one_shot
+  registered: '2026-10-20'
+  opened: '2026-10-20T15:28:31Z'
+  closes: '2026-10-20T18:28:31Z'
+  submitted: '2026-10-20T15:45:38+00:00'
+  submitted_forecast:
+    probability_yes: 0.62
+  comment_posted: true
+  official_score: null
+  missed_window: false
+current:
+  version: 1
+  date: '2026-10-20'
+  median: 0.62
+  iqr:
+  - 0.54
+  - 0.7
+  community:
+    cp: null
+    pro: null
+    gold: null
+    n_forecasters: null
+    as_of: '2026-10-20'
+next_review: null
+tripwires: []
+resolution:
+  outcome: null
+  date: null
+  source: null
