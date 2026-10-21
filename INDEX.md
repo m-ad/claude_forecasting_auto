@@ -1,6 +1,6 @@
 # Question index
 
-_Regenerated 2026-10-20 by `scripts/status.py --index`._
+_Regenerated 2026-10-21 by `scripts/status.py --index`._
 
 | Question | Type | Current | v | Community (CP) | Resolves | Next review | Status |
 |---|---|---|---|---|---|---|---|
@@ -63,3 +63,4 @@ _Regenerated 2026-10-20 by `scripts/status.py --index`._
 | [Will the USDA reopen the Columbus, New Mexico port of entry to Mexican cattle imports before October 31, 2026?](questions/2026-10-20-mc46175-usda-reopen-columbus-new-mexico-port-entry/forecast.md) | binary | 83.0% [76.0%, 89.0%] | 1 | — | 2026-10-31 | — | open |
 | [What will be the closing price of Bitcoin (BTC) on October 30, 2026?](questions/2026-10-20-mc46176-closing-price-bitcoin-btc-october-30-2026/forecast.md) | numeric | 82700 [80100, 85400] | 1 | — | 2026-10-31 | — | open |
 | [How many active New World screwworm cases will Mexico's Senasica dashboard report in late October 2026?](questions/2026-10-20-mc46177-how-many-active-new-world-screwworm-cases/forecast.md) | numeric | 1980 [1900, 2065] | 1 | — | 2026-11-01 | — | open |
+| [What will the front-month Brent crude oil futures settlement price be on October 30, 2026?](questions/2026-10-21-mc46178-front-month-brent-crude-oil-futures-settlement/forecast.md) | numeric | 108 [103, 113.5] | 1 | — | 2026-10-31 | — | open |
