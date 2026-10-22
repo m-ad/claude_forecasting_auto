@@ -1,6 +1,6 @@
 # Question index
 
-_Regenerated 2026-10-21 by `scripts/status.py --index`._
+_Regenerated 2026-10-22 by `scripts/status.py --index`._
 
 | Question | Type | Current | v | Community (CP) | Resolves | Next review | Status |
 |---|---|---|---|---|---|---|---|
@@ -64,3 +64,4 @@ _Regenerated 2026-10-21 by `scripts/status.py --index`._
 | [What will be the closing price of Bitcoin (BTC) on October 30, 2026?](questions/2026-10-20-mc46176-closing-price-bitcoin-btc-october-30-2026/forecast.md) | numeric | 82700 [80100, 85400] | 1 | — | 2026-10-31 | — | closed |
 | [How many active New World screwworm cases will Mexico's Senasica dashboard report in late October 2026?](questions/2026-10-20-mc46177-how-many-active-new-world-screwworm-cases/forecast.md) | numeric | 1980 [1900, 2065] | 1 | — | 2026-11-01 | — | closed |
 | [What will the front-month Brent crude oil futures settlement price be on October 30, 2026?](questions/2026-10-21-mc46178-front-month-brent-crude-oil-futures-settlement/forecast.md) | numeric | 108 [103, 113.5] | 1 | — | 2026-10-31 | — | closed |
+| [Will Fernando Cerimedo be released from preventive detention in Bolivia by October 31, 2026?](questions/2026-10-22-mc46179-fernando-cerimedo-released-from-preventive-detention-bolivia/forecast.md) | binary | 3.0% [1.5%, 5.0%] | 1 | — | 2026-11-01 | — | open |

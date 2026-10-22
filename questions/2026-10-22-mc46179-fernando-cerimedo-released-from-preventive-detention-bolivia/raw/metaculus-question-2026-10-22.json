@@ -1,0 +1,38 @@
+{
+  "post_id": 46179,
+  "url": "https://www.metaculus.com/questions/46179/",
+  "post_title": "Will Fernando Cerimedo be released from preventive detention in Bolivia by October 31, 2026?",
+  "tournaments": [
+    "minibench"
+  ],
+  "options": null,
+  "question": {
+    "id": 46408,
+    "title": "Will Fernando Cerimedo be released from preventive detention in Bolivia by October 31, 2026?",
+    "type": "binary",
+    "status": "open",
+    "description": "Fernando Cerimedo is a 45-year-old Argentine political consultant, a former digital strategist for Argentine President Javier Milei and later an adviser linked to Bolivian President Rodrigo Paz. He was arrested on August 18, 2026 at Viru Viru airport in Santa Cruz, Bolivia, as he was about to board a flight to Argentina, accused of hiring gunmen (sicarios) to shoot his ex-partner, lawyer Nadia Beller, at a Santa Cruz hotel on August 17, 2026.\n\nCerimedo faces four separate criminal proceedings in Bolivia: the attempted-femicide/attack case (Santa Cruz), an illicit-enrichment case (La Paz), a domestic-violence matter, and a drug-trafficking case opened in Beni in late August. He received two separate six-month preventive-detention orders: one in the attempted-femicide case (initially held at Palmasola in Santa Cruz) and one, issued August 29, 2026 by judge Douglas Borda, in the illicit-enrichment case, under which he was transferred to the Chonchocoro maximum-security prison near La Paz in early September 2026.\n\nHis defense lawyers have repeatedly filed acciones de libertad (habeas-corpus-style challenges), contested the Chonchocoro transfer as lacking due process, and alleged political interference. The judicial structure investigating him was disrupted after Bolivia's Attorney General Roger Mariaca was detained in early October 2026 along with members of the prosecution team. As of October 11, 2026, Cerimedo remained in Chonchocoro, and his lawyer publicly floated a possible release in November. No release had occurred as of mid-October 2026. Because he is held under two separate six-month preventive-detention orders in different cases, a release requires that custody be lifted (or substituted) such that he is no longer physically held in a penitentiary, rather than merely one case being resolved while another continues to hold him.\n\n`{\"format\": \"llm_question\", \"info\": {\"sdk_version\": \"0.6.0\", \"rating\": {\"quality\": 3, \"ambiguity\": 4, \"resolvability\": 4, \"passes\": true}}}`",
+    "resolution_criteria": "This question resolves YES if, at any point on or before October 31, 2026 (23:59 Bolivia time, UTC−4), Argentine political consultant Fernando Cerimedo has physically left prison custody in Bolivia — i.e., he is no longer being held inside a Bolivian penitentiary (such as Chonchocoro) under preventive detention (detención preventiva) in any of the criminal cases against him — as reported by [credible sources](https://www.metaculus.com/faq/#definitions). This includes release because preventive detention was revoked or substituted with house arrest, electronic monitoring, or another non-custodial measure, or because the cases were dismissed. The question resolves NO if, as of the end of October 31, 2026 (Bolivia time), he is still held in a Bolivian prison under preventive detention.",
+    "fine_print": "A transfer between prisons, or a change in which case grounds his detention, does not count as a release; he must actually cease to be held in custody inside a penitentiary. If he is granted house arrest, electronic monitoring, or any measure under which he is no longer held inside a penitentiary, the question resolves YES even if he remains subject to judicial restrictions. Escape, death in custody, or transfer/extradition while still deprived of liberty do not count as release. If credible sources conflict or his status is unclear as of the end of October 31, 2026 (Bolivia time), the question resolves NO.",
+    "unit": "",
+    "options": null,
+    "scaling": {
+      "range_min": null,
+      "range_max": null,
+      "nominal_min": null,
+      "nominal_max": null,
+      "zero_point": null,
+      "open_upper_bound": false,
+      "open_lower_bound": false,
+      "inbound_outcome_count": null,
+      "continuous_range": null
+    },
+    "open_lower_bound": false,
+    "open_upper_bound": false,
+    "inbound_outcome_count": null,
+    "open_time": "2026-10-22T00:17:37Z",
+    "scheduled_close_time": "2026-10-22T03:17:37Z",
+    "scheduled_resolve_time": "2026-11-01T03:59:00Z",
+    "resolution": null
+  }
+}
