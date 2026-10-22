@@ -1,0 +1,38 @@
+{
+  "post_id": 46180,
+  "url": "https://www.metaculus.com/questions/46180/",
+  "post_title": "Will Ukraine strike a Russian oil refinery between October 29 and October 31, 2026?",
+  "tournaments": [
+    "minibench"
+  ],
+  "options": null,
+  "question": {
+    "id": 46409,
+    "title": "Will Ukraine strike a Russian oil refinery between October 29 and October 31, 2026?",
+    "type": "binary",
+    "status": "open",
+    "description": "Since 2024, Ukraine has conducted a sustained campaign of long-range drone and missile strikes against Russian oil refineries, aiming to reduce the revenue Russia derives from oil exports. By October 2026, Kyiv claimed strikes had damaged more than half of Russia's refining capacity, with analysts at Kpler estimating Russian refining was operating at roughly 60% of capacity. Strikes have hit facilities deep inside Russia, including the Omsk refinery (Russia's largest, ~2,500 km from Ukraine, struck October 8, 2026), the Ukhta refinery in the Komi Republic (October 9), and the Ryazan refinery (October 15).\n\nOn October 11, 2026, U.S. President Donald Trump announced an \"energy ceasefire\" between Russia and Ukraine, linked to a deal to release Russian diesel to global markets ahead of U.S. midterm elections. Ukraine paused strikes on energy targets for about three days, but after accusing Russia of continuing attacks on Ukrainian energy infrastructure, President Zelensky declared on October 15 that Kyiv was \"done\" with the ceasefire, and Ukraine struck the Ryazan refinery that day. Trump called the resumption \"a disgrace\" and warned Ukraine over continued strikes, while U.S. envoy Keith Kellogg said Ukraine should keep striking. When active, Ukraine's refinery-strike campaign has produced near-daily reported attacks, but the tempo could be interrupted by a renewed U.S.-brokered truce, a proposed broader ceasefire, or a possible trilateral meeting. Strikes are routinely reported by Ukraine's General Staff (via Telegram), Russian regional governors (via Telegram), and international news outlets such as Reuters and the Kyiv Post.\n\n`{\"format\": \"llm_question\", \"info\": {\"sdk_version\": \"0.6.0\", \"rating\": {\"quality\": 3, \"ambiguity\": 4, \"resolvability\": 4, \"passes\": true}}}`",
+    "resolution_criteria": "This question resolves YES if, on any day from October 29 through October 31, 2026 (inclusive, Moscow time, UTC+3), at least one Ukrainian long-range strike (by drone or missile) hits an oil refinery located within the internationally recognized territory of the Russian Federation (as defined by its pre-2014 borders, thereby excluding occupied Ukrainian territory such as Crimea), as reported by Ukraine's General Staff, a Russian regional official (e.g. a governor's Telegram channel), or [credible sources](https://www.metaculus.com/faq/#definitions). A \"hit\" means the strike caused an impact, fire, or damage at the refinery site, or that debris from an intercepted drone/missile aimed at the refinery fell on or caused damage at the refinery. An attack that is reported as targeting a refinery but where all munitions are intercepted away from the site with no reported impact or damage at the refinery does not count. \"Oil refinery\" refers to a crude-oil processing plant (a refinery); strikes on oil depots, pumping stations, pipelines, gas facilities, or other non-refinery energy infrastructure do not by themselves count.",
+    "fine_print": "If multiple credible sources conflict, the question resolves based on the preponderance of reporting from Ukraine's General Staff, Russian regional/federal officials, and major news outlets. Only strikes attributed to Ukraine count; accidental fires or explosions at refineries not attributed to a Ukrainian strike do not count. The strike must occur within the October 29–31, 2026 window (Moscow time); the date of a strike is the date the impact is reported to have occurred, not the date of later reporting.",
+    "unit": "",
+    "options": null,
+    "scaling": {
+      "range_min": null,
+      "range_max": null,
+      "nominal_min": null,
+      "nominal_max": null,
+      "zero_point": null,
+      "open_upper_bound": false,
+      "open_lower_bound": false,
+      "inbound_outcome_count": null,
+      "continuous_range": null
+    },
+    "open_lower_bound": false,
+    "open_upper_bound": false,
+    "inbound_outcome_count": null,
+    "open_time": "2026-10-22T05:40:32Z",
+    "scheduled_close_time": "2026-10-22T08:40:32Z",
+    "scheduled_resolve_time": "2026-11-02T00:00:00Z",
+    "resolution": null
+  }
+}

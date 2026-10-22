@@ -1,0 +1,46 @@
+slug: 2026-10-22-mc46180-ukraine-strike-russian-oil-refinery-between-october
+title: Will Ukraine strike a Russian oil refinery between October 29 and October 31, 2026?
+source: metaculus
+url: https://www.metaculus.com/questions/46180/
+post_id: 46180
+question_id: 46409
+type: binary
+unit: null
+tags: []
+dates:
+  created: '2026-10-22'
+  opened: '2026-10-22'
+  closes: '2026-10-22'
+  resolves: '2026-11-02'
+status: open
+tournament:
+  slug: minibench
+  mode: one_shot
+  registered: '2026-10-22'
+  opened: '2026-10-22T05:40:32Z'
+  closes: '2026-10-22T08:40:32Z'
+  submitted: '2026-10-22T05:47:40+00:00'
+  submitted_forecast:
+    probability_yes: 0.5
+  comment_posted: true
+  official_score: null
+  missed_window: false
+current:
+  version: 1
+  date: '2026-10-22'
+  median: 0.5
+  iqr:
+  - 0.38
+  - 0.62
+  community:
+    cp: null
+    pro: null
+    gold: null
+    n_forecasters: null
+    as_of: '2026-10-22'
+next_review: null
+tripwires: []
+resolution:
+  outcome: null
+  date: null
+  source: null
