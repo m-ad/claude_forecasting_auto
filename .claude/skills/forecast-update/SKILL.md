@@ -74,11 +74,15 @@ The version's closing summary block, and your chat reply, open with the clickabl
 `docs/output-format.md`.
 
 ```bash
-uv run scripts/log_forecast.py add <slug> --median ... --lower ... --upper ... \
+uv run scripts/log_forecast.py add <slug> --mode update|reanalysis \
+    --median ... --lower ... --upper ... \
     --cp ... --pro ... --gold ... --thesis "..." --next-review YYYY-MM-DD \
     --distribution '...'   # required for multiple choice; see below
 uv run scripts/status.py --index
 ```
+
+Always pass `--mode`: `log_forecast.py` refuses a v2 or later without `update` or
+`reanalysis`.
 
 `--distribution` records this version's full forecast, in the same form as
 `forecast-workflow` step 9: the option vector for multiple choice (**required**, exact Metaculus

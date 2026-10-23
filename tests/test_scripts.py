@@ -671,7 +671,7 @@ def _add_args(**over) -> argparse.Namespace:
     base = {
         "slug": "s", "median": 0.61, "lower": 0.55, "upper": 0.67, "cp": None,
         "pro": None, "gold": None, "n_forecasters": None, "distribution": None,
-        "thesis": "t", "mode": "initial", "next_review": None,
+        "thesis": "t", "mode": None, "next_review": None,
     }
     return argparse.Namespace(**{**base, **over})
 
@@ -766,6 +766,32 @@ def test_log_add_refuses_a_bad_forecast_before_it_reaches_the_ledger(
     ledger, _ = binary_question
     with pytest.raises(SystemExit, match=match):
         log_forecast.cmd_add(_add_args(median=median, lower=lower, upper=upper))
+    assert not ledger.exists()
+
+
+def test_log_add_records_v1_as_initial_without_a_mode(binary_question):
+    ledger, _ = binary_question
+    log_forecast.cmd_add(_add_args())
+    assert _records(ledger)[0]["mode"] == "initial"
+
+
+@pytest.mark.parametrize("mode", [None, "initial"])
+def test_log_add_refuses_initial_for_a_later_version(binary_question, mode):
+    """A v2+ logged without --mode went in as 'initial' (upstream mc45670 v9, 2026-10-23)."""
+    ledger, _ = binary_question
+    log_forecast.cmd_add(_add_args())
+    with pytest.raises(SystemExit, match="--mode update"):
+        log_forecast.cmd_add(_add_args(mode=mode))
+    assert len(_records(ledger)) == 1
+    log_forecast.cmd_add(_add_args(mode="reanalysis"))
+    assert [r["mode"] for r in _records(ledger)] == ["initial", "reanalysis"]
+
+
+@pytest.mark.parametrize("mode", ["update", "reanalysis"])
+def test_log_add_refuses_a_first_version_that_is_not_initial(binary_question, mode):
+    ledger, _ = binary_question
+    with pytest.raises(SystemExit, match="initial"):
+        log_forecast.cmd_add(_add_args(mode=mode))
     assert not ledger.exists()
 
 
