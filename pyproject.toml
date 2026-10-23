@@ -11,6 +11,11 @@ dependencies = [
 
 [tool.uv]
 package = false
+# Supply-chain cooldown: ignore any distribution uploaded less than 7 days ago, so a
+# hijacked or malicious release is usually yanked before we can resolve to it. Applies
+# to transitive dependencies too. Override one urgent security fix with
+# `--exclude-newer-package <pkg>=<date>` rather than lowering this.
+exclude-newer = "7 days"
 # `sim` is for the forecaster's own quantitative models (Monte Carlo, distribution
 # fits) in CI; default so a plain `uv run python` has it.
 default-groups = ["dev", "research", "sim"]
