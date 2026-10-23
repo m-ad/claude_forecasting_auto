@@ -8,6 +8,7 @@ from __future__ import annotations
 
 import json
 import re
+from itertools import pairwise
 
 import pytest
 import submit_metaculus as sm
@@ -254,9 +255,65 @@ def test_discrete_pmf_gives_every_outcome_the_minimum_step():
     assert cdf[5] - cdf[4] == pytest.approx(0.5, abs=0.01)  # P(4)
 
 
+# A 0.1-step grid (mc45879, inches of snow): the bin centres come out of float
+# arithmetic as 0.20000000000000004 and the like, not the logged "0.2".
+TENTHS_SCALING = {
+    "range_min": -0.05,
+    "range_max": 8.05,
+    "zero_point": None,
+    "open_lower_bound": False,
+    "open_upper_bound": True,
+    "inbound_outcome_count": 81,
+}
+
+
+def _steps(cdf: list[float]) -> list[float]:
+    return [b - a for a, b in pairwise(cdf)]
+
+
+def test_discrete_pmf_on_a_fractional_grid_keeps_each_outcomes_mass():
+    pmf = {"0.0": 0.3, "0.2": 0.3, "0.3": 0.35, "8.1": 0.05}
+    cdf = sm.discrete_cdf(pmf, TENTHS_SCALING)
+    sm.validate_cdf(cdf, TENTHS_SCALING)
+    steps = _steps(cdf)
+    # ~2% goes to the uniform mix and the floored bins; the bug left these at ~0.0004
+    assert steps[2] == pytest.approx(0.3, abs=0.02)  # P(0.2)
+    assert steps[3] == pytest.approx(0.35, abs=0.02)  # P(0.3)
+
+
+def test_discrete_pmf_above_the_step_cap_is_capped_and_the_rest_scaled():
+    # Metaculus allows at most 40/81 of the mass on one outcome here. Under a log
+    # score the best feasible forecast pins that outcome at the cap and scales
+    # every other outcome by one factor, so their ratios survive.
+    pmf = {"0.0": 0.74, "0.1": 0.13, "0.2": 0.08, "8.1": 0.05}
+    cdf = sm.discrete_cdf(pmf, TENTHS_SCALING)
+    sm.validate_cdf(cdf, TENTHS_SCALING)
+    steps = _steps(cdf)
+    cap = sm.MAX_STEP_PER_BIN / 81
+    assert 0.95 * cap < steps[0] <= cap
+    assert steps[1] / steps[2] == pytest.approx(0.13 / 0.08, rel=0.03)
+    assert (1 - cdf[-1]) / steps[1] == pytest.approx(0.05 / 0.13, rel=0.03)
+
+
 def test_discrete_pmf_with_an_impossible_outcome_is_refused():
     with pytest.raises(sm.SubmitError, match="not outcomes"):
         sm.discrete_cdf({"11": 1.0}, DISCRETE_SCALING)
+
+
+@pytest.mark.parametrize(
+    ("bound", "key", "tail"),
+    [
+        ("open_upper_bound", "11", lambda cdf: 1 - cdf[-1]),
+        ("open_lower_bound", "-1", lambda cdf: cdf[0]),
+    ],
+)
+def test_discrete_pmf_key_beyond_an_open_bound_is_that_tails_mass(bound, key, tail):
+    # mc45416 logged its "above 660" mass under "661" on a 560..660 question
+    # with an open upper bound; that mass belongs outside the range, not refused.
+    scaling = {**DISCRETE_SCALING, bound: True}
+    cdf = sm.discrete_cdf({"4": 0.5, "5": 0.45, key: 0.05}, scaling)
+    sm.validate_cdf(cdf, scaling)
+    assert tail(cdf) == pytest.approx(0.05, abs=0.005)
 
 
 # ------------------------------------------------------------- idempotence

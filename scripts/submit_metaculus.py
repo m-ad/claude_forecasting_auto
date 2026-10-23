@@ -319,26 +319,66 @@ def discrete_cdf(pmf: dict[str, float], scaling: dict[str, Any]) -> list[float]:
     """Metaculus CDF for a discrete question from a PMF keyed by outcome value.
 
     Every in-range outcome gets at least the minimum step, so a PMF that leaves
-    a value at 0 still validates; the mass is then renormalised.
+    a value at 0 still validates; the mass is then renormalised. A key beyond an
+    open bound (``"661"`` for "above 660") is that tail's mass. An outcome above
+    Metaculus' maximum step is pinned at it (see ``_cap_outcomes``).
     """
     n = int(scaling["inbound_outcome_count"])
     edges = _grid(scaling)
     centres = [(a + b) / 2 for a, b in pairwise(edges)]
-    table = {float(k): float(v) for k, v in pmf.items()}
-    unknown = [k for k in table if not any(abs(k - c) < 1e-9 for c in centres)]
+    found = [0.0] * n
+    below = above = 0.0
+    unknown = []
+    for k, v in pmf.items():
+        k, v = float(k), float(v)
+        # Matched by tolerance, not dict lookup: on a fractional grid the centres
+        # are float-arithmetic values (0.20000000000000004 for a logged "0.2").
+        i = next((j for j, c in enumerate(centres) if abs(k - c) < 1e-9), None)
+        if i is not None:
+            found[i] += v
+        elif k < edges[0] and scaling.get("open_lower_bound"):
+            below += v
+        elif k > edges[-1] and scaling.get("open_upper_bound"):
+            above += v
+        else:
+            unknown.append(k)
     if unknown:
         raise SubmitError(f"pmf keys {unknown} are not outcomes of this question")
     floor = MIN_STEP_PER_BIN / n * 1.1
-    mass = [max(table.get(c, 0.0), floor) for c in centres]
-    total = sum(mass)
-    out, run = [0.0], 0.0
-    for m in mass:
-        run += m / total
+    mass = [max(m, floor) for m in found]
+    total = below + sum(mass) + above
+    probs = _cap_outcomes([below / total, *(m / total for m in mass), above / total], n)
+    out, run = [probs[0]], probs[0]
+    for m in probs[1:-1]:
+        run += m
         out.append(run)
-    out[-1] = 1.0
+    out[-1] = 1.0 - probs[-1]
     if scaling.get("open_lower_bound") or scaling.get("open_upper_bound"):
         return _fit_to_bounds(out, scaling)
     return out
+
+
+def _cap_outcomes(probs: list[float], n: int) -> list[float]:
+    """Pin in-range outcomes above Metaculus' maximum step at it; rescale the rest.
+
+    ``probs`` is ``[below, outcome_1 .. outcome_n, above]`` summing to 1; the two
+    tails are uncapped. Under a log score the best forecast Metaculus accepts
+    keeps the other outcomes' ratios and scales them by one common factor (the
+    KL-closest feasible PMF), rather than piling the excess onto the neighbours
+    as ``_cap_steps`` does for a continuous point mass.
+    """
+    # headroom for the rounding Metaculus applies before comparing
+    cap = MAX_STEP_PER_BIN / n * (1 - 1e-6)
+    pinned: set[int] = set()
+    while True:
+        free = sum(p for i, p in enumerate(probs) if i not in pinned)
+        scale = (1 - cap * len(pinned)) / free
+        over = {
+            i for i in range(1, n + 1) if i not in pinned and probs[i] * scale > cap
+        }
+        if not over:
+            return [cap if i in pinned else p * scale for i, p in enumerate(probs)]
+        pinned |= over
 
 
 def mc_probabilities(probs: dict[str, float], options: list[str]) -> dict[str, float]:

@@ -299,6 +299,29 @@ def _forecast_problems(
     return out
 
 
+def _version_mode(version: int, mode: str | None) -> str:
+    """The ledger ``mode`` for ``version``: v1 is ``initial``, later ones say theirs.
+
+    A later version takes no default: ``initial`` used to be the default, and a
+    v2+ logged without ``--mode`` entered the append-only ledger mislabelled.
+
+    Raises
+    ------
+    ValueError
+        When ``mode`` contradicts ``version``.
+    """
+    if version == 1:
+        if mode not in (None, "initial"):
+            raise ValueError(f"v1 is the initial forecast, not {mode!r}")
+        return "initial"
+    if mode in (None, "initial"):
+        raise ValueError(
+            f"v{version} is not the initial forecast: pass --mode update or "
+            "--mode reanalysis"
+        )
+    return mode
+
+
 def _resolution_outcome(slug: str, qtype: str | None, raw: str) -> float | str:
     """The outcome to record for a non-multiple-choice question, or exit.
 
@@ -348,6 +371,10 @@ def cmd_add(args: argparse.Namespace) -> None:
         )
     if _is_one_shot(meta) and args.next_review:
         sys.exit(f"! {slug} is one-shot: it is never revisited, so no --next-review")
+    try:
+        mode = _version_mode(version, args.mode)
+    except ValueError as exc:
+        sys.exit(f"! {slug}: {exc}")
 
     qtype = meta.get("type")
     problems = _forecast_problems(qtype, args.median, args.lower, args.upper)
@@ -395,7 +422,7 @@ def cmd_add(args: argparse.Namespace) -> None:
             "n_forecasters": args.n_forecasters,
         },
         "thesis": args.thesis,
-        "mode": args.mode,
+        "mode": mode,
     }
     _append(record)
 
@@ -599,7 +626,9 @@ def main() -> None:
     )
     a.add_argument("--thesis", default="")
     a.add_argument(
-        "--mode", default="initial", choices=["initial", "update", "reanalysis"]
+        "--mode",
+        choices=["initial", "update", "reanalysis"],
+        help="v1 is always initial (the default); v2+ must pass update or reanalysis",
     )
     a.add_argument("--next-review", help="YYYY-MM-DD")
     a.set_defaults(func=cmd_add)
