@@ -1,0 +1,74 @@
+slug: 2026-10-24-mc46181-how-many-un-member-states-vote-favour
+title: How many UN member states will vote in favour of the annual TPNW resolution at the First Committee's
+  2026 action phase?
+source: metaculus
+url: https://www.metaculus.com/questions/46181/
+post_id: 46181
+question_id: 46410
+type: discrete
+unit: states
+tags: []
+dates:
+  created: '2026-10-24'
+  opened: '2026-10-24'
+  closes: '2026-10-24'
+  resolves: '2026-11-04'
+status: open
+tournament:
+  slug: minibench
+  mode: one_shot
+  registered: '2026-10-24'
+  opened: '2026-10-24T14:20:14Z'
+  closes: '2026-10-24T17:20:14Z'
+  submitted: '2026-10-24T15:15:56+00:00'
+  submitted_forecast:
+    continuous_cdf:
+    - 0.9696734670143683
+    - 0.9769524803889695
+    - 0.9815490264071024
+    - 0.9845185737298587
+    - 0.9865012964605567
+    - 0.9878854798204131
+    - 0.9889066307008088
+    - 0.9897075912519401
+    - 0.9903749996174004
+    - 0.9909614044875795
+    - 0.9914986782543267
+    - 0.992006152500497
+    - 0.9924955524237926
+    - 0.9929739897161112
+    - 0.9934457778366311
+    - 0.9939135330305934
+    - 0.9943788421309502
+    - 0.9948426676005386
+    - 0.9953055932025784
+    - 0.9957679730073603
+    - 0.9962300217693711
+    - 0.9966918697437919
+    - 0.9971535959343829
+    - 0.9976152482593476
+    - 0.998076855782545
+    - 0.998538436132097
+    - 0.999
+  comment_posted: true
+  official_score: null
+  missed_window: false
+current:
+  version: 1
+  date: '2026-10-24'
+  median: 122.0
+  iqr:
+  - 120.0
+  - 124.0
+  community:
+    cp: null
+    pro: null
+    gold: null
+    n_forecasters: null
+    as_of: '2026-10-24'
+next_review: null
+tripwires: []
+resolution:
+  outcome: null
+  date: null
+  source: null

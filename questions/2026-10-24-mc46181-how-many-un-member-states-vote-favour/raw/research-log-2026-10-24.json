@@ -1,0 +1,20 @@
+{"searches": [
+  {"category": "resolution_source", "query": "First Committee 2025 \"Treaty on the Prohibition of Nuclear Weapons\" recorded vote in favour against abstentions", "by": "main", "status": "done", "finding": "2025 L.18 First Committee 121-44-12 (RCW snippet); plenary 80/54 119-45-12"},
+  {"category": "base_rate", "query": "First Committee 2024 Treaty on the Prohibition of Nuclear Weapons draft L. recorded vote in favour 79th session TPNW", "by": "main", "status": "done", "finding": "Snippet gave Japan roadmap 145; fetch of GA/DIS/3754 gave TPNW L.37 122-44-14 (1 Nov 2024)"},
+  {"category": "base_rate", "query": "ICAN First Committee vote TPNW resolution 2025 121 states in favour", "by": "main", "status": "done", "finding": "No confirmation; RevCon 30 Nov-4 Dec 2026"},
+  {"category": "news", "query": "First Committee October 2026 nuclear weapons draft resolutions vote TPNW", "by": "main", "status": "done", "finding": "No 2026 results yet"},
+  {"category": "base_rate", "query": "\"Treaty on the Prohibition of Nuclear Weapons\" First Committee 2023 L. recorded vote \"in favour to\" against abstentions", "by": "main", "status": "done", "finding": "2023 124 in favour (ICAN); 2021 123-42-16; 2020 118-43-13"},
+  {"category": "news", "query": "TPNW new ratification accession 2026 states parties", "by": "main", "status": "done", "finding": "Tonga acceded 7 Jul 2026, 75 states parties, 95 signatories"},
+  {"category": "base_rate", "query": "2022 First Committee TPNW resolution L.17 vote 124 in favour 42 against abstentions", "by": "main", "status": "done", "finding": "2022 L.17 124-43-14"},
+  {"category": "markets", "query": "Polymarket OR Manifold UN First Committee TPNW resolution vote 2026", "by": "main", "status": "done", "finding": "No market found"},
+  {"category": "resolution_source", "query": "First Committee 2026 Treaty on the Prohibition of Nuclear Weapons draft resolution vote", "by": "scout-2", "status": "done", "finding": "No 2026 L-number or vote found"},
+  {"category": "news", "query": "Reaching Critical Will First Committee Monitor 2026 TPNW resolution", "by": "scout-2", "status": "done", "finding": "Not indexed/403"},
+  {"category": "news", "query": "TPNW states parties ratification 2026 ICAN new ratification", "by": "scout-2", "status": "done", "finding": "Tonga 75th party; no other 2026 accessions"},
+  {"category": "upcoming_events", "query": "UN First Committee 81st session nuclear weapons prohibition treaty resolution October 2026", "by": "scout-2", "status": "done", "finding": "Session 5 Oct-6 Nov 2026; UNODA page lists no drafts"},
+  {"category": "disconfirmation", "query": "states changing position TPNW 2026 abstain vote switch (scout-2 search on stance changes)", "by": "scout-2", "status": "done", "finding": "No reports of any state changing TPNW stance in 2026"},
+  {"category": "base_rate", "query": "Reaching Critical Will First Committee TPNW resolution vote results 2018-2023", "by": "scout-1", "status": "done", "finding": "2019 FC 119-41-15; 2021 123-42-16; 2022 124-43-14"},
+  {"category": "base_rate", "query": "press.un.org First Committee 2025 nuclear weapons votes TPNW \"recorded vote of\" L.18", "by": "scout-1", "status": "done", "finding": "2025 FC 121-44-12 via RCW summary only"},
+  {"category": "base_rate", "query": "First Committee 2023 approves TPNW \"recorded vote of\" 78th session", "by": "scout-1", "status": "done", "finding": "2023 FC not found; plenary 123-43-17"},
+  {"category": "disconfirmation", "query": "First Committee 2026 action phase delayed or liquidity crisis voting", "by": "main", "status": "skipped", "finding": ""},
+  {"category": "news", "query": "TPNW first review conference 2026 outcome", "by": "main", "status": "skipped", "finding": ""}
+]}

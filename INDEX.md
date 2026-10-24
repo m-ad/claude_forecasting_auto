@@ -1,6 +1,6 @@
 # Question index
 
-_Regenerated 2026-10-22 by `scripts/status.py --index`._
+_Regenerated 2026-10-24 by `scripts/status.py --index`._
 
 | Question | Type | Current | v | Community (CP) | Resolves | Next review | Status |
 |---|---|---|---|---|---|---|---|
@@ -66,3 +66,4 @@ _Regenerated 2026-10-22 by `scripts/status.py --index`._
 | [What will the front-month Brent crude oil futures settlement price be on October 30, 2026?](questions/2026-10-21-mc46178-front-month-brent-crude-oil-futures-settlement/forecast.md) | numeric | 108 [103, 113.5] | 1 | — | 2026-10-31 | — | closed |
 | [Will Fernando Cerimedo be released from preventive detention in Bolivia by October 31, 2026?](questions/2026-10-22-mc46179-fernando-cerimedo-released-from-preventive-detention-bolivia/forecast.md) | binary | 3.0% [1.5%, 5.0%] | 1 | — | 2026-11-01 | — | closed |
 | [Will Ukraine strike a Russian oil refinery between October 29 and October 31, 2026?](questions/2026-10-22-mc46180-ukraine-strike-russian-oil-refinery-between-october/forecast.md) | binary | 50.0% [38.0%, 62.0%] | 1 | — | 2026-11-02 | — | closed |
+| [How many UN member states will vote in favour of the annual TPNW resolution at the First Committee's 2026 action phase?](questions/2026-10-24-mc46181-how-many-un-member-states-vote-favour/forecast.md) | discrete | 122 [120, 124] | 1 | — | 2026-11-04 | — | open |
