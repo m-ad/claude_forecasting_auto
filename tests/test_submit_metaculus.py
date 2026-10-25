@@ -92,8 +92,31 @@ def test_multiple_choice_floors_tiny_options_and_renormalises():
     }
     p = sm.build_payload("s", _record("multiple_choice", 0.61), MC_POST, spec)
     probs = p.values["probability_yes_per_category"]
-    assert min(probs.values()) >= sm.P_MIN * 0.99
+    assert min(probs.values()) >= sm.P_MIN
     assert sum(probs.values()) == pytest.approx(1.0)
+
+
+@pytest.mark.parametrize(
+    "probs",
+    [
+        {"A": 0.97, "B": 0.03, "C": 0.0, "D": 0.0},
+        {"A": 0.989, "B": 0.01, "C": 0.001, "D": 0.001},
+        {"A": 0.999, "B": 0.001, "C": 0.001},
+        {"A": 0.9999, "B": 0.0001},
+        # A sits above P_MAX only until B and C are floored; pinning all three at
+        # once would sum to 1.001
+        {"A": 0.9995, "B": 0.0005, "C": 0.0},
+    ],
+)
+def test_multiple_choice_pins_out_of_range_options_and_keeps_the_others_ratios(probs):
+    # The server checks 0.001 <= p <= 0.999 exactly; flooring and then
+    # renormalising left every floored option at ~0.000999.
+    out = sm.mc_probabilities(probs, list(probs))
+    assert all(sm.P_MIN <= p <= sm.P_MAX for p in out.values())
+    assert sum(out.values()) == pytest.approx(1.0, abs=1e-9)
+    free = [o for o, p in out.items() if sm.P_MIN < p < sm.P_MAX]
+    ratios = [out[o] / probs[o] for o in free]
+    assert max(ratios, default=1) == pytest.approx(min(ratios, default=1), rel=1e-12)
 
 
 def test_spec_from_an_older_version_is_refused():
@@ -276,7 +299,7 @@ def test_discrete_pmf_on_a_fractional_grid_keeps_each_outcomes_mass():
     cdf = sm.discrete_cdf(pmf, TENTHS_SCALING)
     sm.validate_cdf(cdf, TENTHS_SCALING)
     steps = _steps(cdf)
-    # ~2% goes to the uniform mix and the floored bins; the bug left these at ~0.0004
+    # ~1% goes to the floored empty bins; the bug left these at ~0.0004
     assert steps[2] == pytest.approx(0.3, abs=0.02)  # P(0.2)
     assert steps[3] == pytest.approx(0.35, abs=0.02)  # P(0.3)
 
@@ -290,7 +313,7 @@ def test_discrete_pmf_above_the_step_cap_is_capped_and_the_rest_scaled():
     sm.validate_cdf(cdf, TENTHS_SCALING)
     steps = _steps(cdf)
     cap = sm.MAX_STEP_PER_BIN / 81
-    assert 0.95 * cap < steps[0] <= cap
+    assert steps[0] == pytest.approx(cap, rel=1e-5)
     assert steps[1] / steps[2] == pytest.approx(0.13 / 0.08, rel=0.03)
     assert (1 - cdf[-1]) / steps[1] == pytest.approx(0.05 / 0.13, rel=0.03)
 
@@ -314,6 +337,21 @@ def test_discrete_pmf_key_beyond_an_open_bound_is_that_tails_mass(bound, key, ta
     cdf = sm.discrete_cdf({"4": 0.5, "5": 0.45, key: 0.05}, scaling)
     sm.validate_cdf(cdf, scaling)
     assert tail(cdf) == pytest.approx(0.05, abs=0.005)
+
+
+@pytest.mark.parametrize(
+    ("scaling", "pmf"),
+    [
+        ({**DISCRETE_SCALING, "open_lower_bound": True}, {"4": 0.5, "5": 0.5}),
+        ({**DISCRETE_SCALING, "open_upper_bound": True}, {"4": 0.5, "5": 0.5}),
+        (TENTHS_SCALING, {"0.0": 0.9, "0.1": 0.1}),  # capped, no mass above 8.0
+    ],
+)
+def test_discrete_pmf_with_no_mass_beyond_an_open_bound_gets_the_minimum_tail(
+    scaling, pmf
+):
+    cdf = sm.discrete_cdf(pmf, scaling)
+    sm.validate_cdf(cdf, scaling)
 
 
 # ------------------------------------------------------------- idempotence

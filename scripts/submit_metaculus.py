@@ -318,10 +318,11 @@ def continuous_cdf(
 def discrete_cdf(pmf: dict[str, float], scaling: dict[str, Any]) -> list[float]:
     """Metaculus CDF for a discrete question from a PMF keyed by outcome value.
 
-    Every in-range outcome gets at least the minimum step, so a PMF that leaves
-    a value at 0 still validates; the mass is then renormalised. A key beyond an
-    open bound (``"661"`` for "above 660") is that tail's mass. An outcome above
-    Metaculus' maximum step is pinned at it (see ``_cap_outcomes``).
+    Every in-range outcome gets at least the minimum step, and every open-bound
+    tail at least ``OPEN_BOUND_MASS``, so a PMF that leaves a value at 0 still
+    validates; the mass is then renormalised. A key beyond an open bound
+    (``"661"`` for "above 660") is that tail's mass. An outcome above Metaculus'
+    maximum step is pinned at it (see ``_cap_outcomes``).
     """
     n = int(scaling["inbound_outcome_count"])
     edges = _grid(scaling)
@@ -346,15 +347,22 @@ def discrete_cdf(pmf: dict[str, float], scaling: dict[str, Any]) -> list[float]:
         raise SubmitError(f"pmf keys {unknown} are not outcomes of this question")
     floor = MIN_STEP_PER_BIN / n * 1.1
     mass = [max(m, floor) for m in found]
+    # The same 10% headroom as the per-bin floor: normalising divides by a total
+    # of up to ~1.02, which would pull a tail floored at exactly the bound below it.
+    if scaling.get("open_lower_bound"):
+        below = max(below, OPEN_BOUND_MASS * 1.1)
+    if scaling.get("open_upper_bound"):
+        above = max(above, OPEN_BOUND_MASS * 1.1)
     total = below + sum(mass) + above
+    # Capping scales the unpinned mass by a factor >= 1, so both floors still hold
+    # after it; ``_fit_to_bounds``' uniform mix would pull a capped outcome back
+    # below the cap.
     probs = _cap_outcomes([below / total, *(m / total for m in mass), above / total], n)
     out, run = [probs[0]], probs[0]
     for m in probs[1:-1]:
         run += m
         out.append(run)
     out[-1] = 1.0 - probs[-1]
-    if scaling.get("open_lower_bound") or scaling.get("open_upper_bound"):
-        return _fit_to_bounds(out, scaling)
     return out
 
 
@@ -382,7 +390,14 @@ def _cap_outcomes(probs: list[float], n: int) -> list[float]:
 
 
 def mc_probabilities(probs: dict[str, float], options: list[str]) -> dict[str, float]:
-    """Validate labels against Metaculus' options, floor at P_MIN, renormalise."""
+    """Validate labels against Metaculus' options and fit them into [P_MIN, P_MAX].
+
+    An option outside the bounds is pinned at the bound and the others are scaled
+    by one common factor so the total is 1, repeated until none is out of range:
+    the KL-closest feasible vector, as in ``_cap_outcomes``. Flooring and then
+    renormalising would push every floored option back below P_MIN, and the
+    server checks ``0.001 <= p <= 0.999`` exactly.
+    """
     missing = [o for o in options if o not in probs]
     extra = [k for k in probs if k not in options]
     if missing or extra:
@@ -393,9 +408,19 @@ def mc_probabilities(probs: dict[str, float], options: list[str]) -> dict[str, f
     total = sum(probs.values())
     if abs(total - 1) > 0.02:
         raise SubmitError(f"option probabilities sum to {total:.3f}, not 1")
-    floored = {o: max(float(probs[o]), P_MIN) for o in options}
-    s = sum(floored.values())
-    return {o: v / s for o, v in floored.items()}
+    raw = [float(probs[o]) for o in options]
+    pinned: dict[int, float] = {}
+    while True:
+        free = sum(p for i, p in enumerate(raw) if i not in pinned)
+        scale = (1 - sum(pinned.values())) / free if free else 0.0
+        out = [pinned.get(i, p * scale) for i, p in enumerate(raw)]
+        # Floors first: they lower the common factor, so an option above P_MAX
+        # before them may not be after, and pinning it early would overshoot 1.
+        low = {i: P_MIN for i, p in enumerate(out) if i not in pinned and p < P_MIN}
+        high = {i: P_MAX for i, p in enumerate(out) if i not in pinned and p > P_MAX}
+        if not (low or high):
+            return dict(zip(options, out, strict=True))
+        pinned |= low or high
 
 
 def validate_cdf(cdf: list[float], scaling: dict[str, Any]) -> None:
