@@ -5,12 +5,19 @@ name: tournament-sync
 # Runs the full test suite before committing. See scripts/tournament_sync.py.
 #
 # 03:23 UTC: off the hour (GitHub's scheduler is congested at :00) and clear of the
-# sweep's :11/:41 slots.
+# sweep's :11/:41 slots. cron-job.org dispatches it with scheduled=true at that time;
+# the GitHub schedule is the fallback (see tournament-sweep.yml for why).
 
 on:
   schedule:
     - cron: "23 3 * * *"
   workflow_dispatch:
+    inputs:
+      scheduled:
+        description: "Set by the external scheduler: obey SWEEP_ENABLED like a scheduled run. Leave off for a manual run."
+        type: boolean
+        required: false
+        default: false
 
 concurrency:
   group: tournament-sync
@@ -25,7 +32,7 @@ env:
 
 jobs:
   sync:
-    if: vars.SWEEP_ENABLED == 'true' || github.event_name == 'workflow_dispatch'
+    if: vars.SWEEP_ENABLED == 'true' || (github.event_name == 'workflow_dispatch' && !inputs.scheduled)
     runs-on: ubuntu-latest
     timeout-minutes: 30
     steps:

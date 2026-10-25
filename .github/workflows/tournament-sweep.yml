@@ -9,6 +9,12 @@ name: tournament-sweep
 # Opt-in: the schedule does nothing until the repository variable SWEEP_ENABLED is
 # "true". A manual run (workflow_dispatch) always runs -- that is the smoke test.
 #
+# The clock that matters is external: cron-job.org dispatches this workflow with
+# scheduled=true at :11 and :41 (setup: docs/configuration.md, "External scheduler").
+# GitHub's own schedule stays as a free fallback only: in the week from 2026-10-18 it
+# fired for 42 of ~332 slots (13 %), a median 4.2 h apart -- longer than a question's
+# 3-hour window. Two triggers cannot double-forecast: sweeps queue on the group below.
+#
 # Why every 30 minutes: tournament questions open at random hours for 3 hours
 # (FutureEval resources page, checked 2026-10-17). Worst case a question is seen
 # ~30 min + scheduler delay after opening, leaving ~2 h for a ~25 min forecast.
@@ -36,6 +42,11 @@ on:
         type: boolean
         required: false
         default: false
+      scheduled:
+        description: "Set by the external scheduler: obey SWEEP_ENABLED like a scheduled run. Leave off for a manual run."
+        type: boolean
+        required: false
+        default: false
 
 # One sweep at a time: the next gate must see the previous sweep's submissions,
 # or two jobs could forecast the same question.
@@ -53,7 +64,8 @@ env:
 
 jobs:
   gate:
-    if: vars.SWEEP_ENABLED == 'true' || github.event_name == 'workflow_dispatch'
+    # A dispatch carrying scheduled=true is the external cron, so the kill switch binds it.
+    if: vars.SWEEP_ENABLED == 'true' || (github.event_name == 'workflow_dispatch' && !inputs.scheduled)
     runs-on: ubuntu-latest
     timeout-minutes: 10
     outputs:

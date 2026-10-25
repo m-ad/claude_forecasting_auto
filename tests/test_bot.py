@@ -579,6 +579,18 @@ def test_ci_settings_keep_the_model_away_from_submission_and_secrets():
             assert "steps.guard.outcome == 'success'" in step["if"], step["name"]
 
 
+def test_external_cron_dispatch_obeys_the_kill_switch():
+    """cron-job.org dispatches with scheduled=true; only a manual run may skip SWEEP_ENABLED."""
+    from conftest import REPO
+
+    for name, job in (("tournament-sweep.yml", "gate"), ("tournament-sync.yml", "sync")):
+        wf = yaml.safe_load((REPO / ".github" / "workflows" / name).read_text("utf-8"))
+        # YAML 1.1 reads the bare key `on` as the boolean True.
+        dispatch = wf[True]["workflow_dispatch"]
+        assert dispatch["inputs"]["scheduled"]["type"] == "boolean", name
+        assert "!inputs.scheduled" in wf["jobs"][job]["if"], name
+
+
 # ================================================================ CI guard
 
 

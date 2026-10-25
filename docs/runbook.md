@@ -10,6 +10,7 @@
 | Forecast step fails at once with an auth error | `CLAUDE_CODE_OAUTH_TOKEN` expired | `claude setup-token`, update the secret |
 | `reason=budget_exceeded` in the gate summary | Trailing-7-day spend ≥ `WEEKLY_BUDGET_USD_EQUIV` | `uv run scripts/record_usage.py report`; raise the budget or wait (rolling window) |
 | Nothing runs at all, no failed runs | Actions spending limit hit (private repo), or `SWEEP_ENABLED` not `true` | Settings → Billing → Spending limits; Settings → Variables |
+| Sweeps hours apart, Actions lists only `schedule` runs | The cron-job.org jobs fail or were disabled (it disables a job after 25 failures in a row), most often an expired token (401) | cron-job.org → the job's history; renew the token, re-enable the job. Status codes: `docs/configuration.md`, "External scheduler" |
 | Many `missed_window: true` in `INDEX.md` | Cadence too slow, runs queued, or forecasts overrunning | Check run durations; raise `MAX_PARALLEL`; lower `MAX_MINUTES_PER_QUESTION` |
 | Submit step: `HTTP 400` on a numeric/discrete question | Malformed CDF or bounds the builder did not expect | `uv run scripts/submit_metaculus.py <slug> --dry-run`; `uv run pytest tests/test_submit_metaculus.py` |
 | Submit step: "already live" | An earlier run submitted but its record was lost | Nothing to resubmit (rule). Note it; the sync warns about it daily |
@@ -34,3 +35,5 @@ minutes. With a $0 spending limit the schedule simply stops mid-month.
 
 Repository variable `SWEEP_ENABLED` ≠ `true` stops the scheduled sweep and sync from the next
 cycle. A running job finishes. Manual runs (Run workflow) still work — that is the smoke test.
+It stops the cron-job.org dispatches only because they send `scheduled: true`; a job whose
+body lost that input runs regardless, so pause the cron-job.org jobs as well.
