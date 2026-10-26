@@ -1,0 +1,19 @@
+{"searches": [
+  {"category": "resolution_source", "query": "WebFetch ECDC ebola-outbreak-democratic-republic-congo-and-uganda page", "by": "main", "status": "done", "finding": "ECDC page (fetched 2026-10-26): 9,704 confirmed, 4,687 deaths as of 21 Oct (data to 20 Oct); page lags several days"},
+  {"category": "resolution_source", "query": "WebFetch CDC ebola situation-summary", "by": "main", "status": "done", "finding": "CDC: DRC 9,816 confirmed, 4,757 deaths as of Oct 23 (page also says Oct 22); all countries 9,847"},
+  {"category": "news", "query": "Ebola DRC Bundibugyo confirmed cases October 2026", "by": "main", "status": "done", "finding": "WHO 9,704 as of 20 Oct; CDC 9,735 as of 21 Oct; Kenya 9 cases, Nigeria 1 imported"},
+  {"category": "resolution_source", "query": "Ebola RDC cas confirmés cumulés octobre 2026 INSP sitrep", "by": "main", "status": "done", "finding": "9,552 confirmed / 4,602 deaths as of 18 Oct (mesvaccins); 8 provinces, 66 health zones"},
+  {"category": "news", "query": "WebFetch Wikipedia 2026 Central Africa Ebola epidemic", "by": "main", "status": "done", "finding": "DRC 9,876 confirmed in tables dated 22/24 Oct; map labels sum to 9,816; 9,000 milestone 10 Oct"},
+  {"category": "news", "query": "Ebola Congo confirmed cases October 24 OR October 25 2026", "by": "main", "status": "done", "finding": "9,876 cases / 4,803 deaths citing Oct 23 data (memesita); nothing dated 25-26 Oct"},
+  {"category": "markets", "query": "Polymarket OR Kalshi OR Manifold Ebola cases DRC October 2026", "by": "main", "status": "done", "finding": "none found for DRC case counts; only Kalshi country-spread contracts"},
+  {"category": "disconfirmation", "query": "WebFetch CIDRAP WHO drastically downsizes Ebola case count", "by": "main", "status": "done", "finding": "a May/June 2026 reclassification (to 321 confirmed); shows that downward revisions have happened before, but none recently"},
+  {"category": "disconfirmation", "query": "Ebola outbreak slowing OR declining new cases Ituri North Kivu late October 2026", "by": "main", "status": "done", "finding": "nothing from late October; no evidence of a sharp slowdown"},
+  {"category": "news", "query": "Reuters Congo Ebola confirmed cases rise 9,9", "by": "main", "status": "done", "finding": "only older Reuters counts (to 4,449 on 12 Aug)"},
+  {"category": "resolution_source", "query": "WHO Ebola Bundibugyo situation report weekly new confirmed cases epidemiological week October 2026", "by": "main", "status": "done", "finding": "UKHSA: 8,116 confirmed as of 27 Sep (+343 in a week, ~49/day)"},
+  {"category": "base_rate", "query": "Ebola 2018 Kivu outbreak weekly confirmed cases peak decline rate", "by": "main", "status": "done", "finding": "2018-20 Kivu: plateau of 75-100/week at the peak, then slow decline over months; plateaus last weeks to months"},
+  {"category": "other", "query": "Ebola RDC 10 000 cas confirmés", "by": "main", "status": "done", "finding": "no report of 10,000 yet; ~7,022 on 12 Sep"},
+  {"category": "consensus", "query": "Ebola DRC outbreak modelling projection cases end of October 2026", "by": "main", "status": "done", "finding": "CDC 9,212 DRC as of 15 Oct; no end-October projections found; earlier models expected growth to slow (stabilising after mid-Aug)"},
+  {"category": "news", "query": "Ebola Nord-Ubangi new province cases October 2026 spread accelerating", "by": "main", "status": "done", "finding": "2 cases in Nord-Ubangi (~17 Oct); 67 new confirmed cases in 24h to 16 Oct; no acceleration reported"},
+  {"category": "news", "query": "WebFetch genomicepi ebola-2026 tracker", "by": "main", "status": "done", "finding": "HTTP 403; snippet: 9,765 confirmed DRC"},
+  {"category": "news", "query": "WebFetch memesita 9,876 article", "by": "main", "status": "done", "finding": "HTTP 403"}
+]}
