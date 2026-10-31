@@ -6,7 +6,7 @@
 | **Tournament** | minibench — one shot, window 2026-10-19T06:48:41Z -> 2026-10-19T09:48:41Z |
 | **Type** | numeric |
 | **Opened / Closes / Resolves** | 2026-10-19 / 2026-10-19 / 2026-10-30 |
-| **Status** | closed |
+| **Status** | resolved |
 | **Current forecast** | Median 480, IQR [450, 510] (v1, 2026-10-19) |
 | **Community** | hidden — bot tournament |
 | **Next review** | — |
@@ -65,3 +65,7 @@ The Week 41 increment (published around Oct 22) is what this forecast depends on
 **Date**: 2026-10-19
 **Forecast**: Median 480 cases, IQR [450 cases, 510 cases]
 **Thesis**: The FDOH total was 368 at Week 40, after recent weekly additions of +62, +44 and +72 (mean about 59). Two more weeks at a slightly seasonally damped ~55 per week gives about 480, with a right skew in case the epidemic is still accelerating. The forecast depends most on the Week 41 increment due around Oct 22.
+
+## Resolution — 2026-10-31
+
+Resolved **485.0** (synced from the Metaculus API). The bot's forecast was 480 [450, 510]. Official spot peer score: +4.52.

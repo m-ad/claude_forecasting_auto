@@ -6,7 +6,7 @@
 | **Tournament** | minibench — one shot, window 2026-10-20T02:07:37Z -> 2026-10-20T05:07:37Z |
 | **Type** | discrete |
 | **Opened / Closes / Resolves** | 2026-10-20 / 2026-10-20 / 2026-10-30 |
-| **Status** | closed |
+| **Status** | resolved |
 | **Current forecast** | Median 1.8, IQR [0.21, 5.5] (v1, 2026-10-20) |
 | **Community** | hidden — bot tournament |
 | **Next review** | — |
@@ -71,3 +71,7 @@ The question text says the tracker counted about 9–10 a day in the week to 14 
 **Date**: 2026-10-20
 **Forecast**: Median 1.8 ships, IQR [0.21 ships, 5.5 ships] (continuous scale; integer bins: 0 ≈ 35%, median bin 2, p75 bin 5–6)
 **Thesis**: The question cites about 9–10 a day, but hormuz.now rebuilt its data on 19 Oct and its first full day shows 0. AIS-only series such as PortWatch (2–4 a day) and the mid-October escalation (about 20 attacks, two sinkings) support a low count. About 35% is on 0, and the forecast is most sensitive to whether the new pipeline records any crossings at all.
+
+## Resolution — 2026-10-31
+
+Resolved **11.0** (synced from the Metaculus API). The bot's forecast was 1.8 [0.21, 5.5]. Official spot peer score: -26.72.

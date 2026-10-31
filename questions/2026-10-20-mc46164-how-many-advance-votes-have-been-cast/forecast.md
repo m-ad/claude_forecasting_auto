@@ -6,7 +6,7 @@
 | **Tournament** | minibench — one shot, window 2026-10-20T04:32:21Z -> 2026-10-20T07:32:21Z |
 | **Type** | numeric |
 | **Opened / Closes / Resolves** | 2026-10-20 / 2026-10-20 / 2026-10-30 |
-| **Status** | closed |
+| **Status** | resolved |
 | **Current forecast** | Median 310000, IQR [278000, 342000] (v1, 2026-10-20) |
 | **Community** | hidden — bot tournament |
 | **Next review** | — |
@@ -99,3 +99,7 @@ Scaling day 4 of 2023 by the same ratio puts the live, campaign-time figure thro
 **Date**: 2026-10-20
 **Forecast**: Median 310,000 votes, IQR [278,000 votes, 342,000 votes]
 **Thesis**: Anchored on the same four days in 2023: about 294k as reported live during the campaign (339k in today's table, which now includes special votes). Nudged up for the rising advance-vote share and a tight National–Labour race. The result is most sensitive to whether the 2026 daily page counts special votes and to the day-1 turnout pace.
+
+## Resolution — 2026-10-31
+
+Resolved **452600.0** (synced from the Metaculus API). The bot's forecast was 310000 [278000, 342000]. Official spot peer score: -36.05.

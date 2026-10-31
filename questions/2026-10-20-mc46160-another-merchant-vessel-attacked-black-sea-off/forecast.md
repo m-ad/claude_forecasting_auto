@@ -6,7 +6,7 @@
 | **Tournament** | minibench — one shot, window 2026-10-20T01:06:44Z -> 2026-10-20T04:06:44Z |
 | **Type** | binary |
 | **Opened / Closes / Resolves** | 2026-10-20 / 2026-10-20 / 2026-10-30 |
-| **Status** | closed |
+| **Status** | resolved |
 | **Current forecast** | Median 14.0%, IQR [9.0%, 21.0%] (v1, 2026-10-20) |
 | **Community** | hidden — bot tournament |
 | **Next review** | — |
@@ -76,3 +76,7 @@ Which class applies on 29 Oct depends on whether the campaign is still running. 
 **Date**: 2026-10-20
 **Forecast**: Median 14.0%, IQR [9.0%, 21.0%]
 **Thesis**: Before October, strikes off Romania ran at about one a month (about 3% a day); the October wave hit 7 ships on 5 of 16 days, but nothing has been confirmed since 15 Oct, and Romanian air defences and NATO attention are rising. The forecast is most sensitive to whether the Russian campaign against shipping anchored off Sulina resumes before 29 Oct; it rests on the blacksea.america2.news tracker and AP/Reuters-based reporting.
+
+## Resolution — 2026-10-31
+
+Resolved **no** (synced from the Metaculus API). The bot's forecast was 14.0% [9.0%, 21.0%]. Official spot peer score: +16.53.

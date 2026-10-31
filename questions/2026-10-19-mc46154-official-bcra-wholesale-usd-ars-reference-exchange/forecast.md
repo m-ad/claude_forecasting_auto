@@ -6,7 +6,7 @@
 | **Tournament** | minibench — one shot, window 2026-10-19T19:32:21Z -> 2026-10-19T22:32:21Z |
 | **Type** | numeric |
 | **Opened / Closes / Resolves** | 2026-10-19 / 2026-10-19 / 2026-10-30 |
-| **Status** | closed |
+| **Status** | resolved |
 | **Current forecast** | Median 1521, IQR [1512, 1531] (v1, 2026-10-19) |
 | **Community** | hidden — bot tournament |
 | **Next review** | — |
@@ -69,3 +69,7 @@ Reference class: 8–9 business-day changes of the mayorista under the current b
 **Date**: 2026-10-19
 **Forecast**: Median 1521 ARS/USD, IQR [1512 ARS/USD, 1531 ARS/USD]
 **Thesis**: The mayorista has stayed within 1,506–1,525 since September while the BCRA keeps buying, and it closed at 1,518 on 16 Oct (Rava, press). The forecast assumes a small upward drift (REM and year-end consensus near 1,600) and wider tails to the upside. It is most sensitive to whether the 1,505–1,530 corridor holds through 29 Oct.
+
+## Resolution — 2026-10-31
+
+Resolved **1539.6** (synced from the Metaculus API). The bot's forecast was 1521 [1512, 1531]. Official spot peer score: +3.00.

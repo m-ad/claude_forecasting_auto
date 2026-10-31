@@ -6,7 +6,7 @@
 | **Tournament** | minibench — one shot, window 2026-10-20T06:30:33Z -> 2026-10-20T09:30:33Z |
 | **Type** | binary |
 | **Opened / Closes / Resolves** | 2026-10-20 / 2026-10-20 / 2026-10-31 |
-| **Status** | closed |
+| **Status** | resolved |
 | **Current forecast** | Median 46.0%, IQR [36.0%, 57.0%] (v1, 2026-10-20) |
 | **Community** | hidden — bot tournament |
 | **Next review** | — |
@@ -88,3 +88,7 @@ Net: I move down from about 60% to the mid-40s. A CRL citing accelerated-approva
 **Date**: 2026-10-20
 **Forecast**: Median 46.0%, IQR [36.0%, 57.0%]
 **Thesis**: Base rates for a BLA that has passed its late-cycle meeting and inspections point to ~60–70%. I lower that because the FDA's preliminary view is that INO-3107 is ineligible for accelerated approval now that Papzimeos (51% complete response, full approval) exists. INO-3107's year-1 complete-response rate is 28%, INOVIO is not pursuing traditional approval, and the FDA still had not addressed eligibility or the confirmatory trial as of August. The forecast hinges on that unresolved eligibility call.
+
+## Resolution — 2026-10-31
+
+Resolved **yes** (synced from the Metaculus API). The bot's forecast was 46.0% [36.0%, 57.0%]. Official spot peer score: -19.70.

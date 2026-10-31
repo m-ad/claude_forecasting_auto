@@ -6,7 +6,7 @@
 | **Tournament** | minibench — one shot, window 2026-10-20T19:11:51Z -> 2026-10-20T22:11:51Z |
 | **Type** | binary |
 | **Opened / Closes / Resolves** | 2026-10-20 / 2026-10-20 / 2026-10-31 |
-| **Status** | closed |
+| **Status** | resolved |
 | **Current forecast** | Median 83.0%, IQR [76.0%, 89.0%] (v1, 2026-10-20) |
 | **Community** | hidden — bot tournament |
 | **Next review** | — |
@@ -85,3 +85,7 @@ On the other side, seeing the APHIS page list "Columbus, NM: October 26, 2026" w
 **Date**: 2026-10-20
 **Forecast**: Median 83.0%, IQR [76.0%, 89.0%]
 **Thesis**: USDA reportedly said on 2026-10-19 that Columbus will reopen to Mexican cattle on October 26 (Meatingplace; Chihuahua union reports agree). The two earlier announced reopenings this year both happened on schedule despite nearby screwworm cases. The forecast is most sensitive to a pause triggered by new detections before October 26, and to whether the APHIS page reflects the reopening by October 30.
+
+## Resolution — 2026-10-31
+
+Resolved **yes** (synced from the Metaculus API). The bot's forecast was 83.0% [76.0%, 89.0%]. Official spot peer score: +78.48.

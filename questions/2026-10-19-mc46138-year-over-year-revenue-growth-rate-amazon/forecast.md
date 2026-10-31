@@ -6,7 +6,7 @@
 | **Tournament** | minibench — one shot, window 2026-10-19T11:44:12Z -> 2026-10-19T14:44:12Z |
 | **Type** | numeric |
 | **Opened / Closes / Resolves** | 2026-10-19 / 2026-10-19 / 2026-10-30 |
-| **Status** | closed |
+| **Status** | resolved |
 | **Current forecast** | Median 40, IQR [38, 42.3] (v1, 2026-10-19) |
 | **Community** | hidden — bot tournament |
 | **Next review** | — |
@@ -91,3 +91,7 @@ With a hyperscaler's revenue base this large, growth rarely moves by more than �
 **Date**: 2026-10-19
 **Forecast**: Median 40.0%, IQR [38.0%, 42.3%]
 **Thesis**: AWS growth has accelerated from 20% to 24%, 28% and then 36.7% over four quarters, and it beat AWS consensus by roughly 2–5 pp in each of the last three. With consensus near 37–38% ($45.1B per HSBC), I expect about 40%, with wide tails. The result depends most on how much new AI capacity came online in Q3.
+
+## Resolution — 2026-10-31
+
+Resolved **39.3** (synced from the Metaculus API). The bot's forecast was 40 [38, 42.3]. Official spot peer score: +18.75.

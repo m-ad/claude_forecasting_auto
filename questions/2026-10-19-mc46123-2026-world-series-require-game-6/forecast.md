@@ -6,7 +6,7 @@
 | **Tournament** | minibench — one shot, window 2026-10-19T00:19:04Z -> 2026-10-19T03:19:04Z |
 | **Type** | binary |
 | **Opened / Closes / Resolves** | 2026-10-19 / 2026-10-19 / 2026-10-31 |
-| **Status** | closed |
+| **Status** | resolved |
 | **Current forecast** | Median 57.0%, IQR [53.0%, 61.0%] (v1, 2026-10-19) |
 | **Community** | hidden — bot tournament |
 | **Next review** | — |
@@ -64,3 +64,7 @@ Each source pulls a little differently. The game model says 60–61%, history sa
 **Date**: 2026-10-19
 **Forecast**: Median 57.0%, IQR [53.0%, 61.0%]
 **Thesis**: 58% of best-of-seven World Series since 1905 reached a Game 6 (68/117, Baseball-Reference), and 54% did from 2000 to 2025. A game-by-game model using the Brewers' ~61% title odds after removing the bookmaker margin (DraftKings -170) gives ~60%. The forecast is most sensitive to how big Milwaukee's per-game edge over the AL champion really is: a bigger edge makes a sweep or a 4–1 result more likely.
+
+## Resolution — 2026-10-31
+
+Resolved **no** (synced from the Metaculus API). The bot's forecast was 57.0% [53.0%, 61.0%]. Official spot peer score: -1.16.

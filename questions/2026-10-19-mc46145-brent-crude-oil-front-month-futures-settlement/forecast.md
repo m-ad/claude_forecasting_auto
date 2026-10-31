@@ -6,7 +6,7 @@
 | **Tournament** | minibench — one shot, window 2026-10-19T14:29:32Z -> 2026-10-19T17:29:32Z |
 | **Type** | numeric |
 | **Opened / Closes / Resolves** | 2026-10-19 / 2026-10-19 / 2026-10-30 |
-| **Status** | closed |
+| **Status** | resolved |
 | **Current forecast** | Median 106.5, IQR [100, 112] (v1, 2026-10-19) |
 | **Community** | hidden — bot tournament |
 | **Next review** | — |
@@ -67,3 +67,7 @@ For an 8-trading-day horizon, the best prior is a random walk from the latest pr
 **Date**: 2026-10-19
 **Forecast**: Median 106.5 $/bbl, IQR [100.0 $/bbl, 112.0 $/bbl]
 **Thesis**: Brent settled at $109.86 on 16 October and was around $108 on 19 October, with the Iran war and Hormuz disruption ongoing. I model a random walk with fat tails at about 55% annualised volatility over 8 trading days. I add a 12% chance of a US–Iran Hormuz deal, which would send the price back toward the low $90s, as after the April ceasefire. The forecast is most sensitive to whether that deal happens before 29 October.
+
+## Resolution — 2026-10-31
+
+Resolved **114.88** (synced from the Metaculus API). The bot's forecast was 106.5 [100, 112]. Official spot peer score: -3.34.

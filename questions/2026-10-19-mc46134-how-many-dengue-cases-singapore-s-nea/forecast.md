@@ -6,7 +6,7 @@
 | **Tournament** | minibench — one shot, window 2026-10-19T06:51:22Z -> 2026-10-19T09:51:22Z |
 | **Type** | discrete |
 | **Opened / Closes / Resolves** | 2026-10-19 / 2026-10-19 / 2026-10-29 |
-| **Status** | closed |
+| **Status** | resolved |
 | **Current forecast** | Median 67, IQR [59, 75] (v1, 2026-10-19) |
 | **Community** | hidden — bot tournament |
 | **Next review** | — |
@@ -68,3 +68,7 @@ Two factors widen the tails. First, the resolving figure is a provisional print 
 **Date**: 2026-10-19
 **Forecast**: Median 67 cases, IQR [59 cases, 75 cases]
 **Thesis**: Weekly counts held at 71–87 in E-weeks 35–40, but the partial E-week 41 daily counts point to about 62–70 as the May–October peak season winds down (NEA). I project a mild further decline for E-week 42's provisional first print, with wide tails. The forecast is most sensitive to the settled E-week 41 total.
+
+## Resolution — 2026-10-31
+
+Resolved **61.0** (synced from the Metaculus API). The bot's forecast was 67 [59, 75]. Official spot peer score: +34.31.

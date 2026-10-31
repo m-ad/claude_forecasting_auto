@@ -6,7 +6,7 @@
 | **Tournament** | minibench — one shot, window 2026-10-19T12:33:05Z -> 2026-10-19T15:33:05Z |
 | **Type** | numeric |
 | **Opened / Closes / Resolves** | 2026-10-19 / 2026-10-19 / 2026-10-30 |
-| **Status** | closed |
+| **Status** | resolved |
 | **Current forecast** | Median 93000, IQR [84000, 103000] (v1, 2026-10-19) |
 | **Community** | hidden — bot tournament |
 | **Next review** | — |
@@ -75,3 +75,7 @@ Percentiles: 5% 67k · 10% 74k · 25% 84k · 50% 93k · 75% 103k · 90% 115k · 
 **Date**: 2026-10-19
 **Forecast**: Median 93,000 votes, IQR [84,000, 103,000]
 **Thesis**: Day 4 of the 2023 timeline, which matches 2026's, had 103,617 votes in the final table (~90k as reported live, ordinary votes only); 2017 had 73k and COVID-era 2020 had 110k. Closing enrolment before voting opens and a larger pre-voting roll roughly offset each other, so the forecast is anchored near 90–95k. It is most sensitive to whether the 2026 live table shows ordinary votes only or combined votes, and to campaign enthusiasm.
+
+## Resolution — 2026-10-31
+
+Resolved **143200.0** (synced from the Metaculus API). The bot's forecast was 93000 [84000, 103000]. Official spot peer score: -63.97.

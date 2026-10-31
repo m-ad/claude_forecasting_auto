@@ -6,7 +6,7 @@
 | **Tournament** | minibench — one shot, window 2026-10-19T12:19:47Z -> 2026-10-19T15:19:47Z |
 | **Type** | numeric |
 | **Opened / Closes / Resolves** | 2026-10-19 / 2026-10-19 / 2026-10-29 |
-| **Status** | closed |
+| **Status** | resolved |
 | **Current forecast** | Median 335000, IQR [260000, 420000] (v1, 2026-10-19) |
 | **Community** | hidden — bot tournament |
 | **Next review** | — |
@@ -87,3 +87,7 @@ These roughly balance. I centre the forecast at about 335,000 MT, a little above
 **Date**: 2026-10-19
 **Forecast**: Median 335000 MT, IQR [260000 MT, 420000 MT]
 **Thesis**: Recent weekly U.S. wheat net sales for 2026/27 have ranged from about 255,000 to 450,000 MT (319,900 MT in the week to Oct 8, a four-week average near 270,000 MT). Lagging HRW sales and a lower USDA export forecast offset Black Sea disruption that favours U.S. origin. The result is most sensitive to whether a large tender or flash sale lands in the week ending Oct 22, so the right tail is wide.
+
+## Resolution — 2026-10-31
+
+Resolved **849800.0** (synced from the Metaculus API). The bot's forecast was 335000 [260000, 420000]. Official spot peer score: -63.19.

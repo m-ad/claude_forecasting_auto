@@ -6,7 +6,7 @@
 | **Tournament** | minibench — one shot, window 2026-10-19T17:47:40Z -> 2026-10-19T20:47:40Z |
 | **Type** | binary |
 | **Opened / Closes / Resolves** | 2026-10-19 / 2026-10-19 / 2026-10-30 |
-| **Status** | closed |
+| **Status** | resolved |
 | **Current forecast** | Median 2.5%, IQR [1.5%, 4.0%] (v1, 2026-10-19) |
 | **Community** | hidden — bot tournament |
 | **Next review** | — |
@@ -84,3 +84,7 @@ Speculation flagged: the chance of a surprise package (sanctions relief traded f
 **Date**: 2026-10-19
 **Forecast**: Median 2.5%, IQR [1.5%, 4.0%]
 **Thesis**: Russia has rejected every limited Black Sea truce since August 2026, most recently on 2 and 9 October, and on 12 October rejected the 60-day ceasefire, insisting on a comprehensive settlement only; Kyiv will accept a maritime truce only bundled with an energy truce, and that truce collapsed within a day on 11–12 October. The one Black Sea deal that ever took effect needed about 3 months of Turkey/UN mediation, and the March 2025 US-announced deal never took effect, so a deal confirmed by both governments and in effect within 11 days is very unlikely; the main risk is a sudden US-brokered package with sanctions relief.
+
+## Resolution — 2026-10-31
+
+Resolved **no** (synced from the Metaculus API). The bot's forecast was 2.5% [1.5%, 4.0%]. Official spot peer score: +6.37.

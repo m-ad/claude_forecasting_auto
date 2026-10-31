@@ -6,7 +6,7 @@
 | **Tournament** | minibench — one shot, window 2026-10-19T18:04:08Z -> 2026-10-19T21:04:08Z |
 | **Type** | discrete |
 | **Opened / Closes / Resolves** | 2026-10-19 / 2026-10-19 / 2026-10-30 |
-| **Status** | closed |
+| **Status** | resolved |
 | **Current forecast** | Median 23.1, IQR [22.7, 23.5] (v1, 2026-10-19) |
 | **Community** | hidden — bot tournament |
 | **Next review** | — |
@@ -71,3 +71,7 @@ Resulting probability mass: 22: 0.16, 23: 0.58, 24: 0.225, 25: 0.03, 26+: 0.005.
 **Date**: 2026-10-19
 **Forecast**: Median 23.1 named storms, IQR [22.7, 23.5]
 **Thesis**: The count is 22 on Wikipedia today. The NHC gives disturbance EP94 a 90% chance of forming within 7 days, so Vance (the 23rd storm) is likely by Oct 29, at about 82%. Since 2014, 1–2 storms have been named in Oct 17–29 in 11 of 12 seasons, but no second area is flagged yet, so a 24th storm sits at about 26%. The forecast depends most on whether EP94 actually reaches tropical-storm strength.
+
+## Resolution — 2026-10-31
+
+Resolved **24.0** (synced from the Metaculus API). The bot's forecast was 23.1 [22.7, 23.5]. Official spot peer score: +8.52.

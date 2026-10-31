@@ -6,7 +6,7 @@
 | **Tournament** | minibench — one shot, window 2026-10-19T13:32:53Z -> 2026-10-19T16:32:53Z |
 | **Type** | numeric |
 | **Opened / Closes / Resolves** | 2026-10-19 / 2026-10-19 / 2026-10-30 |
-| **Status** | closed |
+| **Status** | resolved |
 | **Current forecast** | Median 203, IQR [201.7, 204.3] (v1, 2026-10-19) |
 | **Community** | hidden — bot tournament |
 | **Next review** | — |
@@ -84,3 +84,7 @@ Median **$203.0B**: the guidance top plus about 0.5%, slightly above consensus. 
 **Date**: 2026-10-19
 **Forecast**: Median 203.0 billion $, IQR [201.7, 204.3] billion $
 **Thesis**: Amazon usually reports net sales at or slightly above the top of its guidance (about +0.4% on average over the last 9 quarters), and Q3 guidance is $197–202B. That guide is held down by Prime Day moving into Q2, while AWS is growing 37% and FX stayed close to the guide's assumption, so I centre just above the $202B consensus. The number is most sensitive to how much Prime Day timing actually removed from Q3.
+
+## Resolution — 2026-10-31
+
+Resolved **201.94** (synced from the Metaculus API). The bot's forecast was 203 [201.7, 204.3]. Official spot peer score: +29.92.

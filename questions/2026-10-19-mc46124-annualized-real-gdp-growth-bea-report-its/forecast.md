@@ -6,7 +6,7 @@
 | **Tournament** | minibench — one shot, window 2026-10-19T00:21:42Z -> 2026-10-19T03:21:42Z |
 | **Type** | discrete |
 | **Opened / Closes / Resolves** | 2026-10-19 / 2026-10-19 / 2026-10-29 |
-| **Status** | closed |
+| **Status** | resolved |
 | **Current forecast** | Median 3.3, IQR [2.7, 3.85] (v1, 2026-10-19) |
 | **Community** | hidden — bot tournament |
 | **Next review** | — |
@@ -76,3 +76,7 @@ The reference class is the advance GDP print compared with the Atlanta Fed GDPNo
 **Date**: 2026-10-19
 **Forecast**: Median 3.3%, IQR [2.7%, 3.85%]
 **Thesis**: GDPNow sits at 3.6% (Oct 15), and Polymarket and Kalshi put about 65–70% on a print of 3.0% or more, which centres the advance estimate near 3.3% once GDPNow's usual overshoot is allowed for. The tails are wide because the nowcast rests on a large inventory build (+1.9pp) offset by a large net-export drag (−2.7pp), and the Q2 advance print missed its nowcasts by more than 1pp.
+
+## Resolution — 2026-10-31
+
+Resolved **3.4** (synced from the Metaculus API). The bot's forecast was 3.3 [2.7, 3.85]. Official spot peer score: +13.99.

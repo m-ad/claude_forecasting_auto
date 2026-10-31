@@ -6,7 +6,7 @@
 | **Tournament** | minibench — one shot, window 2026-10-19T11:46:16Z -> 2026-10-19T14:46:16Z |
 | **Type** | numeric |
 | **Opened / Closes / Resolves** | 2026-10-19 / 2026-10-19 / 2026-10-30 |
-| **Status** | closed |
+| **Status** | resolved |
 | **Current forecast** | Median 640, IQR [608, 674] (v1, 2026-10-19) |
 | **Community** | hidden — bot tournament |
 | **Next review** | — |
@@ -64,3 +64,7 @@ The reference class is how much the index moves over about 9 trading days, start
 **Date**: 2026-10-19
 **Forecast**: Median 640 bp, IQR [608 bp, 674 bp]
 **Thesis**: The last close was 648 bp (Rava, 16 Oct), after four days of increases to near the 2026 high of about 655. Historical volatility of about ±50 bp over 9 trading days sets the width. I center slightly below the last close because the index has fallen back from this level before. The Brazilian runoff on 25 October is the main event risk, so both tails are wide.
+
+## Resolution — 2026-10-31
+
+Resolved **741.0** (synced from the Metaculus API). The bot's forecast was 640 [608, 674]. Official spot peer score: +15.92.

@@ -6,7 +6,7 @@
 | **Tournament** | minibench — one shot, window 2026-10-20T07:21:14Z -> 2026-10-20T10:21:14Z |
 | **Type** | binary |
 | **Opened / Closes / Resolves** | 2026-10-20 / 2026-10-20 / 2026-10-30 |
-| **Status** | closed |
+| **Status** | resolved |
 | **Current forecast** | Median 55.0%, IQR [45.0%, 65.0%] (v1, 2026-10-20) |
 | **Community** | hidden — bot tournament |
 | **Next review** | — |
@@ -84,3 +84,7 @@ Estimate: P(no further extension) ≈ 0.58. P(published on 29–30 Oct IST | no 
 **Date**: 2026-10-20
 **Forecast**: Median 55.0%, IQR [45.0%, 65.0%]
 **Thesis**: Every SIR final roll whose last-set date arrived was published on that date (Bihar, Kerala, West Bengal, UP, Odisha, Punjab), so the question is whether the ECI extends Andhra Pradesh a fifth time. It has done so four times (Sep 22 → Oct 30), but hearings were 99.9% done by late September and the Supreme Court is pressing for local-body polls. Most sensitive to whether a new ECI communique appears around Oct 22–28.
+
+## Resolution — 2026-10-31
+
+Resolved **no** (synced from the Metaculus API). The bot's forecast was 55.0% [45.0%, 65.0%]. Official spot peer score: +15.36.

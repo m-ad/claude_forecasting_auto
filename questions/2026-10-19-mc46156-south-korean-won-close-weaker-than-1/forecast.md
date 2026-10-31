@@ -6,7 +6,7 @@
 | **Tournament** | minibench — one shot, window 2026-10-19T19:58:17Z -> 2026-10-19T22:58:17Z |
 | **Type** | binary |
 | **Opened / Closes / Resolves** | 2026-10-19 / 2026-10-19 / 2026-10-30 |
-| **Status** | closed |
+| **Status** | resolved |
 | **Current forecast** | Median 30.0%, IQR [22.0%, 38.0%] (v1, 2026-10-19) |
 | **Community** | hidden — bot tournament |
 | **Next review** | — |
@@ -76,3 +76,7 @@ The reference class is a random walk over 8 trading days (Oct 20–29) with the 
 **Date**: 2026-10-19
 **Forecast**: Median 30.0%, IQR [22.0%, 38.0%]
 **Thesis**: USD/KRW is at 1,331.24 on Trading Economics for Oct 19, 0.66% below the threshold. With 8 trading days of about 0.3–0.5% daily volatility, a random walk gives roughly 26–34%. The won's three-month strengthening trend pulls the number down. Policy support near 1,330 (NPS dollar buying) and a 25–33% chance of a Fed hike on Oct 28 keep upside risk alive, and that hike is the factor the forecast is most sensitive to.
+
+## Resolution — 2026-10-31
+
+Resolved **no** (synced from the Metaculus API). The bot's forecast was 30.0% [22.0%, 38.0%]. Official spot peer score: +8.65.

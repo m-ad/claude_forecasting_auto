@@ -6,7 +6,7 @@
 | **Tournament** | minibench — one shot, window 2026-10-19T19:38:37Z -> 2026-10-19T22:38:37Z |
 | **Type** | binary |
 | **Opened / Closes / Resolves** | 2026-10-19 / 2026-10-19 / 2026-10-31 |
-| **Status** | closed |
+| **Status** | resolved |
 | **Current forecast** | Median 6.0%, IQR [3.5%, 10.0%] (v1, 2026-10-19) |
 | **Community** | hidden — bot tournament |
 | **Next review** | — |
@@ -77,3 +77,7 @@ Rough decomposition for the window: US "self-defense" strike about 3 %; delibera
 **Date**: 2026-10-19
 **Forecast**: Median 6.0%, IQR [3.5%, 10.0%]
 **Thesis**: No US land strike on Iran has been confirmed since about 1 September, and Israel and Iran have not exchanged fire since June. Trump has publicly pledged no attack before the 3 November midterms, and Israel says it will not act without US approval, so a deliberate campaign on 29–30 October is unlikely. The residual risk is a limited US "self-defense" strike after an IRGC attack on US forces, or Israeli retaliation if Iran strikes around Israel's 27 October election.
+
+## Resolution — 2026-10-31
+
+Resolved **no** (synced from the Metaculus API). The bot's forecast was 6.0% [3.5%, 10.0%]. Official spot peer score: +9.11.

@@ -6,7 +6,7 @@
 | **Tournament** | minibench — one shot, window 2026-10-19T16:14:14Z -> 2026-10-19T19:14:14Z |
 | **Type** | binary |
 | **Opened / Closes / Resolves** | 2026-10-19 / 2026-10-19 / 2026-10-30 |
-| **Status** | closed |
+| **Status** | resolved |
 | **Current forecast** | Median 3.0%, IQR [1.5%, 6.0%] (v1, 2026-10-19) |
 | **Community** | hidden — bot tournament |
 | **Next review** | — |
@@ -68,3 +68,7 @@ Net: **3%**.
 **Date**: 2026-10-19
 **Forecast**: Median 3.0%, IQR [1.5%, 6.0%]
 **Thesis**: The Supreme Court has refused every request to stay the SIR since 2025 and upheld it in May 2026. On 15 October it only issued notice on the INDIA bloc's plea for suspension. The one hearing inside the window, on 28 October, concerns a Delhi plea for disclosure and re-inclusion, and an order there is procedural, which resolves NO. The main risk is a broad 28 October order that bars finalisation or deletions of the Delhi roll.
+
+## Resolution — 2026-10-31
+
+Resolved **no** (synced from the Metaculus API). The bot's forecast was 3.0% [1.5%, 6.0%]. Official spot peer score: +13.77.

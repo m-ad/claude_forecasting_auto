@@ -6,7 +6,7 @@
 | **Tournament** | minibench — one shot, window 2026-10-19T16:28:02Z -> 2026-10-19T19:28:02Z |
 | **Type** | numeric |
 | **Opened / Closes / Resolves** | 2026-10-19 / 2026-10-19 / 2026-10-30 |
-| **Status** | closed |
+| **Status** | resolved |
 | **Current forecast** | Median 160, IQR [125, 225] (v1, 2026-10-19) |
 | **Community** | hidden — bot tournament |
 | **Next review** | — |
@@ -82,3 +82,7 @@ The question resolves to one number: how many attack and decoy drones (Shahed-ty
 **Date**: 2026-10-19
 **Forecast**: Median 160 drones, IQR [125, 225]
 **Thesis**: Normal October 2026 nights ran at 128–149 drones (question background), and the night of 18–19 Oct had 243 shot down (Ukrinform), so the median sits slightly above the normal cluster because the winter energy campaign is under way. The forecast is most sensitive to whether 29–30 Oct is a massive-strike night; I put about 12% on 400 or more drones, which gives a long right tail.
+
+## Resolution — 2026-10-31
+
+Resolved **113.0** (synced from the Metaculus API). The bot's forecast was 160 [125, 225]. Official spot peer score: +16.11.

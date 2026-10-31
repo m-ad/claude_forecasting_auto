@@ -6,7 +6,7 @@
 | **Tournament** | minibench — one shot, window 2026-10-19T08:08:50Z -> 2026-10-19T11:08:50Z |
 | **Type** | binary |
 | **Opened / Closes / Resolves** | 2026-10-19 / 2026-10-19 / 2026-10-30 |
-| **Status** | closed |
+| **Status** | resolved |
 | **Current forecast** | Median 10.0%, IQR [6.0%, 16.0%] (v1, 2026-10-19) |
 | **Community** | hidden — bot tournament |
 | **Next review** | — |
@@ -105,3 +105,7 @@ event rises far above it. **Base rate ≈ 12–15%.**
 **Date**: 2026-10-19
 **Forecast**: Median 10.0%, IQR [6.0%, 16.0%]
 **Thesis**: Direct leader contact has run about once every 1–3 weeks, which gives a base rate of about 12–15% for any given 2-day window. I shade that down because nothing is scheduled for 29–30 Oct, Trump is openly hostile after the 10 Oct "new president" remarks and the diesel and Starlink disputes, the current channel runs through envoys, and it is the last week of the midterm campaign. The number is most sensitive to whether a US-brokered negotiation round lands on those dates.
+
+## Resolution — 2026-10-31
+
+Resolved **no** (synced from the Metaculus API). The bot's forecast was 10.0% [6.0%, 16.0%]. Official spot peer score: +12.32.

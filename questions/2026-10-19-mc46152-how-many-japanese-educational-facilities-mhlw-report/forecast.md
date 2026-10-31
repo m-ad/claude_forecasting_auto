@@ -6,7 +6,7 @@
 | **Tournament** | minibench — one shot, window 2026-10-19T18:32:34Z -> 2026-10-19T21:32:34Z |
 | **Type** | numeric |
 | **Opened / Closes / Resolves** | 2026-10-19 / 2026-10-19 / 2026-10-30 |
-| **Status** | closed |
+| **Status** | resolved |
 | **Current forecast** | Median 8915, IQR [2441, 10587] (v1, 2026-10-19) |
 | **Community** | hidden — bot tournament |
 | **Next review** | — |
@@ -90,3 +90,7 @@ The value is the season-to-date **cumulative** facility count (施設数 累計:
 **Date**: 2026-10-19
 **Forecast**: Median 8915 facilities, IQR [2441, 10587]
 **Thesis**: The official cumulative count was already 4,793 after week 41. The 1,703 the question calls cumulative is that week's figure. Three more weeks of about 1,500–2,500 closures (growth slowing, sentinel 12.81, +13%) put the cumulative total near 10,000. I keep 35% on a weekly-figure resolution near 1,900. The forecast is most sensitive to which figure the resolver uses.
+
+## Resolution — 2026-10-31
+
+Resolved **7190.0** (synced from the Metaculus API). The bot's forecast was 8915 [2441, 10587]. Official spot peer score: -30.38.

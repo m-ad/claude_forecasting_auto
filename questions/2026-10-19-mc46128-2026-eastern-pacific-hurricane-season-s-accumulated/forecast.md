@@ -6,7 +6,7 @@
 | **Tournament** | minibench — one shot, window 2026-10-19T02:21:37Z -> 2026-10-19T05:21:37Z |
 | **Type** | binary |
 | **Opened / Closes / Resolves** | 2026-10-19 / 2026-10-19 / 2026-10-29 |
-| **Status** | closed |
+| **Status** | resolved |
 | **Current forecast** | Median 60.0%, IQR [48.0%, 72.0%] (v1, 2026-10-19) |
 | **Community** | hidden — bot tournament |
 | **Next review** | — |
@@ -70,3 +70,7 @@ No clean reference class exists: this is a running total near a threshold, ten d
 **Date**: 2026-10-19
 **Forecast**: Median 60.0%, IQR [48.0%, 72.0%]
 **Thesis**: Northeast Pacific ACE is 343.1 (Climatlas, Oct 19), and the dying Hurricane Trudy should add only ~3 more units (NHC). That leaves the total near 346, so YES most likely needs the low south of Guatemala (NHC: 90% 7-day formation chance) to become a tropical storm or hurricane worth ~4+ ACE before Oct 29. The forecast is most sensitive to whether 343.1 already includes Trudy's Oct 18 fixes.
+
+## Resolution — 2026-10-31
+
+Resolved **yes** (synced from the Metaculus API). The bot's forecast was 60.0% [48.0%, 72.0%]. Official spot peer score: +21.61.

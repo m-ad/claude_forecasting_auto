@@ -6,7 +6,7 @@
 | **Tournament** | minibench — one shot, window 2026-10-19T16:57:22Z -> 2026-10-19T19:57:22Z |
 | **Type** | binary |
 | **Opened / Closes / Resolves** | 2026-10-19 / 2026-10-19 / 2026-10-29 |
-| **Status** | closed |
+| **Status** | resolved |
 | **Current forecast** | Median 20.0%, IQR [12.0%, 30.0%] (v1, 2026-10-19) |
 | **Community** | hidden — bot tournament |
 | **Next review** | — |
@@ -64,3 +64,7 @@ There is no clean reference class. The nearest one is the repository's own updat
 **Date**: 2026-10-19
 **Forecast**: Median 20.0%, IQR [12.0%, 30.0%]
 **Thesis**: The repository has had one content update since launch (the 10-07 batch, merged 10-08: 6 new formalizations, bringing it to 300/719) and nothing for 11 days, so the status quo of 300 is the base case. YES needs a new batch with at least one new top-line formalization recorded in history.md by 10-29. OpenAI's public pledge to keep adding formalizations, and a possible ~3-week cadence, keep that chance material.
+
+## Resolution — 2026-10-31
+
+Resolved **yes** (synced from the Metaculus API). The bot's forecast was 20.0% [12.0%, 30.0%]. Official spot peer score: -32.69.

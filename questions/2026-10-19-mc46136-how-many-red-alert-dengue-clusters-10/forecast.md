@@ -6,7 +6,7 @@
 | **Tournament** | minibench — one shot, window 2026-10-19T11:15:33Z -> 2026-10-19T14:15:33Z |
 | **Type** | discrete |
 | **Opened / Closes / Resolves** | 2026-10-19 / 2026-10-19 / 2026-10-30 |
-| **Status** | closed |
+| **Status** | resolved |
 | **Current forecast** | Median 2.69, IQR [1.9, 3.39] (v1, 2026-10-19) |
 | **Community** | hidden — bot tournament |
 | **Next review** | — |
@@ -78,3 +78,7 @@ Continuous percentiles (bin-interpolated): p5 0.77, p10 1.23, p25 1.9, p50 2.69,
 **Date**: 2026-10-19
 **Forecast**: Median 2.69 clusters, IQR [1.9, 3.39] clusters
 **Thesis**: The 16 Oct NEA snapshot shows 3 clusters with 10 or more cases. These are a new, growing Lentor Gardens cluster plus the long-running Bishan St 12 and Ho Ching Rd clusters, and both of those still add about 2 cases a week. Weekly cases are flat at about 70–90, so persistence dominates. Most mass is on 2–3, with the forecast most sensitive to whether Ho Ching or Bishan stops producing cases before 29 Oct.
+
+## Resolution — 2026-10-31
+
+Resolved **3.0** (synced from the Metaculus API). The bot's forecast was 2.69 [1.9, 3.39]. Official spot peer score: +22.76.

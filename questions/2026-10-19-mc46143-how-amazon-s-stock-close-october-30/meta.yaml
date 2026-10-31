@@ -12,7 +12,7 @@ dates:
   opened: '2026-10-19'
   closes: '2026-10-19'
   resolves: '2026-10-30'
-status: closed
+status: resolved
 tournament:
   slug: minibench
   mode: one_shot
@@ -28,7 +28,7 @@ tournament:
       $265.00 to less than $280.00: 0.16
       $280.00 or more: 0.16
   comment_posted: true
-  official_score: null
+  official_score: 4.032364389761351
   missed_window: false
 current:
   version: 1
@@ -46,6 +46,6 @@ current:
 next_review: null
 tripwires: []
 resolution:
-  outcome: null
-  date: null
-  source: null
+  outcome: $235.00 to less than $250.00
+  date: '2026-10-31'
+  source: 'Metaculus API: question 46372 resolution'

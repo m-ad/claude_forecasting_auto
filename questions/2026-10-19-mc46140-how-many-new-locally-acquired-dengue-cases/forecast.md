@@ -6,7 +6,7 @@
 | **Tournament** | minibench — one shot, window 2026-10-19T12:10:44Z -> 2026-10-19T15:10:44Z |
 | **Type** | discrete |
 | **Opened / Closes / Resolves** | 2026-10-19 / 2026-10-19 / 2026-10-30 |
-| **Status** | closed |
+| **Status** | resolved |
 | **Current forecast** | Median 59, IQR [44, 76] (v1, 2026-10-19) |
 | **Community** | hidden — bot tournament |
 | **Next review** | — |
@@ -77,3 +77,7 @@ The Week 41 report (Oct 11–17, due ~Oct 22) is the single fact this forecast i
 **Date**: 2026-10-19
 **Forecast**: Median 59 cases, IQR [44 cases, 76 cases]
 **Thesis**: The last three FDOH weekly reports showed 62, 44 and 72 new local cases, so the outbreak is still at its peak. Intensive spraying and the end of the mosquito season argue for a plateau or slow decline rather than further growth. The forecast is most sensitive to the Week 41 report (due ~Oct 22) and to batching of lab results.
+
+## Resolution — 2026-10-31
+
+Resolved **60.0** (synced from the Metaculus API). The bot's forecast was 59 [44, 76]. Official spot peer score: +0.43.

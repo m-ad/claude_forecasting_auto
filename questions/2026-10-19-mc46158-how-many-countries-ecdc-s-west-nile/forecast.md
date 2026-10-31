@@ -6,7 +6,7 @@
 | **Tournament** | minibench — one shot, window 2026-10-19T22:50:55Z -> 2026-10-20T01:50:55Z |
 | **Type** | discrete |
 | **Opened / Closes / Resolves** | 2026-10-19 / 2026-10-20 / 2026-10-31 |
-| **Status** | closed |
+| **Status** | resolved |
 | **Current forecast** | Median 19.46, IQR [18.98, 20.22] (v1, 2026-10-19) |
 | **Community** | hidden — bot tournament |
 | **Next review** | — |
@@ -99,3 +99,7 @@ The Week 42 report still had 14 areas affected for the first time [1], and ECDC/
 **Date**: 2026-10-19
 **Forecast**: Median 19.46 countries, IQR [18.98, 20.22] (P(19) ≈ 52%, P(20) ≈ 32%, P(21) ≈ 11%, P(≥22) ≈ 5%)
 **Thesis**: ECDC's Week 42 report (data to 14 October) gives 19 countries, and only two more weekly reports fall before resolution. Historically, few or no countries are added after mid-October, but this record 2026 season has kept adding late reporters (+3 in two weeks), so there is a substantial chance of a 20th, with Türkiye (counted in 2025, absent so far) as the likeliest candidate. The forecast is most sensitive to whether another new country reports a first human case before 28 October.
+
+## Resolution — 2026-10-31
+
+Resolved **20.0** (synced from the Metaculus API). The bot's forecast was 19.46 [18.98, 20.22]. Official spot peer score: +2.07.

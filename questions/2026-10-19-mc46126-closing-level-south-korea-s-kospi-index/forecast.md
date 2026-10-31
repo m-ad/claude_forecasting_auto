@@ -6,7 +6,7 @@
 | **Tournament** | minibench — one shot, window 2026-10-19T00:46:02Z -> 2026-10-19T03:46:02Z |
 | **Type** | numeric |
 | **Opened / Closes / Resolves** | 2026-10-19 / 2026-10-19 / 2026-10-30 |
-| **Status** | closed |
+| **Status** | resolved |
 | **Current forecast** | Median 5620, IQR [5310, 5930] (v1, 2026-10-19) |
 | **Community** | hidden — bot tournament |
 | **Next review** | — |
@@ -88,3 +88,7 @@ Recent daily moves of 2–7% suggest a daily volatility of roughly 3–3.5%, aga
 **Date**: 2026-10-19
 **Forecast**: Median 5620, IQR [5310, 5930]
 **Thesis**: I treat the index as a random walk from the live level of about 5,607 on Oct 19 (Yahoo Finance) over about 8.5 sessions. The spread comes from 2026's extreme volatility, roughly 3.2% a day after the chip sell-off and circuit breaker on Oct 15. The forecast is most sensitive to whether that volatility persists or fades.
+
+## Resolution — 2026-10-31
+
+Resolved **5938.0** (synced from the Metaculus API). The bot's forecast was 5620 [5310, 5930]. Official spot peer score: -6.42.

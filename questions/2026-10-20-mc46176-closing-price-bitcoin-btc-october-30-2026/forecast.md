@@ -6,7 +6,7 @@
 | **Tournament** | minibench — one shot, window 2026-10-20T21:13:05Z -> 2026-10-21T00:13:05Z |
 | **Type** | numeric |
 | **Opened / Closes / Resolves** | 2026-10-20 / 2026-10-21 / 2026-10-31 |
-| **Status** | closed |
+| **Status** | resolved |
 | **Current forecast** | Median 82700, IQR [80100, 85400] (v1, 2026-10-20) |
 | **Community** | hidden — bot tournament |
 | **Next review** | — |
@@ -88,3 +88,7 @@ There was no live prediction market to anchor on.
 **Date**: 2026-10-20
 **Forecast**: Median $82,700, IQR [$80,100, $85,400]
 **Thesis**: Centred on the live spot price of ~$82.8k (Yahoo and CoinGecko, Oct 20), with a fat-tailed spread sized to Deribit's 30-day implied volatility of ~37% over the 10.1 days to the 00:00 UTC Oct 31 close. The low tail is slightly heavier because of the $80k support level, negative ETF flows this month and the Oct 27–28 FOMC meeting. The forecast is most sensitive to whether $80k holds.
+
+## Resolution — 2026-10-31
+
+Resolved **77200.0** (synced from the Metaculus API). The bot's forecast was 82700 [80100, 85400]. Official spot peer score: -24.20.

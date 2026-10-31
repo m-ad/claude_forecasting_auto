@@ -6,7 +6,7 @@
 | **Tournament** | minibench — one shot, window 2026-10-19T13:10:03Z -> 2026-10-19T16:10:03Z |
 | **Type** | multiple_choice |
 | **Opened / Closes / Resolves** | 2026-10-19 / 2026-10-19 / 2026-10-30 |
-| **Status** | closed |
+| **Status** | resolved |
 | **Current forecast** | Median 25.0%, IQR [20.0%, 30.0%] (v1, 2026-10-19) |
 | **Community** | hidden — bot tournament |
 | **Next review** | — |
@@ -81,3 +81,7 @@ I shifted a little mass toward the central bucket because the model's tails are 
 **Date**: 2026-10-19
 **Forecast**: Median 25.0% ($250.00 to less than $265.00), IQR [20.0%, 30.0%]
 **Thesis**: AMZN sits at about $253 (Oct 16 close $250.00, Oct 19 pre-market $255) with 9 sessions plus an earnings print priced at ±7.6% by options. That is roughly ±11% of combined 1σ uncertainty, so mass spreads across all five buckets, peaking slightly in the bucket containing spot. The forecast is most sensitive to the direction of the AWS/capex surprise on Oct 29.
+
+## Resolution — 2026-10-31
+
+Resolved **$235.00 to less than $250.00** (synced from the Metaculus API). The bot's forecast was 0.25 [0.2, 0.3]. Official spot peer score: +4.03.

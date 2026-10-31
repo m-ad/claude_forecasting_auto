@@ -6,7 +6,7 @@
 | **Tournament** | minibench — one shot, window 2026-10-20T02:15:02Z -> 2026-10-20T05:15:02Z |
 | **Type** | binary |
 | **Opened / Closes / Resolves** | 2026-10-20 / 2026-10-20 / 2026-10-30 |
-| **Status** | closed |
+| **Status** | resolved |
 | **Current forecast** | Median 3.0%, IQR [2.0%, 5.0%] (v1, 2026-10-20) |
 | **Community** | hidden — bot tournament |
 | **Next review** | — |
@@ -82,3 +82,7 @@ I place this at about 3%. I don't go lower because Kaiser wants "no economic tak
 **Date**: 2026-10-20
 **Forecast**: Median 3.0%, IQR [2.0%, 5.0%]
 **Thesis**: Kaiser–CNA NorCal contracts have historically settled months after expiry, either on a strike deadline or after long drift (2015, 2018, 2022: TAs 78 or more days after expiry). As of 12 Oct 2026 the sides had held 17 sessions, wage proposals had barely been exchanged, a strike authorization vote was under way and dates were being booked through December. Only two sessions (21–22 Oct) fall before the cutoff, so a full TA by 29 Oct is very unlikely.
+
+## Resolution — 2026-10-31
+
+Resolved **no** (synced from the Metaculus API). The bot's forecast was 3.0% [2.0%, 5.0%]. Official spot peer score: +10.98.

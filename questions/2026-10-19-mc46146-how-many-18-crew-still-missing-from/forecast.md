@@ -6,7 +6,7 @@
 | **Tournament** | minibench — one shot, window 2026-10-19T15:27:13Z -> 2026-10-19T18:27:13Z |
 | **Type** | discrete |
 | **Opened / Closes / Resolves** | 2026-10-19 / 2026-10-19 / 2026-10-30 |
-| **Status** | closed |
+| **Status** | resolved |
 | **Current forecast** | Median 0.4, IQR [0, 3] (v1, 2026-10-19) |
 | **Community** | hidden — bot tournament |
 | **Next review** | — |
@@ -76,3 +76,7 @@ Percentiles (native units, continuous representation over the discrete bins): p5
 **Date**: 2026-10-19
 **Forecast**: Median 0.4 crew, IQR [0.0 crew, 3.0 crew]
 **Thesis**: Most crew missing after open-sea sinkings are never recovered within two weeks; HS Dignity sank and Bulgaria abandoned the search on 14 Oct, so ~52% on 0. The upside is Wine Trader, still afloat with crew likely trapped in its burned accommodation, so a batch recovery once it can be boarded is plausible; the forecast is most sensitive to whether that boarding happens before 29 Oct.
+
+## Resolution — 2026-10-31
+
+Resolved **0.0** (synced from the Metaculus API). The bot's forecast was 0.4 [0, 3]. Official spot peer score: +15.78.

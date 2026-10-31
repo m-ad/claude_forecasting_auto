@@ -6,7 +6,7 @@
 | **Tournament** | minibench — one shot, window 2026-10-19T03:02:53Z -> 2026-10-19T06:02:53Z |
 | **Type** | discrete |
 | **Opened / Closes / Resolves** | 2026-10-19 / 2026-10-19 / 2026-10-30 |
-| **Status** | closed |
+| **Status** | resolved |
 | **Current forecast** | Median 8.8, IQR [8.1, 9.6] (v1, 2026-10-19) |
 | **Community** | hidden — bot tournament |
 | **Next review** | — |
@@ -74,3 +74,7 @@ The 8 counties are Hillsborough, Pinellas, Pasco, Polk, Orange, Miami-Dade, Palm
 **Date**: 2026-10-19
 **Forecast**: Median 8.8 counties, IQR [8.1 counties, 9.6 counties]
 **Thesis**: The W40 FDOH report (Oct 4–10) lists 8 counties, the count is cumulative, and over the past seven weeks it rose by about one county every two weeks. I expect roughly 0–1 more by the W42 report: 8 (40%) or 9 (33%) are most likely. The forecast is most sensitive to any new county announcing a first local case or positive mosquito pool before Oct 24.
+
+## Resolution — 2026-10-31
+
+Resolved **12.0** (synced from the Metaculus API). The bot's forecast was 8.8 [8.1, 9.6]. Official spot peer score: -6.22.

@@ -6,7 +6,7 @@
 | **Tournament** | minibench — one shot, window 2026-10-19T03:04:24Z -> 2026-10-19T06:04:24Z |
 | **Type** | binary |
 | **Opened / Closes / Resolves** | 2026-10-19 / 2026-10-19 / 2026-10-30 |
-| **Status** | closed |
+| **Status** | resolved |
 | **Current forecast** | Median 62.0%, IQR [54.0%, 69.0%] (v1, 2026-10-19) |
 | **Community** | hidden — bot tournament |
 | **Next review** | — |
@@ -76,3 +76,7 @@ Net: I take the 65% random-walk figure down about 3 points for jump skew and pre
 **Date**: 2026-10-19
 **Forecast**: Median 62.0%, IQR [54.0%, 69.0%]
 **Thesis**: Brent is about $107.9 on 19 Oct (Trading Economics), roughly 3.7% above the threshold with 8.5 trading days left. A driftless lognormal at about 50% annualised volatility gives about 65% for a close above $104. I shade that to 62% because this year's de-escalation headlines have repeatedly cut 6–8% in a day. The forecast is most sensitive to whether a US–Iran de-escalation headline lands before 29 Oct.
+
+## Resolution — 2026-10-31
+
+Resolved **yes** (synced from the Metaculus API). The bot's forecast was 62.0% [54.0%, 69.0%]. Official spot peer score: -2.91.

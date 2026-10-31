@@ -6,7 +6,7 @@
 | **Tournament** | minibench — one shot, window 2026-10-20T05:14:55Z -> 2026-10-20T08:14:55Z |
 | **Type** | binary |
 | **Opened / Closes / Resolves** | 2026-10-20 / 2026-10-20 / 2026-10-31 |
-| **Status** | closed |
+| **Status** | resolved |
 | **Current forecast** | Median 18.0%, IQR [11.0%, 27.0%] (v1, 2026-10-20) |
 | **Community** | hidden — bot tournament |
 | **Next review** | — |
@@ -89,3 +89,7 @@ Taking these into account, I put the outside view for this posture at about 10%.
 **Date**: 2026-10-20
 **Forecast**: Median 18.0%, IQR [11.0%, 27.0%]
 **Thesis**: The Ohio Supreme Court usually takes about 74 days to decide whether to hear an appeal, and the NCAA's response is not due until about early November. The court's 14 October stay is temporary, lasting only until it has considered the 19 October briefs, so its next order is most likely a ruling on the stay, which does not count. The main route to YES is a fast dismissal as moot because of DeWine's executive order, and that looks unlikely because the NCAA disputes the order in federal court.
+
+## Resolution — 2026-10-31
+
+Resolved **no** (synced from the Metaculus API). The bot's forecast was 18.0% [11.0%, 27.0%]. Official spot peer score: +20.41.

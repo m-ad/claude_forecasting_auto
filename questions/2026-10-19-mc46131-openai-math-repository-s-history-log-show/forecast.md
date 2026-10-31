@@ -6,7 +6,7 @@
 | **Tournament** | minibench — one shot, window 2026-10-19T03:18:17Z -> 2026-10-19T06:18:17Z |
 | **Type** | binary |
 | **Opened / Closes / Resolves** | 2026-10-19 / 2026-10-19 / 2026-10-30 |
-| **Status** | closed |
+| **Status** | resolved |
 | **Current forecast** | Median 12.0%, IQR [7.0%, 19.0%] (v1, 2026-10-19) |
 | **Community** | hidden — bot tournament |
 | **Next review** | — |
@@ -64,3 +64,7 @@ A credible outside mathematician publicly showing that a specific openai/math re
 **Date**: 2026-10-19
 **Forecast**: Median 12.0%, IQR [7.0%, 19.0%]
 **Thesis**: As of Oct 19, history.md still lists only the three Oct 7 withdrawals, and no commit has changed a manuscript since Oct 8. OpenAI has preferred revising to withdrawing (14 to 1), so a new fatal flaw would need to be found, judged unfixable and logged within about 10 days. The forecast is most sensitive to whether an outside expert shows a specific result is false before Oct 29.
+
+## Resolution — 2026-10-31
+
+Resolved **no** (synced from the Metaculus API). The bot's forecast was 12.0% [7.0%, 19.0%]. Official spot peer score: +21.88.

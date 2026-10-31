@@ -6,7 +6,7 @@
 | **Tournament** | minibench — one shot, window 2026-10-19T11:37:12Z -> 2026-10-19T14:37:12Z |
 | **Type** | binary |
 | **Opened / Closes / Resolves** | 2026-10-19 / 2026-10-19 / 2026-10-31 |
-| **Status** | closed |
+| **Status** | resolved |
 | **Current forecast** | Median 20.0%, IQR [13.0%, 28.0%] (v1, 2026-10-19) |
 | **Community** | hidden — bot tournament |
 | **Next review** | — |
@@ -79,3 +79,7 @@ Net: about 20%.
 **Date**: 2026-10-19
 **Forecast**: Median 20.0%, IQR [13.0%, 28.0%]
 **Thesis**: The post has been vacant since 16 October (Wikipedia). NBC sources say Trump is unlikely to name a successor soon, and the last search took six weeks. Only about 11 days remain, and an acting deputy does not count. The main risk is a fast internal promotion of Anna Kelly, the Kalshi favourite.
+
+## Resolution — 2026-10-31
+
+Resolved **no** (synced from the Metaculus API). The bot's forecast was 20.0% [13.0%, 28.0%]. Official spot peer score: +5.97.

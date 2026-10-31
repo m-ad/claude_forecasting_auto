@@ -6,7 +6,7 @@
 | **Tournament** | minibench — one shot, window 2026-10-19T06:37:15Z -> 2026-10-19T09:37:15Z |
 | **Type** | discrete |
 | **Opened / Closes / Resolves** | 2026-10-19 / 2026-10-19 / 2026-10-29 |
-| **Status** | closed |
+| **Status** | resolved |
 | **Current forecast** | Median 3.1, IQR [3.04, 3.16] (v1, 2026-10-19) |
 | **Community** | hidden — bot tournament |
 | **Next review** | — |
@@ -76,3 +76,7 @@ Approximate probability per outcome:
 **Date**: 2026-10-19
 **Forecast**: Median 3.10%, IQR [3.04%, 3.16%]
 **Thesis**: Core PCE has been 3.0% y/y for three months. Nowcasts that map the hot September CPI and PPI into PCE put September core at 0.32–0.34% m/m and 3.1% y/y (TD Securities, WSJ/Timiraos). That is clearly above the ~0.2% Sep-2025 m/m that drops out. The main uncertainty is the unrounded August level, which splits the risk toward 3.0 or 3.2.
+
+## Resolution — 2026-10-31
+
+Resolved **3.1** (synced from the Metaculus API). The bot's forecast was 3.1 [3.04, 3.16]. Official spot peer score: +25.20.

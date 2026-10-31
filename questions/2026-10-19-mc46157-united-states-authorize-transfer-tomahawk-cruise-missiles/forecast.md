@@ -6,7 +6,7 @@
 | **Tournament** | minibench — one shot, window 2026-10-19T21:42:50Z -> 2026-10-20T00:42:50Z |
 | **Type** | binary |
 | **Opened / Closes / Resolves** | 2026-10-19 / 2026-10-20 / 2026-10-30 |
-| **Status** | closed |
+| **Status** | resolved |
 | **Current forecast** | Median 1.5%, IQR [0.8%, 3.0%] (v1, 2026-10-19) |
 | **Community** | hidden — bot tournament |
 | **Next review** | — |
@@ -74,3 +74,7 @@ I hold it at about 1.5%. The extra half-point over the base rate covers Trump's 
 **Date**: 2026-10-19
 **Forecast**: Median 1.5%, IQR [0.8%, 3.0%]
 **Thesis**: The US has refused Tomahawks for Ukraine for 13 months, including when the Pentagon cleared a transfer, so the base rate for an 11-day window is about 1%. Current conditions push further toward NO: the Iran war used more than 1,000 Tomahawks and refilling the stock will take years, allied arms sales are paused, and Trump is openly hostile to Zelensky while doing deals with Putin. Only a sudden break with Moscow would change this.
+
+## Resolution — 2026-10-31
+
+Resolved **no** (synced from the Metaculus API). The bot's forecast was 1.5% [0.8%, 3.0%]. Official spot peer score: +6.10.

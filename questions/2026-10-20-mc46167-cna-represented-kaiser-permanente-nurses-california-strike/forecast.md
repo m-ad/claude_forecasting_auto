@@ -6,7 +6,7 @@
 | **Tournament** | minibench — one shot, window 2026-10-20T06:09:57Z -> 2026-10-20T09:09:57Z |
 | **Type** | binary |
 | **Opened / Closes / Resolves** | 2026-10-20 / 2026-10-20 / 2026-10-31 |
-| **Status** | closed |
+| **Status** | resolved |
 | **Current forecast** | Median 3.0%, IQR [2.0%, 5.0%] (v1, 2026-10-20) |
 | **Community** | hidden — bot tournament |
 | **Next review** | — |
@@ -75,3 +75,7 @@ Net: about 3%. The deadline maths and a silent union press page bound this from 
 **Date**: 2026-10-20
 **Forecast**: Median 3.0%, IQR [2.0%, 5.0%]
 **Thesis**: By law (NLRA 8(g)) a strike on 29–30 October needs 10 days' notice, so a notice served by 19–20 October. On 15 October Kaiser said it had received none, and CNA's press page through 17 October shows no vote result, notice or strike date. Bargaining sessions on 21–23 October and dates booked into December point to any escalation coming in November at the earliest. The only real YES path is an unreported notice served on 19–20 October.
+
+## Resolution — 2026-10-31
+
+Resolved **no** (synced from the Metaculus API). The bot's forecast was 3.0% [2.0%, 5.0%]. Official spot peer score: +7.93.

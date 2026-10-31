@@ -6,7 +6,7 @@
 | **Tournament** | minibench — one shot, window 2026-10-20T06:07:50Z -> 2026-10-20T09:07:50Z |
 | **Type** | numeric |
 | **Opened / Closes / Resolves** | 2026-10-20 / 2026-10-20 / 2026-10-31 |
-| **Status** | closed |
+| **Status** | resolved |
 | **Current forecast** | Median 7100, IQR [7086, 10000] (v1, 2026-10-20) |
 | **Community** | hidden — bot tournament |
 | **Next review** | — |
@@ -72,3 +72,7 @@ The main upside risk is a COP17 announcement that a mid-size or large company (G
 **Date**: 2026-10-20
 **Forecast**: Median $7,100, IQR [$7,086, $10,000]
 **Thesis**: The Cali Fund has received three tiny deposits in about 20 months, totalling $7,085 (AFP, 20 Oct 2026), so the most likely value on 31 Oct is unchanged. The main upside is two small pledges worth $3,571 that may be paid (which would give about $10.7k), plus a thin tail for a real COP17 transfer. The forecast is most sensitive to whether any COP17 announcement turns into a deposit booked by 31 Oct.
+
+## Resolution — 2026-10-31
+
+Resolved **11000.0** (synced from the Metaculus API). The bot's forecast was 7100 [7086, 10000]. Official spot peer score: +11.01.

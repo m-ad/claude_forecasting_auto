@@ -6,7 +6,7 @@
 | **Tournament** | minibench — one shot, window 2026-10-20T09:17:04Z -> 2026-10-20T12:17:04Z |
 | **Type** | binary |
 | **Opened / Closes / Resolves** | 2026-10-20 / 2026-10-20 / 2026-10-31 |
-| **Status** | closed |
+| **Status** | resolved |
 | **Current forecast** | Median 22.0%, IQR [17.0%, 28.0%] (v1, 2026-10-20) |
 | **Community** | hidden — bot tournament |
 | **Next review** | — |
@@ -77,3 +77,7 @@ The most sensitive input is the volatility assumption. If BTC options were prici
 **Date**: 2026-10-20
 **Forecast**: Median 22.0%, IQR [17.0%, 28.0%]
 **Thesis**: BTC is at ~$81.3k (CoinGecko, Oct 20) and needs about +4.5% by the single 00:00 UTC Oct 31 snapshot. A 10.6-day lognormal/fat-tailed volatility model at 35–50% annualised gives 18–30%. Mild negative momentum and ETF outflows (−$617M in October) shade it to ~22%, with the Oct 28 FOMC (Federal Open Market Committee) meeting, ~86% priced as a hold, the main event risk. The forecast is most sensitive to the volatility assumption and to any break out of the $79–84k range before month-end.
+
+## Resolution — 2026-10-31
+
+Resolved **no** (synced from the Metaculus API). The bot's forecast was 22.0% [17.0%, 28.0%]. Official spot peer score: +10.98.

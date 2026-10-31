@@ -6,7 +6,7 @@
 | **Tournament** | minibench — one shot, window 2026-10-19T18:37:08Z -> 2026-10-19T21:37:08Z |
 | **Type** | discrete |
 | **Opened / Closes / Resolves** | 2026-10-19 / 2026-10-19 / 2026-10-30 |
-| **Status** | closed |
+| **Status** | resolved |
 | **Current forecast** | Median 1, IQR [0.2, 2] (v1, 2026-10-19) |
 | **Community** | hidden — bot tournament |
 | **Next review** | — |
@@ -98,3 +98,7 @@ The pattern: below a national average of about 15–17, the count is usually 0�
 **Date**: 2026-10-19
 **Forecast**: Median 1 prefectures, IQR [0.2, 2] prefectures (P(0) ≈ 40%, 90th percentile 4)
 **Thesis**: In week 41 only Okinawa (31.34, falling) was at or above 30, and the next prefectures were at 20–22 (Kanagawa, Saitama, Chiba). National growth is slow (11.35 → 12.81, +13% a week), and week 42 contains a holiday. In past seasons a national average of about 15–17 has meant 0–1 prefectures at warning level. The forecast is most sensitive to whether Hokkaido (×1.76 in week 41) and Kanagawa keep accelerating.
+
+## Resolution — 2026-10-31
+
+Resolved **0.0** (synced from the Metaculus API). The bot's forecast was 1 [0.2, 2]. Official spot peer score: +73.60.
