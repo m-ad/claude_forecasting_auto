@@ -2,15 +2,16 @@
 
 Everything the bot reads from its environment, in one place. GitHub: Settings → Secrets and
 variables → Actions, as **repository** secrets and variables. Environment secrets (Settings →
-Environments) do not reach these jobs: no job declares an `environment:`, so GitHub passes
-them in as empty strings. `tests/test_bot.py` fails if a workflow uses a secret or variable
+Environments) do not reach these jobs: the only job that declares an `environment:` is
+publish-page's deploy job (`github-pages`, which Pages requires), and it reads no secret, so
+an environment secret would arrive everywhere as an empty string. `tests/test_bot.py` fails if a workflow uses a secret or variable
 that is not listed here.
 
 ## Secrets (required)
 
 | Secret | Used by | What it is |
 |---|---|---|
-| `METACULUS_API_KEY` | sweep gate, scaffold and submit steps; daily sync | The **bot account's** API token (Metaculus → Settings → My Forecasting Bots). Never given to the forecaster session. |
+| `METACULUS_API_KEY` | sweep gate, scaffold and submit steps; daily sync; results page (read-only: leaderboards) | The **bot account's** API token (Metaculus → Settings → My Forecasting Bots). Never given to the forecaster session. |
 | `CLAUDE_CODE_OAUTH_TOKEN` | sweep forecast step only | Long-lived Claude subscription token from `claude setup-token`. It expires: put the date in your calendar. |
 
 Without both, the sweep fails at its first step and opens a `bot-health` issue.
@@ -27,6 +28,7 @@ Without both, the sweep fails at its first step and opens a `bot-health` issue.
 | `MAX_QUESTIONS_PER_RUN` | `6` | How many questions one sweep takes on; the rest wait for the next sweep. |
 | `MAX_PARALLEL` | `3` | How many questions are forecast at the same time within a sweep. |
 | `WEEKLY_BUDGET_USD_EQUIV` | unset (= no budget) | Trailing-7-day API-equivalent spend at which the gate stops starting sessions; from 80 % of it, at most 2 questions per run. Set it after measuring a round (`uv run scripts/record_usage.py report`). |
+| `PAGE_ENABLED` | unset (= off) | Publishes the results page (`publish-page.yml`) to GitHub Pages after every daily sync and on pushes to `main` that touch the data, when exactly `true`. Manual runs ignore it. Needs Settings → Pages → Source: **GitHub Actions** once, and a plan that offers Pages for the repository; the site is public even when the repository is private. |
 | `CLAUDE_CODE_VERSION` | `latest` | npm version of `@anthropic-ai/claude-code`. Unpinned by default so new models and fixes arrive on their own; pin a version (e.g. `2.1.302`) if a release breaks the sweep. Each job prints the version it installed in its Step Summary. |
 
 ## Fixed in files, not variables
@@ -35,6 +37,7 @@ Without both, the sweep fails at its first step and opens a `bot-health` issue.
 |---|---|---|
 | Sweep cadence | `.github/workflows/tournament-sweep.yml` (`cron`) | every 30 min, at :11 and :41 |
 | Daily sync time | `.github/workflows/tournament-sync.yml` (`cron`) | 03:23 UTC |
+| Results page rebuild | `.github/workflows/publish-page.yml` (`on:`) | after every tournament-sync run; pushes to `main` touching `ledger/`, `meta.yaml` or the builder |
 | Research subagent model | `.claude/agents/research-scout.md` (`model:`) | `sonnet` |
 | Research floor for one-shot questions | `scripts/log_forecast.py` (`MIN_SEARCHES`, `REQUIRED_CATEGORIES`, `WAIVER_MINUTES`) | 15 searches done; resolution source, news, markets, base rate, disconfirmation; waived 8 min before the deadline |
 | PDF extraction | `pyproject.toml` group `research` (`pymupdf4llm`), `scripts/pdf_text.py` | pinned `1.28.2`; first 30 pages unless `--pages` |
