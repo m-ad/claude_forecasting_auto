@@ -220,6 +220,20 @@ def get_tournament(slug: str) -> dict[str, Any]:
     return get_json(f"projects/tournaments/{slug}/", stage="tournament")
 
 
+def project_leaderboards(project_id: int, stage: str = "leaderboard") -> list[dict[str, Any]]:
+    """Every leaderboard of a tournament or question series, entries included.
+
+    The endpoint answers with a list (one primary leaderboard, sometimes more); a
+    single object is wrapped so callers see one shape. Takes the numeric project
+    id, not a slug: MiniBench hands its ``minibench`` slug on to each new round,
+    while a round's id stays fixed.
+    """
+    doc = get_json(f"leaderboards/project/{int(project_id)}/", stage=stage)
+    if isinstance(doc, dict):
+        return [doc]
+    return [b for b in doc or [] if isinstance(b, dict)]
+
+
 def list_posts(
     tournament: str | int,
     statuses: str = "open",

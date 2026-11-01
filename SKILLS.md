@@ -39,6 +39,7 @@ question.
 | `scripts/ci_guard.py` | After the forecaster session: undo every change outside its question folder and its own ledger lines (stdlib only, run from `HEAD`). |
 | `scripts/status.py` | List questions by urgency; `--index` regenerates `INDEX.md`. |
 | `scripts/calibration.py` | Brier / log score, calibration buckets. |
+| `scripts/build_page.py` | The results page (`index.html` + `results.json`): closed and resolved questions linked to Metaculus, forecast, outcome, Brier score (ranked probability score for numeric/discrete), official peer score, API-equivalent cost; the bot's leaderboard rank per tournament (live, read-only, fails soft). |
 
 All Python scripts run under `uv run <path>`.
 
@@ -49,3 +50,4 @@ All Python scripts run under `uv run <path>`.
 | `tournament-sweep.yml` | every 30 min (opt-in: `SWEEP_ENABLED=true`), or manually | gate → one job per open question: scaffold, forecast, submit, commit |
 | `tournament-sync.yml` | daily 03:23 UTC, or manually | deterministic reconcile, full test suite, commit |
 | `tests.yml` | pull requests, pushes to `main` | ruff + pytest |
+| `publish-page.yml` | after each tournament-sync run, data pushes to `main` (opt-in: `PAGE_ENABLED=true`), or manually | build the results page, deploy to GitHub Pages |

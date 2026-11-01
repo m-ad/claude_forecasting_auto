@@ -32,6 +32,8 @@ every 30 min   tournament-sweep.yml
     commit     scripts/ci_commit.sh                     validate, rebase, push to main
 daily 03:23    tournament-sync.yml                      missed windows, comment retries,
                scripts/tournament_sync.py               resolutions + official scores, INDEX.md
+after sync     publish-page.yml                         results page on GitHub Pages:
+               scripts/build_page.py                    scores, costs, leaderboard ranks
 ```
 
 Tournament questions open at random hours for **3 hours** each; MiniBench rounds start every
@@ -71,6 +73,10 @@ uv run scripts/tournament_registry.py set fall-futureeval-2026 --active
 - `uv run scripts/record_usage.py report` — rolling 7/30-day cost-equivalent per question.
 - An open **`bot-health`** issue means a run failed; it carries the run links.
 - `INDEX.md` lists every question; `uv run scripts/calibration.py` scores resolved ones.
+- The **results page** (GitHub Pages, opt-in with `PAGE_ENABLED=true` after Settings → Pages →
+  Source: GitHub Actions) lists closed and resolved questions with forecast, outcome, Brier and
+  official peer score, API-equivalent cost, and the bot's rank per tournament. Locally:
+  `uv run scripts/build_page.py --out _site`, then open `_site/index.html`.
 - Symptom → command table: `docs/runbook.md`.
 
 Do not change the bot because of what it forecast on a question that is still open: that is
@@ -109,7 +115,7 @@ ledger/usage.jsonl        one line per Claude run: tokens, cost-equivalent, turn
 tournaments/registry.yaml which tournaments the gate polls
 scripts/                  see SKILLS.md
 .claude/                  skills, commands, the research-scout agent, settings(.ci).json
-.github/workflows/        tournament-sweep · tournament-sync · tests
+.github/workflows/        tournament-sweep · tournament-sync · publish-page · tests
 ```
 
 ## Tests

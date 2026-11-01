@@ -1,0 +1,84 @@
+name: publish-page
+
+# Builds the bot's results page and deploys it to GitHub Pages: every closed and
+# resolved question with its forecast, outcome, Brier score, official peer score and
+# API-equivalent cost, plus the bot's leaderboard position per tournament.
+# Deterministic (scripts/build_page.py): no model, nothing committed.
+#
+# When: after every tournament-sync run -- the sync is what moves questions to
+# closed/resolved and stores their official scores. The bot's own commits cannot
+# trigger `push`: GitHub starts no workflow for a push made with GITHUB_TOKEN,
+# hence `workflow_run`. `push` covers merged PRs and hand fixes to the data.
+#
+# Opt-in: the automatic triggers do nothing until the repository variable
+# PAGE_ENABLED is "true". A manual run (workflow_dispatch) always runs.
+# One-time setup: Settings -> Pages -> Build and deployment -> Source: GitHub Actions.
+# The published site is public even when the repository is private.
+
+on:
+  workflow_run:
+    workflows: [tournament-sync]
+    types: [completed]
+  push:
+    branches: [main]
+    paths:
+      - "ledger/**"
+      - "questions/**/meta.yaml"
+      - "scripts/build_page.py"
+      - ".github/workflows/publish-page.yml"
+  workflow_dispatch:
+
+# One run at a time. GitHub keeps one pending run per group and drops older pending
+# ones, which loses nothing: every build reads the then-current main.
+concurrency:
+  group: publish-page
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+env:
+  BOT_BRANCH: main
+
+jobs:
+  build:
+    if: vars.PAGE_ENABLED == 'true' || github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          ref: ${{ env.BOT_BRANCH }}
+          persist-credentials: false
+      - uses: astral-sh/setup-uv@v7
+        with:
+          python-version: "3.13"
+          enable-cache: true
+          cache-dependency-glob: "pyproject.toml"
+      # Fails fast, with a clear message, when Pages is not enabled for Actions.
+      - uses: actions/configure-pages@v5
+      - name: Build the page
+        env:
+          # Read-only use: whoami, posts and leaderboards. Without it the page is
+          # built without leaderboards; an API error does not fail the build either.
+          METACULUS_API_KEY: ${{ secrets.METACULUS_API_KEY }}
+        run: |
+          set -o pipefail
+          uv run --no-default-groups scripts/build_page.py --out _site | tee -a "$GITHUB_STEP_SUMMARY"
+      - uses: actions/upload-pages-artifact@v4
+        with:
+          path: _site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
