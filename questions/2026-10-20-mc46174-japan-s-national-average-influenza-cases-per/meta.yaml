@@ -13,7 +13,7 @@ dates:
   opened: '2026-10-20'
   closes: '2026-10-20'
   resolves: '2026-10-31'
-status: closed
+status: resolved
 tournament:
   slug: minibench
   mode: one_shot
@@ -225,7 +225,7 @@ tournament:
     - 0.9988255809915276
     - 0.9989765962142825
   comment_posted: true
-  official_score: null
+  official_score: -18.44213699573876
   missed_window: false
 current:
   version: 1
@@ -243,6 +243,6 @@ current:
 next_review: null
 tripwires: []
 resolution:
-  outcome: null
-  date: null
-  source: null
+  outcome: 9.49
+  date: '2026-11-01'
+  source: 'Metaculus API: question 46403 resolution'

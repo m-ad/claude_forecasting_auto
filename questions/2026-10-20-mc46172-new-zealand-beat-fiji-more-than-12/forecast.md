@@ -6,7 +6,7 @@
 | **Tournament** | minibench — one shot, window 2026-10-20T15:28:31Z -> 2026-10-20T18:28:31Z |
 | **Type** | binary |
 | **Opened / Closes / Resolves** | 2026-10-20 / 2026-10-20 / 2026-10-31 |
-| **Status** | closed |
+| **Status** | resolved |
 | **Current forecast** | Median 62.0%, IQR [54.0%, 70.0%] (v1, 2026-10-20) |
 | **Community** | hidden — bot tournament |
 | **Next review** | — |
@@ -76,3 +76,7 @@ There is no clean reference class. The direct head-to-head record is tiny: Fiji 
 **Date**: 2026-10-20
 **Forecast**: Median 62.0%, IQR [54.0%, 70.0%]
 **Thesis**: New Zealand are much stronger: they lost only 22–24 to Australia, and Fiji are missing Kikau, Kamikamica and Bula, so a margin near 19 points is the central estimate (bookmaker pricing [6][10]). But this is likely a playoff for a semi-final spot, and both previous World Cup meetings (2017, 2022) were decided by 6 points or less [3][4]. The forecast is most sensitive to the unseen bookmaker handicap.
+
+## Resolution — 2026-11-01
+
+Resolved **yes** (synced from the Metaculus API). The bot's forecast was 62.0% [54.0%, 70.0%]. Official spot peer score: +14.46.

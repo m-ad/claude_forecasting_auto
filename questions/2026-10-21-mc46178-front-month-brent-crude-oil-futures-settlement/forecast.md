@@ -6,7 +6,7 @@
 | **Tournament** | minibench — one shot, window 2026-10-21T01:12:58Z -> 2026-10-21T04:12:58Z |
 | **Type** | numeric |
 | **Opened / Closes / Resolves** | 2026-10-21 / 2026-10-21 / 2026-10-31 |
-| **Status** | closed |
+| **Status** | resolved |
 | **Current forecast** | Median 108, IQR [103, 113.5] (v1, 2026-10-21) |
 | **Community** | hidden — bot tournament |
 | **Next review** | — |
@@ -71,3 +71,7 @@ The futures price already reflects the market's expectation, so I put no strong 
 **Date**: 2026-10-21
 **Forecast**: Median 108.0 $/bbl, IQR [103.0, 113.5] $/bbl
 **Thesis**: A random walk from December Brent at about $109–110 (settled $108.79 on 20 Oct, per Reuters), with OVX near 51 implying roughly ±$9.5 over 8 trading days, and fat tails for US–Iran deal or escalation headlines. The median is shaded about $1 lower because the December contract expires on 30 Oct and Barchart's continuous series may already show the January contract, about $3 cheaper in backwardation.
+
+## Resolution — 2026-11-01
+
+Resolved **113.43** (synced from the Metaculus API). The bot's forecast was 108 [103, 113.5]. Official spot peer score: +16.02.

@@ -6,7 +6,7 @@
 | **Tournament** | minibench — one shot, window 2026-10-20T17:21:32Z -> 2026-10-20T20:21:32Z |
 | **Type** | numeric |
 | **Opened / Closes / Resolves** | 2026-10-20 / 2026-10-20 / 2026-10-31 |
-| **Status** | closed |
+| **Status** | resolved |
 | **Current forecast** | Median 15.8, IQR [13.6, 18.5] (v1, 2026-10-20) |
 | **Community** | hidden — bot tournament |
 | **Next review** | — |
@@ -102,3 +102,7 @@ The question resolves to the single national influenza figure, cases per sentine
 **Date**: 2026-10-20
 **Forecast**: Median 15.8 cases/sentinel, IQR [13.6, 18.5]
 **Thesis**: The national figure was 12.81 in week 41 (5–11 Oct), growing about 13–16 % a week; past waves that crossed 10–15 (2023, 2024, 2025) all kept rising over the next two weeks, by 1.8x to 4.7x. This early, slow-moving season most resembles 2023, so I project modest compounding to about 16, with a right skew. The forecast is most sensitive to whether the week 42 print shows a plateau.
+
+## Resolution — 2026-11-01
+
+Resolved **9.49** (synced from the Metaculus API). The bot's forecast was 15.8 [13.6, 18.5]. Official spot peer score: -18.44.

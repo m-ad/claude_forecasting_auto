@@ -6,7 +6,7 @@
 | **Tournament** | minibench — one shot, window 2026-10-22T00:17:37Z -> 2026-10-22T03:17:37Z |
 | **Type** | binary |
 | **Opened / Closes / Resolves** | 2026-10-22 / 2026-10-22 / 2026-11-01 |
-| **Status** | closed |
+| **Status** | resolved |
 | **Current forecast** | Median 3.0%, IQR [1.5%, 5.0%] (v1, 2026-10-22) |
 | **Community** | hidden — bot tournament |
 | **Next review** | — |
@@ -83,3 +83,7 @@ I found no scheduled hearing inside the window. Bolivian politics is volatile, a
 **Date**: 2026-10-22
 **Forecast**: Median 3.0%, IQR [1.5%, 5.0%]
 **Thesis**: Cerimedo is held under two independent six-month preventive-detention orders. An appeals chamber reconfirmed the femicide order on 7 Oct, and no cessation hearing or release had been reported as of 22 Oct (Infobae, La Razón, Opinión). Even his lawyer only points to November. The small residual rests on the fallout from the Attorney General's arrest, which could give the defence grounds to challenge both orders.
+
+## Resolution — 2026-11-01
+
+Resolved **no** (synced from the Metaculus API). The bot's forecast was 3.0% [1.5%, 5.0%]. Official spot peer score: +7.32.
