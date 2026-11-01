@@ -303,3 +303,12 @@ def test_cli_builds_the_page_offline(tmp_path):
     assert data["leaderboard_note"].startswith("skipped")
     page = (tmp_path / "index.html").read_text(encoding="utf-8")
     assert f"Resolved ({len(data['resolved'])})" in page
+
+
+def test_page_tables_are_sortable():
+    row = _rows(peer_score=1.0, cost_usd=0.5, runs=1)
+    page = bp.render_html([row], [row], 0, [], "skipped: test", {}, NOW)
+    # Resolved and closed tables; sorting is a progressive enhancement, so the
+    # rows must still be in the HTML in build order without it.
+    assert page.count('<table class="sortable">') == 2
+    assert page.count("<script>") == 1 and "table.sortable" in page

@@ -478,7 +478,40 @@ tr:last-child td{border-bottom:0}
 td.n{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
 td.q{min-width:260px}.good{color:var(--good)}.bad{color:var(--bad)}
 tfoot td{font-weight:600;background:var(--head)}
+table.sortable th{cursor:pointer;user-select:none}
+table.sortable th::after{content:" \2195";color:var(--muted);font-weight:400}
+table.sortable th[aria-sort=ascending]::after{content:" \25B2";color:var(--accent)}
+table.sortable th[aria-sort=descending]::after{content:" \25BC";color:var(--accent)}
 .notes{font-size:.85rem;color:var(--muted);margin-top:36px}.notes li{margin:4px 0}
+"""
+
+
+# Progressive enhancement: without JS the tables render in their build order. Footer rows
+# (totals) sit outside <tbody> and are never sorted. Missing values ("—") always sort last.
+SORT_JS = r"""
+document.querySelectorAll("table.sortable").forEach(function(t){
+var body=t.tBodies[0];
+function val(td){return td.textContent.trim().replace(/\u2212/g,"-")}
+function num(v){var m=/^([+-]?)\$?([\d,]*\.?\d+)/.exec(v);
+return m?parseFloat(m[1]+m[2].replace(/,/g,"")):null}
+t.tHead.querySelectorAll("th").forEach(function(th,i){
+th.tabIndex=0;
+function go(){
+var rows=Array.prototype.slice.call(body.rows);
+var vals=rows.map(function(r){return val(r.cells[i])});
+var isNum=vals.every(function(v){return v==="\u2014"||num(v)!==null});
+var dir=th.getAttribute("aria-sort")==="descending"?1:
+th.getAttribute("aria-sort")==="ascending"?-1:(isNum?-1:1);
+var keyed=rows.map(function(r,k){var v=vals[k];
+return {r:r,miss:v==="\u2014"||v==="",k:isNum?num(v):v.toLowerCase()}});
+keyed.sort(function(a,b){
+if(a.miss||b.miss)return a.miss-b.miss;
+return (a.k<b.k?-1:a.k>b.k?1:0)*dir});
+t.tHead.querySelectorAll("th").forEach(function(o){o.removeAttribute("aria-sort")});
+th.setAttribute("aria-sort",dir<0?"descending":"ascending");
+keyed.forEach(function(o){body.appendChild(o.r)})}
+th.addEventListener("click",go);
+th.addEventListener("keydown",function(e){if(e.key==="Enter"||e.key===" "){e.preventDefault();go()}})})})
 """
 
 
@@ -514,7 +547,7 @@ def render_html(
     bot: dict,
     now: dt.datetime,
 ) -> str:
-    """The whole page as one self-contained HTML document (no scripts, no assets)."""
+    """The whole page as one self-contained HTML document (one inline sort script, no assets)."""
     listed = resolved + closed
     peers = [r.peer_score for r in resolved if r.peer_score is not None]
     kinds = {
@@ -568,7 +601,7 @@ def render_html(
     if boards:
         out += [
             (
-                '<div class="wrap"><table><thead><tr><th>Tournament</th><th>Rank</th>'
+                '<div class="wrap"><table class="sortable"><thead><tr><th>Tournament</th><th>Rank</th>'
                 "<th>Bot score</th><th>Coverage</th><th>Top score</th><th>Status</th>"
                 "</tr></thead><tbody>"
             )
@@ -610,7 +643,7 @@ def render_html(
     out += [
         f"<h2>Resolved ({len(resolved)})</h2>",
         (
-            '<div class="wrap"><table><thead><tr><th>Question</th><th>Tournament</th>'
+            '<div class="wrap"><table class="sortable"><thead><tr><th>Question</th><th>Tournament</th>'
             "<th>Type</th><th>Forecast</th><th>Outcome</th><th>Resolved</th><th>Brier</th>"
             "<th>Peer score</th><th>API cost</th></tr></thead><tbody>"
         ),
@@ -631,7 +664,7 @@ def render_html(
         ),
         f"<h2>Closed, awaiting resolution ({len(closed)})</h2>",
         (
-            '<div class="wrap"><table><thead><tr><th>Question</th><th>Tournament</th>'
+            '<div class="wrap"><table class="sortable"><thead><tr><th>Question</th><th>Tournament</th>'
             "<th>Type</th><th>Forecast</th><th>Closed</th><th>Resolves</th>"
             "<th>API cost</th></tr></thead><tbody>"
         ),
@@ -679,7 +712,7 @@ def render_html(
             f"<li>{dropped} dropped question(s) (missed window, annulled or ambiguous) "
             "are not listed.</li>"
         )
-    out += ["</ul></main></body></html>", ""]
+    out += [f"</ul></main><script>{SORT_JS}</script></body></html>", ""]
     return "\n".join(out)
 
 
