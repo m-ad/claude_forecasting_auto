@@ -21,6 +21,7 @@ question.
 | `/update <slug>` | Tripwire-driven Bayesian update of an existing individual question. |
 | `/resolve <slug> <outcome>` | Record resolution, score it, write the post-mortem. |
 | `/status` | Triage: what is due for review, what resolves soon, what is stale. |
+| `/postmortem [--since D]` | Learn from resolved questions: worst forecasts plus type-matched controls, one analyst subagent each, replay of distribution rules (`docs/postmortem.md`). |
 
 ## Scripts
 
@@ -28,7 +29,7 @@ question.
 |---|---|
 | `scripts/metaculus_api.py` | The only Metaculus client: official API, bot token, typed errors, redaction. CLI: `whoami`, `post`, `open`, `tournament`. |
 | `scripts/new_question.py` | Scaffold a question folder (from the API for Metaculus), cache the question text to `raw/`; `--tournament` for bot questions, `--reuse` for the sweep. |
-| `scripts/log_forecast.py` | Append a forecast (with `--distribution`), a resolution, or (from the submit script) a submission/late comment to `ledger/forecasts.jsonl`. Refuses a second forecast on a one-shot question, and the first until its research log (`raw/research-log-<date>.json`) shows ≥ 15 searches across the required categories (waived in the last 8 minutes before `$FORECAST_DEADLINE`). |
+| `scripts/log_forecast.py` | Append a forecast (with `--distribution`), a resolution, or (from the submit script) a submission/late comment to `ledger/forecasts.jsonl`. Refuses a second forecast on a one-shot question, and the first until its research log (`raw/research-log-<date>.json`) shows ≥ 15 searches across the required categories, a disconfirmation search that names the assumption it `tests`, and an `adjustments` list that counts each underlying event once (waived in the last 8 minutes before `$FORECAST_DEADLINE`). |
 | `scripts/submit_metaculus.py` | Submit to Metaculus. One-shot questions: guards, forecast, private comment, ledger record (run by the sweep, the only submission path). Others: manual use only, nothing automated. |
 | `scripts/tournament_poll.py` | The sweep's no-LLM gate: budget, token, open unforecast questions in priority order. |
 | `scripts/tournament_sync.py` | Daily reconcile: missed windows, comment retries, resolutions with official scores, `INDEX.md`. |
@@ -39,6 +40,7 @@ question.
 | `scripts/ci_guard.py` | After the forecaster session: undo every change outside its question folder and its own ledger lines (stdlib only, run from `HEAD`). |
 | `scripts/status.py` | List questions by urgency; `--index` regenerates `INDEX.md`. |
 | `scripts/calibration.py` | Brier / log score, calibration buckets. |
+| `scripts/postmortem.py` | Read-only post-mortem tools: `pit` (where outcomes fell in the submitted CDF), `replay` (rebuild resolved submissions under alternative interpolation/floor rules, Δ log score), `sample` (worst N + type-matched random controls), `report` (markdown; the daily sync appends it to its run summary). |
 | `scripts/build_page.py` | The results page (`index.html` + `results.json`): closed and resolved questions linked to Metaculus, forecast, outcome, Brier score (ranked probability score for numeric/discrete), official peer score, API-equivalent cost; the bot's leaderboard rank per tournament (live, read-only, fails soft). |
 
 All Python scripts run under `uv run <path>`.

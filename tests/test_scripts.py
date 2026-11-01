@@ -1069,14 +1069,22 @@ def one_shot_question(tmp_path, monkeypatch):
 
 
 def _search(category: str, status: str = "done") -> dict:
-    return {"category": category, "query": f"q {category}", "by": "main",
-            "status": status, "finding": "f"}
+    entry = {"category": category, "query": f"q {category}", "by": "main",
+             "status": status, "finding": "f"}
+    if category == "disconfirmation":
+        entry["tests"] = "the basis cut from the 2023 table"
+    return entry
 
 
-# Done searches covering every required category, as many as the floor: exactly enough.
+# Done searches covering every required category, as many as the floor: exactly enough,
+# plus the adjustment ledger (an empty list would also do: no adjustment made).
 DEEP_RESEARCH = {
     "searches": [_search(c) for c in log_forecast.REQUIRED_CATEGORIES]
-    + [_search("news")] * (log_forecast.MIN_SEARCHES - len(log_forecast.REQUIRED_CATEGORIES))
+    + [_search("news")] * (log_forecast.MIN_SEARCHES - len(log_forecast.REQUIRED_CATEGORIES)),
+    "adjustments": [
+        {"event": "FDA filing letter questions accelerated-approval eligibility",
+         "date": "2025-12-15", "effect": "-10 pp", "sources": [2, 4, 7]},
+    ],
 }
 
 
@@ -1089,17 +1097,76 @@ def _research_log(folder, log, date="2026-10-19") -> None:
 
 def test_research_floor_counts_only_done_searches_and_required_categories():
     assert log_forecast.research_log_problems(DEEP_RESEARCH) == []
-    planned = {"searches": DEEP_RESEARCH["searches"][:-1] + [_search("news", "planned")]}
+    planned = {**DEEP_RESEARCH,
+               "searches": DEEP_RESEARCH["searches"][:-1] + [_search("news", "planned")]}
     floor = log_forecast.MIN_SEARCHES
     assert log_forecast.research_log_problems(planned) == [
         f"{floor - 1} searches done, the floor is {floor}"
     ]
     no_markets = {
+        **DEEP_RESEARCH,
         "searches": [s for s in DEEP_RESEARCH["searches"] if s["category"] != "markets"]
         + [_search("other")]
     }
     assert log_forecast.research_log_problems(no_markets) == [
         "no search done yet for: markets"
+    ]
+
+
+def test_the_floor_needs_a_disconfirmation_that_names_the_assumption_it_tests():
+    # 2026-11 post-mortem: the NZ sessions' disconfirmation searched the downside the
+    # forecast already covered and never tested its one big adjustment.
+    searches = [
+        {k: v for k, v in s.items() if k != "tests"} for s in DEEP_RESEARCH["searches"]
+    ]
+    log = {**DEEP_RESEARCH, "searches": searches}
+    assert log_forecast.research_log_problems(log) == [
+        "no done disconfirmation search names the assumption it tests (\"tests\")"
+    ]
+    blank = [{**s, "tests": " "} if s["category"] == "disconfirmation" else s
+             for s in DEEP_RESEARCH["searches"]]
+    assert log_forecast.research_log_problems({**DEEP_RESEARCH, "searches": blank}) != []
+
+
+def test_the_floor_needs_the_adjustment_ledger_but_an_empty_one_is_fine():
+    no_ledger = {"searches": DEEP_RESEARCH["searches"]}
+    assert log_forecast.research_log_problems(no_ledger) == [
+        ('no "adjustments" list: name each adjustment from the outside view with its '
+        "underlying event (an empty list means none)")
+    ]
+    assert log_forecast.research_log_problems({**no_ledger, "adjustments": []}) == []
+    # the shape check alone does not ask for it: old logs predate the field
+    assert log_forecast.research_log_problems(no_ledger, floor=False) == []
+
+
+def test_one_event_restated_in_several_sources_counts_once():
+    # 2026-11 post-mortem, Inovio: one FDA letter was counted via the letter, a 10-Q,
+    # a prospectus and a press article.
+    twice = {
+        **DEEP_RESEARCH,
+        "adjustments": DEEP_RESEARCH["adjustments"]
+        + [{"event": "  fda FILING letter questions accelerated-approval eligibility ",
+            "date": "2026-08-05", "effect": "-5 pp"}],
+    }
+    problems = log_forecast.research_log_problems(twice, floor=False)
+    assert problems == [
+        ("adjustment 2 repeats the event of adjustment 1 ('FDA filing letter questions "
+        "accelerated-approval eligibility'): restatements of one event count once")
+    ]
+
+
+def test_adjustment_shape_problems_are_named_per_adjustment():
+    bad = {"searches": [], "adjustments": [{"event": "x", "effect": ""}, "y"]}
+    problems = log_forecast.research_log_problems(bad, floor=False)
+    assert "adjustment 1: empty date" in problems
+    assert "adjustment 1: empty effect" in problems
+    assert "adjustment 2 is not an object" in problems
+    assert log_forecast.research_log_problems(
+        {"searches": [], "adjustments": "none"}, floor=False
+    ) == ['"adjustments" must be a list']
+    tests_not_text = {"searches": [{**_search("disconfirmation"), "tests": 3}]}
+    assert log_forecast.research_log_problems(tests_not_text, floor=False) == [
+        "entry 1: tests must be text"
     ]
 
 

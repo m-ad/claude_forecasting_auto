@@ -68,6 +68,7 @@ The mode follows from `meta.yaml`, never from a flag you choose:
 | Revisit an individual question | `/update <slug>` | `forecast-update` |
 | The question resolved | `/resolve <slug> <outcome>` | — (see `docs/update-protocol.md`) |
 | What needs attention? | `/status` | — |
+| Learn from resolved questions | `/postmortem` | — (see `docs/postmortem.md`) |
 
 Read `docs/methodology.md` and `docs/tournament-protocol.md` before your first forecast in a
 session. Read `docs/output-format.md` before writing any forecast block — the format is fixed.

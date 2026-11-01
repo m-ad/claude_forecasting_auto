@@ -10,6 +10,11 @@ A checklist, not a ritual. Skip a step only when you can say why it does not app
 - Identify the **resolution date** and whether early resolution is possible.
 - Write down at least one way the question could resolve counter-intuitively
   (definitional edge cases, revisions, ties, "if no such event, resolves NO").
+- **Do the question's arithmetic, with numbers**: count reporting periods from the
+  source's own dates (a label like "week 44" loses to its dates), evaluate every fallback
+  formula with today's values, and state the gap to any threshold in units of a typical
+  update. Two of the first MiniBench round's worst losses were arithmetic left undone
+  ([post-mortem](postmortem-2026-11.md)).
 
 If the question is ambiguous *as written*, that ambiguity is part of the forecast:
 put weight on the resolver's likely reading, and say so.
@@ -41,6 +46,12 @@ put weight on the resolver's likely reading, and say so.
   that the world changed.
 - Ask what evidence you would expect to see if YES were true, and check whether it is absent.
   Absence of expected evidence is evidence of absence; absence of unexpected evidence is not.
+- **Count each underlying event once.** A filing, its risk factor, a prospectus and the press
+  article about them are one piece of evidence with four sources; two discounts drawn from
+  the same fact are one discount. Tournament research logs list each adjustment with its
+  event, and `log_forecast.py` refuses a repeat.
+- **Disconfirm your biggest assumption, not your covered tail.** Name the adjustment that moves
+  the forecast furthest from the raw reference value and search for why it is wrong.
 
 ## 4. Other forecasters
 
