@@ -261,6 +261,25 @@ uplift, Brazil).
 **Known gap**: a discrete forecast logged as a `pmf` goes through `discrete_cdf`, which has its
 own minimum step and does not get the 5 % floor. No round-1 question used a pmf.
 
+## Addendum: the 2026-11-01 sync (+9 resolved, 3 of them numeric)
+
+Resolved after the analysis, before any forecast used the new rules — so a small
+out-of-sample check of the replay (`postmortem.py report`, 56 resolved, 29 numeric/discrete):
+
+| Question | Peer | PIT | PCHIP + 5 % | PCHIP, 2 % | PCHIP, 10 % |
+|---|---|---|---|---|---|
+| [Japan influenza average (mc46174)](https://www.metaculus.com/questions/46174/) | −18.4 | 0.014 | +0.04 | 0.00 | +0.11 |
+| [Active screwworm cases (mc46177)](https://www.metaculus.com/questions/46177/) | +27.6 | 0.664 | −0.03 | −0.01 | −0.07 |
+| [Brent settlement (mc46178)](https://www.metaculus.com/questions/46178/) | +16.0 | 0.743 | −0.24 | −0.23 | −0.26 |
+
+- The adopted rule over all 29: **+1.22** nats (median +0.013, worse on 10, worst −0.24, +0.13
+  without the top 3). PCHIP alone: +0.33 (median 0.000, −0.21 without the top 3). The case for
+  the floor holds; the case for PCHIP on its own is weaker than the 26-question replay suggested
+  — Brent landed right at p75, where the linear CDF's cliff happened to put a lot of density.
+- PIT: 5/29 outside 5–95 % (expected 2.9), the new one on the **low** side (0.014). Thin tails
+  on both sides, rather than an upward bias, is now the better reading.
+- Keep watching PCHIP out of sample; the floor level stays at 5 %.
+
 ## What to check next round
 
 Out of sample, with `uv run scripts/postmortem.py report --since 2026-11-02`:
