@@ -6,7 +6,7 @@
 | **Tournament** | minibench — one shot, window 2026-10-20T02:31:54Z -> 2026-10-20T05:31:54Z |
 | **Type** | binary |
 | **Opened / Closes / Resolves** | 2026-10-20 / 2026-10-20 / 2026-10-31 |
-| **Status** | closed |
+| **Status** | resolved |
 | **Current forecast** | Median 8.0%, IQR [5.0%, 13.0%] (v1, 2026-10-20) |
 | **Community** | hidden — bot tournament |
 | **Next review** | — |
@@ -82,3 +82,7 @@ In related UN environmental talks, UNCCD COP16 in Riyadh (2024) and the plastics
 **Date**: 2026-10-20
 **Forecast**: Median 8.0%, IQR [5.0%, 13.0%]
 **Thesis**: Formal suspension with a resumed session is rare for CBD meetings: 2 of about 17, including the most recent, COP16 in Cali. UN talks that fail usually close and defer items, which resolves NO here. A heavy finance and budget agenda and the same Friday-close calendar as Cali roughly offset the post-Cali lessons and the Rome roadmap that defers the hardest finance decisions to COP18–19. The forecast is most sensitive to whether the finance and budget texts are still bracketed going into the 30 October closing plenary.
+
+## Resolution — 2026-11-01
+
+Resolved **no** (synced from the Metaculus API). The bot's forecast was 8.0% [5.0%, 13.0%]. Official spot peer score: +14.91.

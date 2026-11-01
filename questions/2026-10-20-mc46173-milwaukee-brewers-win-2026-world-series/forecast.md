@@ -6,7 +6,7 @@
 | **Tournament** | minibench — one shot, window 2026-10-20T16:38:24Z -> 2026-10-20T19:38:24Z |
 | **Type** | binary |
 | **Opened / Closes / Resolves** | 2026-10-20 / 2026-10-20 / 2026-11-01 |
-| **Status** | closed |
+| **Status** | resolved |
 | **Current forecast** | Median 59.0%, IQR [55.0%, 62.0%] (v1, 2026-10-20) |
 | **Community** | hidden — bot tournament |
 | **Next review** | — |
@@ -72,3 +72,7 @@ Reference class: the betting favorite in a World Series matchup. Favorites in th
 **Date**: 2026-10-20
 **Forecast**: Median 59.0%, IQR [55.0%, 62.0%]
 **Thesis**: The Brewers (MLB-best 103-59, home field) face the Rays, who won the ALCS 4-2 on Oct 19. Sportsbooks and Kalshi price Milwaukee at about 59–62% after vig (DraftKings -155/+135), which matches the ~55–60% base rate for Series favorites with home field. The forecast mainly tracks that market price; a short series between two elite pitching staffs stays close to a coin flip.
+
+## Resolution — 2026-11-01
+
+Resolved **yes** (synced from the Metaculus API). The bot's forecast was 59.0% [55.0%, 62.0%]. Official spot peer score: -1.48.

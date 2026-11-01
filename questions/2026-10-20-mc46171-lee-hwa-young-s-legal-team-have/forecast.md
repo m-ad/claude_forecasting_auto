@@ -6,7 +6,7 @@
 | **Tournament** | minibench — one shot, window 2026-10-20T09:29:20Z -> 2026-10-20T12:29:20Z |
 | **Type** | binary |
 | **Opened / Closes / Resolves** | 2026-10-20 / 2026-10-20 / 2026-10-31 |
-| **Status** | closed |
+| **Status** | resolved |
 | **Current forecast** | Median 72.0%, IQR [62.0%, 80.0%] (v1, 2026-10-20) |
 | **Community** | hidden — bot tournament |
 | **Next review** | — |
@@ -69,3 +69,7 @@ Net: I start at about 75% and shade down slightly for the unfinished draft and t
 **Date**: 2026-10-20
 **Forecast**: Median 72.0%, IQR [62.0%, 80.0%]
 **Thesis**: On 10-13 the defence team formally committed to file at the Suwon High Court within October, dropping every other option, and on 10-14 it named the week of 10-19 (YTN, Dailian, Segye). Filing is unilateral and cheap, and eleven days remain. The main risk is slippage: the petition was still undrafted on 10-14, the lawyer said the date could change, and no filing had been reported by 10-20.
+
+## Resolution — 2026-11-01
+
+Resolved **no** (synced from the Metaculus API). The bot's forecast was 72.0% [62.0%, 80.0%]. Official spot peer score: +5.52.

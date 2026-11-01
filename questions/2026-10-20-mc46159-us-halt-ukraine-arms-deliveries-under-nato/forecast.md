@@ -6,7 +6,7 @@
 | **Tournament** | minibench — one shot, window 2026-10-20T00:05:42Z -> 2026-10-20T03:05:42Z |
 | **Type** | binary |
 | **Opened / Closes / Resolves** | 2026-10-20 / 2026-10-20 / 2026-10-31 |
-| **Status** | closed |
+| **Status** | resolved |
 | **Current forecast** | Median 20.0%, IQR [13.0%, 30.0%] (v1, 2026-10-20) |
 | **Community** | hidden — bot tournament |
 | **Next review** | — |
@@ -77,3 +77,7 @@ Taken together, I land at about 20%, which is above the base rate because of the
 **Date**: 2026-10-20
 **Forecast**: Median 20.0%, IQR [13.0%, 30.0%]
 **Thesis**: Past US threats against Ukraine aid rarely became acknowledged pauses within 11 days, and every on-record US and NATO statement (Whitaker 13 Oct, NATO officials) calls PURL deliveries ongoing, if delayed. The risk to that view is the partial hold on PURL-funded Patriots that Hegseth has not signed (Zelensky, 18 Oct), alongside the escalating refinery-strike dispute. The forecast is most sensitive to whether a named Ukrainian official starts calling those Patriots "stopped" rather than "not approved".
+
+## Resolution — 2026-11-01
+
+Resolved **no** (synced from the Metaculus API). The bot's forecast was 20.0% [13.0%, 30.0%]. Official spot peer score: +2.54.

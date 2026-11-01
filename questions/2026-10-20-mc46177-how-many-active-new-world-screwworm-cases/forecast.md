@@ -6,7 +6,7 @@
 | **Tournament** | minibench — one shot, window 2026-10-20T23:10:54Z -> 2026-10-21T02:10:54Z |
 | **Type** | numeric |
 | **Opened / Closes / Resolves** | 2026-10-20 / 2026-10-21 / 2026-11-01 |
-| **Status** | closed |
+| **Status** | resolved |
 | **Current forecast** | Median 1980, IQR [1900, 2065] (v1, 2026-10-20) |
 | **Community** | hidden — bot tournament |
 | **Next review** | — |
@@ -77,3 +77,7 @@ The reference class is the series itself. Since about May 2026 the national acti
 **Date**: 2026-10-20
 **Forecast**: Median 1980 cases, IQR [1900 cases, 2065 cases]
 **Thesis**: Since May the national active count has stayed in a mean-reverting 1,700–2,100 band, and the latest Senasica prints are 1,968–1,976 (14–17 Oct) [1][2]. A rain-driven northern surge (Chihuahua 85 → 176) adds mild upward pressure, while cooler weather and sterile-fly releases cap it. The forecast is most sensitive to the week-42 report around 23 October.
+
+## Resolution — 2026-11-01
+
+Resolved **2037.0** (synced from the Metaculus API). The bot's forecast was 1980 [1900, 2065]. Official spot peer score: +27.56.
