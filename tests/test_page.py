@@ -312,3 +312,10 @@ def test_page_tables_are_sortable():
     # rows must still be in the HTML in build order without it.
     assert page.count('<table class="sortable">') == 2
     assert page.count("<script>") == 1 and "table.sortable" in page
+
+
+def test_page_css_sort_arrows_are_css_escapes_not_control_characters():
+    # "\2195" in a non-raw Python string is an octal escape plus "95" (rendered as □95).
+    page = bp.render_html([], [], 0, [], "skipped: test", {}, NOW)
+    assert "\\2195" in page and "\\25B2" in page and "\\25BC" in page
+    assert not any(ord(c) < 32 and c not in "\n\t" for c in page)
