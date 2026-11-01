@@ -455,7 +455,7 @@ def leaderboards(
 
 
 # ------------------------------------------------------------------ render
-CSS = """
+CSS = r"""
 :root{--bg:#fbfaf7;--fg:#1d1d1b;--muted:#6b6a65;--line:#e4e1d8;--card:#ffffff;
 --accent:#2f5d8a;--good:#1f7a4d;--bad:#b23b2e;--head:#f2efe7}
 @media (prefers-color-scheme:dark){:root{--bg:#141413;--fg:#ecebe6;--muted:#a3a29b;
