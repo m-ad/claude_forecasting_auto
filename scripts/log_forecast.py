@@ -184,12 +184,56 @@ def research_log_path(slug: str) -> Path | None:
     return logs[-1] if logs else None
 
 
+def _event_key(text: str) -> str:
+    """An adjustment's event, normalised so a restatement compares equal."""
+    return " ".join(text.casefold().split())
+
+
+def _adjustment_problems(adjustments: Any) -> list[str]:
+    """Shape problems of the ``adjustments`` list, and events counted twice.
+
+    Each adjustment from the outside view names the one underlying event it rests on
+    (``event``), when it happened (``date``) and what it does to the forecast
+    (``effect``), optionally with the ``sources`` that report it. The 2026-11
+    post-mortem found one FDA letter counted three or four times through the
+    documents that restated it; a second adjustment for the same event is refused.
+    """
+    if not isinstance(adjustments, list):
+        return ['"adjustments" must be a list']
+    out: list[str] = []
+    seen: dict[str, tuple[int, str]] = {}
+    for i, adj in enumerate(adjustments, 1):
+        if not isinstance(adj, dict):
+            out.append(f"adjustment {i} is not an object")
+            continue
+        for key in ("event", "date", "effect"):
+            if not str(adj.get(key) or "").strip():
+                out.append(f"adjustment {i}: empty {key}")
+        event = str(adj.get("event") or "").strip()
+        if not event:
+            continue
+        key = _event_key(event)
+        if key in seen:
+            j, first = seen[key]
+            out.append(
+                f"adjustment {i} repeats the event of adjustment {j} ({first!r}): "
+                "restatements of one event count once"
+            )
+        else:
+            seen[key] = (i, event)
+    return out
+
+
 def research_log_problems(log: Any, *, floor: bool = True) -> list[str]:
     """Reasons a research log is malformed or, with ``floor``, too thin; empty if fine.
 
-    The log is ``{"searches": [{"category", "query", "by", "status", "finding"}]}``.
+    The log is ``{"searches": [{"category", "query", "by", "status", "finding",
+    "tests"?}], "adjustments"?: [{"event", "date", "effect", "sources"?}]}``.
     ``floor`` adds the depth requirement: at least ``MIN_SEARCHES`` entries with
-    ``status: done``, covering every one of ``REQUIRED_CATEGORIES``.
+    ``status: done``, covering every one of ``REQUIRED_CATEGORIES``; a done
+    ``disconfirmation`` entry that names, in ``tests``, the assumption it tests; and
+    an ``adjustments`` list (empty when the forecast makes no adjustment). Without
+    ``floor`` both fields stay optional: logs written before 2026-11 lack them.
     """
     if not isinstance(log, dict) or not isinstance(log.get("searches"), list):
         return ['the log must be an object with a "searches" list']
@@ -206,6 +250,8 @@ def research_log_problems(log: Any, *, floor: bool = True) -> list[str]:
             )
         if not str(entry.get("query") or "").strip():
             out.append(f"entry {i}: empty query")
+        if "tests" in entry and not isinstance(entry["tests"], str):
+            out.append(f"entry {i}: tests must be text")
         if entry.get("status") not in SEARCH_STATUSES:
             out.append(
                 f"entry {i}: status {entry.get('status')!r} is not one of "
@@ -213,6 +259,8 @@ def research_log_problems(log: Any, *, floor: bool = True) -> list[str]:
             )
         elif entry["status"] == "done":
             done.append(entry)
+    if "adjustments" in log:
+        out.extend(_adjustment_problems(log["adjustments"]))
     if out or not floor:
         return out
     if len(done) < MIN_SEARCHES:
@@ -221,6 +269,16 @@ def research_log_problems(log: Any, *, floor: bool = True) -> list[str]:
     missing = [c for c in REQUIRED_CATEGORIES if c not in covered]
     if missing:
         out.append(f"no search done yet for: {', '.join(missing)}")
+    elif not any(
+        e.get("category") == "disconfirmation" and str(e.get("tests") or "").strip()
+        for e in done
+    ):
+        out.append('no done disconfirmation search names the assumption it tests ("tests")')
+    if "adjustments" not in log:
+        out.append(
+            'no "adjustments" list: name each adjustment from the outside view with its '
+            "underlying event (an empty list means none)"
+        )
     return out
 
 

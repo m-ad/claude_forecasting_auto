@@ -41,7 +41,7 @@ research. Each question is forecast once and never revisited, so this is the onl
    unlogged forecast is never submitted. Until then, use the time.
 5. **Search deeply.** At least **15 searches done** (yours plus your scouts'), covering the
    resolution source, recent news, markets, the base rate and one search against your
-   view — `log_forecast.py` refuses the forecast below that floor. Go up to **40** when the
+   biggest assumption — `log_forecast.py` refuses the forecast below that floor. Go up to **40** when the
    question needs it (a hard-to-find resolution source, conflicting evidence, several
    independent streams). Cite at least 5 sources, primary ones first.
 6. **Never** run `git`, never touch `ledger/` by hand, never call Metaculus. The Metaculus token
@@ -85,6 +85,21 @@ Write `### What resolves YES` in `forecast.md` **first**, before forming a view:
 exactly what resolves the question and from which source. For numeric questions: what number,
 measured how, as of when, and what the bounds mean.
 
+**Do the question's arithmetic in that paragraph, with numbers.** The two costliest misreadings
+of the first MiniBench round were arithmetic nobody wrote down (`docs/postmortem-2026-11.md`):
+
+- **Reporting periods.** For a weekly, monthly or quarterly series, write the dates of the
+  last period the source has published and of the target period, both **from the source
+  itself**, and count the periods between them from those dates. The question's label
+  ("week 44", "第44週", "Q3") is the writer's claim; when it disagrees with its own dates, the
+  dates and the expected publication date win — say so. *(A session projected three weeks
+  ahead when the dates gave two; that one count cost ~85 % of its loss.)*
+- **Fallbacks and formulas.** Evaluate every fallback in the criteria with today's values:
+  "fallback today: 42 % × 719 = 302 → would already resolve YES". *(A session never ran the
+  fallback, which already resolved YES on any new entry, and forecast 20 %.)*
+- **Thresholds.** State the gap between the latest value and the threshold, in units of a
+  typical update ("one short; a batch adds 5–10").
+
 ## Step 2 — Outside view
 
 Name a reference class and its base rate (`### Outside view`), with n and source, or say
@@ -105,7 +120,14 @@ UTC) with **at least 15 planned queries**, at least one per required category:
   {"category": "resolution_source", "query": "USDA weekly export sales wheat October 2026",
    "by": "main", "status": "planned", "finding": ""},
   {"category": "markets", "query": "Polymarket OR Kalshi AMZN close October 30",
-   "by": "scout-2", "status": "planned", "finding": ""}
+   "by": "scout-2", "status": "planned", "finding": ""},
+  {"category": "disconfirmation", "query": "NZ advance votes live count includes special votes 2026",
+   "by": "main", "status": "planned", "finding": "",
+   "tests": "the 13 % cut from the 2023 table for ordinary-only live counts"}
+],
+ "adjustments": [
+  {"event": "FDA filing letter questions accelerated-approval eligibility",
+   "date": "2025-12-15", "effect": "-10 pp", "sources": [2, 4, 7]}
 ]}
 ```
 
@@ -115,7 +137,7 @@ UTC) with **at least 15 planned queries**, at least one per required category:
 | `news` | developments of the last days (dates matter) | yes |
 | `markets` | Polymarket, Kalshi, Manifold, options-implied moves — "none found" is a finding | yes |
 | `base_rate` | historical data for the reference class of Step 2 | yes |
-| `disconfirmation` | the deliberate search for evidence against your emerging view | yes |
+| `disconfirmation` | the deliberate search against your **biggest assumption**, named in `tests` (see below) | yes |
 | `schedule` | when the source publishes next; what happens if it does not | |
 | `consensus` | analyst / official forecasts, other forecasters' write-ups | |
 | `upcoming_events` | scheduled events inside the horizon (data releases, meetings, votes) | |
@@ -124,10 +146,19 @@ UTC) with **at least 15 planned queries**, at least one per required category:
 `status` is `planned`, `done` or `skipped`; `by` is `main` or `scout-<n>`. As research proceeds,
 set each entry to `done` with a one-line `finding` (the number and its date, or "nothing
 relevant"), add the queries you and your scouts actually ran, and mark dropped ones `skipped`.
-**`log_forecast.py add` refuses the forecast until at least 15 entries are `done` and every
-required category has one** (waived automatically in the last 8 minutes before the deadline,
-so it can never cost you the forecast). Record honestly: the log is committed next to the
-forecast and audited.
+
+**Disconfirmation tests one named assumption.** Find the single adjustment that moves your
+median furthest from the raw reference value (or the last value of the series) — a basis
+cut, an excluded reference year, "this reading is an artefact", "nothing will happen in the
+window" — write it into the entry's `tests` field, and search for why it is wrong. A search
+for the tail your forecast already covers is not disconfirmation. *(Both NZ advance-vote
+sessions searched the downside they had covered; 21 searches left the error untouched.)*
+
+`adjustments` is filled in Step 4. **`log_forecast.py add` refuses the forecast until at
+least 15 entries are `done`, every required category has one, a done `disconfirmation` entry
+names its assumption in `tests`, and the log has an `adjustments` list** (waived
+automatically in the last 8 minutes before the deadline, so it can never cost you the
+forecast). Record honestly: the log is committed next to the forecast and audited.
 
 ### 3b. Spawn research-scouts — the default, not the exception
 
@@ -145,6 +176,11 @@ class> since <year>". Ask for the queries it ran (to copy into the log), a dated
 URLs, and the URL of any PDF it could not read (run `pdf_text.py` on it yourself — scouts
 have no shell).
 
+**One scout always gets the tail brief**: "the strongest case for an outcome above <your
+provisional p90> and below <your provisional p10>" (for a binary: "the strongest case for
+the side I put below 30 %"), with the assumption from your `tests` field spelled out. Its
+queries go into the log as `disconfirmation`. Skip it only together with all other scouts.
+
 While they work, do your own research (3c). **Do not log before every scout has reported**,
 unless the deadline forces it. Integrate their digests yourself; never delegate the number.
 
@@ -159,7 +195,7 @@ Use `WebSearch` / `WebFetch` (and `pdf_text.py` for PDFs). Priorities, in order:
 3. **Prediction markets** on the same event (Polymarket, Kalshi, Manifold — discount
    low-volume Manifold). Using other platforms' public forecasts is allowed by the rules.
 4. **Base-rate data** for the outside view, when Step 2 rested on memory or a single number.
-5. **Disconfirmation**: at least one deliberate search for evidence against your emerging view.
+5. **Disconfirmation**: at least one deliberate search against the assumption named in `tests`.
 
 Prefer primary sources (the statistical office, the company's filing, the agency's bulletin)
 over aggregator blogs; when only a secondary source has a number, say so.
@@ -170,6 +206,16 @@ Record what you found under `### Evidence` (dated, with source numbers) and mark
 ## Step 4 — Inside view and the number
 
 `### Inside view`: adjust from the base rate with the specific evidence; say how much and why.
+
+**Count each underlying event once.** Every adjustment from the outside view goes into the
+research log's `adjustments` list: the one event it rests on (`event`), when it happened
+(`date`), what it does to the forecast (`effect`: "-10 pp", "+8 % on the median", "p95 to
+700k") and the source numbers that report it (`sources`). A filing, its risk-factor
+paragraph, a prospectus and the press article about them are **one** event: one adjustment,
+several sources. Two discounts justified by the same fact ("launch clean-up" and "quiet for
+11 days" from one commit log) are one discount. `log_forecast.py` refuses a repeated event;
+an empty list says you kept the outside view. *(One FDA letter was counted three or four
+times through the documents that restated it.)*
 `### What would change my mind`: the one or two facts the forecast is most sensitive to (no
 tripwire machinery — this question is never revisited, but the reasoning still belongs here).
 

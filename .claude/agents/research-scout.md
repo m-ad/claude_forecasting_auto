@@ -22,7 +22,8 @@ Return, in at most ~500 words:
 - **Queries** — every search you ran, one per line, each tagged with one category:
   `resolution_source`, `schedule`, `news`, `markets`, `base_rate`, `consensus`,
   `upcoming_events`, `disconfirmation` or `other` (e.g. `news: "USDA wheat export sales week"`).
-  The forecaster copies these into its research log.
+  The forecaster copies these into its research log. For a `disconfirmation` query, add the
+  assumption it tests (`disconfirmation [tests: the basis cut]: "…"`).
 - **Findings** — bullet points, each with the fact, its date, and its source number.
 - **Numbers** — any current values relevant to the brief, with "as of" dates.
 - **Against** — anything that cuts against the obvious reading.

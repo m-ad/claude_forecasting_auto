@@ -146,8 +146,9 @@ def test_numeric_cdf_from_quartiles_keeps_the_quartiles_and_obeys_the_rules():
     cdf = p.values["continuous_cdf"]
     sm.validate_cdf(cdf, NUMERIC_SCALING)  # would raise
     assert p.note  # the quartile-only fallback is flagged
+    # the 5 % uniform floor moves each quartile by up to ~2 % of the IQR (0.13 here)
     for q, want in ((0.25, 43.3), (0.5, 46.5), (0.75, 49.7)):
-        assert sm.quantile(cdf, NUMERIC_SCALING, q) == pytest.approx(want, abs=0.1)
+        assert sm.quantile(cdf, NUMERIC_SCALING, q) == pytest.approx(want, abs=0.15)
 
 
 def test_numeric_forecast_mostly_above_an_open_upper_bound_is_representable():
@@ -190,10 +191,92 @@ def test_tied_percentiles_become_a_point_mass_spread_upward_under_the_max_step()
     xs = sm._grid(scaling)
     below = max(c for x, c in zip(xs, cdf) if x < 239.24)
     assert below == pytest.approx(0.05, abs=0.01)
-    # the 45% jump spreads over the bins just above the floor, none below it
-    assert 239.24 <= sm.quantile(cdf, scaling, 0.5) <= 240.5
-    # the uniform mix shifts in-range quantiles by ~1 here, ties or not
-    assert sm.quantile(cdf, scaling, 0.75) == pytest.approx(262.0, abs=1.0)
+    # the 45% jump spreads over the bins just above the floor, none below it; the
+    # 5 % uniform floor takes its share of the jump, so the median sits ~1.7 above
+    assert 239.24 <= sm.quantile(cdf, scaling, 0.5) <= 241.5
+    # the uniform mix shifts in-range quantiles by ~1.4 here (a fifth of the mass
+    # lies above the open upper bound), ties or not
+    assert sm.quantile(cdf, scaling, 0.75) == pytest.approx(262.0, abs=1.5)
+
+
+# ------------------------------------------- interpolation between knots, floor
+# The 2026-11 post-mortem (docs/postmortem-2026-11.md) found that straight lines between
+# percentile knots give a flat density inside each segment and a cliff at every knot;
+# a smooth monotone curve through the same knots scored better on 13 of 26 questions,
+# worse on 6 (replay: +0.57 nats in total).
+def _t4_knots(loc: float = 0.0, scale: float = 1.0) -> list[tuple[float, float]]:
+    from scipy import stats
+
+    ps = (0.05, 0.10, 0.25, 0.50, 0.75, 0.90, 0.95)
+    return [(p, loc + scale * float(stats.t.ppf(p, 4))) for p in ps]
+
+
+def _density(knots: list[tuple[float, float]], x: float, h: float = 1e-4) -> float:
+    return (sm.cdf_from_knots(x + h, knots) - sm.cdf_from_knots(x - h, knots)) / (2 * h)
+
+
+def test_cdf_passes_through_every_knot():
+    knots = _t4_knots()
+    for p, v in knots:
+        assert sm.cdf_from_knots(v, knots) == pytest.approx(p, abs=1e-12)
+
+
+def test_density_between_knots_is_not_flat():
+    # Inside one segment a linear CDF has a constant density; a bell does not.
+    knots = _t4_knots()
+    p25, p50 = knots[2][1], knots[3][1]
+    near_median = _density(knots, p50 - 0.05 * (p50 - p25))
+    near_quartile = _density(knots, p25 + 0.05 * (p50 - p25))
+    assert near_median > 1.05 * near_quartile
+
+
+@pytest.mark.parametrize("p", [0.10, 0.90])
+def test_seven_knots_of_a_t4_reproduce_its_density_at_p10_and_p90(p):
+    from scipy import stats
+
+    knots = _t4_knots()
+    x = float(stats.t.ppf(p, 4))
+    assert _density(knots, x) == pytest.approx(float(stats.t.pdf(x, 4)), rel=0.10)
+
+
+@pytest.mark.parametrize(
+    "pct",
+    [
+        {"5": 150e3, "10": 190e3, "25": 260e3, "50": 335e3, "75": 420e3, "90": 520e3,
+         "95": 590e3},  # right-skewed weekly flow (mc46141)
+        {"1": 750, "5": 1115, "25": 2441, "33": 3960, "35": 6780, "50": 8915, "75": 10587,
+         "99": 15930},  # bimodal with a near-empty trough (mc46152)
+        {"5": 10.0, "10": 10.001, "50": 20.0, "90": 39.999, "95": 40.0},  # uneven spacing
+    ],
+    ids=["skewed", "bimodal", "uneven"],
+)
+def test_smooth_cdf_is_monotone(pct):
+    knots = sorted((float(k) / 100, float(v)) for k, v in pct.items())
+    lo, hi = knots[0][1], knots[-1][1]
+    xs = [lo - (hi - lo) * 0.5 + i * (hi - lo) * 2 / 4000 for i in range(4001)]
+    ys = [sm.cdf_from_knots(x, knots) for x in xs]
+    assert all(b >= a - 1e-15 for a, b in pairwise(ys))
+    assert 0.0 <= ys[0] and ys[-1] <= 1.0
+
+
+@pytest.mark.parametrize("side", ["lower", "upper"])
+def test_density_is_continuous_into_the_exponential_tails(side):
+    knots = _t4_knots()
+    v = knots[0][1] if side == "lower" else knots[-1][1]
+    inside, outside = (v + 1e-3, v - 1e-3) if side == "lower" else (v - 1e-3, v + 1e-3)
+    assert _density(knots, inside, 1e-4) == pytest.approx(_density(knots, outside, 1e-4), rel=0.02)
+
+
+def test_the_floor_gives_every_in_range_bin_five_percent_of_uniform():
+    # A tight forecast leaves the far bins only the floor: 5 % of the in-range mass,
+    # spread evenly. The post-mortem's replay: +0.88 nats on its own, worst case -0.03.
+    pct = {"5": 44.0, "25": 44.6, "50": 45.0, "75": 45.4, "95": 46.0}
+    rec = _record("numeric", 45.0, (44.6, 45.4), distribution={"percentiles": pct})
+    p = sm.build_payload("s", rec, _post("numeric", scaling=NUMERIC_SCALING), None)
+    cdf = p.values["continuous_cdf"]
+    n = NUMERIC_SCALING["inbound_outcome_count"]
+    in_range = cdf[-1] - cdf[0]
+    assert min(b - a for a, b in pairwise(cdf)) >= 0.05 * in_range / n * (1 - 1e-9)
 
 
 def test_cdf_step_above_metaculus_maximum_is_refused():

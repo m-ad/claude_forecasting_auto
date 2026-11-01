@@ -72,7 +72,9 @@ uv run scripts/tournament_registry.py set fall-futureeval-2026 --active
 - Each sweep's **Step Summary** shows the gate's decision, the submission, and the run's cost.
 - `uv run scripts/record_usage.py report` — rolling 7/30-day cost-equivalent per question.
 - An open **`bot-health`** issue means a run failed; it carries the run links.
-- `INDEX.md` lists every question; `uv run scripts/calibration.py` scores resolved ones.
+- `INDEX.md` lists every question; `uv run scripts/calibration.py` scores resolved ones;
+  `uv run scripts/postmortem.py report` shows PIT coverage and replays distribution rules
+  (also in the daily sync's Step Summary). After a round: `/postmortem` (`docs/postmortem.md`).
 - The **results page** (GitHub Pages, opt-in with `PAGE_ENABLED=true` after Settings → Pages →
   Source: GitHub Actions) lists closed and resolved questions with forecast, outcome, Brier and
   official peer score, API-equivalent cost, and the bot's rank per tournament. Locally:
@@ -109,6 +111,7 @@ docs/
   output-format.md        the fixed deliverable format, incl. the short tournament form
   configuration.md        every secret and variable: required or optional, defaults
   update-protocol.md      when and how to revisit (individual questions); resolution
+  postmortem.md           how to learn from resolved questions; postmortem-<YYYY-MM>.md, the findings
 questions/<slug>/         meta.yaml · forecast.md · research.md (individual questions) · raw/
 ledger/forecasts.jsonl    append-only: forecasts, submissions, comments, resolutions
 ledger/usage.jsonl        one line per Claude run: tokens, cost-equivalent, turns

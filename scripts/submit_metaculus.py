@@ -69,6 +69,7 @@ import math
 import re
 import sys
 import time
+from collections.abc import Callable
 from dataclasses import dataclass
 from itertools import pairwise
 from pathlib import Path
@@ -100,7 +101,12 @@ P_MIN, P_MAX = 0.001, 0.999
 OPEN_BOUND_MASS = 0.001  # minimum tail mass outside an open bound
 MIN_STEP_PER_BIN = 0.01  # CDF must rise by >= this / inbound_outcome_count per bin
 MAX_STEP_PER_BIN = 40.0  # ... and by <= this / inbound_outcome_count (0.2 at 200)
-UNIFORM_MIX = 0.02  # default uniform mixture that guarantees the minimum step
+# Share of the in-range mass spread uniformly over the question's range. It guarantees
+# the minimum step, and it is insurance: the question's own range held all 26 outcomes
+# of the first MiniBench round, while 3 of them sat beyond our 98th percentile. Replayed
+# on that round, 5 % instead of 2 % gained +0.88 nats in total and cost at most 0.03 on
+# any one question (docs/postmortem-2026-11.md).
+UNIFORM_MIX = 0.05
 CLOSED_STATUSES = {"closed", "resolved", "deleted"}
 
 
@@ -192,15 +198,46 @@ def select_question(post: dict[str, Any], sub_id: int | None) -> dict[str, Any]:
 
 
 # ------------------------------------------------------------------ geometry
-def cdf_from_knots(x: float, knots: list[tuple[float, float]]) -> float:
-    """CDF at ``x`` through ``(probability, value)`` quantile knots.
+def _knot_slopes(
+    pts: list[tuple[float, float, float]], smooth: bool = True
+) -> tuple[list[float], list[float]]:
+    """CDF slopes (densities) arriving at and leaving each merged knot.
 
-    Linear between knots. Beyond the outer knots the tails are exponential with
-    the density of the adjacent segment, so the curve stays smooth at the knot
-    and the tail mass decays instead of stopping dead at an arbitrary point.
-    Knots that share a value are a point mass there (e.g. a record close the
-    answer cannot fall below): the CDF jumps from their lowest probability to
-    their highest, and the tails take the density of the nearest sloped segment.
+    Fritsch-Carlson, as in scipy's ``PchipInterpolator``: an interior knot takes the
+    weighted harmonic mean of its two segments' secants, which keeps each slope
+    within 3x either secant and so keeps the cubic monotone. The outer knots, and
+    both sides of a point mass, take the adjacent secant: the density the
+    exponential tail continues with, so the density has no jump at the outer knots.
+    ``smooth=False`` keeps every secant, which makes each segment a straight line:
+    the interpolation used before 2026-11, kept for replaying old submissions.
+    """
+    h = [b[0] - a[0] for a, b in pairwise(pts)]
+    secant = [(b[1] - a[2]) / hk for (a, b), hk in zip(pairwise(pts), h, strict=True)]
+    arrive = [0.0, *secant]
+    leave = [*secant, 0.0]
+    for i in range(1, len(pts) - 1 if smooth else 1):
+        if pts[i][2] > pts[i][1]:  # point mass: the curve breaks, keep the secants
+            continue
+        s0, s1 = secant[i - 1], secant[i]
+        w0, w1 = 2 * h[i] + h[i - 1], h[i] + 2 * h[i - 1]
+        d = (w0 + w1) / (w0 / s0 + w1 / s1) if s0 > 0 and s1 > 0 else 0.0
+        arrive[i] = leave[i] = d
+    return arrive, leave
+
+
+def _knot_curve(
+    knots: list[tuple[float, float]], smooth: bool = True
+) -> Callable[[float], float]:
+    """The CDF through ``(probability, value)`` quantile knots, as a function of x.
+
+    A monotone cubic (PCHIP) between knots: straight lines would give a flat density
+    inside each segment and a cliff at every knot, which the log score punishes
+    wherever the outcome lands between knots (docs/postmortem-2026-11.md). Beyond
+    the outer knots the tails are exponential with the slope of the curve at the
+    knot, so the tail mass decays instead of stopping dead at an arbitrary point.
+    Knots that share a value are a point mass there (e.g. a record close the answer
+    cannot fall below): the CDF jumps from their lowest probability to their
+    highest, and the tails take the density of the nearest sloped segment.
     """
     # (value, P just below it, P at it); merging ties keeps every segment sloped
     pts: list[tuple[float, float, float]] = []
@@ -209,18 +246,36 @@ def cdf_from_knots(x: float, knots: list[tuple[float, float]]) -> float:
             pts[-1] = (v, pts[-1][1], p)
         else:
             pts.append((v, p, p))
-    (x0, below0, at0), (x1, below1, _) = pts[0], pts[1]
-    if x < x0:
-        scale = below0 * (x1 - x0) / (below1 - at0)
-        return below0 * math.exp((x - x0) / scale)
-    (xm, _, atm), (xn, belown, atn) = pts[-2], pts[-1]
-    if x >= xn:
-        scale = (1 - atn) * (xn - xm) / (belown - atm)
-        return 1 - (1 - atn) * math.exp(-(x - xn) / scale)
-    for (a, _, pa), (b, pb, _) in pairwise(pts):
-        if a <= x < b:
-            return pa + (pb - pa) * (x - a) / (b - a)
-    raise AssertionError("unreachable")
+    arrive, leave = _knot_slopes(pts, smooth)
+    x0, below0, _ = pts[0]
+    xn, _, atn = pts[-1]
+    lower_scale = below0 / leave[0]
+    upper_scale = (1 - atn) / arrive[-1]
+
+    def cdf(x: float) -> float:
+        if x < x0:
+            return below0 * math.exp((x - x0) / lower_scale)
+        if x >= xn:
+            return 1 - (1 - atn) * math.exp(-(x - xn) / upper_scale)
+        for i, ((a, _, pa), (b, pb, _)) in enumerate(pairwise(pts)):
+            if a <= x < b:
+                w = b - a
+                t = (x - a) / w
+                # cubic Hermite basis on [a, b]
+                return (
+                    (2 * t**3 - 3 * t**2 + 1) * pa
+                    + (t**3 - 2 * t**2 + t) * w * leave[i]
+                    + (-2 * t**3 + 3 * t**2) * pb
+                    + (t**3 - t**2) * w * arrive[i + 1]
+                )
+        raise AssertionError("unreachable")
+
+    return cdf
+
+
+def cdf_from_knots(x: float, knots: list[tuple[float, float]]) -> float:
+    """CDF at ``x`` through ``(probability, value)`` quantile knots (see ``_knot_curve``)."""
+    return _knot_curve(knots)(x)
 
 
 def _as_seconds(v: float | str) -> float:
@@ -255,12 +310,15 @@ def _grid(scaling: dict[str, Any]) -> list[float]:
     return out
 
 
-def _fit_to_bounds(raw: list[float], scaling: dict[str, Any]) -> list[float]:
+def _fit_to_bounds(
+    raw: list[float], scaling: dict[str, Any], mix: float | None = None
+) -> list[float]:
     """Pin the end points to the bound rules and enforce the minimum step.
 
-    The interior shape is kept and mixed with a small uniform component, which
-    is what guarantees every bin its minimum mass without distorting quartiles
-    visibly. The mixture weight grows only when little mass falls inside the
+    The interior shape is kept and mixed with a uniform component (``mix``, default
+    ``UNIFORM_MIX``), which guarantees every bin its minimum mass and keeps a floor
+    under outcomes far from the forecast; it moves the quartiles by a few hundredths
+    of the IQR. The mixture weight grows only when little mass falls inside the
     range (e.g. a forecast that sits mostly above an open upper bound).
     """
     n = len(raw) - 1
@@ -273,7 +331,7 @@ def _fit_to_bounds(raw: list[float], scaling: dict[str, Any]) -> list[float]:
         )
     span = raw[-1] - raw[0]
     shape = [(v - raw[0]) / span if span > 0 else i / n for i, v in enumerate(raw)]
-    mix = max(UNIFORM_MIX, 1.2 * MIN_STEP_PER_BIN / (hi - lo))
+    mix = max(UNIFORM_MIX if mix is None else mix, 1.2 * MIN_STEP_PER_BIN / (hi - lo))
     return [lo + (hi - lo) * ((1 - mix) * s + mix * i / n) for i, s in enumerate(shape)]
 
 
@@ -303,16 +361,25 @@ def _cap_steps(cdf: list[float], scaling: dict[str, Any]) -> list[float]:
 
 
 def continuous_cdf(
-    knots: list[tuple[float, float]], scaling: dict[str, Any]
+    knots: list[tuple[float, float]],
+    scaling: dict[str, Any],
+    *,
+    mix: float | None = None,
+    smooth: bool = True,
 ) -> list[float]:
-    """Metaculus CDF for a numeric or date question from quantile knots."""
+    """Metaculus CDF for a numeric or date question from quantile knots.
+
+    ``mix`` and ``smooth`` exist for ``postmortem.py replay``, which rebuilds past
+    submissions under alternative rules; submissions use the defaults.
+    """
     knots = sorted(knots)
     if len({v for _, v in knots}) < 2:
         raise SubmitError("need percentiles on at least two distinct values")
     if any(b[1] < a[1] for a, b in pairwise(knots)):
         raise SubmitError(f"percentile values are not monotone: {knots}")
-    raw = [cdf_from_knots(x, knots) for x in _grid(scaling)]
-    return _cap_steps(_fit_to_bounds(raw, scaling), scaling)
+    curve = _knot_curve(knots, smooth)
+    raw = [curve(x) for x in _grid(scaling)]
+    return _cap_steps(_fit_to_bounds(raw, scaling, mix), scaling)
 
 
 def discrete_cdf(pmf: dict[str, float], scaling: dict[str, Any]) -> list[float]:
