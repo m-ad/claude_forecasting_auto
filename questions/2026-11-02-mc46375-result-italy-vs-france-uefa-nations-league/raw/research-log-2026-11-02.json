@@ -1,0 +1,25 @@
+{"searches": [
+  {"category": "resolution_source", "query": "Nations League 2026/27 League A Group 1 standings Italy France Belgium Türkiye", "by": "main", "status": "done", "finding": "Group A1 confirmed (France, Italy, Belgium, Türkiye); matchdays 5-6 on 12 and 15/17 Nov 2026"},
+  {"category": "resolution_source", "query": "WebFetch Wikipedia 2026-27 UEFA Nations League A (fixtures and table)", "by": "scout-1", "status": "done", "finding": "Table after MD4: France 10, Italy 7, Belgium 6, Türkiye 0; Italy v France 12 Nov San Siro 20:45 CET"},
+  {"category": "resolution_source", "query": "Italia-Francia San Siro 12 novembre quote", "by": "main", "status": "done", "finding": "FIGC/tuttomercatoweb confirm Thursday 12 Nov 20:45 at Meazza; no odds yet"},
+  {"category": "news", "query": "Francia-Italia 1-1 Nations League ottobre 2026 Stade de France", "by": "main", "status": "done", "finding": "1-1 in Paris 2 Oct 2026 (Olise; Bastoni 68'), Upamecano sent off late"},
+  {"category": "news", "query": "France Belgium 4-1 Nations League October 2026 Zidane", "by": "main", "status": "done", "finding": "France 4-1 Belgium 5 Oct 2026, four goals in last 13 min by subs; France top with 10"},
+  {"category": "news", "query": "Italy 3-1 Türkiye Nations League 5 October 2026 Mancini Bologna", "by": "main", "status": "done", "finding": "Italy 3-1 Türkiye 5 Oct in Bologna (Scamacca, Calafiori, Pio Esposito)"},
+  {"category": "news", "query": "Italy national team squad November 2026 Nations League France Türkiye", "by": "main", "status": "done", "finding": "No November squad yet; Mancini coaches Italy, Zidane France"},
+  {"category": "news", "query": "Mancini returns Italy coach 2026 after World Cup playoff", "by": "main", "status": "done", "finding": "Mancini reappointed 28 Jul 2026 after Italy lost WC play-off to Bosnia (31 Mar 2026)"},
+  {"category": "news", "query": "France World Cup 2026 eliminated Deschamps last match result", "by": "main", "status": "done", "finding": "France lost WC semi 0-2 to Spain (14 Jul 2026) and 3rd-place match to England; Deschamps left"},
+  {"category": "news", "query": "Zidane France squad November injury Mbappé Les Bleus liste Italie", "by": "scout-1", "status": "done", "finding": "Mbappé tendon injury 25 Sep, missed October; return in November unconfirmed"},
+  {"category": "news", "query": "Italy national team coach Nations League November 2026 convocati", "by": "scout-1", "status": "done", "finding": "No call-up list yet as of 2 Nov"},
+  {"category": "markets", "query": "Italy vs France Nations League 12 November 2026 odds", "by": "main", "status": "done", "finding": "Only 2 Oct Paris odds found: France -225 / draw +405 / Italy +525 (~66/19/15 normalised); none for 12 Nov"},
+  {"category": "markets", "query": "Polymarket \"Italy vs. France\" November 12 2026", "by": "main", "status": "done", "finding": "No Polymarket market found for 12 Nov"},
+  {"category": "markets", "query": "Polymarket Italy France Nations League (predscope)", "by": "scout-2", "status": "done", "finding": "Polymarket 2 Oct match pre-game ~68/18/14 France/draw/Italy (search summary, unverified); nothing for 12 Nov"},
+  {"category": "base_rate", "query": "international football draw percentage UEFA Nations League League A matches statistics", "by": "main", "status": "done", "finding": "Soccervital: League A home 43%, draw 27%, away ~30%"},
+  {"category": "base_rate", "query": "FIFA world ranking October 2026 France Italy", "by": "scout-2", "status": "done", "finding": "Nov 2025: France 3rd (1870), Italy 12th (1702); Oct 2026 France 3rd, Italy outside top 10 (unverified)"},
+  {"category": "base_rate", "query": "Elo ratings national teams November 2026 France Italy rating", "by": "scout-2", "status": "done", "finding": "eloratings.net not retrievable (JS shell)"},
+  {"category": "disconfirmation", "query": "Italy failed to qualify 2026 World Cup playoff Bosnia Gattuso", "by": "scout-3", "status": "done", "finding": "Confirms Italy weaker on 2026 record; but Italy matched France in Paris 1-1", "tests": "France is a stronger side than Italy and a favourite even away at San Siro"},
+  {"category": "disconfirmation", "query": "France Italy Nations League October 2026 result Zidane Gattuso", "by": "scout-3", "status": "done", "finding": "France narrow under Zidane (1-0, 1-0, 1-1) before 4-1; Italy's home record under Mancini poor (0-2 Belgium); France 3-1 at San Siro Nov 2024", "tests": "France is a stronger side than Italy and a favourite even away at San Siro"}
+],
+ "adjustments": [
+  {"event": "Pre-match market for 2 Oct Paris leg priced France ~66%/draw 19%/Italy 15%, implying ~100 Elo strength gap net of home advantage", "date": "2026-10-01", "effect": "France from base-rate away 30% to ~38%", "sources": [2, 3]},
+  {"event": "France's form since (4-1 v Belgium) vs Italy's wins only against Türkiye; France reached WC semi while Italy missed WC", "date": "2026-10-05", "effect": "+2 pp France, -2 pp Italy", "sources": [4, 5, 6]}
+]}

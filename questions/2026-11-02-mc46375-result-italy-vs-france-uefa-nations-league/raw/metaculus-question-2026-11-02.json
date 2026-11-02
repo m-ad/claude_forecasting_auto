@@ -1,0 +1,46 @@
+{
+  "post_id": 46375,
+  "url": "https://www.metaculus.com/questions/46375/",
+  "post_title": "What will be the result of the Italy vs France UEFA Nations League match on 12 November 2026?",
+  "tournaments": [
+    "minibench"
+  ],
+  "options": [
+    "Italy win",
+    "Draw",
+    "France win"
+  ],
+  "question": {
+    "id": 46608,
+    "title": "What will be the result of the Italy vs France UEFA Nations League match on 12 November 2026?",
+    "type": "multiple_choice",
+    "status": "open",
+    "description": "The 2026/27 UEFA Nations League is European football's national-team competition, whose league phase runs from September to November 2026. Italy and France are in League A Group 1 alongside Belgium and Türkiye and meet at San Siro (Stadio Giuseppe Meazza) in Milan on Matchday 5.\n\nGroup situation after four of six matchdays (per UEFA's fixtures and results page, https://www.uefa.com/uefanationsleague/news/02a2-1fea18abbcbc-456e846509e7-1000--2026-27-uefa-nations-league-all-the-league-phase-fixtures/): France lead with 10 points (W3 D1, 7 goals for, 2 against); Italy have 7 points (W2 D1 L1, 8 for, 5 against); Belgium have 6; Türkiye have 0. Results so far — Italy: 0-2 v Belgium (home), 4-1 v Türkiye (away), 1-1 v France (away), 3-1 v Türkiye (home). France: 1-0 v Türkiye (away), 1-0 v Belgium (away), 1-1 v Italy (home), 4-1 v Belgium (home). A win for Italy on 12 November would pull them level on points with France with one matchday left; a France win would open a six-point gap.\n\nHead-to-head: the teams have met 42 times, with Italy winning 20, France 12 and 10 draws. Both 2024/25 Nations League meetings were won 3-1 by the home side (France in Paris in September 2024, Italy in Milan in November 2024), and the reverse fixture in this campaign finished 1-1 in Paris. UEFA's match centre lists recent form as W-L-W-D-W for Italy and L-W-W-D-W for France.\n\nSquad lists for the November international window are expected to be named in early November, and both teams still have group position at stake, which makes the fixture one of the most competitive of Matchday 5. The UEFA match page linked in the resolution criteria carries the live score, line-ups and the final result.\n\n`{\"format\": \"llm_question\", \"info\": {\"sdk_version\": \"0.6.1\", \"rating\": {\"quality\": 3, \"ambiguity\": 4, \"resolvability\": 4, \"passes\": true}}}`",
+    "resolution_criteria": "This question resolves on the final result of the UEFA Nations League 2026/27 league-phase match between Italy and France scheduled to kick off at 20:45 CET (19:45 UTC) on 12 November 2026, as recorded on the official UEFA match page: https://www.uefa.com/uefanationsleague/match/2047878--italy-vs-france/.\n\nIf UEFA records more goals for Italy than for France, the question resolves to \"Italy win\"; if more goals for France than for Italy, to \"France win\"; if the teams are level, to \"Draw\". Only the full-time score counts (the Nations League league phase has no extra time or penalty shoot-out). If the UEFA match page is unavailable, the result will be taken from [credible sources](https://www.metaculus.com/faq/#definitions).",
+    "fine_print": "If the match is not completed by 23:59 UTC on 13 November 2026 — for example because it is postponed or abandoned before full time — the question is annulled.",
+    "unit": "",
+    "options": [
+      "Italy win",
+      "Draw",
+      "France win"
+    ],
+    "scaling": {
+      "range_min": null,
+      "range_max": null,
+      "nominal_min": null,
+      "nominal_max": null,
+      "zero_point": null,
+      "open_upper_bound": false,
+      "open_lower_bound": false,
+      "inbound_outcome_count": null,
+      "continuous_range": null
+    },
+    "open_lower_bound": false,
+    "open_upper_bound": false,
+    "inbound_outcome_count": null,
+    "open_time": "2026-11-02T02:49:53Z",
+    "scheduled_close_time": "2026-11-02T05:49:53Z",
+    "scheduled_resolve_time": "2026-11-12T22:00:00Z",
+    "resolution": null
+  }
+}
