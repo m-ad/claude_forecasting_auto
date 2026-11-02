@@ -1,0 +1,72 @@
+# Question metadata. Machine-read by scripts/status.py and scripts/log_forecast.py.
+slug: "2026-11-02-mc46405-seasonally-adjusted-month-month-percentage-change-new"
+title: "What will be the seasonally adjusted month-on-month percentage change in New Zealand's total electronic card transaction values for October 2026 (Stats NZ, released 12 November 2026)?"
+source: "metaculus"          # metaculus | kalshi | polymarket | manifold | other
+url: "https://www.metaculus.com/questions/46405/"                # null for free-text questions with no URL
+post_id: 46405          # null for non-Metaculus — identifies the *page*
+question_id: 46638  # Metaculus's internal question id — what the API submits
+                              # against, and != post_id. Null for non-Metaculus.
+type: "discrete"              # binary | numeric | date | multiple_choice | discrete
+unit: "%"                    # e.g. "USD bn", "°C"; null for binary
+tags: []
+
+dates:
+  created: "2026-11-02"
+  opened: "2026-11-02"
+  closes: "2026-11-02"                # last date forecasts are accepted
+  resolves: "2026-11-12"              # date the outcome is known
+
+status: "open"                # open | closed | resolved | dropped
+
+tournament:
+  slug: "minibench"
+  mode: "one_shot"
+  registered: "2026-11-02"
+  opened: "2026-11-02T15:45:08Z"
+  closes: "2026-11-02T18:45:08Z"
+  submitted: null
+  submitted_forecast: null
+  comment_posted: false
+  official_score: null
+  missed_window: false
+
+current:
+  version: 0
+  date: null
+  median: null                # probability in [0,1] for binary; native units otherwise
+  iqr: [null, null]
+  community:                  # snapshot at the time of the current version
+    cp: null
+    pro: null
+    gold: null
+    n_forecasters: null
+    as_of: null
+
+next_review: null             # YYYY-MM-DD — see docs/update-protocol.md cadence table
+                              # A one_shot tournament question never gets one: it is
+                              # forecast once and never revisited.
+
+tripwires: []
+# `magnitude` is unsigned — `direction` (up/down/either) carries the sign — and
+# `magnitude_unit` says what it is denominated in: "pp" (percentage points) for
+# binary and multiple-choice questions, "days"/"weeks"/"months" for date
+# questions, and the question's own `unit` above for numeric/discrete ones.
+# An "either" tripwire (re-analyse, direction unknown) carries magnitude 0.
+#
+# - signal: "IAEA Board resolution referring the file to the UNSC"
+#   by: "2026-11-30"
+#   direction: "up"
+#   magnitude: 15
+#   magnitude_unit: "pp"          # binary question
+#   fired: null
+# - signal: "Weekly SENASICA cut on 2026-10-31 at or below 45,500"
+#   by: "2026-10-31"
+#   direction: "down"
+#   magnitude: 6000
+#   magnitude_unit: "cases"       # numeric question — must equal `unit:` above
+#   fired: null
+
+resolution:
+  outcome: null               # 1/0 binary, value numeric, Unix s date, option label MC
+  date: null
+  source: null
