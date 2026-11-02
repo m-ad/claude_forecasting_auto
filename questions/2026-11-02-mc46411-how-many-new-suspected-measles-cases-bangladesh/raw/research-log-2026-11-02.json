@@ -1,0 +1,18 @@
+{"searches": [
+ {"category":"resolution_source","query":"DGHS হাম প্রেস রিলিজ নতুন সন্দেহভাজন হাম রোগী ২৪ ঘণ্টায়","by":"scout-1","status":"planned","finding":""},
+ {"category":"resolution_source","query":"Bangladesh measles 24 hours suspected cases DGHS November 2026","by":"scout-1","status":"planned","finding":""},
+ {"category":"news","query":"Bangladesh measles outbreak latest news November 2026","by":"scout-2","status":"planned","finding":""},
+ {"category":"news","query":"হাম ২৪ ঘণ্টায় শনাক্ত নভেম্বর","by":"scout-2","status":"planned","finding":""},
+ {"category":"markets","query":"Polymarket Kalshi Manifold Bangladesh measles cases","by":"main","status":"planned","finding":""},
+ {"category":"base_rate","query":"Bangladesh measles daily suspected cases Friday Saturday weekend reporting dip","by":"scout-3","status":"planned","finding":""},
+ {"category":"base_rate","query":"Bangladesh measles daily cases October 2026 series","by":"scout-3","status":"planned","finding":""},
+ {"category":"disconfirmation","query":"Bangladesh measles cases declining sharply vaccination campaign effect November 2026","by":"scout-4","status":"planned","finding":"","tests":"the assumption that the plateau of ~1,200-1,300/day persists to 13 Nov (no decline, no Friday dip)"},
+ {"category":"disconfirmation","query":"Bangladesh measles surge increase cases record daily","by":"scout-4","status":"planned","finding":"","tests":"the assumption that the plateau persists"},
+ {"category":"schedule","query":"DGHS measles bulletin delayed holiday Friday","by":"scout-1","status":"planned","finding":""},
+ {"category":"consensus","query":"WHO SEARO measles Bangladesh epidemiological bulletin week 43 44","by":"scout-2","status":"planned","finding":""},
+ {"category":"upcoming_events","query":"Bangladesh measles rubella campaign second phase November 2026","by":"scout-4","status":"planned","finding":""},
+ {"category":"news","query":"Daily Star measles cases 24 hours","by":"main","status":"planned","finding":""},
+ {"category":"news","query":"Business Standard measles new cases hospitalised","by":"main","status":"planned","finding":""},
+ {"category":"other","query":"Bangladesh measles epidemic projection modelling peak","by":"main","status":"planned","finding":""}
+],
+"adjustments": []}
