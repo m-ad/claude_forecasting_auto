@@ -1,0 +1,61 @@
+{
+  "post_id": 46379,
+  "url": "https://www.metaculus.com/questions/46379/",
+  "post_title": "What will Serbia's year-on-year consumer price inflation be in October 2026?",
+  "tournaments": [
+    "minibench"
+  ],
+  "options": null,
+  "question": {
+    "id": 46612,
+    "title": "What will Serbia's year-on-year consumer price inflation be in October 2026?",
+    "type": "discrete",
+    "status": "open",
+    "description": "Serbia's Statistical Office (RZS) publishes consumer price indices every month around the 12th, as Statistical Release CN 11; the release covering October 2026 is expected on 12 November 2026 (https://www.stat.gov.rs/en-us/oblasti/cene/potrosacke-cene). Since January 2026 the index has been calculated according to ECOICOP ver. 2 with 2025 as the base year, and the headline figure is the annual rate (same month of previous year = 100).\n\nThe September 2026 release (published 12 October 2026) put annual inflation at 4.1%, up from 2.2% in August, with prices up 0.2% month on month (https://tradingeconomics.com/serbia/inflation-cpi). The jump was driven mainly by base effects in food prices — food was still 1.8% cheaper than a year earlier, reflecting the retail-margin caps introduced in 2025 — combined with steep increases in administered and service prices: water supply +21.8% year on year, rents +10.6%, routine home maintenance +21.5%, wastewater removal +12.9% (https://srpske.rs/en/news/ekonomija/2026/10/12/serbia-september-inflation-4-1-percent-water-rents). Food and non-alcoholic beverages carry about 31% of the index weight and housing/utilities about 14%.\n\nThe National Bank of Serbia targets 3% ± 1.5%, so the band ceiling is 4.5%: the September reading sat just inside it, and whether October breaches it depends on how quickly the 2025 food base effects fade and on further administered-price adjustments. The October print lands during Serbia's post-election transition: the student-led Student List won the 25 October 2026 parliamentary election with about 52.5% of the vote and a new government is still being formed (http://europeanwesternbalkans.com/2026/10/27/srdanovic-serbia-will-continue-its-eu-integration-path-and-dialogue-with-kosovo/), inheriting an inflation rate that has roughly doubled over two months. For reference, 4.1% in September 2026 compares with an all-time high of 16.2% (March 2023) and an all-time low of 0.1% (January 2015).\n\n`{\"format\": \"llm_question\", \"info\": {\"sdk_version\": \"0.6.1\", \"rating\": {\"quality\": 3, \"ambiguity\": 4, \"resolvability\": 4, \"passes\": true}}}`",
+    "resolution_criteria": "This question resolves from the [Statistical Office of the Republic of Serbia (RZS)](https://www.stat.gov.rs/en-us/oblasti/cene/potrosacke-cene) monthly consumer price index release for October 2026 (Statistical Release CN 11, \"Consumer price indices by COICOP\", normally published around the 12th of the following month and expected on 12 November 2026). The answer is the reported annual rate — consumer prices in October 2026 compared with October 2025, in percent — as shown in that release; for example, if RZS reports that prices in October 2026 were 4.3% higher than a year earlier, the answer is 4.3. If the release is delayed, the question resolves once RZS publishes the October 2026 figure; if RZS never publishes it, the question is annulled.",
+    "fine_print": "The first figure RZS publishes for October 2026 is used; any later revision or re-publication is disregarded. If the RZS page is inaccessible, the same RZS figure as reported by [credible sources](https://www.metaculus.com/faq/#definitions) may be used.",
+    "unit": "%",
+    "options": null,
+    "scaling": {
+      "range_min": 3.1500000000000004,
+      "range_max": 5.25,
+      "nominal_min": 3.2,
+      "nominal_max": 5.2,
+      "zero_point": null,
+      "open_upper_bound": true,
+      "open_lower_bound": true,
+      "inbound_outcome_count": 21,
+      "continuous_range": [
+        3.1500000000000004,
+        3.2500000000000004,
+        3.3500000000000005,
+        3.45,
+        3.5500000000000003,
+        3.6500000000000004,
+        3.75,
+        3.85,
+        3.95,
+        4.05,
+        4.15,
+        4.25,
+        4.35,
+        4.45,
+        4.55,
+        4.65,
+        4.75,
+        4.85,
+        4.95,
+        5.05,
+        5.15,
+        5.25
+      ]
+    },
+    "open_lower_bound": true,
+    "open_upper_bound": true,
+    "inbound_outcome_count": 21,
+    "open_time": "2026-11-02T04:52:04Z",
+    "scheduled_close_time": "2026-11-02T07:52:04Z",
+    "scheduled_resolve_time": "2026-11-12T12:00:00Z",
+    "resolution": null
+  }
+}
