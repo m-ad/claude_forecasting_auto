@@ -6,7 +6,7 @@
 | **Tournament** | minibench — one shot, window 2026-11-02T09:44:45Z -> 2026-11-02T12:44:45Z |
 | **Type** | binary |
 | **Opened / Closes / Resolves** | 2026-11-02 / 2026-11-02 / 2026-11-13 |
-| **Status** | open |
+| **Status** | closed |
 | **Current forecast** | Median 66.0%, IQR [55.0%, 76.0%] (v1, 2026-11-02) |
 | **Community** | hidden — bot tournament |
 | **Next review** | — |
