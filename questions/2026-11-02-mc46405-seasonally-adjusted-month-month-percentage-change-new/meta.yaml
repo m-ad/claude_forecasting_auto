@@ -1,72 +1,99 @@
-# Question metadata. Machine-read by scripts/status.py and scripts/log_forecast.py.
-slug: "2026-11-02-mc46405-seasonally-adjusted-month-month-percentage-change-new"
-title: "What will be the seasonally adjusted month-on-month percentage change in New Zealand's total electronic card transaction values for October 2026 (Stats NZ, released 12 November 2026)?"
-source: "metaculus"          # metaculus | kalshi | polymarket | manifold | other
-url: "https://www.metaculus.com/questions/46405/"                # null for free-text questions with no URL
-post_id: 46405          # null for non-Metaculus — identifies the *page*
-question_id: 46638  # Metaculus's internal question id — what the API submits
-                              # against, and != post_id. Null for non-Metaculus.
-type: "discrete"              # binary | numeric | date | multiple_choice | discrete
-unit: "%"                    # e.g. "USD bn", "°C"; null for binary
+slug: 2026-11-02-mc46405-seasonally-adjusted-month-month-percentage-change-new
+title: What will be the seasonally adjusted month-on-month percentage change in New Zealand's total electronic
+  card transaction values for October 2026 (Stats NZ, released 12 November 2026)?
+source: metaculus
+url: https://www.metaculus.com/questions/46405/
+post_id: 46405
+question_id: 46638
+type: discrete
+unit: '%'
 tags: []
-
 dates:
-  created: "2026-11-02"
-  opened: "2026-11-02"
-  closes: "2026-11-02"                # last date forecasts are accepted
-  resolves: "2026-11-12"              # date the outcome is known
-
-status: "open"                # open | closed | resolved | dropped
-
+  created: '2026-11-02'
+  opened: '2026-11-02'
+  closes: '2026-11-02'
+  resolves: '2026-11-12'
+status: open
 tournament:
-  slug: "minibench"
-  mode: "one_shot"
-  registered: "2026-11-02"
-  opened: "2026-11-02T15:45:08Z"
-  closes: "2026-11-02T18:45:08Z"
-  submitted: null
-  submitted_forecast: null
-  comment_posted: false
+  slug: minibench
+  mode: one_shot
+  registered: '2026-11-02'
+  opened: '2026-11-02T15:45:08Z'
+  closes: '2026-11-02T18:45:08Z'
+  submitted: '2026-11-02T18:12:50+00:00'
+  submitted_forecast:
+    continuous_cdf:
+    - 0.006122821412649098
+    - 0.008369125537844323
+    - 0.010900558571410757
+    - 0.01378024884009297
+    - 0.017085301456294853
+    - 0.020909892816974737
+    - 0.025369050233131123
+    - 0.030603268379681324
+    - 0.03678414784007614
+    - 0.04412128204024436
+    - 0.05287066896870754
+    - 0.06295545577504708
+    - 0.0725504654826491
+    - 0.08201755439817193
+    - 0.09212424727409084
+    - 0.103638068862881
+    - 0.1173495161444518
+    - 0.1337581227186647
+    - 0.15261727846587064
+    - 0.17361230942596242
+    - 0.19642854163883244
+    - 0.22075130114437347
+    - 0.2462659139824782
+    - 0.27306956361816537
+    - 0.3031703949019199
+    - 0.33628653662944524
+    - 0.3717077795335225
+    - 0.40872391434693284
+    - 0.44662473180245715
+    - 0.4847000226328758
+    - 0.5230795500579557
+    - 0.5653938782930713
+    - 0.6099862802130743
+    - 0.654282382712573
+    - 0.6957078126861765
+    - 0.7316881970284939
+    - 0.7605903005949103
+    - 0.7864999527951474
+    - 0.8103736539579631
+    - 0.8323393636458342
+    - 0.8525250414212365
+    - 0.8710586468466465
+    - 0.8880681394845402
+    - 0.9035201942016647
+    - 0.9169172462125772
+    - 0.9291004401627416
+    - 0.941110225818514
+    - 0.9534358657422889
+    - 0.9636667029266228
+    - 0.9718465008686786
+    - 0.9784289478427383
+    - 0.9837673766320825
+  comment_posted: true
   official_score: null
   missed_window: false
-
 current:
-  version: 0
-  date: null
-  median: null                # probability in [0,1] for binary; native units otherwise
-  iqr: [null, null]
-  community:                  # snapshot at the time of the current version
+  version: 1
+  date: '2026-11-02'
+  median: 0.4
+  iqr:
+  - -0.3
+  - 1.0
+  community:
     cp: null
     pro: null
     gold: null
     n_forecasters: null
-    as_of: null
-
-next_review: null             # YYYY-MM-DD — see docs/update-protocol.md cadence table
-                              # A one_shot tournament question never gets one: it is
-                              # forecast once and never revisited.
-
+    as_of: '2026-11-02'
+next_review: null
 tripwires: []
-# `magnitude` is unsigned — `direction` (up/down/either) carries the sign — and
-# `magnitude_unit` says what it is denominated in: "pp" (percentage points) for
-# binary and multiple-choice questions, "days"/"weeks"/"months" for date
-# questions, and the question's own `unit` above for numeric/discrete ones.
-# An "either" tripwire (re-analyse, direction unknown) carries magnitude 0.
-#
-# - signal: "IAEA Board resolution referring the file to the UNSC"
-#   by: "2026-11-30"
-#   direction: "up"
-#   magnitude: 15
-#   magnitude_unit: "pp"          # binary question
-#   fired: null
-# - signal: "Weekly SENASICA cut on 2026-10-31 at or below 45,500"
-#   by: "2026-10-31"
-#   direction: "down"
-#   magnitude: 6000
-#   magnitude_unit: "cases"       # numeric question — must equal `unit:` above
-#   fired: null
-
 resolution:
-  outcome: null               # 1/0 binary, value numeric, Unix s date, option label MC
+  outcome: null
   date: null
   source: null

@@ -1,0 +1,24 @@
+{"searches": [
+ {"category":"resolution_source","query":"Stats NZ electronic card transactions September 2026","by":"main","status":"done","finding":"Total SA -0.5% (-$51m) Sep 2026, retail -0.4%, core retail -0.7%, release 16 Oct 2026"},
+ {"category":"resolution_source","query":"Stats NZ electronic card transactions August 2026 seasonally adjusted","by":"scout-1","status":"done","finding":"Aug 2026 total -0.5% (-$48m); retail -0.9%"},
+ {"category":"resolution_source","query":"Stats NZ electronic card transactions July 2026 scoop","by":"main","status":"done","finding":"July retail +1.3%, core +2.2%; total +1.0% per question text"},
+ {"category":"base_rate","query":"Stats NZ ECT monthly SA total change history 2024 2025 (scout series)","by":"scout-1","status":"done","finding":"2024-25 first-published totals mostly within +-0.5% (Jan24 +2.0, Dec25 -1.0); 2026 range -1.6..+2.2"},
+ {"category":"base_rate","query":"total value electronic card spending including two non-retail categories 2025","by":"main","status":"done","finding":"Aug25 +0.4, Sep25 -0.4, Nov25 +1.9, Dec25 -1.0/-0.1 (conflicting)"},
+ {"category":"news","query":"NZ card spending October 2026 economists","by":"main","status":"done","finding":"No October 2026 data or preview; Westpac expected +0.8 for Sep, got -0.4 retail"},
+ {"category":"news","query":"New Zealand petrol prices October 2026 / MBIE weekly fuel monitoring","by":"scout-2","status":"done","finding":"Regular petrol 296.7c/L 4 Sep -> 357.2 23 Oct; Oct avg ~352 vs Sep ~312 (+13%)"},
+ {"category":"news","query":"Gaspy NZ petrol October 2026","by":"main","status":"done","finding":"nothing beyond scout MBIE data"},
+ {"category":"markets","query":"Polymarket OR Kalshi OR Manifold New Zealand electronic card transactions","by":"main","status":"done","finding":"none found"},
+ {"category":"markets","query":"Polymarket Kalshi NZ card spending (scout-3)","by":"scout-3","status":"done","finding":"none found"},
+ {"category":"consensus","query":"Westpac first impressions NZ retail card spending September 2026","by":"scout-3","status":"done","finding":"Westpac: volumes subdued near term; no October forecast"},
+ {"category":"consensus","query":"Marketview BNZ ASB card spending October 2026","by":"main","status":"done","finding":"no October 2026 data"},
+ {"category":"schedule","query":"Stats NZ ECT release 12 Nov 2026","by":"main","status":"done","finding":"October release 12 Nov 2026 10:45 NZDT per question text and Sept release"},
+ {"category":"upcoming_events","query":"RBNZ OCR Nov 2026; NZ election 7 Nov","by":"main","status":"done","finding":"OCR held 2.75% in Oct; election 7 Nov, after October month"},
+ {"category":"other","query":"ANZ-Roy Morgan consumer confidence October 2026","by":"scout-2","status":"done","finding":"96.2 (-1.4); current conditions 87.3 -> 81.1, fuel blamed"},
+ {"category":"other","query":"NZ Labour Day 2026 spending / Worldline October 2026","by":"main","status":"done","finding":"Labour Day 26 Oct; no October spending data found"},
+ {"category":"disconfirmation","query":"how often are SA total moves large / rebound after consecutive falls; Oct 2026 shocks (scout-4)","by":"scout-4","status":"done","finding":"2026 moves >|1.0| in ~half of months; prior large falls each rebounded +1.3..+1.7, Aug/Sep small falls consecutive; no Oct storm/strike found; IQR widened to [-0.3,1.0]","tests":"the assumption that October SA total change is centred near +0.4 (rebound plus fuel inflation) rather than continued weakness like Aug/Sep"},
+ {"category":"disconfirmation","query":"Westpac Retail Spending Pulse September 2026 fuel prices; volumes weak","by":"main","status":"done","finding":"Westpac own card data +1.4% per person Sep, diverged from Stats NZ; fuel inflating nominal spend","tests":"the assumption that October SA total change is centred near +0.4"}
+],
+"adjustments": [
+ {"event":"Pump petrol prices rose ~13% Oct vs Sep (MBIE), inflating nominal fuel card spending","date":"2026-10-23","effect":"+0.2 pp on the median","sources":[2,3]},
+ {"event":"Two consecutive -0.5% months (Aug, Sep) after volatile 2026: partial mean reversion","date":"2026-10-16","effect":"+0.2 pp on the median","sources":[1,4]}
+]}
