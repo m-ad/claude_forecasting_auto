@@ -1,0 +1,46 @@
+slug: 2026-11-02-mc46370-germany-beat-serbia-their-uefa-nations-league
+title: Will Germany beat Serbia in their UEFA Nations League match on 13 November 2026?
+source: metaculus
+url: https://www.metaculus.com/questions/46370/
+post_id: 46370
+question_id: 46603
+type: binary
+unit: null
+tags: []
+dates:
+  created: '2026-11-02'
+  opened: '2026-11-02'
+  closes: '2026-11-02'
+  resolves: '2026-11-13'
+status: open
+tournament:
+  slug: minibench
+  mode: one_shot
+  registered: '2026-11-02'
+  opened: '2026-11-02T01:18:46Z'
+  closes: '2026-11-02T04:18:46Z'
+  submitted: '2026-11-02T02:12:52+00:00'
+  submitted_forecast:
+    probability_yes: 0.7
+  comment_posted: true
+  official_score: null
+  missed_window: false
+current:
+  version: 1
+  date: '2026-11-02'
+  median: 0.7
+  iqr:
+  - 0.64
+  - 0.75
+  community:
+    cp: null
+    pro: null
+    gold: null
+    n_forecasters: null
+    as_of: '2026-11-02'
+next_review: null
+tripwires: []
+resolution:
+  outcome: null
+  date: null
+  source: null

@@ -1,0 +1,38 @@
+{
+  "post_id": 46370,
+  "url": "https://www.metaculus.com/questions/46370/",
+  "post_title": "Will Germany beat Serbia in their UEFA Nations League match on 13 November 2026?",
+  "tournaments": [
+    "minibench"
+  ],
+  "options": null,
+  "question": {
+    "id": 46603,
+    "title": "Will Germany beat Serbia in their UEFA Nations League match on 13 November 2026?",
+    "type": "binary",
+    "status": "open",
+    "description": "The UEFA Nations League 2026/27 league phase runs from September to November 2026. League A Group A2 contains Germany, the Netherlands, Greece and Serbia, who meet home and away over six matchdays. Four matchdays were completed by 4 October 2026: UEFA's standings show the Netherlands and Greece level on 8 points, Germany third on 5 points (one win, two draws, one defeat; 3 goals for, 2 against) and Serbia bottom on 0 points (four defeats, 3 goals for, 8 against) — https://www.uefa.com/uefanationsleague/standings/\n\nGermany, under head coach Jürgen Klopp, drew 1-1 in the Netherlands (24 Sep), lost 0-1 at home to Greece (27 Sep), beat Serbia 2-0 at home (1 Oct) and drew 0-0 in Greece (4 Oct); UEFA's form guide reads DDLWD (https://www.uefa.com/uefanationsleague/teams/47--germany/matches). Serbia has lost all four matches and can no longer reach the group's top two places. With the top two in each League A group progressing to the knockout stage, Germany's remaining fixtures are this away trip to Belgrade (matchday 5) and a home game against the Netherlands on 16 November 2026 — https://editorial.uefa.com/resources/02a7-213a07364ee1-2e150950fd04-1000/unl_2627_-_league_phase_fixture_list_per_matchday_28_july_2026.pdf\n\nThe fixture is scheduled for Friday 13 November 2026 at Stadion Rajko Mitić in Belgrade, kick-off 20:45 CET (19:45 UTC); UEFA's head-to-head record lists 17 Germany wins, 5 draws and 8 Serbia wins across previous meetings. Squad selections, injuries and travel news are typically confirmed in the 48 hours before kick-off, and Serbia has an incentive to salvage a result at home after a winless campaign so far, while Germany needs points to keep pace with the Netherlands and Greece.\n\n`{\"format\": \"llm_question\", \"info\": {\"sdk_version\": \"0.6.1\", \"rating\": {\"quality\": 3, \"ambiguity\": 4, \"resolvability\": 4, \"passes\": true}}}`",
+    "resolution_criteria": "This question resolves based on the result of the UEFA Nations League 2026/27 league-phase match Serbia vs Germany, scheduled for 13 November 2026, as recorded on UEFA's official match page for the fixture: https://www.uefa.com/uefanationsleague/match/2047887--serbia-vs-germany/\n\nIt resolves Yes if the final score shown on that page is a Germany win — i.e. Germany scores more goals than Serbia over the match's 90 minutes plus stoppage time. It resolves No if the final score is a draw or a Serbia win.",
+    "fine_print": "If the fixture is not played as scheduled (postponed, abandoned or replayed), the question resolves on the result of the Serbia vs Germany Nations League fixture once UEFA records a final result, including a result awarded by disciplinary decision; if UEFA records the fixture as annulled with no result, the question is annulled. Changes to venue or attendance (e.g. behind closed doors) do not affect resolution.",
+    "unit": "",
+    "options": null,
+    "scaling": {
+      "range_min": null,
+      "range_max": null,
+      "nominal_min": null,
+      "nominal_max": null,
+      "zero_point": null,
+      "open_upper_bound": false,
+      "open_lower_bound": false,
+      "inbound_outcome_count": null,
+      "continuous_range": null
+    },
+    "open_lower_bound": false,
+    "open_upper_bound": false,
+    "inbound_outcome_count": null,
+    "open_time": "2026-11-02T01:18:46Z",
+    "scheduled_close_time": "2026-11-02T04:18:46Z",
+    "scheduled_resolve_time": "2026-11-13T22:00:00Z",
+    "resolution": null
+  }
+}
