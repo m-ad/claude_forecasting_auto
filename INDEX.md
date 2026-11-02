@@ -84,3 +84,4 @@ _Regenerated 2026-11-02 by `scripts/status.py --index`._
 | [How many drones will Ukraine's Air Force report Russia launched at Ukraine on the night of 12–13 November 2026?](questions/2026-11-02-mc46381-how-many-drones-ukraine-s-air-force/forecast.md) | numeric | — | 0 | — | 2026-11-13 | — | open |
 | [How many first-place votes will the winner of the 2026 National League MVP Award receive?](questions/2026-11-02-mc46382-how-many-first-place-votes-winner-2026/forecast.md) | discrete | — | 0 | — | 2026-11-13 | — | open |
 | [Which band will Rosstat's October 2026 annual CPI inflation figure fall into?](questions/2026-11-02-mc46383-which-band-rosstat-s-october-2026-annual/forecast.md) | multiple_choice | — | 0 | — | 2026-11-13 | — | open |
+| [What will India's All-India CPI inflation rate (year-on-year) for October 2026 be?](questions/2026-11-02-mc46385-india-s-all-india-cpi-inflation-rate/forecast.md) | numeric | — | 0 | — | 2026-11-12 | — | open |
