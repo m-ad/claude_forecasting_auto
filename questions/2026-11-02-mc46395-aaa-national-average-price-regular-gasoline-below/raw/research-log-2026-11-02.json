@@ -1,0 +1,23 @@
+{"searches": [
+ {"category":"resolution_source","query":"gasprices.aaa.com national average (fetch)","by":"main","status":"done","finding":"AAA regular $4.1694 on 11/2/26; $4.1732 11/1; $4.2858 week ago; $4.3961 month ago"},
+ {"category":"resolution_source","query":"AAA national average gas price regular November 2026","by":"scout-1","status":"done","finding":"same AAA page, 4.1694"},
+ {"category":"news","query":"gasprices.aaa.com/news weekly releases","by":"main","status":"done","finding":"Oct 29: $4.22, crude >$100 limiting declines; Oct 22 $4.27 winter blend"},
+ {"category":"news","query":"GasBuddy De Haan gas prices national average this week November 2026","by":"main","status":"done","finding":"nothing current"},
+ {"category":"news","query":"oil prices Brent WTI settle November 2 2026","by":"scout-2","status":"done","finding":"Brent ~108.9 (-4%) on Nov 2, WTI ~99.8; Doha talks hopes"},
+ {"category":"news","query":"RBOB gasoline futures this week Strait of Hormuz Iran","by":"scout-2","status":"done","finding":"RBOB CFD 2.9932 on Nov 2, -5.2% day, 9-week low"},
+ {"category":"markets","query":"Kalshi gas prices AAA national average November 2026","by":"scout-3","status":"done","finding":"no Nov 13 threshold market found"},
+ {"category":"markets","query":"Polymarket gas price national average November 2026","by":"scout-3","status":"done","finding":"none found"},
+ {"category":"markets","query":"manifold US average gas price 4.000 or less any day Nov 2026","by":"scout-3","status":"done","finding":"Manifold 43-52% for <=4.00 any day in Nov; discount"},
+ {"category":"base_rate","query":"rockets and feathers gasoline pass-through lag weeks","by":"scout-3","status":"done","finding":"declines pass through slower; FTC: rises 3-4x as fast; ~3 weeks full pass-through"},
+ {"category":"base_rate","query":"RBOB gasoline futures price November 2026","by":"main","status":"done","finding":"barchart pages undated; TE gives 2.99"},
+ {"category":"schedule","query":"EIA weekly retail gasoline price 10/26","by":"scout-4","status":"done","finding":"EIA 10/26 US avg 4.269; next release 11/3"},
+ {"category":"consensus","query":"EIA gasoline and diesel fuel update regular gasoline retail price week","by":"main","status":"done","finding":"nothing current"},
+ {"category":"disconfirmation","query":"Iran talks Qatar Trump escalation after midterms November 3 oil market risk","by":"scout-4","status":"done","finding":"both sides reportedly preparing for escalation after midterms; headline risk","tests":"that the ~1.1c/day decline continues for 11 days (RBOB drop passes through) versus a stall/rebound on crude"},
+ {"category":"disconfirmation","query":"RBOB gasoline futures rise refinery outage this week; Midwest gas spike Whiting October 2026","by":"scout-4","status":"done","finding":"no confirmed Oct 2026 outage found","tests":"that the ~1.1c/day decline continues for 11 days"},
+ {"category":"upcoming_events","query":"OPEC+ meeting November 2026 output decision","by":"scout-2","status":"done","finding":"targets held through Dec; no scheduled shock Nov 2-13 except midterms Nov 3, STEO Nov 10"},
+ {"category":"other","query":"gas prices midterms national average expected to fall below $4","by":"main","status":"done","finding":"only June 2026 coverage (earlier dip below $4)"},
+ {"category":"news","query":"oil prices settle Brent crude Friday October 30 2026","by":"main","status":"done","finding":"nothing for Oct 30; scout: Brent >113 Oct 30"}
+],
+ "adjustments": [
+  {"event":"RBOB wholesale gasoline fell ~5% to ~$2.99 on Nov 2 (9-week low), pump-to-RBOB spread ~$1.18 above normal ~$1.00","date":"2026-11-02","effect":"+10 pp vs pure-trend base","sources":[1,3,4]}
+ ]}
