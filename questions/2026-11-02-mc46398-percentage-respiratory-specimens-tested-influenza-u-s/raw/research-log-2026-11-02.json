@@ -1,0 +1,23 @@
+{"searches": [
+ {"category": "resolution_source", "query": "FETCH cdc.gov/fluview/surveillance/2026-week-43.html", "by": "main", "status": "done", "finding": "404 - Week 43 not yet published on 2026-11-02"},
+ {"category": "resolution_source", "query": "FETCH cdc.gov/fluview/surveillance/2026-week-42.html", "by": "main", "status": "done", "finding": "Wk42: 4,061/53,102 = 7.6%; cumulative since wk40 6.0%; ILI 2.4%; pct positive rose in HHS regions 2-9, stable 1 and 10"},
+ {"category": "resolution_source", "query": "FETCH cdc.gov/fluview/surveillance/2026-week-41.html", "by": "main", "status": "done", "finding": "Wk41: 2,918/51,490 = 5.7%"},
+ {"category": "resolution_source", "query": "CDC FluView influenza percent positive clinical labs week 43 October 31 2026", "by": "main", "status": "done", "finding": "no wk43 data indexed"},
+ {"category": "resolution_source", "query": "FETCH FluView weeks 39,40 pages", "by": "scout-1", "status": "done", "finding": "wk39 3.6% (1,435/39,317), wk40 5.0% (2,270/45,331)"},
+ {"category": "news", "query": "flu season early H1N1 surge hospitalizations highest since 2010 CDC October 2026", "by": "main", "status": "done", "finding": "Early season, highest mid-Oct hospitalization rate since 2010-11, H1N1 dominates; CDC expects moderate season peak Dec-Feb"},
+ {"category": "news", "query": "flu activity CDC weekly update 2026-27 season H1N1 West Coast Hawaii California positivity", "by": "scout-1", "status": "done", "finding": "West Coast states ~10% positivity (local TV, Oct 23), spreading east"},
+ {"category": "news", "query": "flu cases surge week ending October 31 2026 state health department influenza H1N1", "by": "scout-3", "status": "done", "finding": "nothing for wk43"},
+ {"category": "markets", "query": "Polymarket OR Kalshi OR Manifold flu season 2026-27 CDC influenza prediction market", "by": "main", "status": "done", "finding": "only hospitalization-rate Polymarket markets from 2025-26; none on percent positive"},
+ {"category": "markets", "query": "Polymarket OR Kalshi OR Manifold flu percent positive CDC week 44 2026", "by": "scout-3", "status": "done", "finding": "none found"},
+ {"category": "base_rate", "query": "FETCH CDC whoAllregt_cl45 2022-23 series", "by": "main", "status": "done", "finding": "2022: wk42 5.47, wk43 8.42, wk44 13.35, wk45 14.74 (ratio 1.5-1.6/wk early, then 1.1)"},
+ {"category": "base_rate", "query": "FETCH CDC whoAllregt_cl47 2023-24 series", "by": "main", "status": "done", "finding": "2023: wk40 1.09 -> wk47 6.20, rising every week"},
+ {"category": "base_rate", "query": "FETCH CDC whoAllregt_cl43 2025-26 series", "by": "main", "status": "done", "finding": "2025: wk40 0.51, wk43 0.81"},
+ {"category": "disconfirmation", "query": "influenza positivity plateau OR slowing OR accelerating week ending October 31 2026 flu activity states", "by": "main", "status": "done", "finding": "no sign of plateau; CDC says rising; FluSight predicts increase to Nov 14", "tests": "that growth continues at roughly +1 to +2.5 pp/week through Week 44 rather than plateauing (wk41 dip and stable regions 1/10 hint at saturation)"},
+ {"category": "disconfirmation", "query": "case for plateau wk44 <=9% vs explosive >=14%, regional saturation", "by": "scout-3", "status": "done", "finding": "plateau case: wk41 ratio 1.14, ILI below baseline, regions 1,10 flat; explosive case: 8/10 regions rising, G155E H1N1 variant", "tests": "that growth continues at roughly +1 to +2.5 pp/week through Week 44 rather than plateauing"},
+ {"category": "schedule", "query": "FluView publication schedule wk42 published Oct 30; wk44 due Nov 13", "by": "scout-3", "status": "done", "finding": "weekly Friday publication; wk44 expected Nov 13"},
+ {"category": "consensus", "query": "FluSight forecast hub current-week national admissions Nov 14", "by": "scout-3", "status": "done", "finding": "likely increase; 4,800-23,200 admissions range"},
+ {"category": "other", "query": "flu wastewater activity October 2026 CDC influenza A levels rising", "by": "scout-3", "status": "done", "finding": "nothing relevant for 2026"}
+],
+ "adjustments": [
+  {"event": "Week-over-week growth of recent weeks (avg ~1.2-1.3x/wk, wk42 1.33x) extrapolated two weeks from 7.6%", "date": "2026-10-30", "effect": "+3.7 pp on the median vs the last value (7.6 to ~11.3)", "sources": [1, 2]}
+]}
