@@ -1,0 +1,61 @@
+{
+  "post_id": 46394,
+  "url": "https://www.metaculus.com/questions/46394/",
+  "post_title": "How many patients will Mendoza's Ministry of Health have confirmed as infected with *Serratia marcescens* in the Hospital Privado outbreak as of November 13, 2026?",
+  "tournaments": [
+    "minibench"
+  ],
+  "options": null,
+  "question": {
+    "id": 46627,
+    "title": "How many patients will Mendoza's Ministry of Health have confirmed as infected with *Serratia marcescens* in the Hospital Privado outbreak as of November 13, 2026?",
+    "type": "discrete",
+    "status": "open",
+    "description": "*Serratia marcescens* is a Gram-negative, opportunistic, largely hospital-acquired pathogen that causes bloodstream, surgical-site, urinary, respiratory and central-nervous-system infections, and is a well-documented cause of nosocomial outbreaks traced to contaminated aqueous solutions (e.g. chlorhexidine, saline), instruments and hands ([Cleveland Clinic](https://my.clevelandclinic.org/health/diseases/serratia-marcescens), [PMC review](https://pmc.ncbi.nlm.nih.gov/articles/PMC3592283/)); it is frequently multi-drug resistant, which complicates treatment.\n\nTimeline of the Mendoza outbreak (status as of October 30, 2026):\n- The provincial epidemiological alert was activated on Wednesday, October 21, 2026, after patients who had been operated at the Hospital Privado de Mendoza (a private hospital in Mendoza city) presented with post-surgical meningitis detected at the Hospital Central. The Ministry of Health and Sports suspended surgical activity in the affected operating rooms preventively.\n- October 24: the ministry reported four confirmed *S. marcescens* infections among operated patients, two of whom had died, with roughly six further patients under observation ([La Nación](https://www.lanacion.com.ar/sociedad/al-menos-dos-muertos-por-el-brote-de-meningitis-detectado-en-un-hospital-de-mendoza-nid24102026), [Mendoza Today](https://mendozatoday.com.ar/sociedad/brote-de-meningitis-en-mendoza-confirman-cuatro-pacientes-infectados-dos-fallecidos-y-cirugias-suspendidas)).\n- October 26: the director of epidemiology, Andrea Falaschi, said eight patients were under follow-up but not all were confirmed, that expansion of the outbreak had been ruled out, and that the operating rooms remained closed while supplies, medicines and safety protocols were reviewed, with contamination in the operating room not excluded ([Memo / Mendoza Post](https://www.memo.com.ar/economia/meningitis-en-el-hospital-privado-salud-investiga-el-origen-del-brote-y-no-descarta-una-contaminacion-en-el-quirofano)).\n- October 28–29: the ministry gave a breakdown of 10 patients analysed — 5 confirmed by bacterial isolation (3 meningitis confirmed in cerebrospinal fluid, 1 blood isolate, 1 surgical-site infection following a September procedure), 3 suspected, 2 discarded; two patients were critical in intensive care and one in a general ward, and two further deaths were under investigation (i.e. 2 confirmed deaths plus 2 under study, a separate tally from the infection count). Media also reported two possible additional cases that would raise the total to seven infected if confirmed ([Infobae, Oct 29](https://www.infobae.com/sociedad/2026/10/29/brote-de-meningitis-en-mendoza-investigan-dos-fallecimientos-mas-en-el-hospital-privado/), [La Nación, Oct 28](https://www.lanacion.com.ar/sociedad/brote-de-meningitis-en-mendoza-crece-la-incertidumbre-sobre-el-origen-y-analizan-nuevos-casos-nid28102026/), [Global Risk Atlas summary](https://globalriskatlas.com/en/meningitis-outbreak-due-to-serratia-marcescens-in-mendoza-case-analysis-and-origin-of-infection/)).\n- The event has been picked up internationally by ProMED-mail, which posted items on October 25, 26 and 29, 2026 ([ProMED](https://www.promedmail.org/)).\n\nKey facts for forecasting: the province does not run a live case-count dashboard; the confirmed tally is announced in ministry statements and press conferences and reproduced by Argentine outlets, and it has already been revised upward (4 confirmed on October 24, 5 confirmed on October 28–29) as laboratory results arrived. As of October 30, 2026, the official figure stands at 5 laboratory-confirmed infections, with 3 patients classified as suspected and, separately, two possible new cases reported in the press; it is not established whether those two possible new cases are among the 3 already classed as suspected or additional to them, so the pending pool is somewhere between 3 and 5 patients. Three patients are in intensive or hospital care, and two deaths remain under study. Because surgical activity in the implicated operating rooms has been suspended since late October and post-surgical meningitis typically becomes apparent within days to a few weeks of surgery, the pool of patients still at risk from the implicated procedures is largely fixed; the open question is how many of the pending suspected/possible cases are ultimately laboratory-confirmed by mid-November, and whether the ministry issues further public updates at all.\n\n`{\"format\": \"llm_question\", \"info\": {\"sdk_version\": \"0.6.1\", \"rating\": {\"quality\": 3, \"ambiguity\": 3, \"resolvability\": 4, \"passes\": true}}}`",
+    "resolution_criteria": "This question resolves to the cumulative number of patients that the Mendoza provincial Ministry of Health and Sports ([Ministerio de Salud y Deportes de Mendoza](https://www.mendoza.gov.ar/salud/)) has reported as laboratory-confirmed infections with *Serratia marcescens* linked to the outbreak among patients operated at the Hospital Privado de Mendoza, in the most recent official statement, press release, press conference or epidemiological report it issues on or before November 13, 2026 (Mendoza local time, UTC−3). The count is in patients (not isolates) and includes every case the ministry itself classifies as confirmed by laboratory isolation, whatever the infection site (meningitis, bloodstream or surgical-site) and including confirmed patients who have since died; patients the ministry classifies as suspected, probable, \"under study\" or discarded are not counted, and the ministry's own classification governs. A press figure counts only when it is presented as the ministry's number of laboratory-confirmed infections — speculative totals that \"would\" be reached if pending cases are confirmed do not count. If no new official statement is issued ahead of the cutoff, the last official figure the ministry published on or before November 13, 2026 applies. Where officials give conflicting figures on the same day, the figure in the ministry's own written statement or post published at mendoza.gov.ar governs; absent one, the figure accompanied by the most detailed breakdown by infection site is used. As an example, a figure of seven confirmed patients resolves as \"7\".",
+    "fine_print": "Counts published by the ministry after November 13, 2026 (Mendoza local time) do not affect resolution. If the ministry's most recent update gives separate figures by infection type without stating a total, the laboratory-confirmed subgroups are summed. If the ministry reports only a combined case count without separating confirmed from suspected cases, the last figure at which it explicitly stated laboratory-confirmed cases governs. If the ministry's total spans more than one facility or a wider product-linked investigation, only the confirmed patients it links to the Hospital Privado de Mendoza are counted. If the ministry reclassifies a previously confirmed patient (for example, discarding a case), the most recent classification as of November 13, 2026 governs. Figures issued by the Hospital Privado de Mendoza itself, or by national or international bodies, are not used where they conflict with the provincial ministry's figures.",
+    "unit": "patients",
+    "options": null,
+    "scaling": {
+      "range_min": -0.5,
+      "range_max": 20.5,
+      "nominal_min": 0,
+      "nominal_max": 20,
+      "zero_point": null,
+      "open_upper_bound": true,
+      "open_lower_bound": false,
+      "inbound_outcome_count": 21,
+      "continuous_range": [
+        -0.5,
+        0.5,
+        1.5,
+        2.5,
+        3.5,
+        4.5,
+        5.5,
+        6.5,
+        7.5,
+        8.5,
+        9.5,
+        10.499999999999998,
+        11.5,
+        12.5,
+        13.5,
+        14.499999999999998,
+        15.5,
+        16.5,
+        17.5,
+        18.499999999999996,
+        19.5,
+        20.5
+      ]
+    },
+    "open_lower_bound": false,
+    "open_upper_bound": true,
+    "inbound_outcome_count": 21,
+    "open_time": "2026-11-02T09:33:54Z",
+    "scheduled_close_time": "2026-11-02T12:33:54Z",
+    "scheduled_resolve_time": "2026-11-14T00:00:00Z",
+    "resolution": null
+  }
+}
