@@ -1,0 +1,28 @@
+{"searches": [
+  {"category": "resolution_source", "query": "NL MVP finalists 2026 Crow-Armstrong", "by": "main", "status": "done", "finding": "No 2026 BBWAA finalist list yet; PCA won MLBPA Player of the Year; Kalshi ~89% PCA (late Aug)"},
+  {"category": "resolution_source", "query": "BBWAA 2026 award finalists announced MVP", "by": "main", "status": "done", "finding": "Finalists due Nov 2, MVP Nov 12; 2026 list not yet published"},
+  {"category": "news", "query": "Crow-Armstrong Players Choice Player of the Year 2026 Ohtani", "by": "main", "status": "done", "finding": "Oct 28 2026: PCA won Players Choice Player of the Year and NL Outstanding Player over finalist Ohtani"},
+  {"category": "news", "query": "Crow-Armstrong final 2026 season stats 45 home runs WAR stolen bases", "by": "main", "status": "done", "finding": "CBS Sep 29: .280/.372/.570, 45 HR, 41 SB, 9.8 bWAR, 10.6 fWAR, MLB lead in both WARs"},
+  {"category": "news", "query": "Ohtani 2026 final stats home runs OPS WAR season Dodgers", "by": "main", "status": "done", "finding": "No final line found; 14 starts, 1.79 ERA, last pitched Jul 3"},
+  {"category": "news", "query": "Ohtani 2026 season recap MVP streak ends Crow-Armstrong", "by": "main", "status": "done", "finding": "ESPN player survey Aug 19: PCA 15, Ohtani 4; Ohtani out of rotation since July with knee soreness"},
+  {"category": "news", "query": "Schwarber 2026 season 45 home runs MVP candidate Phillies", "by": "main", "status": "done", "finding": "Schwarber tied MLB HR lead at 45 but a minor MVP factor (5th in MLB.com final poll, 32 pts)"},
+  {"category": "news", "query": "Cubs 2026 postseason NLDS Crow-Armstrong", "by": "main", "status": "done", "finding": "Cubs made the playoffs and lost the Wild Card series to SD; ballots were cast before the postseason, so it does not matter"},
+  {"category": "markets", "query": "NL MVP 2026 odds Crow-Armstrong -2000 sportsbook October", "by": "main", "status": "done", "finding": "Latest found: FanDuel PCA -390 (late Aug); Kalshi 89% (Aug 31-Sep 9); no October odds and no unanimity prop"},
+  {"category": "markets", "query": "NL MVP 2026 odds Crow-Armstrong", "by": "scout-2", "status": "done", "finding": "VegasInsider Aug 5 about -120; SI Kalshi 89/11"},
+  {"category": "markets", "query": "Kalshi NL MVP 2026", "by": "scout-2", "status": "done", "finding": "Kalshi PCA 89%, Ohtani 11% (Aug 31); Polymarket ~98.9% PCA per an unverified snippet"},
+  {"category": "markets", "query": "unanimous NL MVP 2026 odds", "by": "scout-2", "status": "done", "finding": "No unanimous-MVP prop market found"},
+  {"category": "consensus", "query": "MLB.com MVP poll September 2026 Crow-Armstrong unanimous first-place votes", "by": "main", "status": "done", "finding": "Final MLB.com poll Sep 22: PCA 38/38 first-place, 190 pts; Ohtani 135; Misiorowski and De La Cruz 61; Schwarber 32"},
+  {"category": "consensus", "query": "2026 NL MVP predictions ballot Ohtani Schwarber Crow-Armstrong", "by": "scout-1", "status": "done", "finding": "Aug 25 poll: PCA 29/37 first-place, Ohtani 8; no writer ballots published"},
+  {"category": "resolution_source", "query": "NL MVP finalists 2026 BBWAA announced", "by": "scout-1", "status": "done", "finding": "Only the 2025 finalists turned up"},
+  {"category": "news", "query": "Crow-Armstrong 2026 WAR home runs final stats MVP", "by": "scout-1", "status": "done", "finding": "CBS calls PCA the 'overwhelming favorite'"},
+  {"category": "base_rate", "query": "unanimous MVP winners history BBWAA list (main: recent NL/AL first-place counts from the question text plus memory)", "by": "main", "status": "done", "finding": "Clear-favourite winners since 2014: Trout'14 30, Harper'15 30, Bryant'16 29, Betts'18 28, Yelich'18 29, Freeman'20 28, Judge'22 28, Acuna'23 30, Ohtani'21/23/24/25 30 -> ~50% unanimous, ~85% >=28"},
+  {"category": "disconfirmation", "query": "Ohtani 2026 NL MVP case", "by": "scout-4", "status": "done", "finding": "Only stale July pieces with Ohtani as the favourite; nothing from Sep-Nov arguing for Ohtani", "tests": "that PCA is a near-unanimous winner (median ~29) rather than splitting first-place votes with Ohtani's two-way case"},
+  {"category": "disconfirmation", "query": "Schwarber MVP 2026 case home runs", "by": "scout-4", "status": "done", "finding": "No 2026 article argues Schwarber for MVP", "tests": "that PCA is a near-unanimous winner"},
+  {"category": "disconfirmation", "query": "my NL MVP ballot 2026", "by": "scout-4", "status": "done", "finding": "No published BBWAA ballot reveals", "tests": "that PCA is a near-unanimous winner"},
+  {"category": "disconfirmation", "query": "\"MVP ballot\" 2026 BBWAA writer Crow-Armstrong Ohtani first place vote revealed", "by": "main", "status": "done", "finding": "No ballot reveals; only early MLB.com polls with Ohtani leading (May/June)", "tests": "that PCA is a near-unanimous winner"},
+  {"category": "schedule", "query": "BBWAA awards 2026 schedule MVP November 12", "by": "main", "status": "done", "finding": "MVP announcement Nov 12 per the question; finalists Nov 2"}
+],
+ "adjustments": [
+  {"event": "MLB.com final MVP poll: PCA unanimous 38/38 first-place votes", "date": "2026-09-22", "effect": "P(30) from ~0.40 to ~0.45; median from 29.0 to ~29.3", "sources": [2]},
+  {"event": "Ohtani's two-way case (1.79 ERA in 85.2 IP) keeps a rival with a narrative on the ballot", "date": "2026-09-22", "effect": "keeps 15% mass at <=27 rather than thinning the lower tail", "sources": [2, 4]}
+]}
