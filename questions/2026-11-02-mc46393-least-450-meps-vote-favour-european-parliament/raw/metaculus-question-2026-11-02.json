@@ -1,0 +1,38 @@
+{
+  "post_id": 46393,
+  "url": "https://www.metaculus.com/questions/46393/",
+  "post_title": "Will at least 450 MEPs vote in favour of the European Parliament's resolution on further EU sanctions against Russia on 12 November 2026?",
+  "tournaments": [
+    "minibench"
+  ],
+  "options": null,
+  "question": {
+    "id": 46626,
+    "title": "Will at least 450 MEPs vote in favour of the European Parliament's resolution on further EU sanctions against Russia on 12 November 2026?",
+    "type": "binary",
+    "status": "open",
+    "description": "On 22 October 2026 the European Parliament's Conference of Presidents approved the final draft agenda for the Brussels part-session of 11–12 November 2026 (https://www.europarl.europa.eu/sedcms/documents/PRIORITY_INFO/1820/SYN_PDOJ_November%20I_BRU_EN.pdf). Thursday 12 November features a 09:00–10:50 CET debate on \"Council and Commission statements – Further EU sanctions against Russia in response to the escalating attacks against Ukraine: cutting of the sources financing the Russian war\", followed by a voting session at 11:00–13:00 CET. The item is registered in Parliament's Legislative Observatory as procedure 2026/2949(RSP), i.e. an own-initiative resolution following a debate on Council and Commission statements; such resolutions are not legally binding but state Parliament's position.\n\nRecent comparable tallies give the baseline. On 8 October 2026 Parliament adopted a resolution rejecting the Russian State Duma elections with 482 votes in favour, 41 against and 39 abstentions, and other Russia/Ukraine-related motions that day drew 381, 443, 445, 492 and 541 votes in favour. On 22 October 2026 a resolution on Russian strikes on Black Sea shipping was adopted with 432 in favour, 52 against and 88 abstentions. When Parliament approved the EU's 20th sanctions package against Russia, the resolution passed with 446 votes in favour, 63 against and 52 abstentions. Total votes cast in these contests clustered around 560–575 out of a 720-seat chamber, so absences and abstentions move the \"in favour\" number substantially.\n\nOn substance, the EU adopted its 20th sanctions package against Russia in April 2026 and its 21st package in July 2026 (energy, financial services, crypto). On 12 October 2026 the Council agreed the largest-ever round of listings, targeting almost 1,600 individuals and entities in Russia's military-industrial complex and bringing total listings under the Ukraine territorial-integrity regime to close to 4,600, while indicating that a full 22nd package remains under development. The Commission has signalled that a 22nd package should include further measures against Russian revenue streams, including reported plans for new restrictions on Russian oil and action against the shadow fleet. Parliament's November debate takes place against escalating Russian attacks on Ukraine and on EU territory, including drone incursions and strikes on shipping in the western Black Sea, which Parliament condemned in its 22 October resolution.\n\nPolitically, the European People's Party, S&D, Renew Europe, the Greens/EFA and much of The Left generally support Russia sanctions resolutions, Patriots for Europe and ESN normally oppose them, and ECR splits. Whether the \"in favour\" tally clears 450 therefore depends on how many groups co-sign a joint motion, how the ECR and The Left split, and turnout on the day. Because the vote is scheduled for the last day of the part-session and no motion-for-resolution deadline had yet been published for this item in Parliament's deadlines document for the session, there is also scope for the item to be carried over to a later sitting.\n\n`{\"format\": \"llm_question\", \"info\": {\"sdk_version\": \"0.6.1\", \"rating\": {\"quality\": 3, \"ambiguity\": 3, \"resolvability\": 4, \"passes\": true}}}`",
+    "resolution_criteria": "This question resolves Yes if at least 450 Members of the European Parliament (MEPs) vote in favour of Parliament's resolution on further EU sanctions against Russia at the plenary vote on 12 November 2026. The relevant figure is the number of votes in favour recorded for the final vote on the text put to Parliament as its resolution on \"Further EU sanctions against Russia in response to the escalating attacks against Ukraine: cutting of the sources financing the Russian war\" (procedure 2026/2949(RSP)) at the sitting of 12 November 2026; where several motions for resolutions (B10 documents) are tabled, this means the vote on the joint motion, or whichever motion is voted as the resolution as a whole. The figure is the official tally as first published in Parliament's \"Minutes – Results of votes\" for that sitting, linked from https://www.europarl.europa.eu/plenary/en/votes.html and from the adopted-text listing at https://www.europarl.europa.eu/plenary/en/texts-adopted.html, and votes on individual amendments do not count. If the resolution is rejected, or if no vote on such a resolution is held on 12 November 2026 (for example because no resolution is tabled or the vote is postponed to a later sitting), the question resolves No.",
+    "fine_print": "A vote taken on any date other than 12 November 2026 does not count, including a vote on the other day of the same part-session (11 November 2026). Later notices correcting how individual MEPs voted do not change the tally used for resolution.",
+    "unit": "",
+    "options": null,
+    "scaling": {
+      "range_min": null,
+      "range_max": null,
+      "nominal_min": null,
+      "nominal_max": null,
+      "zero_point": null,
+      "open_upper_bound": false,
+      "open_lower_bound": false,
+      "inbound_outcome_count": null,
+      "continuous_range": null
+    },
+    "open_lower_bound": false,
+    "open_upper_bound": false,
+    "inbound_outcome_count": null,
+    "open_time": "2026-11-02T09:19:07Z",
+    "scheduled_close_time": "2026-11-02T12:19:07Z",
+    "scheduled_resolve_time": "2026-11-13T12:00:00Z",
+    "resolution": null
+  }
+}
