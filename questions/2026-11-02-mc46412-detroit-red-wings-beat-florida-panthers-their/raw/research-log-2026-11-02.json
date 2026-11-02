@@ -1,0 +1,24 @@
+{"searches": [
+ {"category": "resolution_source", "query": "NHL schedule Red Wings Panthers November 12 2026", "by": "main", "status": "done", "finding": "Game listed Thu Nov 12 2026 Amerant Bank Arena (tickpick, Kalshi match page); theScore page showed Nov 13 UTC. Resolves from nhl.com scores."},
+ {"category": "resolution_source", "query": "fetch of cached Metaculus question JSON", "by": "scout-1", "status": "done", "finding": "Criteria: Detroit wins any way (reg/OT/SO); postponed => annulled."},
+ {"category": "resolution_source", "query": "statscrew NHL standings 2026-27 fetch", "by": "scout-1", "status": "done", "finding": "Undated: FLA 8-4-2 (18 pts, GD +5), DET 6-5-3 (15 pts, GD -2)."},
+ {"category": "news", "query": "Red Wings Panthers Nov 2 2026 preview", "by": "scout-2", "status": "done", "finding": "No preview/result indexed for Nov 2 game."},
+ {"category": "news", "query": "Dylan Larkin suspension Red Wings", "by": "scout-2", "status": "done", "finding": "Suspended without pay Oct 29; out indefinitely, trade needs his approval."},
+ {"category": "news", "query": "Florida Panthers injury update Barkov Marchand Bobrovsky", "by": "scout-2", "status": "done", "finding": "Barkov out to ~late Nov, Marchand ~mid Nov (Oct 29 Maurice update); Markstrom 10-14 days from late Oct."},
+ {"category": "news", "query": "Red Wings goalie Gibson Postava Tarasov injury", "by": "scout-2", "status": "done", "finding": "Gibson left Oct 22 game with upper-body injury; Postava called up; Tarasov status unclear."},
+ {"category": "news", "query": "Panthers lineup injuries Barkov Marchand Markstrom November 2026", "by": "main", "status": "done", "finding": "Barkov knee Oct 1, 6-8 weeks; Marchand leg Oct 6, ~6 weeks; Markstrom practice injury."},
+ {"category": "news", "query": "Florida Panthers 2026-27 Bobrovsky Schmid goalie October 2026", "by": "main", "status": "done", "finding": "Schmid is backup; goalie situation uncertain; nothing decisive."},
+ {"category": "markets", "query": "Red Wings Panthers odds November 12 2026", "by": "main", "status": "done", "finding": "No odds posted for Nov 12; Mar 2026 lines DET -145, Apr 2026 Kalshi DET 55c (stale)."},
+ {"category": "markets", "query": "Kalshi OR Polymarket NHL Panthers Red Wings game winner", "by": "scout-1", "status": "done", "finding": "Kalshi match page exists, no prices retrievable (429)."},
+ {"category": "markets", "query": "MoneyPuck 2026-27 team ratings", "by": "scout-1", "status": "done", "finding": "Page empty; none found."},
+ {"category": "consensus", "query": "NHL power rankings Nov 2026 Panthers Red Wings", "by": "main", "status": "done", "finding": "THW wk2 (Oct 12): FLA #17, DET #26; wk3: DET #20."},
+ {"category": "base_rate", "query": "NHL home ice win percentage 2025-26", "by": "main", "status": "done", "finding": "No league-wide figure found; historical home-team win ~54% (memory, incl OT/SO)."},
+ {"category": "base_rate", "query": "NHL second game in four nights back-to-back win rate", "by": "main", "status": "done", "finding": "B2B second night 43.7% 2025-26 vs rested; both teams symmetric here so no net effect."},
+ {"category": "disconfirmation", "query": "Panthers outscored 9-1 Ottawa Pittsburgh Florida struggles October 2026", "by": "main", "status": "done", "finding": "Florida described as slumping/injured but not a collapse; nothing against modest FLA edge.", "tests": "that Florida, even depleted, is still a modest home favourite (~56-57%) rather than a coin flip or Detroit favourite"},
+ {"category": "disconfirmation", "query": "Detroit Red Wings Florida Panthers Nov 2 2026 game result", "by": "main", "status": "done", "finding": "Result not indexed.", "tests": "that Florida, even depleted, is still a modest home favourite (~56-57%) rather than a coin flip or Detroit favourite"},
+ {"category": "schedule", "query": "Red Wings at Panthers Nov 12 time Amerant Bank Arena", "by": "main", "status": "done", "finding": "7:30pm ET Nov 12 per question; tickpick says 7pm."},
+ {"category": "upcoming_events", "query": "Florida Panthers Red Wings Nov 2 starting goalie lineup", "by": "main", "status": "done", "finding": "Nothing indexed."}
+],
+ "adjustments": [
+  {"event": "Florida stronger by standings/power rank (FLA 8-4-2 GD+5 vs DET 6-5-3 GD-2) plus home ice, offset by Barkov/Marchand absence and Detroit road/Larkin turmoil", "date": "2026-11-02", "effect": "-5 pp from 50% to ~45% for Detroit (home ice ~-4pp, small FLA form edge offset by injuries)", "sources": [1, 2, 3]}
+ ]}
