@@ -1,0 +1,25 @@
+{"searches": [
+{"category":"resolution_source","query":"Alaska Division of Elections 26GENR results U.S. Senator (page lists zero votes pre-election per question text)","by":"main","status":"done","finding":"Election Night Reporting page pre-election at zero; cumulative first-choice totals; first results ~8:45pm Nov 3"},
+{"category":"resolution_source","query":"Alaska ballot statistics absentee early vote received Oct 2026","by":"scout-1","status":"done","finding":"58,168 early/absentee ballots as of Oct 27; R 26.7% / D 18.4% of in-person early vs 23.5%/11.6% registration"},
+{"category":"resolution_source","query":"Alaska Public early voting on pace for record (WebFetch)","by":"main","status":"done","finding":"604,771 registered; mail ballots due Nov 13; first-choice only through Nov 18"},
+{"category":"news","query":"Alaska Senate race Peltola Sullivan poll prediction market odds","by":"main","status":"done","finding":"Peltola +2 to +6 in most Oct polls; markets ~70-74% Peltola"},
+{"category":"news","query":"Alaska Senate poll Sullivan Peltola October 2026","by":"scout-2","status":"done","finding":"270toWin table: Siena 48-46, ASR 48-46, PPP 48-47, Trafalgar 46-47 Sullivan, co/efficient 46-48 Sullivan"},
+{"category":"news","query":"Sullivan leads Peltola poll Alaska Republican internal OR Cygnal OR Trafalgar October 2026","by":"main","status":"done","finding":"No Oct poll with Sullivan ahead except 11/02 InsiderAdvantage 2-way tie (unverified); PollCheck avg Peltola 47.2 Sullivan 44.1 (Oct 27)"},
+{"category":"news","query":"Daniel Sullivan Jr. Petersburg Senate ballot votes confusion poll","by":"main","status":"done","finding":"Sullivan Jr polls 0-5%; primary 2.5%; cannot lead"},
+{"category":"news","query":"CNBC DOJ lawsuit Alaska certification (WebFetch)","by":"main","status":"done","finding":"Lawsuit concerns certification only; no effect on first-choice count"},
+{"category":"markets","query":"Polymarket Alaska Senate race Peltola odds November 2026","by":"main","status":"done","finding":"Peltola ~70-74% on Polymarket/Kalshi, undated snapshots; Polymarket vol >$294k-$521k"},
+{"category":"markets","query":"Polymarket/Kalshi Alaska Senate winner","by":"scout-3","status":"done","finding":"Kalshi 70-74% Peltola (Sept 24 post 74%); Polymarket ~67-73%"},
+{"category":"base_rate","query":"Alaska 2024 election night Peltola Begich lead late ballots count absentee shift","by":"main","status":"done","finding":"Begich lead 10,133 -> 9,550 (Nov 12) -> 9,434 (Nov 14); late ballots shift ~1-2 pts toward D"},
+{"category":"base_rate","query":"Alaska 2022 general election first-choice election night vs final","by":"main","status":"done","finding":"Peltola 45% election night -> 47.3 (Nov 10) -> 48.6 (Nov 23); Murkowski overtook Tshibaka by Nov 18"},
+{"category":"base_rate","query":"Alaska 2020 Senate election night vs final margin","by":"main","status":"done","finding":"Sullivan R+30 election night -> R+20 Nov 10; late ballots shift toward D but leader unchanged; final R+12.7"},
+{"category":"base_rate","query":"Alaska primary August 2026 late ballots","by":"scout-4","status":"done","finding":"Peltola margin 5.3 on election night -> 8.1 final (49.5 vs 41.4)"},
+{"category":"consensus","query":"Cook Political Report / Sabato Alaska Senate","by":"scout-3","status":"done","finding":"Cook Toss-up; Sabato Leans D"},
+{"category":"disconfirmation","query":"Alaska polls underestimate Republicans 2024 Peltola Begich poll miss; 2020 Sullivan polls vs result","by":"scout-5","status":"done","finding":"2020 Sullivan outperformed polls by ~8 pts; 2024 polls roughly right; Alaska polling thin and error-prone","tests":"the assumption that the +2 poll lead and D-leaning late ballots translate to Peltola leading, i.e. that Alaska polls are not biased against Republicans"},
+{"category":"disconfirmation","query":"Alaska Beacon / Alaska Public early voting Republicans share and late ballots expected","by":"main","status":"done","finding":"Republicans lead early vote share but D overrepresented vs registration; no analyst claims late ballots will favour R"},
+{"category":"schedule","query":"Alaska 2026 general counting schedule Nov 13 mail receipt deadline","by":"scout-1","status":"done","finding":"Domestic mail ballots must arrive by Nov 13; Nov 13 snapshot includes most but not all late ballots; RCV Nov 18"},
+{"category":"other","query":"Newsweek Peltola pulling ahead final stretch","by":"main","status":"done","finding":"Polls Peltola +2 to +7; Ivan Moore says opinion stable"}
+],
+"adjustments": [
+{"event":"Alaska late-counted absentee/rural ballots historically shift first-choice margin 1-3 pts toward the Democrat (2020, 2022, 2024, Aug 2026 primary)","date":"2026-08-28","effect":"+3 pp on Peltola vs poll-only lead probability","sources":[1,3,4]},
+{"event":"Historical Alaska polling error toward Democrats (2020 Sullivan +8 beat polls) and thin polling","date":"2020-11-03","effect":"-4 pp on Peltola","sources":[5]}
+]}
