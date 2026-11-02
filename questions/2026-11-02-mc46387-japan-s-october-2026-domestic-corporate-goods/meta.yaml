@@ -1,0 +1,89 @@
+slug: 2026-11-02-mc46387-japan-s-october-2026-domestic-corporate-goods
+title: What will Japan's October 2026 domestic corporate goods price index (CGPI) year-on-year change
+  be?
+source: metaculus
+url: https://www.metaculus.com/questions/46387/
+post_id: 46387
+question_id: 46620
+type: discrete
+unit: '%'
+tags: []
+dates:
+  created: '2026-11-02'
+  opened: '2026-11-02'
+  closes: '2026-11-02'
+  resolves: '2026-11-12'
+status: open
+tournament:
+  slug: minibench
+  mode: one_shot
+  registered: '2026-11-02'
+  opened: '2026-11-02T06:53:30Z'
+  closes: '2026-11-02T09:53:30Z'
+  submitted: '2026-11-02T07:23:57+00:00'
+  submitted_forecast:
+    continuous_cdf:
+    - 0.001
+    - 0.0022764698901933476
+    - 0.003591471695711269
+    - 0.004970001889625633
+    - 0.00645327268878251
+    - 0.00810923155170872
+    - 0.010049904898567462
+    - 0.012459993071162155
+    - 0.015644015451729717
+    - 0.02010403962310465
+    - 0.026667835088435038
+    - 0.036700163034798276
+    - 0.05245113426075445
+    - 0.07534012170283072
+    - 0.09891846630917232
+    - 0.13118570072887029
+    - 0.17575056040974685
+    - 0.2297668700730134
+    - 0.29262362689152577
+    - 0.3723402429715552
+    - 0.4586442332817348
+    - 0.5416545364768397
+    - 0.6279585267870191
+    - 0.7076751428670486
+    - 0.7708219791527753
+    - 0.8261146384717833
+    - 0.8705634663657738
+    - 0.899469570561458
+    - 0.9190356226339464
+    - 0.9373563569442797
+    - 0.9542098517921948
+    - 0.9659083318614085
+    - 0.9741513021868492
+    - 0.980077975061767
+    - 0.9844519873230181
+    - 0.9877852200502386
+    - 0.9904207973922946
+    - 0.9925887223444501
+    - 0.9944431705250789
+    - 0.9960874889417868
+    - 0.9975909531654699
+    - 0.999
+  comment_posted: true
+  official_score: null
+  missed_window: false
+current:
+  version: 1
+  date: '2026-11-02'
+  median: 6.5
+  iqr:
+  - 6.2
+  - 6.8
+  community:
+    cp: null
+    pro: null
+    gold: null
+    n_forecasters: null
+    as_of: '2026-11-02'
+next_review: null
+tripwires: []
+resolution:
+  outcome: null
+  date: null
+  source: null

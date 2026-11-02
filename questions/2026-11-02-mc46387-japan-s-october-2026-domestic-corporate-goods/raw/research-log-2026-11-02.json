@@ -1,0 +1,31 @@
+{"searches": [
+  {"category": "resolution_source", "query": "pdf_text.py BOJ cgpi2609.pdf (Sept 2026 preliminary release)", "by": "main", "status": "done", "finding": "Sep 2026 135.7, -0.3% m/m, +6.8% y/y; current-vintage Oct 2025 m/m +0.5% (summer-adj +0.6), Sep 2025 +0.5%; agri -8.8% m/m, petroleum -2.2% m/m in Sep 2026"},
+  {"category": "base_rate", "query": "Japan corporate goods price index October 2025 month-on-month electricity subsidy", "by": "main", "status": "done", "finding": "Oct 2025 first print +0.4% m/m, +2.7% y/y (consensus +0.3/+2.5)"},
+  {"category": "consensus", "query": "企業物価指数 10月 予想 2026年11月12日 前年比", "by": "main", "status": "done", "finding": "no Oct 2026 consensus found"},
+  {"category": "news", "query": "Japan wholesale inflation September 2026 6.8% Reuters", "by": "main", "status": "done", "finding": "Reuters 2026-10-13: 6.8% vs 7.6% forecast; rice drop; economist expects re-acceleration but no sharp pickup"},
+  {"category": "news", "query": "fetch thestar.com.my Reuters 2026-10-13 wholesale inflation article", "by": "main", "status": "done", "finding": "median forecast was 7.6% for Sep; Koike: wholesale inflation likely to re-accelerate"},
+  {"category": "upcoming_events", "query": "Tokyo CPI October 2026 energy electricity gasoline", "by": "main", "status": "done", "finding": "Tokyo Oct 2026 energy y/y +2.2% from -1.9%; electricity +1.7% from -2.6%; city gas +4.9% from -0.5%"},
+  {"category": "other", "query": "電気・ガス料金 補助 2026年 夏 7月 8月 9月 使用分", "by": "main", "status": "done", "finding": "Jul-Sep 2026 usage subsidy 3.5/4.5/3.5 yen/kWh low-voltage, 1.8/2.3/1.8 high-voltage; not continued for October"},
+  {"category": "resolution_source", "query": "Japan corporate goods price index September 2026 BOJ year-on-year", "by": "scout-1", "status": "done", "finding": "BOJ index page: Sep 2026 latest, next is Oct"},
+  {"category": "markets", "query": "tradingeconomics japan producer-prices-change", "by": "scout-1", "status": "done", "finding": "no consensus for Oct 2026; TE model 7.8% (mechanical)"},
+  {"category": "base_rate", "query": "企業物価指数 2025年10月 前年比 前月比 日銀 国内企業物価", "by": "scout-1", "status": "done", "finding": "Oct 2025 prelim 127.5, +0.4% m/m, +2.7% y/y"},
+  {"category": "consensus", "query": "Japan wholesale prices September 2026 Reuters corporate goods price index yen oil outlook October", "by": "scout-1", "status": "done", "finding": "no forecast for October"},
+  {"category": "news", "query": "USD/JPY October 2026 monthly average yen", "by": "scout-2", "status": "done", "finding": "USD/JPY ~157.9 Oct avg, roughly flat vs late Sep"},
+  {"category": "news", "query": "Brent crude oil price end of October 2026 monthly change", "by": "scout-2", "status": "done", "finding": "FRED Brent Sep avg ~114, Oct 1-27 avg ~125 (+9%), very volatile"},
+  {"category": "news", "query": "LME copper price October 2026 monthly", "by": "scout-2", "status": "done", "finding": "copper ~flat (14.4-14.6k)"},
+  {"category": "news", "query": "Japan October 2026 electricity gas gasoline wholesale prices subsidy", "by": "scout-2", "status": "done", "finding": "subsidy ended for Oct usage; record household bills; subsidy returns Dec-Feb; gasoline subsidy ~43 yen/L"},
+  {"category": "other", "query": "電気・ガス料金支援 2026年 7月 8月 9月 使用分 支援", "by": "scout-3", "status": "done", "finding": "summer 2026 subsidy confirmed, larger than summer 2025 (2.0/2.4/2.0 low-voltage)"},
+  {"category": "other", "query": "ガソリン暫定税率 廃止 2025年12月31日 補助金 2026", "by": "scout-3", "status": "done", "finding": "provisional gasoline tax abolished 2025-12-31; no Oct 2026 change found"},
+  {"category": "base_rate", "query": "企業物価指数 2025年10月 電気・ガス料金補助 終了 前月比 日銀 電力・都市ガス・水道", "by": "scout-3", "status": "done", "finding": "summer 2025 subsidy ended with Sep usage; utilities raised Oct 2025 rates"},
+  {"category": "disconfirmation", "query": "Japan wholesale prices October 2025 month-on-month 0.4% electricity subsidies expired BOJ official", "by": "scout-3", "status": "done", "finding": "not confirmed that Oct 2025 jump was subsidy-driven", "tests": "Oct 2025 base m/m (+0.5%) makes y/y fall absent a matching Oct 2026 jump"},
+  {"category": "disconfirmation", "query": "Tokyo CPI October 2026 energy electricity gas / Japan yen dollar crude oil price October 2026", "by": "scout-4", "status": "done", "finding": "Tokyo energy turned positive y/y; oil elevated; reaching >7.2% needs ~+0.8% m/m, <5.4% needs ~-1.0% m/m", "tests": "Oct 2025 base m/m (+0.5%) makes y/y fall absent a matching Oct 2026 jump"},
+  {"category": "markets", "query": "Brent crude end of October 2026 oil price monthly change (Kalshi)", "by": "scout-4", "status": "done", "finding": "Kalshi Brent monthly market snippet only; no CGPI market exists"},
+  {"category": "markets", "query": "Kalshi OR Polymarket Japan CGPI PPI October 2026", "by": "main", "status": "skipped", "finding": "covered by scouts: no market"},
+  {"category": "schedule", "query": "BOJ CGPI release calendar November 12 2026", "by": "main", "status": "skipped", "finding": "TE lists release 2026-11-11 23:50 GMT = Nov 12 JST"}
+],
+ "adjustments": [
+  {"event": "Oct 2025 base month rose +0.5% m/m (current vintage)", "date": "2025-11-13", "effect": "-0.5 pp from 6.8% (flat-m/m y/y ~6.27%)", "sources": [1]},
+  {"event": "Summer 2026 electricity/gas subsidy (larger than 2025's) ends for October usage", "date": "2026-06-12", "effect": "+0.2 pp on the median (Oct 2026 m/m utilities push)", "sources": [3, 4]},
+  {"event": "Brent ~9% higher in Oct than Sep avg, yen flat", "date": "2026-10-27", "effect": "+0.1 pp on the median", "sources": [5, 6]},
+  {"event": "New-crop rice price slump continuing (agri -8.8% m/m in Sep)", "date": "2026-10-13", "effect": "-0.1 pp on the median", "sources": [1, 2]}
+]}
