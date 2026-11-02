@@ -1,0 +1,30 @@
+{"searches": [
+  {"category": "resolution_source", "query": "WebFetch https://www.defense.gov/About/Leadership/", "by": "main", "status": "done", "finding": "HTTP 403; could not read listing. Fallback: credible sources; no report of departure as of 2026-11-02."},
+  {"category": "news", "query": "Hegseth news November 2026", "by": "main", "status": "done", "finding": "Nothing from Nov 2026; only old 2024-25 coverage."},
+  {"category": "news", "query": "Hegseth resign OR fired Secretary of War", "by": "main", "status": "done", "finding": "No Hegseth departure; Driscoll (Army) and Phelan (Navy) resigned in 2026; Gen. George fired Apr 2026."},
+  {"category": "markets", "query": "Polymarket Hegseth out as Secretary of Defense", "by": "main", "status": "done", "finding": "Dec 31 market snapshots 30-42%; April 30 market resolved No."},
+  {"category": "markets", "query": "WebFetch polymarket.com/event/pete-hegseth-out-as-secretary-of-defense-by-december-31", "by": "main", "status": "done", "finding": "31% Yes (announcement counts), $965k vol, updated 2026-11-01 12:00 UTC; Nov 30 bracket listed as past."},
+  {"category": "news", "query": "Hegseth midterms Pentagon future Massie impeachment lame duck", "by": "main", "status": "done", "finding": "Massie to reintroduce articles 'if he's still SecDef'; Senate Dems eye ouster as price for lame-duck cooperation."},
+  {"category": "news", "query": "Senate Democrats Hegseth ouster price lame duck NDAA cooperation", "by": "main", "status": "done", "finding": "Oct 19 aggregator: Senate Dems weighing ouster push post-election; Tillis wants him fired by year-end."},
+  {"category": "markets", "query": "Kalshi Hegseth out November 2026", "by": "main", "status": "done", "finding": "Kalshi Sep 23: 24% announced before Dec 1, 33% before 2027; undated snapshot before Nov 1 17%."},
+  {"category": "news", "query": "Trump Hegseth \"best at his job\" October 2026", "by": "main", "status": "done", "finding": "Found Aug 2026 'one of my best', Aug 31 'fantastic job'; Oct 29 quote only from question text."},
+  {"category": "markets", "query": "Kalshi Hegseth leave Defense Secretary 2026", "by": "scout-1", "status": "done", "finding": "Kalshi before-2027 ~34% undated; range 26-61% over 90 days."},
+  {"category": "markets", "query": "Manifold Hegseth fired 2026", "by": "scout-1", "status": "done", "finding": "Manifold 'still Sec of War end July' resolved YES; no live price."},
+  {"category": "base_rate", "query": "cabinet secretaries resigned after midterm elections history post-midterm cabinet turnover", "by": "scout-2", "status": "done", "finding": "No systematic table; post-midterm exits common but spread over weeks."},
+  {"category": "base_rate", "query": "Rumsfeld resignation 2006 midterm announced November 8 left office December 18 Gates sworn in", "by": "scout-2", "status": "done", "finding": "Rumsfeld announced Nov 8 2006, stayed in office until Dec 18 (40 days)."},
+  {"category": "base_rate", "query": "Sessions fired day after midterms November 7 2018 Whitaker acting attorney general", "by": "scout-2", "status": "done", "finding": "Sessions out same day Nov 7 2018; Whitaker acting immediately."},
+  {"category": "base_rate", "query": "Trump first term cabinet turnover rate Brookings", "by": "scout-2", "status": "done", "finding": "Record first-term cabinet turnover; second-term A-team yr-1 turnover 29%."},
+  {"category": "news", "query": "Massie Hegseth impeachment November vote", "by": "scout-3", "status": "done", "finding": "Sep 15 articles; Johnson said they will be tabled on return; no vote yet."},
+  {"category": "news", "query": "Hegseth Blackburn Senate seat appointment Puck", "by": "scout-3", "status": "done", "finding": "Oct 25 Puck: Hegseth 'absolutely interested'; appointment would come ~January when Blackburn sworn in."},
+  {"category": "upcoming_events", "query": "Trump Hegseth best October 29", "by": "scout-3", "status": "done", "finding": "Oct 29 quote not found independently; Blanche Sep 15 'phenomenal job'."},
+  {"category": "disconfirmation", "query": "Hegseth resign OR fired after midterms", "by": "scout-3", "status": "done", "finding": "Max Rose (D) predicts firing day after election; commentary only.", "tests": "status quo: Hegseth still in office at 23:00 UTC Nov 12 (Trump backing, 10-day window)"},
+  {"category": "disconfirmation", "query": "Trump considering replacing Hegseth after midterms", "by": "scout-4", "status": "done", "finding": "No credible report of a Trump decision or named successor; Pentagon calls it 'beltway gossip'.", "tests": "status quo: Hegseth still in office at 23:00 UTC Nov 12 (Trump backing, 10-day window)"},
+  {"category": "disconfirmation", "query": "Republican senators want Hegseth removed", "by": "scout-4", "status": "done", "finding": "Puck: some GOP senators hope Trump removes him before impeachment; Tillis urges firing.", "tests": "status quo: Hegseth still in office at 23:00 UTC Nov 12 (Trump backing, 10-day window)"},
+  {"category": "consensus", "query": "Hegseth successor Pentagon Secretary of War November 2026", "by": "scout-4", "status": "done", "finding": "No successor named; Driscoll (once groomed) resigned Aug 2026."},
+  {"category": "consensus", "query": "WebFetch gjopen.com question 4989 Hegseth cease before 1 Dec 2026", "by": "scout-4", "status": "done", "finding": "GJOpen 31.1% cease before Dec 1, down 20.5 pts in a month (snapshot undated)."},
+  {"category": "news", "query": "Hegseth resign", "by": "scout-4", "status": "done", "finding": "No resignation reported."}
+],
+ "adjustments": [
+  {"event": "Post-midterm decision point (Nov 3 election) with GOP-senator and Democratic pressure, priced by markets at ~24-31% announced exit by Dec 1-Dec 31", "date": "2026-11-01", "effect": "-6 pp vs a ~98% 10-day survival base rate for a sitting secretary", "sources": [1, 2, 3]},
+  {"event": "Announcement-vs-departure gap: announced exits (Rumsfeld 2006) can leave the holder in office for weeks; criteria say a later-date announcement does not count", "date": "2006-11-08", "effect": "+2 pp", "sources": [5, 6]}
+]}

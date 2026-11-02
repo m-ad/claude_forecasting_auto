@@ -1,0 +1,46 @@
+slug: 2026-11-02-mc46377-pete-hegseth-still-serving-as-u-s
+title: Will Pete Hegseth still be serving as U.S. Secretary of Defense on November 12, 2026?
+source: metaculus
+url: https://www.metaculus.com/questions/46377/
+post_id: 46377
+question_id: 46610
+type: binary
+unit: null
+tags: []
+dates:
+  created: '2026-11-02'
+  opened: '2026-11-02'
+  closes: '2026-11-02'
+  resolves: '2026-11-12'
+status: open
+tournament:
+  slug: minibench
+  mode: one_shot
+  registered: '2026-11-02'
+  opened: '2026-11-02T03:52:22Z'
+  closes: '2026-11-02T06:52:22Z'
+  submitted: '2026-11-02T04:12:28+00:00'
+  submitted_forecast:
+    probability_yes: 0.92
+  comment_posted: true
+  official_score: null
+  missed_window: false
+current:
+  version: 1
+  date: '2026-11-02'
+  median: 0.92
+  iqr:
+  - 0.88
+  - 0.95
+  community:
+    cp: null
+    pro: null
+    gold: null
+    n_forecasters: null
+    as_of: '2026-11-02'
+next_review: null
+tripwires: []
+resolution:
+  outcome: null
+  date: null
+  source: null

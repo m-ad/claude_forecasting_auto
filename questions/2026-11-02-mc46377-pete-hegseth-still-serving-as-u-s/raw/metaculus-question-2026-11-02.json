@@ -1,0 +1,38 @@
+{
+  "post_id": 46377,
+  "url": "https://www.metaculus.com/questions/46377/",
+  "post_title": "Will Pete Hegseth still be serving as U.S. Secretary of Defense on November 12, 2026?",
+  "tournaments": [
+    "minibench"
+  ],
+  "options": null,
+  "question": {
+    "id": 46610,
+    "title": "Will Pete Hegseth still be serving as U.S. Secretary of Defense on November 12, 2026?",
+    "type": "binary",
+    "status": "open",
+    "description": "Pete Hegseth has served as Secretary of Defense since January 2025. The administration now brands the department and the office \"Department of War\" and \"Secretary of War,\" and the Pentagon's leadership page lists Hegseth under that title (https://www.defense.gov/About/Leadership/).\n\nHegseth has been under intense pressure through 2026 over the U.S. war with Iran — including high gasoline prices that Democrats have made a central campaign issue — and over allegations of extrajudicial killings. On September 15, 2026, Rep. Thomas Massie (R-Ky.) introduced eight articles of impeachment against Hegseth as a privileged resolution, which under House rules forces floor action within two legislative days. Speaker Mike Johnson canceled the House's Thursday session that week, sending members home early for the pre-election recess and pushing the matter past the election; the September resolution lapsed without a vote.\n\nMassie — who lost his primary to Trump-endorsed Ed Gallrein and is not returning — said on October 26 that Hegseth impeachment is a \"week one\" issue when the House returns on November 9, that he would give notice and force a vote \"soon after we return — if he's still in the job,\" and that he gives the resolution \"better than a 50 percent chance of passing.\" Democrats are split on tactics: Minority Leader Hakeem Jeffries has vowed to run Hegseth \"out of town\" if Democrats take the House but has stopped short of endorsing impeachment, while several Senate Democrats on the Armed Services Committee have called on Trump to fire him. Trump publicly defended Hegseth on October 29, calling him \"the best at his job in many, many years.\"\n\nNear-term removal would have to run through resignation or firing rather than conviction: a Senate impeachment trial could not plausibly conclude before mid-November. Reporting (Puck, October 25) says Hegseth has explored an exit through the Senate, hoping that Tennessee Sen. Marsha Blackburn — favored in her race for governor — would appoint him to her Senate seat, and that some Republican senators hope Trump removes Hegseth before an impeachment fight reaches the Senate. Pressure is expected to shift with the November 3 midterm results, which also determine whether Democrats take the House majority in the next Congress.\n\nAs of late October 2026 the House stands at 218 Republicans, 214 Democrats and 1 Independent, with 2 vacancies, and both chambers return November 9 for a lame-duck session of roughly two weeks before Thanksgiving. This question captures whether Hegseth survives that opening stretch of the lame duck, immediately after the election and as Massie's impeachment push returns to the floor.\n\n`{\"format\": \"llm_question\", \"info\": {\"sdk_version\": \"0.6.1\", \"rating\": {\"quality\": 3, \"ambiguity\": 4, \"resolvability\": 4, \"passes\": true}}}`",
+    "resolution_criteria": "This question resolves YES if Pete Hegseth holds the office of U.S. Secretary of Defense at 6:00 p.m. ET (23:00 UTC) on November 12, 2026, and NO if by that moment he has resigned, been dismissed or removed, or otherwise ceased to hold the office. The office in question is the Senate-confirmed head of the Department of Defense — now renamed the Department of War and styled \"Secretary of War\" by the administration — and not any subordinate Pentagon post. Resolution is based on the Department of Defense's official leadership listing at https://www.defense.gov/About/Leadership/; if that page is unavailable, out of date, or inconclusive, resolution is based on [credible sources](https://www.metaculus.com/faq/#definitions). A public announcement or report that Hegseth will leave the post at some later date does not count as ceasing to hold the office before the cutoff.",
+    "fine_print": "A temporary delegation of the Secretary's authority (for example to Deputy Secretary Steve Feinberg while Hegseth travels) does not mean Hegseth has ceased to hold the office.",
+    "unit": "",
+    "options": null,
+    "scaling": {
+      "range_min": null,
+      "range_max": null,
+      "nominal_min": null,
+      "nominal_max": null,
+      "zero_point": null,
+      "open_upper_bound": false,
+      "open_lower_bound": false,
+      "inbound_outcome_count": null,
+      "continuous_range": null
+    },
+    "open_lower_bound": false,
+    "open_upper_bound": false,
+    "inbound_outcome_count": null,
+    "open_time": "2026-11-02T03:52:22Z",
+    "scheduled_close_time": "2026-11-02T06:52:22Z",
+    "scheduled_resolve_time": "2026-11-12T23:59:00Z",
+    "resolution": null
+  }
+}
