@@ -1,0 +1,38 @@
+{
+  "post_id": 46402,
+  "url": "https://www.metaculus.com/questions/46402/",
+  "post_title": "Will Judge McFadden have granted Comey's motion to dismiss the D.C. criminal information by November 13, 2026?",
+  "tournaments": [
+    "minibench"
+  ],
+  "options": null,
+  "question": {
+    "id": 46635,
+    "title": "Will Judge McFadden have granted Comey's motion to dismiss the D.C. criminal information by November 13, 2026?",
+    "type": "binary",
+    "status": "open",
+    "description": "James Comey was director of the FBI from 2013 to 2017. The Justice Department alleges that on October 5, 2016, while director, he transmitted a sensitive document related to the national defense to a person not entitled to receive it. On October 5, 2026 — ten years to the day after the alleged conduct — the government filed a sealed two-count criminal information in the U.S. District Court for the District of Columbia: Count I under 18 U.S.C. § 793(d) and Count II for conspiracy under §§ 793(d) and (g). Judge Trevor N. McFadden unsealed the case on October 26, 2026 at Comey's request and without government opposition ([Memorandum Order, ECF No. 14](https://storage.courtlistener.com/recap/gov.uscourts.dcd.297297/gov.uscourts.dcd.297297.14.0.pdf)).\n\nThis is the third federal prosecution of Comey since 2025. The first, in the Eastern District of Virginia (false statements to Congress and obstruction of a congressional proceeding), was dismissed without prejudice on November 24, 2025 after the court found that interim U.S. Attorney Lindsey Halligan's appointment was unlawful; the government's appeal was argued in the Fourth Circuit in September 2026. A second case, an Eastern District of North Carolina indictment returned April 28, 2026 charging threats to harm President Trump over an \"86 47\" social-media post ([DOJ press release](https://www.justice.gov/opa/pr/federal-grand-jury-indicts-former-fbi-director-james-comey-threats-harm-president-trump)), remains pending.\n\nComey moved to dismiss the D.C. information (ECF No. 11, filed October 16 and replaced October 26), arguing that the ten-year limitations period for the Espionage Act counts had expired and that a \"waiverless criminal information\" cannot satisfy the statute of limitations. The government's 51-page opposition (ECF No. 12) reads Section 19 of the Internal Security Act to permit the extended period and says the filing of the information preserved its ability to prosecute; prosecutors have said they are pursuing a grand jury indictment and told the court they may bring additional charges.\n\nAt argument on October 30, 2026, McFadden heard roughly two hours of argument and did not rule. Reporting described him as skeptical of the government's maneuver but inclined to await further action by prosecutors rather than throwing out the pending charges immediately, and noted that an indictment was \"no sure thing\" ([Politico](https://www.politico.com/news/2026/10/30/doj-comey-judge)). ABC News reported that it was unclear whether the judge would rule before the following Thursday, November 5, described as the government's last day to seek a grand jury indictment ([ABC News](https://abc7news.com/story/attorneys-james-comey-return-court-fight-dojs-efforts-charge-3rd-time/20000350/)). As of October 30, 2026, the motion remains pending; the case tracker is at [NACDL](https://www.nacdl.org/brief/United-States-v-Comey-(2)).\n\n`{\"format\": \"llm_question\", \"info\": {\"sdk_version\": \"0.6.1\", \"rating\": {\"quality\": 3, \"ambiguity\": 3, \"resolvability\": 4, \"passes\": true}}}`",
+    "resolution_criteria": "This question resolves Yes if, on or before November 13, 2026, the U.S. District Court for the District of Columbia issues an order in United States v. Comey, No. 1:26-cr-00229-TNM, granting James Comey's motion to dismiss the criminal information (ECF No. 11, including any amended or refiled version of that motion) and dismissing the criminal information in its entirety, with or without prejudice; an order granting the motion only in part, so that any count of the information survives, resolves No. It resolves No if the Court denies that motion or has issued no order granting it by that date. Resolution is based on the case docket in 1:26-cr-00229-TNM (case filings are compiled at https://www.nacdl.org/brief/United-States-v-Comey-(2)) or, if the docket is unavailable, on reporting by [credible sources](https://www.metaculus.com/faq/#definitions).",
+    "fine_print": "Dismissal of the criminal information on any other basis — for example, a motion by the government to dismiss, or the return of a grand jury indictment that supersedes the information — does not count as granting ECF No. 11, including where the Court denies that motion as moot. If the Court issues an order granting ECF No. 11 on or before November 13, 2026, but the order becomes public only after that date, the question still resolves Yes.",
+    "unit": "",
+    "options": null,
+    "scaling": {
+      "range_min": null,
+      "range_max": null,
+      "nominal_min": null,
+      "nominal_max": null,
+      "zero_point": null,
+      "open_upper_bound": false,
+      "open_lower_bound": false,
+      "inbound_outcome_count": null,
+      "continuous_range": null
+    },
+    "open_lower_bound": false,
+    "open_upper_bound": false,
+    "inbound_outcome_count": null,
+    "open_time": "2026-11-02T14:22:29Z",
+    "scheduled_close_time": "2026-11-02T17:22:29Z",
+    "scheduled_resolve_time": "2026-11-13T23:59:00Z",
+    "resolution": null
+  }
+}
