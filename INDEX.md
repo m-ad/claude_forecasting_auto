@@ -82,3 +82,4 @@ _Regenerated 2026-11-02 by `scripts/status.py --index`._
 | [What will Serbia's year-on-year consumer price inflation be in October 2026?](questions/2026-11-02-mc46379-serbia-s-year-year-consumer-price-inflation/forecast.md) | discrete | — | 0 | — | 2026-11-12 | — | open |
 | [What will Rosstat's preliminary estimate of Russia's Q3 2026 GDP growth (year-on-year) be?](questions/2026-11-02-mc46380-rosstat-s-preliminary-estimate-russia-s-q3/forecast.md) | discrete | — | 0 | — | 2026-11-13 | — | open |
 | [How many drones will Ukraine's Air Force report Russia launched at Ukraine on the night of 12–13 November 2026?](questions/2026-11-02-mc46381-how-many-drones-ukraine-s-air-force/forecast.md) | numeric | — | 0 | — | 2026-11-13 | — | open |
+| [How many first-place votes will the winner of the 2026 National League MVP Award receive?](questions/2026-11-02-mc46382-how-many-first-place-votes-winner-2026/forecast.md) | discrete | — | 0 | — | 2026-11-13 | — | open |
