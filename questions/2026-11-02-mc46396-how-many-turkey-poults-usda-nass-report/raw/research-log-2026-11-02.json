@@ -1,0 +1,19 @@
+{"searches": [
+ {"category": "resolution_source", "query": "USDA NASS Turkey Hatchery net poults placed October 2026", "by": "main", "status": "done", "finding": "Oct 13 2026 report: Sep 2026 placements 19,571; Oct 1 eggs 26,695; Oct 2025 placements 21,284"},
+ {"category": "resolution_source", "query": "fetch tkha1026.txt Oct 2026 report full tables", "by": "main", "status": "done", "finding": "monthly tables 2025-26 and 2026-27 obtained"},
+ {"category": "resolution_source", "query": "fetch tkha0826.txt Aug 2026 report revised 2024-25 and 2025-26 tables", "by": "main", "status": "done", "finding": "Oct 2024 20,165; Sep 2024 18,601; Oct 2025 21,284"},
+ {"category": "base_rate", "query": "fetch tkha0126.txt Jan 2026 report 2024-25 vs 2025-26", "by": "main", "status": "done", "finding": "older basis Oct 2025 19,684, Sep 2025 18,179; revised up 5-8% later"},
+ {"category": "base_rate", "query": "Turkey Hatchery November 2025 net poults placed during October 2025", "by": "main", "status": "done", "finding": "Nov 2025 report not found; Dec 2025 report mentions revised figures"},
+ {"category": "base_rate", "query": "NASS turkey hatchery revised poult placements benchmark revision 2026 higher", "by": "main", "status": "done", "finding": "annual revision in April summary; monthly revisions from late data"},
+ {"category": "news", "query": "turkey poult placements HPAI outbreak fall 2026 turkey production forecast WASDE October 2026", "by": "main", "status": "done", "finding": "no Oct 2026 WASDE or placement news found; Feb 2026 WASDE trimmed turkey"},
+ {"category": "news", "query": "turkey poults placed USDA NASS Turkey Hatchery report September 2026", "by": "scout-2", "status": "done", "finding": "Oct 13 report confirmed"},
+ {"category": "news", "query": "HPAI commercial turkey flock October 2026 avian influenza", "by": "scout-2", "status": "done", "finding": "CIDRAP: H5N1 returned to Midwest turkey farms; no placement-cut reports"},
+ {"category": "news", "query": "avian influenza turkeys Minnesota North Dakota Iowa Wisconsin commercial flock confirmed late October 2026", "by": "scout-2", "status": "done", "finding": "per question text; not independently verified"},
+ {"category": "consensus", "query": "WASDE turkey production forecast 2026 2027 hatchery poult", "by": "scout-2", "status": "done", "finding": "2027 turkey production 5,125M lb, up on better returns"},
+ {"category": "consensus", "query": "October 2026 WASDE turkey production forecast lowered raised", "by": "scout-2", "status": "done", "finding": "not found"},
+ {"category": "markets", "query": "Kalshi OR Polymarket OR Manifold turkey poults placed USDA", "by": "main", "status": "done", "finding": "none found"},
+ {"category": "markets", "query": "turkey prices Thanksgiving 2026 supply avian flu Urner Barry", "by": "scout-2", "status": "done", "finding": "wholesale ~$1.65-1.68/lb, high prices support placements"},
+ {"category": "schedule", "query": "government shutdown October 2025 NASS Turkey Hatchery report delayed", "by": "main", "status": "done", "finding": "nothing relevant on delay"},
+ {"category": "disconfirmation", "query": "HPAI will cut October placements: turkey hatchery placements deferred HPAI 2026", "by": "scout-2", "status": "done", "finding": "no dated reports of placement cuts; losses tens of thousands of birds vs 21M/month", "tests": "that HPAI-driven deferrals do not move national October placements below the +2% y/y trend"}
+],
+ "adjustments": []}
