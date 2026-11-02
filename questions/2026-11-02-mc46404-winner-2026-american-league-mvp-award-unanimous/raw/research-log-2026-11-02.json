@@ -1,0 +1,23 @@
+{"searches": [
+  {"category": "resolution_source", "query": "2026 AL MVP finalists announced BBWAA November 2026", "by": "main", "status": "done", "finding": "No result found; vote announced Nov 12, 2026, ballots cast before postseason."},
+  {"category": "resolution_source", "query": "2025 AL MVP voting results Judge 17 first-place Raleigh 13 BBWAA", "by": "main", "status": "done", "finding": "2025: Judge 17 first-place, Raleigh 13 (30 ballots)."},
+  {"category": "news", "query": "Alvarez AL MVP first-place vote Alonso Caminero Witt late-season MVP ballot debate October 2026", "by": "main", "status": "done", "finding": "Sept 17 BR: Alvarez cooled since Aug 1 (.860 OPS, 4 HR); Schlittler (P) 7.0 WAR; Caminero 5.6 rWAR."},
+  {"category": "news", "query": "Cam Schlittler AL MVP vote Cy Young finalist 2026 season ERA", "by": "main", "status": "done", "finding": "Schlittler Cy Young lock, ~1.95-2.04 ERA; possible MVP first-place dissent."},
+  {"category": "news", "query": "Yordan Alvarez fWAR bWAR final 2026 regular season AL leaders", "by": "main", "status": "done", "finding": "Final fWAR: Alvarez and Witt tied 6.8 for AL lead."},
+  {"category": "markets", "query": "Polymarket AL MVP 2026 winner", "by": "main", "status": "done", "finding": "Snapshots 61-92% Alvarez (dated July/undated); no current price retrieved."},
+  {"category": "markets", "query": "Kalshi AL MVP 2026 Yordan Alvarez odds November", "by": "main", "status": "done", "finding": "Kalshi ~90% Aug 10; question text says chanceindex ~97% Oct 27. No unanimity market."},
+  {"category": "markets", "query": "2026 AL MVP odds Yordan Alvarez Bobby Witt Jr.", "by": "main", "status": "done", "finding": "DraftKings -900 Alvarez early Aug, Caminero +600, Witt +5000."},
+  {"category": "base_rate", "query": "unanimous MVP history list AL MVP unanimous winners", "by": "main", "status": "done", "finding": "AL unanimous: 12 total through 2023, plus Judge 2024; 2014, 2021, 2023, 2024 since 2000 (4/26)."},
+  {"category": "base_rate", "query": "non-unanimous MVP designated hitter history Ohtani 2024 Thomas Ortiz", "by": "main", "status": "done", "finding": "Ohtani 2024 NL unanimous DH; Ortiz 2005 DH 2nd with 11 firsts; no non-Ohtani DH MVP winner since Thomas 1993 (1B)."},
+  {"category": "base_rate", "query": "2022 AL MVP Judge 28 first-place votes Ohtani 2 vs MLB.com poll", "by": "main", "status": "done", "finding": "2022 MLB.com poll Sept 16: Judge 36/50 firsts (72%); BBWAA: 28/30 (93%). Voters consolidate vs poll."},
+  {"category": "base_rate", "query": "MLB.com final MVP poll 2024 Judge first-place votes before unanimous BBWAA vote", "by": "main", "status": "done", "finding": "2024 Judge 30/30 over Witt 30 seconds."},
+  {"category": "consensus", "query": "final 2026 MVP poll September 22 Alvarez Witt Caminero first-place votes mlb.com", "by": "main", "status": "done", "finding": "Sept 22: Alvarez 181 pts, 29 firsts of 38; Caminero 149 pts, 7 firsts; Witt 62, 1 first."},
+  {"category": "consensus", "query": "MLB.com AL MVP poll Aug 25 2026 fifth poll", "by": "main", "status": "done", "finding": "Aug 25: Alvarez 34 firsts of 37, Witt 3."},
+  {"category": "consensus", "query": "MLB.com AL MVP poll July 28 2026", "by": "main", "status": "done", "finding": "Jul 28: Alvarez 30 firsts of 34, Caminero 2, Rice 1, Dingler 1."},
+  {"category": "other", "query": "Has the American League MVP already been decided Alvarez justbaseball", "by": "main", "status": "done", "finding": "Opinion: Alvarez likely already secured; no unanimity mention."},
+  {"category": "disconfirmation", "query": "Alvarez unanimous MVP prediction unanimous Astros Yordan", "by": "main", "status": "done", "finding": "No source predicts unanimous 2026 MVP; only 2019 unanimous ROY found.", "tests": "that BBWAA voters are likely to consolidate behind Alvarez enough for 30/30 despite a 76% first-place share in the last expert poll, DH discount, a late-season slump and a Cy Young-lock pitcher at 7 WAR"}
+],
+ "adjustments": [
+  {"event": "Final MLB.com expert poll (Sept 22) gave Alvarez only 29 of 38 first-place votes (Caminero 7, Witt 1), signalling that several voters want someone else", "date": "2026-09-22", "effect": "-15 pp vs the runaway-winner reference rate", "sources": [3, 4]},
+  {"event": "Alvarez cooled after Aug 1 and is a primary DH while Witt tied him on fWAR and Schlittler (pitcher) had 7.0 WAR", "date": "2026-09-17", "effect": "-5 pp", "sources": [5, 6]}
+]}
