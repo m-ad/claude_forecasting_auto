@@ -1,0 +1,48 @@
+{
+  "post_id": 46373,
+  "url": "https://www.metaculus.com/questions/46373/",
+  "post_title": "How will Dáil Éireann's 12 November 2026 Second Stage proceedings on the Non-Fatal Offences against the Person (Amendment) (Spiking) Bill 2023 conclude?",
+  "tournaments": [
+    "minibench"
+  ],
+  "options": [
+    "Second Stage granted — the Dáil gives the Bill a Second Reading on 12 November 2026",
+    "Second Stage refused — the Dáil declines to give the Bill a Second Reading on 12 November 2026",
+    "Division claimed and postponed — no Second Stage decision is taken on 12 November 2026",
+    "No Second Stage question put — debate adjourned, item not taken, or Bill withdrawn"
+  ],
+  "question": {
+    "id": 46606,
+    "title": "How will Dáil Éireann's 12 November 2026 Second Stage proceedings on the Non-Fatal Offences against the Person (Amendment) (Spiking) Bill 2023 conclude?",
+    "type": "multiple_choice",
+    "status": "open",
+    "description": "**The Bill.** The Non-Fatal Offences against the Person (Amendment) (Spiking) Bill 2023 (Bill No. 45 of 2023) is a Fine Gael Private Members' Bill introduced in Seanad Éireann on 25 May 2023 by Senators Regina Doherty and John Cummins. It would create a standalone offence of \"spiking\" — intentionally administering a substance to, injecting a substance into, or otherwise causing another person to take a substance without consent (or being reckless as to consent), where the perpetrator intends to overpower or sedate the person in order to commit a sexual act, cause harm, make a gain or cause a loss, or commit another offence — with penalties set out in section 2(3). The Bill passed all Seanad stages by 25 October 2023 (reported without amendment). It fell with the dissolution of the 33rd Dáil and was restored to the Dáil Order Paper on 1 May 2025; since then it has stood at \"before Dáil Éireann, Second Stage\" without any Dáil debate (https://www.oireachtas.ie/en/bills/bill/2023/45).\n\n**What is scheduled for 12 November 2026.** Dáil business for Thursday 12 November 2026 has been listed as \"Non-Fatal Offences against the Person (Amendment) (Spiking) Bill 2023 (Second Stage) (Deputy Barry Ward)\" in successive Business Committee reports (2, 6 and 19 October 2026) and on the Dáil business schedule (https://dailbusiness.oir.ie/dail-business?lang=en). Thursday evening private members' business on a Bill is normally allotted about 120 minutes (e.g. 6.26 p.m.–8.26 p.m.). Fine Gael's Barry Ward will move \"That the Bill be now read a Second Time\", and a Minister will respond for the Government. The detailed arrangements for the week of 10–12 November 2026 (time allotted, whether the proceedings must conclude) will appear in the Business Committee report and Order of Business published shortly before the sitting, which is the key research handle for forecasters.\n\n**Parliamentary practice — deferred divisions.** A division claimed at Thursday private members' business is postponed under Standing Order 85(2) to the following week's division time, so the fate of a contested Private Members' Bill is often not decided on the night it is debated. The most recent precedent: on Thursday 15 October 2026 the Second Stage debate on the Children's Health (Ospidéal Náisiúnta Kathleen Lynn do Leanaí) (Amendment) Bill 2025 ended with a division claimed and postponed; the vote was then taken on 21 October 2026 and the Second Stage motion was defeated by 79 votes to 71 (https://www.oireachtas.ie/en/debates/vote/dail/34/2026-10-21/231/). Where a Bill is not opposed, the question is instead put and declared carried on the night without a division; where time runs out, the debate is adjourned and the Bill stays on the Order Paper.\n\n**Political context.** Spiking (dosing drinks or injecting victims) is currently prosecuted in Ireland as \"poisoning\" under section 12 of the Non-Fatal Offences against the Person Act 1997, which carries a maximum of three years' imprisonment. Government replies to parliamentary questions in 2026 describe that provision as covering such conduct while also citing the Programme for Government commitment to \"introduce stronger laws to combat the spiking of drinks\" (PQs of 14 May, 18 June and 28 July 2026); no Government spiking Bill appears on the Oireachtas bills list as of 30 October 2026. On 22 October 2026 Sinn Féin TDs Mark Ward and Máire Devine introduced a rival Spiking Offences Bill 2026 (No. 102 of 2026), which would make spiking a standalone offence carrying up to 10 years and establish toxicology pathways for victims; it too is awaiting Dáil Second Stage (https://www.oireachtas.ie/en/bills/bill/2026/102/). Sinn Féin states that 278 spiking incidents were reported to An Garda Síochána between 2022 and 2025 and that none resulted in a prosecution under current legislation. Whether the Government waves this Fine Gael-sponsored Bill through, contests it, or the debate runs out of time is the uncertainty this question captures.\n\n`{\"format\": \"llm_question\", \"info\": {\"sdk_version\": \"0.6.1\", \"rating\": {\"quality\": 3, \"ambiguity\": 4, \"resolvability\": 4, \"passes\": true}}}`",
+    "resolution_criteria": "This question concerns Dáil Éireann's private members' business on Thursday, 12 November 2026, scheduled as the Second Stage of the Non-Fatal Offences against the Person (Amendment) (Spiking) Bill 2023 (Bill No. 45 of 2023). It resolves on the Official Report of that sitting, published in the Houses of the Oireachtas Dáil debates for 12 November 2026 (https://www.oireachtas.ie/en/debates/debate/dail/2026-11-12/, searchable at https://www.oireachtas.ie/en/debates/find), and resolves to:\n\n• \"Second Stage granted\" if the Official Report records the Dáil giving the Bill a Second Reading on 12 November 2026 — i.e. the motion \"That the Bill be now read a Second Time\" is put and carried.\n• \"Second Stage refused\" if the Official Report records the Dáil declining to give the Bill a Second Reading on 12 November 2026 — i.e. that motion is put and declared lost, or an amendment deferring or declining the Bill's Second Reading is declared carried.\n• \"Division claimed and postponed\" if the Official Report records a division on the Second Stage question, or on an amendment to it, as claimed and postponed to a later sitting, so that no Second Stage decision is taken on 12 November 2026.\n• \"No Second Stage question put\" if none of the above occurs — for example, the debate is adjourned without the question being put, the item is not taken, or the Bill is withdrawn before the question is put.\n\nThe question resolves on the events of 12 November 2026 and does not wait for the result of any postponed division. If the Official Report for the sitting is unavailable, [credible sources](https://www.metaculus.com/faq/#definitions) will be used.",
+    "fine_print": "Proceedings that begin on 12 November 2026 and continue after midnight are treated as part of that sitting. Only what happens during the sitting of 12 November 2026 counts: if the debate is adjourned that day and resumes later, or if a postponed division is subsequently taken, those later proceedings do not change the resolution.",
+    "unit": "",
+    "options": [
+      "Second Stage granted — the Dáil gives the Bill a Second Reading on 12 November 2026",
+      "Second Stage refused — the Dáil declines to give the Bill a Second Reading on 12 November 2026",
+      "Division claimed and postponed — no Second Stage decision is taken on 12 November 2026",
+      "No Second Stage question put — debate adjourned, item not taken, or Bill withdrawn"
+    ],
+    "scaling": {
+      "range_min": null,
+      "range_max": null,
+      "nominal_min": null,
+      "nominal_max": null,
+      "zero_point": null,
+      "open_upper_bound": false,
+      "open_lower_bound": false,
+      "inbound_outcome_count": null,
+      "continuous_range": null
+    },
+    "open_lower_bound": false,
+    "open_upper_bound": false,
+    "inbound_outcome_count": null,
+    "open_time": "2026-11-02T02:21:23Z",
+    "scheduled_close_time": "2026-11-02T05:21:23Z",
+    "scheduled_resolve_time": "2026-11-13T17:00:00Z",
+    "resolution": null
+  }
+}
