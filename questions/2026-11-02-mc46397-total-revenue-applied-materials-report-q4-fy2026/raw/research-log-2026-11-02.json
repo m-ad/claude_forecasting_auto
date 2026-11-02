@@ -1,0 +1,22 @@
+{"searches": [
+ {"category": "resolution_source", "query": "Applied Materials third quarter 2026 results press release guidance", "by": "main", "status": "done", "finding": "Q3 FY26 revenue $9,115M (Aug 13); Q4 guide $10,250M +/-500M; segments SS ~7.9B, AGS ~1.84B, Other ~510M"},
+ {"category": "resolution_source", "query": "Applied Materials Q3 fiscal 2026 results record revenue 9.12 billion guidance fourth quarter", "by": "main", "status": "done", "finding": "Q3 beat guide midpoint 8,950 by +165; confirmed segments"},
+ {"category": "resolution_source", "query": "Applied Materials Q3 SEC exhibit 99.1 (scout-1 fetch)", "by": "scout-1", "status": "done", "finding": "Release text: Q3 9,115; China 28%; Q4 guide 10,250 +/-500"},
+ {"category": "news", "query": "Applied Materials investor day October 2026", "by": "scout-1", "status": "done", "finding": "Oct 13 investor day, no WFE forecast, stock -7%"},
+ {"category": "news", "query": "Applied Materials stock drop investor day October 2026 AI capex concerns", "by": "main", "status": "done", "finding": "Stock down ~22% over 3 months; no October downgrade found; sentiment not fundamentals"},
+ {"category": "news", "query": "Lam Research September quarter results October 2026", "by": "main", "status": "done", "finding": "Lam Sep-q revenue 8.22B vs 8.1B guide (+1.5%); WFE 2026 mid-150B; supply constraints"},
+ {"category": "news", "query": "China export controls chipmaking equipment Applied Materials October 2026", "by": "scout-1", "status": "done", "finding": "No new Oct 2026 China rule found; April 2026 Hua Hong shipment stop"},
+ {"category": "markets", "query": "Polymarket Kalshi Applied Materials earnings revenue", "by": "scout-2", "status": "done", "finding": "No live market on AMAT Q4 revenue found"},
+ {"category": "markets", "query": "Polymarket Applied Materials earnings Q4 2026 beat revenue", "by": "scout-2", "status": "done", "finding": "Nothing relevant"},
+ {"category": "consensus", "query": "Applied Materials Q4 fiscal 2026 earnings preview revenue estimate", "by": "main", "status": "done", "finding": "Consensus ~$10.30B (Hudson Oct 12: 10,299; Benzinga 10.30B); Chartmill 10.505B undated"},
+ {"category": "consensus", "query": "AMAT earnings November 12 2026 analysts expect revenue", "by": "scout-2", "status": "done", "finding": "Consensus ~10.3B, EPS 4.00-4.06"},
+ {"category": "base_rate", "query": "Applied Materials revenue exceeded guidance midpoint FY2025 quarters", "by": "main", "status": "done", "finding": "Q1 FY25 +16, Q2 FY25 ~0, Q3 FY25 +100, Q4 FY25 +100 vs midpoint"},
+ {"category": "base_rate", "query": "Applied Materials Q1 FY2026 revenue 7.01B guidance Q2 7.65B", "by": "main", "status": "done", "finding": "Q1 FY26 7,010 (guide ~6,850, +160); Q2 FY26 7,910 vs guide 7,650 (+260)"},
+ {"category": "disconfirmation", "query": "BIS export controls semiconductor equipment China new rule October 2026", "by": "scout-1", "status": "done", "finding": "No new rule since Q3 call found", "tests": "revenue lands above guidance midpoint (+~170M typical beat) with no demand/supply shock"},
+ {"category": "disconfirmation", "query": "Applied Materials Q4 downside risks pushout supply constraints", "by": "scout-4", "status": "done", "finding": "Lam says supply/cleanroom constraints delay shipments; no AMAT-specific pre-announcement", "tests": "revenue lands above guidance midpoint (+~170M typical beat) with no demand/supply shock"},
+ {"category": "schedule", "query": "Applied Materials report fourth quarter fiscal 2026 results date", "by": "scout-2", "status": "done", "finding": "Release Nov 12, 2026 4:30pm ET call; within resolution window"},
+ {"category": "upcoming_events", "query": "Applied Materials earnings date November 12 2026", "by": "main", "status": "done", "finding": "Nov 12 confirmed by Oct 22 release"}
+],
+ "adjustments": [
+  {"event": "AMAT has beaten its guidance-range midpoint by ~1.5-3.4% in each of the last 3 quarters (+160, +260, +165 $M); typical beat applied to a midpoint of 10,250", "date": "2026-08-13", "effect": "+170 on the median vs midpoint", "sources": [1, 2, 3]}
+ ]}
