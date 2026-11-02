@@ -1,0 +1,38 @@
+{
+  "post_id": 46404,
+  "url": "https://www.metaculus.com/questions/46404/",
+  "post_title": "Will the winner of the 2026 American League MVP Award be a unanimous selection?",
+  "tournaments": [
+    "minibench"
+  ],
+  "options": null,
+  "question": {
+    "id": 46637,
+    "title": "Will the winner of the 2026 American League MVP Award be a unanimous selection?",
+    "type": "binary",
+    "status": "open",
+    "description": "The American League Most Valuable Player Award is voted on by the Baseball Writers' Association of America (BBWAA): two writers from each of the 15 AL cities cast ballots with 10 names, weighted 14-9-8-7-6-5-4-3-2-1, and ballots are submitted before the postseason begins. The 2026 AL and NL MVP winners are scheduled to be announced live on MLB Network on Thursday, November 12, 2026 (announcement show begins 7 p.m. ET), per the BBWAA's 2026 awards schedule.\n\nStatus of the 2026 AL race: Houston Astros designated hitter Yordan Alvarez is the consensus favorite. He won the AL batting title at .316 and led the majors in on-base percentage (.432), slugging (.601), OPS (1.033) and walks (109), while leading the AL in offensive WAR (7.2), total bases (341) and extra-base hits (77); he hit 42 home runs (tied for second in the AL, one behind AL leader Pete Alonso of Baltimore) with 106 RBIs (second in the AL). MLB.com's final 2026 MVP poll of 38 staff experts (Sept. 22) had Alvarez first with 29 of 38 first-place votes and 181 points, though it noted his \"relatively mediocre production of late,\" and an aggregated prediction market (chanceindex.com) had Alvarez at roughly 97% to win as of Oct. 27, 2026, with Bobby Witt Jr. of Kansas City the only other candidate given a meaningful chance. The wider field includes Junior Caminero (Tampa Bay, 42 HR) and Aaron Judge (Yankees), who missed time after a June 2026 injury and whose absence was described at midseason as making the race \"wide open.\"\n\nContext on unanimity: AL MVPs have often — but not always — been unanimous. Shohei Ohtani swept all 30 first-place votes in 2021 and 2023, and Aaron Judge did so in 2024, but Judge received 28 of 30 in 2022 (Ohtani took two) even after hitting an AL-record 62 home runs, and Judge won in 2025 with just 17 of 30 first-place votes in a close race with Cal Raleigh (13). Alvarez is a primary designated hitter, a profile some voters discount relative to up-the-middle defenders, and he trails the AL home run leader in counting stats — reasons a stray first-place vote or two could go elsewhere even in a lopsided win.\n\nResolution data: the BBWAA publishes the winner and a full, voter-by-voter ballot breakdown (e.g., the \"2025 AL MVP ballots\" page) linked from its Annual Awards index, and MLB.com posts complete vote totals the same night. Both report explicit first-place vote counts, so unanimity is directly observable.\n\n`{\"format\": \"llm_question\", \"info\": {\"sdk_version\": \"0.6.1\", \"rating\": {\"quality\": 3, \"ambiguity\": 4, \"resolvability\": 4, \"passes\": true}}}`",
+    "resolution_criteria": "This question resolves Yes if the player announced as the 2026 American League Most Valuable Player (announcement scheduled for November 12, 2026) is listed first on every ballot in the official BBWAA tally, and No otherwise. Resolution is based on the BBWAA's official 2026 AL MVP announcement and its accompanying full ballot breakdown, published on and linked from the BBWAA Annual Awards page (https://bbwaa.com/awards). If that page is unavailable or does not report first-place vote totals, the official BBWAA vote count as reported by [credible sources](https://www.metaculus.com/faq/#definitions) will be used.",
+    "fine_print": "The AL MVP is voted on by 30 BBWAA members (two writers from each of the 15 American League cities). If fewer than 30 ballots are included in the official tally, the question resolves Yes only if the winner is listed first on every ballot counted.",
+    "unit": "",
+    "options": null,
+    "scaling": {
+      "range_min": null,
+      "range_max": null,
+      "nominal_min": null,
+      "nominal_max": null,
+      "zero_point": null,
+      "open_upper_bound": false,
+      "open_lower_bound": false,
+      "inbound_outcome_count": null,
+      "continuous_range": null
+    },
+    "open_lower_bound": false,
+    "open_upper_bound": false,
+    "inbound_outcome_count": null,
+    "open_time": "2026-11-02T15:31:04Z",
+    "scheduled_close_time": "2026-11-02T18:31:04Z",
+    "scheduled_resolve_time": "2026-11-13T05:00:00Z",
+    "resolution": null
+  }
+}
