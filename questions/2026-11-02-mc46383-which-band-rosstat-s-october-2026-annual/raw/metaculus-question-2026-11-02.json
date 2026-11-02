@@ -1,0 +1,52 @@
+{
+  "post_id": 46383,
+  "url": "https://www.metaculus.com/questions/46383/",
+  "post_title": "Which band will Rosstat's October 2026 annual CPI inflation figure fall into?",
+  "tournaments": [
+    "minibench"
+  ],
+  "options": [
+    "Below 6.90%",
+    "6.90% to 6.99%",
+    "7.00% to 7.09%",
+    "7.10% to 7.19%",
+    "7.20% to 7.29%",
+    "7.30% or above"
+  ],
+  "question": {
+    "id": 46616,
+    "title": "Which band will Rosstat's October 2026 annual CPI inflation figure fall into?",
+    "type": "multiple_choice",
+    "status": "open",
+    "description": "Russian inflation re-accelerated in autumn 2026. Rosstat reported consumer prices up 0.35% m/m in September 2026 (August: -0.08%), lifting annual inflation to 6.35% y/y from 6.33% in August and 5.98% in July; year-to-date inflation through September was 5.04% and core inflation 5.47% ([Interfax](https://www.interfax.ru/business/1121468), [Bank of Russia, \"Inflation in Russia\" No. 9/2026](https://www.cbr.ru/collection/collection/file/62465/cpd_2026-09_e.pdf)).\n\nOctober 2026 brought a one-off upward push: regulated utility tariffs were indexed from 1 October, and Rosstat's weekly CPI estimate jumped 0.96% in the week of 29 September-5 October after +0.12% the week before. Subsequent weeks were mild: +0.11% (6-12 October), +0.05% (13-19 October) and +0.08% (20-26 October), leaving October-to-date CPI at roughly 101.14% by 26 October, to be compared with +0.50% for the whole of October 2025. With that low base, the annual rate has jumped well above the September print: measured from daily/weekly data it was about 7.22% on 5 October, 7.15% on 19 October and 7.11% on 26 October.\n\nOn 23 October 2026 the Bank of Russia held its key rate at 14% and raised its end-2026 (December-to-December) inflation forecast to 7.1-7.6%, with average 2026 inflation seen at 6.2-6.3% ([CBR medium-term forecast](https://www.cbr.ru/Content/Document/File/198897/forecast_261023.pdf)); the CBR's October survey of 32 analysts put median 2026 inflation at 7.1%.\n\nRosstat's schedule: weekly CPI estimate for 27 October-2 November on 6 November 2026 (19:00 MSK), consumer prices for petroleum products for 3-9 November on 11 November, and the monthly consumer price index for October 2026 on 13 November 2026 ([Rosstat announcements](https://rosstat.gov.ru/announcements)). The monthly October release reports the official October 2026-to-October 2025 index, published to two decimals, which is the figure this question tracks. Note that Rosstat's weekly estimates cover 110 goods and services in 279 cities and can differ modestly from the full monthly CPI.\n\n`{\"format\": \"llm_question\", \"info\": {\"sdk_version\": \"0.6.1\", \"rating\": {\"quality\": 3, \"ambiguity\": 4, \"resolvability\": 4, \"passes\": true}}}`",
+    "resolution_criteria": "This question resolves according to the year-on-year consumer price inflation rate for October 2026 published by Rosstat in its monthly release \"Об индексе потребительских цен в октябре 2026 года\", scheduled for 13 November 2026 and listed on [Rosstat's announcements page](https://rosstat.gov.ru/announcements). The relevant figure is the October 2026 consumer price index expressed as a percentage of October 2025 (for example, a published index of 107.10 corresponds to an annual inflation rate of 7.10%). The question resolves to \"Below 6.90%\" if that figure is below 6.90; \"6.90% to 6.99%\" if it is at least 6.90 but below 7.00; \"7.00% to 7.09%\" if it is at least 7.00 but below 7.10; \"7.10% to 7.19%\" if it is at least 7.10 but below 7.20; \"7.20% to 7.29%\" if it is at least 7.20 but below 7.30; and \"7.30% or above\" if it is 7.30 or higher. If Rosstat's release is delayed, the question resolves once the figure is published; if the figure cannot be obtained from Rosstat, the figure as reported by [credible sources](https://www.metaculus.com/faq/#definitions) will be used.",
+    "fine_print": "The resolution figure is the October 2026-to-October 2025 consumer price index in Rosstat's monthly October 2026 CPI release; Rosstat's weekly CPI estimates (including the 6 and 11 November 2026 releases) and annual rates derived from them are not the resolution figure.",
+    "unit": "",
+    "options": [
+      "Below 6.90%",
+      "6.90% to 6.99%",
+      "7.00% to 7.09%",
+      "7.10% to 7.19%",
+      "7.20% to 7.29%",
+      "7.30% or above"
+    ],
+    "scaling": {
+      "range_min": null,
+      "range_max": null,
+      "nominal_min": null,
+      "nominal_max": null,
+      "zero_point": null,
+      "open_upper_bound": false,
+      "open_lower_bound": false,
+      "inbound_outcome_count": null,
+      "continuous_range": null
+    },
+    "open_lower_bound": false,
+    "open_upper_bound": false,
+    "inbound_outcome_count": null,
+    "open_time": "2026-11-02T05:59:35Z",
+    "scheduled_close_time": "2026-11-02T08:59:35Z",
+    "scheduled_resolve_time": "2026-11-13T17:00:00Z",
+    "resolution": null
+  }
+}
