@@ -1,0 +1,28 @@
+{"searches": [
+  {"category": "resolution_source", "query": "WebFetch agsi.gie.eu/api?type=eu&size=10", "by": "main", "status": "done", "finding": "API returns 'Invalid or missing API key'; no data"},
+  {"category": "resolution_source", "query": "WebFetch agsi.gie.eu/data-overview/EU", "by": "main", "status": "done", "finding": "JS page, no figures captured"},
+  {"category": "resolution_source", "query": "EU gas storage November 2026 AGSI percent full", "by": "main", "status": "done", "finding": "nothing for Nov 2026; Aug 5 2026 58.1% (bne)"},
+  {"category": "resolution_source", "query": "WebFetch energyriskiq.com/gas-storage-levels-in-europe", "by": "main", "status": "done", "finding": "EU 74.6%, last updated 2026-11-01, +0.10 pp d/d, withdrawals averaging 1,535 GWh/d"},
+  {"category": "resolution_source", "query": "WebFetch global-energy-flow.com/storage/trajectory", "by": "main", "status": "done", "finding": "74.93% gas day 26 Oct (AGSI read), +0.02 pp that day"},
+  {"category": "news", "query": "European gas storage withdrawals cold weather TTF November 1 2026", "by": "main", "status": "done", "finding": "only older items; nothing from 1 Nov 2026"},
+  {"category": "news", "query": "bne IntelliNews EU gas storage withdrawals record low November 2026", "by": "main", "status": "done", "finding": "Argus: Nov 2025 withdrawals 2.8 TWh/d vs 5-yr avg 2.4 TWh/d"},
+  {"category": "news", "query": "\"gas storage\" Europe \"October 31\" OR \"November 1\" 2026 withdrawals heating season", "by": "main", "status": "done", "finding": "nothing new; target/derogation context only"},
+  {"category": "news", "query": "EU gas storage 74.6% withdrawals", "by": "main", "status": "done", "finding": "nothing relevant for 2026"},
+  {"category": "news", "query": "Germany gas storage Speicherstand November 2026 Prozent", "by": "main", "status": "done", "finding": "Germany 60.4% on 15 Oct 2026 (BNetzA via oilmonster)"},
+  {"category": "markets", "query": "Polymarket OR Kalshi EU gas storage level November 2026", "by": "main", "status": "done", "finding": "no market found"},
+  {"category": "upcoming_events", "query": "Europe weather forecast November 2026 cold snap gas demand", "by": "main", "status": "done", "finding": "no Nov 2026 outlook in results"},
+  {"category": "news", "query": "EU gas storage level November 2026 withdrawals TTF", "by": "scout-1", "status": "done", "finding": "no new data beyond question text"},
+  {"category": "upcoming_events", "query": "Europe weather outlook early November 2026 cold temperatures Germany forecast", "by": "scout-1", "status": "done", "finding": "Meteo-France 2-8 Nov slightly below seasonal, not a winter blast; possible cold air ~7 Nov Germany"},
+  {"category": "upcoming_events", "query": "stratospheric warming polar vortex November 2026 Europe cold", "by": "scout-1", "status": "done", "finding": "SSW ~6 Nov forecast; surface effects lag weeks, risk is late Nov/Dec"},
+  {"category": "markets", "query": "EU gas storage 1 November 2026 percent full AGSI Dutch TTF price this week", "by": "scout-1", "status": "done", "finding": "nothing beyond question text (TTF ~EUR95)"},
+  {"category": "disconfirmation", "query": "Wetter Deutschland erste Novemberwoche 2026 Prognose DWD Frost Temperaturen kälter als normal", "by": "scout-1", "status": "done", "finding": "first frosts possible; seasonal models lean warm for November", "tests": "the assumption that the 12-day net withdrawal pace averages ~0.16 pp/day (neither a stall from mild weather nor a cold-driven >0.3 pp/day)"},
+  {"category": "base_rate", "query": "EU gas storage level 12 November 2024 percent full AGSI withdrawals", "by": "scout-2", "status": "done", "finding": "2024: ~95.0 (1 Nov) to 93.37 (10 Nov), ~-0.18 pp/day"},
+  {"category": "base_rate", "query": "EU gas storage 1 November 2025 percent full Gas Infrastructure Europe", "by": "scout-2", "status": "done", "finding": "2025: 81.17% on 18 Nov (year inferred)"},
+  {"category": "base_rate", "query": "EU gas storage mid-November 2023 percent full 99% withdrawals began", "by": "scout-2", "status": "done", "finding": "2023: ~99.5 to 99.57 on 8 Nov, ~flat"},
+  {"category": "base_rate", "query": "EU gas storage November 12 OR 12 November 2022 percent full GIE 2021 storage withdrawals", "by": "scout-2", "status": "done", "finding": "2022: 95 (1 Nov) to ~95.4 (11 Nov), flat/up"},
+  {"category": "base_rate", "query": "EU gas storage full percent November 12 2025 GIE data Europe storage 2021 November 83%", "by": "scout-2", "status": "done", "finding": "no 2021 data found"}
+],
+ "adjustments": [
+  {"event": "Late-Oct 2026 net withdrawals ~1.5 TWh/d (-0.13 pp/d) already under way, with a seasonal ramp-up in November (5-yr Nov avg 2.4 TWh/d)", "date": "2026-10-30", "effect": "median 74.6 -> 72.6 (about -0.16 pp/day over 13 days)", "sources": [1, 2, 4]},
+  {"event": "Forecast SSW ~6 Nov plus slightly-below-normal early Nov temperatures", "date": "2026-10-28", "effect": "fatten the lower tail: p5 to 70.6", "sources": [5]}
+ ]}
