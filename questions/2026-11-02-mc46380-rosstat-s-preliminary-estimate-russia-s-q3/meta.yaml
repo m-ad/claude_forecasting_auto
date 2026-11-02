@@ -1,72 +1,88 @@
-# Question metadata. Machine-read by scripts/status.py and scripts/log_forecast.py.
-slug: "2026-11-02-mc46380-rosstat-s-preliminary-estimate-russia-s-q3"
-title: "What will Rosstat's preliminary estimate of Russia's Q3 2026 GDP growth (year-on-year) be?"
-source: "metaculus"          # metaculus | kalshi | polymarket | manifold | other
-url: "https://www.metaculus.com/questions/46380/"                # null for free-text questions with no URL
-post_id: 46380          # null for non-Metaculus — identifies the *page*
-question_id: 46613  # Metaculus's internal question id — what the API submits
-                              # against, and != post_id. Null for non-Metaculus.
-type: "discrete"              # binary | numeric | date | multiple_choice | discrete
-unit: "%"                    # e.g. "USD bn", "°C"; null for binary
+slug: 2026-11-02-mc46380-rosstat-s-preliminary-estimate-russia-s-q3
+title: What will Rosstat's preliminary estimate of Russia's Q3 2026 GDP growth (year-on-year) be?
+source: metaculus
+url: https://www.metaculus.com/questions/46380/
+post_id: 46380
+question_id: 46613
+type: discrete
+unit: '%'
 tags: []
-
 dates:
-  created: "2026-11-02"
-  opened: "2026-11-02"
-  closes: "2026-11-02"                # last date forecasts are accepted
-  resolves: "2026-11-13"              # date the outcome is known
-
-status: "open"                # open | closed | resolved | dropped
-
+  created: '2026-11-02'
+  opened: '2026-11-02'
+  closes: '2026-11-02'
+  resolves: '2026-11-13'
+status: open
 tournament:
-  slug: "minibench"
-  mode: "one_shot"
-  registered: "2026-11-02"
-  opened: "2026-11-02T05:00:55Z"
-  closes: "2026-11-02T08:00:55Z"
-  submitted: null
-  submitted_forecast: null
-  comment_posted: false
+  slug: minibench
+  mode: one_shot
+  registered: '2026-11-02'
+  opened: '2026-11-02T05:00:55Z'
+  closes: '2026-11-02T08:00:55Z'
+  submitted: '2026-11-02T07:13:12+00:00'
+  submitted_forecast:
+    continuous_cdf:
+    - 0.001
+    - 0.0022176108610154387
+    - 0.0034357313094163133
+    - 0.004654844298514696
+    - 0.005875890492916741
+    - 0.007100702057097085
+    - 0.008332847560171778
+    - 0.009579277625686
+    - 0.01085353021972528
+    - 0.012181973699681017
+    - 0.013615966612851152
+    - 0.015255541750107002
+    - 0.017295536383450327
+    - 0.02011544170002517
+    - 0.024454405603312277
+    - 0.03175209162629525
+    - 0.04481258143983132
+    - 0.0690974803681466
+    - 0.09939336099096151
+    - 0.14233908842342374
+    - 0.2114587713659617
+    - 0.3761490819437038
+    - 0.576711256285966
+    - 0.6934563609737354
+    - 0.7852155017551073
+    - 0.860877641844216
+    - 0.9011691158104147
+    - 0.9238678500819717
+    - 0.9463123228819088
+    - 0.9620567699244191
+    - 0.9720851407534927
+    - 0.978646536105863
+    - 0.9831051045351409
+    - 0.9862882439634939
+    - 0.9886977965984993
+    - 0.9906381451253908
+    - 0.992293906975048
+    - 0.9937770582796168
+    - 0.9951555159963998
+    - 0.9964704738423156
+    - 0.9977469170696623
+    - 0.999
+  comment_posted: true
   official_score: null
   missed_window: false
-
 current:
-  version: 0
-  date: null
-  median: null                # probability in [0,1] for binary; native units otherwise
-  iqr: [null, null]
-  community:                  # snapshot at the time of the current version
+  version: 1
+  date: '2026-11-02'
+  median: 0.6
+  iqr:
+  - 0.5
+  - 0.8
+  community:
     cp: null
     pro: null
     gold: null
     n_forecasters: null
-    as_of: null
-
-next_review: null             # YYYY-MM-DD — see docs/update-protocol.md cadence table
-                              # A one_shot tournament question never gets one: it is
-                              # forecast once and never revisited.
-
+    as_of: '2026-11-02'
+next_review: null
 tripwires: []
-# `magnitude` is unsigned — `direction` (up/down/either) carries the sign — and
-# `magnitude_unit` says what it is denominated in: "pp" (percentage points) for
-# binary and multiple-choice questions, "days"/"weeks"/"months" for date
-# questions, and the question's own `unit` above for numeric/discrete ones.
-# An "either" tripwire (re-analyse, direction unknown) carries magnitude 0.
-#
-# - signal: "IAEA Board resolution referring the file to the UNSC"
-#   by: "2026-11-30"
-#   direction: "up"
-#   magnitude: 15
-#   magnitude_unit: "pp"          # binary question
-#   fired: null
-# - signal: "Weekly SENASICA cut on 2026-10-31 at or below 45,500"
-#   by: "2026-10-31"
-#   direction: "down"
-#   magnitude: 6000
-#   magnitude_unit: "cases"       # numeric question — must equal `unit:` above
-#   fired: null
-
 resolution:
-  outcome: null               # 1/0 binary, value numeric, Unix s date, option label MC
+  outcome: null
   date: null
   source: null

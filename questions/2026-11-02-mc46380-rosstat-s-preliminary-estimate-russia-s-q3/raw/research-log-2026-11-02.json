@@ -1,0 +1,30 @@
+{"searches": [
+  {"category": "resolution_source", "query": "Росстат предварительная оценка ВВП III квартал 2026", "by": "main", "status": "done", "finding": "Not yet published; due 13 Nov 2026. Q2 2026 prelim 1.3%, Q1 -0.2%."},
+  {"category": "resolution_source", "query": "Росстат ВВП III квартал 2025 предварительная оценка 0,6% Минэкономразвития оценка", "by": "main", "status": "done", "finding": "Q3 2025 Rosstat prelim 0.6% = MinEk 0.6%; CBR 0.4%. Later revised to 0.8%."},
+  {"category": "news", "query": "Минэкономразвития ВВП сентябрь 2026 о текущей ситуации", "by": "main", "status": "done", "finding": "MinEk 29 Oct 2026: Sep +0.5% y/y, Aug +0.8%, Jan-Sep +0.6%, Q3 +0.6%."},
+  {"category": "news", "query": "Russia GDP third quarter 2026 growth estimate", "by": "main", "status": "done", "finding": "CBR Aug forecast Q3 +0.5%; mid-Oct CBR: Q3 growth persists but slower than Q2."},
+  {"category": "news", "query": "ЦБ ВВП III квартал 2026 оценка октябрь ключевая ставка", "by": "main", "status": "done", "finding": "Sep 2026 CBR: economy growing moderately in Q3; no numeric October Q3 figure found."},
+  {"category": "news", "query": "Заботкин рост ВВП III квартал выше первого полугодия прошли дно", "by": "main", "status": "done", "finding": "Nothing relevant (only 2023 interview); Zabotkin quote rests on question text."},
+  {"category": "markets", "query": "Polymarket Kalshi Russia GDP 2026", "by": "main", "status": "done", "finding": "No market on Russian quarterly GDP; Kalshi has nominal-GDP market only, no prices."},
+  {"category": "base_rate", "query": "Росстат ВВП I квартал 2025 предварительная оценка 1,4% Минэкономразвития 1,7%", "by": "main", "status": "done", "finding": "Q1 2025 Rosstat 1.4% vs MinEk 1.7% (-0.3), CBR 2.0%."},
+  {"category": "base_rate", "query": "Росстат ВВП IV квартал 2025 предварительная оценка Минэкономразвития оценка квартала", "by": "main", "status": "done", "finding": "No Q4 2025 pair found; 2025 quarters revised 1.3/1.0/0.8."},
+  {"category": "other", "query": "промышленное производство сентябрь 2026 Росстат рост 1,8%", "by": "main", "status": "done", "finding": "Could not confirm Sep +1.8%; Jan-Aug 0.0%, July +0.4% (Rosstat)."},
+  {"category": "other", "query": "оборот розничной торговли сентябрь 2026 Росстат годовом выражении", "by": "main", "status": "done", "finding": "Retail Aug +3.3% y/y after +5.3% July; slowing."},
+  {"category": "resolution_source", "query": "Минэкономразвития ВВП сентябрь 2026 О текущей ситуации в российской экономике", "by": "scout-1", "status": "done", "finding": "Confirms MinEk Q3 +0.6%, Sep +0.5%, Aug +0.8%."},
+  {"category": "resolution_source", "query": "ВВП III квартал 2026 оценка Минэкономразвития", "by": "scout-1", "status": "done", "finding": "Q3 0.6% vs Q2 1.3%; Rosstat Q3 due 13 Nov."},
+  {"category": "news", "query": "Russia GDP third quarter 2026 estimate economy ministry", "by": "scout-1", "status": "done", "finding": "IMF 0.9% for 2026 (13 Oct)."},
+  {"category": "consensus", "query": "ЦМАКОН ВВП третий квартал 2026", "by": "scout-1", "status": "done", "finding": "No ЦМАКОН Q3 figure found."},
+  {"category": "news", "query": "ЦБ аналитики рост экономической активности в III квартале 2026 замедлился Мониторинг предприятий Заботкин ВВП октябрь", "by": "scout-1", "status": "done", "finding": "CBR monitoring 14 Oct: investment in Q3 at Q2 level; no numeric GDP."},
+  {"category": "base_rate", "query": "Росстат предварительная оценка ВВП II квартал 2026 Минэкономразвития оценка", "by": "scout-2", "status": "done", "finding": "Q2 2026 Rosstat 1.3% vs MinEk 0.9% (+0.4), CBR 0.8%."},
+  {"category": "base_rate", "query": "ВВП I квартал 2026 Росстат -0,2% Минэкономразвития", "by": "scout-2", "status": "done", "finding": "Q1 2026 Rosstat -0.2% vs MinEk -0.3% (+0.1)."},
+  {"category": "base_rate", "query": "Rosstat preliminary GDP estimate 2024 quarter year-on-year economy ministry estimate Q2 2024 Q3 2024 Q4 2024", "by": "scout-2", "status": "done", "finding": "Q1 2024 5.4=5.4, Q2 2024 4.0=4.0."},
+  {"category": "base_rate", "query": "Росстат ВВП IV квартал 2025 предварительная оценка февраль 2026 Минэкономразвития оценка 2025 год 1%", "by": "scout-2", "status": "done", "finding": "No Q4 2025 pair."},
+  {"category": "disconfirmation", "query": "Росстат предварительная оценка ВВП квартал 2025 2024 выше Минэкономразвития оценки Минэка ЦБ I квартал II квартал IV квартал", "by": "scout-2", "status": "done", "finding": "Q1 2025: Rosstat 0.3pp BELOW MinEk; otherwise gaps 0,0,~0,0,+0.1,+0.4.", "tests": "that Rosstat's preliminary print is at or above MinEk's Q3 estimate (0.6%), i.e. the upward skew from the Q2 2026 +0.4pp beat"},
+  {"category": "disconfirmation", "query": "Rosstat preliminary GDP below Ministry of Economy estimate quarter", "by": "scout-2", "status": "skipped", "finding": "covered by query above", "tests": "same"},
+  {"category": "schedule", "query": "Росстат 13 ноября 2026 ВВП публикация", "by": "main", "status": "skipped", "finding": "date confirmed by MinEk article (13 Nov)"},
+  {"category": "consensus", "query": "аналитики ожидают ВВП третий квартал 2026 рост", "by": "scout-1", "status": "skipped", "finding": ""},
+  {"category": "other", "query": "Росстат предварительная оценка ВВП 2025 кварталы 1.4 1.1 0.6", "by": "scout-2", "status": "skipped", "finding": ""}
+],
+ "adjustments": [
+  {"event": "Recent Rosstat-above-MinEk beats (Q1 2026 +0.1, Q2 2026 +0.4) and CBR's Zabotkin saying Q3 faster than H1", "date": "2026-08-12", "effect": "upper tail widened: p75 0.8, p90 1.0 (median kept at MinEk 0.6)", "sources": [2, 3, 5]}
+ ]}
