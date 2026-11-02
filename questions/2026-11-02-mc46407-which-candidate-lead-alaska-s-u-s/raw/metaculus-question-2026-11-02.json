@@ -1,0 +1,48 @@
+{
+  "post_id": 46407,
+  "url": "https://www.metaculus.com/questions/46407/",
+  "post_title": "Which candidate will lead Alaska's U.S. Senate race in first-choice votes as of November 13, 2026?",
+  "tournaments": [
+    "minibench"
+  ],
+  "options": [
+    "Sullivan, Dan S. (Republican, incumbent)",
+    "Peltola, Mary (Democrat)",
+    "Sullivan, Daniel J. Jr.",
+    "Any other candidate"
+  ],
+  "question": {
+    "id": 46640,
+    "title": "Which candidate will lead Alaska's U.S. Senate race in first-choice votes as of November 13, 2026?",
+    "type": "multiple_choice",
+    "status": "open",
+    "description": "Alaska's Class II U.S. Senate seat is up in the general election of November 3, 2026. Incumbent Republican Dan S. Sullivan is seeking a third term; former U.S. Representative Mary Peltola is the Democratic nominee, and the Cook Political Report rates the race a Toss Up (as of October 30, 2026: https://www.cookpolitical.com/ratings/senate-race-ratings). Recent public polling has shown Peltola ahead by low single digits — Alaska Survey Research (fielded October 26–29, 2026) had Peltola at 48% and Dan S. Sullivan at 46% on first preferences, and 51%–49% Peltola after ranked-choice transfers.\n\nAlaska uses a nonpartisan top-four primary. In the August 18, 2026 primary for U.S. Senator, Peltola led with 82,244 votes (49.5%), Sullivan took 68,726 (41.4%), and Daniel J. Sullivan Jr. — an undeclared candidate from Petersburg who shares the incumbent's surname — took 4,107 (2.5%); Gerald L. Heikes (Republican) also appears on the general ballot. The November 3 ballot therefore lists four candidates for U.S. Senator: Heikes, Peltola, Sullivan, Daniel J. Jr., and Sullivan, Dan S. (incumbent) (sample ballot: https://www.elections.alaska.gov/election/2026/General/SampleBallots/HD13-JD3.pdf; candidate list: https://www.elections.alaska.gov/candidates/?election=26genr). Name order varies by House district, and Daniel J. Sullivan Jr.'s inclusion followed a June 29, 2026 Alaska Supreme Court order (No. S-19935) affirming a superior court directive that the Division of Elections place him on the ballot.\n\nOn October 22, 2026 the U.S. Department of Justice sued Alaska (United States of America v. State of Alaska, No. 3:26-cv-00376-SLG, D. Alaska; amended October 29), seeking to block certification of the Senate result if the incumbent loses, on the argument that the duplicate surname could mislead voters; President Trump said he ordered the suit filed (https://www.cnbc.com/2026/10/29/alaska-senate-governor-investigation-sullivan-peltola-doj.html). The state, its election officials and the Peltola campaign have moved to dismiss, and Judge Sharon Gleason has expedited proceedings. The litigation concerns certification, not the counting or publication of first-choice results.\n\nCounting follows Alaska's published schedule (media packet: https://www.elections.alaska.gov/doc/mp/2026/MediaPacket-2026-General.%20V3.pdf): first unofficial results on election night (polling-place ballots plus early votes cast October 19–29), then \"ongoing counting and 1st choice results reporting\" from November 4 through November 17. Absentee ballots mailed within the United States must be received by November 13 (10 days after Election Day); all absentee and questioned ballots must be counted no later than November 18 (15 days), when ranked-choice tabulation is run; certification is targeted for November 25. The Division posts cumulative unofficial totals on its Election Night Reporting page (https://www.elections.alaska.gov/results/26GENR/), which currently lists the four Senate candidates at zero votes, pending the election.\n\nBallot statistics posted by the Division as of October 30, 2026: 105,528 ballots issued and 78,090 received, including 20,501 of 42,455 by-mail ballots, 51,638 early-vote ballots and 4,150 in-person absentee ballots, with 605,433 registered voters. Turnout in the August primary was 166,992 (27.7%). Because totals are released cumulatively and repeatedly, the first-choice leader on November 13 can differ from the leader on election night if the batches counted in the intervening days break disproportionately by candidate — the core uncertainty this question targets.\n\n`{\"format\": \"llm_question\", \"info\": {\"sdk_version\": \"0.6.1\", \"rating\": {\"quality\": 3, \"ambiguity\": 3, \"resolvability\": 4, \"passes\": true}}}`",
+    "resolution_criteria": "This question resolves based on the Alaska Division of Elections' cumulative unofficial first-choice vote totals for U.S. Senator in the 2026 General Election, as displayed on its Election Night Reporting page (https://www.elections.alaska.gov/results/26GENR/) in the most recent update posted at or before 11:59 p.m. AKST on November 13, 2026 (08:59 UTC on November 14). The option naming the candidate whose displayed total is highest resolves YES, and all other options resolve NO; if two or more candidates are tied for the highest total, \"Any other candidate\" resolves YES. Candidates are identified by the Division's own labels on that page (\"Heikes, Gerald L.\", \"Peltola, Mary\", \"Sullivan, Daniel J. Jr.\", \"Sullivan, Dan S.\"), and any candidate or write-in total not matching one of the named options falls under \"Any other candidate\". Because the page is overwritten cumulatively, an archived capture of the page (for example a Wayback Machine snapshot) showing the totals in effect at that cutoff may be used to establish them. If the totals cannot be recovered from that page or its archived captures, [credible sources](https://www.metaculus.com/faq/#definitions) will be used.",
+    "fine_print": "\"First-choice votes\" means the round-one totals reported for each candidate before any ranked-choice tabulation; ranked-choice transfer rounds (scheduled for November 18, 2026) and the eventual winner of the seat are not used. Litigation or court orders concerning certification of the election, including United States of America v. State of Alaska, No. 3:26-cv-00376-SLG (D. Alaska), do not affect this question.",
+    "unit": "",
+    "options": [
+      "Sullivan, Dan S. (Republican, incumbent)",
+      "Peltola, Mary (Democrat)",
+      "Sullivan, Daniel J. Jr.",
+      "Any other candidate"
+    ],
+    "scaling": {
+      "range_min": null,
+      "range_max": null,
+      "nominal_min": null,
+      "nominal_max": null,
+      "zero_point": null,
+      "open_upper_bound": false,
+      "open_lower_bound": false,
+      "inbound_outcome_count": null,
+      "continuous_range": null
+    },
+    "open_lower_bound": false,
+    "open_upper_bound": false,
+    "inbound_outcome_count": null,
+    "open_time": "2026-11-02T16:15:56Z",
+    "scheduled_close_time": "2026-11-02T19:15:56Z",
+    "scheduled_resolve_time": "2026-11-14T08:59:00Z",
+    "resolution": null
+  }
+}
