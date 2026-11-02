@@ -1,0 +1,61 @@
+{
+  "post_id": 46408,
+  "url": "https://www.metaculus.com/questions/46408/",
+  "post_title": "What will Argentina's month-on-month inflation (INDEC national CPI) be for October 2026?",
+  "tournaments": [
+    "minibench"
+  ],
+  "options": null,
+  "question": {
+    "id": 46641,
+    "title": "What will Argentina's month-on-month inflation (INDEC national CPI) be for October 2026?",
+    "type": "discrete",
+    "status": "open",
+    "description": "Argentina's national Consumer Price Index (IPC), published monthly by INDEC, is the country's headline inflation measure and the most closely watched gauge of the Milei government's disinflation programme. Monthly inflation has hovered between roughly 1.7% and 2.1% since mid-2026, after falling from 3.4% in March. INDEC's national-total monthly readings so far in 2026: January 2.9%, February 2.9%, March 3.4%, April 2.6%, May 2.1%, June 1.9%, July 2.1%, August 1.7%, September 1.9%.\n\nThe most recent release (13 October 2026) put September 2026 at 1.9% m/m, 33.4% y/y and 23.6% accumulated in 2026, with core inflation at 1.8% and food and non-alcoholic beverages up 2.0%. Patagonia recorded the lowest regional reading (1.4%).\n\nINDEC's dissemination calendar (https://www.indec.gob.ar/ftp/cuadros/publicaciones/calendario_2sem2026.pdf) schedules the October 2026 IPC report for Thursday 12 November 2026 at 16:00 ART (UTC−3), with November data following on 15 December 2026. As of 30 October 2026 no official October figure exists.\n\nExpectations are clustered but not identical. The BCRA's September Market Expectations Survey (REM, published 6 October 2026, 44 participants) had a median forecast of 1.7% m/m for October, 30.0% for 2026 as a whole and 21.1% over the following twelve months; that survey was taken at the end of September, before October's price behaviour was observed. Private consultoras surveyed in the second half of October generally pointed to a slightly higher figure, in the 1.8%–2.0% range, citing increases in regulated utility tariffs and fuel prices plus firmer food prices (Analytica, for instance, projected 1.9% after food rose 0.5% in the first week of October). October's print is therefore widely treated as the test of whether the August–September stabilisation near 2% holds or whether disinflation resumes. The BCRA's October REM, due in early November, will update the analyst consensus shortly before INDEC publishes.\n\n`{\"format\": \"llm_question\", \"info\": {\"sdk_version\": \"0.6.1\", \"rating\": {\"quality\": 3, \"ambiguity\": 4, \"resolvability\": 4, \"passes\": true}}}`",
+    "resolution_criteria": "This question resolves to the month-on-month percentage variation of Argentina's national Consumer Price Index (\"Nivel general\", total national coverage) for October 2026 as published by INDEC (Instituto Nacional de Estadística y Censos). The resolving figure is the one reported for October 2026 in INDEC's IPC press release, scheduled for 16:00 ART (UTC−3) on Thursday 12 November 2026 per INDEC's dissemination calendar, and displayed as \"Precios al consumidor (IPC)\" on INDEC's prices page: https://www.indec.gob.ar/indec/web/Nivel3-Tema-3-5. Answers are expressed in percent: a published monthly variation of 1,9% resolves as 1.9, and a published variation of 2,0% resolves as 2.0. If INDEC's own publication is unavailable or not rendered on that page, the INDEC figure as reported by [credible sources](https://www.metaculus.com/faq/#definitions) will be used.",
+    "fine_print": "Only the national-total monthly variation of the general index counts; the core (\"núcleo\") reading, regional breakdowns, and the year-on-year or year-to-date figures do not affect resolution. The first October 2026 figure INDEC publishes is used. If INDEC delays the release beyond 12 November 2026, the question remains open and resolves once the figure is published.",
+    "unit": "%",
+    "options": null,
+    "scaling": {
+      "range_min": 0.95,
+      "range_max": 3.05,
+      "nominal_min": 0.9999999999999999,
+      "nominal_max": 2.9999999999999996,
+      "zero_point": null,
+      "open_upper_bound": true,
+      "open_lower_bound": true,
+      "inbound_outcome_count": 21,
+      "continuous_range": [
+        0.95,
+        1.0499999999999998,
+        1.15,
+        1.25,
+        1.3499999999999999,
+        1.4499999999999997,
+        1.5499999999999998,
+        1.65,
+        1.7499999999999998,
+        1.8499999999999996,
+        1.9499999999999997,
+        2.05,
+        2.1499999999999995,
+        2.25,
+        2.3499999999999996,
+        2.4499999999999993,
+        2.55,
+        2.6499999999999995,
+        2.7499999999999996,
+        2.8499999999999996,
+        2.9499999999999993,
+        3.05
+      ]
+    },
+    "open_lower_bound": true,
+    "open_upper_bound": true,
+    "inbound_outcome_count": 21,
+    "open_time": "2026-11-02T16:23:47Z",
+    "scheduled_close_time": "2026-11-02T19:23:47Z",
+    "scheduled_resolve_time": "2026-11-12T21:00:00Z",
+    "resolution": null
+  }
+}
