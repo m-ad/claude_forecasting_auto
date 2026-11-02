@@ -1,0 +1,38 @@
+{
+  "post_id": 46388,
+  "url": "https://www.metaculus.com/questions/46388/",
+  "post_title": "Will Czechia reach the semi-finals of the 2026 IIHF Women's World Championship?",
+  "tournaments": [
+    "minibench"
+  ],
+  "options": null,
+  "question": {
+    "id": 46621,
+    "title": "Will Czechia reach the semi-finals of the 2026 IIHF Women's World Championship?",
+    "type": "binary",
+    "status": "open",
+    "description": "The 2026 IIHF Women's World Championship, the top division of the [IIHF Women's World Championship](https://en.wikipedia.org/wiki/IIHF_Women%27s_World_Championship), is being played 6–16 November 2026 in Herning and Esbjerg, Denmark — an unusual November slot rather than the traditional April dates (https://www.iihf.com/en/events/2026/ww). Ten teams play a preliminary round from 6 to 11 November, followed by the playoff stage on 13 November, semi-finals on 15 November and the bronze- and gold-medal games on 16 November (https://www.iihf.com/en/events/2026/ww/news/75137/2026_iihf_women_s_world_championship_game_schedule).\n\nFormat: the two groups were drawn with a serpentine (\"snake\") seeding by World Ranking — Group A: United States, Czechia, Switzerland, Germany, Austria (all preliminary-round games in Esbjerg); Group B: Canada, Finland, Sweden, Denmark, Japan. All five Group A teams and the top three Group B teams advance to the quarter-finals, with the pairings fixed as A1–B3, A2–B2, A3–B1 and A4–A5 (https://www.iihf.com/en/events/2026/ww/tournamentinfo/62150/tournament_info). Because Czechia is in Group A, it is guaranteed a quarter-final berth whatever happens in the group stage: this question is therefore purely about whether Czechia wins that single quarter-final on 13 November. The four quarter-final winners are the four semi-finalists.\n\nCzechia's position: the team is ranked 3rd in the IIHF Women's World Ranking (June 2026), won bronze at the 2022 and 2023 World Championships, and finished 4th in both 2024 and 2025 after losing the bronze-medal game to Finland each time — i.e. Czechia has reached the semi-final round at each of the last four World Championships. Brian Idalski took over as head coach in 2026 after Carla MacLeod, with goaltender Klára Peslarová and defender Daniela Pejsová among the core players (https://www.iihf.com/en/events/2026/ww/news/76556/road_to_the_2026_women_s_worlds_czechia_%E2%80%93_returnin). At the February 2026 Winter Olympics, Czechia lost 4–3 in a shootout to Switzerland in group play.\n\nWhat drives the forecast: Czechia is expected to finish 2nd or 3rd in Group A behind the United States. A 2nd-place finish would match Czechia against Group B's runner-up — most likely Finland (which has beaten Czechia in the last two bronze-medal games) or Sweden — a roughly even match-up. A 3rd-place finish would mean a quarter-final against the Group B winner, most likely Canada, a far harder draw. Less likely scenarios: a 1st-place finish ahead of the United States would mean facing Group B's third-place team (likely Denmark or Japan), while a 4th- or 5th-place finish would mean an all-Group-A quarter-final against Austria or Germany. The preliminary round concludes on 11 November, so by the time this question opens for forecasting the group standings and Czechia's exact quarter-final opponent will already be known.\n\n`{\"format\": \"llm_question\", \"info\": {\"sdk_version\": \"0.6.1\", \"rating\": {\"quality\": 3, \"ambiguity\": 4, \"resolvability\": 4, \"passes\": true}}}`",
+    "resolution_criteria": "This question resolves YES if Czechia wins its quarter-final game at the 2026 IIHF Women's World Championship and thereby qualifies for the semi-final round, and NO if Czechia loses that quarter-final and is eliminated. All four quarter-finals are scheduled for 13 November 2026 (local time in Denmark), and the question will resolve on the reported result of Czechia's game. Resolution is based on the official game result on the IIHF tournament schedule and results page (https://www.iihf.com/en/events/2026/ww/schedule); if that page is unavailable or does not show the result, on [credible sources](https://www.metaculus.com/faq/#definitions).",
+    "fine_print": "A quarter-final won in overtime or via a penalty-shot shootout counts as a win, and the team credited with the win in the official IIHF game record is the team that advances. If Czechia advances to the semi-final round without its quarter-final being played (for example because the opponent forfeits), this resolves YES. If Czechia's quarter-final is started but never completed and no team is credited with advancing from it, the question is annulled.",
+    "unit": "",
+    "options": null,
+    "scaling": {
+      "range_min": null,
+      "range_max": null,
+      "nominal_min": null,
+      "nominal_max": null,
+      "zero_point": null,
+      "open_upper_bound": false,
+      "open_lower_bound": false,
+      "inbound_outcome_count": null,
+      "continuous_range": null
+    },
+    "open_lower_bound": false,
+    "open_upper_bound": false,
+    "inbound_outcome_count": null,
+    "open_time": "2026-11-02T06:54:55Z",
+    "scheduled_close_time": "2026-11-02T09:54:55Z",
+    "scheduled_resolve_time": "2026-11-13T23:00:00Z",
+    "resolution": null
+  }
+}
