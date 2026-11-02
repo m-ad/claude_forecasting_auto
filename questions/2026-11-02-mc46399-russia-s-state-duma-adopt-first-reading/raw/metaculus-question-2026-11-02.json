@@ -1,0 +1,38 @@
+{
+  "post_id": 46399,
+  "url": "https://www.metaculus.com/questions/46399/",
+  "post_title": "Will Russia's State Duma adopt in first reading, before 13 November 2026, a bill moving the launch of pre-bankruptcy rehabilitation to 1 January 2027?",
+  "tournaments": [
+    "minibench"
+  ],
+  "options": null,
+  "question": {
+    "id": 46632,
+    "title": "Will Russia's State Duma adopt in first reading, before 13 November 2026, a bill moving the launch of pre-bankruptcy rehabilitation to 1 January 2027?",
+    "type": "binary",
+    "status": "open",
+    "description": "The State Duma is the lower chamber of Russia's Federal Assembly; a bill must pass three readings in the Duma, then be approved by the Federation Council and signed by the President. First-reading adoption is the first substantive vote on a bill, and each step is recorded in the Duma's legislative database (СОЗД).\n\nOn 26 July 2026 the President signed Federal Law No. 253-FZ, a broad bankruptcy reform that introduces \"pre-bankruptcy rehabilitation\" (добанкротная санация) — agreements between a debtor and its creditors concluded before a bankruptcy case is opened, including a comprehensive sanatsiya agreement for debtors with assets above RUB 1 bn — alongside a court debt-restructuring procedure and a register of arbitration managers ([text](http://www.kremlin.ru/acts/bank/53499), [publication](https://rg.ru/documents/2026/07/31/fz253-dok.html)). Article 11 of the law brings the core provisions into force one year after publication — 27 July 2027 according to most reports, although some legal summaries cite 1 July 2027 — with certain provisions following on 1 September 2027, 1 January 2028, 1 January 2030 and 30 March 2030.\n\nTwo bills would move that launch to 1 January 2027: No. 1308850-8, introduced by senators Nikolai Zhuravlev and Alexander Shenderyuk-Zhidkov on 5 August 2026 ([Interfax](https://www.interfax.ru/business/1107854)), and No. 5261-9, introduced by deputies Sergei Gavrilov and Sergei Ten on 6 October 2026 ([draft text](http://base.garant.ru/411685909/)). As of 30 October 2026 both were still awaiting their first reading, with the Duma Committee on Property, Land and Property Relations as the responsible committee ([tracker](https://ppt.ru/news/idea/perenos-zapuska-dobankrotnoy-sanatsii-biznesa)). The Ministry of Economic Development proposed the same acceleration in September 2026, and the business lobby \"Delovaya Rossiya\" publicly urged it on 16 October 2026.\n\nPressure for speed has grown with the distress of the housebuilder Samolet. On 28 October 2026 its main creditor banks said they had agreed a \"comprehensive programme\" for resolving the company's position, and on 30 October 2026 VTB first deputy chairman Dmitry Pyanov said Samolet is likely to become the first large company to restructure under the new pre-bankruptcy mechanism and that VTB's reserves are sufficient. The mechanism becomes usable only once the relevant provisions enter into force, which is the point of the two bills.\n\nOn timing: the Duma holds plenary sessions on Tuesday–Thursday of its \"plenary weeks\". The 2027–2029 budget passed its first reading on 29 October 2026 and is scheduled for its second reading around 19 November 2026, and a government hour was moved to 11 November 2026, pointing to a plenary week in the week of 9–13 November 2026. A bill reaches a first-reading vote only if the responsible committee recommends it and the Duma Council places it on a session's agenda (порядок работы). As of 30 October 2026 no date for the first reading of either bill had been publicly announced, so that vote could fall in November, in December, or later.\n\n`{\"format\": \"llm_question\", \"info\": {\"sdk_version\": \"0.6.1\", \"rating\": {\"quality\": 3, \"ambiguity\": 4, \"resolvability\": 4, \"passes\": true}}}`",
+    "resolution_criteria": "This question resolves YES if the State Duma of the Russian Federation adopts in the first reading, before 13 November 2026 (Moscow time), bill No. 1308850-8, bill No. 5261-9, or any other bill providing that the pre-bankruptcy rehabilitation (sanatsiya) provisions of Federal Law No. 253-FZ of 26 July 2026 enter into force on 1 January 2027. It resolves NO if no such bill has been adopted in the first reading before that date. The relevant date is the date of the plenary session at which the adoption vote was taken. Resolution is based on the State Duma's own record of session results and of the bills' passage — its news feed at http://duma.gov.ru/news/duma/ and its legislative database СОЗД — or, where these do not report a given bill, on [credible sources](https://www.metaculus.com/faq/#definitions).",
+    "fine_print": "Bill No. 1308850-8 (registered 5 August 2026; introduced by senators N. A. Zhuravlev and A. V. Shenderyuk-Zhidkov) and bill No. 5261-9 (registered 6 October 2026; introduced by deputies S. A. Gavrilov and S. Yu. Ten) are the two identified bills that would set 1 January 2027 as the entry-into-force date of the pre-bankruptcy rehabilitation provisions of Law No. 253-FZ. A bill counts as \"adopted in the first reading\" only if the Duma passes a resolution adopting it in the first reading; a decision to reject the bill, to return it to the subject of the legislative initiative, or to postpone its consideration does not count.",
+    "unit": "",
+    "options": null,
+    "scaling": {
+      "range_min": null,
+      "range_max": null,
+      "nominal_min": null,
+      "nominal_max": null,
+      "zero_point": null,
+      "open_upper_bound": false,
+      "open_lower_bound": false,
+      "inbound_outcome_count": null,
+      "continuous_range": null
+    },
+    "open_lower_bound": false,
+    "open_upper_bound": false,
+    "inbound_outcome_count": null,
+    "open_time": "2026-11-02T13:49:10Z",
+    "scheduled_close_time": "2026-11-02T16:49:10Z",
+    "scheduled_resolve_time": "2026-11-13T12:00:00Z",
+    "resolution": null
+  }
+}

@@ -1,0 +1,25 @@
+{"searches": [
+{"category":"resolution_source","query":"Госдума первое чтение перенос добанкротной санации 1 января 2027","by":"main","status":"done","finding":"No first reading found as of 30 Oct; both bills awaiting first reading"},
+{"category":"resolution_source","query":"ppt.ru tracker перенос запуска добанкротной санации (fetch)","by":"main","status":"done","finding":"Both bills awaiting first reading, no date set (updated 30 Oct 2026); preliminary review 12.10.26"},
+{"category":"schedule","query":"Совет Думы законопроект 1308850-8 санация рассмотрение ноябрь","by":"main","status":"done","finding":"nothing relevant"},
+{"category":"upcoming_events","query":"Госдума пленарное заседание 10 ноября 11 ноября 2026 повестка","by":"main","status":"done","finding":"nothing for 2026; question text says plenary week 9-13 Nov, govt hour 11 Nov"},
+{"category":"schedule","query":"Госдума ноябрь 2026 региональная неделя календарь пленарных заседаний","by":"main","status":"done","finding":"calendar not found"},
+{"category":"schedule","query":"Госдума 3 ноября 2026 пленарное заседание Совет Думы","by":"main","status":"done","finding":"nothing relevant"},
+{"category":"schedule","query":"Госдума рассмотрит на следующей неделе законопроекты 10 ноября","by":"main","status":"done","finding":"nothing; asafov 26 Oct: 70 priority bills, no mention of sanation"},
+{"category":"news","query":"Самолет ВТБ Пьянов первая крупная компания добанкротная санация","by":"main","status":"done","finding":"30 Oct 2026: VTB says Samolet likely first; Interfax: shift to 1 Jan 2027 'under consideration'"},
+{"category":"news","query":"Минэкономразвития предложило ускорить запуск добанкротной санации с 1 января 2027","by":"main","status":"done","finding":"Minek proposed at 15 Sep strategic session with Mishustin; no decision reported"},
+{"category":"resolution_source","query":"законопроект 5261-9 Гаврилов Тен санация","by":"main","status":"done","finding":"nothing relevant"},
+{"category":"consensus","query":"Деловая Россия санация 16 октября (pravo.ru)","by":"scout-2","status":"done","finding":"urges acceleration and lower threshold"},
+{"category":"resolution_source","query":"pnp.ru fetch bill 1308850-8; Gavrilov chairs property committee","by":"main","status":"done","finding":"Gavrilov = chair of responsible committee; co-author of 5261-9"},
+{"category":"markets","query":"Polymarket OR Manifold Russia State Duma bankruptcy sanatsiya bill first reading","by":"scout-3","status":"done","finding":"none found"},
+{"category":"base_rate","query":"Госдума первое чтение перенос вступления в силу технический законопроект через неделю","by":"scout-3","status":"done","finding":"no systematic statistic; anecdotal quick passes"},
+{"category":"base_rate","query":"time from committee to first reading senators bills","by":"scout-3","status":"done","finding":"no statistic found; Council can schedule in days when leadership wants"},
+{"category":"disconfirmation","query":"Аксаков OR Володин OR Макаров OR Конопляев Самолет санация закон перенос срока","by":"scout-3","status":"done","finding":"no Duma official statement found; bills unscheduled since Aug/Oct","tests":"that a committee-chair-sponsored, ministry-backed date-shift gets first reading within the next ~2 plenary weeks"},
+{"category":"disconfirmation","query":"комитет Госдумы по собственности Исаев санация рекомендовал принять в первом чтении","by":"scout-2","status":"done","finding":"no committee recommendation found"},
+{"category":"news","query":"Самолет санация добанкротная реабилитация закон 253-ФЗ перенос","by":"scout-2","status":"done","finding":"same as above"},
+{"category":"schedule","query":"Госдума распорядок работы ноябрь 2026 пленарные 10 11 12 ноября","by":"scout-2","status":"done","finding":"unverifiable; no calendar"}
+],
+"adjustments": [
+{"event":"Bills unscheduled for 89 days (1308850-8) and 27 days (5261-9) despite support; no first-reading date announced as of 30 Oct","date":"2026-10-30","effect":"-15 pp vs. a naive 'sponsor is committee chair, urgent' prior","sources":[1,2]},
+{"event":"Support: Minek, Delovaya Rossiya, committee chair as co-author, Samolet urgency","date":"2026-10-30","effect":"+10 pp","sources":[2,3,4]}
+]}
