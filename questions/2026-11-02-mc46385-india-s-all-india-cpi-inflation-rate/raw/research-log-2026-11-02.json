@@ -1,0 +1,28 @@
+{"searches": [
+  {"category": "resolution_source", "query": "MoSPI September 2026 CPI press release PDF (pdf_text.py)", "by": "main", "status": "done", "finding": "Sep 2026 combined 5.54%, index 109.49 (Aug 108.74, m/m +0.69%); CFPI 7.74%; Oct release 12 Nov 2026"},
+  {"category": "resolution_source", "query": "PIB press release PRID=2322244 (WebFetch)", "by": "main", "status": "done", "finding": "403, fell back to MoSPI PDF"},
+  {"category": "resolution_source", "query": "\"2024=100\" CPI October 2025 index 103 back series linking factor", "by": "main", "status": "done", "finding": "no Oct 2025 new-series index found"},
+  {"category": "base_rate", "query": "new CPI series base 2024 back series 2025 monthly inflation October 2025 November 2025 MoSPI", "by": "main", "status": "done", "finding": "new series y/y starts Jan 2026 (2.75%); no Oct 2025 value"},
+  {"category": "base_rate", "query": "India CPI October 2025 retail inflation 0.25% index month on month GST cut", "by": "main", "status": "done", "finding": "old series Oct 2025 0.25% record low, food -5.02%, GST cut full-month effect"},
+  {"category": "news", "query": "India October 2026 CPI inflation forecast economists", "by": "main", "status": "done", "finding": "SBI >6.5% Oct-Nov (pre-Sep print); BoB FY27 5.0-5.2%"},
+  {"category": "news", "query": "India retail inflation September 2026 5.54% October outlook", "by": "main", "status": "done", "finding": "India Ratings ~6.0% Oct; RBI Q3 6.0%; Reuters poll had 5.40% for Sep"},
+  {"category": "consensus", "query": "freepressjournal SBI Oct-Nov may cross 6% (WebFetch)", "by": "main", "status": "done", "finding": "SBI 20 Aug 2026: just breaching 6% in Oct and Nov"},
+  {"category": "news", "query": "India vegetable prices October 2026 tomato onion potato retail price", "by": "scout-1", "status": "done", "finding": "Koyambedu tomato falling mid-Oct; onion Rs60 stable"},
+  {"category": "markets", "query": "gold silver price India October 2026 MCX month", "by": "scout-1", "status": "done", "finding": "Delhi gold -5.1%, silver -17.3% from 1 to 30 Oct 2026; no prediction market on India CPI found"},
+  {"category": "news", "query": "onion prices retail Delhi mandi late October 2026 Lasalgaon price", "by": "scout-1", "status": "done", "finding": "Lasalgaon fell early Oct, rebounded ~21 Oct on lower arrivals"},
+  {"category": "consensus", "query": "India CPI inflation October 2026 forecast economists poll", "by": "scout-1", "status": "done", "finding": "only SBI found"},
+  {"category": "consensus", "query": "ICRA Aditi Nayar CPI inflation October 2026 print", "by": "scout-2", "status": "done", "finding": "ICRA: headline set to cross 6% in Oct, F&B >8%"},
+  {"category": "consensus", "query": "RBI MPC October 2026 inflation projection Q3 FY27 CPI", "by": "scout-2", "status": "done", "finding": "repo 5.50%; Q3 6.0%, Q4 5.7%, FY27 5.2%"},
+  {"category": "consensus", "query": "India CPI October 2026 poll Reuters inflation seen rising November 12 release", "by": "scout-2", "status": "done", "finding": "no Oct 2026 Reuters poll found"},
+  {"category": "markets", "query": "Polymarket Kalshi India CPI October 2026", "by": "scout-2", "status": "done", "finding": "none found"},
+  {"category": "base_rate", "query": "CPI new series 2024=100 October 2025 inflation back series 0.25% all India index", "by": "scout-3", "status": "done", "finding": "Nov 2025 104.01, Dec 2025 104.10, Jan 2026 104.46"},
+  {"category": "base_rate", "query": "ThePrint decoding India's inflation onions silver (fetch)", "by": "scout-3", "status": "done", "finding": "flat index from Sep -> Oct 5.54%, Nov 5.27%, Dec 5.18%: Oct 2025 base ~= Sep 2025"},
+  {"category": "disconfirmation", "query": "India inflation outlook October 2026 vegetable prices onion prices fall base effect economists expect CPI", "by": "scout-3", "status": "done", "finding": "onion wholesale dipped early Oct then rebounded; kharif output may be 5-7% lower; no evidence of an October crash", "tests": "that October 2026 m/m is clearly positive (~+0.45%), lifting y/y above the flat-index 5.54%"},
+  {"category": "disconfirmation", "query": "SBI Research inflation above 6.5% October November 2026 onion prices CPI", "by": "scout-3", "status": "done", "finding": "SBI Ecowrap 12 Oct: peak 6.7-6.8% in Nov, Q3 ~6.5%", "tests": "upper tail above 6.8%"},
+  {"category": "news", "query": "onion prices October 2026 mandi Lasalgaon wholesale fall new kharif arrivals", "by": "scout-3", "status": "done", "finding": "new red onion Rs3,400/q ~23 Oct; arrivals down 15%"}
+],
+ "adjustments": [
+  {"event": "ThePrint flat-index projection implies Oct 2025 base ~flat vs Sep 2025 (not the deep old-series dip)", "date": "2026-10-14", "effect": "median anchored at 5.54% + Oct m/m, not ~6.5%+ from a low base", "sources": [3]},
+  {"event": "Analyst consensus for Oct 2026 ~6.0-6.5% (India Ratings, ICRA, SBI, RBI Q3 6.0%)", "date": "2026-10-12", "effect": "+0.45 pp on median (implied Oct m/m ~+0.45%)", "sources": [4, 5, 6, 7]},
+  {"event": "Gold -5% and silver -17% during October 2026", "date": "2026-10-30", "effect": "-0.05 pp on median", "sources": [8]}
+]}
