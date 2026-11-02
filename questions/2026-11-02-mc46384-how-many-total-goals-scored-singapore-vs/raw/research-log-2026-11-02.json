@@ -1,0 +1,29 @@
+{"searches": [
+  {"category": "resolution_source", "query": "WebFetch ESPN match page gameId 401916338", "by": "main", "status": "done", "finding": "Page returned empty content (JS-rendered); fixture exists with this id (also on surprisesports mirror)."},
+  {"category": "news", "query": "Singapore vs Paraguay 13 November 2026 friendly", "by": "main", "status": "done", "finding": "Fixture confirmed: 13 Nov 2026, National Stadium, 20:00 SGT / 12:00 UTC, Mizuho Blue Challenge opener (Mothership, The Kallang, 22bet)."},
+  {"category": "markets", "query": "WebFetch oddscalendar Singapore vs Paraguay 1640083", "by": "main", "status": "done", "finding": "Megapari 1X2 rendered as '117.00X10.0021.00' -> Singapore 17.0, draw 10.0, Paraguay price garbled (~1.1-1.2); no totals line. Updated 2026-11-02."},
+  {"category": "markets", "query": "WebFetch 22bet prediction Singapore vs Paraguay 13-11-2026", "by": "main", "status": "done", "finding": "No odds/prediction yet; form strings only (Singapore home PPG 2.0)."},
+  {"category": "markets", "query": "Singapore Paraguay odds over under 2.5 goals", "by": "main", "status": "done", "finding": "No totals line for this fixture; Paraguay matches typically priced Under 2.5 (vs Australia WC2026, vs Japan friendlies)."},
+  {"category": "news", "query": "Paraguay convocatoria Alfaro noviembre 2026 Singapur Japón", "by": "main", "status": "done", "finding": "No Nov-2026 squad list found; Paraguay beat Japan 2-1 in Oct 2025 Asian tour."},
+  {"category": "base_rate", "query": "Paraguay 2026 friendly results Bolivia Colombia September October score", "by": "main", "status": "done", "finding": "Paraguay 2-0 Bolivia (27 Sep 2026), Colombia 0-1 Paraguay (2 Oct 2026)."},
+  {"category": "disconfirmation", "query": "Malaysia 6-0 Singapore FIFA ASEAN Cup October 2026", "by": "main", "status": "done", "finding": "Confirmed: Malaysia 6-0 Singapore, 1 Oct 2026, Bandung (Malay Mail, NST, The Star).", "tests": "that the question background's 'Singapore concede heavily' premise (which pushes the median above Paraguay's ~2.0 goals-per-game total) is real rather than LLM-invented"},
+  {"category": "base_rate", "query": "Singapore national team results vs South Korea China 2024 World Cup qualifier 7-0 score", "by": "main", "status": "done", "finding": "Korea 7-0 Singapore (6 Jun 2024), Korea 5-0 (Nov 2023), China 2-2 and 4-1 (Mar 2024)."},
+  {"category": "markets", "query": "Singapore vs Paraguay friendly odds prediction 13 November 2026", "by": "scout-1", "status": "done", "finding": "Only Megapari 1X2 via OddsCalendar; no totals."},
+  {"category": "schedule", "query": "Singapore Paraguay Mizuho Blue Challenge National Stadium", "by": "scout-1", "status": "done", "finding": "Series 13-17 Nov; Paraguay play Japan 17 Nov."},
+  {"category": "markets", "query": "Singapore v Paraguay Polymarket OR Kalshi", "by": "scout-1", "status": "done", "finding": "No market; Polymarket banned in Singapore."},
+  {"category": "markets", "query": "Singapore vs Paraguay odds over 2.5 goals handicap correct score bookmaker", "by": "scout-1", "status": "done", "finding": "None found; stats snippet: Singapore over 2.5 in 5 of last 6 (unverified)."},
+  {"category": "news", "query": "Paraguay convocados noviembre 2026 Alfaro amistosos lista", "by": "scout-2", "status": "done", "finding": "No November squad announced yet."},
+  {"category": "news", "query": "Singapore Lions squad November 2026 Paraguay friendly Gerald Pereira", "by": "scout-2", "status": "done", "finding": "No November squad; Sept ASEAN Cup 23-man list under Gavin Lee."},
+  {"category": "base_rate", "query": "Paraguay World Cup 2026 results group stage score eliminated Alfaro", "by": "scout-2", "status": "done", "finding": "USA 4-1 Paraguay, Paraguay 1-0 Turkiye, 0-0 Australia, 1-1 Germany (won pens)."},
+  {"category": "base_rate", "query": "Singapore Lions FIFA Series ASEAN Cup 2026 semi-final Thailand result", "by": "scout-2", "status": "done", "finding": "Singapore 1-3 Thailand (15 Aug), Thailand 1-2 Singapore (18 Aug)."},
+  {"category": "disconfirmation", "query": "Singapore Lions Indonesia Bangladesh Malaysia October 2026 friendly result 0-6 Malaysia", "by": "scout-2", "status": "done", "finding": "Results sequence 0-2, 1-0, 0-6 confirmed.", "tests": "the claimed Singapore results sequence in the question background"},
+  {"category": "base_rate", "query": "Argentina Indonesia friendly 2-0 June 2023; Argentina Singapore 2017 6-0; Brazil Singapore 2014 4-0 results", "by": "scout-3", "status": "done", "finding": "Argentina 6-0 Singapore (13 Jun 2017, Kallang); Indonesia 0-2 Argentina (19 Jun 2023)."},
+  {"category": "base_rate", "query": "Paraguay Alfaro friendly results 2026 goals scored World Cup warm-up", "by": "scout-3", "status": "done", "finding": "Greece 0-1 Paraguay, Morocco 2-1 Paraguay, Paraguay 4-0 Nicaragua (Mar-Jun 2026)."},
+  {"category": "disconfirmation", "query": "low-scoring case: strong South American side coasting in Asian promotional friendly", "by": "scout-3", "status": "done", "finding": "Argentina-Indonesia 2023 'laboured' 2-0; rotation caps scorelines at 2-3.", "tests": "that Paraguay will score 2+ (Paraguay's 2026 totals avg ~2.0 incl. several 1-0s)"}
+ ],
+ "adjustments": [
+  {"event": "Megapari 1X2 prices Singapore 17.0 / draw 10.0 (Paraguay ~85% win implied)", "date": "2026-11-02", "effect": "+0.3 goals on Paraguay expected goals vs Paraguay's own 2026 scoring rate (2.0 -> 2.3)", "sources": [3]},
+  {"event": "Singapore conceded 6 to Malaysia (1 Oct 2026) and 5-7 to Korea in 2023-24", "date": "2026-10-01", "effect": "right tail: p90 ~5.2 rather than ~4.5", "sources": [5, 6]},
+  {"event": "Paraguay's low-scoring Alfaro profile and post-World-Cup rotation in a friendly", "date": "2026-10-02", "effect": "-0.3 goals on the median vs the pure model (2.9 -> 2.6)", "sources": [4, 7]}
+ ]
+}
