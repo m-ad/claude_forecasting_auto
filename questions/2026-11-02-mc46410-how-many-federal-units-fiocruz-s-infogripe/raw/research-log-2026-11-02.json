@@ -1,0 +1,18 @@
+{"searches": [
+ {"category": "resolution_source", "query": "Boletim InfoGripe SE 42 2026 unidades federativas crescimento tendência longo prazo", "by": "main", "status": "planned", "finding": ""},
+ {"category": "resolution_source", "query": "Resumo InfoGripe 2026 43 agencia.fiocruz.br", "by": "main", "status": "planned", "finding": ""},
+ {"category": "news", "query": "InfoGripe novembro 2026 SRAG estados alerta", "by": "scout-1", "status": "planned", "finding": ""},
+ {"category": "news", "query": "InfoGripe metapneumovirus rinovírus outubro 2026", "by": "scout-1", "status": "planned", "finding": ""},
+ {"category": "markets", "query": "Polymarket Kalshi Brazil respiratory SRAG InfoGripe", "by": "main", "status": "planned", "finding": ""},
+ {"category": "base_rate", "query": "InfoGripe SE 44 2025 unidades federativas crescimento longo prazo", "by": "scout-2", "status": "planned", "finding": ""},
+ {"category": "base_rate", "query": "InfoGripe SE 44 2024 unidades federativas alerta crescimento", "by": "scout-2", "status": "planned", "finding": ""},
+ {"category": "base_rate", "query": "InfoGripe SE 43 2025 unidades federativas crescimento", "by": "scout-2", "status": "planned", "finding": ""},
+ {"category": "base_rate", "query": "InfoGripe SE 45 2025 unidades federativas crescimento", "by": "scout-2", "status": "planned", "finding": ""},
+ {"category": "disconfirmation", "query": "InfoGripe sem estados com crescimento SRAG novembro queda", "by": "scout-3", "status": "planned", "finding": "", "tests": "the assumption that the count stays in the 2-6 range near the SE 42 value of 5 rather than jumping to 8+ via a metapneumovirus wave"},
+ {"category": "disconfirmation", "query": "InfoGripe aumento SRAG vários estados metapneumovírus crescimento 2026", "by": "scout-3", "status": "planned", "finding": "", "tests": "the assumption that the count stays in the 2-6 range"},
+ {"category": "schedule", "query": "Boletim InfoGripe publicação quinta-feira 12 novembro 2026", "by": "main", "status": "planned", "finding": ""},
+ {"category": "consensus", "query": "Fiocruz InfoGripe análise semana epidemiológica 43", "by": "main", "status": "planned", "finding": ""},
+ {"category": "other", "query": "InfoGripe SE 41 2026 resumo", "by": "main", "status": "planned", "finding": ""},
+ {"category": "other", "query": "InfoGripe SE 38 2026 resumo", "by": "main", "status": "planned", "finding": ""}
+],
+ "adjustments": []}
