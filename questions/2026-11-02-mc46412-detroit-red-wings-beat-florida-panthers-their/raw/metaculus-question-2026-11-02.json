@@ -1,0 +1,38 @@
+{
+  "post_id": 46412,
+  "url": "https://www.metaculus.com/questions/46412/",
+  "post_title": "Will the Detroit Red Wings beat the Florida Panthers in their November 12, 2026 game?",
+  "tournaments": [
+    "minibench"
+  ],
+  "options": null,
+  "question": {
+    "id": 46645,
+    "title": "Will the Detroit Red Wings beat the Florida Panthers in their November 12, 2026 game?",
+    "type": "binary",
+    "status": "open",
+    "description": "Detroit visits the Florida Panthers on Thursday, Nov. 12, 2026 (7:30 p.m. ET, Amerant Bank Arena, Sunrise, FL), the second of two meetings between the clubs in 10 days — Detroit also visits Florida on Nov. 2. Both teams are playing their second game in four nights: Detroit is at St. Louis on Nov. 10, and Florida is at Columbus on Nov. 10.\n\nDETROIT (6-4-3, 15 points as of Oct. 30): The Red Wings beat Chicago 4-1 at home on Oct. 29, hours after suspending former captain Dylan Larkin without pay; Larkin, who requested a trade in the offseason, will not play again for Detroit until he is traded (https://www.nhl.com/news/dylan-larkin-will-no-longer-play-for-detroit-red-wings). The club is being run by interim general manager Shawn Horcoff, who was named to the role on Sept. 15, 2026 after Steve Yzerman moved to a senior adviser position with the Ilitch organization in July; a search firm was hired and the search for a permanent GM remains open, with Horcoff under consideration. Larkin had 2 goals and 6 points in 10 games before the suspension. In net, John Gibson has been the starter, with 24-year-old Michal Postava winning his first NHL start at Edmonton on Oct. 26 (4-3 shootout) and backup Daniil Tarasov (lower-body) back at practice. Detroit is 2-1-2 in its last five and has been outscored 35-31 on the season; the franchise has missed the playoffs for 10 straight seasons (41-31-10, 92 points in 2025-26).\n\nFLORIDA (7-4-2, 16 points as of Oct. 30): The Panthers won 5-1 at Winnipeg on Oct. 27 to finish a four-game road trip 2-2, getting three power-play goals and seven points from the Tkachuk brothers (Brady and Matthew). Florida is missing several key players: captain Aleksander Barkov is out with a lower-body injury (estimated return late November), Brad Marchand is on injured reserve (estimated return around Nov. 21), and goaltender Jacob Markstrom has been on IR. The Panthers were among the league's better 5-on-5 teams early in the season but have had uneven stretches, including being outscored 9-1 in consecutive losses at Ottawa and Pittsburgh in late October.\n\nResolution mechanics: the NHL's date-specific scores page (https://www.nhl.com/scores/2026-11-12) lists every game for that date with the final score once the game ends, and the Red Wings' schedule page records the result (W/L plus score) for each game.\n\n`{\"format\": \"llm_question\", \"info\": {\"sdk_version\": \"0.6.1\", \"rating\": {\"quality\": 3, \"ambiguity\": 4, \"resolvability\": 4, \"passes\": true}}}`",
+    "resolution_criteria": "This question resolves YES if the Detroit Red Wings are the winning team in their NHL regular-season game against the Florida Panthers scheduled for Thursday, November 12, 2026 (7:30 p.m. ET) at Amerant Bank Arena in Sunrise, Florida. The result is read from the official final score on the NHL's scores page for that date: https://www.nhl.com/scores/2026-11-12. A win in regulation, overtime, or a shootout all resolve YES; a loss in regulation, overtime, or a shootout all resolve NO. If that page is unavailable or does not show this game, the result shown for this game on the Red Wings' official schedule page (https://www.nhl.com/redwings/schedule) or [credible sources](https://www.metaculus.com/faq/#definitions) will be used.",
+    "fine_print": "If the game is postponed, suspended, or otherwise not completed by 11:59 p.m. ET on November 12, 2026, this question resolves as Annulled.",
+    "unit": "",
+    "options": null,
+    "scaling": {
+      "range_min": null,
+      "range_max": null,
+      "nominal_min": null,
+      "nominal_max": null,
+      "zero_point": null,
+      "open_upper_bound": false,
+      "open_lower_bound": false,
+      "inbound_outcome_count": null,
+      "continuous_range": null
+    },
+    "open_lower_bound": false,
+    "open_upper_bound": false,
+    "inbound_outcome_count": null,
+    "open_time": "2026-11-02T20:41:04Z",
+    "scheduled_close_time": "2026-11-02T23:41:04Z",
+    "scheduled_resolve_time": "2026-11-13T03:00:00Z",
+    "resolution": null
+  }
+}
