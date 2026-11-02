@@ -1,0 +1,38 @@
+{
+  "post_id": 46389,
+  "url": "https://www.metaculus.com/questions/46389/",
+  "post_title": "Will rhinovirus account for more than 53.5% of SRAG cases with positive viral results over the last four epidemiological weeks in InfoGripe's epidemiological week 44 bulletin (released 12 November 2026)?",
+  "tournaments": [
+    "minibench"
+  ],
+  "options": null,
+  "question": {
+    "id": 46622,
+    "title": "Will rhinovirus account for more than 53.5% of SRAG cases with positive viral results over the last four epidemiological weeks in InfoGripe's epidemiological week 44 bulletin (released 12 November 2026)?",
+    "type": "binary",
+    "status": "open",
+    "description": "Síndrome Respiratória Aguda Grave (SRAG) — severe acute respiratory illness — is a notifiable condition in Brazil: hospitalised cases are recorded in the Ministry of Health's SIVEP-Gripe database, and the Fiocruz-led InfoGripe initiative publishes a weekly bulletin analysing that data. Each edition is numbered by epidemiological week and released the following Thursday; it reports national, state and capital trends and states the virus distribution among laboratory-positive SRAG cases both year-to-date and over the last four epidemiological weeks. The four-week share among positive cases is the figure this question uses.\n\nThe most recent edition at the time of writing is the SE 42 bulletin (released 29 October 2026, data entered in SIVEP-Gripe through 24 October 2026). It records 168,814 SRAG notifications in 2026, of which 90,200 (53.4%) tested positive for a respiratory virus. Over the last four epidemiological weeks, positive cases were 4.1% influenza A, 5.4% influenza B, 11.5% respiratory syncytial virus (VSR), 53.3% rhinovirus and 6.4% SARS-CoV-2 — rhinovirus, a common cold virus that can cause severe illness in young children and the elderly, is thus the dominant virus in severe cases, far above its 33.3% share of all 2026 positive cases. The four-week series has drifted slowly upward: 51.6% in the SE 37 bulletin, 52.5% (SE 39), 53.0% (SE 40), 53.7% (SE 41) and 53.3% (SE 42). The bulletin describes rhinovirus as stable nationally, with metapneumovirus falling and Covid-19 rising slightly from a low base; five states (Amapá, Mato Grosso, Mato Grosso do Sul, Sergipe, Maranhão) were at alert or risk level with long-term growth. Because notifications into SIVEP-Gripe lag, the two most recent weeks in any bulletin are still incomplete, so the four-week aggregate shifts both as earlier weeks are revised and as two new weeks enter the window — for the SE 44 edition the window is SE 41–44 (11 October – 7 November 2026). For comparison, in the equivalent mid-November edition of 2025 (SE 46) rhinovirus accounted for 37.8% of four-week positive cases with influenza A at 25.3%, showing how quickly the ranking can change. Brazil's Ministry of Health also publishes a weekly Informe de Síndromes Gripais using different windows (47% rhinovirus over SE 38–41 in its SE 41 edition), so this question is anchored exclusively on the InfoGripe bulletin.\n\n`{\"format\": \"llm_question\", \"info\": {\"sdk_version\": \"0.6.1\", \"rating\": {\"quality\": 3, \"ambiguity\": 3, \"resolvability\": 4, \"passes\": true}}}`",
+    "resolution_criteria": "This question resolves from the Resumo do Boletim InfoGripe for epidemiological week (SE) 44 of 2026 — the edition Fiocruz schedules for release on Thursday 12 November 2026 — published as the file Resumo_InfoGripe_2026_44.pdf by Fiocruz's Agência Fiocruz de Notícias, using the same address pattern as the SE 42 edition (https://agencia.fiocruz.br/sites/agencia.fiocruz.br/files/Resumo_InfoGripe_2026_42.pdf). It resolves Yes if that bulletin's statement \"Nas 4 últimas semanas epidemiológicas, a proporção entre os casos positivos foi de ... X% de Rinovírus\" reports a rhinovirus share greater than 53.5% of SRAG cases with positive viral results; a reported share of 53.5% or less resolves No. Only that cases-based figure counts — the separate four-week distribution among positive deaths in the same bulletin is not used. If the SE 44 bulletin is not published by 13 November 2026, this question resolves from that bulletin's figure once it appears; if the PDF cannot be retrieved, the figure as reported in Fiocruz's news release for that edition, or in [credible sources](https://www.metaculus.com/faq/#definitions), will be used.",
+    "fine_print": "If the SE 44 bulletin is posted on a different day than scheduled, its reported figure still resolves this question. If Fiocruz publishes more than one version of the SE 44 bulletin, the figure in the first published version governs.",
+    "unit": "",
+    "options": null,
+    "scaling": {
+      "range_min": null,
+      "range_max": null,
+      "nominal_min": null,
+      "nominal_max": null,
+      "zero_point": null,
+      "open_upper_bound": false,
+      "open_lower_bound": false,
+      "inbound_outcome_count": null,
+      "continuous_range": null
+    },
+    "open_lower_bound": false,
+    "open_upper_bound": false,
+    "inbound_outcome_count": null,
+    "open_time": "2026-11-02T07:06:15Z",
+    "scheduled_close_time": "2026-11-02T10:06:15Z",
+    "scheduled_resolve_time": "2026-11-13T00:00:00Z",
+    "resolution": null
+  }
+}

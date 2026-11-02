@@ -1,0 +1,18 @@
+{"searches": [
+  {"category": "resolution_source", "query": "Resumo_InfoGripe_2026_42.pdf rinovírus 4 últimas semanas", "by": "main", "status": "planned", "finding": ""},
+  {"category": "resolution_source", "query": "InfoGripe boletim semana 43 2026 rinovírus", "by": "main", "status": "planned", "finding": ""},
+  {"category": "news", "query": "Fiocruz InfoGripe novembro 2026 SRAG", "by": "scout-1", "status": "planned", "finding": ""},
+  {"category": "news", "query": "InfoGripe Covid-19 aumento outubro 2026", "by": "scout-1", "status": "planned", "finding": ""},
+  {"category": "news", "query": "influenza H3N2 Brasil novembro 2026 casos", "by": "scout-1", "status": "planned", "finding": ""},
+  {"category": "markets", "query": "Polymarket Kalshi Manifold rhinovirus Brazil InfoGripe", "by": "main", "status": "planned", "finding": ""},
+  {"category": "base_rate", "query": "InfoGripe 2025 boletim SE 44 rinovírus proporção 4 últimas semanas", "by": "scout-2", "status": "planned", "finding": ""},
+  {"category": "base_rate", "query": "InfoGripe 2024 novembro rinovírus proporção casos positivos", "by": "scout-2", "status": "planned", "finding": ""},
+  {"category": "base_rate", "query": "InfoGripe 2023 novembro rinovírus SRAG", "by": "scout-2", "status": "planned", "finding": ""},
+  {"category": "disconfirmation", "query": "InfoGripe rinovírus estabilidade queda novembro", "by": "scout-3", "status": "planned", "finding": "", "tests": "that rhinovirus share stays near 53% (random walk) rather than rising further as metapneumovirus/RSV fade"},
+  {"category": "disconfirmation", "query": "InfoGripe SE 43 2026 rinovírus 54%", "by": "scout-3", "status": "planned", "finding": "", "tests": "that rhinovirus share stays near 53% (random walk) rather than rising further"},
+  {"category": "schedule", "query": "InfoGripe boletim publicação quinta-feira novembro 2026", "by": "main", "status": "planned", "finding": ""},
+  {"category": "news", "query": "Agência Fiocruz InfoGripe 29 outubro 2026", "by": "main", "status": "planned", "finding": ""},
+  {"category": "other", "query": "Informe Síndromes Gripais Ministério da Saúde SE 42 2026 rinovírus", "by": "scout-1", "status": "planned", "finding": ""},
+  {"category": "base_rate", "query": "InfoGripe boletim SE 41 2026 rinovírus 53,7%", "by": "main", "status": "planned", "finding": ""}
+],
+ "adjustments": []}
