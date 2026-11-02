@@ -6,7 +6,7 @@
 | **Tournament** | minibench — one shot, window 2026-10-22T05:40:32Z -> 2026-10-22T08:40:32Z |
 | **Type** | binary |
 | **Opened / Closes / Resolves** | 2026-10-22 / 2026-10-22 / 2026-11-02 |
-| **Status** | closed |
+| **Status** | resolved |
 | **Current forecast** | Median 50.0%, IQR [38.0%, 62.0%] (v1, 2026-10-22) |
 | **Community** | hidden — bot tournament |
 | **Next review** | — |
@@ -97,3 +97,7 @@ I add a small amount because an LLM resolver might read loosely worded reports (
 **Date**: 2026-10-22
 **Forecast**: Median 50.0%, IQR [38.0%, 62.0%]
 **Thesis**: In an active campaign, a three-day window has a reported refinery hit about 60–75% of the time (Oct 2026: Volgograd, Omsk, Salavat, Ukhta, Ryazan). But no refinery hit has been confirmed since Ryazan on 15 Oct. US pressure peaks before the 3 Nov midterms, and Zelensky has offered a 30-day refinery pause in exchange for Patriots. The forecast turns on whether Kyiv is quietly holding back on refineries; a confirmed hit before 29 Oct would move it sharply up.
+
+## Resolution — 2026-11-02
+
+Resolved **yes** (synced from the Metaculus API). The bot's forecast was 50.0% [38.0%, 62.0%]. Official spot peer score: -15.95.
