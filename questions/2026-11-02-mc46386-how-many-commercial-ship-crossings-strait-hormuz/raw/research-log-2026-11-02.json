@@ -1,0 +1,28 @@
+{"searches": [
+  {"category": "resolution_source", "query": "WebFetch https://hormuz.now/data", "by": "main", "status": "done", "finding": "15 days of daily counts since 19 Oct 2026; 109 crossings in last 30 days; header 'Restricted 8/24h' on 2 Nov"},
+  {"category": "resolution_source", "query": "WebFetch https://hormuz.now/api/daily.json", "by": "main", "status": "done", "finding": "Daily totals 20 Oct-1 Nov: 7,11,6,9,6,4,8,5,6,11,13,12,9; 7-day avg 9.1 on 1 Nov; 2 Nov partial 3"},
+  {"category": "resolution_source", "query": "WebFetch https://hormuz.now/traffic/2026-10-31", "by": "main", "status": "done", "finding": "12 commercial crossings (4 in, 8 out), 14 small craft excluded; PortWatch latest 25 Oct"},
+  {"category": "resolution_source", "query": "WebFetch https://hormuz.now/traffic/2026-11-01", "by": "main", "status": "done", "finding": "9 commercial crossings (6 in, 3 out), small craft <80 m excluded; no preliminary label"},
+  {"category": "news", "query": "Strait of Hormuz Iran reopen November 2026", "by": "main", "status": "done", "finding": "No November items; June 2026 Versailles deal day 1 >=7 ships resumed (Gulf News 18 Jun)"},
+  {"category": "news", "query": "Iran response Qatar seven-day plan Hormuz", "by": "main", "status": "done", "finding": "Iranian official called Qatar draft 'unacceptable ideas, not a proposal'; final position expected end of week of 25 Oct, not found"},
+  {"category": "news", "query": "Iran final position Qatar proposal Araghchi October 31", "by": "main", "status": "done", "finding": "Araghchi: position unchanged, reopening depends on conditions; nothing dated 31 Oct"},
+  {"category": "news", "query": "Iran US meeting Turkey Istanbul talks November", "by": "main", "status": "done", "finding": "Only Feb 2026 Istanbul talks; no confirmed November Iran-US meeting"},
+  {"category": "news", "query": "WebFetch arabnews Iran says discussing plan with mediators (28 Oct)", "by": "main", "status": "done", "finding": "Araghchi 28 Oct: aim to implement 7-day plan 'in even less than a week'; no date"},
+  {"category": "news", "query": "Iran news Hormuz November 1 OR November 2 2026 blockade Trump", "by": "main", "status": "done", "finding": "Nothing dated Nov 1-2; blockade history only"},
+  {"category": "upcoming_events", "query": "Iran war resume after midterms Hormuz strikes warning late October 2026", "by": "main", "status": "done", "finding": "WSJ/Time early Oct: Trump expects bombing could resume after 3 Nov midterms; ruled out strikes before 3 Nov"},
+  {"category": "news", "query": "Hormuz shipping tankers waiting November 1 2026", "by": "main", "status": "done", "finding": "Nothing dated Nov; older counts only"},
+  {"category": "news", "query": "Iran Qatar seven-day peace plan response", "by": "scout-1", "status": "done", "finding": "Ynet 28 Oct: Iranian official rejects Qatar draft as 'unacceptable ideas'; process 'could begin early next week'"},
+  {"category": "news", "query": "Iran US talks Turkey November 2026", "by": "scout-1", "status": "done", "finding": "No Iran-US meeting in Turkey found; Saudi/Turkish/Pakistani officials met in Tehran 26 Oct"},
+  {"category": "news", "query": "Strait of Hormuz reopen shipping news / Araghchi Hormuz blockade / Iran seven-day plan Baghaei latest", "by": "scout-1", "status": "done", "finding": "US plan reportedly: navigation resumes day 6; no shipping-company resumption announced"},
+  {"category": "markets", "query": "Polymarket Strait of Hormuz reopen", "by": "scout-2", "status": "done", "finding": "Polymarket 'traffic returns to normal by Dec 31' 12% Yes, $16.1M volume (2 Nov)"},
+  {"category": "markets", "query": "Kalshi Iran US deal November 2026", "by": "scout-2", "status": "done", "finding": "Only stale/expired Kalshi contracts"},
+  {"category": "markets", "query": "Manifold Hormuz traffic market", "by": "scout-2", "status": "done", "finding": "Stale low-volume mirrors; discounted"},
+  {"category": "base_rate", "query": "Strait of Hormuz daily transits memorandum of understanding June 2026 ship crossings rise", "by": "scout-3", "status": "done", "finding": "June MoU 17 Jun: 25 crossings 18 Jun (Kpler/AXSMarine), 42 on 20 Jun, 39 on 22 Jun (Kpler); June avg 12.9/day per hormuz.now FAQ"},
+  {"category": "base_rate", "query": "Hormuz transits PortWatch daily vessel count October 2026", "by": "scout-3", "status": "done", "finding": "PortWatch 13-25 Oct: 2-7/day, mean ~3.9"},
+  {"category": "disconfirmation", "query": "Strait of Hormuz shipping deal Iran US Qatar reopening ships November 2026; Trump Iran proposal Hormuz reopen response Qatar", "by": "scout-4", "status": "done", "finding": "No evidence of a deal in last 7 days; Trump rejected Iran's 7-day plan 26 Sep; ships waiting grew to ~681", "tests": "no deal is implemented before 12 Nov, so crossings stay near the single-digit status quo"},
+  {"category": "disconfirmation", "query": "Hormuz tanker attack OR strike OR mines Iran escalation this week", "by": "scout-4", "status": "done", "finding": "Tanker attacks peaked week of 28 Sep-5 Oct (Reuters 7 Oct); nothing in last 7 days", "tests": "downside: traffic does not drop to ~0-2"}
+],
+ "adjustments": [
+  {"event": "Qatar seven-day draft plan presented 25 Oct; Iran publicly noncommittal/rejecting", "date": "2026-10-28", "effect": "reopening scenario weight 14% -> fat right tail, p95 to ~30", "sources": [5, 6]},
+  {"event": "Trump signalled renewed strikes possible after 3 Nov midterms", "date": "2026-10-01", "effect": "escalation scenario 16% -> p10 to 3", "sources": [8]}
+]}
