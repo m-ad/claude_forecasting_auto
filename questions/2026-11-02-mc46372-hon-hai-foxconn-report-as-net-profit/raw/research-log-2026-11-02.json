@@ -1,0 +1,27 @@
+{"searches": [
+  {"category": "news", "query": "鴻海 第三季 EPS 預估 2026", "by": "main", "status": "done", "finding": "No Q3 2026 single-quarter EPS estimate; FY2026 FactSet EPS median 17.68 (24 analysts), range 16.38-19.04"},
+  {"category": "news", "query": "Foxconn third quarter profit forecast analysts November 2026", "by": "main", "status": "done", "finding": "Only prior-year previews (Q3 2024 LSEG 46.3bn); no 2026 preview indexed"},
+  {"category": "markets", "query": "Polymarket Kalshi Foxconn earnings Q3 2026", "by": "main", "status": "done", "finding": "No prediction market found; Sept 5 2026 Foxconn said Q3 to outperform market expectations"},
+  {"category": "consensus", "query": "鴻海 第三季 獲利 法人 預估 毛利率 營益率 11月 法說", "by": "main", "status": "done", "finding": "Only 2024/2025 results; Q3'25 GM 6.35%, OPM 3.43%"},
+  {"category": "base_rate", "query": "Foxconn Q3 2025 profit 57.67 billion LSEG estimate beat", "by": "main", "status": "done", "finding": "Q3'25 actual 57.67bn vs LSEG 50.4bn (+14%)"},
+  {"category": "consensus", "query": "鴻海 第三季 EPS 5元 6元 法人 推估 營收3兆", "by": "main", "status": "done", "finding": "Q3'26 revenue 3.03tn vs est 2.83tn; no single-quarter EPS consensus found"},
+  {"category": "base_rate", "query": "Foxconn Q2 2026 net profit 59.97 billion LSEG estimate", "by": "main", "status": "done", "finding": "Q2'26 59.97bn vs LSEG 58.8bn (+2%); Q4'25 lagged forecasts"},
+  {"category": "other", "query": "New Taiwan dollar closes September 30 2026 against US dollar", "by": "main", "status": "done", "finding": "USD/TWD 31.852 on 2026-09-30 (Focus Taiwan); 32.478 on Oct 30"},
+  {"category": "other", "query": "U.S. dollar closes Taipei forex market June 30 2026", "by": "main", "status": "done", "finding": "USD/TWD 31.837 on 2026-06-30 -> Q3 FX essentially flat"},
+  {"category": "resolution_source", "query": "工业富联 2026年第三季度报告 净利润 毛利率 环比", "by": "main", "status": "done", "finding": "FII Q3'26 net attributable RMB 16.634bn (+60.35%), revenue RMB 383.55bn (+57.7%), 9M GM 7.09%"},
+  {"category": "news", "query": "鴻海 第三季 EPS 預估 法人 2026", "by": "scout-1", "status": "done", "finding": "No Q3 consensus found"},
+  {"category": "consensus", "query": "Foxconn third quarter 2026 net profit analysts expect LSEG", "by": "scout-1", "status": "done", "finding": "Revenue beat LSEG SmartEstimate by ~7%; Oct 5 Foxconn: Q4 in line with market expectations"},
+  {"category": "consensus", "query": "鴻海 Q3 獲利 毛利率 預期 財報 11月", "by": "scout-1", "status": "done", "finding": "Q2'26 GM 6.12%, OPM 3.75%"},
+  {"category": "schedule", "query": "鴻海 第三季 稅後純益 預估 法說 11月12日 2026 營收 3兆", "by": "scout-1", "status": "done", "finding": "Results due 12 Nov 2026"},
+  {"category": "news", "query": "Foxconn Q2 2026 results net profit 59.97 billion gross margin outlook third quarter", "by": "scout-1", "status": "done", "finding": "Q3 guidance: cloud/networking high-double-digit QoQ growth"},
+  {"category": "resolution_source", "query": "工业富联 2026年第三季度 净利润 营收 同比", "by": "scout-2", "status": "done", "finding": "FII Q3 net RMB 16.634bn; H1 23.740bn, Q1 10.595bn -> Q2 13.145bn -> Q3 +26.5% QoQ"},
+  {"category": "other", "query": "Foxconn Industrial Internet Q3 2026 net profit revenue", "by": "scout-2", "status": "done", "finding": "Cloud computing revenue +75% YoY, +25% QoQ"},
+  {"category": "base_rate", "query": "工业富联 2026年一季度 归母净利润 亿元 同比增长103%", "by": "scout-2", "status": "done", "finding": "Q1'26 FII net RMB 10.595bn, GM 7.3%"},
+  {"category": "disconfirmation", "query": "新台幣 第三季 2026 匯率 升值 貶值 壽險 匯損 9月底", "by": "scout-3", "status": "done", "finding": "TWD flat over Q3 (31.837 -> 31.852): no large spot FX loss", "tests": "assumption that non-operating income is near neutral/positive (no large FX loss) so profit lands near NT$79-80B"},
+  {"category": "disconfirmation", "query": "鴻海 第二季 2026 業外 匯損 營業利益率 AI機櫃 毛利率 壓力 第三季展望", "by": "scout-3", "status": "done", "finding": "Margin dilution from AI racks a concern but no specific Q3 margin-pressure news; Q4'25 missed consensus by ~29% on non-op items", "tests": "op margin holds ~3.7% despite AI rack mix"},
+  {"category": "consensus", "query": "鴻海 Q3 法說 前瞻 EPS 預估 外資 11月 2026 業外 匯兌", "by": "scout-3", "status": "done", "finding": "nothing relevant for 2026 Q3"}
+],
+ "adjustments": [
+  {"event": "FII Q3 2026 results: net attributable RMB 16.63bn, +26.5% QoQ (reported 2026-10-29)", "date": "2026-10-29", "effect": "median from ~75 (Q2 conversion on Q3 revenue with typical non-op) to ~80; anchors the subsidiary-sum cross-check", "sources": [3]},
+  {"event": "USD/TWD flat over Q3 2026 (31.837 -> 31.852)", "date": "2026-09-30", "effect": "non-operating income centred +8bn instead of ~0 as in Q2; +~6 on the median", "sources": [5, 6]}
+]}
