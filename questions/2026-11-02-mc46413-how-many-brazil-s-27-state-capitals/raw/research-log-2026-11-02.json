@@ -1,0 +1,23 @@
+{"searches": [
+  {"category": "resolution_source", "query": "Resumo_InfoGripe_2026_42.pdf (pdf_text.py)", "by": "main", "status": "done", "finding": "SE 42 (data to 24/10/2026): 5 capitals with growth (Aracaju, Belem, Cuiaba, Joao Pessoa, Rio); 2 more at alert without growth (Brasilia, Florianopolis)"},
+  {"category": "resolution_source", "query": "Resumo_InfoGripe_2026_43.pdf fetch", "by": "main", "status": "done", "finding": "404 - SE 43 not yet released (due 5 Nov)"},
+  {"category": "resolution_source", "query": "fiocruz.br noticia InfoGripe cinco estados SE 42", "by": "main", "status": "done", "finding": "Confirms 5 capitals, release 29 Oct 2026"},
+  {"category": "news", "query": "InfoGripe boletim semana epidemiologica 43 2026 capitais SRAG", "by": "main", "status": "done", "finding": "No SE 43 coverage; latest is SE 42"},
+  {"category": "news", "query": "InfoGripe SE 43 2026 5 de novembro Fiocruz boletim", "by": "main", "status": "done", "finding": "nothing relevant for SE 43"},
+  {"category": "news", "query": "Fiocruz InfoGripe SRAG covid metapneumovirus aumento capitais novembro 2026", "by": "main", "status": "done", "finding": "Oct 2026: metapneumovirus rising SP/RJ/BA/PE/SE; covid low but rising MT/MS/SP/RJ"},
+  {"category": "news", "query": "SRAG covid-19 aumento MT MS SP RJ novembro 2026", "by": "main", "status": "done", "finding": "nothing relevant for Nov 2026"},
+  {"category": "markets", "query": "Polymarket OR Kalshi OR Manifold Brazil SRAG InfoGripe capitals", "by": "main", "status": "done", "finding": "none found; Brazil blocks Polymarket/Kalshi"},
+  {"category": "base_rate", "query": "Resumo_InfoGripe_2025_44/42/45/43/46 via pdf_text.py", "by": "main", "status": "done", "finding": "2025 SE42=6, SE44=3, SE45=2 (SE43/46 phrasing not matched)"},
+  {"category": "base_rate", "query": "InfoGripe 2025 outubro novembro capitais sinal de crescimento lista", "by": "main", "status": "done", "finding": "consistent with 2025 SE45 = 2 (Porto Alegre, Sao Paulo)"},
+  {"category": "base_rate", "query": "InfoGripe 2026 SE 31/32/16/26 and 2025 SE 37/40/48/50 capital counts", "by": "scout-2", "status": "done", "finding": "2026 SE31=2, SE32=4, SE16=13, SE26=9; 2025 SE40=10, SE50=5, SE48~0"},
+  {"category": "base_rate", "query": "InfoGripe novembro 2024 capitais alerta risco crescimento", "by": "scout-2", "status": "done", "finding": "2024 metric different (7-8 capitals with growth, no alert filter)"},
+  {"category": "base_rate", "query": "InfoGripe dezembro 2025 capitais crescimento SRAG", "by": "scout-2", "status": "done", "finding": "Nov-Dec 2025 range 0-5"},
+  {"category": "disconfirmation", "query": "InfoGripe 8+ capitals case: covid/metapneumovirus/flu rise Nov 2026; 0-1 case", "by": "scout-2", "status": "done", "finding": "no wave signalled; 8+ only seen at seasonal peaks; 0 occurred at SE40", "tests": "that the count in two weeks stays within ~1-7 (no regime shift) and is not pulled to 0-2 by a seasonal decline"},
+  {"category": "disconfirmation", "query": "InfoGripe capitais alerta sem crescimento volatilidade semana a semana 2026", "by": "scout-2", "status": "done", "finding": "SE39=5 to SE40=0 to SE41=5 shows large week-to-week swings", "tests": "that the count in two weeks stays within ~1-7 (no regime shift) and is not pulled to 0-2 by a seasonal decline"},
+  {"category": "schedule", "query": "InfoGripe release schedule Thursday SE 44 12 Nov 2026", "by": "main", "status": "done", "finding": "weekly Thursday; SE44 = 1-7 Nov, release 12 Nov (consistent with SE42 on 29 Oct)"},
+  {"category": "other", "query": "InfoGripe capitals Palmas Porto Alegre Rio Branco Sao Luis Vitoria outubro 2026", "by": "main", "status": "done", "finding": "SE39 list confirmed; SE40 zero confirmed by Afya"},
+  {"category": "consensus", "query": "Fiocruz InfoGripe nota tecnica Centro-Sul periodo critico nov 2026 - jan 2027", "by": "main", "status": "done", "finding": "technical note flags possible critical period Nov-Jan for central Brazil (dry season) - minor"}
+],
+ "adjustments": [
+  {"event": "SE 40 reading of 0 and SE 42 recovery show high volatility; 2025 same-week analogues (SE44=3, SE45=2) lower than 2026 recent mean", "date": "2026-11-02", "effect": "-0.5 on median vs 2026 SE38-42 mean of 3.6", "sources": [1, 4, 5]}
+]}

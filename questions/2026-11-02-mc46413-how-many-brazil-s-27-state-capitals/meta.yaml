@@ -1,0 +1,59 @@
+slug: 2026-11-02-mc46413-how-many-brazil-s-27-state-capitals
+title: How many of Brazil's 27 state capitals will the InfoGripe bulletin of 12 November 2026 list at
+  alert, risk or high-risk level with a rising long-term SRAG trend?
+source: metaculus
+url: https://www.metaculus.com/questions/46413/
+post_id: 46413
+question_id: 46646
+type: discrete
+unit: capitals
+tags: []
+dates:
+  created: '2026-11-02'
+  opened: '2026-11-02'
+  closes: '2026-11-03'
+  resolves: '2026-11-13'
+status: open
+tournament:
+  slug: minibench
+  mode: one_shot
+  registered: '2026-11-02'
+  opened: '2026-11-02T23:47:30Z'
+  closes: '2026-11-03T02:47:30Z'
+  submitted: '2026-11-02T23:58:22+00:00'
+  submitted_forecast:
+    continuous_cdf:
+    - 0.0
+    - 0.045237546410515875
+    - 0.14312386561111032
+    - 0.2891632583866375
+    - 0.4049937177075439
+    - 0.6114841886688671
+    - 0.7837181398447027
+    - 0.8559597486675734
+    - 0.9139140772122476
+    - 0.9611485751228925
+    - 0.9844588840277634
+    - 0.995895750068805
+  comment_posted: true
+  official_score: null
+  missed_window: false
+current:
+  version: 1
+  date: '2026-11-02'
+  median: 4.0
+  iqr:
+  - 2.0
+  - 5.0
+  community:
+    cp: null
+    pro: null
+    gold: null
+    n_forecasters: null
+    as_of: '2026-11-02'
+next_review: null
+tripwires: []
+resolution:
+  outcome: null
+  date: null
+  source: null

@@ -1,0 +1,51 @@
+{
+  "post_id": 46413,
+  "url": "https://www.metaculus.com/questions/46413/",
+  "post_title": "How many of Brazil's 27 state capitals will the InfoGripe bulletin of 12 November 2026 list at alert, risk or high-risk level with a rising long-term SRAG trend?",
+  "tournaments": [
+    "minibench"
+  ],
+  "options": null,
+  "question": {
+    "id": 46646,
+    "title": "How many of Brazil's 27 state capitals will the InfoGripe bulletin of 12 November 2026 list at alert, risk or high-risk level with a rising long-term SRAG trend?",
+    "type": "discrete",
+    "status": "open",
+    "description": "InfoGripe is the weekly respiratory-virus surveillance bulletin produced by Fiocruz's Scientific Computing Programme (PROCC), built on notifications of Severe Acute Respiratory Syndrome (SRAG) in the SIVEP-Gripe system. A new edition is released each Thursday and covers the epidemiological week (Sunday–Saturday) that ended the previous Saturday; for each of Brazil's 27 federal units and each of the 27 state capitals it classifies the SRAG activity level (\"nível de atividade\": alto risco, risco, alerta, segurança, baixo risco) and the trend signal over the long term (last six weeks) and short term (last three weeks), then names the units and capitals that are at alert level or above with a growth signal.\n\nStatus quo (most recent edition available as of 30 October 2026): the SE 42 bulletin, based on SIVEP-Gripe data entered through 24/10/2026 and released on 29 October 2026, reports 168,814 SRAG cases notified in 2026, with national SRAG incidence in long-term decline/oscillation. Among positive cases in the last four weeks, rhinovirus accounted for 53.3%, RSV 11.5%, SARS-CoV-2 6.4%, influenza A 4.1% and influenza B 5.4%. Five of the 27 capitals were listed at alert level or above with growth: Aracaju (SE), Belém (PA), Cuiabá (MT), João Pessoa (PB) and Rio de Janeiro (RJ). Brasília (DF) and Florianópolis (SC) were at alert level or above without a growth signal.\n\nRecent sequence of this count (capitals at alert/risk/high-risk level with long-term growth): SE 38 = 3 (Porto Alegre, Rio Branco, Rio de Janeiro); SE 39 = 5 (Aracaju, Porto Alegre, Rio Branco, São Luís, Vitória); SE 40 = 0 (only Sergipe among the federal units had growth, while six capitals sat at alert level without growth); SE 41 = 5 (Aracaju, Cuiabá, João Pessoa, Palmas, Rio de Janeiro); SE 42 = 5. The series is volatile because a capital already at alert level flips into the count whenever its six-week trend turns upward, and the number of capitals at alert level or above without growth has ranged from 2 to 6 in recent editions. The edition to be used here (covering 1–7 November 2026, released 12 November 2026) will be preceded by the SE 43 edition, due 5 November 2026, which forecasters can consult.\n\nSource examples: https://agencia.fiocruz.br/sites/agencia.fiocruz.br/files/Resumo_InfoGripe_2026_42.pdf (SE 42), https://agencia.fiocruz.br/sites/agencia.fiocruz.br/files/Resumo_InfoGripe_2026_41.pdf (SE 41), https://agencia.fiocruz.br/sites/agencia.fiocruz.br/files/Resumo_InfoGripe_2026_40.pdf (SE 40), https://agencia.fiocruz.br/sites/agencia.fiocruz.br/files/Resumo_InfoGripe_2026_39.pdf (SE 39), https://agencia.fiocruz.br/sites/agencia.fiocruz.br/files/Resumo_InfoGripe_2026_38.pdf (SE 38), and the Fiocruz news release for SE 42: https://fiocruz.br/noticia/2026/10/infogripe-cinco-estados-tem-srag-em-nivel-de-alerta-ou-risco-com-sinal-de\n\n`{\"format\": \"llm_question\", \"info\": {\"sdk_version\": \"0.6.1\", \"rating\": {\"quality\": 3, \"ambiguity\": 3, \"resolvability\": 4, \"passes\": true}}}`",
+    "resolution_criteria": "This question resolves to the count of state capitals that the InfoGripe bulletin released on Thursday 12 November 2026 lists as being at \"alerta\", \"risco\" or \"alto risco\" SRAG activity level with a growth signal in the long-term trend (\"sinal de crescimento na tendência de longo prazo\"). The count is the number of capitals named in that bulletin's capital-level (\"capitais\") statement of how many of the 27 capitals meet this condition; for example, the bulletin released on 29 October 2026 (epidemiological week 42) named 5 capitals (Aracaju, Belém, Cuiabá, João Pessoa, Rio de Janeiro), so that edition would resolve as 5. The source is that edition's \"Resumo do Boletim InfoGripe\" PDF, expected at https://agencia.fiocruz.br/sites/agencia.fiocruz.br/files/Resumo_InfoGripe_2026_44.pdf (Fiocruz names these files Resumo_InfoGripe_2026_<epidemiological week>.pdf; the 12 November edition is expected to cover epidemiological week 44, 1–7 November 2026). Capitals listed at alert level or above without a growth signal are excluded — in the 29 October edition these were Brasília and Florianópolis.",
+    "fine_print": "If the bulletin is released later than 12 November 2026, resolution uses that first bulletin released after 12 November 2026 that analyses data through 7 November 2026. If the expected PDF is unavailable (e.g. a different file name or suffix), the count is taken from the same edition of the bulletin as published by Fiocruz elsewhere or as reported by [credible sources](https://www.metaculus.com/faq/#definitions). State capitals are the capitals of Brazil's 26 states plus Brasília (Distrito Federal) — the 27 \"capitais\" tracked by InfoGripe.",
+    "unit": "capitals",
+    "options": null,
+    "scaling": {
+      "range_min": -0.5,
+      "range_max": 10.5,
+      "nominal_min": 0,
+      "nominal_max": 10,
+      "zero_point": null,
+      "open_upper_bound": true,
+      "open_lower_bound": false,
+      "inbound_outcome_count": 11,
+      "continuous_range": [
+        -0.5,
+        0.5,
+        1.5,
+        2.5,
+        3.5,
+        4.5,
+        5.5,
+        6.5,
+        7.5,
+        8.5,
+        9.5,
+        10.5
+      ]
+    },
+    "open_lower_bound": false,
+    "open_upper_bound": true,
+    "inbound_outcome_count": 11,
+    "open_time": "2026-11-02T23:47:30Z",
+    "scheduled_close_time": "2026-11-03T02:47:30Z",
+    "scheduled_resolve_time": "2026-11-13T00:00:00Z",
+    "resolution": null
+  }
+}
