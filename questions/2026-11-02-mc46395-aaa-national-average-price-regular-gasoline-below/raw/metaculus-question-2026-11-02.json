@@ -1,0 +1,38 @@
+{
+  "post_id": 46395,
+  "url": "https://www.metaculus.com/questions/46395/",
+  "post_title": "Will the AAA national average price of regular gasoline be below $4.05 per gallon on November 13, 2026?",
+  "tournaments": [
+    "minibench"
+  ],
+  "options": null,
+  "question": {
+    "id": 46628,
+    "title": "Will the AAA national average price of regular gasoline be below $4.05 per gallon on November 13, 2026?",
+    "type": "binary",
+    "status": "open",
+    "description": "U.S. pump prices have been driven to unusually high levels in 2026 by an oil-price shock. AAA's daily national average for regular gasoline stood at $4.2046/gal on October 30, 2026, versus $4.2258 the day before and $4.2926 a week earlier — roughly 43% (about $1.30/gal) above pre-war levels, since the average was about $2.98/gal before the U.S.–Iran war began in February 2026. The proximate cause is crude oil: Brent averaged $114/b in September 2026, has repeatedly approached or exceeded $100/b since amid instability around the Strait of Hormuz, and diesel set an all-time record of $6.5276/gal on September 22, 2026 (now $6.3204/gal). AAA's weekly releases have described record seasonal highs (\"Gas prices remain the highest they've ever been for this time of year\", October 8), while noting that expensive crude is \"preventing steep declines at the pump\" (October 22, October 29 releases).\n\nAgainst that, pump prices have been drifting lower through October, helped by the annual switch to cheaper-to-produce winter-blend gasoline. AAA's weekly national averages went $4.33 (Oct 15) → $4.27 (Oct 22) → $4.22 (Oct 29); the daily average fell about 8.8 cents in the seven days to October 30 (roughly 1.3 cents/day) and about 4 cents in the two days to October 30. Analysts quoted in late October (e.g. GasBuddy's Patrick De Haan) expected the average to stay above $4/gal through the November 3, 2026 midterms. EIA's October 2026 Short-Term Energy Outlook raised its 4Q26 Brent forecast by $14/b to $105/b, i.e. it expects crude to stay elevated; its next STEO, released November 10, 2026, lands just before this question's window.\n\nFor scale: AAA's all-time record regular average is $5.0165/gal (June 14, 2022). Falling below $4.05 by November 13 requires a decline of about 15.5 cents (roughly 3.7%) over the 14 days from the October 30 print — about 1.1 cents/day, close to but slightly slower than the most recent weekly pace. A continuation of the seasonal slide would push the average under the threshold, whereas renewed strength in crude oil (or a stall in the winter-blend-driven decline) would keep it above; the outcome is therefore genuinely uncertain. AAA publishes the national average daily (with a \"Price as of\" date plus \"Yesterday Avg.\" and \"Week Ago Avg.\" columns) at https://gasprices.aaa.com/; November 13, 2026 is a Friday, a normal publishing day.\n\n`{\"format\": \"llm_question\", \"info\": {\"sdk_version\": \"0.6.1\", \"rating\": {\"quality\": 3, \"ambiguity\": 4, \"resolvability\": 4, \"passes\": true}}}`",
+    "resolution_criteria": "This question resolves based on the AAA national average retail price for regular gasoline, in U.S. dollars per gallon, reported by AAA for November 13, 2026 at https://gasprices.aaa.com/ (the \"Regular\" figure labelled \"Current Avg.\" with a \"Price as of\" date of 11/13/26; the same figure displayed as the \"Yesterday Avg.\" on a later day counts as well). It resolves Yes if that value is strictly below $4.05 per gallon (a value of $4.0499 or lower resolves Yes; a value of $4.05 or higher resolves No), and No otherwise. If AAA does not publish a national average for November 13, 2026, the first national average AAA publishes for a later date is used instead. If gasprices.aaa.com is unavailable or no such figure is ever published, the question resolves using the AAA national average for regular gasoline for November 13, 2026 as reported by [credible sources](https://www.metaculus.com/faq/#definitions); if no such value can be established, the question is annulled.",
+    "fine_print": "Only AAA's national average for the \"Regular\" grade is used; mid-grade, premium, diesel, E85 and individual state averages do not count.",
+    "unit": "",
+    "options": null,
+    "scaling": {
+      "range_min": null,
+      "range_max": null,
+      "nominal_min": null,
+      "nominal_max": null,
+      "zero_point": null,
+      "open_upper_bound": false,
+      "open_lower_bound": false,
+      "inbound_outcome_count": null,
+      "continuous_range": null
+    },
+    "open_lower_bound": false,
+    "open_upper_bound": false,
+    "inbound_outcome_count": null,
+    "open_time": "2026-11-02T09:44:45Z",
+    "scheduled_close_time": "2026-11-02T12:44:45Z",
+    "scheduled_resolve_time": "2026-11-13T12:00:00Z",
+    "resolution": null
+  }
+}
