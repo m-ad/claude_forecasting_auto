@@ -1,72 +1,69 @@
-# Question metadata. Machine-read by scripts/status.py and scripts/log_forecast.py.
-slug: "2026-11-02-mc46394-how-many-patients-mendoza-s-ministry-health"
-title: "How many patients will Mendoza's Ministry of Health have confirmed as infected with *Serratia marcescens* in the Hospital Privado outbreak as of November 13, 2026?"
-source: "metaculus"          # metaculus | kalshi | polymarket | manifold | other
-url: "https://www.metaculus.com/questions/46394/"                # null for free-text questions with no URL
-post_id: 46394          # null for non-Metaculus — identifies the *page*
-question_id: 46627  # Metaculus's internal question id — what the API submits
-                              # against, and != post_id. Null for non-Metaculus.
-type: "discrete"              # binary | numeric | date | multiple_choice | discrete
-unit: "patients"                    # e.g. "USD bn", "°C"; null for binary
+slug: 2026-11-02-mc46394-how-many-patients-mendoza-s-ministry-health
+title: How many patients will Mendoza's Ministry of Health have confirmed as infected with *Serratia marcescens*
+  in the Hospital Privado outbreak as of November 13, 2026?
+source: metaculus
+url: https://www.metaculus.com/questions/46394/
+post_id: 46394
+question_id: 46627
+type: discrete
+unit: patients
 tags: []
-
 dates:
-  created: "2026-11-02"
-  opened: "2026-11-02"
-  closes: "2026-11-02"                # last date forecasts are accepted
-  resolves: "2026-11-14"              # date the outcome is known
-
-status: "open"                # open | closed | resolved | dropped
-
+  created: '2026-11-02'
+  opened: '2026-11-02'
+  closes: '2026-11-02'
+  resolves: '2026-11-14'
+status: open
 tournament:
-  slug: "minibench"
-  mode: "one_shot"
-  registered: "2026-11-02"
-  opened: "2026-11-02T09:33:54Z"
-  closes: "2026-11-02T12:33:54Z"
-  submitted: null
-  submitted_forecast: null
-  comment_posted: false
+  slug: minibench
+  mode: one_shot
+  registered: '2026-11-02'
+  opened: '2026-11-02T09:33:54Z'
+  closes: '2026-11-02T12:33:54Z'
+  submitted: '2026-11-02T12:14:11+00:00'
+  submitted_forecast:
+    continuous_cdf:
+    - 0.0
+    - 0.002378571436545816
+    - 0.0047571440486212395
+    - 0.007135891124759409
+    - 0.009540530963599404
+    - 0.015787997512910653
+    - 0.6225265093827269
+    - 0.7782172931608065
+    - 0.8461830365200654
+    - 0.9003104141127155
+    - 0.9440547842762896
+    - 0.9646266771254349
+    - 0.9736981974712595
+    - 0.978538967207299
+    - 0.9818233307732751
+    - 0.9845351245071723
+    - 0.9870362815712129
+    - 0.9894599497348564
+    - 0.9918551113251248
+    - 0.9942397859331102
+    - 0.9966206025959139
+    - 0.999
+  comment_posted: true
   official_score: null
   missed_window: false
-
 current:
-  version: 0
-  date: null
-  median: null                # probability in [0,1] for binary; native units otherwise
-  iqr: [null, null]
-  community:                  # snapshot at the time of the current version
+  version: 1
+  date: '2026-11-02'
+  median: 5.0
+  iqr:
+  - 5.0
+  - 6.0
+  community:
     cp: null
     pro: null
     gold: null
     n_forecasters: null
-    as_of: null
-
-next_review: null             # YYYY-MM-DD — see docs/update-protocol.md cadence table
-                              # A one_shot tournament question never gets one: it is
-                              # forecast once and never revisited.
-
+    as_of: '2026-11-02'
+next_review: null
 tripwires: []
-# `magnitude` is unsigned — `direction` (up/down/either) carries the sign — and
-# `magnitude_unit` says what it is denominated in: "pp" (percentage points) for
-# binary and multiple-choice questions, "days"/"weeks"/"months" for date
-# questions, and the question's own `unit` above for numeric/discrete ones.
-# An "either" tripwire (re-analyse, direction unknown) carries magnitude 0.
-#
-# - signal: "IAEA Board resolution referring the file to the UNSC"
-#   by: "2026-11-30"
-#   direction: "up"
-#   magnitude: 15
-#   magnitude_unit: "pp"          # binary question
-#   fired: null
-# - signal: "Weekly SENASICA cut on 2026-10-31 at or below 45,500"
-#   by: "2026-10-31"
-#   direction: "down"
-#   magnitude: 6000
-#   magnitude_unit: "cases"       # numeric question — must equal `unit:` above
-#   fired: null
-
 resolution:
-  outcome: null               # 1/0 binary, value numeric, Unix s date, option label MC
+  outcome: null
   date: null
   source: null

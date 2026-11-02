@@ -1,0 +1,22 @@
+{"searches": [
+  {"category": "resolution_source", "query": "Serratia marcescens Hospital Privado Mendoza casos confirmados", "by": "main", "status": "done", "finding": "Official-sourced press: 4 confirmed Oct 24; 5 confirmed Oct 27; nothing newer than Oct 30"},
+  {"category": "resolution_source", "query": "mendoza.gov.ar salud Serratia marcescens Hospital Privado comunicado", "by": "scout-1", "status": "done", "finding": "No mendoza.gov.ar page found; ministry has no dashboard"},
+  {"category": "resolution_source", "query": "mendoza.gov.ar prensa wp-json post 238113", "by": "main", "status": "done", "finding": "Irrelevant 2020 COVID post"},
+  {"category": "news", "query": "brote meningitis Mendoza Hospital Privado Salud actualización pacientes", "by": "main", "status": "done", "finding": "Sitio Andino: 5 confirmed, 2 dead, 10 under study"},
+  {"category": "news", "query": "Hospital Privado Mendoza Serratia sospechosos confirmados descartados Falaschi", "by": "main", "status": "done", "finding": "No discards update beyond Oct 27"},
+  {"category": "news", "query": "Infobae Oct 29 brote meningitis Mendoza (fetched)", "by": "main", "status": "done", "finding": "3 CSF meningitis + 1 blood + 1 SSI (Sept) = 5; 4 deaths under review; isolates sent to Malbran; no update date"},
+  {"category": "news", "query": "La Nacion Oct 30 familiares justicia (fetched)", "by": "main", "status": "done", "finding": "Oct 30: 5 confirmed (2 fatal), 2 suspected deaths without micro confirmation, 3 negative; OR cultures awaited"},
+  {"category": "news", "query": "Diario Uno Oct 27 quinto contagio (fetched)", "by": "main", "status": "done", "finding": "5 confirmed, 3 suspected, 2 discarded of 10"},
+  {"category": "news", "query": "Mendoza Hospital Privado brote nuevo caso confirmado 31 octubre OR 1 noviembre OR 2 noviembre", "by": "main", "status": "done", "finding": "Nothing after Oct 30"},
+  {"category": "news", "query": "Hospital Privado Mendoza sexto caso nuevo caso noviembre 2026", "by": "main", "status": "done", "finding": "No sixth case found"},
+  {"category": "news", "query": "Hospital Privado Mendoza Serratia Malbran genotipificacion resultados", "by": "main", "status": "done", "finding": "No genotyping results published"},
+  {"category": "markets", "query": "Polymarket OR Manifold OR Kalshi Mendoza Serratia marcescens", "by": "main", "status": "done", "finding": "none found"},
+  {"category": "base_rate", "query": "Serratia marcescens spinal anesthesia meningitis outbreak cluster cases", "by": "main", "status": "done", "finding": "Clusters from contaminated drugs: 12/46 caesarean spinal; Greece 23/47; Sarajevo 79 patients; sizes vary, often grow"},
+  {"category": "base_rate", "query": "Serratia marcescens outbreak final number of cases source identified hospital", "by": "main", "status": "done", "finding": "Outbreak sizes widely variable; sources often unfound"},
+  {"category": "schedule", "query": "Mendoza Hospital Privado cirugias reanudan Serratia informe", "by": "main", "status": "done", "finding": "No reopening or scheduled update announced"},
+  {"category": "disconfirmation", "query": "meningitis posquirurgica Mendoza sexto caso confirmado / seis OR siete confirmados", "by": "scout-1", "status": "done", "finding": "No evidence of count above 5; pool of suspects shrinking (3 negative Oct 30)", "tests": "that the confirmed count stays at 5 (nothing changes in 12 days)"},
+  {"category": "news", "query": "Mendoza meningitis Instituto Malban origen anestesia fallecidos sospechosos resultados", "by": "main", "status": "done", "finding": "La Nacion Oct 28: two possible new cases -> 7 if confirmed; source unidentified"}
+],
+ "adjustments": [
+  {"event": "Oct 27-30 reports: 3 of earlier suspected now negative, no new confirmations after Oct 27 (count flat at 5)", "date": "2026-10-30", "effect": "median stays at 5; p75 only 6", "sources": [1, 2, 3]}
+]}
