@@ -1,0 +1,25 @@
+{"searches": [
+ {"category": "resolution_source", "query": "NBP api EUR last 10 / 30 / Aug-Nov 2026", "by": "main", "status": "done", "finding": "2 Nov 2026 EUR mid 4.4185; 30 Oct 4.3955; Aug-Nov series fetched"},
+ {"category": "resolution_source", "query": "NBP tabela A kursy średnie EUR listopad 2026", "by": "scout-1", "status": "done", "finding": "Table 213/A/NBP/2026 = 4.4185 confirmed by two API calls"},
+ {"category": "resolution_source", "query": "api.nbp.pl tables a last 3", "by": "scout-1", "status": "done", "finding": "same value 4.4185"},
+ {"category": "news", "query": "złoty kurs euro EUR/PLN 2 listopada 2026", "by": "main", "status": "done", "finding": "nothing for 2 Nov in snippets; 2 Oct 4.3766"},
+ {"category": "news", "query": "EUR/PLN zloty 2 November 2026 weakens Commerzbank ING", "by": "main", "status": "done", "finding": "Commerzbank 27 Oct: above 4.40, institutional tensions, Lipinski term ends 4 Nov"},
+ {"category": "news", "query": "Lipiński deputy governor NBP term expires 4 November board quorum zloty", "by": "main", "status": "done", "finding": "board could fall below statutory minimum; Tusk not countersigning; legal experts expect decisions valid"},
+ {"category": "news", "query": "Polandinsight zloty NBP management board power struggle October 2026", "by": "main", "status": "done", "finding": "Commerzbank: zloty lagging CE3 due to institutional friction"},
+ {"category": "news", "query": "Glapiński Trybunał Stanu Sejm głosowanie listopad", "by": "scout-2", "status": "done", "finding": "Sejm vote realistically 17-19 Nov, after fixing"},
+ {"category": "news", "query": "NBP board legal basis Tusk countersignature Glapiński Sejm vote zloty risk", "by": "main", "status": "done", "finding": "nothing on market reaction"},
+ {"category": "markets", "query": "EUR/PLN 1 month implied volatility Polish zloty options 2026", "by": "main", "status": "done", "finding": "IV ~7-8% undated"},
+ {"category": "markets", "query": "Polymarket OR Kalshi OR Manifold EUR/PLN", "by": "scout-3", "status": "done", "finding": "none found; only ECB markets"},
+ {"category": "markets", "query": "EUR/PLN 1M forward points", "by": "scout-3", "status": "done", "finding": "forward premium small, ~+0.005-0.007 (estimate)"},
+ {"category": "base_rate", "query": "NBP EUR series 2025-2026 9-day changes", "by": "scout-3", "status": "done", "finding": "9d sd ~0.7-1.0%, max +3%"},
+ {"category": "base_rate", "query": "NBP api EUR 2025 full year", "by": "scout-3", "status": "done", "finding": "same"},
+ {"category": "consensus", "query": "kurs euro złoty prognoza listopad 2026 komentarz RPP Glapiński", "by": "main", "status": "done", "finding": "only stale 2025/early-2026 forecasts; Commerzbank 4.30/4.25"},
+ {"category": "consensus", "query": "ING Think Poland zloty EUR/PLN forecast NBP November", "by": "scout-2", "status": "done", "finding": "ING 15 Oct: 4.38-4.40, hikes Q1 2027"},
+ {"category": "upcoming_events", "query": "RPP 4 listopada 2026 decyzja prognoza", "by": "scout-2", "status": "done", "finding": "85% hold, 8% cut, 6% hike"},
+ {"category": "disconfirmation", "query": "złoty osłabia się poniedziałek kurs euro 4,42 NBP zarząd Lipiński", "by": "main", "status": "done", "finding": "nothing for or against reversion; bank forecasts below spot, trend up", "tests": "partial mean reversion: median set below last print 4.4185 (spikes reverted in Sep/Oct, banks forecast 4.30-4.40)"},
+ {"category": "disconfirmation", "query": "euro najdroższe od trzech lat złoty", "by": "scout-2", "status": "done", "finding": "unverified", "tests": "partial mean reversion: median set below last print 4.4185 (spikes reverted in Sep/Oct, banks forecast 4.30-4.40)"},
+ {"category": "schedule", "query": "NBP Table A 13 November 2026 / 11 Nov holiday", "by": "main", "status": "done", "finding": "from question text: 13 Nov ordinary business day, 11 Nov holiday"}
+],
+ "adjustments": [
+  {"event": "recent EUR/PLN spikes partly reverted and bank forecasts sit below spot", "date": "2026-11-02", "effect": "-0.009 on the median vs last print 4.4185", "sources": [1, 4, 5]}
+]}
