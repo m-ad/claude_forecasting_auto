@@ -1,0 +1,19 @@
+{"searches": [
+ {"category": "resolution_source", "query": "MOEX ISS history RU000A10BFX7 TQCB", "by": "main", "status": "planned", "finding": ""},
+ {"category": "resolution_source", "query": "БО-П16 Самолет облигации цена закрытия", "by": "scout-1", "status": "planned", "finding": ""},
+ {"category": "news", "query": "Самолет облигации ноябрь 2026", "by": "scout-2", "status": "planned", "finding": ""},
+ {"category": "news", "query": "Самолет ВТБ санация реструктуризация облигации", "by": "scout-2", "status": "planned", "finding": ""},
+ {"category": "news", "query": "Самолет Сбербанк план оздоровления 28 октября", "by": "main", "status": "planned", "finding": ""},
+ {"category": "markets", "query": "Самолет облигации доходность БО-П13 БО-П18 котировки", "by": "scout-3", "status": "planned", "finding": ""},
+ {"category": "markets", "query": "Polymarket Samolet default", "by": "main", "status": "planned", "finding": ""},
+ {"category": "base_rate", "query": "российские девелоперы облигации реструктуризация цена после дефолта ЮГК Пионер Страна Девелопмент", "by": "scout-4", "status": "planned", "finding": ""},
+ {"category": "base_rate", "query": "daily volatility distressed Russian bonds 2 week price change", "by": "scout-4", "status": "planned", "finding": ""},
+ {"category": "disconfirmation", "query": "Самолет облигации рост ралли договоренность банки купон выплачен", "by": "scout-5", "status": "planned", "finding": "", "tests": "that the price stays near 60 rather than jumping (bailout) or crashing (default/haircut) by 13 Nov"},
+ {"category": "disconfirmation", "query": "Самолет технический дефолт оферта реструктуризация облигаций держатели", "by": "scout-5", "status": "planned", "finding": "", "tests": "that the price stays near 60 rather than jumping (bailout) or crashing (default/haircut) by 13 Nov"},
+ {"category": "schedule", "query": "Самолет собрание владельцев облигаций ноябрь 2026", "by": "scout-2", "status": "planned", "finding": ""},
+ {"category": "consensus", "query": "аналитики Самолет облигации рекомендации", "by": "scout-3", "status": "planned", "finding": ""},
+ {"category": "news", "query": "Samolet bonds restructuring Reuters Bloomberg November 2026", "by": "main", "status": "planned", "finding": ""},
+ {"category": "upcoming_events", "query": "Самолет погашение БО-П13 январь 2027 ЦБ ключевая ставка заседание декабрь", "by": "scout-3", "status": "planned", "finding": ""}
+],
+ "adjustments": []
+}
