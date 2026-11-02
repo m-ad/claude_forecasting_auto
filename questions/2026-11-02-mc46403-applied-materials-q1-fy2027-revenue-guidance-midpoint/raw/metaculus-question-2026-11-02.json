@@ -1,0 +1,38 @@
+{
+  "post_id": 46403,
+  "url": "https://www.metaculus.com/questions/46403/",
+  "post_title": "Will Applied Materials' Q1 FY2027 revenue guidance midpoint be at or above $11.0 billion?",
+  "tournaments": [
+    "minibench"
+  ],
+  "options": null,
+  "question": {
+    "id": 46636,
+    "title": "Will Applied Materials' Q1 FY2027 revenue guidance midpoint be at or above $11.0 billion?",
+    "type": "binary",
+    "status": "open",
+    "description": "Applied Materials (NASDAQ: AMAT) is the largest US semiconductor equipment maker. Its fiscal year ends in late October, and it guides one quarter ahead in the \"Business Outlook\" table of each earnings release. The company will report fiscal Q4 2026 (quarter ended October 25, 2026) results on Thursday, November 12, 2026, with the release expected after the US market close and a conference call at 4:30 p.m. ET (https://ir.appliedmaterials.com/news-releases/news-release-details/applied-materials-report-fourth-quarter-and-fiscal-2026-results). That release will contain the first revenue guidance for fiscal Q1 2027.\n\nCurrent status quo: In its fiscal Q3 2026 report (quarter ended July 26, 2026, released August 13, 2026), Applied Materials posted record revenue of $9.115 billion (+25% year over year), non-GAAP gross margin of 50.4%, non-GAAP operating margin of 34% and non-GAAP EPS of $3.50. It guided fiscal Q4 2026 to total revenue of $10,250 million +/- $500 million (+51% year over year) and non-GAAP EPS of $4.02 +/- $0.20, with Semiconductor Systems ~$7.9 billion, Applied Global Services ~$1.84 billion and Other ~$510 million (https://ir.appliedmaterials.com/news-releases/news-release-details/applied-materials-announces-third-quarter-2026-results). The Q4 guide midpoint was 14.5% above the prior quarter's $8.95 billion guide, and Applied beat that Q3 guide by about $165 million. The company has not issued fiscal Q1 2027 guidance; commentary around the Q3 call noted that management expects quarter-over-quarter revenue growth in fiscal Q1 2027, and that fiscal Q1 2027 will be a 14-week quarter (Applied's calendar-2026 references cover fiscal Q2 2026 through fiscal Q1 2027).\n\nAnalyst expectations: The Zacks consensus revenue estimate for the January 2027 quarter is $10.74 billion (9 estimates; high $11.20 billion), with fiscal 2026 at $34.25 billion and fiscal 2027 at $45.64 billion (https://www.zacks.com/stock/quote/AMAT/detailed-earning-estimates). Other consensus compilations put fiscal 2027 revenue at $46.37 billion, a ~35% increase. For arithmetic context, holding fiscal Q4 2026's implied weekly revenue ($10.25 billion over 13 weeks, ~$0.79 billion per week) flat across a 14-week fiscal Q1 2027 would imply roughly $11.04 billion, while the January-quarter consensus of $10.74 billion implies a slightly lower weekly run-rate.\n\nDemand backdrop: Applied is benefiting from AI data-center infrastructure spending, with management citing record Semiconductor Systems revenue, advanced packaging growth above 70% in calendar 2026, and Applied Global Services growth above 20%. Sentiment, however, is fragile: peer Lam Research guided its December quarter to $8.6 billion +/- $400 million on October 21, 2026 (up ~5% sequentially) and the reaction was \"a bit higher wasn't enough,\" with AMAT falling roughly 7-8% that day; AMAT shares are down about 24% from October 12 after a forecast-free investor day and trade near $380 as of late October 2026. Broader worries about hyperscaler free cash flow and AI capex (Alphabet and Amazon) have weighed on capex-heavy semiconductor names. Because guidance is set by management and can land anywhere from roughly $10.3 billion to $11.5 billion depending on how aggressively they book the extra week and the 2027 ramp, the $11.0 billion threshold sits close to the plausible center of outcomes.\n\n`{\"format\": \"llm_question\", \"info\": {\"sdk_version\": \"0.6.1\", \"rating\": {\"quality\": 3, \"ambiguity\": 4, \"resolvability\": 4, \"passes\": true}}}`",
+    "resolution_criteria": "This question resolves on the total revenue guidance for Applied Materials' fiscal Q1 2027 (the first quarter of fiscal year 2027) contained in Applied Materials' fourth quarter and fiscal 2026 earnings press release, scheduled for Thursday, November 12, 2026 and published at https://ir.appliedmaterials.com/news-releases (expected title: \"Applied Materials Announces Fourth Quarter and Fiscal 2026 Results\"). The guidance midpoint is the center of the guided revenue range: the stated center figure when guidance is given in the form \"Total revenue $X +/- $Y\" (e.g., \"$10,750 +/- $500 million\" has a midpoint of $10,750 million), the arithmetic mean of the low and high ends when guidance is given as a range, and the stated figure itself when guidance is given as a single value. The question resolves YES if that midpoint is at or above $11,000 million (e.g., a midpoint of $11,000 million or $11,250 million resolves YES; $10,750 million resolves NO). If the press release contains no fiscal Q1 2027 revenue guidance, revenue guidance for that quarter given in Applied Materials' Q4 FY2026 earnings call or its prepared remarks (both posted at https://ir.appliedmaterials.com) will be used; if no such guidance is published, the question is annulled. If the Applied Materials page is unavailable, [credible sources](https://www.metaculus.com/faq/#definitions) reporting the guidance will be used.",
+    "fine_print": "Guidance refers to Applied Materials' own total (company-wide) revenue outlook for fiscal Q1 2027 — not segment-level guidance, not the fiscal Q4 2026 results themselves, and not third-party consensus estimates.",
+    "unit": "",
+    "options": null,
+    "scaling": {
+      "range_min": null,
+      "range_max": null,
+      "nominal_min": null,
+      "nominal_max": null,
+      "zero_point": null,
+      "open_upper_bound": false,
+      "open_lower_bound": false,
+      "inbound_outcome_count": null,
+      "continuous_range": null
+    },
+    "open_lower_bound": false,
+    "open_upper_bound": false,
+    "inbound_outcome_count": null,
+    "open_time": "2026-11-02T14:37:10Z",
+    "scheduled_close_time": "2026-11-02T17:37:10Z",
+    "scheduled_resolve_time": "2026-11-12T23:00:00Z",
+    "resolution": null
+  }
+}
