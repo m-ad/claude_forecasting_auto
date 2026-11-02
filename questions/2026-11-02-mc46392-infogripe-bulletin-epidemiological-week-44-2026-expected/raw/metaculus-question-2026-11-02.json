@@ -1,0 +1,46 @@
+{
+  "post_id": 46392,
+  "url": "https://www.metaculus.com/questions/46392/",
+  "post_title": "In the InfoGripe bulletin for epidemiological week 44 of 2026 (expected 12 November 2026), what will Brazil's national long-term SRAG trend be reported as?",
+  "tournaments": [
+    "minibench"
+  ],
+  "options": [
+    "Decline (queda)",
+    "Stability or oscillation (estabilização/oscilação)",
+    "Growth (aumento/crescimento)"
+  ],
+  "question": {
+    "id": 46625,
+    "title": "In the InfoGripe bulletin for epidemiological week 44 of 2026 (expected 12 November 2026), what will Brazil's national long-term SRAG trend be reported as?",
+    "type": "multiple_choice",
+    "status": "open",
+    "description": "InfoGripe is Fiocruz's (Oswaldo Cruz Foundation) respiratory-virus surveillance monitoring system, which each week publishes a bulletin (\"boletim\") on [SRAG](https://en.wikipedia.org/wiki/Severe_acute_respiratory_infection) — Síndrome Respiratória Aguda Grave, i.e. severe acute respiratory illness requiring hospitalisation — based on notifications in Brazil's SIVEP-Gripe database. The bulletin is normally released on Thursdays and is accompanied by a short \"Resumo do Boletim InfoGripe\" PDF named by epidemiological week (e.g. https://agencia.fiocruz.br/sites/agencia.fiocruz.br/files/Resumo_InfoGripe_2026_42.pdf for SE 42, released 29 October 2026). Using statistical nowcasting to correct for reporting delay, InfoGripe classifies the national curve into exactly three trend signals — growth (aumento/crescimento), stability/oscillation (estabilização/oscilação) or decline (queda) — assessed over the last 6 weeks (\"tendência de longo prazo\") and the last 3 weeks (\"tendência de curto prazo\").\n\nStatus as of the SE 42 bulletin (data through 24 October 2026): 168,814 SRAG cases notified in epidemiological year 2026 (53.4% laboratory-positive) and 7,606 SRAG deaths. Among positive cases in the last four weeks the virus mix was rhinovirus 53.3%, RSV 11.5%, SARS-CoV-2 6.4%, influenza B 5.4% and influenza A 4.1%. Metapneumovirus SRAG cases were falling nationally, rhinovirus was stable and severe COVID-19 cases were growing slightly; 5 of 27 federal units (Amapá, Mato Grosso, Mato Grosso do Sul, Sergipe, Maranhão) were at alert/risk level with long-term growth.\n\nRecent national trend statements in the 2026 season show the long-term signal flipping repeatedly near the growth/stability boundary while the short-term signal has moved into growth: SE 35 — stability/oscillation (long) and stability/oscillation (short); SE 36 — decline (long), stability/oscillation (short); SE 38 — decline (long), growth (short); SE 39 — stability/oscillation (long), growth (short); SE 40 — stability/oscillation (long and short); SE 41 — decline (long), stability/oscillation (short); SE 42 — stability/oscillation (long), growth (short). The SE 44 edition (data through 7 November 2026, expected Thursday 12 November 2026) will therefore report a six-week window covering roughly late September to early November, and its long-term classification is genuinely uncertain between stability/oscillation, growth and (less likely) decline.\n\nNote that Ministry of Health informes summarising the same bulletin have sometimes described the national long-term trend differently from Fiocruz's own summary (the SE 41 informe said stability/oscillation while the Fiocruz summary said decline), which is why this question is scored against the Fiocruz summary only.\n\n`{\"format\": \"llm_question\", \"info\": {\"sdk_version\": \"0.6.1\", \"rating\": {\"quality\": 3, \"ambiguity\": 3, \"resolvability\": 4, \"passes\": true}}}`",
+    "resolution_criteria": "This question resolves based on the national long-term trend statement in Fiocruz's \"Resumo do Boletim InfoGripe – Semana Epidemiológica (SE) 44 2026\" (PDF expected at https://agencia.fiocruz.br/sites/agencia.fiocruz.br/files/Resumo_InfoGripe_2026_44.pdf on 12 November 2026). It resolves to the option matching the signal that this document gives for the long-term trend, \"tendência de longo prazo (últimas 6 semanas)\" — typically the national bullet beginning \"No cenário nacional, os casos de SRAG apresentam sinal de ...\". \"Decline\" corresponds to queda / declínio / redução, \"Stability or oscillation\" to estabilização and/or oscilação, and \"Growth\" to aumento / crescimento / alta; the long-term signal decides regardless of the short-term (\"últimas 3 semanas\") signal, and if a single signal is given for both horizons it applies to the long-term trend. Hedged or transitional wording is mapped by the direction it asserts: interruption phrasing (\"interrupção do crescimento\", \"interrupção da queda\") resolves as Stability or oscillation, an asserted increase including \"leve aumento\" or \"possível início de crescimento\" resolves as Growth, and an asserted decrease including \"leve queda\" or \"possível início de queda\" resolves as Decline. If the summary contains no national long-term statement, the corresponding national long-term statement in the full InfoGripe bulletin for SE 44, or in the Agência Fiocruz de Notícias release for that edition, is used instead.",
+    "fine_print": "The source text is in Portuguese and the Portuguese terms in the criteria are the operative ones. If the SE 44 summary is not published on 12 November 2026, resolution waits for it — or, if the SE 44 edition is skipped entirely, for the next weekly InfoGripe summary published — applying the same rule to that document's national long-term statement. Trend wording in other documents (e.g., Ministry of Health \"Informe\" files) does not decide the question. If the PDF is inaccessible, the InfoGripe release for that edition on Agência Fiocruz de Notícias (agencia.fiocruz.br) or [credible sources](https://www.metaculus.com/faq/#definitions) may be used.",
+    "unit": "",
+    "options": [
+      "Decline (queda)",
+      "Stability or oscillation (estabilização/oscilação)",
+      "Growth (aumento/crescimento)"
+    ],
+    "scaling": {
+      "range_min": null,
+      "range_max": null,
+      "nominal_min": null,
+      "nominal_max": null,
+      "zero_point": null,
+      "open_upper_bound": false,
+      "open_lower_bound": false,
+      "inbound_outcome_count": null,
+      "continuous_range": null
+    },
+    "open_lower_bound": false,
+    "open_upper_bound": false,
+    "inbound_outcome_count": null,
+    "open_time": "2026-11-02T08:46:50Z",
+    "scheduled_close_time": "2026-11-02T11:46:50Z",
+    "scheduled_resolve_time": "2026-11-12T18:00:00Z",
+    "resolution": null
+  }
+}
