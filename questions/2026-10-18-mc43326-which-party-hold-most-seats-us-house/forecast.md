@@ -6,7 +6,7 @@
 | **Tournament** | bot-testing-area — one shot, window 2026-04-27T15:18:00Z -> 2026-11-02T00:00:00Z |
 | **Type** | multiple_choice |
 | **Opened / Closes / Resolves** | 2026-04-27 / 2026-11-02 / 2026-11-05 |
-| **Status** | open |
+| **Status** | closed |
 | **Current forecast** | Median 90.0%, IQR [86.0%, 93.0%] (v1, 2026-10-18) |
 | **Community** | hidden — bot tournament |
 | **Next review** | — |

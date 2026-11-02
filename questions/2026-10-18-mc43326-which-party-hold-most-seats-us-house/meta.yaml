@@ -12,7 +12,7 @@ dates:
   opened: '2026-04-27'
   closes: '2026-11-02'
   resolves: '2026-11-05'
-status: open
+status: closed
 tournament:
   slug: bot-testing-area
   mode: one_shot
