@@ -1,0 +1,38 @@
+{
+  "post_id": 46376,
+  "url": "https://www.metaculus.com/questions/46376/",
+  "post_title": "Will Spain's Congress convalidate Real Decreto-ley 29/2026 on the social function of housing before 13 November 2026?",
+  "tournaments": [
+    "minibench"
+  ],
+  "options": null,
+  "question": {
+    "id": 46609,
+    "title": "Will Spain's Congress convalidate Real Decreto-ley 29/2026 on the social function of housing before 13 November 2026?",
+    "type": "binary",
+    "status": "open",
+    "description": "Spain's Cortes were dissolved on 6 October 2026 by Real Decreto 806/2026 ([BOE](https://www.boe.es/buscar/doc.php?id=BOE-A-2026-20742)), which set general elections for 29 November 2026; the official campaign runs from 00:00 on 13 November to 27 November, and the new chambers are due to be constituted on 23 December. Until then, the only functioning congressional body is the Congress of Deputies' Diputación Permanente (Permanent Deputation), with 69 members, which is responsible for convalidating or rejecting decree-laws issued by the government.\n\nThe two housing decree-laws at issue — Real Decreto-ley 28/2026 on rental-contract stability and Real Decreto-ley 29/2026 on protection of the social function of housing and expansion of affordable supply ([BOE](https://www.boe.es/buscar/act.php?id=BOE-A-2026-20823)) — were approved by the Council of Ministers on 6 October 2026 and published on 7 October. They reproduce, with only minor tweaks, Real Decreto-ley 26/2026 and 27/2026, which Congress rejected in a plenary vote on 2 October (172-178 and 166-184) and which were duly derogated. That defeat stripped the government of its legislative majority and triggered the snap election.\n\nThe arithmetic in the Diputación Permanente is knife-edge. According to [Público](https://www.publico.es/sociedad/entran-vigor-decretos-vivienda-todas-claves-diputacion-permanente.html), the chamber has 69 members: PP 27, PSOE 24, Vox 6, Sumar 6, and one each for ERC, EH Bildu, PNV, Junts and Podemos. That gives 35 votes for PSOE, Sumar, ERC, Bildu, PNV and Podemos against 34 for PP, Vox and Junts, so a single absence or defection on the government side produces a 34-34 tie, which does not convalidate a decree-law. The PNV has confirmed it will vote for Real Decreto-ley 29/2026 but against the rental decree ([elDiario.es](https://www.eldiario.es/euskadi/pnv-confirma-salvara-responsabilidad-decreto-desahucios-diputacion-permanente_1_13566946.html)), so Real Decreto-ley 29/2026 is expected to pass only narrowly while the rental decree is expected to fall.\n\nThe government intends to put both decrees to a Diputación Permanente session on 12 November 2026 ([elEconomista](https://www.eleconomista.es/vivienda-inmobiliario/noticias/14022642/10/26/el-gobierno-baraja-que-la-convalidacion-de-los-decretos-de-vivienda-se-vote-tras-la-huelga-general.html)) — the day after a union-called general strike (11 November) over the railway crisis, and the day before the campaign opens. Article 86.2 of the Constitution requires decree-laws to be put to Congress within 30 days of promulgation, counted in business days under Congress's practice, which is why the deadline for the 7 October texts falls in mid-November rather than in early November. As of 30 October 2026 the 12 November session had not yet been formally convened, and the 3 November session is given over to Transport Minister Óscar Puente.\n\nThe political backdrop is volatile. On 28 October 2026 an AVE (Renfe) and an Iryo train collided near Urda (Toledo), killing 69 people and injuring more than 100. Puente has refused to resign and appears before the Diputación Permanente on 3 November. The PP has demanded his dismissal or resignation, while the government's usual parliamentary allies (ERC, Podemos, Sumar, Frente Amplio) have attacked the government over the crash and demanded accountability. Whether those allies keep delivering the votes the government needs is precisely what the 12 November convalidation vote will test.\n\n`{\"format\": \"llm_question\", \"info\": {\"sdk_version\": \"0.6.1\", \"rating\": {\"quality\": 3, \"ambiguity\": 4, \"resolvability\": 4, \"passes\": true}}}`",
+    "resolution_criteria": "This question resolves YES if the Congress of Deputies, acting through its Diputación Permanente (the body exercising the chamber's functions since the Cortes were dissolved), convalidates Real Decreto-ley 29/2026, de 6 de octubre, por el que se adoptan medidas urgentes para la protección de la función social de la vivienda y la ampliación de la oferta de vivienda asequible ([BOE](https://www.boe.es/buscar/act.php?id=BOE-A-2026-20823)) before 00:00 on 13 November 2026 (Madrid time, CET) — that is, if the vote in favour of convalidation wins. It resolves NO if the decree-law is not convalidated before that deadline, including if the convalidation vote is lost or tied at the Diputación Permanente session scheduled for 12 November 2026, if that vote is not held before the deadline, or if the decree-law otherwise lapses. The outcome is read from the record of that session published on the Congress of Deputies' [Sesiones de la Diputación Permanente page](https://www.congreso.es/es/sesiones-de-la-diputacion-permanente) (Diario de Sesiones) or, if that record is not yet available, from [credible sources](https://www.metaculus.com/faq/#definitions).",
+    "fine_print": "The two housing decree-laws approved on 6 October 2026 — Real Decreto-ley 28/2026 (stability of residential rental contracts) and Real Decreto-ley 29/2026 (social function of housing and affordable supply) — are voted on separately; only the result for Real Decreto-ley 29/2026 determines this question.",
+    "unit": "",
+    "options": null,
+    "scaling": {
+      "range_min": null,
+      "range_max": null,
+      "nominal_min": null,
+      "nominal_max": null,
+      "zero_point": null,
+      "open_upper_bound": false,
+      "open_lower_bound": false,
+      "inbound_outcome_count": null,
+      "continuous_range": null
+    },
+    "open_lower_bound": false,
+    "open_upper_bound": false,
+    "inbound_outcome_count": null,
+    "open_time": "2026-11-02T03:27:15Z",
+    "scheduled_close_time": "2026-11-02T06:27:15Z",
+    "scheduled_resolve_time": "2026-11-12T22:00:00Z",
+    "resolution": null
+  }
+}

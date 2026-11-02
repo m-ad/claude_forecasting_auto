@@ -1,0 +1,47 @@
+slug: 2026-11-02-mc46376-spain-s-congress-convalidate-real-decreto-ley
+title: Will Spain's Congress convalidate Real Decreto-ley 29/2026 on the social function of housing before
+  13 November 2026?
+source: metaculus
+url: https://www.metaculus.com/questions/46376/
+post_id: 46376
+question_id: 46609
+type: binary
+unit: null
+tags: []
+dates:
+  created: '2026-11-02'
+  opened: '2026-11-02'
+  closes: '2026-11-02'
+  resolves: '2026-11-12'
+status: open
+tournament:
+  slug: minibench
+  mode: one_shot
+  registered: '2026-11-02'
+  opened: '2026-11-02T03:27:15Z'
+  closes: '2026-11-02T06:27:15Z'
+  submitted: '2026-11-02T04:13:37+00:00'
+  submitted_forecast:
+    probability_yes: 0.86
+  comment_posted: true
+  official_score: null
+  missed_window: false
+current:
+  version: 1
+  date: '2026-11-02'
+  median: 0.86
+  iqr:
+  - 0.8
+  - 0.91
+  community:
+    cp: null
+    pro: null
+    gold: null
+    n_forecasters: null
+    as_of: '2026-11-02'
+next_review: null
+tripwires: []
+resolution:
+  outcome: null
+  date: null
+  source: null
