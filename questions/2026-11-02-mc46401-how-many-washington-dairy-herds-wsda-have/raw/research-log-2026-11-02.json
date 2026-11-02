@@ -1,0 +1,18 @@
+{"searches": [
+  {"category": "resolution_source", "query": "WSDA HPAI H5N1 in cattle table 2026 Washington", "by": "main", "status": "planned", "finding": ""},
+  {"category": "news", "query": "Washington dairy herds H5N1 Yakima November 2026", "by": "main", "status": "planned", "finding": ""},
+  {"category": "news", "query": "WSDA avian influenza dairy news release herds confirmed", "by": "scout-1", "status": "planned", "finding": ""},
+  {"category": "markets", "query": "Polymarket OR Kalshi OR Manifold Washington dairy H5N1 herds", "by": "scout-2", "status": "planned", "finding": ""},
+  {"category": "base_rate", "query": "Idaho California Arizona dairy H5N1 herd outbreak growth trajectory weeks after first detection", "by": "scout-3", "status": "planned", "finding": ""},
+  {"category": "base_rate", "query": "California dairy H5N1 herds quarantined 2024 weekly count", "by": "scout-3", "status": "planned", "finding": ""},
+  {"category": "disconfirmation", "query": "Yakima dairy H5N1 outbreak slowing OR plateau OR new herds", "by": "scout-4", "status": "planned", "finding": "", "tests": "the assumption that growth continues at a few herds/day rather than plateauing near the current ~40"},
+  {"category": "disconfirmation", "query": "Washington dairy H5N1 spread Grant Franklin county herds quarantine", "by": "scout-4", "status": "planned", "finding": "", "tests": "the assumption that growth continues at a few herds/day rather than plateauing"},
+  {"category": "schedule", "query": "WSDA HPAI cattle table update frequency", "by": "main", "status": "planned", "finding": ""},
+  {"category": "consensus", "query": "CIDRAP Washington dairy H5N1 herds", "by": "scout-1", "status": "planned", "finding": ""},
+  {"category": "other", "query": "Yakima County licensed dairies number", "by": "scout-5", "status": "planned", "finding": ""},
+  {"category": "other", "query": "USDA APHIS confirmed cases livestock Washington", "by": "scout-5", "status": "planned", "finding": ""},
+  {"category": "news", "query": "Washington dairy H5N1 milk testing National Milk Testing Strategy Washington", "by": "scout-1", "status": "planned", "finding": ""},
+  {"category": "other", "query": "Washington Yakima dairy bird flu Capital Press OR Yakima Herald", "by": "scout-1", "status": "planned", "finding": ""},
+  {"category": "other", "query": "Washington dairy H5N1 worker case November", "by": "main", "status": "planned", "finding": ""}
+],
+ "adjustments": []}
