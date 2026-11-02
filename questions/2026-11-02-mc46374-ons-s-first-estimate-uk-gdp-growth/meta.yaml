@@ -1,0 +1,60 @@
+slug: 2026-11-02-mc46374-ons-s-first-estimate-uk-gdp-growth
+title: What will the ONS's first estimate of UK GDP growth be for Q3 2026 (quarter-on-quarter)?
+source: metaculus
+url: https://www.metaculus.com/questions/46374/
+post_id: 46374
+question_id: 46607
+type: discrete
+unit: '%'
+tags: []
+dates:
+  created: '2026-11-02'
+  opened: '2026-11-02'
+  closes: '2026-11-02'
+  resolves: '2026-11-12'
+status: open
+tournament:
+  slug: minibench
+  mode: one_shot
+  registered: '2026-11-02'
+  opened: '2026-11-02T02:41:20Z'
+  closes: '2026-11-02T05:41:20Z'
+  submitted: '2026-11-02T03:12:50+00:00'
+  submitted_forecast:
+    continuous_cdf:
+    - 0.001
+    - 0.005049046890579881
+    - 0.009766225063215069
+    - 0.017271337275174267
+    - 0.03640975631825724
+    - 0.09246687201059846
+    - 0.2086848384477671
+    - 0.44659668906139505
+    - 0.7217500704272836
+    - 0.8889771449713056
+    - 0.9633041937961865
+    - 0.9868890352801928
+    - 0.9944571062347287
+    - 0.999
+  comment_posted: true
+  official_score: null
+  missed_window: false
+current:
+  version: 1
+  date: '2026-11-02'
+  median: 0.67
+  iqr:
+  - 0.58
+  - 0.76
+  community:
+    cp: null
+    pro: null
+    gold: null
+    n_forecasters: null
+    as_of: '2026-11-02'
+next_review: null
+tripwires: []
+resolution:
+  outcome: null
+  date: null
+  source: null

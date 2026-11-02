@@ -1,0 +1,27 @@
+{"searches": [
+  {"category": "resolution_source", "query": "WebFetch ONS GDP monthly estimate UK August 2026 bulletin", "by": "main", "status": "done", "finding": "Aug +0.1% m/m, Jul +0.4% unrevised, Jun revised up to +0.4%; 3m to Aug +0.7%; 3m to Jun and Jul revised to 0.5% (15 Oct 2026)"},
+  {"category": "resolution_source", "query": "UK GDP August 2026 0.1% ONS economists Q3", "by": "main", "status": "done", "finding": "Aug beat Reuters poll of -0.1%; production +0.8%, services flat, construction -0.2%"},
+  {"category": "resolution_source", "query": "UK GDP quarterly national accounts April to June 2026 revised 0.5%", "by": "main", "status": "done", "finding": "Q2 revised to +0.5% (QNA 30 Sep 2026); monthly Apr -0.1, May 0.0, Jun +0.3 (later +0.4)"},
+  {"category": "base_rate", "query": "ONS GDP monthly estimate UK April 2026 May 2026 monthly growth", "by": "main", "status": "done", "finding": "May +0.1 first est (later 0.0); April UK figure not in snippets; used QNA monthly path"},
+  {"category": "schedule", "query": "UK Q3 2026 GDP preview 12 November", "by": "main", "status": "done", "finding": "Release 07:00 12 Nov 2026 with September monthly; no consensus published yet"},
+  {"category": "disconfirmation", "query": "UK economy September 2026 GDP expected fall third quarter growth 0.7% economists", "by": "main", "status": "done", "finding": "nothing 2026-specific; only 2023-2025 Q3 articles", "tests": "carry-over ~0.7% with September near flat"},
+  {"category": "news", "query": "ONS retail sales September 2026 volumes month on month", "by": "scout-1", "status": "done", "finding": "Sep retail volumes -0.4% m/m; Aug revised up to +0.7%; Q3 +0.7% q/q (23 Oct 2026)"},
+  {"category": "news", "query": "UK PMI September 2026 S&P Global composite services manufacturing final", "by": "scout-1", "status": "done", "finding": "Composite 52.0 (Aug 52.5), services 52.1"},
+  {"category": "news", "query": "UK construction PMI September 2026", "by": "scout-1", "status": "done", "finding": "46.1 (Aug 44.3), eight-month high"},
+  {"category": "news", "query": "SMMT UK car production September 2026", "by": "scout-1", "status": "done", "finding": "cars 70,831, +38.6% y/y (base effect from JLR 2025)"},
+  {"category": "news", "query": "UK manufacturing PMI September 2026 final S&P Global CIPS", "by": "scout-1", "status": "done", "finding": "51.9 (flash 52.0, Aug 51.7)"},
+  {"category": "consensus", "query": "UK GDP August 2026 monthly ONS estimate economists expect September GDP", "by": "scout-1", "status": "done", "finding": "no September consensus; ONS says real-time indicators pointed to weaker September"},
+  {"category": "consensus", "query": "NIESR GDP tracker October 2026 third quarter", "by": "scout-2", "status": "done", "finding": "not found"},
+  {"category": "consensus", "query": "UK Q3 2026 GDP forecast economists expect growth quarter", "by": "scout-2", "status": "done", "finding": "no consensus found"},
+  {"category": "markets", "query": "Polymarket OR Kalshi UK GDP Q3 2026", "by": "scout-2", "status": "done", "finding": "Polymarket Q3 2026 band markets exist (thin, <$1k); mirrors show 'negative' 19-25c, stale/undated; Kalshi none"},
+  {"category": "markets", "query": "Polymarket 'UK GDP growth in Q3 2026' between", "by": "scout-2", "status": "done", "finding": ">=1.0% ~7c; 0.2-0.3 band 12.8c on one snapshot; undated"},
+  {"category": "consensus", "query": "UK economy August GDP 0.1% Q3 on track quarter growth economists Pantheon Capital Economics September weaker", "by": "scout-2", "status": "done", "finding": "only 2023-2025 material"},
+  {"category": "news", "query": "UK GDP July 2026 0.4% rebound one-off economists", "by": "scout-3", "status": "done", "finding": "Deutsche Bank 8 Oct: July strength in volatile sectors, expected flat Aug, Q3 ~0.5% q/q (secondhand)"},
+  {"category": "base_rate", "query": "UK first quarterly GDP estimate differs from monthly data first two months revision ONS quarterly national accounts September monthly drag", "by": "scout-3", "status": "done", "finding": "Q3 2024 and Q3 2025: weak September dragged first estimate below forecasts; no quantified hit rate"},
+  {"category": "disconfirmation", "query": "UK September 2026 PMI output economy contraction", "by": "scout-3", "status": "done", "finding": "PMIs >50, no September shock found", "tests": "July/August stand and September is near flat, giving ~0.7% q/q"},
+  {"category": "consensus", "query": "NIESR GDP tracker October 2026 third quarter growth estimate", "by": "scout-3", "status": "done", "finding": "secondhand NIESR Q3 0.1% projection, undated (likely pre-July data)"},
+  {"category": "resolution_source", "query": "ONS GDP August 2026 monthly GDP 0.1% three months to August", "by": "scout-3", "status": "done", "finding": "confirms ONS figures"}
+],
+ "adjustments": [
+  {"event": "September 2026 indicators weak: retail -0.4% m/m, ONS real-time indicators weaker, August production +0.8% likely to partly reverse", "date": "2026-10-23", "effect": "-0.06 pp on the median (Sep m/m assumed ~-0.2% instead of flat)", "sources": [2, 3, 4]}
+]}

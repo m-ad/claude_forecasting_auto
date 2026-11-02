@@ -1,0 +1,53 @@
+{
+  "post_id": 46374,
+  "url": "https://www.metaculus.com/questions/46374/",
+  "post_title": "What will the ONS's first estimate of UK GDP growth be for Q3 2026 (quarter-on-quarter)?",
+  "tournaments": [
+    "minibench"
+  ],
+  "options": null,
+  "question": {
+    "id": 46607,
+    "title": "What will the ONS's first estimate of UK GDP growth be for Q3 2026 (quarter-on-quarter)?",
+    "type": "discrete",
+    "status": "open",
+    "description": "The Office for National Statistics (ONS) publishes a \"first quarterly estimate\" of UK gross domestic product roughly six weeks after each quarter ends. This is the first official estimate for July to September (Q3) 2026, due at 07:00 GMT on 12 November 2026. It lands together with the September 2026 monthly GDP estimate, the Index of Services and Index of Production for September, and UK trade data for September.\n\nRecent outturns: UK GDP grew 0.6% quarter-on-quarter in Q1 2026 and 0.4% in Q2 2026 (first estimate published 13 August 2026). On a monthly basis, GDP rose 0.4% in June 2026, 0.4% in July 2026 and 0.1% in August 2026 (ONS, GDP monthly estimate, 14 October 2026); over the three months to August 2026, GDP was 0.7% higher than in the three months to May 2026, with services output up 0.9% over the same window.\n\nTwo of Q3's three months are therefore already on the books, and both were positive. Simple carry-over arithmetic puts Q3 quarter-on-quarter growth at roughly 0.7% even if September were flat, so the remaining uncertainty runs through September's monthly outturn — which is published at the same moment as the quarterly estimate, forcing forecasters to infer it in advance from September retail sales, purchasing managers' surveys and production and construction data — and through possible revisions to the July and August figures.\n\nSurvey-based measures have been weaker than the official monthly data: the Bank of England's July 2026 Monetary Policy Report projected underlying GDP growth of around 0% in 2026 Q3, which is a large part of why analysts differ on how much of the recent official strength will carry through into the quarterly figure.\n\nFirst estimates are routinely revised — the fuller quarterly national accounts for Q3 2026 are scheduled for 22 December 2026 — but this question uses the first estimate only.\n\n`{\"format\": \"llm_question\", \"info\": {\"sdk_version\": \"0.6.1\", \"rating\": {\"quality\": 3, \"ambiguity\": 4, \"resolvability\": 4, \"passes\": true}}}`",
+    "resolution_criteria": "This question resolves according to the Office for National Statistics (ONS) bulletin \"GDP first quarterly estimate, UK: July to September 2026\", scheduled for publication at 07:00 GMT on 12 November 2026 (release page: https://www.ons.gov.uk/releases/gdpfirstquarterlyestimateukjulytoseptember2026). The answer is the quarter-on-quarter growth rate of real gross domestic product for July to September 2026 stated in that bulletin's main points, expressed in percent — for example, if the ONS reports that GDP \"is estimated to have increased by 0.7%\", the answer is 0.7, and if it \"is estimated to have fallen by 0.1%\", the answer is -0.1. If the release is delayed, the question resolves from the first published estimate whenever it appears; if the figure is not available on the ONS page, [credible sources](https://www.metaculus.com/faq/#definitions) reporting that first estimate will be used.",
+    "fine_print": "Resolution uses the first estimate as first published; the later, fuller quarterly national accounts for July to September 2026 (scheduled for 22 December 2026) do not change the answer.",
+    "unit": "%",
+    "options": null,
+    "scaling": {
+      "range_min": -0.05,
+      "range_max": 1.25,
+      "nominal_min": 0,
+      "nominal_max": 1.2000000000000002,
+      "zero_point": null,
+      "open_upper_bound": true,
+      "open_lower_bound": true,
+      "inbound_outcome_count": 13,
+      "continuous_range": [
+        -0.05,
+        0.05,
+        0.15000000000000002,
+        0.25000000000000006,
+        0.35000000000000003,
+        0.45,
+        0.55,
+        0.6500000000000001,
+        0.75,
+        0.85,
+        0.95,
+        1.05,
+        1.1500000000000001,
+        1.25
+      ]
+    },
+    "open_lower_bound": true,
+    "open_upper_bound": true,
+    "inbound_outcome_count": 13,
+    "open_time": "2026-11-02T02:41:20Z",
+    "scheduled_close_time": "2026-11-02T05:41:20Z",
+    "scheduled_resolve_time": "2026-11-12T07:00:00Z",
+    "resolution": null
+  }
+}
