@@ -1,0 +1,49 @@
+{
+  "post_id": 46384,
+  "url": "https://www.metaculus.com/questions/46384/",
+  "post_title": "How many total goals will be scored in the Singapore vs Paraguay match on 13 November 2026?",
+  "tournaments": [
+    "minibench"
+  ],
+  "options": null,
+  "question": {
+    "id": 46617,
+    "title": "How many total goals will be scored in the Singapore vs Paraguay match on 13 November 2026?",
+    "type": "discrete",
+    "status": "open",
+    "description": "**The fixture.** Singapore host Paraguay on Friday 13 November 2026 at the National Stadium at The Kallang, with kick-off at 20:00 Singapore time (12:00 UTC). It is the opening match of the inaugural [Mizuho Blue Challenge – The Kallang Football Series Singapore](https://www.thekallang.com.sg/en/things-to-do/events/mizuho-blue-challenge-the-kallang-football-series-singapore.html), a four-nation, four-match event staged inside the final FIFA men's international window of 2026: Singapore vs Paraguay on 13 November, Japan vs Brazil on 14 November, and a 17 November double-header of Singapore vs Brazil and Japan vs Paraguay. The series has no overall standings — fixtures are pre-determined and each match is a standalone 90-minute international friendly (no extra time, and no penalty shoot-outs according to event coverage). Singapore are the home side, playing at their national stadium, and are using the window as preparation for the 2027 AFC Asian Cup.\n\n**Paraguay.** Coached by Gustavo Alfaro (second spell), Paraguay are ranked 33rd in the FIFA world ranking update of 7 October 2026 — their highest placing in over five years. At the 2026 World Cup they advanced from a group containing the USA, Australia and Türkiye with 4 points (1W 1D 1L, GD −2), drew 1–1 with Germany in the Round of 32 and won 4–3 on penalties, then lost 0–1 to France in the Round of 16. In post-World Cup friendlies they beat Bolivia 2–0 on 27 September 2026 (Miguel Almirón double) and Colombia 1–0 on 2 October 2026 (Hugo Benítez). They have been notably tight at the back — four clean sheets in their last five matches and roughly 0.4 goals conceded per game in that stretch — while scoring about 1.8 per game. Alfaro has stressed that this period is about testing players, and Paraguay play Japan three days after this fixture, so rotation is plausible.\n\n**Singapore.** Coached by Gavin Lee and ranked around 148th in the world (roughly 115 places below Paraguay), Singapore have had a rough 2026: they lost the ASEAN Championship semi-final to Thailand 3–4 on aggregate (1–3 at home, 2–1 away), then in the September–October 2026 FIFA ASEAN Cup lost 0–2 to Indonesia (25 September), beat Bangladesh 1–0 (28 September) and were beaten 6–0 by Malaysia (1 October). They have conceded heavily against stronger opposition while rarely keeping clean sheets.\n\n**Head-to-head.** No previous meeting between the two senior teams was found.\n\n**Resolution data.** The result is read from the ESPN match page for this fixture, which carries the live/final scoreline, and cross-checked against other credible outlets if needed. This is an international friendly between a mid-tier CONMEBOL side and a lower-tier ASEAN side, with the home team the weaker of the two, so expected total goals sit in the low-to-mid single digits; recent scoring and conceding records of both teams are the key inputs for forecasting.\n\n`{\"format\": \"llm_question\", \"info\": {\"sdk_version\": \"0.6.1\", \"rating\": {\"quality\": 3, \"ambiguity\": 4, \"resolvability\": 4, \"passes\": true}}}`",
+    "resolution_criteria": "This question resolves according to the final score of the Singapore vs Paraguay match played on 13 November 2026 at the National Stadium, Singapore, as reported on the [ESPN match page](https://www.espn.com/soccer/match/_/gameId/401916338/paraguay-singapore). The answer is the total number of goals scored by both teams in the match — Singapore's goals plus Paraguay's goals — as of the end of regulation time (90 minutes plus stoppage time); a 2–1 scoreline resolves as 3. Goals scored in a penalty shoot-out (if one is held) do not count. If the match is not played to completion on 13 November 2026, or if no final score can be established from the ESPN match page or [credible sources](https://www.metaculus.com/faq/#definitions), the question is annulled.",
+    "fine_print": "A postponement to a later date, a cancellation, or an abandonment before the final whistle counts as the match not being played to completion, and the question is annulled. Kick-off is scheduled for 20:00 Singapore time (12:00 UTC) on 13 November 2026.",
+    "unit": "goals",
+    "options": null,
+    "scaling": {
+      "range_min": -0.5,
+      "range_max": 8.5,
+      "nominal_min": 0,
+      "nominal_max": 8,
+      "zero_point": null,
+      "open_upper_bound": true,
+      "open_lower_bound": false,
+      "inbound_outcome_count": 9,
+      "continuous_range": [
+        -0.5,
+        0.5,
+        1.5,
+        2.5,
+        3.5,
+        4.5,
+        5.5,
+        6.499999999999999,
+        7.5,
+        8.5
+      ]
+    },
+    "open_lower_bound": false,
+    "open_upper_bound": true,
+    "inbound_outcome_count": 9,
+    "open_time": "2026-11-02T06:18:41Z",
+    "scheduled_close_time": "2026-11-02T09:18:41Z",
+    "scheduled_resolve_time": "2026-11-13T16:00:00Z",
+    "resolution": null
+  }
+}
