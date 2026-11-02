@@ -1,0 +1,26 @@
+{"searches": [
+  {"category": "resolution_source", "query": "инфляция на 26 октября 2026 годовая Минэкономразвития", "by": "main", "status": "done", "finding": "Weekly 20-26 Oct 2026 +0.08%, YTD 6.24% (fomag snippet)"},
+  {"category": "resolution_source", "query": "Rosstat weekly inflation October 2026 annual 7.1%", "by": "main", "status": "done", "finding": "AK&M 29 Oct 2026: Oct-to-date 1.14%, YTD 6.24%, MinEcon annual 7.11% on 26 Oct; 7.22% on 12 Oct; 7.17% on 5 Oct (TASS)"},
+  {"category": "resolution_source", "query": "fetch tass.com/economy/2198963", "by": "main", "status": "done", "finding": "29 Sep-5 Oct 2026 +0.96%, annual 7.17% pre-September revision"},
+  {"category": "base_rate", "query": "инфляция в России с 21 по 27 октября 2025 недельная Росстат", "by": "main", "status": "done", "finding": "21-27 Oct 2025 +0.16%, Oct-to-date 0.79% vs monthly 0.50% -> gap ~-0.35"},
+  {"category": "consensus", "query": "инфляция в октябре 2026 прогноз аналитиков месяц к месяцу годовая 7%", "by": "main", "status": "done", "finding": "CBR survey Oct 2026: 2026 median 7.1%; no Oct m/m consensus"},
+  {"category": "base_rate", "query": "месячная инфляция в октябре 2025 0,50% ниже недельных оценок причины", "by": "main", "status": "done", "finding": "Oct 2025 0.50% m/m, 7.71% y/y confirmed; no explanation of gap"},
+  {"category": "base_rate", "query": "инфляция в июле 2025 0,57% Росстат недельные данные индексация тарифов расхождение", "by": "main", "status": "done", "finding": "Jul 2025 tariff month: monthly 0.57 vs weekly 0.65 (gap -0.08)"},
+  {"category": "base_rate", "query": "инфляция в августе 2026 -0,08% Росстат недельные данные дефляция", "by": "main", "status": "done", "finding": "Aug 2026 monthly -0.08 = weekly -0.08 (gap 0)"},
+  {"category": "base_rate", "query": "инфляция с 22 по 28 октября 2024 с начала октября Росстат", "by": "main", "status": "done", "finding": "Oct 2024 weekly 0.73 to 28 Oct (+~0.08) vs monthly 0.75 (gap ~-0.06)"},
+  {"category": "news", "query": "цены на бензин конец октября 2026 Росстат снижение", "by": "main", "status": "done", "finding": "petrol -0.7% 13-19 Oct 2026, flat 6-12 Oct"},
+  {"category": "consensus", "query": "Russia inflation October 2026 monthly forecast economists Interfax consensus", "by": "main", "status": "done", "finding": "Sep 2026 consensus 0.27, weeklies ~0.30, actual 0.35 (gap +0.05); CBR 6.8% as of 19 Oct (weekly-2025 base)"},
+  {"category": "news", "query": "Росстат недельная инфляция 20 по 26 октября 2026", "by": "scout-1", "status": "done", "finding": "+0.08%, 1.14% MTD, 6.24% YTD"},
+  {"category": "resolution_source", "query": "инфляция в октябре 2026 годовая Минэкономразвития О текущей ценовой ситуации", "by": "scout-1", "status": "done", "finding": "7.11% on 26 Oct"},
+  {"category": "base_rate", "query": "Росстат инфляция с 28 октября по 3 ноября 2025 недельная", "by": "scout-1", "status": "done", "finding": "28 Oct-3 Nov 2025 +0.11%"},
+  {"category": "news", "query": "инфляция в РФ с 13 по 19 октября 2026 0,05% Росстат годовая Минэкономразвития", "by": "scout-1", "status": "done", "finding": "13-19 Oct +0.05%, MTD 1.06%; tariff indexation ~9.9%"},
+  {"category": "news", "query": "инфляция в октябре 2025 Росстат месячная 0,50% недельные данные сумма расхождение", "by": "scout-2", "status": "done", "finding": "weekly Oct 2025 0.23/0.21/0.22/0.16"},
+  {"category": "base_rate", "query": "инфляция октябрь 2024 0,75% Росстат недельная инфляция за месяц составила расхождение", "by": "scout-2", "status": "done", "finding": "Oct 2024 0.75% m/m, 8.54% y/y"},
+  {"category": "disconfirmation", "query": "месячная инфляция оказалась выше недельных данных Росстат сентябрь 2026", "by": "scout-2", "status": "done", "finding": "Sep 2026 monthly 0.35 slightly above weeklies", "tests": "monthly print lands below the weekly-implied ~1.20% m/m (negative gap centre -0.06 to -0.10)"},
+  {"category": "markets", "query": "Polymarket Kalshi Russia inflation October 2026", "by": "scout-3", "status": "done", "finding": "none found; Kalshi only Russia unemployment"},
+  {"category": "disconfirmation", "query": "инфляция с 20 по 26 октября 0,08% бензин подешевел годовая 7,11% аналитики октябрь итог", "by": "scout-3", "status": "done", "finding": "petrol -1.63% w/w, non-food -0.21%, services ~11% y/y; no analyst case for >7.25", "tests": "monthly print lands below the weekly-implied ~1.20% m/m"},
+  {"category": "consensus", "query": "годовая инфляция в октябре 2026 прогноз аналитиков бензин курс рубля", "by": "scout-3", "status": "done", "finding": "CBR 2026 forecast 7.1-7.6%"}
+],
+ "adjustments": [
+  {"event": "October 2025 monthly CPI (0.50%) came in ~0.35 pp below its weeklies; history of negative monthly-minus-weekly gaps", "date": "2025-11-12", "effect": "-0.08 pp on m/m centre (~-0.08 pp on y/y median, 7.09% -> ~7.01%)", "sources": [4, 5, 6]}
+ ]}
