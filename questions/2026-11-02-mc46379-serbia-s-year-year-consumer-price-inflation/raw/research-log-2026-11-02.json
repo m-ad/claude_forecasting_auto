@@ -1,0 +1,30 @@
+{"searches": [
+  {"category": "resolution_source", "query": "WebFetch tradingeconomics.com/serbia/inflation-cpi", "by": "main", "status": "done", "finding": "Sep 2026 4.1% y/y, m/m +0.2%; Aug 2.2% (m/m +0.5), Jul 1.9% (m/m -0.2), Jun 2.7%; no October consensus"},
+  {"category": "resolution_source", "query": "WebFetch srpske.rs Sept 2026 inflation article", "by": "main", "status": "done", "finding": "Sep 2026: 4.1% y/y, +0.2% m/m, +3.3% vs Dec 2025; food -1.8% y/y (Aug -7.2%), food +0.6% m/m; transport +1.2% m/m; housing +0.4% m/m"},
+  {"category": "base_rate", "query": "Serbia inflation October 2025 month on month RZS consumer prices", "by": "main", "status": "done", "finding": "Oct 2025 m/m +0.49% (after -1.59% Sep 2025); y/y 2.8%; core 3.8%"},
+  {"category": "base_rate", "query": "Serbia inflation October 2024 month-on-month 0.", "by": "main", "status": "done", "finding": "Oct 2024 y/y 4.5% from 4.2% Sep; Oct m/m not given directly"},
+  {"category": "base_rate", "query": "\"October 2023\" Serbia consumer prices month-on-month rose", "by": "main", "status": "done", "finding": "Oct 2023 m/m +0.26%"},
+  {"category": "base_rate", "query": "WebFetch tradingeconomics.com/serbia/inflation-rate-mom", "by": "main", "status": "done", "finding": "Sep 2026 m/m 0.2 vs consensus 0.5; Sep 2025 -1.6 record low"},
+  {"category": "news", "query": "Serbia inflation September 2026 4.1% National Bank of Serbia expects October", "by": "main", "status": "done", "finding": "NBS expects inflation to fluctuate around 4% from September through 2027; rate 5.75%"},
+  {"category": "news", "query": "inflacija Srbija oktobar 2026 prognoza cene goriva", "by": "main", "status": "done", "finding": "Fuel prices unchanged from 23 Oct 2026 (eurodiesel 236, BMB95 207 RSD); PPI 10.5% y/y Sep 2026; IMF year-end 5.2%-7% projections"},
+  {"category": "news", "query": "Serbia inflation September 2026 water rents food margin cap base effect srpske.rs", "by": "main", "status": "done", "finding": "PPI Sep 2026 10.5% y/y; NBS May report: low Sep 2025 base pushes inflation up"},
+  {"category": "upcoming_events", "query": "Srbija poskupljenje struje oktobar 2026", "by": "main", "status": "done", "finding": "IMF commitment: household electricity hike no later than 1 Oct 2026, >= CPI+1pp; no confirmed decision found; Oct 2025 hike 6.6%"},
+  {"category": "upcoming_events", "query": "EPS cena struje od 1. oktobra 2026 domaćinstva povećanje odsto", "by": "main", "status": "done", "finding": "no 2026 decision found; 2025 round 6.6% from 1 Oct 2025"},
+  {"category": "upcoming_events", "query": "Serbia electricity price increase households October 2026 AERS approved", "by": "main", "status": "done", "finding": "June 2026 Beta: hike 'by year-end at the latest'; no AERS approval for Oct 2026 found"},
+  {"category": "markets", "query": "Polymarket OR Kalshi OR Manifold Serbia inflation 2026", "by": "main", "status": "done", "finding": "none found; NBS 2026 avg 3.6%, financial-sector 1y expectations 3.6% (June)"},
+  {"category": "consensus", "query": "NBS October 2026 key policy rate 5.75% inflation statement", "by": "main", "status": "done", "finding": "no October statement found; Aug 2026: rate held, upside risk from oil second-round effects"},
+  {"category": "other", "query": "uredba o ograničenju marži produžena 2026 Srbija", "by": "main", "status": "done", "finding": "20% margin-cap decree expired 1 Mar 2026; oil-derivative price cap extended to 31 Dec 2026"},
+  {"category": "news", "query": "Serbia food prices October 2026 rise supermarkets", "by": "main", "status": "done", "finding": "nothing for Oct 2026"},
+  {"category": "news", "query": "Srbija inflacija oktobar 2026 cene hrane gorivo", "by": "scout-2", "status": "done", "finding": "no Oct food news; Sep m/m: food +0.6, transport +1.2, recreation -5.6"},
+  {"category": "news", "query": "cene goriva Srbija oktobar 2026 evrodizel poskupljenje pojeftinjenje", "by": "scout-2", "status": "done", "finding": "fuel unchanged 16 and 23 Oct 2026 (236/207 RSD), up from summer (diesel 227 late Aug)"},
+  {"category": "base_rate", "query": "Serbia consumer prices October month-on-month 2024 2023 2022", "by": "scout-2", "status": "done", "finding": "Oct 2022 +1.9%, Oct 2023 ~+0.3%, Oct 2025 +0.49%"},
+  {"category": "disconfirmation", "query": "Serbia margin cap decree extended expire 2026 uredba o marži", "by": "scout-2", "status": "done", "finding": "decree expired 28 Feb 2026, not extended; 3/4 of prices did not return to old levels", "tests": "October 2026 m/m below the +0.49% October 2025 base (rate edges down rather than holding/rising)"},
+  {"category": "disconfirmation", "query": "cena struje od 1. oktobra 2026 AERS domaćinstva poskupljenje odsto", "by": "scout-1", "status": "done", "finding": "Danas 31 Aug 2026: EPS had not filed with AERS; 1 Oct hike 'procedurally impossible', delayed past elections", "tests": "no household electricity hike in October 2026 (so the Oct 2025 +6.6% hike drops out of the base)"},
+  {"category": "upcoming_events", "query": "poskupljenje gasa Srbijagas oktobar novembar 2026", "by": "scout-1", "status": "done", "finding": "no household gas increase found"},
+  {"category": "consensus", "query": "NBS referentna kamatna stopa 8. oktobar 2026 inflacija septembar 4,1 odsto", "by": "scout-1", "status": "done", "finding": "8 Oct 2026 rate held 5.75%; Sep statement: inflation around 4% from September through 2027"},
+  {"category": "consensus", "query": "Serbia inflation October 2026 forecast", "by": "scout-1", "status": "done", "finding": "no analyst forecast for October 2026 found"}
+],
+ "adjustments": [
+  {"event": "October 2025 base month included a 6.6% household electricity hike; no comparable hike in October 2026 (EPS had not filed with AERS by 31 Aug)", "date": "2025-10-01", "effect": "-0.15 on the median (4.1 -> ~3.95)", "sources": [3, 4, 6]},
+  {"event": "Upward momentum: food +0.6% m/m and transport +1.2% m/m in Sep 2026, PPI 10.5% y/y", "date": "2026-10-12", "effect": "upper tail widened (p95 4.6)", "sources": [2, 7]}
+ ]}

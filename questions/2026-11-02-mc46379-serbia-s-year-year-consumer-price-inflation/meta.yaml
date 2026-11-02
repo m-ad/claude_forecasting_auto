@@ -1,72 +1,68 @@
-# Question metadata. Machine-read by scripts/status.py and scripts/log_forecast.py.
-slug: "2026-11-02-mc46379-serbia-s-year-year-consumer-price-inflation"
-title: "What will Serbia's year-on-year consumer price inflation be in October 2026?"
-source: "metaculus"          # metaculus | kalshi | polymarket | manifold | other
-url: "https://www.metaculus.com/questions/46379/"                # null for free-text questions with no URL
-post_id: 46379          # null for non-Metaculus — identifies the *page*
-question_id: 46612  # Metaculus's internal question id — what the API submits
-                              # against, and != post_id. Null for non-Metaculus.
-type: "discrete"              # binary | numeric | date | multiple_choice | discrete
-unit: "%"                    # e.g. "USD bn", "°C"; null for binary
+slug: 2026-11-02-mc46379-serbia-s-year-year-consumer-price-inflation
+title: What will Serbia's year-on-year consumer price inflation be in October 2026?
+source: metaculus
+url: https://www.metaculus.com/questions/46379/
+post_id: 46379
+question_id: 46612
+type: discrete
+unit: '%'
 tags: []
-
 dates:
-  created: "2026-11-02"
-  opened: "2026-11-02"
-  closes: "2026-11-02"                # last date forecasts are accepted
-  resolves: "2026-11-12"              # date the outcome is known
-
-status: "open"                # open | closed | resolved | dropped
-
+  created: '2026-11-02'
+  opened: '2026-11-02'
+  closes: '2026-11-02'
+  resolves: '2026-11-12'
+status: open
 tournament:
-  slug: "minibench"
-  mode: "one_shot"
-  registered: "2026-11-02"
-  opened: "2026-11-02T04:52:04Z"
-  closes: "2026-11-02T07:52:04Z"
-  submitted: null
-  submitted_forecast: null
-  comment_posted: false
+  slug: minibench
+  mode: one_shot
+  registered: '2026-11-02'
+  opened: '2026-11-02T04:52:04Z'
+  closes: '2026-11-02T07:52:04Z'
+  submitted: '2026-11-02T07:14:50+00:00'
+  submitted_forecast:
+    continuous_cdf:
+    - 0.00944378014187811
+    - 0.02030031367575303
+    - 0.03921512868538015
+    - 0.06960142183612202
+    - 0.10488759385915634
+    - 0.1669902085613807
+    - 0.2520952962851873
+    - 0.3689668386139053
+    - 0.49430299871121836
+    - 0.598973874717622
+    - 0.694370039980225
+    - 0.7805715836002648
+    - 0.8590269973132801
+    - 0.9012870985262962
+    - 0.9251643872393117
+    - 0.9487869200064356
+    - 0.9656963971601447
+    - 0.9768786817774994
+    - 0.9845872485274779
+    - 0.990188898887701
+    - 0.9945126398600865
+    - 0.9980612896084139
+  comment_posted: true
   official_score: null
   missed_window: false
-
 current:
-  version: 0
-  date: null
-  median: null                # probability in [0,1] for binary; native units otherwise
-  iqr: [null, null]
-  community:                  # snapshot at the time of the current version
+  version: 1
+  date: '2026-11-02'
+  median: 3.95
+  iqr:
+  - 3.75
+  - 4.2
+  community:
     cp: null
     pro: null
     gold: null
     n_forecasters: null
-    as_of: null
-
-next_review: null             # YYYY-MM-DD — see docs/update-protocol.md cadence table
-                              # A one_shot tournament question never gets one: it is
-                              # forecast once and never revisited.
-
+    as_of: '2026-11-02'
+next_review: null
 tripwires: []
-# `magnitude` is unsigned — `direction` (up/down/either) carries the sign — and
-# `magnitude_unit` says what it is denominated in: "pp" (percentage points) for
-# binary and multiple-choice questions, "days"/"weeks"/"months" for date
-# questions, and the question's own `unit` above for numeric/discrete ones.
-# An "either" tripwire (re-analyse, direction unknown) carries magnitude 0.
-#
-# - signal: "IAEA Board resolution referring the file to the UNSC"
-#   by: "2026-11-30"
-#   direction: "up"
-#   magnitude: 15
-#   magnitude_unit: "pp"          # binary question
-#   fired: null
-# - signal: "Weekly SENASICA cut on 2026-10-31 at or below 45,500"
-#   by: "2026-10-31"
-#   direction: "down"
-#   magnitude: 6000
-#   magnitude_unit: "cases"       # numeric question — must equal `unit:` above
-#   fired: null
-
 resolution:
-  outcome: null               # 1/0 binary, value numeric, Unix s date, option label MC
+  outcome: null
   date: null
   source: null
