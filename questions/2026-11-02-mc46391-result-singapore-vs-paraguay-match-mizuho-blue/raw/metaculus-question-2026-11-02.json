@@ -1,0 +1,46 @@
+{
+  "post_id": 46391,
+  "url": "https://www.metaculus.com/questions/46391/",
+  "post_title": "What will be the result of the Singapore vs Paraguay match at the Mizuho Blue Challenge on 13 November 2026?",
+  "tournaments": [
+    "minibench"
+  ],
+  "options": [
+    "Singapore win",
+    "Draw",
+    "Paraguay win"
+  ],
+  "question": {
+    "id": 46624,
+    "title": "What will be the result of the Singapore vs Paraguay match at the Mizuho Blue Challenge on 13 November 2026?",
+    "type": "multiple_choice",
+    "status": "open",
+    "description": "Singapore's National Stadium hosts the inaugural Mizuho Blue Challenge – The Kallang Football Series Singapore from 13 to 17 November 2026, a four-team men's international friendly series staged in the final FIFA international match window of the year. It is organised by Dentsu, Dentsu Sports International, The Kallang Group and the Football Association of Singapore, with Mizuho Financial Group as title sponsor, and Singapore are using it as preparation for the AFC Asian Cup 2027. Four matches are scheduled (times SGT): 13 Nov 20:00 Singapore vs Paraguay; 14 Nov 18:15 Japan vs Brazil; 17 Nov 18:00 Singapore vs Brazil; 17 Nov 21:10 Japan vs Paraguay. This question concerns the opener; kickoff is 12:00 UTC on Friday 13 November 2026. Some aggregators display the fixture in their own time zone (ESPN's US pages show 7:00 AM ET, Sky Sports shows 12:00pm UK), but The Kallang's official schedule, Ticketmaster SG, ActiveSG, the JFA and ESPN all date the match 13 November 2026 at 20:00 SGT.\n\nAs of the FIFA/Coca-Cola Men's World Ranking released 7 October 2026, Singapore were ranked 149th and Paraguay 33rd (The Kallang's 3 September press release listed Paraguay 34th); the next ranking update is due 18 November 2026, after this match. Paraguay, coached by Gustavo Alfaro, qualified for the 2026 World Cup and reached the Round of 32, where they beat Germany, and they beat Colombia 1-0 in a friendly on 2 October 2026. Singapore, coached by Gavin Lee, are rebuilding for the 2027 AFC Asian Cup and lost left-back Nur Adam Abdullah to an ACL tear in October 2026. ESPN's pre-match summary has Paraguay averaging 1.8 goals scored and 0.4 conceded with four clean sheets in their last five matches, against Singapore's 2.5 scored and 1 conceded; Paraguay's leading scorer in that window is Miguel Almirón (3 goals in 5 appearances). No previous meeting between the two senior teams appears in the pre-match record.\n\nFriendlies can end level — there is no extra time or replay — so the three possible outcomes are a Singapore win, a draw, or a Paraguay win. The match page linked in the resolution criteria is ESPN's live scorecard for the fixture and will display the final score after the whistle.\n\n`{\"format\": \"llm_question\", \"info\": {\"sdk_version\": \"0.6.1\", \"rating\": {\"quality\": 3, \"ambiguity\": 4, \"resolvability\": 4, \"passes\": true}}}`",
+    "resolution_criteria": "This question resolves according to the result of the Singapore vs Paraguay match at the Mizuho Blue Challenge, scheduled to kick off at 20:00 SGT (12:00 UTC) on 13 November 2026 at the Singapore National Stadium, as shown on the ESPN match page https://www.espn.com/soccer/match/_/gameId/401916338/paraguay-singapore. If that page records Paraguay with more goals than Singapore at full time, the answer is \"Paraguay win\"; if the two teams' goal totals are equal, \"Draw\"; if Singapore has more goals, \"Singapore win\". Full time means the end of 90 minutes plus stoppage time; a post-match penalty shootout, if one is held, does not affect the result.",
+    "fine_print": "If the match is cancelled, abandoned, or postponed and is not completed on 13 November 2026 (local Singapore time) so that no final result is recorded, the question is annulled. If the ESPN match page is unavailable or shows no result, the result at full time according to [credible sources](https://www.metaculus.com/faq/#definitions) will be used.",
+    "unit": "",
+    "options": [
+      "Singapore win",
+      "Draw",
+      "Paraguay win"
+    ],
+    "scaling": {
+      "range_min": null,
+      "range_max": null,
+      "nominal_min": null,
+      "nominal_max": null,
+      "zero_point": null,
+      "open_upper_bound": false,
+      "open_lower_bound": false,
+      "inbound_outcome_count": null,
+      "continuous_range": null
+    },
+    "open_lower_bound": false,
+    "open_upper_bound": false,
+    "inbound_outcome_count": null,
+    "open_time": "2026-11-02T08:08:08Z",
+    "scheduled_close_time": "2026-11-02T11:08:08Z",
+    "scheduled_resolve_time": "2026-11-13T16:00:00Z",
+    "resolution": null
+  }
+}
