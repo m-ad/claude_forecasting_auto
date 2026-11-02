@@ -1,0 +1,28 @@
+{"searches": [
+ {"category": "resolution_source", "query": "EIA weekly petroleum status report crude oil stocks week ending October 23 2026", "by": "main", "status": "done", "finding": "Oct 23: 410,625 kb, change -1,892; Oct 30 week due Nov 4, target Nov 6 week due Nov 12"},
+ {"category": "resolution_source", "query": "EIA WCESTUS1 weekly ending stocks history fetch (levels, 52-week changes)", "by": "scout-1", "status": "done", "finding": "52-wk change SD ~5,600 kb; 13 recent weeks listed; Oct9 -8,557"},
+ {"category": "resolution_source", "query": "ir.eia.gov wpsr table1.csv / table4.csv", "by": "scout-1", "status": "done", "finding": "exports 4,854 kb/d, imports 6,374, production 13,992, SPR 282,583 (-100)"},
+ {"category": "news", "query": "EIA crude inventories week ending October 23 2026 draw", "by": "main", "status": "done", "finding": "-1.9M vs +15k expected; API -2.03M"},
+ {"category": "news", "query": "boereport Oct 28 2026 EIA says (fetch)", "by": "main", "status": "done", "finding": "util 92.8%, runs -123 kb/d, Cushing -624k, gasoline +3.9M"},
+ {"category": "news", "query": "Houthi Saudi refinery strike oil Brent $115 peace talks October 2026", "by": "scout-2", "status": "done", "finding": "Brent 115.43 on Oct 28, eased Oct 29 on peace-talk hopes"},
+ {"category": "news", "query": "Strait of Hormuz oil US crude exports record October 2026", "by": "scout-2", "status": "done", "finding": "exports records in Apr/May 2026 (5.6 mb/d); no Oct data besides 4.85 mb/d wk Oct 23"},
+ {"category": "news", "query": "hurricane Gulf of Mexico forecast early November 2026 refinery outage", "by": "scout-2", "status": "done", "finding": "no early-Nov storm found; Isaias Oct 8-10 shut-in 63% Gulf output, restarting"},
+ {"category": "news", "query": "US crude exports record SPR release refinery turnaround November 2026", "by": "main", "status": "done", "finding": "SPR releases drove record exports in spring; no Nov data"},
+ {"category": "news", "query": "SPR weekly level October 2026 release schedule", "by": "main", "status": "done", "finding": "SPR 283 mb, draws now ~0.1 mb/wk; DOE exchange 4 mb + RFP up to 17 mb"},
+ {"category": "markets", "query": "Polymarket OR Kalshi weekly EIA crude oil inventory market", "by": "main", "status": "done", "finding": "Kalshi KXEIACRUDEW series exists; page 429, no prices; Polymarket only SPR level markets"},
+ {"category": "markets", "query": "Kalshi kxeiacrudew page fetch", "by": "main", "status": "done", "finding": "HTTP 429, no data"},
+ {"category": "markets", "query": "WTI backwardation spread US crude inventories draw November 2026", "by": "main", "status": "done", "finding": "nothing dated Nov 2026"},
+ {"category": "base_rate", "query": "EIA weekly crude change early November historical seasonal", "by": "main", "status": "done", "finding": "2025 wk Nov 7 +6.4M; Oct 31 +5.2M; 2023 +3.6M"},
+ {"category": "base_rate", "query": "EIA levels 2019-2025 early-November weeks (scout compute)", "by": "scout-1", "status": "done", "finding": "10 of 10 early-Nov weeks builds, median +3.9M, range +1.0 to +13.9M"},
+ {"category": "base_rate", "query": "crude weekly change SD / surprise distribution 2025", "by": "main", "status": "done", "finding": "no SD in search; scout computed SD 5.6M (2026 tails heavy, 35% of weeks beyond +-5M)"},
+ {"category": "base_rate", "query": "share of weeks with |change|>5,000 kb 2025-2026 (scout compute)", "by": "scout-3", "status": "done", "finding": "27.7% of 94 weeks; builds >5M 12.8%, draws <-5M 14.9%"},
+ {"category": "consensus", "query": "API crude inventory Oct 27 2026 OR Nov 2026 analysts expect EIA; Reuters poll week ended Oct 30", "by": "main", "status": "done", "finding": "no consensus for Oct 30 or Nov 6 weeks available"},
+ {"category": "schedule", "query": "EIA WPSR release schedule Nov 12 2026 Veterans Day", "by": "scout-3", "status": "done", "finding": "Nov 12 12:00 ET per question text"},
+ {"category": "upcoming_events", "query": "US refinery maintenance season fall 2026 crude runs utilization", "by": "main", "status": "done", "finding": "IIR: fall 2026 planned outages 144 kb/d lower than expected; PADD2 largest; util 97% in Aug, 92.8% Oct 23"},
+ {"category": "disconfirmation", "query": "refiners defer fall maintenance 2026 high margins runs stay high crude draws", "by": "main", "status": "done", "finding": "some deferral to 2027 (10 crude units) but modest; util already dropping to 92.8%, so seasonal-build pull partly intact", "tests": "that the usual early-November seasonal build (10/10 builds 2019-2025, median +3.9M) carries into 2026 despite four straight draws, record exports and deferred maintenance"},
+ {"category": "disconfirmation", "query": "strongest case for >+5,000 and <-7,000 kb outcomes (scout tail brief)", "by": "scout-3", "status": "done", "finding": "2026 tails heavy; SPR exchange barrels and Gulf restart favour builds; high prices/exports favour draws", "tests": "that the usual early-November seasonal build carries into 2026 despite four straight draws"},
+ {"category": "news", "query": "EIA week ended August 7 2026 build 17 million barrels", "by": "scout-3", "status": "done", "finding": "+17,423 on Aug 7, largest since Jan 2023"}
+],
+ "adjustments": [
+  {"event": "Early-November seasonal pattern (refinery turnarounds): 10 of 10 weeks 2019-2025 were builds, median +3.9M, versus recent 4-week draw regime", "date": "2026-11-02", "effect": "median from about -1,900 (last value) to +700, i.e. blend of seasonal +3,900 and 2026 draw regime", "sources": [1, 2, 4]}
+]}

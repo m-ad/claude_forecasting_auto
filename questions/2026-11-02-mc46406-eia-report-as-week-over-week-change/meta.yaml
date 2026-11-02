@@ -1,72 +1,248 @@
-# Question metadata. Machine-read by scripts/status.py and scripts/log_forecast.py.
-slug: "2026-11-02-mc46406-eia-report-as-week-over-week-change"
-title: "What will the EIA report as the week-over-week change in U.S. commercial crude oil inventories (excluding SPR) for the week ending 6 November 2026?"
-source: "metaculus"          # metaculus | kalshi | polymarket | manifold | other
-url: "https://www.metaculus.com/questions/46406/"                # null for free-text questions with no URL
-post_id: 46406          # null for non-Metaculus — identifies the *page*
-question_id: 46639  # Metaculus's internal question id — what the API submits
-                              # against, and != post_id. Null for non-Metaculus.
-type: "numeric"              # binary | numeric | date | multiple_choice | discrete
-unit: "thousand bbl"                    # e.g. "USD bn", "°C"; null for binary
+slug: 2026-11-02-mc46406-eia-report-as-week-over-week-change
+title: What will the EIA report as the week-over-week change in U.S. commercial crude oil inventories
+  (excluding SPR) for the week ending 6 November 2026?
+source: metaculus
+url: https://www.metaculus.com/questions/46406/
+post_id: 46406
+question_id: 46639
+type: numeric
+unit: thousand bbl
 tags: []
-
 dates:
-  created: "2026-11-02"
-  opened: "2026-11-02"
-  closes: "2026-11-02"                # last date forecasts are accepted
-  resolves: "2026-11-12"              # date the outcome is known
-
-status: "open"                # open | closed | resolved | dropped
-
+  created: '2026-11-02'
+  opened: '2026-11-02'
+  closes: '2026-11-02'
+  resolves: '2026-11-12'
+status: open
 tournament:
-  slug: "minibench"
-  mode: "one_shot"
-  registered: "2026-11-02"
-  opened: "2026-11-02T16:03:30Z"
-  closes: "2026-11-02T19:03:30Z"
-  submitted: null
-  submitted_forecast: null
-  comment_posted: false
+  slug: minibench
+  mode: one_shot
+  registered: '2026-11-02'
+  opened: '2026-11-02T16:03:30Z'
+  closes: '2026-11-02T19:03:30Z'
+  submitted: '2026-11-02T17:13:41+00:00'
+  submitted_forecast:
+    continuous_cdf:
+    - 0.0020755056767057544
+    - 0.0024632945071107644
+    - 0.002860900001199593
+    - 0.0032690148221535876
+    - 0.0036883805074252596
+    - 0.004119790917303832
+    - 0.004564095926811349
+    - 0.005022205378098757
+    - 0.0054950933117228085
+    - 0.00598380249648159
+    - 0.0064894492788749834
+    - 0.007013228774742735
+    - 0.0075564204272242
+    - 0.008120393956887387
+    - 0.008706615731698722
+    - 0.009316655586457487
+    - 0.009952194123409152
+    - 0.010615030527989507
+    - 0.011307090936047225
+    - 0.012030437391457123
+    - 0.012787277435782084
+    - 0.013579974374580889
+    - 0.014411058268106142
+    - 0.015283237697505121
+    - 0.016199412361243046
+    - 0.0171626865603292
+    - 0.018176383635059752
+    - 0.01924406142041627
+    - 0.020369528791996223
+    - 0.021556863379423228
+    - 0.02281043052961455
+    - 0.024134903608095472
+    - 0.025535285732773208
+    - 0.02701693304124455
+    - 0.028585579599843265
+    - 0.03024736407026842
+    - 0.032008858257808206
+    - 0.03387709767392485
+    - 0.03585961425533343
+    - 0.03796447139173705
+    - 0.040200301425116686
+    - 0.04257634579496867
+    - 0.045102498016187674
+    - 0.04778934968946638
+    - 0.050648239758186185
+    - 0.05369130724087093
+    - 0.05693154768443951
+    - 0.060363867679682645
+    - 0.0637589118648999
+    - 0.06706494539576423
+    - 0.07030700251881238
+    - 0.07351011748058112
+    - 0.0766993245276072
+    - 0.0798996579064274
+    - 0.08313615186357852
+    - 0.08643384064559724
+    - 0.08981775849902036
+    - 0.09331293967038473
+    - 0.09694441840622695
+    - 0.10073722895308389
+    - 0.1047164055574923
+    - 0.10890698246598893
+    - 0.11331489077238956
+    - 0.11789176914781652
+    - 0.12263389815299541
+    - 0.1275418817236692
+    - 0.1326163237955809
+    - 0.13785782830447335
+    - 0.1432669991860897
+    - 0.14884444037617284
+    - 0.15459075581046586
+    - 0.16050654942471151
+    - 0.16659242515465292
+    - 0.1728489869360332
+    - 0.17927683870459504
+    - 0.1858765843960816
+    - 0.19264882794623583
+    - 0.19959417329080073
+    - 0.2067132243655193
+    - 0.21400658510613432
+    - 0.22147485944838904
+    - 0.22911865132802625
+    - 0.23693856468078914
+    - 0.2449352034424204
+    - 0.25310917154866325
+    - 0.26149239375955896
+    - 0.27047583434649375
+    - 0.2801328481041602
+    - 0.2904073039349975
+    - 0.3012430707414444
+    - 0.3125840174259402
+    - 0.32437401289092366
+    - 0.336556926038834
+    - 0.3490766257721103
+    - 0.3618769809931913
+    - 0.37490186060451647
+    - 0.38809513350852426
+    - 0.40140066860765417
+    - 0.414762334804345
+    - 0.42812400100103587
+    - 0.44142953610016583
+    - 0.45462280900417373
+    - 0.46764768861549866
+    - 0.48044804383657974
+    - 0.49296774356985595
+    - 0.5051889344238135
+    - 0.5175557809450538
+    - 0.5301736549400492
+    - 0.5429954887574698
+    - 0.5559742147459874
+    - 0.5690627652542724
+    - 0.5822140726309964
+    - 0.59538106922483
+    - 0.6085166873844445
+    - 0.6215738594585107
+    - 0.6345055177956992
+    - 0.647264594744681
+    - 0.6598040226541279
+    - 0.6720767338727102
+    - 0.6840356607490992
+    - 0.6956337356319655
+    - 0.7068238908699804
+    - 0.717559058811815
+    - 0.72779217180614
+    - 0.7374761622016265
+    - 0.7465930980538998
+    - 0.7554855660515896
+    - 0.7642570730885321
+    - 0.7728973057681328
+    - 0.7813959506937983
+    - 0.7897426944689344
+    - 0.7979272236969478
+    - 0.8059392249812443
+    - 0.8137683849252298
+    - 0.8214043901323108
+    - 0.8288369272058933
+    - 0.8360556827493836
+    - 0.8430503433661873
+    - 0.8498105956597113
+    - 0.8563261262333614
+    - 0.8625866216905435
+    - 0.8685817686346636
+    - 0.8743012536691285
+    - 0.8797347633973442
+    - 0.8848719844227164
+    - 0.8897026033486515
+    - 0.8942240169297928
+    - 0.8984696955224221
+    - 0.9024709518818257
+    - 0.9062579202559363
+    - 0.9098607348926854
+    - 0.9133095300400048
+    - 0.9166344399458264
+    - 0.9198655988580822
+    - 0.923033141024704
+    - 0.9261672006936238
+    - 0.9292979121127735
+    - 0.9324554095300848
+    - 0.9356698271934896
+    - 0.9389712993509196
+    - 0.9423899602503073
+    - 0.9457693192911452
+    - 0.9489423361510906
+    - 0.9519226107146362
+    - 0.9547228465063677
+    - 0.9573549097694845
+    - 0.959829884650496
+    - 0.9621581247467255
+    - 0.9643493012563523
+    - 0.9664124479549133
+    - 0.9683560032074318
+    - 0.970187849211554
+    - 0.9719153486541935
+    - 0.9735453789521595
+    - 0.9750843642360081
+    - 0.9765383052258547
+    - 0.9779128071380944
+    - 0.979213105752803
+    - 0.9804440917630569
+    - 0.981610333519401
+    - 0.9827160982752441
+    - 0.9837653720319824
+    - 0.9847618780761468
+    - 0.9857090942947729
+    - 0.9866102693495313
+    - 0.9874684377848266
+    - 0.9882864341401341
+    - 0.9890669061321989
+    - 0.9898123269684077
+    - 0.9905250068485885
+    - 0.99120710370874
+    - 0.9918606332566448
+    - 0.9924874783460416
+    - 0.9930893977329536
+    - 0.9936680342548909
+    - 0.994224922470968
+    - 0.9947614957984644
+    - 0.9952790931790202
+    - 0.9957789653054676
+    - 0.9962622804382534
+    - 0.996730129838507
+  comment_posted: true
   official_score: null
   missed_window: false
-
 current:
-  version: 0
-  date: null
-  median: null                # probability in [0,1] for binary; native units otherwise
-  iqr: [null, null]
-  community:                  # snapshot at the time of the current version
+  version: 1
+  date: '2026-11-02'
+  median: 700.0
+  iqr:
+  - -2300.0
+  - 3700.0
+  community:
     cp: null
     pro: null
     gold: null
     n_forecasters: null
-    as_of: null
-
-next_review: null             # YYYY-MM-DD — see docs/update-protocol.md cadence table
-                              # A one_shot tournament question never gets one: it is
-                              # forecast once and never revisited.
-
+    as_of: '2026-11-02'
+next_review: null
 tripwires: []
-# `magnitude` is unsigned — `direction` (up/down/either) carries the sign — and
-# `magnitude_unit` says what it is denominated in: "pp" (percentage points) for
-# binary and multiple-choice questions, "days"/"weeks"/"months" for date
-# questions, and the question's own `unit` above for numeric/discrete ones.
-# An "either" tripwire (re-analyse, direction unknown) carries magnitude 0.
-#
-# - signal: "IAEA Board resolution referring the file to the UNSC"
-#   by: "2026-11-30"
-#   direction: "up"
-#   magnitude: 15
-#   magnitude_unit: "pp"          # binary question
-#   fired: null
-# - signal: "Weekly SENASICA cut on 2026-10-31 at or below 45,500"
-#   by: "2026-10-31"
-#   direction: "down"
-#   magnitude: 6000
-#   magnitude_unit: "cases"       # numeric question — must equal `unit:` above
-#   fired: null
-
 resolution:
-  outcome: null               # 1/0 binary, value numeric, Unix s date, option label MC
+  outcome: null
   date: null
   source: null
