@@ -1,0 +1,28 @@
+{"searches": [
+  {"category": "consensus", "query": "Nebius Q3 2026 revenue consensus estimate", "by": "main", "status": "done", "finding": "Benzinga $903.5M/$904.8M; BofA 2026-10-29 cites $899.9M consensus, own $905.6M; Investorsignals ~$951.6M"},
+  {"category": "resolution_source", "query": "Nebius second quarter 2026 results revenue $582.3 million guidance", "by": "main", "status": "done", "finding": "Q2 2026 revenue $582.3M (+454% YoY), ARR $3.0B end-June, FY26 revenue guide $3.0-3.4B reaffirmed"},
+  {"category": "consensus", "query": "fetch equibles.com NBIS Q3 2026 earnings preview", "by": "main", "status": "done", "finding": "Consensus $904.8M (17 analysts, 2026-10-18; $907.6M on 09-18), range $876.6-942.6M; Equibles $934.5M; flat June run-rate = ~$750M; 16%/mo upside case ~$1,024M"},
+  {"category": "other", "query": "fetch stocktwits Nebius retail traders brace for Q3 report", "by": "main", "status": "done", "finding": "Stale: refers to Q3 2025 ($155.73M consensus); discarded"},
+  {"category": "news", "query": "Nebius Q2 2026 earnings call CFO Q3 revenue capacity contribution", "by": "main", "status": "done", "finding": "Capacity deployed late Q2 to begin contributing in Q3; sold out of capacity again"},
+  {"category": "consensus", "query": "BofA Nebius third quarter revenue estimate $905.6 million October 2026", "by": "main", "status": "done", "finding": "BofA (Tal Liani) 2026-10-29: Q3 rev $905.6M vs $899.9M consensus; FY26 $3.49B"},
+  {"category": "base_rate", "query": "CoreWeave third quarter 2026 results revenue November 2026", "by": "main", "status": "done", "finding": "CoreWeave reports Q3 on 2026-11-10 (after this window); Q3 guide $3.45-3.6B; Q2 near top of guide"},
+  {"category": "resolution_source", "query": "fetch SEC 6-K ex99-2 Q2 2026 shareholder letter", "by": "main", "status": "done", "finding": "ARR = last-month AI cloud revenue x12; AI cloud Q2 $574.9M; no Q3 guidance or active MW; Q3 short-term deal goes live Q4"},
+  {"category": "news", "query": "Nebius second quarter 2026 results revenue guidance ARR capacity", "by": "scout-1", "status": "done", "finding": "ARR $1.9B end-Mar -> $3.0B end-Jun; Microsoft tranches all delivered incl. two in Jul-Aug"},
+  {"category": "news", "query": "Nebius news October 2026", "by": "scout-1", "status": "done", "finding": "No company-specific Q3 news or preannouncement; stock -23% Sep 30 -> Oct 28-29 on AI-debt fears"},
+  {"category": "news", "query": "Nebius capacity online MW Q3 2026 Microsoft Meta contract deployment", "by": "scout-1", "status": "done", "finding": "Meta $12-27B deal comes online early 2027; no Q3 contribution"},
+  {"category": "news", "query": "Nebius announces agreement September 2026 capacity customer contract", "by": "scout-1", "status": "done", "finding": "Palantir partnership 2026-09-10; nothing revenue-moving for Q3"},
+  {"category": "consensus", "query": "Nebius Q2 2026 earnings call transcript third quarter revenue expect second half guidance", "by": "scout-1", "status": "done", "finding": "No explicit Q3 revenue guide"},
+  {"category": "markets", "query": "Kalshi Polymarket Nebius NBIS earnings revenue market", "by": "scout-2", "status": "done", "finding": "Kalshi NBIS company-report page exists (429, terms unknown); no Polymarket/Manifold revenue market found"},
+  {"category": "markets", "query": "NBIS options implied move earnings November 2026", "by": "scout-2", "status": "done", "finding": "No Q3 2026 implied move found; Q2 2026 implied ~13-18%; avg earnings move ~15%"},
+  {"category": "consensus", "query": "Nebius third quarter 2026 earnings preview revenue estimate Zacks consensus November 12", "by": "scout-2", "status": "done", "finding": "Benzinga $903.5-910.1M; Oct 22 preview ~ $937M"},
+  {"category": "base_rate", "query": "Nebius revenue vs consensus estimates quarterly results surprise", "by": "scout-3", "status": "done", "finding": "Q2'25 +4..+10%, Q3'25 -6%, Q4'25 -2..-7%, Q1'26 +3..+6%, Q2'26 +1.5..+7%"},
+  {"category": "base_rate", "query": "Nebius Q1 2025 Q2 2025 Q3 2025 revenue vs estimates consensus", "by": "scout-3", "status": "done", "finding": "Misses coincided with capacity-timing slips (Q3/Q4 2025)"},
+  {"category": "schedule", "query": "CoreWeave third quarter 2026 earnings date November", "by": "scout-3", "status": "done", "finding": "CoreWeave Nov 10; Nebius Nov 12 per question text"},
+  {"category": "disconfirmation", "query": "Nebius capacity delay revenue 2026", "by": "scout-4", "status": "done", "finding": "Prior DataOne NJ site ~2 months late (Q4 2025); no Q3 2026-specific delay found", "tests": "that Q3 revenue lands near the ~$905-935M consensus (no large capacity slip or upside surprise)"},
+  {"category": "disconfirmation", "query": "DA Davidson Nebius Vineland delay price target $175 estimates cut", "by": "scout-4", "status": "done", "finding": "Vineland delay cut ~Aug 10 reversed Aug 18 after Phase 2 approval; mostly a Q4/2027 issue", "tests": "that Q3 revenue lands near the ~$905-935M consensus"},
+  {"category": "disconfirmation", "query": "Nebius ARR run-rate September 2026", "by": "scout-4", "status": "done", "finding": "No ARR update after June; consensus needs Sep exit ARR ~ $4.4-4.6B", "tests": "that Q3 revenue lands near the ~$905-935M consensus"},
+  {"category": "news", "query": "Nebius data center delay power October 2026", "by": "scout-4", "status": "done", "finding": "Nothing new"}
+],
+ "adjustments": [
+  {"event": "Nebius beat revenue consensus in the two most recent quarters (Q1'26, Q2'26) after two misses in H2 2025", "date": "2026-08-12", "effect": "+1 % on the median (920 vs ~910 consensus centre)", "sources": [3, 5]}
+ ]}

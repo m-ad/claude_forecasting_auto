@@ -1,6 +1,6 @@
 # Question index
 
-_Regenerated 2026-11-01 by `scripts/status.py --index`._
+_Regenerated 2026-11-02 by `scripts/status.py --index`._
 
 | Question | Type | Current | v | Community (CP) | Resolves | Next review | Status |
 |---|---|---|---|---|---|---|---|
@@ -68,3 +68,4 @@ _Regenerated 2026-11-01 by `scripts/status.py --index`._
 | [Will Ukraine strike a Russian oil refinery between October 29 and October 31, 2026?](questions/2026-10-22-mc46180-ukraine-strike-russian-oil-refinery-between-october/forecast.md) | binary | 50.0% [38.0%, 62.0%] | 1 | — | 2026-11-02 | — | closed |
 | [How many UN member states will vote in favour of the annual TPNW resolution at the First Committee's 2026 action phase?](questions/2026-10-24-mc46181-how-many-un-member-states-vote-favour/forecast.md) | discrete | 122 [120, 124] | 1 | — | 2026-11-04 | — | closed |
 | [How many cumulative confirmed Ebola cases will the DRC's 2026 outbreak have reported as of October 31, 2026?](questions/2026-10-26-mc46182-how-many-cumulative-confirmed-ebola-cases-drc/forecast.md) | numeric | 10350 [10280, 10430] | 1 | — | 2026-11-07 | — | closed |
+| [What total revenue will Nebius Group report for Q3 2026?](questions/2026-11-02-mc46368-total-revenue-nebius-group-report-q3-2026/forecast.md) | numeric | 920 [885, 953] | 1 | — | 2026-11-12 | — | open |
