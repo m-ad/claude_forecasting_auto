@@ -1,0 +1,26 @@
+{"searches": [
+ {"category": "news", "query": "inflación octubre 2026 consultoras estimación INDEC", "by": "main", "status": "done", "finding": "No direct hit; REM Aug had Oct 1.7%; many mislabelled-year results"},
+ {"category": "consensus", "query": "REM BCRA octubre 2026 expectativas inflación mensual", "by": "main", "status": "done", "finding": "REM Aug: Oct 1.7%, Nov 1.6%, Dec 1.8%"},
+ {"category": "markets", "query": "Argentina inflation October 2026 forecast monthly CPI", "by": "main", "status": "done", "finding": "Rio Times 9 Oct: Sept market Polymarket 1.9-2.1 at 60.5%; no Oct market found"},
+ {"category": "other", "query": "inflación CABA octubre 2026 IPCBA", "by": "main", "status": "done", "finding": "CABA Sept 2026 1.8%; Oct not yet published"},
+ {"category": "news", "query": "inflación de octubre consultoras proyectan alimentos primera semana noviembre 2026", "by": "main", "status": "done", "finding": "El Economista 28 Oct 2026: October closes 1.8-2.0%, disinflation stalled"},
+ {"category": "resolution_source", "query": "INDEC inflación septiembre 2026 1,9% núcleo 1,8% dato oficial", "by": "main", "status": "done", "finding": "Sept 1.9% m/m, 33.4% y/y, 23.6% YTD (13 Oct 2026); core 1.7-1.8%"},
+ {"category": "markets", "query": "Polymarket Argentina monthly inflation October 2026", "by": "main", "status": "done", "finding": "No Oct 2026 market found in results; Kalshi >1.8% at 61% for Sept (9 Oct)"},
+ {"category": "news", "query": "dólar oficial octubre 2026 cierre mes tipo de cambio banda", "by": "main", "status": "done", "finding": "Official dollar flat ~1535-1550 all October, far below band ceiling ~1951"},
+ {"category": "consensus", "query": "Analytica EcoGo LCG Econviews inflación octubre 2026 cierre mes", "by": "main", "status": "done", "finding": "Analytica 2.0% (one source 1.9), EcoGo 1.8%, C&T 1.7% (date unclear)"},
+ {"category": "other", "query": "C&T Asesores Económicos IPC GBA octubre 2026", "by": "main", "status": "done", "finding": "No C&T Oct 2026 figure found"},
+ {"category": "schedule", "query": "tarifas luz gas colectivos combustibles aumentos octubre 2026 inflación impacto", "by": "main", "status": "done", "finding": "El Economista 29 Sep 2026: October wave of increases (prepagas 1.9-4.9%, transport, tolls, utilities)"},
+ {"category": "base_rate", "query": "Caputo inflación octubre 2026 debajo de 2 perforar 1 mensual", "by": "main", "status": "done", "finding": "Government earlier hoped sub-1% Aug-Oct; no longer in discourse; mislabelled results"},
+ {"category": "markets", "query": "Rio Times Argentina inflation October preview prediction market", "by": "main", "status": "done", "finding": "No Oct 2026 preview/market price found"},
+ {"category": "consensus", "query": "REM BCRA septiembre 2026 inflación octubre 1,7% mediana", "by": "main", "status": "done", "finding": "REM Sept (6 Oct): Oct 1.7% unchanged; FX avg Oct 1545"},
+ {"category": "news", "query": "LCG alimentos última semana de octubre 2026 relevamiento precios", "by": "main", "status": "done", "finding": "El Economista 28 Oct: LCG food 4-wk avg 3.8%, 7th consecutive weekly rise; Analytica food 4wk avg 2.6%"},
+ {"category": "resolution_source", "query": "iProUP INDEC septiembre 2026 divisiones", "by": "main", "status": "done", "finding": "Sept: housing/utilities 3.1, education 3.0, food 2.0, clothing 1.4, transport 1.5, restaurants 1.1"},
+ {"category": "base_rate", "query": "scout-3: REM vs INDEC actual 2025-2026 monthly errors (MAE 0.17pp in 2026, 0.30 in 2025)", "by": "scout-3", "status": "done", "finding": "Big misses 0.4-1.1pp in 6 of 12 months before Apr 2026; Apr-Sep 2026 errors <=0.2"},
+ {"category": "consensus", "query": "scout-1: private consultoras Oct 2026 estimates (Infobae 2 Nov)", "by": "scout-1", "status": "done", "finding": "FLyP 1.8, Equilibra 1.8, EconViews 1.9, Analytica 2.0, Invecq ~2.0, C&T ~2.0, EcoGo 2.1"},
+ {"category": "markets", "query": "scout-2: Polymarket/Kalshi/CER breakeven October 2026", "by": "scout-2", "status": "done", "finding": "No October market or breakeven found; Sept markets favoured 1.9-2.1 and resolved there"},
+ {"category": "disconfirmation", "query": "scout-4: strongest case for Oct 2026 CPI above 2.3 or below 1.5", "by": "scout-4", "status": "done", "finding": "Below 1.5 has almost no support; above 2.3 needs 0.3-0.5 surprise (food, fuel, clothing rebound); Q1 2026 had such misses", "tests": "October 2026 stays within 1.6-2.3 band (stable FX, moderate regulated prices)"},
+ {"category": "disconfirmation", "query": "scouts: strongest case for Oct 2026 CPI above 2.3 or below 1.5", "by": "scout-4", "status": "done", "finding": "see forecast.md", "tests": "October 2026 stays within 1.6-2.3 band (stable FX, moderate regulated prices)"}
+],
+ "adjustments": [
+  {"event": "Private consultoras (Analytica 2.0, EcoGo 1.8, others 1.8-2.0) and firm food trackers in late October exceed the 30 Sept REM of 1.7", "date": "2026-10-28", "effect": "+0.2 pp on the median vs REM", "sources": [1, 2]}
+ ]}
