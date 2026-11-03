@@ -1,0 +1,19 @@
+{"searches": [
+  {"category": "resolution_source", "query": "United States v. Comey 1:26-cr-00229 docket CourtListener", "by": "main", "status": "planned", "finding": ""},
+  {"category": "resolution_source", "query": "Comey indictment grand jury Washington November 2026", "by": "main", "status": "planned", "finding": ""},
+  {"category": "news", "query": "Comey McFadden information Speedy Trial Act November 5 indictment", "by": "scout-1", "status": "planned", "finding": ""},
+  {"category": "news", "query": "Comey grand jury D.C. news this week", "by": "scout-1", "status": "planned", "finding": ""},
+  {"category": "news", "query": "Cassidy Hutchinson grand jury declined to indict", "by": "main", "status": "planned", "finding": ""},
+  {"category": "markets", "query": "Polymarket Comey indicted", "by": "scout-2", "status": "planned", "finding": ""},
+  {"category": "markets", "query": "Kalshi Comey indictment", "by": "scout-2", "status": "planned", "finding": ""},
+  {"category": "markets", "query": "Manifold Comey indicted November", "by": "scout-2", "status": "planned", "finding": ""},
+  {"category": "base_rate", "query": "D.C. grand jury refused to indict Trump DOJ cases 2025 2026 list", "by": "scout-3", "status": "planned", "finding": ""},
+  {"category": "base_rate", "query": "grand jury no-bill rate federal cases", "by": "scout-3", "status": "planned", "finding": ""},
+  {"category": "base_rate", "query": "Comey indictment re-indict after dismissal grand jury Virginia history", "by": "scout-3", "status": "planned", "finding": ""},
+  {"category": "schedule", "query": "Comey Speedy Trial Act 30 days information indictment deadline dismissal", "by": "main", "status": "planned", "finding": ""},
+  {"category": "consensus", "query": "legal experts Comey information statute of limitations tolling 793", "by": "scout-4", "status": "planned", "finding": ""},
+  {"category": "upcoming_events", "query": "Comey McFadden hearing ruling motion to dismiss date", "by": "main", "status": "planned", "finding": ""},
+  {"category": "disconfirmation", "query": "grand jury D.C. returns indictment politically sensitive Trump DOJ succeeded", "by": "scout-5", "status": "planned", "finding": "", "tests": "the assumption that a D.C. grand jury is likely to refuse, so the indictment probability is well below the DOJ's stated intent"},
+  {"category": "disconfirmation", "query": "Comey indicted grand jury returns indictment superseding", "by": "scout-5", "status": "planned", "finding": "", "tests": "the assumption that a D.C. grand jury is likely to refuse, so the indictment probability is well below the DOJ's stated intent"}
+],
+ "adjustments": []}

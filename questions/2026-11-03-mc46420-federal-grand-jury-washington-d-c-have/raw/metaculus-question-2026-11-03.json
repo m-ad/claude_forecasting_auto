@@ -1,0 +1,38 @@
+{
+  "post_id": 46420,
+  "url": "https://www.metaculus.com/questions/46420/",
+  "post_title": "Will a federal grand jury in Washington, D.C. have returned and publicly disclosed an indictment against James Comey over his 2016 disclosure to The New York Times by November 13, 2026?",
+  "tournaments": [
+    "minibench"
+  ],
+  "options": null,
+  "question": {
+    "id": 46653,
+    "title": "Will a federal grand jury in Washington, D.C. have returned and publicly disclosed an indictment against James Comey over his 2016 disclosure to The New York Times by November 13, 2026?",
+    "type": "binary",
+    "status": "open",
+    "description": "James Brien Comey, Jr. was director of the FBI from September 2013 until President Trump dismissed him in May 2017. Since 2025 the Justice Department has brought three separate criminal cases against him.\n\nThe first, in the Eastern District of Virginia, charged false statements to Congress (18 U.S.C. § 1001) and obstruction (§ 1505) over his 2020 Senate testimony. Judge Cameron Currie dismissed that indictment on November 24, 2025, holding that interim U.S. Attorney Lindsey Halligan had been unlawfully appointed; the government appealed to the Fourth Circuit (No. 25-4674), where a three-judge panel heard argument on September 15, 2026 and a decision is still pending. (A separate Virginia case over an Instagram post reading \"86 47\" remains pending, with trial postponed to early 2027.)\n\nThe case this question concerns is the third: United States v. Comey, No. 1:26-cr-00229 (TNM) (D.D.C.). On October 5, 2026 the government filed a two-count criminal information, under seal, charging (I) transmitting a sensitive document related to the national defense to a person not entitled to receive it, 18 U.S.C. § 793(d), and (II) conspiracy under §§ 793(d) and (g), over an October 5, 2016 disclosure that prosecutors say ended up in a New York Times article. An information is a charging document filed without grand jury approval. Judge Trevor McFadden unsealed the case on October 26, 2026 ([memorandum order](https://storage.courtlistener.com/recap/gov.uscourts.dcd.297297/gov.uscourts.dcd.297297.14.0.pdf)).\n\nComey moved to dismiss on October 9, arguing that the ten-year statute of limitations for the 2016 conduct expired on October 5, 2026 and that the government cannot use an information to toll it while it seeks an indictment; the government responded on October 23 that an information properly stops the limitations clock. At a hearing on October 30, 2026, McFadden did not rule, [pressing Comey's counsel](https://www.politico.com/news/2026/10/30/doj-comey-judge) on why he should not wait to see whether prosecutors obtain an indictment. DOJ said it is \"working on obtaining a grand jury indictment\" and may seek additional charges based on evidence as recent as April 2017, and [AP/ABC News reporting](https://www.ksl.com/article/51642507/judge-puts-off-decision-in-comey-case-as-prosecutors-pursue-new-indictment) noted that Thursday, November 5, 2026 may technically be the last day for the government to seek a grand jury indictment before the information is dismissed under the Speedy Trial Act. As of October 30, 2026, Comey has not been indicted in the D.D.C. case.\n\nWhether a Washington grand jury will actually return an indictment is genuinely uncertain: on October 27, 2026 a federal grand jury in Washington [declined to indict](https://apnews.com/article/cassidy-hutchinson-trump-indictment-65b19759933189cdebb164c5bd80649c) former White House aide Cassidy Hutchinson, one of several recent refusals in politically sensitive cases brought by this Justice Department. Background on the earlier Comey prosecution is compiled [here](https://en.wikipedia.org/wiki/Prosecution_of_James_Comey).\n\n`{\"format\": \"llm_question\", \"info\": {\"sdk_version\": \"0.6.1\", \"rating\": {\"quality\": 4, \"ambiguity\": 3, \"resolvability\": 4, \"passes\": true}}}`",
+    "resolution_criteria": "This question resolves on the status of United States v. Comey, No. 1:26-cr-00229 (TNM) (D.D.C.) as of 23:59 UTC on November 13, 2026. It resolves YES if, by that time, a federal grand jury sitting in the District of Columbia has returned an indictment (including a superseding indictment) charging James Brien Comey, Jr. with the October 2016 disclosure conduct alleged in the criminal information in that case — including any charge that rests on that disclosure as an element or as part of a broader scheme or conspiracy — and the return of that indictment has been publicly disclosed. It resolves NO if no such indictment has been returned and publicly disclosed by that time, including if the criminal information has been dismissed without any indictment being returned, or if a grand jury has declined to indict. Resolution will be based on [credible sources](https://www.metaculus.com/faq/#definitions) reporting the return of such an indictment; the authoritative record of the case is its public docket.",
+    "fine_print": "An indictment filed under a different District of Columbia criminal case number counts if it charges the same October 2016 disclosure conduct; an indictment charging only unrelated conduct (for example, conduct from 2017 or later) does not. An indictment that has been returned but remains sealed and undisclosed as of 23:59 UTC on November 13, 2026 does not count.",
+    "unit": "",
+    "options": null,
+    "scaling": {
+      "range_min": null,
+      "range_max": null,
+      "nominal_min": null,
+      "nominal_max": null,
+      "zero_point": null,
+      "open_upper_bound": false,
+      "open_lower_bound": false,
+      "inbound_outcome_count": null,
+      "continuous_range": null
+    },
+    "open_lower_bound": false,
+    "open_upper_bound": false,
+    "inbound_outcome_count": null,
+    "open_time": "2026-11-03T07:38:37Z",
+    "scheduled_close_time": "2026-11-03T10:38:37Z",
+    "scheduled_resolve_time": "2026-11-13T23:59:00Z",
+    "resolution": null
+  }
+}
