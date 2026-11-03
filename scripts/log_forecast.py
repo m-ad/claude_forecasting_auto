@@ -28,9 +28,11 @@ forecast: ``add`` refuses a second, because a second would be a second submissio
 which the bot tournaments forbid. It also refuses the first until the session's
 research log (``raw/research-log-<date>.json``, see ``research_log_problems``)
 shows the search floor was met -- unless ``$FORECAST_DEADLINE`` is close, because
-a shallow forecast still beats none. ``submit`` and ``comment`` record what the
-Metaculus API accepted; ``scripts/submit_metaculus.py`` calls them in-process so
-the ledger and ``meta.yaml`` are written in one place.
+a shallow forecast still beats none, or the session's search cap is used up
+(``scripts/search_budget.py``), because a session the cap stopped cannot search
+on. ``submit`` and ``comment`` record what the Metaculus API accepted;
+``scripts/submit_metaculus.py`` calls them in-process so the ledger and
+``meta.yaml`` are written in one place.
 """
 
 from __future__ import annotations
@@ -58,6 +60,7 @@ from _common import (
     set_forecast_header,
     today,
 )
+from search_budget import read_state, session_cap_used
 
 
 def _append(record: dict[str, Any]) -> None:
@@ -297,7 +300,7 @@ def _minutes_to_deadline() -> float | None:
 
 
 def _check_research(slug: str) -> None:
-    """Exit unless the research log meets the floor or the deadline waives it."""
+    """Exit unless the research log meets the floor, or the deadline or cap waives it."""
     path = research_log_path(slug)
     if path is None:
         problems = [f"no raw/research-log-<date>.json in questions/{slug}/"]
@@ -309,6 +312,14 @@ def _check_research(slug: str) -> None:
         else:
             problems = research_log_problems(log)
     if not problems:
+        return
+    budget = read_state()
+    if session_cap_used(budget):
+        print(
+            f"! {slug}: research floor waived, search budget used "
+            f"({budget['searches']}/{budget['max_searches']}): " + "; ".join(problems),
+            file=sys.stderr,
+        )
         return
     left = _minutes_to_deadline()
     if left is not None and left <= WAIVER_MINUTES:
@@ -324,7 +335,7 @@ def _check_research(slug: str) -> None:
         + "\nRun the missing searches, record them in the research log, then run "
         "add again. This is not a tool failure: the one-retry rule does not apply. "
         f"The floor is waived automatically within {WAIVER_MINUTES} minutes of "
-        "$FORECAST_DEADLINE."
+        "$FORECAST_DEADLINE, or once the session's search budget is used."
     )
 
 

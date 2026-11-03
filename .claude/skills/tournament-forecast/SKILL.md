@@ -44,6 +44,13 @@ research. Each question is forecast once and never revisited, so this is the onl
    biggest assumption — `log_forecast.py` refuses the forecast below that floor. Go up to **40** when the
    question needs it (a hard-to-find resolution source, conflicting evidence, several
    independent streams). Cite at least 5 sources, primary ones first.
+   **The session has a hard search budget** (50 `WebSearch` calls by default, yours and your
+   scouts' together; 8 per scout). A refusal that says the **search budget is used** is not a
+   failure to retry: stop searching, mark the planned searches you did not run `skipped`,
+   fetch only a page you already found whose exact figure the forecast needs, then write
+   `forecast.md` and log — the research floor is waived once the budget is used. A note that
+   only counts down the budget is a cue to spend what is left on the resolution source,
+   markets and disconfirmation. `WebFetch` is not capped.
 6. **Never** run `git`, never touch `ledger/` by hand, never call Metaculus. The Metaculus token
    is not in this session's environment (GitHub injects secrets per step; only the scaffold
    and submit steps receive it), and the community prediction is hidden on tournament
@@ -172,7 +179,8 @@ so in the log (`"by": "main"` throughout).
 Give each scout one narrow brief from your plan, e.g. "the latest value and release
 schedule of <source>; fetch the source itself", "news from the last 14 days about <X>",
 "prediction-market and options prices for <event>", "historical frequency of <reference
-class> since <year>". Ask for the queries it ran (to copy into the log), a dated digest with
+class> since <year>". Each scout may run at most **8 searches** (a hard per-scout cap), so
+keep briefs narrow and split a wide one in two. Ask for the queries it ran (to copy into the log), a dated digest with
 URLs, and the URL of any PDF it could not read (run `pdf_text.py` on it yourself — scouts
 have no shell).
 

@@ -1064,6 +1064,7 @@ def one_shot_question(tmp_path, monkeypatch):
     monkeypatch.setattr(log_forecast, "load_meta", lambda s: meta)
     monkeypatch.setattr(log_forecast, "save_meta", lambda s, m: None)
     monkeypatch.delenv("FORECAST_DEADLINE", raising=False)
+    monkeypatch.delenv("SEARCH_BUDGET_FILE", raising=False)
     _research_log(tmp_path / "s", DEEP_RESEARCH)
     return ledger, meta
 
@@ -1211,6 +1212,25 @@ def test_the_research_floor_is_waived_near_the_deadline(
     log_forecast.cmd_add(_add_args(median=0.2, lower=0.1, upper=0.3))
     assert len(_records(ledger)) == 1
     assert "research floor waived" in capsys.readouterr().err
+
+
+@pytest.mark.parametrize(("searches", "waived"), [(50, True), (49, False)])
+def test_the_research_floor_is_waived_once_the_search_budget_is_used(
+    one_shot_question, tmp_path, monkeypatch, capsys, searches, waived
+):
+    # A cap below the floor must not trap a session the hook stopped from searching.
+    ledger, _meta = one_shot_question
+    _research_log(tmp_path / "s", {"searches": []}, date="2026-10-20")
+    budget = tmp_path / "search-budget.json"
+    budget.write_text(json.dumps({"searches": searches, "max_searches": 50}))
+    monkeypatch.setenv("SEARCH_BUDGET_FILE", str(budget))
+    if waived:
+        log_forecast.cmd_add(_add_args(median=0.2, lower=0.1, upper=0.3))
+        assert len(_records(ledger)) == 1
+        assert "search budget used (50/50)" in capsys.readouterr().err
+    else:
+        with pytest.raises(SystemExit, match="research floor not met"):
+            log_forecast.cmd_add(_add_args(median=0.2, lower=0.1, upper=0.3))
 
 
 def test_the_research_floor_holds_while_time_remains(one_shot_question, tmp_path, monkeypatch):

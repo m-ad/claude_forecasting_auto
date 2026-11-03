@@ -25,6 +25,8 @@ Without both, the sweep fails at its first step and opens a `bot-health` issue.
 | `EFFORT_FORECAST` | `high` | `claude --effort`: `low`, `medium`, `high`, `xhigh`, `max`. |
 | `MAX_MINUTES_PER_QUESTION` | `25` | Timeout of the forecaster step. What was logged before it fires is still submitted. |
 | `MAX_USD_PER_QUESTION` | `15` | `claude --max-budget-usd` per session, in API-equivalent dollars. `0` removes the cap (the timeout still applies). |
+| `MAX_WEB_SEARCHES` | `50` | `WebSearch` tool calls per forecaster session, main agent and scouts together. Past it a `PreToolUse` hook (`scripts/search_budget.py`) refuses further searches with a reason telling the model to stop and log, and `log_forecast.py` waives the research floor. `WebFetch` is counted, never capped. `0` removes the cap. One tool call can bill several search requests: compare `search_tool_calls` with `web_searches` in `ledger/usage.jsonl` before tuning it. |
+| `MAX_WEB_SEARCHES_PER_SCOUT` | `8` | `WebSearch` tool calls per research-scout, so one scout cannot spend the session's budget (5 scouts × 8 leaves the main agent 10 of 50). Only in force when the CLI names the subagent in hook input (`agent_id`; CLI 2.1.317 does not): an empty `search_calls_by_agent` in a session with scouts means it was not. `0` removes the cap. |
 | `MAX_QUESTIONS_PER_RUN` | `6` | How many questions one sweep takes on; the rest wait for the next sweep. |
 | `MAX_PARALLEL` | `3` | How many questions are forecast at the same time within a sweep. |
 | `WEEKLY_BUDGET_USD_EQUIV` | unset (= no budget) | Trailing-7-day API-equivalent spend at which the gate stops starting sessions; from 80 % of it, at most 2 questions per run. Set it after measuring a round (`uv run scripts/record_usage.py report`). |
@@ -39,9 +41,10 @@ Without both, the sweep fails at its first step and opens a `bot-health` issue.
 | Daily sync time | `.github/workflows/tournament-sync.yml` (`cron`) | 03:23 UTC |
 | Results page rebuild | `.github/workflows/publish-page.yml` (`on:`) | after every tournament-sync run; pushes to `main` touching `ledger/`, `meta.yaml` or the builder |
 | Research subagent model | `.claude/agents/research-scout.md` (`model:`) | `sonnet` |
-| Research floor for one-shot questions | `scripts/log_forecast.py` (`MIN_SEARCHES`, `REQUIRED_CATEGORIES`, `WAIVER_MINUTES`) | 15 searches done; resolution source, news, markets, base rate, disconfirmation (one naming the assumption it tests in `tests`); an `adjustments` list with each event once; waived 8 min before the deadline |
+| Research floor for one-shot questions | `scripts/log_forecast.py` (`MIN_SEARCHES`, `REQUIRED_CATEGORIES`, `WAIVER_MINUTES`) | 15 searches done; resolution source, news, markets, base rate, disconfirmation (one naming the assumption it tests in `tests`); an `adjustments` list with each event once; waived 8 min before the deadline, or once `MAX_WEB_SEARCHES` is used |
 | PDF extraction | `pyproject.toml` group `research` (`pymupdf4llm`), `scripts/pdf_text.py` | pinned `1.28.2`; first 30 pages unless `--pages` |
 | Tool permissions of the forecaster session | `.claude/settings.ci.json` | allowlist; `dontAsk` mode |
+| Search budget hook | `.claude/settings.ci.json` (`hooks.PreToolUse`), `scripts/search_budget.py` | counts `WebSearch`/`WebFetch` in `$RUNNER_TEMP/search-budget.json`; nudges from 80 % of a cap; fails open without the file |
 | Which tournaments are polled, in what priority | `tournaments/registry.yaml` (`uv run scripts/tournament_registry.py`) | `minibench` active |
 | Too late to start a question | `scripts/tournament_poll.py` (`MIN_MINUTES_LEFT`) | 20 minutes before close |
 
