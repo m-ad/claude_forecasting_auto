@@ -1,0 +1,38 @@
+{
+  "post_id": 46426,
+  "url": "https://www.metaculus.com/questions/46426/",
+  "post_title": "Will James Comey have at least two federal criminal cases pending against him on November 13, 2026?",
+  "tournaments": [
+    "minibench"
+  ],
+  "options": null,
+  "question": {
+    "id": 46659,
+    "title": "Will James Comey have at least two federal criminal cases pending against him on November 13, 2026?",
+    "type": "binary",
+    "status": "open",
+    "description": "James B. Comey Jr. was FBI director from 2013 until President Trump dismissed him in May 2017. Since September 2025 the Justice Department has brought three separate federal criminal prosecutions against him.\n\n(1) E.D. Va. (No. 1:25-cr-00272): indicted in September 2025 on false-statement and obstruction counts arising from his 2020 Senate testimony. Judge Cameron Currie dismissed that indictment on November 24, 2025 on the ground that the interim U.S. Attorney who brought it, Lindsey Halligan, was not lawfully serving. That district-court case is closed; the dismissal is on appeal in the Fourth Circuit (Nos. 25-4673 and 25-4674), with argument reported for the week of November 2, 2026. It is therefore not a pending district-court case.\n\n(2) E.D.N.C. (No. 4:26-cr-00016-FL-RN): indicted April 28, 2026 on two felony counts, 18 U.S.C. §871(a) and §875(c), over his May 2025 Instagram post of seashells arranged to spell \"86 47\". Judge Louise Flanagan has postponed his arraignment to January 2027 and trial to February 2027 while she works through four pending defense motions (dismissal for lack of a true threat / First Amendment, vindictive and selective prosecution, suppression and a Franks hearing). Those motions were ripe for decision by late September 2026 and remained undecided in late October 2026; no arraignment has yet been held in that case (https://www.lawfaremedia.org/article/comey-tries-to-86-the-seashells-case--part-ii).\n\n(3) D.D.C. (No. 1:26-cr-00229-TNM): on October 5, 2026 — exactly ten years after the alleged October 5, 2016 leak of national-defense information that ended up in a New York Times article — DOJ filed a sealed two-count criminal information under 18 U.S.C. §793(d) and §793(g) instead of seeking a grand jury indictment. Judge Trevor McFadden unsealed the case on October 26, 2026. Comey has moved to dismiss, arguing that the ten-year limitations period required an indictment and that an information cannot substitute for one; DOJ argues that filing the information within the ten-year period stopped the clock. At an October 30, 2026 hearing McFadden was skeptical of the government's approach but declined to rule, signaling he may wait for prosecutors to obtain an indictment (https://www.politico.com/news/2026/10/30/doj-comey-judge). DOJ told the court it is working on a D.C. grand jury indictment, has gathered additional evidence, and may seek charges covering conduct through April 2017. Per ABC News reporting from that hearing, November 5, 2026 is the last day for the government to obtain an indictment before the information would be dismissed under the Speedy Trial Act; McFadden observed that grand juries can return no bills and that a refusal to indict would render the proceedings an exercise in futility (https://www.washingtontimes.com/news/2026/oct/30/judge-delays-decision-comey-case-justice-department-seeks-new/).\n\nStatus as of October 30, 2026: Comey is the defendant in exactly two pending federal district-court criminal cases (D.D.C. and E.D.N.C.), and no arraignment has been held in either. Plausible routes to \"No\" by November 13 are dismissal of the D.C. information — under the Speedy Trial Act or on Comey's limitations argument — without a replacement charging document remaining pending, or dismissal of the E.D.N.C. indictment on one of the four pending motions.\n\n`{\"format\": \"llm_question\", \"info\": {\"sdk_version\": \"0.6.1\", \"rating\": {\"quality\": 3, \"ambiguity\": 3, \"resolvability\": 4, \"passes\": true}}}`",
+    "resolution_criteria": "This question is resolved by the status, as of 23:59 UTC on November 13, 2026, of federal district-court criminal dockets naming James Comey as a defendant — principally United States v. Comey, No. 1:26-cr-00229-TNM (D.D.C.) and United States v. Comey, No. 4:26-cr-00016-FL-RN (E.D.N.C.) — as shown in public court records (PACER/CourtListener) or, where those records cannot be accessed, [credible sources](https://www.metaculus.com/faq/#definitions). A federal criminal case counts as pending if a charging document (indictment, superseding indictment, or information) naming Comey as a defendant is on file and the case has not been finally disposed of by a judgment. A case remains pending unless every charging document in it has been dismissed in full; dismissal of only some counts, or a superseding indictment filed under the same case number, leaves it one pending case, and a dismissal order takes effect on its entry even if stayed or later appealed. The question resolves Yes if at least two such cases are pending on that date, counting any federal district-court criminal case against him that is pending then regardless of when it was filed, including a previously dismissed case that has been reinstated or re-charged; it resolves No if one or zero are pending. Proceedings in a U.S. Court of Appeals (including Nos. 25-4673 and 25-4674) are not pending criminal cases for purposes of this question.",
+    "fine_print": "A charging document filed under seal counts as pending provided a corresponding entry appears on the case docket.",
+    "unit": "",
+    "options": null,
+    "scaling": {
+      "range_min": null,
+      "range_max": null,
+      "nominal_min": null,
+      "nominal_max": null,
+      "zero_point": null,
+      "open_upper_bound": false,
+      "open_lower_bound": false,
+      "inbound_outcome_count": null,
+      "continuous_range": null
+    },
+    "open_lower_bound": false,
+    "open_upper_bound": false,
+    "inbound_outcome_count": null,
+    "open_time": "2026-11-03T15:49:54Z",
+    "scheduled_close_time": "2026-11-03T18:49:54Z",
+    "scheduled_resolve_time": "2026-11-13T23:59:00Z",
+    "resolution": null
+  }
+}
