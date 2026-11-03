@@ -1,0 +1,61 @@
+{
+  "post_id": 46421,
+  "url": "https://www.metaculus.com/questions/46421/",
+  "post_title": "What will the IEA's November 2026 Oil Market Report give as Venezuela's crude oil supply for October 2026 (million barrels per day)?",
+  "tournaments": [
+    "minibench"
+  ],
+  "options": null,
+  "question": {
+    "id": 46654,
+    "title": "What will the IEA's November 2026 Oil Market Report give as Venezuela's crude oil supply for October 2026 (million barrels per day)?",
+    "type": "discrete",
+    "status": "open",
+    "description": "The IEA's monthly Oil Market Report (OMR) is released at 10:00 Paris time and includes an 'OPEC+ crude oil production' table showing monthly crude supply by country for the two most recent months, alongside implied targets and sustainable capacity. The November 2026 edition is scheduled for 13 November 2026 (the October 2026 edition was released on 14 October 2026).\n\nVenezuela in the IEA's recent tables: the August 2026 OMR showed 1.08 mb/d for June 2026 and 1.12 mb/d for July 2026; the September 2026 OMR (11 September) showed 1.12 mb/d for July and 1.16 mb/d for August; the October 2026 OMR (14 October) showed 1.16 mb/d for both August and September 2026, against a stated sustainable capacity of 1.12 mb/d. So the IEA series rose by roughly 0.04 mb/d per month from June to August 2026 and then held flat.\n\nVenezuela's own reporting differs. The government told OPEC that crude output averaged 1.201 mb/d in August and 1.206 mb/d in September 2026 (a rise of only 5 kb/d, with gains slowed by electrical failures), up from about 0.924 mb/d in January 2026, while OPEC's secondary-source estimate for September was around 1.15 mb/d — i.e. the IEA has been running some 0.04–0.05 mb/d below Venezuela's official submission. Exports were 1.08 mb/d in September (-9% m-o-m), of which 629 kb/d went to the United States.\n\nFor October 2026, oil minister Héctor Obregón and PDVSA executives said national output reached 1.252 mb/d around 23 October, described as the highest since 2019; private partner Nabep reported record output in western Venezuela (115 kb/d, with 223.5 kboe/d across its portfolio as of 19 October). Acting president Delcy Rodríguez said Venezuela expects nearly $76bn of oil investment over five years under recently signed agreements, including plans to drill 250 rigs, and PDVSA has cited a target of about 1.5 mb/d by the end of 2027; output in Zulia state has reportedly risen from 70 kb/d to 370 kb/d.\n\nPolicy backdrop: the United States has sharply eased oil-sector sanctions. OFAC issued Venezuela General License 50C (27 August 2026) authorising transactions related to oil or gas sector operations in Venezuela with certain entities, GL 46E (28 September 2026) covering activities involving PdVSA and the Government of Venezuela, and GL 60A (16 October 2026) extending authorisations through 21 April 2027. Venezuela is also in a political transition, with Delcy Rodríguez as acting president. Market conditions are unusual: the October 2026 OMR reported North Sea Dated crude at $116.89/bbl for September 2026, world oil supply of 102.3 mb/d, and forecast a 2.5 mb/d year-on-year fall in world oil demand in 4Q26 even as OPEC+ unwinds cuts (OPEC-8 September supply of 16.77 mb/d versus an implied target of 20.62 mb/d).\n\nWhy October is genuinely uncertain: PDVSA's spot claims (1.252 mb/d on 23 October) point to a monthly average above the IEA's 1.16 mb/d September figure, but the IEA's own estimate has lagged official Venezuelan numbers and has sometimes been held flat for the newest month, and freight costs and power outages have previously slowed gains. Note that OPEC's own November Monthly Oil Market Report is dated 11 November 2026 — before this question's window — and is therefore not the resolution source.\n\n`{\"format\": \"llm_question\", \"info\": {\"sdk_version\": \"0.6.1\", \"rating\": {\"quality\": 3, \"ambiguity\": 4, \"resolvability\": 4, \"passes\": true}}}`",
+    "resolution_criteria": "This question resolves to the number reported in the 'Venezuela' row of the 'OPEC+ crude oil production' table (values in million barrels per day) in the IEA's Oil Market Report – November 2026, scheduled for release at 10:00 Paris time on 13 November 2026 (release notice: https://www.iea.org/events/oil-market-report-november-2026). The relevant figure is the one in the column headed 'Oct 2026 Supply' — i.e. the column for the most recent month shown in that table, Venezuela's crude oil supply for October 2026; for the table's format and scale, the same table in the October 2026 edition (https://www.iea.org/reports/oil-market-report-october-2026) lists Venezuela at 1.16 mb/d for August 2026 and 1.16 mb/d for September 2026. Resolution uses the figure as first published in that 13 November 2026 edition, expressed in million barrels per day; if the table is not publicly displayed on iea.org, the figure quoted from that same edition by [credible sources](https://www.metaculus.com/faq/#definitions) will be used.",
+    "fine_print": "Revisions published later (for example in the December 2026 Oil Market Report or in IEA data files) are ignored. Only the Venezuela row of the 'OPEC+ crude oil production' table is used — not the 'Sustainable Capacity' column, not Venezuelan production figures cited elsewhere in the report's text, and not figures from other IEA publications. If the November 2026 edition does not report a Venezuela crude oil supply figure for October 2026 (row absent, or the October 2026 column blank), the question is annulled.",
+    "unit": "mb/d",
+    "options": null,
+    "scaling": {
+      "range_min": 1.0950000000000002,
+      "range_max": 1.305,
+      "nominal_min": 1.1,
+      "nominal_max": 1.2999999999999998,
+      "zero_point": null,
+      "open_upper_bound": true,
+      "open_lower_bound": true,
+      "inbound_outcome_count": 21,
+      "continuous_range": [
+        1.0950000000000002,
+        1.1050000000000002,
+        1.1150000000000002,
+        1.1250000000000002,
+        1.1350000000000002,
+        1.145,
+        1.155,
+        1.165,
+        1.175,
+        1.185,
+        1.195,
+        1.205,
+        1.215,
+        1.225,
+        1.235,
+        1.245,
+        1.255,
+        1.265,
+        1.275,
+        1.285,
+        1.295,
+        1.305
+      ]
+    },
+    "open_lower_bound": true,
+    "open_upper_bound": true,
+    "inbound_outcome_count": 21,
+    "open_time": "2026-11-03T10:14:55Z",
+    "scheduled_close_time": "2026-11-03T13:14:55Z",
+    "scheduled_resolve_time": "2026-11-13T12:00:00Z",
+    "resolution": null
+  }
+}
