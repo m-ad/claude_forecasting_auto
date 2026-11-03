@@ -1,0 +1,72 @@
+slug: 2026-11-03-mc46416-statistics-poland-s-flash-estimate-poland-s
+title: What will Statistics Poland's flash estimate of Poland's Q3 2026 GDP growth be?
+source: metaculus
+url: https://www.metaculus.com/questions/46416/
+post_id: 46416
+question_id: 46649
+type: discrete
+unit: '%'
+tags: []
+dates:
+  created: '2026-11-03'
+  opened: '2026-11-03'
+  closes: '2026-11-03'
+  resolves: '2026-11-13'
+status: open
+tournament:
+  slug: minibench
+  mode: one_shot
+  registered: '2026-11-03'
+  opened: '2026-11-03T03:23:37Z'
+  closes: '2026-11-03T06:23:37Z'
+  submitted: '2026-11-03T04:13:42+00:00'
+  submitted_forecast:
+    continuous_cdf:
+    - 0.0011758872928004497
+    - 0.0038946500627264845
+    - 0.007083529424117966
+    - 0.01104750000956758
+    - 0.01628937998285484
+    - 0.023638176345897398
+    - 0.034460690576316254
+    - 0.0510103973430894
+    - 0.07451683931018728
+    - 0.09852171681008674
+    - 0.1346878429687845
+    - 0.1916098637090274
+    - 0.2614877642775961
+    - 0.3472938285747502
+    - 0.45005857055785486
+    - 0.5635399480006695
+    - 0.6922426096635261
+    - 0.789735975849541
+    - 0.8649262965587139
+    - 0.911310971680191
+    - 0.9424404108862334
+    - 0.967547178558265
+    - 0.9814077084778958
+    - 0.9894942274107335
+    - 0.9946162702574692
+    - 0.9982163003326374
+  comment_posted: true
+  official_score: null
+  missed_window: false
+current:
+  version: 1
+  date: '2026-11-03'
+  median: 3.8
+  iqr:
+  - 3.55
+  - 4.0
+  community:
+    cp: null
+    pro: null
+    gold: null
+    n_forecasters: null
+    as_of: '2026-11-03'
+next_review: null
+tripwires: []
+resolution:
+  outcome: null
+  date: null
+  source: null

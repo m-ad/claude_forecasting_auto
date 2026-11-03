@@ -1,0 +1,30 @@
+{"searches": [
+ {"category": "resolution_source", "query": "Poland GDP third quarter 2026 flash estimate forecast", "by": "main", "status": "done", "finding": "Q3 flash not yet published (due 2026-11-13); cbonds consensus series exists but value not visible"},
+ {"category": "resolution_source", "query": "szybki szacunek PKB III kwartał 2026 prognoza", "by": "main", "status": "done", "finding": "no Q3 2026 flash; Q2 flash 3.8, Q1 flash 3.4"},
+ {"category": "resolution_source", "query": "GUS rewizja kwartalnych rachunków narodowych 16 października 2026 PKB II kwartał 4,1%", "by": "main", "status": "done", "finding": "16 Oct 2026: Q2 revised to 4.1 from 3.9, Q1 to 3.7 from 3.5 (xyz.pl)"},
+ {"category": "resolution_source", "query": "GUS szybki szacunek PKB II kwartał 2026 3,8% konsensus", "by": "main", "status": "done", "finding": "Q2 flash 3.8 = consensus 3.8; 31 Aug regular 3.9, q/q 1.0; investment +8.4"},
+ {"category": "schedule", "query": "Trading Economics Poland GDP annual growth rate page", "by": "main", "status": "done", "finding": "scout: TE Q3 forecast 3.5%, release 2026-11-13"},
+ {"category": "markets", "query": "Polymarket OR Kalshi Poland GDP Q3 2026", "by": "main", "status": "done", "finding": "no market found"},
+ {"category": "news", "query": "PKB III kwartał 2026 prognoza PKO BP Pekao ING szybki szacunek 13 listopada", "by": "main", "status": "done", "finding": "annual 2026 avg of six institutions 3.68%; mBank: weak construction may lower Q3, recouped in Q4"},
+ {"category": "news", "query": "Poland Q3 GDP preview slowdown 2026 industrial production construction September", "by": "main", "status": "done", "finding": "IP Sep +4.6 y/y beat; construction -9% y/y"},
+ {"category": "consensus", "query": "analizy.pl prognozy PKB i inflacji pazdziernik 2026", "by": "main", "status": "done", "finding": "mBank 3.9, PKO 3.8, ING 3.7, Pekao 3.7, Erste 3.6, IMF 3.4 for 2026"},
+ {"category": "consensus", "query": "ING BSK wzrost PKB w III kw. 2026 okolice 3,5 proc (wnp.pl 22 Sep)", "by": "main", "status": "done", "finding": "ING ~3.5% y/y (22 Sep, before revision)"},
+ {"category": "consensus", "query": "PKO BP w III kw. 2026 wzrost PKB spowolnil do ok. 3 proc (wnp.pl 20 Oct)", "by": "main", "status": "done", "finding": "PKO: 'najpewniej' around 3% in Q3 vs 4.1 in Q2 (20 Oct, post-revision)"},
+ {"category": "base_rate", "query": "PKB III kwartał 2025 GUS rewizja k/k 0,8% 3,8% r/r", "by": "main", "status": "done", "finding": "Q3 2025 flash 3.7, regular 3.8, q/q 0.8->0.9"},
+ {"category": "base_rate", "query": "Poland GDP flash estimate versus consensus 2025 2026", "by": "main", "status": "done", "finding": "Q1'26 flash 3.4 vs cons 3.6; Q2'26 3.8 vs 3.8; Q3'25 3.7 vs 3.7"},
+ {"category": "news", "query": "Poland September 2026 retail sales 3.3% consumption Q3 slowdown", "by": "main", "status": "done", "finding": "retail +3.3 y/y Sep vs 3.8 Aug, -3.8 m/m"},
+ {"category": "disconfirmation", "query": "Poland Q3 2026 GDP nowcast 3.8 OR 3.7 OR 3.9 OR 4.0 economists November 2026", "by": "main", "status": "done", "finding": "no nowcast above 3.9 found; none contradicts slowdown", "tests": "that the y/y rate slows from Q2's 4.1% to about 3.6% (vs. high-base-carryover ~4.0%)"},
+ {"category": "consensus", "query": "Poland Q3 2026 GDP forecast flash estimate y/y consensus (scout 1, 9 queries)", "by": "scout-1", "status": "done", "finding": "no bank-by-bank Q3 consensus; TE 3.5"},
+ {"category": "news", "query": "produkcja budowlano-montażowa wrzesień 2026 GUS", "by": "scout-3", "status": "done", "finding": "construction -9% y/y, SA -7.2"},
+ {"category": "disconfirmation", "query": "III kw. 2026 PKB prognoza 3,7 OR 3,8 OR 3,9 budownictwo rozczarowało inwestycje ekonomiści październik", "by": "scout-3", "status": "done", "finding": "no 3.6-3.9 attributions verifiable; PKO ~3.0, ING 3.5", "tests": "that the y/y rate slows from Q2's 4.1% to about 3.6%"},
+ {"category": "news", "query": "sprzedaż detaliczna wrzesień 2026 GUS konsensus PKB III kw.", "by": "scout-3", "status": "done", "finding": "retail +3.3 y/y"},
+ {"category": "schedule", "query": "GUS kalendarz publikacji szybki szacunek PKB za III kwartał 2026 listopad data publikacji", "by": "scout-2", "status": "done", "finding": "GUS calendar page empty; 13 Nov 2026 likely (past Q3 flashes 13-14 Nov)"},
+ {"category": "base_rate", "query": "flash vs consensus Poland GDP 2024-2026 (scout-2, 6 queries)", "by": "scout-2", "status": "done", "finding": "MAE vs consensus ~0.13pp over 8 quarters; recent revisions all upward"},
+ {"category": "other", "query": "liczba dni roboczych III kwartał 2026 vs 2025 Polska", "by": "scout-2", "status": "done", "finding": "own count: 66 vs 65 weekdays, +1 working day"},
+ {"category": "upcoming_events", "query": "tydzień na rynkach 9-13 listopada 2026 kalendarz szybki szacunek PKB GUS", "by": "scout-2", "status": "done", "finding": "nothing confirmed beyond 13 Nov"},
+ {"category": "consensus", "query": "mBank PKB III kwartał 2026 prognoza 3,6 3,8 wzrost r/r budownictwo", "by": "main", "status": "done", "finding": "mBank path June: Q3 3.8, Q4 3.9; Oct: 2026 3.9, Q4 3.7"}
+],
+ "adjustments": [
+  {"event": "Bank nowcasts for Q3 2026 (PKO ~3.0, ING 3.5, TE 3.5, question text 3.6-3.9) sit below the mechanical carry-over from the revised Q2 level (~3.9-4.0)", "date": "2026-10-20", "effect": "-0.3 pp on the median vs mechanical carry-over", "sources": [1, 2, 3, 4]},
+  {"event": "Q3 2026 has one more working day than Q3 2025 (15 Aug 2026 falls on Saturday)", "date": "2026-11-03", "effect": "+0.1 pp on the median", "sources": [5]}
+ ]}
