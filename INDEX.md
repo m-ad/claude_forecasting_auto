@@ -1,6 +1,6 @@
 # Question index
 
-_Regenerated 2026-11-02 by `scripts/status.py --index`._
+_Regenerated 2026-11-03 by `scripts/status.py --index`._
 
 | Question | Type | Current | v | Community (CP) | Resolves | Next review | Status |
 |---|---|---|---|---|---|---|---|
@@ -114,3 +114,4 @@ _Regenerated 2026-11-02 by `scripts/status.py --index`._
 | [How many new suspected measles cases will Bangladesh's DGHS report for the 24 hours to 8:00 am on 13 November 2026?](questions/2026-11-02-mc46411-how-many-new-suspected-measles-cases-bangladesh/forecast.md) | numeric | — | 0 | — | 2026-11-13 | — | open |
 | [Will the Detroit Red Wings beat the Florida Panthers in their November 12, 2026 game?](questions/2026-11-02-mc46412-detroit-red-wings-beat-florida-panthers-their/forecast.md) | binary | 45.0% [40.0%, 50.0%] | 1 | — | 2026-11-13 | — | open |
 | [How many of Brazil's 27 state capitals will the InfoGripe bulletin of 12 November 2026 list at alert, risk or high-risk level with a rising long-term SRAG trend?](questions/2026-11-02-mc46413-how-many-brazil-s-27-state-capitals/forecast.md) | discrete | 4 [2, 5] | 1 | — | 2026-11-13 | — | open |
+| [Will AST publish the practical-driving-test calendar or a candidate convocation for its 73-operator selection by 12 November 2026?](questions/2026-11-03-mc46414-ast-publish-practical-driving-test-calendar-candidate/forecast.md) | binary | 33.0% [22.0%, 45.0%] | 1 | — | 2026-11-13 | — | open |

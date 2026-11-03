@@ -1,0 +1,38 @@
+{
+  "post_id": 46414,
+  "url": "https://www.metaculus.com/questions/46414/",
+  "post_title": "Will AST publish the practical-driving-test calendar or a candidate convocation for its 73-operator selection by 12 November 2026?",
+  "tournaments": [
+    "minibench"
+  ],
+  "options": null,
+  "question": {
+    "id": 46647,
+    "title": "Will AST publish the practical-driving-test calendar or a candidate convocation for its 73-operator selection by 12 November 2026?",
+    "type": "binary",
+    "status": "open",
+    "description": "AST S.p.A. (Azienda Siciliana Trasporti), the Sicilian regional bus and transport company owned by the Regione Siciliana, is running a public selection to hire 73 \"operatori di esercizio\" (bus drivers) at CCNL Autoferrotranvieri parameter 140, permanent and full time, with a three-year list of eligible candidates. It is a second attempt: a selection launched on 30 January 2026 was revoked, and a new bando was issued on 28 August 2026, with applications open from 29 August to 27 September 2026 (http://www.astsicilia.it/wp-content/uploads/BANDO-DI-SELEZIONE-PER-LASSUNZIONE-DI-N.-73-OPERATORI-DI-ESERCIZIO-PER-AST-S.P.A_up.pdf).\n\nThe procedure has two scored stages: evaluation of titles, then a practical bus-driving test. Ahead of the practical test, a computer-based pre-selection of 30 multiple-choice questions (30 minutes, 1 point per correct answer, -0.5 per wrong answer) was held on 21-23 October 2026. The practical driving test is worth up to 40 points, is passed with at least 24/40, and consists of a bus driving evaluation over a route of at least 15 km. Venues named in the bando include Palermo, Catania, Messina, Siracusa, Trapani and Modica. The bando sets no minimum notice period for the practical-test convocation, so its timing is at AST's discretion.\n\nStatus as of 30 October 2026: the pre-selection ran as scheduled and candidate scores were published quickly, on 23-26 October 2026 (\"ELENCO PUNTEGGI PROVA PRESELETTIVA\", with a 29-page score list: http://www.astsicilia.it/elenco-punteggi-prova-preselettiva-selezione-per-lassunzione-di-n-73-operatori-di-esercizio-per-ast-spa/). That notice states: \"Dopo la verifica dei requisiti, come previsto dall'art. 8 del bando, si procederà alla stesura del calendario delle prove pratiche\" — after the requirements check, AST will draw up the calendar of practical tests. No practical-test calendar or convocation has been published: the most recent entry on the \"Lavora con Noi\" page of astsicilia.it (http://www.astsicilia.it/category/lavora-con-noi) is the 26 October 2026 scores notice, and the platform used for applications (https://selezioniastpalermo.it/) shows \"NESSUNA SELEZIONE PUBBLICA ATTIVA\" while directing candidates to astsicilia.it for the exam calendar and results.\n\nBecause nothing of this kind had been published as of 30 October 2026, forecasters are in effect judging whether AST posts practical-test dates in the roughly two weeks up to and including 12 November 2026. Useful base rates: AST moved from the pre-selection sessions (21-23 October) to published scores within days, and its earlier pre-selection calendar was posted roughly one to two weeks before those sessions (http://www.astsicilia.it/selezione-per-assunzione-di-n73-operatori-di-esercizio-per-ast-s-p-a-nei-giorni-del-21-22-23-ottobre-2026/). Comparable Sicilian bus operators publish driving-test calendars only about one to two weeks ahead (AMAT Palermo, for instance, posted a calendar on 27 October 2026 for driving tests held on 3-6 November 2026). Offset against that speed, AST must first verify the requirements of the hundreds of candidates listed in the score PDF and then organise driving commissions and dual-control buses across several Sicilian cities, which can take weeks. Local press reported in late October 2026 that AST risks curtailing bus services if the 73 new drivers are not at work soon — pressure for a rapid schedule, but no fixed publication date.\n\n`{\"format\": \"llm_question\", \"info\": {\"sdk_version\": \"0.6.1\", \"rating\": {\"quality\": 3, \"ambiguity\": 3, \"resolvability\": 4, \"passes\": true}}}`",
+    "resolution_criteria": "This question resolves YES if, as of the end of 12 November 2026 (Europe/Rome), AST S.p.A. has published a public item on astsicilia.it — in its \"News\" or \"Lavora con Noi\" sections — that states at least one date on which the practical driving tests (prove pratiche di guida) for the selection of 73 operatori di esercizio will be held, whether titled \"calendario delle prove pratiche\", \"convocazione alla prova pratica\" or equivalent. A calendar or convocation covering only some venues, cities or batches of candidates counts as YES, and it makes no difference whether the item is the first practical-test calendar published or a revision/update of an earlier one. It resolves NO if no such item has been published by that date. Resolution is based on the \"Lavora con Noi\" page of astsicilia.it (http://www.astsicilia.it/category/lavora-con-noi) and the notice page it links to, using the publication date displayed there, with the resolver checking on 13 November 2026.",
+    "fine_print": "If astsicilia.it is unreachable or the item is not visible there, the existence and date of the posting may be established via [credible sources](https://www.metaculus.com/faq/#definitions), or via the public notice board of selezioniastpalermo.it if the item appears there but not on astsicilia.it. Items that do not state practical-test dates — for example the outcome of the requirements check, or a list of candidates admitted to or excluded from the practical test — do not count as YES. If AST instead announces the revocation or suspension of this selection on or before 12 November 2026 without having published practical-test dates, the question resolves NO.",
+    "unit": "",
+    "options": null,
+    "scaling": {
+      "range_min": null,
+      "range_max": null,
+      "nominal_min": null,
+      "nominal_max": null,
+      "zero_point": null,
+      "open_upper_bound": false,
+      "open_lower_bound": false,
+      "inbound_outcome_count": null,
+      "continuous_range": null
+    },
+    "open_lower_bound": false,
+    "open_upper_bound": false,
+    "inbound_outcome_count": null,
+    "open_time": "2026-11-03T02:02:51Z",
+    "scheduled_close_time": "2026-11-03T05:02:51Z",
+    "scheduled_resolve_time": "2026-11-13T12:00:00Z",
+    "resolution": null
+  }
+}

@@ -1,0 +1,22 @@
+{"searches": [
+{"category":"resolution_source","query":"fetch astsicilia.it/category/lavora-con-noi (http+https)","by":"main","status":"done","finding":"self-signed certificate error; unreadable. Question text says latest item as of 30 Oct is the 26 Oct scores notice"},
+{"category":"resolution_source","query":"selezioniastpalermo.it fetch","by":"scout-1","status":"done","finding":"NESSUNA SELEZIONE PUBBLICA ATTIVA, no dated notices, redirects to AST site"},
+{"category":"resolution_source","query":"AST Sicilia 73 operatori di esercizio prove pratiche calendario","by":"main","status":"done","finding":"no calendar found in search; sources say calendar published >=15 days before tests (per bando bis via Balarm/Lentepubblica)"},
+{"category":"news","query":"AST Sicilia autisti selezione 73 novembre 2026","by":"main","status":"done","finding":"no news from Nov 2026; history of revoked first bando, bis in Sept"},
+{"category":"news","query":"Ast Sicilia autisti rischio taglio corse nuovi autisti concorso ottobre 2026","by":"main","status":"done","finding":"no Oct 2026 article found; shortage coverage older"},
+{"category":"news","query":"AST Palermo selezione 73 operatori prove pratiche guida calendario","by":"scout-1","status":"done","finding":"nothing Oct 15-Nov 3 on calendar"},
+{"category":"news","query":"Ast Sicilia carenza autisti corse soppresse sindacati ottobre 2026","by":"scout-1","status":"done","finding":"nothing dated Oct 2026"},
+{"category":"markets","query":"prediction markets on AST Sicilia hiring (none plausible)","by":"main","status":"done","finding":"none found; no market exists for this event"},
+{"category":"base_rate","query":"AST Sicilia selezione autisti 2023 2024 prove pratiche calendario dopo preselezione","by":"main","status":"done","finding":"no prior AST precedent found"},
+{"category":"base_rate","query":"AMAT Palermo selezione operatori di esercizio prove pratiche calendario pubblicato","by":"main","status":"done","finding":"AMAT: 806 candidates, practical tests 31 Aug-4 Dec, 15-day notice rule; litigation-prone"},
+{"category":"base_rate","query":"AMAT/AMTS preselezione esiti prova pratica convocazione giorni","by":"scout-2","status":"done","finding":"no fast-turnaround precedent found"},
+{"category":"disconfirmation","query":"Ast concorso revoca ricorso Tar bando annullato; Ast interinali concorso 73 TAR ricorso sindacati ottobre 2026","by":"scout-3","status":"done","finding":"no TAR/suspension evidence for bando bis; no statement that tests start early/mid Nov","tests":"that AST posts practical-test dates within ~17 days of the 26 Oct scores despite the art. 8 requirements check and 15-day-notice norm"},
+{"category":"disconfirmation","query":"Ast Sicilia 73 autisti prove pratiche guida date calendario Genovese autisti subito","by":"scout-3","status":"done","finding":"nothing"},
+{"category":"schedule","query":"astsicilia.it art. 8 bando verifica requisiti 15 giorni prima","by":"main","status":"done","finding":"15-day notice before tests reported by secondary sources; art 8 text not retrieved"},
+{"category":"consensus","query":"Ast concorso preselezione punteggi prova pratica Genovese","by":"main","status":"done","finding":"practical test only for those passing preselection (possibly top 300)"},
+{"category":"upcoming_events","query":"AST preselezione 21 22 23 ottobre candidati quiz esito","by":"scout-3","status":"done","finding":"no candidate numbers found"},
+{"category":"other","query":"catania.liveuniversity bando bis fetch","by":"main","status":"done","finding":"preselection if >400 applications; no practical test dates"}
+],
+"adjustments": [
+{"event":"Requirements check (art. 8) plus commissions in six cities must precede the calendar; 15-day notice norm","date":"2026-10-26","effect":"-20 pp from a ~55% speed-based prior","sources":[1,2,3]}
+]}

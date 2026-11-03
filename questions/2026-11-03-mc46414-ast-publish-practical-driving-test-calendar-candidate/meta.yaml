@@ -1,0 +1,47 @@
+slug: 2026-11-03-mc46414-ast-publish-practical-driving-test-calendar-candidate
+title: Will AST publish the practical-driving-test calendar or a candidate convocation for its 73-operator
+  selection by 12 November 2026?
+source: metaculus
+url: https://www.metaculus.com/questions/46414/
+post_id: 46414
+question_id: 46647
+type: binary
+unit: null
+tags: []
+dates:
+  created: '2026-11-03'
+  opened: '2026-11-03'
+  closes: '2026-11-03'
+  resolves: '2026-11-13'
+status: open
+tournament:
+  slug: minibench
+  mode: one_shot
+  registered: '2026-11-03'
+  opened: '2026-11-03T02:02:51Z'
+  closes: '2026-11-03T05:02:51Z'
+  submitted: '2026-11-03T02:12:28+00:00'
+  submitted_forecast:
+    probability_yes: 0.33
+  comment_posted: true
+  official_score: null
+  missed_window: false
+current:
+  version: 1
+  date: '2026-11-03'
+  median: 0.33
+  iqr:
+  - 0.22
+  - 0.45
+  community:
+    cp: null
+    pro: null
+    gold: null
+    n_forecasters: null
+    as_of: '2026-11-03'
+next_review: null
+tripwires: []
+resolution:
+  outcome: null
+  date: null
+  source: null
