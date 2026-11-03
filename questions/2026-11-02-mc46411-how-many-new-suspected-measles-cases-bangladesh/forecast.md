@@ -6,7 +6,7 @@
 | **Tournament** | minibench — one shot, window 2026-11-02T19:05:06Z -> 2026-11-02T22:05:06Z |
 | **Type** | numeric |
 | **Opened / Closes / Resolves** | 2026-11-02 / 2026-11-02 / 2026-11-13 |
-| **Status** | open |
+| **Status** | dropped |
 | **Current forecast** | *not yet forecast* |
 | **Community** | hidden — bot tournament |
 | **Next review** | — |
