@@ -90,7 +90,7 @@ def test_a_scout_at_the_session_cap_is_told_to_return_its_digest():
 
 
 def test_without_agent_id_only_the_session_cap_binds():
-    # CLI 2.1.317 sends no agent_id in PreToolUse input: scouts look like the main agent.
+    # A CLI before 2.1.69 sends no agent_id: its scouts look like the main agent.
     state: dict = {}
     outs = [_call(state, cap=20, per_scout=2) for _ in range(10)]
     assert not any(_denied(o) for o in outs)

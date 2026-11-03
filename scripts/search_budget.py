@@ -13,9 +13,9 @@ Behaviour, per call:
 - ``WebSearch`` is counted against ``$MAX_WEB_SEARCHES`` (default 50) for the whole
   session, and -- when the hook input names the calling subagent (``agent_id``) --
   against ``$MAX_WEB_SEARCHES_PER_SCOUT`` (default 8) for that subagent, so one scout
-  cannot spend the budget the others and the main agent need. CLI 2.1.317 does not put
-  ``agent_id`` into ``PreToolUse`` input (checked 2026-11-03); there only the session
-  cap binds. ``no_agent_id`` in the budget file counts the searches that came without
+  cannot spend the budget the others and the main agent need. The CLI puts ``agent_id``
+  into every hook input from a subagent since 2.1.69 (its changelog; the 2.1.317 binary
+  checked 2026-11-03). On an older CLI only the session cap binds. ``no_agent_id`` in the budget file counts the searches that came without
   one (the main agent's, and every call on such a CLI); an empty ``by_agent`` in a
   session that spawned scouts means the per-scout cap was not in force.
 - From 80 % of a cap the call is allowed with a nudge (``additionalContext``); at the
