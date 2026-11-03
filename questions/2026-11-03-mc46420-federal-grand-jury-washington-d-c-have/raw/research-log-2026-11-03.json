@@ -1,19 +1,25 @@
 {"searches": [
-  {"category": "resolution_source", "query": "United States v. Comey 1:26-cr-00229 docket CourtListener", "by": "main", "status": "planned", "finding": ""},
-  {"category": "resolution_source", "query": "Comey indictment grand jury Washington November 2026", "by": "main", "status": "planned", "finding": ""},
-  {"category": "news", "query": "Comey McFadden information Speedy Trial Act November 5 indictment", "by": "scout-1", "status": "planned", "finding": ""},
-  {"category": "news", "query": "Comey grand jury D.C. news this week", "by": "scout-1", "status": "planned", "finding": ""},
-  {"category": "news", "query": "Cassidy Hutchinson grand jury declined to indict", "by": "main", "status": "planned", "finding": ""},
-  {"category": "markets", "query": "Polymarket Comey indicted", "by": "scout-2", "status": "planned", "finding": ""},
-  {"category": "markets", "query": "Kalshi Comey indictment", "by": "scout-2", "status": "planned", "finding": ""},
-  {"category": "markets", "query": "Manifold Comey indicted November", "by": "scout-2", "status": "planned", "finding": ""},
-  {"category": "base_rate", "query": "D.C. grand jury refused to indict Trump DOJ cases 2025 2026 list", "by": "scout-3", "status": "planned", "finding": ""},
-  {"category": "base_rate", "query": "grand jury no-bill rate federal cases", "by": "scout-3", "status": "planned", "finding": ""},
-  {"category": "base_rate", "query": "Comey indictment re-indict after dismissal grand jury Virginia history", "by": "scout-3", "status": "planned", "finding": ""},
-  {"category": "schedule", "query": "Comey Speedy Trial Act 30 days information indictment deadline dismissal", "by": "main", "status": "planned", "finding": ""},
-  {"category": "consensus", "query": "legal experts Comey information statute of limitations tolling 793", "by": "scout-4", "status": "planned", "finding": ""},
-  {"category": "upcoming_events", "query": "Comey McFadden hearing ruling motion to dismiss date", "by": "main", "status": "planned", "finding": ""},
-  {"category": "disconfirmation", "query": "grand jury D.C. returns indictment politically sensitive Trump DOJ succeeded", "by": "scout-5", "status": "planned", "finding": "", "tests": "the assumption that a D.C. grand jury is likely to refuse, so the indictment probability is well below the DOJ's stated intent"},
-  {"category": "disconfirmation", "query": "Comey indicted grand jury returns indictment superseding", "by": "scout-5", "status": "planned", "finding": "", "tests": "the assumption that a D.C. grand jury is likely to refuse, so the indictment probability is well below the DOJ's stated intent"}
+  {"category": "resolution_source", "query": "Comey grand jury indictment McFadden", "by": "main", "status": "done", "finding": "No indictment reported as of Oct 30 hearing; McFadden did not rule"},
+  {"category": "resolution_source", "query": "AP/KSL judge puts off decision in Comey case (fetched)", "by": "main", "status": "done", "finding": "Farahnak: DOJ presenting evidence to grand jury; 'may indict, may not'; evidence post-Oct 2016"},
+  {"category": "resolution_source", "query": "Comey indicted Washington grand jury leak New York Times Yahoo", "by": "main", "status": "done", "finding": "No indictment found; Aug 2026 Richman grand jury subpoena (Florida-based probe)"},
+  {"category": "resolution_source", "query": "Comey indictment grand jury McFadden (scout-1)", "by": "scout-1", "status": "done", "finding": "Nothing newer than Oct 30"},
+  {"category": "news", "query": "Comey criminal information 793(d) NYT Speedy Trial Act", "by": "scout-1", "status": "done", "finding": "Nov 5 technically last day under STA per ABC"},
+  {"category": "news", "query": "Comey grand jury November 2026", "by": "scout-1", "status": "done", "finding": "nothing dated Oct 31-Nov 3"},
+  {"category": "news", "query": "Comey McFadden ruling motion to dismiss information indictment returned", "by": "scout-1", "status": "done", "finding": "no ruling"},
+  {"category": "news", "query": "Cassidy Hutchinson grand jury declined to indict Washington", "by": "main", "status": "done", "finding": "No-bill Oct 27 2026; chief judge policy requires notice of no-bills"},
+  {"category": "news", "query": "Comey grand jury leak case prosecutors presenting evidence Washington November 2026", "by": "main", "status": "done", "finding": "Nothing new; Aug 31 Richman subpoena"},
+  {"category": "news", "query": "DOJ takes steps to charge Comey information Espionage Act", "by": "main", "status": "done", "finding": "Comey did not waive indictment; not indicted as of Oct 27"},
+  {"category": "markets", "query": "Polymarket Comey indicted", "by": "scout-2", "status": "done", "finding": "none found on this event"},
+  {"category": "markets", "query": "Kalshi Comey indictment odds", "by": "scout-2", "status": "done", "finding": "older markets only (arrest by year-end 76% Apr 2026)"},
+  {"category": "markets", "query": "Manifold Markets Comey indicted again", "by": "scout-2", "status": "done", "finding": "none relevant"},
+  {"category": "base_rate", "query": "Pirro grand jury no-bill rate Washington D.C. 2026 refused indict cases list", "by": "main", "status": "done", "finding": "8-9+ felony no-bills since 2025 takeover; six Democratic lawmakers Feb 2026 refused; Hutchinson Oct 27"},
+  {"category": "base_rate", "query": "D.C. grand jury base rate scout-4 queries (Pirro, no-bill)", "by": "scout-4", "status": "done", "finding": "same pattern; unanimous refusal for six lawmakers"},
+  {"category": "schedule", "query": "Comey Speedy Trial Act information 30 days indictment deadline", "by": "scout-4", "status": "done", "finding": "Nov 5 per ABC; 30-day pause from Oct 9 unverified"},
+  {"category": "consensus", "query": "legal experts Comey information statute of limitations tolling 3288", "by": "scout-4", "status": "done", "finding": "DOJ theory info tolls; April 2017 evidence could extend 6 months"},
+  {"category": "upcoming_events", "query": "Comey McFadden hearing ruling motion to dismiss date", "by": "scout-4", "status": "done", "finding": "no ruling date set; Nov 5 key date"},
+  {"category": "disconfirmation", "query": "Comey indicted Espionage Act grand jury returns indictment November 2", "by": "scout-1", "status": "done", "finding": "no sign of an indictment yet; no evidence DOJ is easily getting one", "tests": "the assumption that a D.C. grand jury is substantially likely to refuse, so the probability is well below DOJ's stated intent"},
+  {"category": "disconfirmation", "query": "Comey McFadden hearing prosecutors grand jury April 2017 3288 Speedy Trial dismissal", "by": "scout-4", "status": "done", "finding": "DOJ determined; McFadden leaning to let grand jury proceed; but earlier teams declined to charge", "tests": "the assumption that a D.C. grand jury is substantially likely to refuse, so the probability is well below DOJ's stated intent"}
 ],
- "adjustments": []}
+ "adjustments": [
+  {"event": "D.C. grand juries repeatedly refused politically sensitive indictments (Hutchinson Oct 27, six lawmakers Feb 2026), judge himself says no sure thing", "date": "2026-10-27", "effect": "-25 pp vs DOJ-intent prior", "sources": [2, 3, 5]}
+]}
