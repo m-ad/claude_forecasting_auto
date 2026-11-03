@@ -1,0 +1,38 @@
+{
+  "post_id": 46425,
+  "url": "https://www.metaculus.com/questions/46425/",
+  "post_title": "Will the operating rooms of Hospital Privado de Mendoza be open for new surgeries on November 13, 2026?",
+  "tournaments": [
+    "minibench"
+  ],
+  "options": null,
+  "question": {
+    "id": 46658,
+    "title": "Will the operating rooms of Hospital Privado de Mendoza be open for new surgeries on November 13, 2026?",
+    "type": "binary",
+    "status": "open",
+    "description": "On Wednesday 21 October 2026 the Mendoza health ministry activated an epidemiological alert after patients who had been operated at the Hospital Privado de Mendoza — a private hospital at Av. Bartolomé Mitre 653 in Mendoza city and a provider for the retirees' health fund PAMI, whose surgical patients are mostly pensioners — were later treated at the public Hospital Central for post-surgical meningitis. Laboratory analysis identified the bacterium Serratia marcescens. Four cases are confirmed and two patients have died, while roughly six to eight further patients who passed through the same operating rooms are under follow-up (https://www.lanacion.com.ar/sociedad/al-menos-dos-muertos-por-el-brote-de-meningitis-detectado-en-un-hospital-de-mendoza-nid24102026). On 22 October the province inspected the hospital and took samples, and the Ministerio de Salud y Deportes ordered the preventive closure of the operating rooms; the suspension is to last until the technical and epidemiological investigation concludes (https://www.mendozapost.com/sociedad/dos-muertes-por-un-brote-de-meningitis-en-mendoza-suspendieron-cirugias). On 26 October the province's director of epidemiology, Andrea Falaschi, said the outbreak had not spread further for the time being, that eight patients were under follow-up, and that the operating rooms cannot function again until a series of improvements is carried out; the investigation is analysing protocols, solutions, medications and other materials used during surgery, with a contaminated item the leading hypothesis and negligence not yet established (https://www.memo.com.ar/economia/meningitis-en-el-hospital-privado-salud-investiga-el-origen-del-brote-y-no-descarta-una-contaminacion-en-el-quirofano). On 29 October the province confirmed that the operating rooms remain closed preventively and that two additional deaths are under investigation, which could take the toll to four (https://www.laarena.com.ar/la-region/brote-de-meningitis-investigan-dos-fallecimientos-mas-2026102911500). The ministry has urged anyone operated at the hospital in September–October 2026 to seek care if they develop fever or severe headache. As of 30 October 2026 no reopening date or timetable has been announced, and surgical activity remains suspended. Developments are reported by local outlets (Mendoza Post, Los Andes, Mendoza Today, La Arena) and national media (La Nación, Infobae).\n\n`{\"format\": \"llm_question\", \"info\": {\"sdk_version\": \"0.6.1\", \"rating\": {\"quality\": 3, \"ambiguity\": 3, \"resolvability\": 4, \"passes\": true}}}`",
+    "resolution_criteria": "This question resolves YES if, as of the end of November 13, 2026 (Mendoza local time, UTC−3), the preventive suspension of surgical activity at the Hospital Privado de Mendoza ordered by the provincial health ministry in October 2026 has been lifted such that the hospital is again authorised to perform new scheduled (non-emergency) operations — including where the lifting is partial or phased, provided at least one of the hospital's operating rooms may again carry out new scheduled surgeries. It resolves NO if the suspension remains fully in force on that date, if only emergency or urgent operations are permitted, or if no credible report indicates any resumption of scheduled surgery at the hospital by then. Resolution is based on announcements from the [Ministerio de Salud y Deportes de Mendoza](https://www.mendoza.gov.ar/salud/), statements by the hospital, or reporting by [credible sources](https://www.metaculus.com/faq/#definitions); where reports conflict, provincial health ministry statements govern.",
+    "fine_print": "Evidence that new scheduled operations have in fact been performed at the hospital after the suspension was lifted also counts, even if the ministry issued no formal announcement. The question concerns only the Hospital Privado de Mendoza at Av. Bartolomé Mitre 653, Mendoza city, Argentina.",
+    "unit": "",
+    "options": null,
+    "scaling": {
+      "range_min": null,
+      "range_max": null,
+      "nominal_min": null,
+      "nominal_max": null,
+      "zero_point": null,
+      "open_upper_bound": false,
+      "open_lower_bound": false,
+      "inbound_outcome_count": null,
+      "continuous_range": null
+    },
+    "open_lower_bound": false,
+    "open_upper_bound": false,
+    "inbound_outcome_count": null,
+    "open_time": "2026-11-03T14:55:50Z",
+    "scheduled_close_time": "2026-11-03T17:55:50Z",
+    "scheduled_resolve_time": "2026-11-14T03:00:00Z",
+    "resolution": null
+  }
+}
