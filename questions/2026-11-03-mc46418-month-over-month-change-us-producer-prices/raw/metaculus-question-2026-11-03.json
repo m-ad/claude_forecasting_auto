@@ -1,0 +1,54 @@
+{
+  "post_id": 46418,
+  "url": "https://www.metaculus.com/questions/46418/",
+  "post_title": "What will the month-over-month change in US producer prices excluding food, energy, and trade services be for October 2026?",
+  "tournaments": [
+    "minibench"
+  ],
+  "options": null,
+  "question": {
+    "id": 46651,
+    "title": "What will the month-over-month change in US producer prices excluding food, energy, and trade services be for October 2026?",
+    "type": "discrete",
+    "status": "open",
+    "description": "Producer Price Indexes (PPI) measure the average change over time in the selling prices received by domestic producers for their output; the \"final demand\" index covers goods, services and construction sold for personal consumption, capital investment, government and export (https://www.bls.gov/ppi/). Because PPI captures prices earlier in the supply chain than the CPI, it is watched as a leading indicator of pipeline inflation.\n\nThe most recent release (September 2026, published October 15, 2026) showed sharp acceleration. The PPI for final demand rose 1.3% month over month on a seasonally adjusted basis — the largest monthly gain since March 2022 — after +0.5% in August and +0.2% in July. On an unadjusted 12-month basis, final demand prices were up 6.3%, the biggest annual increase since December 2022. September's surge was energy-led (final demand energy +10.8%, gasoline +20.3%, crude petroleum +28.3%, diesel +21.0%) but not confined to energy: final demand services rose 0.8%, trade services 1.4%, and transportation and warehousing services 3.4%. Econoday's survey had expected only +0.5% on the month, and the print prompted commentary that the Federal Reserve's inflation problem had worsened.\n\nThe series this question asks about strips out the three most volatile components (food, energy, and trade services — i.e. wholesale and retail margins) and is one of the BLS's preferred gauges of underlying pipeline inflation. It rose 0.5% in September, 0.3% in August and 0.4% in July 2026, and was up 5.0% over the 12 months to September.\n\nContext for October: crude oil remains elevated amid Middle East disruption and Strait of Hormuz concerns, while US retail gasoline drifted lower as refiners switched to cheaper winter-blend fuel — a national average of $4.27/gallon in the week ending October 26 versus $4.47 a month earlier and roughly 40% above a year earlier (https://gasprices.aaa.com/national-average-falls-6-cents-but-crude-oil-nears-100-barrel/). Because trade services are excluded from this measure, its swing factors are core goods (tariff-related pass-through into processed materials, machinery and equipment) and the non-trade service components — notably transportation and warehousing services, which jumped 3.4% in September on diesel and freight costs, along with margins-sensitive items such as portfolio management fees. Recent monthly readings of the measure have been 0.4%, 0.3% and 0.5%, but the series has a history of single-month moves well outside that band.\n\nThe October 2026 PPI is scheduled for release at 8:30 a.m. ET on Friday, November 13, 2026 (https://www.bls.gov/schedule/news_release/ppi.htm). The BLS reports this monthly percent change to one decimal place.\n\n`{\"format\": \"llm_question\", \"info\": {\"sdk_version\": \"0.6.1\", \"rating\": {\"quality\": 3, \"ambiguity\": 4, \"resolvability\": 4, \"passes\": true}}}`",
+    "resolution_criteria": "This question resolves based on the U.S. Bureau of Labor Statistics' Producer Price Index news release for October 2026, scheduled for publication at 8:30 a.m. ET on Friday, November 13, 2026 (https://www.bls.gov/news.release/ppi.nr0.htm). The answered value is the seasonally adjusted 1-month percent change reported for the index for \"final demand less foods, energy, and trade services\" — the figure stated in the release narrative, e.g. \"prices for final demand less foods, energy, and trade services moved up 0.5 percent in September.\" A reported decrease of 0.1 percent resolves as -0.1, and \"unchanged\" resolves as 0. The value as first published is used; later revisions do not change the resolution.",
+    "fine_print": "If the October 2026 release is delayed, the question resolves when the October 2026 figures are first published. If the October 2026 figures have not been published by February 28, 2027, or if the BLS skips the October 2026 release entirely, the question is annulled.",
+    "unit": "%",
+    "options": null,
+    "scaling": {
+      "range_min": -0.35,
+      "range_max": 1.05,
+      "nominal_min": -0.3,
+      "nominal_max": 0.9999999999999998,
+      "zero_point": null,
+      "open_upper_bound": true,
+      "open_lower_bound": true,
+      "inbound_outcome_count": 14,
+      "continuous_range": [
+        -0.35,
+        -0.25,
+        -0.15,
+        -0.04999999999999999,
+        0.04999999999999999,
+        0.1499999999999999,
+        0.25,
+        0.35,
+        0.44999999999999996,
+        0.5499999999999998,
+        0.6499999999999998,
+        0.7499999999999999,
+        0.85,
+        0.9499999999999998,
+        1.0499999999999998
+      ]
+    },
+    "open_lower_bound": true,
+    "open_upper_bound": true,
+    "inbound_outcome_count": 14,
+    "open_time": "2026-11-03T04:20:26Z",
+    "scheduled_close_time": "2026-11-03T07:20:26Z",
+    "scheduled_resolve_time": "2026-11-13T13:30:00Z",
+    "resolution": null
+  }
+}

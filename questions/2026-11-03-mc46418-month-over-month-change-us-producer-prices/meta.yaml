@@ -1,0 +1,62 @@
+slug: 2026-11-03-mc46418-month-over-month-change-us-producer-prices
+title: What will the month-over-month change in US producer prices excluding food, energy, and trade services
+  be for October 2026?
+source: metaculus
+url: https://www.metaculus.com/questions/46418/
+post_id: 46418
+question_id: 46651
+type: discrete
+unit: '%'
+tags: []
+dates:
+  created: '2026-11-03'
+  opened: '2026-11-03'
+  closes: '2026-11-03'
+  resolves: '2026-11-13'
+status: open
+tournament:
+  slug: minibench
+  mode: one_shot
+  registered: '2026-11-03'
+  opened: '2026-11-03T04:20:26Z'
+  closes: '2026-11-03T07:20:26Z'
+  submitted: '2026-11-03T05:12:34+00:00'
+  submitted_forecast:
+    continuous_cdf:
+    - 0.0015098691711159257
+    - 0.007493496157202054
+    - 0.017712106593628346
+    - 0.039442595586939085
+    - 0.08436874581894788
+    - 0.13968829161655572
+    - 0.2088600483825431
+    - 0.36584461394299683
+    - 0.6370908519342804
+    - 0.7952663533330201
+    - 0.8668199817755793
+    - 0.9121487529827148
+    - 0.9448030766266885
+    - 0.9714347287366514
+    - 0.9868201430942136
+  comment_posted: true
+  official_score: null
+  missed_window: false
+current:
+  version: 1
+  date: '2026-11-03'
+  median: 0.4
+  iqr:
+  - 0.3
+  - 0.5
+  community:
+    cp: null
+    pro: null
+    gold: null
+    n_forecasters: null
+    as_of: '2026-11-03'
+next_review: null
+tripwires: []
+resolution:
+  outcome: null
+  date: null
+  source: null
