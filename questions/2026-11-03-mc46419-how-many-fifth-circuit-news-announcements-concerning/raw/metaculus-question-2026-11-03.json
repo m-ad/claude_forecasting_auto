@@ -1,0 +1,46 @@
+{
+  "post_id": 46419,
+  "url": "https://www.metaculus.com/questions/46419/",
+  "post_title": "How many Fifth Circuit news announcements concerning the Judge Ada Brown misconduct proceeding will be dated November 1–12, 2026?",
+  "tournaments": [
+    "minibench"
+  ],
+  "options": null,
+  "question": {
+    "id": 46652,
+    "title": "How many Fifth Circuit news announcements concerning the Judge Ada Brown misconduct proceeding will be dated November 1–12, 2026?",
+    "type": "discrete",
+    "status": "open",
+    "description": "The Fifth Circuit is conducting a public, fast-moving judicial misconduct proceeding against U.S. District Judge Ada E. Brown of the Northern District of Texas (Dallas), a Trump appointee since 2019. Two complaints are at issue: No. 05-26-90177 (alleging hostile treatment of litigants and inappropriate remarks from the bench) and No. 05-26-90196 (identified by Fifth Circuit Chief Judge Jennifer Walker Elrod on October 1, 2026, alleging that Brown abandoned her duties and made improper public disclosures).\n\nTimeline. September 21: a special committee ordered Brown to undergo an independent psychiatric examination within 30 days. September 29: the Judicial Council of the Fifth Circuit ordered her pending cases temporarily reassigned and barred her from new assignments for three months or until further order; Northern District of Texas Chief Judge Reed O'Connor implemented that on October 5. October 16: Chief Judge Elrod appointed/reappointed the special committee (Elrod; Fifth Circuit Judge James Graves Jr.; Western District of Texas Chief Judge Alia Moses) and ordered Brown to appear in person on October 30 for an interview of up to three hours. October 17: Brown emailed the committee declining to participate, and separately sent sealed court papers to roughly 140 judges, lawyers and reporters (Bloomberg Law). October 19: the Council issued a public statement and, \"in the interest of transparency,\" attached the underlying orders. October 20: the special committee ordered Brown to answer three written questions by 5:00 p.m. on October 27 and warned that if she refused, \"the Committee must proceed with its obligation to file a report of its investigation, including findings and recommendations for action by the Fifth Circuit Judicial Council, without the benefit of Judge Brown's response.\" October 27: that deadline passed with no public indication that Brown answered. October 30: Brown did not appear; Chief Judge Elrod called the proceeding to order at 8:03 a.m., investigators waited about 30 minutes, and the court posted a \"Special Committee Order and Transcript in Complaint Nos. 05-26-90177 & 05-26-90196\" the same day.\n\nWhat happens next. Under 28 U.S.C. § 353(c) the special committee must file a report of its investigation, with findings and recommendations, with the Judicial Council, which under § 354(a) may censure or reprimand the judge, certify disability under § 372(b), request voluntary retirement, order other action, or refer the matter to the Judicial Conference. Section 360 makes the papers and records of such proceedings confidential, releasing the special committee's report at most to the complainant and the subject judge at the Council's discretion, while Rule 24 of the Rules for Judicial-Conduct and Judicial-Disability Proceedings addresses public availability of the chief judge's, Council's and Judicial Conference Committee's decisions. The Fifth Circuit also maintains a separate \"Judicial Conduct Matters\" page (https://www.ca5.uscourts.gov/judicial-conduct-governance/judicial-misconduct-matters/judicial-conduct-matters) listing orders only for complaints that have been closed, on which neither of Brown's complaint numbers yet appears, and it posts Brown-matter documents as News & Announcements items.\n\nPosting pattern and current baseline. Every significant Brown-matter document has so far been posted as a News & Announcements entry: the October 19, 2026 Statement of the Judicial Council; the October 20, 2026 Special Committee Order; and on October 30, 2026 the Special Committee Order and Transcript. For each of these items the date in the listing's date column and the date written into the entry's title have matched. As of October 30, 2026 the listing filtered to November 2026 contains zero entries, while the October 2026 listing (https://www.ca5.uscourts.gov/news?month=10&year=2026) contains three Brown-related entries among six total.\n\nWhy it matters for this question. The count of qualifying November 1–12 entries is a proxy for how quickly and how publicly the Fifth Circuit moves after Brown's defiance — in particular whether the special committee files (and the court posts) its report of investigation, whether the Council issues a public order, or whether further committee orders, notices or statements appear instead. Comparable proceedings against a defiant judge, such as those against Federal Circuit Judge Pauline Newman, took many months to produce a published Council order and were then challenged in court, so the pace here is genuinely uncertain.\n\n`{\"format\": \"llm_question\", \"info\": {\"sdk_version\": \"0.6.1\", \"rating\": {\"quality\": 3, \"ambiguity\": 3, \"resolvability\": 4, \"passes\": true}}}`",
+    "resolution_criteria": "This question resolves by counting the entries displayed in the Fifth Circuit's News & Announcements listing filtered to November 2026 (https://www.ca5.uscourts.gov/news?month=11&year=2026) as of 5:00 p.m. Central Time (23:00 UTC) on November 13, 2026. Count each entry whose listing date is between November 1 and November 12, 2026 (inclusive) and which concerns the judicial misconduct proceeding involving U.S. District Judge Ada E. Brown — that is, the entry's title or linked document(s) name Judge Ada Brown, or reference Complaint No. 05-26-90177, Complaint No. 05-26-90196, or the Fifth Circuit Judicial Council's proceedings against her — and the entry counts even if the substance of the underlying document remains confidential or undisclosed. Entries unrelated to that matter (for example CM/ECF maintenance notices, vacancy announcements, proposed rule amendments, or oral-argument notices) are not counted, and where the same document appears in more than one entry it is counted once. Inclusion is determined by the date shown in the listing's date column, not by a date written into an entry's title. The resolved value is that count: for example, if the listing shows one qualifying entry dated November 3, 2026 and another dated November 12, 2026, the question resolves as 2; if it shows no qualifying entries, it resolves as 0.",
+    "fine_print": "Entries whose listing date is November 13, 2026 or later are not counted, and an entry dated November 1–12, 2026 that is first displayed after the 5:00 p.m. Central Time snapshot on November 13, 2026 is not counted. If that listing or its month filter is unavailable, an archived copy of the listing or of the court's news pages (such as a Wayback Machine snapshot from November 13, 2026), or [credible sources](https://www.metaculus.com/faq/#definitions) reporting the same postings, will be used to establish what was displayed.",
+    "unit": "announcements",
+    "options": null,
+    "scaling": {
+      "range_min": -0.5,
+      "range_max": 5.5,
+      "nominal_min": 0,
+      "nominal_max": 5,
+      "zero_point": null,
+      "open_upper_bound": true,
+      "open_lower_bound": false,
+      "inbound_outcome_count": 6,
+      "continuous_range": [
+        -0.5,
+        0.5,
+        1.5,
+        2.5,
+        3.5,
+        4.5,
+        5.5
+      ]
+    },
+    "open_lower_bound": false,
+    "open_upper_bound": true,
+    "inbound_outcome_count": 6,
+    "open_time": "2026-11-03T06:49:05Z",
+    "scheduled_close_time": "2026-11-03T09:49:05Z",
+    "scheduled_resolve_time": "2026-11-13T23:00:00Z",
+    "resolution": null
+  }
+}

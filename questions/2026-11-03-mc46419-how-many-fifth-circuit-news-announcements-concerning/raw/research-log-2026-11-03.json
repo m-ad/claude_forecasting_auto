@@ -1,0 +1,23 @@
+{"searches": [
+ {"category": "resolution_source", "query": "ca5.uscourts.gov/news?month=11&year=2026 (fetch)", "by": "main", "status": "done", "finding": "No matching items as of 2026-11-03; 21 items for 2026"},
+ {"category": "resolution_source", "query": "ca5.uscourts.gov/news (fetch, latest 15)", "by": "main", "status": "done", "finding": "Brown entries Oct 19, 20, 30; none earlier"},
+ {"category": "resolution_source", "query": "ca5.uscourts.gov/news?month=10&year=2026 (fetch)", "by": "main", "status": "done", "finding": "6 entries, 3 Brown"},
+ {"category": "resolution_source", "query": "ca5.uscourts.gov/news?month=9&year=2026 (fetch)", "by": "scout-3", "status": "done", "finding": "4 entries, 0 Brown"},
+ {"category": "news", "query": "Judge Ada Brown Fifth Circuit misconduct", "by": "main", "status": "done", "finding": "latest items Oct 30; process ongoing"},
+ {"category": "news", "query": "Ada Brown special committee report Judicial Council Elrod after October 30 interview", "by": "main", "status": "done", "finding": "no report yet, no timeline"},
+ {"category": "news", "query": "Ada Brown judge Fifth Circuit news this week", "by": "main", "status": "done", "finding": "nothing dated November"},
+ {"category": "news", "query": "Judge Ada Brown November 2026", "by": "main", "status": "done", "finding": "nothing dated November"},
+ {"category": "news", "query": "Bloomberg Law Ada Brown skips interview Fifth Circuit committee", "by": "main", "status": "done", "finding": "committee may expand scope; report without her response"},
+ {"category": "news", "query": "Judge Ada Brown did not appear October 30 interview special committee transcript", "by": "scout-1", "status": "done", "finding": "Oct 30 order/transcript posted; contents unread"},
+ {"category": "news", "query": "Judge Ada Brown committee report Judicial Council recommends after no-show", "by": "scout-1", "status": "done", "finding": "nothing after Oct 31"},
+ {"category": "markets", "query": "Polymarket OR Kalshi OR Manifold Ada Brown judge removed OR impeached OR censure", "by": "main", "status": "done", "finding": "none found"},
+ {"category": "base_rate", "query": "Pauline Newman special committee report Judicial Council order timeline", "by": "main", "status": "done", "finding": "report to Council order 32-51 days"},
+ {"category": "base_rate", "query": "Judge Mark Fuller / Walter Smith / Kozinski Judicial Council timelines", "by": "scout-2", "status": "done", "finding": "Smith ~13 months total; Kozinski not analogous"},
+ {"category": "schedule", "query": "Fifth Circuit Judicial Council meeting schedule 2026 dates posted", "by": "scout-2", "status": "done", "finding": "no public meeting dates"},
+ {"category": "schedule", "query": "Fifth Circuit special committee Brown report findings timeline Elrod Graves Moses", "by": "main", "status": "done", "finding": "statute says expeditiously; no date"},
+ {"category": "disconfirmation", "query": "Fifth Circuit Judicial Council Brown order November 2026 reprimand OR suspend OR disability", "by": "main", "status": "done", "finding": "nothing; no sign of imminent Council action", "tests": "that the court will post at least one new Brown item in Nov 1-12 (quiet period is the main alternative)"},
+ {"category": "disconfirmation", "query": "Brown lawsuit petition Judicial Conference; cases for zero items (sec 360 confidentiality, Sept orders unposted)", "by": "scout-3", "status": "done", "finding": "Sept orders were not posted; posting tied to Brown's disclosures; zero plausible", "tests": "that the court will post at least one new Brown item in Nov 1-12 (quiet period is the main alternative)"}
+],
+ "adjustments": [
+  {"event": "Brown's Oct 30 non-appearance triggers committee report/possible scope-expansion order", "date": "2026-10-30", "effect": "+0.5 on the expected count vs. status-quo quiet", "sources": [3, 4]}
+ ]}

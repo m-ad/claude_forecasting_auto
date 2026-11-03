@@ -1,0 +1,54 @@
+slug: 2026-11-03-mc46419-how-many-fifth-circuit-news-announcements-concerning
+title: How many Fifth Circuit news announcements concerning the Judge Ada Brown misconduct proceeding
+  will be dated November 1–12, 2026?
+source: metaculus
+url: https://www.metaculus.com/questions/46419/
+post_id: 46419
+question_id: 46652
+type: discrete
+unit: announcements
+tags: []
+dates:
+  created: '2026-11-03'
+  opened: '2026-11-03'
+  closes: '2026-11-03'
+  resolves: '2026-11-13'
+status: open
+tournament:
+  slug: minibench
+  mode: one_shot
+  registered: '2026-11-03'
+  opened: '2026-11-03T06:49:05Z'
+  closes: '2026-11-03T09:49:05Z'
+  submitted: '2026-11-03T07:12:26+00:00'
+  submitted_forecast:
+    continuous_cdf:
+    - 0.0
+    - 0.362059872561378
+    - 0.6162429087459135
+    - 0.821237410180196
+    - 0.9144397871820861
+    - 0.9623157028479584
+    - 0.9888434919925785
+  comment_posted: true
+  official_score: null
+  missed_window: false
+current:
+  version: 1
+  date: '2026-11-03'
+  median: 1.0
+  iqr:
+  - 0.0
+  - 2.0
+  community:
+    cp: null
+    pro: null
+    gold: null
+    n_forecasters: null
+    as_of: '2026-11-03'
+next_review: null
+tripwires: []
+resolution:
+  outcome: null
+  date: null
+  source: null
