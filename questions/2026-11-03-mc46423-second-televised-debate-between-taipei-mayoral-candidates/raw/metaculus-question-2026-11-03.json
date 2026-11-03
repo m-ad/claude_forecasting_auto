@@ -1,0 +1,38 @@
+{
+  "post_id": 46423,
+  "url": "https://www.metaculus.com/questions/46423/",
+  "post_title": "Will a second televised debate between Taipei mayoral candidates Chiang Wan-an and Puma Shen be scheduled by November 13, 2026?",
+  "tournaments": [
+    "minibench"
+  ],
+  "options": null,
+  "question": {
+    "id": 46656,
+    "title": "Will a second televised debate between Taipei mayoral candidates Chiang Wan-an and Puma Shen be scheduled by November 13, 2026?",
+    "type": "binary",
+    "status": "open",
+    "description": "Taiwan's local elections (\"nine-in-one\" elections) are held on November 28, 2026. In the Taipei mayoral race, incumbent KMT Mayor Chiang Wan-an is seeking re-election against DPP Legislator Puma Shen (沈伯洋); six candidates in total were registered and cleared by the Central Election Commission (CEC) on October 16, 2026, but only Chiang and Shen are the major-party candidates.\n\nThe two camps fought for weeks over televised debates. Shen says he has signed five debate consent forms since August 2026 and is available to debate at any time; he proposed October 24, October 31 and November 7 as dates. Chiang initially said that by custom there is one televised debate plus two publicly run policy presentations (公辦政見發表會), and on October 12 his campaign said he \"does not have the time\" for a second debate. TVBS and SET TV then announced on October 11 that they would jointly host a debate; a first negotiation on October 12 agreed on cross-examination but not on dates, and a second negotiation on October 15 fixed the first debate for October 31, 2026, 12:00–14:00 at the TVBS studio.\n\nSince then the positions have softened but nothing has been fixed. On October 13, asked whether a second or third debate was possible, Chiang replied \"yes\" (對) and said that once the first one was done \"we can look at the schedule and discuss arranging a second\"; on October 15 he said he was \"awaiting the invitation and follow-up coordination,\" and his campaign said it had already accepted the invitation from the joint media group and was waiting for that group to convene coordination talks. On October 19, ten media outlets (including CTV, TTV, FTV, Liberty Times, CTS, Mirror TV, ETtoday, EBC and Era News) issued a joint statement inviting both candidates to a second debate, after similar joint invitations from six outlets on October 12 and eight on October 16. Shen's campaign has publicly complained that it could not obtain a commitment for any further debate. As of October 30, 2026 — the day before the first debate — no date has been announced for a second one.\n\nRelevant election calendar: the CEC publishes the official list of metropolitan mayoral candidates on November 12, 2026; the official campaign period and CEC-run public policy presentations for metropolitan mayors run November 13–27; the polling blackout period (民調禁制期) begins November 18; election day is November 28. By comparison, the Kaohsiung mayoral televised debate between Ko Chih-en (KMT) and Lai Jui-lung (DPP) was held on October 30, 2026, showing that such debates are typically held in the final weeks before the vote.\n\nThe question therefore asks whether the second Chiang–Shen debate gets a confirmed date in the next two weeks of a campaign in which both sides say they are open to it but scheduling has repeatedly slipped. Reporters following the race should check CNA's continuously updated 2026 election topic page (https://www.cna.com.tw/topic/newstopic/5100.aspx) for announcements.\n\n`{\"format\": \"llm_question\", \"info\": {\"sdk_version\": \"0.6.1\", \"rating\": {\"quality\": 3, \"ambiguity\": 3, \"resolvability\": 4, \"passes\": true}}}`",
+    "resolution_criteria": "This question resolves YES if, by 23:59 Taipei time (UTC+8) on November 13, 2026, a specific calendar date has been publicly announced for a second televised debate between Taipei mayoral candidates Chiang Wan-an (蔣萬安) and Puma Shen (沈伯洋), as reported on [CNA's 2026 election topic page](https://www.cna.com.tw/topic/newstopic/5100.aspx) or by [credible sources](https://www.metaculus.com/faq/#definitions). \"Second televised debate\" means any debate other than the October 31, 2026 TVBS/SET event: an event produced by a media outlet and broadcast on a television channel or that outlet's live online stream, in which both candidates appear together in a debate format — taking questions from each other and/or from journalists, as in the October 31 event — rather than separate solo appearances such as a 政見發表會 (policy presentation). A date counts as announced only if it is reported as agreed by both campaigns, or as confirmed by the hosting outlet(s)/organizer with both candidates participating; a date proposed or accepted by only one campaign does not count, and an announced date still counts even if the debate is later postponed or cancelled. If no such date has been announced by the deadline, this question resolves NO.",
+    "fine_print": "Any host qualifies — a single broadcaster, a consortium of media outlets, or another organizer — provided both campaigns are confirmed participants. If several additional debates are announced by the deadline, the announcement of any one of them suffices.",
+    "unit": "",
+    "options": null,
+    "scaling": {
+      "range_min": null,
+      "range_max": null,
+      "nominal_min": null,
+      "nominal_max": null,
+      "zero_point": null,
+      "open_upper_bound": false,
+      "open_lower_bound": false,
+      "inbound_outcome_count": null,
+      "continuous_range": null
+    },
+    "open_lower_bound": false,
+    "open_upper_bound": false,
+    "inbound_outcome_count": null,
+    "open_time": "2026-11-03T13:17:35Z",
+    "scheduled_close_time": "2026-11-03T16:17:35Z",
+    "scheduled_resolve_time": "2026-11-13T16:00:00Z",
+    "resolution": null
+  }
+}
