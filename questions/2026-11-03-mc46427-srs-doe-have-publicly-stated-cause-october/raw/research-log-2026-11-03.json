@@ -1,0 +1,28 @@
+{"searches": [
+  {"category": "resolution_source", "query": "fetch public.srs.gov/category/news-releases/", "by": "main", "status": "done", "finding": "Releases after Oct 28: #1-#3 on Oct 28 (no cause), Nov 2 NNSA field office manager, Nov 2 public tours; no cause statement (2026-11-03)"},
+  {"category": "resolution_source", "query": "Savannah River National Laboratory fire cause", "by": "main", "status": "done", "finding": "Cause not determined/disclosed per all coverage through Oct 29-30"},
+  {"category": "news", "query": "SRNL fire investigation November 2026", "by": "main", "status": "done", "finding": "Nothing dated November; WRDW Oct 29 lists cause as open question"},
+  {"category": "news", "query": "fetch WRDW 'What we know about the emergency at Savannah River Site'", "by": "main", "status": "done", "finding": "DOE/SRS have not released room, materials, how fire began; investigations take weeks or months"},
+  {"category": "news", "query": "Savannah River Site lab fire update November 2", "by": "main", "status": "done", "finding": "No Nov updates found"},
+  {"category": "news", "query": "\"Savannah River\" fire \"cause\" spokesperson SRNS October 2026", "by": "main", "status": "done", "finding": "SRS did not say what caused the fire; DOE spokesperson only on injuries/contamination"},
+  {"category": "news", "query": "Aiken Standard SRNL fire employee injured", "by": "main", "status": "done", "finding": "One minor injury; officials have not said what caused fire"},
+  {"category": "news", "query": "Post and Courier Savannah River lab fire investigation DOE", "by": "main", "status": "done", "finding": "DOE-EM's Monte Volk told P&C Oct 29 an investigation into cause is underway"},
+  {"category": "news", "query": "exchangemonitor Savannah River National Laboratory fire", "by": "main", "status": "done", "finding": "No ExchangeMonitor article on cause"},
+  {"category": "markets", "query": "Polymarket Kalshi Savannah River Site fire", "by": "main", "status": "done", "finding": "No market found"},
+  {"category": "upcoming_events", "query": "SRS Citizens Advisory Board November 17 2026 meeting", "by": "main", "status": "done", "finding": "CAB full board Nov 17 - after the Nov 13 deadline"},
+  {"category": "news", "query": "Savannah River Site emergency fire WRDW", "by": "scout-1", "status": "done", "finding": "WRDW Oct 28/29: cause unknown"},
+  {"category": "news", "query": "SRS fire radiological release retraction", "by": "scout-1", "status": "done", "finding": "Release claim walked back Oct 29; no cause"},
+  {"category": "news", "query": "Savannah River fire employee injured cause", "by": "scout-1", "status": "done", "finding": "Cause not disclosed"},
+  {"category": "news", "query": "Aiken Standard SRNL fire", "by": "scout-1", "status": "done", "finding": "No Aiken Standard article surfaced"},
+  {"category": "base_rate", "query": "national laboratory fire preliminary cause statement DOE site fire cause announced", "by": "scout-2", "status": "done", "finding": "LANL PF-4 glovebox fire Jun 15 2026: no public cause by Jul 9 (24 days)"},
+  {"category": "base_rate", "query": "Savannah River Site fire cause previous incidents SRNS statement cause of fire", "by": "scout-2", "status": "done", "finding": "Past SRS fires: DNFSB weekly reports often 'cause under investigation'"},
+  {"category": "base_rate", "query": "Hanford OR INL OR Los Alamos fire cause under investigation DOE", "by": "scout-2", "status": "done", "finding": "Minor fires sometimes get quick cause via DNFSB report (Hanford candle 2023); significant events not within 2-4 weeks"},
+  {"category": "disconfirmation", "query": "SRNL fire caused by Savannah River National Laboratory", "by": "scout-3", "status": "done", "finding": "No cause named", "tests": "assumption that SRS/DOE will not name a cause within ~2 weeks of the fire"},
+  {"category": "disconfirmation", "query": "SRS spokesperson fire started Savannah River National Laboratory October 28", "by": "scout-3", "status": "done", "finding": "Only investigation-underway statements", "tests": "assumption that SRS/DOE will not name a cause within ~2 weeks of the fire"},
+  {"category": "disconfirmation", "query": "DNFSB Savannah River National Laboratory fire", "by": "scout-3", "status": "done", "finding": "No 2026 weekly report on this fire found yet", "tests": "assumption that no official channel will attribute a cause by Nov 13"},
+  {"category": "other", "query": "SRS Watch SRNL fire", "by": "scout-3", "status": "done", "finding": "Clements calls for review; no cause"}
+],
+ "adjustments": [
+  {"event": "Six days after fire, SRS/DOE have said only 'investigation underway', no cause; site releases since then are unrelated", "date": "2026-11-03", "effect": "-5 pp", "sources": [1, 2, 3]},
+  {"event": "Public controversy over retracted radiological-release notice raises pressure for disclosure", "date": "2026-10-29", "effect": "+3 pp", "sources": [2, 5]}
+]}

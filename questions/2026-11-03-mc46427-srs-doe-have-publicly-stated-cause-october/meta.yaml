@@ -1,0 +1,47 @@
+slug: 2026-11-03-mc46427-srs-doe-have-publicly-stated-cause-october
+title: Will SRS or DOE have publicly stated a cause for the October 28, 2026 Savannah River National Laboratory
+  fire by November 13, 2026?
+source: metaculus
+url: https://www.metaculus.com/questions/46427/
+post_id: 46427
+question_id: 46660
+type: binary
+unit: null
+tags: []
+dates:
+  created: '2026-11-03'
+  opened: '2026-11-03'
+  closes: '2026-11-04'
+  resolves: '2026-11-14'
+status: open
+tournament:
+  slug: minibench
+  mode: one_shot
+  registered: '2026-11-03'
+  opened: '2026-11-03T22:41:51Z'
+  closes: '2026-11-04T01:41:51Z'
+  submitted: '2026-11-03T23:11:47+00:00'
+  submitted_forecast:
+    probability_yes: 0.12
+  comment_posted: true
+  official_score: null
+  missed_window: false
+current:
+  version: 1
+  date: '2026-11-03'
+  median: 0.12
+  iqr:
+  - 0.08
+  - 0.18
+  community:
+    cp: null
+    pro: null
+    gold: null
+    n_forecasters: null
+    as_of: '2026-11-03'
+next_review: null
+tripwires: []
+resolution:
+  outcome: null
+  date: null
+  source: null

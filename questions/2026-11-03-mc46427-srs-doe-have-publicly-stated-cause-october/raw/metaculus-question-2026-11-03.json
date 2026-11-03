@@ -1,0 +1,38 @@
+{
+  "post_id": 46427,
+  "url": "https://www.metaculus.com/questions/46427/",
+  "post_title": "Will SRS or DOE have publicly stated a cause for the October 28, 2026 Savannah River National Laboratory fire by November 13, 2026?",
+  "tournaments": [
+    "minibench"
+  ],
+  "options": null,
+  "question": {
+    "id": 46660,
+    "title": "Will SRS or DOE have publicly stated a cause for the October 28, 2026 Savannah River National Laboratory fire by November 13, 2026?",
+    "type": "binary",
+    "status": "open",
+    "description": "The Savannah River Site (SRS) is a 310-square-mile U.S. Department of Energy nuclear facility near Aiken, South Carolina, created in the 1950s to produce plutonium and tritium for nuclear weapons and now the focus of large-scale environmental cleanup; Savannah River National Laboratory (SRNL) is DOE's national laboratory located on the site.\n\nOn the evening of Wednesday, October 28, 2026, SRS declared a Site Area Emergency — one of the more serious classes in DOE's emergency classification scheme — after a fire was reported in a single room at SRNL (SRS news releases cite declaration times of 5:07 p.m. and 5:39 p.m. ET). The fire was extinguished; one employee was injured and taken to a hospital; air, rail and river traffic were briefly restricted; and radiological surveys \"indicated no detectable levels of contamination\" outside the affected room. The emergency was terminated at 9:45 p.m. ET, protective actions were lifted, barricades reopened, and normal shifts ran on October 29.\n\nThe incident generated a separate controversy. Emergency dispatch traffic and local outlet WRDW reported, citing SRS, that the single-room fire had caused an \"unfiltered ground-level radiological release\"; the South Carolina Emergency Management Division said SRS gave it the same account on October 28. On October 29 SRS said there was no radiological release, and WRDW reported it was asking the site what changed and what monitoring data supported the revised conclusion. SRS Watch, an advocacy group, has highlighted prior Defense Nuclear Facilities Safety Board (DNFSB) findings about fire-suppression problems at SRS.\n\nAs of October 30, 2026, SRS and DOE have not publicly said what caused the fire, which room or building within SRNL was involved, or what material was present; the site's three news releases on the event contain none of these details, and a DOE spokesperson told reporters only that no radiological contamination had been reported. Local reporting notes that investigations into cause, equipment performance and procedural compliance at DOE sites typically take weeks or months, and that DNFSB may independently review the incident. The nearest scheduled public forum is the Environmental Management Site-Specific Advisory Board (SRS Citizens Advisory Board) meeting on November 17, 2026 in Aiken, which is livestreamed. Because cause determinations at DOE sites often surface through a site news release or an on-the-record comment to local reporters rather than a formal report, both channels are relevant to this question.\n\n`{\"format\": \"llm_question\", \"info\": {\"sdk_version\": \"0.6.1\", \"rating\": {\"quality\": 3, \"ambiguity\": 3, \"resolvability\": 4, \"passes\": true}}}`",
+    "resolution_criteria": "This question resolves Yes if, at any time from October 28, 2026 through November 13, 2026, Savannah River Site (SRS), the U.S. Department of Energy (DOE), Savannah River National Laboratory (SRNL), or an on-the-record representative of any of them publicly identified a cause of the October 28, 2026 fire at SRNL — that is, named the mechanism or condition that started the fire (for example an electrical fault, battery failure, equipment malfunction, chemical reaction, hot work, or arson) as its cause, probable cause, suspected cause, or preliminary finding. The statement may appear in an SRS news release listed at https://public.srs.gov/category/news-releases/ (or in the SRS notification banner at https://public.srs.gov/), on a DOE or SRNL website, or be attributed to one of those entities in reporting by [credible sources](https://www.metaculus.com/faq/#definitions). Statements that the cause is still under investigation, unknown, or undetermined — and statements that only describe when, or in which room of the laboratory, the fire began — do not resolve Yes. If no qualifying statement has appeared by 11:59 p.m. US Eastern Time on November 13, 2026, the question resolves No.",
+    "fine_print": "Statements by Savannah River Nuclear Solutions (SRNS, the SRS management contractor) or by SRNL's operating contractor count as statements by SRS. Unattributed leaks, reporting based solely on unnamed sources, and statements by advocacy groups (such as SRS Watch) or by individual SRS/DOE employees speaking in a personal capacity do not count.",
+    "unit": "",
+    "options": null,
+    "scaling": {
+      "range_min": null,
+      "range_max": null,
+      "nominal_min": null,
+      "nominal_max": null,
+      "zero_point": null,
+      "open_upper_bound": false,
+      "open_lower_bound": false,
+      "inbound_outcome_count": null,
+      "continuous_range": null
+    },
+    "open_lower_bound": false,
+    "open_upper_bound": false,
+    "inbound_outcome_count": null,
+    "open_time": "2026-11-03T22:41:51Z",
+    "scheduled_close_time": "2026-11-04T01:41:51Z",
+    "scheduled_resolve_time": "2026-11-14T04:59:00Z",
+    "resolution": null
+  }
+}
