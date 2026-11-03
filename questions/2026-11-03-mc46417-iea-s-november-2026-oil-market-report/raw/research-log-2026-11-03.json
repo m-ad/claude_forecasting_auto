@@ -1,0 +1,23 @@
+{"searches": [
+{"category":"resolution_source","query":"IEA Oil Market Report October 2026 demand contraction 2.6 mb/d Hormuz","by":"main","status":"done","finding":"Oct OMR (14 Oct): 2026 demand -2.6 mb/d to 102.4; Sept -2.5; 4Q26 -2.5 y/y; iea.org 403"},
+{"category":"resolution_source","query":"IEA cuts oil demand forecast 2.6 million barrels October 14","by":"main","status":"done","finding":"Engine Online/OilMonster confirm -2.6, +100 kb/d weaker than Sept; 2027 +2.0"},
+{"category":"resolution_source","query":"IEA oil market report September 2026 demand revision","by":"main","status":"done","finding":"Sept -2.5 vs Aug -1.6"},
+{"category":"resolution_source","query":"WebFetch oilmonster Oct OMR summary","by":"main","status":"done","finding":"assumes hostilities gradually ease; diesel 25% of decline"},
+{"category":"news","query":"oil prices Brent Iran talks Hormuz late October 2026","by":"main","status":"done","finding":"Brent $113.88 on Oct 27; Houthi attack Ras Tanura"},
+{"category":"news","query":"Brent crude settles Friday October 30 2026","by":"main","status":"done","finding":"no settle found; Oct 12 $103.5"},
+{"category":"news","query":"IEA Birol late October Hormuz still closed","by":"main","status":"done","finding":"nothing after Oct 14"},
+{"category":"markets","query":"Polymarket Hormuz reopen December 2026","by":"main","status":"done","finding":"nothing recent; scout: Polymarket 6% normal by Nov 30, Kalshi 5% by Dec 1"},
+{"category":"consensus","query":"OPEC MOMR October 2026 demand 2026","by":"main","status":"done","finding":"OPEC +0.2 mb/d (105.7)"},
+{"category":"consensus","query":"EIA STEO October 2026 world consumption","by":"main","status":"done","finding":"EIA ~-2.0 per question text; no snippet"},
+{"category":"consensus","query":"Goldman JPMorgan oil demand 2026 Oct","by":"main","status":"done","finding":"nothing Oct-dated"},
+{"category":"base_rate","query":"IEA OMR revision history Jun-Oct 2026 (scout-3)","by":"scout-3","status":"done","finding":"-1.1,-1.0,-1.6,-2.5,-2.6; step shrank to 0.1"},
+{"category":"base_rate","query":"oil demand destruction Asia October 2026 consumption data","by":"main","status":"done","finding":"no October data; India Sept petrol +7%, diesel +5%"},
+{"category":"news","query":"scout-1: Hormuz news last 14 days, Brent Nov 2","by":"scout-1","status":"done","finding":"Hormuz effectively closed; Iran offers reopening in 2 days if conditions met; Brent 104.77 settle Nov 2"},
+{"category":"markets","query":"scout-1: Kalshi/Polymarket Hormuz and Brent","by":"scout-1","status":"done","finding":"5-8% normalisation by Dec/Jan"},
+{"category":"disconfirmation","query":"scout-4: case for above -2.1 / below -3.3; reopening, ceasefire talks, baseline revisions","by":"scout-4","status":"done","finding":"Nov 2 talks, Brent -7.6%; a deal would mostly affect 2027; October cut only 0.1","tests":"the assumption that the revision will be small (-2.6 to -2.8) rather than a large move either way"},
+{"category":"schedule","query":"IEA OMR 13 November 2026 date","by":"main","status":"done","finding":"13 Nov per question"},
+{"category":"upcoming_events","query":"US-Iran Qatar-mediated talks Hormuz Nov 2026 (scout-4)","by":"scout-4","status":"done","finding":"talks ongoing, false dawns before"}
+],
+"adjustments": [
+{"event":"October-OMR revision pace slowed to -0.1 mb/d with 4Q unchanged, while Hormuz re-closed and Brent averaged high-$100s-$115 late Oct (net small drift down)","date":"2026-10-14","effect":"median -0.1 mb/d vs -2.6","sources":[1,2,3]}
+]}
