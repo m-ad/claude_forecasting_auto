@@ -1,0 +1,38 @@
+{
+  "post_id": 46415,
+  "url": "https://www.metaculus.com/questions/46415/",
+  "post_title": "Will Levent Alpöge and Ethan Sussman publicly post a manuscript proving four-dimensional Yang–Mills existence by November 13, 2026?",
+  "tournaments": [
+    "minibench"
+  ],
+  "options": null,
+  "question": {
+    "id": 46648,
+    "title": "Will Levent Alpöge and Ethan Sussman publicly post a manuscript proving four-dimensional Yang–Mills existence by November 13, 2026?",
+    "type": "binary",
+    "status": "open",
+    "description": "The Yang–Mills existence and mass gap problem is one of the seven Clay Millennium Prize Problems, worth $1 million (https://www.claymath.org/millennium/yang-mills-the-maths-gap/). It has two parts: a rigorous construction of four-dimensional quantum Yang–Mills theory, and a proof that the theory has a strictly positive mass gap. Only the first part is at issue here.\n\nOn 26 October 2026, OpenAI announced that its internal models had produced three results, including a rigorous existence proof for four-dimensional QCD/quantum gauge theories that, as a subproblem, covers pure Yang–Mills theory (https://openai.com/index/building-scientific-understanding-with-academic-communities). OpenAI said the natural-language Yang–Mills existence proof was produced on September 9, 2026, and its Lean formalization completed on October 16; the physics write-up is being prepared with an external group led by David Gross and had not been released as of October 30. OpenAI explicitly claims only the existence part, not the mass gap.\n\nSeparately, Anthropic's Levent Alpöge and Northwestern's Ethan Sussman have been pursuing the same target by a different route: completing and clarifying Balaban's renormalization-group program. On 6 October 2026 they made public a GitHub working repository, github.com/ethanwsussman/Yang--Mills-LLM-experiment, documenting an attempt to get Claude to push that program through. It contains write-ups for QED3 and YM3, a 153-page \"zeroth draft\" dated 6 October 2026 titled \"SU(2) Yang–Mills theory in four dimensions via Bałaban's renormalisation group: construction, axioms and non-triviality\", and large raw LaTeX files. A README note signed \"LA\" (16 October) says they appear to have a Yang–Mills-on-R^4 existence argument, but that it \"is extremely long and basically not understandable as is\"; the repository is labelled \"under construction\" and its disclaimer says the LLM-written content has not been satisfactorily vetted. It is a working repository, not a preprint posting.\n\nAfter OpenAI's announcement, Alpöge publicly argued that Sussman had been writing up four-dimensional Yang–Mills existence via Balaban's approach openly for some time. Scientific American (27 October 2026) reported that the duo had disclosed their progress in the weeks before OpenAI's announcement, and that Sussman expects, based on the \"slop\" they have, that the key ideas are the same (https://www.scientificamerican.com/article/openai-just-scooped-human-researchers-on-a-million-dollar-quantum-math-problem/). Anthropic has shown it can post formalized artifacts quickly: its ETH paper and Lean proof appeared on 27 October in its public formal-math repository.\n\nAs of 30 October 2026, no paper-style posting of the Alpöge–Sussman four-dimensional Yang–Mills existence proof exists: Sussman's arXiv author listing shows nothing newer than August 2026, Alpöge's shows nothing newer than September 2026 (and nothing on gauge theory), and Sussman's website lists no such preprint. The open question is whether, after being scooped by OpenAI and with priority at stake, the pair will rush a readable manuscript into public view within about two weeks or keep iterating privately on the unreadable draft.\n\n`{\"format\": \"llm_question\", \"info\": {\"sdk_version\": \"0.6.1\", \"rating\": {\"quality\": 3, \"ambiguity\": 3, \"resolvability\": 4, \"passes\": true}}}`",
+    "resolution_criteria": "This question resolves YES if, by November 13, 2026, 23:59 UTC, a manuscript authored by Levent Alpöge (Anthropic) and Ethan Sussman (Northwestern University) that asserts a proof of the existence of four-dimensional pure Yang–Mills theory is publicly accessible as either (i) an arXiv preprint, in any category, listing both as authors (other co-authors permitted), or (ii) a standalone paper-style document on a personal or institutional web page of either author (for example https://ethanwsussman.github.io/, a northwestern.edu page, or an anthropic.com page) with a title, an author list naming both, and an abstract or introduction stating such a theorem. It resolves NO if no such manuscript is publicly accessible by that deadline. Files in code repositories, READMEs, notes, talk slides, social-media posts and news reports do not qualify. Resolution is checked against the arXiv author listings for Alpöge (https://arxiv.org/search/?searchtype=author&query=Alpoge) and Sussman (https://arxiv.org/search/?searchtype=author&query=Sussman%2C+E) and Sussman's website (https://ethanwsussman.github.io/); if those are unavailable or inconclusive, [credible sources](https://www.metaculus.com/faq/#definitions) apply.",
+    "fine_print": "A construction of four-dimensional pure Yang–Mills theory for SU(2) alone suffices; a document that only treats lower-dimensional or finite-volume settings, or only the mass gap, does not qualify. Whether the document labels itself a draft or preprint, or states that its content is unvetted or LLM-assisted, does not affect resolution. \"Publicly accessible\" means viewable without registration, payment, or an invitation. The relevant date is when the manuscript first became publicly viewable (the arXiv submission date shown on the abstract page, or the posting date on the web page), not a later revision or a subsequent public announcement about the work.",
+    "unit": "",
+    "options": null,
+    "scaling": {
+      "range_min": null,
+      "range_max": null,
+      "nominal_min": null,
+      "nominal_max": null,
+      "zero_point": null,
+      "open_upper_bound": false,
+      "open_lower_bound": false,
+      "inbound_outcome_count": null,
+      "continuous_range": null
+    },
+    "open_lower_bound": false,
+    "open_upper_bound": false,
+    "inbound_outcome_count": null,
+    "open_time": "2026-11-03T02:43:41Z",
+    "scheduled_close_time": "2026-11-03T05:43:41Z",
+    "scheduled_resolve_time": "2026-11-13T23:59:00Z",
+    "resolution": null
+  }
+}

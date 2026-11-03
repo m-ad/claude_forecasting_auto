@@ -1,0 +1,47 @@
+slug: 2026-11-03-mc46415-levent-alp-ge-ethan-sussman-publicly-post
+title: Will Levent Alpöge and Ethan Sussman publicly post a manuscript proving four-dimensional Yang–Mills
+  existence by November 13, 2026?
+source: metaculus
+url: https://www.metaculus.com/questions/46415/
+post_id: 46415
+question_id: 46648
+type: binary
+unit: null
+tags: []
+dates:
+  created: '2026-11-03'
+  opened: '2026-11-03'
+  closes: '2026-11-03'
+  resolves: '2026-11-13'
+status: open
+tournament:
+  slug: minibench
+  mode: one_shot
+  registered: '2026-11-03'
+  opened: '2026-11-03T02:43:41Z'
+  closes: '2026-11-03T05:43:41Z'
+  submitted: '2026-11-03T03:12:01+00:00'
+  submitted_forecast:
+    probability_yes: 0.05
+  comment_posted: true
+  official_score: null
+  missed_window: false
+current:
+  version: 1
+  date: '2026-11-03'
+  median: 0.05
+  iqr:
+  - 0.03
+  - 0.09
+  community:
+    cp: null
+    pro: null
+    gold: null
+    n_forecasters: null
+    as_of: '2026-11-03'
+next_review: null
+tripwires: []
+resolution:
+  outcome: null
+  date: null
+  source: null

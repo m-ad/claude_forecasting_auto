@@ -1,0 +1,22 @@
+{"searches": [
+ {"category": "resolution_source", "query": "Alpöge Sussman Yang-Mills arXiv manuscript", "by": "main", "status": "done", "finding": "No arXiv listing for the pair; nothing found on 2026-11-03"},
+ {"category": "resolution_source", "query": "WebFetch ethanwsussman.github.io", "by": "main", "status": "done", "finding": "16 papers listed, none on Yang-Mills; only a link to the GitHub repo; works in progress 'to be updated as projects near completion'"},
+ {"category": "resolution_source", "query": "WebFetch github ethanwsussman/Yang--Mills-LLM-experiment README", "by": "main", "status": "done", "finding": "README: 'not incentivize rushing out 10,000-page slop'; 'proceed at a human pace'; 'will continue working' after OpenAI; no arXiv plan"},
+ {"category": "resolution_source", "query": "repo commits page (Nov 2 commits are YM3/QED3/QCD3)", "by": "scout-1", "status": "done", "finding": "85 commits; last 2 Nov 2026, all 3D/QED work, no finished YM4 paper"},
+ {"category": "news", "query": "Scientific American OpenAI scooped human researchers (fetch)", "by": "main", "status": "done", "finding": "Sussman: 'maybe even as close as a few weeks away'; no paper timeline; continuing in the open"},
+ {"category": "news", "query": "Alpöge Sussman Yang-Mills 'human pace' OR 'slop' Balaban Claude repository", "by": "main", "status": "done", "finding": "nothing new"},
+ {"category": "news", "query": "OpenAI Yang-Mills proof Gross write-up Sussman Alpöge Anthropic response", "by": "main", "status": "done", "finding": "OpenAI material withheld as of Oct 30; Gross group writing up; no Anthropic statement"},
+ {"category": "news", "query": "Sussman Alpöge Yang-Mills arXiv OR preprint November 2026", "by": "scout-1", "status": "done", "finding": "no news Oct 31-Nov 3 of a new paper-style posting"},
+ {"category": "news", "query": "Alpöge X Sussman Yang-Mills arXiv preprint Anthropic Balaban three-dimensional existence", "by": "main", "status": "done", "finding": "SciAm Dueling proofs 27 Oct: no arXiv plan mentioned"},
+ {"category": "markets", "query": "Polymarket OR Manifold OR Kalshi Yang-Mills Millennium Prize AI proof 2026", "by": "main", "status": "done", "finding": "no market on this event; Manifold OpenAI second Millennium claim by Nov 30 at 16%"},
+ {"category": "markets", "query": "Kalshi OR Manifold market Yang-Mills Alpöge OR Anthropic paper November 2026", "by": "scout-2", "status": "done", "finding": "none found"},
+ {"category": "base_rate", "query": "arXiv moderation delay math-ph hold submissions", "by": "scout-3", "status": "done", "finding": "holds usually 24-48h; weird LLM claims may be held longer"},
+ {"category": "base_rate", "query": "Anthropic Claude math result arXiv paper posted days after announcement 2026", "by": "scout-3", "status": "done", "finding": "short clean results posted fast; no precedent of rushing a long unvetted constructive QFT manuscript"},
+ {"category": "disconfirmation", "query": "Sussman Alpöge plan to post arXiv Yang-Mills soon / 'coming soon' / statements of intent", "by": "scout-2", "status": "done", "finding": "no statement of intent or date found anywhere", "tests": "status quo: they keep iterating privately/in the repo and do not post a paper-style manuscript within 10 days"},
+ {"category": "disconfirmation", "query": "Sussman Levent Alpöge tweet arXiv soon paper writeup human-readable", "by": "main", "status": "done", "finding": "nothing relevant", "tests": "status quo: they keep iterating privately/in the repo and do not post a paper-style manuscript within 10 days"},
+ {"category": "schedule", "query": "Sussman site 'Manuscripts (works in progress) to be updated as projects near completion'", "by": "scout-1", "status": "done", "finding": "no schedule"},
+ {"category": "consensus", "query": "expert reactions OpenAI Yang-Mills claim Bauerschmidt Douglas Buckmaster", "by": "scout-2", "status": "done", "finding": "Balaban papers incomplete/hard to read; verification unresolved"}
+],
+ "adjustments": [
+  {"event": "README says no rushing, human pace, 4D draft not understandable; recent commits are 3D/QED; no arXiv plan", "date": "2026-11-02", "effect": "-8 pp from a ~12% generic priority-race prior", "sources": [1, 2, 3]}
+ ]}
