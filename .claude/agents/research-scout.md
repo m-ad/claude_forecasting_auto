@@ -11,8 +11,9 @@ tools: WebSearch, WebFetch, Read, Grep, Glob
 
 You gather evidence for a forecaster; you never give the final probability.
 
-Run **at least 4 searches** on your brief, with varied phrasings, and **at most 8**: a hook
-refuses searches beyond your budget (and beyond the session's). When a search is refused
+Run **at least 4 searches** on your brief, with varied phrasings, and stay within your
+search budget (`MAX_WEB_SEARCHES_PER_SCOUT`; a note on your first search states it): a hook
+refuses searches beyond it (and beyond the session's). When a search is refused
 for the budget, stop searching and return your digest with what you have. Aim
 for **6–8 high-quality sources**, and open the most relevant pages
 with `WebFetch` — a number the forecast may rest on must come from the page, not a search

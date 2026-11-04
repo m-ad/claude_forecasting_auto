@@ -10,17 +10,25 @@ Behaviour, per call:
 
 - ``WebFetch`` is counted, never refused. Fetching is how a forecast gets its numbers
   from the source rather than a snippet; the cap is on finding pages, not reading them.
-- ``WebSearch`` is counted against ``$MAX_WEB_SEARCHES`` (default 50) for the whole
-  session, and -- when the hook input names the calling subagent (``agent_id``) --
-  against ``$MAX_WEB_SEARCHES_PER_SCOUT`` (default 8) for that subagent, so one scout
-  cannot spend the budget the others and the main agent need. The CLI puts ``agent_id``
-  into every hook input from a subagent since 2.1.69 (its changelog; the 2.1.317 binary
-  checked 2026-11-03). On an older CLI only the session cap binds. ``no_agent_id`` in the budget file counts the searches that came without
-  one (the main agent's, and every call on such a CLI); an empty ``by_agent`` in a
-  session that spawned scouts means the per-scout cap was not in force.
-- From 80 % of a cap the call is allowed with a nudge (``additionalContext``); at the
-  cap it is refused with a reason that tells the model to stop searching and log.
-  ``0`` disables a cap.
+- ``WebSearch`` is counted against ``$MAX_WEB_SEARCHES`` (unset or empty:
+  ``DEFAULT_MAX_SEARCHES``) for the whole session, and -- when the hook input names the
+  calling subagent (``agent_id``) -- against ``$MAX_WEB_SEARCHES_PER_SCOUT`` (unset or
+  empty: ``DEFAULT_MAX_PER_SCOUT``) for that subagent, so one scout cannot spend the
+  budget the others and the main agent need. The CLI puts ``agent_id`` into every hook
+  input from a subagent since 2.1.69 (its changelog; the 2.1.317 binary checked
+  2026-11-03). On an older CLI only the session cap binds. ``no_agent_id`` in the
+  budget file counts the searches that came without one (the main agent's, and every
+  call on such a CLI); an empty ``by_agent`` in a session that spawned scouts means the
+  per-scout cap was not in force.
+- An agent's first search is allowed with a note stating both caps, so the model
+  learns the budget from the hook rather than from numbers copied into its
+  instructions. From ``NUDGE_SHARE`` of a cap the call is allowed with a countdown
+  (``additionalContext``); at the cap it is refused with a reason that tells the model
+  to stop searching and log. ``0`` disables a cap.
+
+These defaults are the only place the numbers live: the sweep passes the repository
+variables through unset, and ``docs/configuration.md`` names the constants (a test
+keeps its Default column in step with them).
 
 State lives in ``$SEARCH_BUDGET_FILE``, a JSON object updated under ``flock``
 because scouts call in parallel. ``log_forecast.py`` reads it to waive the research
@@ -49,9 +57,9 @@ from pathlib import Path
 from typing import Any
 
 DEFAULT_MAX_SEARCHES = 50
-# 5 scouts x 8 = 40 leaves the main agent 10 of the default 50 for the resolution source
-# and its own disconfirmation search; a scout's brief is one narrow stream, and
-# research-scout.md asks for at least 4 searches.
+# Sized so that five scouts (the usual spawn) leave the main agent a fifth of
+# DEFAULT_MAX_SEARCHES for the resolution source and its own disconfirmation search; a
+# scout's brief is one narrow stream.
 DEFAULT_MAX_PER_SCOUT = 8
 NUDGE_SHARE = 0.8
 
@@ -187,6 +195,16 @@ def decide(
         state["cap_reached_at"] = now
 
     notes = []
+    first = agent["searches"] == 1 if agent is not None else state["no_agent_id"] == 1
+    if first:
+        notes.append(
+            "Search budget: "
+            + (f"{max_searches} WebSearch calls this session" if max_searches else "no session cap")
+            + (
+                f", {max_per_scout} per scout" if max_per_scout else ", no per-scout cap"
+            )
+            + "; WebFetch is not capped."
+        )
     if _nudge(state["searches"], max_searches):
         notes.append(
             f"{state['searches']}/{max_searches} WebSearch calls of the session budget used, "

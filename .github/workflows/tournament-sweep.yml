@@ -166,9 +166,10 @@ jobs:
           MINUTES: ${{ vars.MAX_MINUTES_PER_QUESTION || '25' }}
           # Read by the PreToolUse hook in settings.ci.json (scripts/search_budget.py),
           # which refuses WebSearch past these caps, and by log_forecast.py, which
-          # waives the research floor once the session cap is used.
-          MAX_WEB_SEARCHES: ${{ vars.MAX_WEB_SEARCHES || '50' }}
-          MAX_WEB_SEARCHES_PER_SCOUT: ${{ vars.MAX_WEB_SEARCHES_PER_SCOUT || '8' }}
+          # waives the research floor once the session cap is used. Passed through
+          # unset: an empty value means the defaults in search_budget.py, kept there only.
+          MAX_WEB_SEARCHES: ${{ vars.MAX_WEB_SEARCHES }}
+          MAX_WEB_SEARCHES_PER_SCOUT: ${{ vars.MAX_WEB_SEARCHES_PER_SCOUT }}
           SEARCH_BUDGET_FILE: ${{ runner.temp }}/search-budget.json
         run: |
           export FORECAST_DEADLINE="$(date -u -d "+${MINUTES} minutes" +%Y-%m-%dT%H:%M:%SZ)"

@@ -44,8 +44,9 @@ research. Each question is forecast once and never revisited, so this is the onl
    biggest assumption — `log_forecast.py` refuses the forecast below that floor. Go up to **40** when the
    question needs it (a hard-to-find resolution source, conflicting evidence, several
    independent streams). Cite at least 5 sources, primary ones first.
-   **The session has a hard search budget** (50 `WebSearch` calls by default, yours and your
-   scouts' together; 8 per scout). A refusal that says the **search budget is used** is not a
+   **The session has a hard search budget**: `MAX_WEB_SEARCHES` `WebSearch` calls, yours and
+   your scouts' together, and `MAX_WEB_SEARCHES_PER_SCOUT` per scout. A note on your first
+   search states both numbers; plan the scouts so they leave you room. A refusal that says the **search budget is used** is not a
    failure to retry: stop searching, mark the planned searches you did not run `skipped`,
    fetch only a page you already found whose exact figure the forecast needs, then write
    `forecast.md` and log — the research floor is waived once the budget is used. A note that
@@ -179,8 +180,9 @@ so in the log (`"by": "main"` throughout).
 Give each scout one narrow brief from your plan, e.g. "the latest value and release
 schedule of <source>; fetch the source itself", "news from the last 14 days about <X>",
 "prediction-market and options prices for <event>", "historical frequency of <reference
-class> since <year>". Each scout may run at most **8 searches** (a hard per-scout cap), so
-keep briefs narrow and split a wide one in two. Ask for the queries it ran (to copy into the log), a dated digest with
+class> since <year>". Each scout has a hard per-scout search cap
+(`MAX_WEB_SEARCHES_PER_SCOUT`, stated on your first search), so keep briefs narrow and split
+a wide one in two. Ask for the queries it ran (to copy into the log), a dated digest with
 URLs, and the URL of any PDF it could not read (run `pdf_text.py` on it yourself — scouts
 have no shell).
 

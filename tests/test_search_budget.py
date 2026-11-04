@@ -8,6 +8,7 @@ silently. So it is tested both as functions and as the subprocess the CLI starts
 from __future__ import annotations
 
 import json
+import math
 import os
 import subprocess
 import sys
@@ -52,17 +53,29 @@ def test_other_tools_pass_uncounted():
     assert state["searches"] == 0 and state["fetches"] == 0
 
 
-def test_a_nudge_from_80_percent_of_the_cap_allows_the_call():
+def test_the_first_search_of_each_agent_states_the_caps():
     state: dict = {}
-    outs = [_call(state, cap=10) for _ in range(10)]
-    assert all(o is None for o in outs[:7])
-    nudges = outs[7:]
+    for agent in (None, "a1"):
+        note = _call(state, agent=agent, cap=30, per_scout=6)["hookSpecificOutput"]
+        assert "permissionDecision" not in note
+        assert "30 WebSearch calls this session, 6 per scout" in note["additionalContext"]
+    assert _call(state, agent="a1", cap=30, per_scout=6) is None, "said once per agent"
+    assert "no session cap" in str(_call({}, cap=0, per_scout=0))
+
+
+def test_a_countdown_from_the_nudge_share_of_the_cap_allows_the_call():
+    state: dict = {}
+    cap = 10
+    outs = [_call(state, cap=cap) for _ in range(cap)]
+    start = math.ceil(sb.NUDGE_SHARE * cap)
+    assert all(o is None for o in outs[1 : start - 1]), "silent between the note and the share"
+    nudges = outs[start - 1 :]
     for out in nudges:
         spec = out["hookSpecificOutput"]
         assert spec["hookEventName"] == "PreToolUse"
         assert "permissionDecision" not in spec, "a nudge must not deny"
-    assert "8/10" in nudges[0]["hookSpecificOutput"]["additionalContext"]
-    assert "2 left" in nudges[0]["hookSpecificOutput"]["additionalContext"]
+    assert f"{start}/{cap}" in nudges[0]["hookSpecificOutput"]["additionalContext"]
+    assert f"{cap - start} left" in nudges[0]["hookSpecificOutput"]["additionalContext"]
 
 
 def test_one_scout_cannot_spend_the_budget_of_the_others():
@@ -104,8 +117,12 @@ def test_zero_disables_a_cap():
     assert not sb.session_cap_used(state)
 
 
+DEFAULT = sb.DEFAULT_MAX_SEARCHES
+
+
 @pytest.mark.parametrize(
-    ("raw", "expected"), [(None, 50), ("", 50), ("12", 12), ("0", 0), ("-3", 50), ("x", 50)]
+    ("raw", "expected"),
+    [(None, DEFAULT), ("", DEFAULT), ("12", 12), ("0", 0), ("-3", DEFAULT), ("x", DEFAULT)],
 )
 def test_caps_come_from_the_environment_with_defaults(monkeypatch, raw, expected):
     monkeypatch.delenv("MAX_WEB_SEARCHES_PER_SCOUT", raising=False)
@@ -177,7 +194,7 @@ def test_parallel_scouts_are_counted_exactly(tmp_path):
             ),
             range(40),
         ))
-    assert all(r.returncode == 0 and r.stdout == "" for r in runs)
+    assert all(r.returncode == 0 and "deny" not in r.stdout for r in runs)
     state = json.loads(path.read_text())
     assert state["searches"] == 40, "a lost update under parallel scouts"
     assert {k: v["searches"] for k, v in state["by_agent"].items()} == {
@@ -216,8 +233,19 @@ def test_the_sweep_gives_the_session_its_caps_and_records_the_counts():
     wf = yaml.safe_load((REPO / ".github" / "workflows" / "tournament-sweep.yml").read_text())
     steps = wf["jobs"]["forecast"]["steps"]
     env = next(s for s in steps if s.get("id") == "claude")["env"]
-    assert env["MAX_WEB_SEARCHES"] == "${{ vars.MAX_WEB_SEARCHES || '50' }}"
-    assert env["MAX_WEB_SEARCHES_PER_SCOUT"].startswith("${{ vars.MAX_WEB_SEARCHES_PER_SCOUT")
+    # Passed through raw, so the defaults live only in search_budget.py.
+    assert env["MAX_WEB_SEARCHES"] == "${{ vars.MAX_WEB_SEARCHES }}"
+    assert env["MAX_WEB_SEARCHES_PER_SCOUT"] == "${{ vars.MAX_WEB_SEARCHES_PER_SCOUT }}"
     assert env["SEARCH_BUDGET_FILE"] == "${{ runner.temp }}/search-budget.json"
     usage = next(s for s in steps if s.get("name") == "Record token usage")
     assert '--search-budget "$RUNNER_TEMP/search-budget.json"' in usage["run"]
+
+
+def test_the_documented_defaults_are_the_constants():
+    doc = (REPO / "docs" / "configuration.md").read_text("utf-8")
+    for var, const in (
+        ("MAX_WEB_SEARCHES", "DEFAULT_MAX_SEARCHES"),
+        ("MAX_WEB_SEARCHES_PER_SCOUT", "DEFAULT_MAX_PER_SCOUT"),
+    ):
+        row = f"| `{var}` | `{getattr(sb, const)}` (`{const}` in `scripts/search_budget.py`) |"
+        assert row in doc, f"docs/configuration.md: {var} default must be {const}"
