@@ -310,6 +310,28 @@ def test_usage_marks_subagents_unknown_when_the_cli_does_not_report_them():
     assert rec["subagents"] is None
 
 
+def test_usage_records_the_search_budget_counts_next_to_billed_searches():
+    budget = {"searches": 21, "fetches": 9, "denied": 2, "max_searches": 50,
+              "max_per_scout": 8, "by_agent": {"a1": {"searches": 8, "fetches": 3}}}
+    rec = record_usage.usage_record(RESULT, job="j", run_id="1", slug="s", model="opus",
+                                    budget=budget)
+    assert rec["search_tool_calls"] == 21 and rec["fetch_tool_calls"] == 9
+    assert rec["search_calls_denied"] == 2 and rec["search_calls_by_agent"] == {"a1": 8}
+    assert rec["search_cap"] == 50 and rec["search_cap_per_scout"] == 8
+    assert rec["web_searches"] == 6, "billed searches stay a separate count"
+    assert "21/50" in record_usage.summary_table(rec)
+    # A killed session still spent its searches: the counts survive a missing result.
+    killed = record_usage.usage_record(None, job="j", run_id="1", slug="s", model="m",
+                                       exit_code=143, budget=budget)
+    assert killed["search_tool_calls"] == 21
+
+
+def test_usage_says_so_when_the_search_budget_hook_did_not_run():
+    rec = record_usage.usage_record(RESULT, job="j", run_id="1", slug="s", model="opus")
+    assert rec["search_tool_calls"] is None and rec["search_calls_by_agent"] is None
+    assert "hook did not run" in record_usage.summary_table(rec)
+
+
 def test_a_killed_run_records_zero_cost_instead_of_failing():
     assert record_usage.parse_result("") is None
     rec = record_usage.usage_record(None, job="j", run_id="1", slug="s", model="m", exit_code=143)

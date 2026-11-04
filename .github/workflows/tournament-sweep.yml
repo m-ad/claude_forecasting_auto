@@ -164,6 +164,13 @@ jobs:
           EFFORT: ${{ vars.EFFORT_FORECAST || 'high' }}
           MAX_USD: ${{ vars.MAX_USD_PER_QUESTION || '15' }}
           MINUTES: ${{ vars.MAX_MINUTES_PER_QUESTION || '25' }}
+          # Read by the PreToolUse hook in settings.ci.json (scripts/search_budget.py),
+          # which refuses WebSearch past these caps, and by log_forecast.py, which
+          # waives the research floor once the session cap is used. Passed through
+          # unset: an empty value means the defaults in search_budget.py, kept there only.
+          MAX_WEB_SEARCHES: ${{ vars.MAX_WEB_SEARCHES }}
+          MAX_WEB_SEARCHES_PER_SCOUT: ${{ vars.MAX_WEB_SEARCHES_PER_SCOUT }}
+          SEARCH_BUDGET_FILE: ${{ runner.temp }}/search-budget.json
         run: |
           export FORECAST_DEADLINE="$(date -u -d "+${MINUTES} minutes" +%Y-%m-%dT%H:%M:%SZ)"
           prompt="Forecast the bot-tournament question in questions/${SLUG}/. First read .claude/skills/tournament-forecast/SKILL.md and follow it exactly. The session is killed at ${FORECAST_DEADLINE} (UTC); log your forecast at least 5 minutes before that."
@@ -234,6 +241,7 @@ jobs:
         run: |
           uv run scripts/record_usage.py record --result "$RUNNER_TEMP/claude.jsonl" \
             --job tournament-sweep --run-id "$GITHUB_RUN_ID" --slug "$SLUG" --model "$MODEL" \
+            --search-budget "$RUNNER_TEMP/search-budget.json" \
             ${EXIT_CODE:+--exit-code "$EXIT_CODE"} --summary >> "$GITHUB_STEP_SUMMARY"
 
       - name: Upload the dry-run folder

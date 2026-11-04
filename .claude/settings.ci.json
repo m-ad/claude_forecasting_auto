@@ -45,5 +45,18 @@
       "Bash(printenv:*)",
       "Edit(INDEX.md)"
     ]
+  },
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "WebSearch|WebFetch",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 -I \"$CLAUDE_PROJECT_DIR/scripts/search_budget.py\""
+          }
+        ]
+      }
+    ]
   }
 }
