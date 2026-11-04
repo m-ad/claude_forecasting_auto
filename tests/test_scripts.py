@@ -1378,3 +1378,13 @@ def test_pdf_fetch_refuses_a_web_page_and_points_to_webfetch(monkeypatch):
     )
     with pytest.raises(RuntimeError, match="WebFetch"):
         pdf_text.fetch("https://example.org/report")
+
+
+def test_the_documented_research_floor_is_the_constants():
+    # docs/configuration.md shows the values next to the constant names; keep them equal.
+    doc = (REPO / "docs" / "configuration.md").read_text("utf-8")
+    row = next(line for line in doc.splitlines() if line.startswith("| Research floor"))
+    assert f"`MIN_SEARCHES` = `{log_forecast.MIN_SEARCHES}`" in row
+    assert f"`WAIVER_MINUTES` = `{log_forecast.WAIVER_MINUTES}`" in row
+    categories = ", ".join(f"`{c}`" for c in log_forecast.REQUIRED_CATEGORIES)
+    assert f"`REQUIRED_CATEGORIES` = {categories} " in row
