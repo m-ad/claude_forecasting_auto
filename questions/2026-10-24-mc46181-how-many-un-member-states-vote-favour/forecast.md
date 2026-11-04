@@ -6,7 +6,7 @@
 | **Tournament** | minibench — one shot, window 2026-10-24T14:20:14Z -> 2026-10-24T17:20:14Z |
 | **Type** | discrete |
 | **Opened / Closes / Resolves** | 2026-10-24 / 2026-10-24 / 2026-11-04 |
-| **Status** | closed |
+| **Status** | resolved |
 | **Current forecast** | Median 122, IQR [120, 124] (v1, 2026-10-24) |
 | **Community** | hidden — bot tournament |
 | **Next review** | — |
@@ -84,3 +84,7 @@ I put the median at 122 and the IQR at 120–124. The tails run from 116 at the 
 **Date**: 2026-10-24
 **Forecast**: Median 122 states, IQR [120 states, 124 states]
 **Thesis**: The First Committee "In favour" count on the TPNW resolution has stayed between 118 and 124 since 2020 (122 in 2024, 121 in 2025, per the UN press release and Reaching Critical Will), and the voting blocs are frozen. The question background's "144 in 2024" is the Japan road-map resolution, not this one. So the median is 122, and only about 3–4% is left for the question's 130+ range. The forecast is most sensitive to whether a group of umbrella states or abstainers switches before the Review Conference.
+
+## Resolution — 2026-11-04
+
+Resolved **below_lower_bound** (synced from the Metaculus API). The bot's forecast was 122 [120, 124]. Official spot peer score: +104.31.
