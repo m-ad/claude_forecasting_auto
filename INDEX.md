@@ -1,6 +1,6 @@
 # Question index
 
-_Regenerated 2026-11-03 by `scripts/status.py --index`._
+_Regenerated 2026-11-04 by `scripts/status.py --index`._
 
 | Question | Type | Current | v | Community (CP) | Resolves | Next review | Status |
 |---|---|---|---|---|---|---|---|
@@ -124,7 +124,7 @@ _Regenerated 2026-11-03 by `scripts/status.py --index`._
 | [What will the IEA's November 2026 Oil Market Report give as Venezuela's crude oil supply for October 2026 (million barrels per day)?](questions/2026-11-03-mc46421-iea-s-november-2026-oil-market-report/forecast.md) | discrete | — | 0 | — | 2026-11-13 | — | dropped |
 | [By how many percentage points will Okta (OKTA) outperform or underperform the software ETF IGV between the October 30 and November 13, 2026 market closes?](questions/2026-11-03-mc46422-how-many-percentage-points-okta-okta-outperform/forecast.md) | numeric | — | 0 | — | 2026-11-13 | — | dropped |
 | [Will a second televised debate between Taipei mayoral candidates Chiang Wan-an and Puma Shen be scheduled by November 13, 2026?](questions/2026-11-03-mc46423-second-televised-debate-between-taipei-mayoral-candidates/forecast.md) | binary | — | 0 | — | 2026-11-13 | — | dropped |
-| [What national wholesale price for graded, loose, white Large shell eggs will the USDA AMS Egg Markets Overview dated November 13, 2026 report? (cents per dozen)](questions/2026-11-03-mc46424-national-wholesale-price-graded-loose-white-large/forecast.md) | discrete | — | 0 | — | 2026-11-13 | — | open |
-| [Will the operating rooms of Hospital Privado de Mendoza be open for new surgeries on November 13, 2026?](questions/2026-11-03-mc46425-operating-rooms-hospital-privado-de-mendoza-open/forecast.md) | binary | — | 0 | — | 2026-11-14 | — | open |
-| [Will James Comey have at least two federal criminal cases pending against him on November 13, 2026?](questions/2026-11-03-mc46426-james-comey-have-least-two-federal-criminal/forecast.md) | binary | — | 0 | — | 2026-11-13 | — | open |
-| [Will SRS or DOE have publicly stated a cause for the October 28, 2026 Savannah River National Laboratory fire by November 13, 2026?](questions/2026-11-03-mc46427-srs-doe-have-publicly-stated-cause-october/forecast.md) | binary | 12.0% [8.0%, 18.0%] | 1 | — | 2026-11-14 | — | open |
+| [What national wholesale price for graded, loose, white Large shell eggs will the USDA AMS Egg Markets Overview dated November 13, 2026 report? (cents per dozen)](questions/2026-11-03-mc46424-national-wholesale-price-graded-loose-white-large/forecast.md) | discrete | — | 0 | — | 2026-11-13 | — | dropped |
+| [Will the operating rooms of Hospital Privado de Mendoza be open for new surgeries on November 13, 2026?](questions/2026-11-03-mc46425-operating-rooms-hospital-privado-de-mendoza-open/forecast.md) | binary | — | 0 | — | 2026-11-14 | — | dropped |
+| [Will James Comey have at least two federal criminal cases pending against him on November 13, 2026?](questions/2026-11-03-mc46426-james-comey-have-least-two-federal-criminal/forecast.md) | binary | — | 0 | — | 2026-11-13 | — | dropped |
+| [Will SRS or DOE have publicly stated a cause for the October 28, 2026 Savannah River National Laboratory fire by November 13, 2026?](questions/2026-11-03-mc46427-srs-doe-have-publicly-stated-cause-october/forecast.md) | binary | 12.0% [8.0%, 18.0%] | 1 | — | 2026-11-14 | — | closed |
