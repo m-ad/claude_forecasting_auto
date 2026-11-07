@@ -6,7 +6,7 @@
 | **Tournament** | minibench — one shot, window 2026-10-26T05:01:38Z -> 2026-10-26T08:01:38Z |
 | **Type** | numeric |
 | **Opened / Closes / Resolves** | 2026-10-26 / 2026-10-26 / 2026-11-07 |
-| **Status** | closed |
+| **Status** | resolved |
 | **Current forecast** | Median 10350, IQR [10280, 10430] (v1, 2026-10-26) |
 | **Community** | hidden — bot tournament |
 | **Next review** | — |
@@ -72,3 +72,7 @@ For a numeric count over a short horizon, the prior is to extend the recent tren
 **Date**: 2026-10-26
 **Forecast**: Median 10350 cases, IQR [10280 cases, 10430 cases]
 **Thesis**: The trend gives the answer here. The DRC count was about 9,850 confirmed cases on about 23 Oct (CDC 9,816; INSP-derived 9,876), and daily increments have held at 55–76 for a month (ECDC, CDC, UKHSA). Eight more days at about 63/day gives about 10,350. The result is most sensitive to whether incidence breaks out of that plateau, and to which reporting date (30 or 31 Oct) the resolver picks.
+
+## Resolution — 2026-11-07
+
+Resolved **10467.0** (synced from the Metaculus API). The bot's forecast was 10350 [10280, 10430]. Official spot peer score: +11.22.
