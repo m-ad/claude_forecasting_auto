@@ -249,7 +249,10 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: dry-run-${{ matrix.q.post_id }}
-          path: questions/${{ steps.prep.outputs.slug }}
+          # The budget file too: the hook's counts are otherwise only in the Step Summary.
+          path: |
+            questions/${{ steps.prep.outputs.slug }}
+            ${{ runner.temp }}/search-budget.json
 
       # A dry-run forecast is never committed: the next real sweep would reuse the
       # logged-but-unsent folder and submit it without a fresh forecast.

@@ -57,7 +57,7 @@ Without both, the sweep fails at its first step and opens a `bot-health` issue.
 | `tournament` | Poll only this slug, e.g. `bot-testing-area` (registered or not). |
 | `post_ids` | Forecast only these posts (still subject to every guard). |
 | `max_questions` | Cap for this run, overriding `MAX_QUESTIONS_PER_RUN`. |
-| `dry_run` | Forecast, upload the question folder as an artifact, submit and commit nothing. |
+| `dry_run` | Forecast, upload the question folder and the search-budget file (`_temp/search-budget.json` in the archive) as an artifact, submit and commit nothing. |
 
 ## Local use
 

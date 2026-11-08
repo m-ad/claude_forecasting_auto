@@ -350,6 +350,8 @@ def test_the_sweep_gives_the_session_its_caps_and_records_the_counts():
     assert env["SEARCH_BUDGET_FILE"] == "${{ runner.temp }}/search-budget.json"
     usage = next(s for s in steps if s.get("name") == "Record token usage")
     assert '--search-budget "$RUNNER_TEMP/search-budget.json"' in usage["run"]
+    upload = next(s for s in steps if s.get("name") == "Upload the dry-run folder")
+    assert "${{ runner.temp }}/search-budget.json" in upload["with"]["path"]
 
 
 def test_the_documented_defaults_are_the_constants():
