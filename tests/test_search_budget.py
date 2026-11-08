@@ -40,7 +40,8 @@ def test_searches_are_refused_at_the_session_cap_and_fetches_never():
     refusal = _call(state, cap=5)
     assert _denied(refusal)
     reason = refusal["hookSpecificOutput"]["permissionDecisionReason"]
-    assert "5/5" in reason and "log the forecast now" in reason and "waived" in reason
+    assert "5/5" in reason and "waived" in reason
+    assert "every scout has reported" in reason, "the cap must not invite logging early"
     assert state["searches"] == 5 and state["denied"] == 1, "a refused call is not a search"
     # Reading pages the session already found stays possible after the cap.
     assert _call(state, tool="WebFetch", cap=5) is None
@@ -102,6 +103,51 @@ def test_a_scout_at_the_session_cap_is_told_to_return_its_digest():
     assert "return your digest" in refusal["hookSpecificOutput"]["permissionDecisionReason"]
 
 
+def test_the_scouts_leave_the_main_agent_one_scouts_allowance():
+    state: dict = {}
+    cap, per_scout = 20, 4
+    for scout in ("a1", "a2", "a3", "a4"):
+        for _ in range(per_scout):
+            assert not _denied(_call(state, agent=scout, cap=cap, per_scout=per_scout))
+    assert state["searches"] == cap - per_scout
+    refusal = _call(state, agent="a5", cap=cap, per_scout=per_scout)
+    assert _denied(refusal), "the reserve belongs to the main agent"
+    assert "reserved for the main" in refusal["hookSpecificOutput"]["permissionDecisionReason"]
+    for _ in range(per_scout):
+        assert not _denied(_call(state, cap=cap, per_scout=per_scout))
+    assert _denied(_call(state, cap=cap, per_scout=per_scout)), "the session cap still binds"
+
+
+def test_the_reserve_shrinks_as_the_main_agent_uses_it():
+    state: dict = {}
+    _call(state, cap=10, per_scout=4)
+    _call(state, cap=10, per_scout=4)
+    outs = [_call(state, agent=f"a{i}", cap=10, per_scout=4) for i in range(8)]
+    # Main used 2 of its 4: the scouts may bring the session to 10 - 2 = 8.
+    assert sum(not _denied(o) for o in outs) == 6 and state["searches"] == 8
+
+
+def test_the_main_agent_has_no_per_agent_cap():
+    state: dict = {}
+    outs = [_call(state, cap=30, per_scout=4) for _ in range(30)]
+    assert not any(_denied(o) for o in outs), "the main agent may use what the scouts leave"
+
+
+def test_spawns_beyond_max_scouts_are_refused():
+    state: dict = {}
+    tools = ["Agent", "Task"] * sb.MAX_SCOUTS
+    assert not any(_denied(_call(state, tool=t)) for t in tools[: sb.MAX_SCOUTS])
+    refusal = _call(state, tool="Agent")
+    assert _denied(refusal) and f"{sb.MAX_SCOUTS}/{sb.MAX_SCOUTS}" in str(refusal)
+    assert state["scouts_spawned"] == sb.MAX_SCOUTS and state["denied"] == 1
+    assert _call(state, tool="Agent", agent="a1") is None, "a subagent's spawn is not counted"
+
+
+def test_the_default_caps_fit_the_scouts_and_the_main_reserve():
+    # Otherwise the last scouts would be cut off by the scouts' share before their own cap.
+    assert (sb.MAX_SCOUTS + 1) * sb.DEFAULT_MAX_PER_SCOUT <= sb.DEFAULT_MAX_SEARCHES
+
+
 def test_without_agent_id_only_the_session_cap_binds():
     # A CLI before 2.1.69 sends no agent_id: its scouts look like the main agent.
     state: dict = {}
@@ -138,6 +184,26 @@ def test_session_cap_used_reads_the_file_state():
     assert not sb.session_cap_used({"searches": 49, "max_searches": 50})
     assert sb.session_cap_used({"searches": 50, "max_searches": 50})
     assert not sb.session_cap_used({"searches": 50, "max_searches": 0})
+    assert not sb.session_cap_used({"searches": "many", "max_searches": 50}), "no crash"
+
+
+def test_normalise_repairs_each_bad_field_and_keeps_the_good_ones():
+    state = sb.normalise({"searches": None, "fetches": 7, "denied": True, "by_agent": [],
+                          "active_agents": 3, "scouts_spawned": -1, "max_searches": 50})
+    assert state["searches"] == 0 and state["fetches"] == 7 and state["denied"] == 0
+    assert state["by_agent"] == {} and state["active_agents"] == {}
+    assert state["scouts_spawned"] == 0 and state["max_searches"] == 50
+    assert sb.normalise([1, 2]) == sb.normalise(None)
+
+
+def test_read_state_tells_a_missing_file_from_a_damaged_one(tmp_path):
+    path = tmp_path / "budget.json"
+    assert sb.read_state(path) is None
+    path.write_text("")
+    assert sb.read_state(path)["unreadable"] is True
+    path.write_text('{"searches": 3}')
+    state = sb.read_state(path)
+    assert state["searches"] == 3 and "unreadable" not in state
 
 
 # ---------------------------------------------------------- as the CLI runs it
@@ -219,14 +285,59 @@ def test_a_corrupt_budget_file_restarts_the_count(tmp_path):
     assert json.loads(path.read_text())["searches"] == 1
 
 
+def test_a_wrongly_typed_budget_file_is_repaired_not_failed_open(tmp_path):
+    path = tmp_path / "budget.json"
+    path.write_text(json.dumps({"searches": None, "by_agent": [], "fetches": 7}))
+    run = _hook(path, _payload(agent_id="a1"))
+    assert run.returncode == 0 and "failing open" not in run.stderr
+    state = json.loads(path.read_text())
+    assert state["searches"] == 1 and state["fetches"] == 7
+    assert state["by_agent"] == {"a1": {"searches": 1, "fetches": 0}}
+
+
+def test_a_write_killed_midway_leaves_the_previous_state(tmp_path, monkeypatch):
+    path = tmp_path / "budget.json"
+    monkeypatch.setenv("MAX_WEB_SEARCHES", "50")
+    sb.run(_payload(), path)
+    before = path.read_text()
+
+    def killed(src, dst):
+        raise KeyboardInterrupt  # stands in for the step timeout killing the CLI
+
+    monkeypatch.setattr(sb.os, "replace", killed)
+    with pytest.raises(KeyboardInterrupt):
+        sb.run(_payload(), path)
+    assert path.read_text() == before, "the data file is replaced whole or not at all"
+    names = sorted(p.name for p in tmp_path.iterdir())
+    assert names == ["budget.json", "budget.json.lock"], "no temporary file left behind"
+
+
+def test_running_subagents_are_tracked_from_start_to_stop(tmp_path):
+    path = tmp_path / "budget.json"
+    for event, agent in (("SubagentStart", "a1"), ("SubagentStart", "a2"),
+                         ("SubagentStop", "a1")):
+        run = _hook(path, {"hook_event_name": event, "agent_id": agent,
+                           "agent_type": "research-scout", "session_id": "s"})
+        assert run.returncode == 0 and run.stdout == ""
+    assert sb.running_agents(sb.read_state(path)) == {"a2": "research-scout"}
+
+
 # ------------------------------------------------------------------- wiring
-def test_ci_settings_register_the_hook_for_search_and_fetch():
+def test_ci_settings_register_the_hook_for_web_calls_spawns_and_subagents():
     settings = json.loads((REPO / ".claude" / "settings.ci.json").read_text("utf-8"))
-    entries = settings["hooks"]["PreToolUse"]
-    hook = next(e for e in entries if "scripts/search_budget.py" in e["hooks"][0]["command"])
-    assert set(hook["matcher"].split("|")) == {"WebSearch", "WebFetch"}
-    # Outside the virtualenv and isolated: the hook is stdlib only by design.
-    assert hook["hooks"][0]["command"].startswith("python3 -I ")
+    for event in ("PreToolUse", "SubagentStart", "SubagentStop"):
+        entry = next(
+            e for e in settings["hooks"][event]
+            if "scripts/search_budget.py" in e["hooks"][0]["command"]
+        )
+        # The venv's interpreter, not the runner's python3: the project's Python version.
+        assert entry["hooks"][0]["command"].startswith(
+            '"$CLAUDE_PROJECT_DIR/.venv/bin/python" -I '
+        ), event
+        if event == "PreToolUse":
+            assert set(entry["matcher"].split("|")) == {"WebSearch", "WebFetch", "Agent", "Task"}
+        else:
+            assert "matcher" not in entry, "every subagent counts as running"
 
 
 def test_the_sweep_gives_the_session_its_caps_and_records_the_counts():
@@ -249,3 +360,14 @@ def test_the_documented_defaults_are_the_constants():
     ):
         row = f"| `{var}` | `{getattr(sb, const)}` (`{const}` in `scripts/search_budget.py`) |"
         assert row in doc, f"docs/configuration.md: {var} default must be {const}"
+
+
+def test_the_scout_limit_is_the_same_everywhere():
+    skill = (REPO / ".claude" / "skills" / "tournament-forecast" / "SKILL.md").read_text()
+    assert f"use **up to {sb.MAX_SCOUTS}** (`MAX_SCOUTS`" in skill
+    doc = (REPO / "docs" / "configuration.md").read_text("utf-8")
+    assert f"`MAX_SCOUTS` = `{sb.MAX_SCOUTS}`" in doc
+    words = {5: "five"}
+    for rel in ("AGENTS.md", "CLAUDE.md", "SKILLS.md", ".claude/agents/research-scout.md"):
+        text = (REPO / rel).read_text("utf-8").lower()
+        assert f"up to {sb.MAX_SCOUTS}" in text or f"up to {words[sb.MAX_SCOUTS]}" in text, rel

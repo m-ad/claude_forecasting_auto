@@ -46,10 +46,13 @@ research. Each question is forecast once and never revisited, so this is the onl
    independent streams). Cite at least 5 sources, primary ones first.
    **The session has a hard search budget**: `MAX_WEB_SEARCHES` `WebSearch` calls, yours and
    your scouts' together, and `MAX_WEB_SEARCHES_PER_SCOUT` per scout. A note on your first
-   search states both numbers; plan the scouts so they leave you room. A refusal that says the **search budget is used** is not a
-   failure to retry: stop searching, mark the planned searches you did not run `skipped`,
-   fetch only a page you already found whose exact figure the forecast needs, then write
-   `forecast.md` and log — the research floor is waived once the budget is used. A note that
+   search states the numbers. The scouts together never take the last
+   `MAX_WEB_SEARCHES_PER_SCOUT` searches you have not used: those stay reserved for you, and
+   you have no per-agent cap, so once the scouts are done you may use whatever the session
+   has left. A refusal that says the **search budget is used** is not a failure to retry:
+   stop searching, mark the planned searches you did not run `skipped`, fetch only a page
+   you already found whose exact figure the forecast needs, wait for every scout to report,
+   then write `forecast.md` and log — the research floor is waived once the budget is used. A note that
    only counts down the budget is a cue to spend what is left on the resolution source,
    markets and disconfirmation. `WebFetch` is not capped.
 6. **Never** run `git`, never touch `ledger/` by hand, never call Metaculus. The Metaculus token
@@ -172,7 +175,8 @@ forecast). Record honestly: the log is committed next to the forecast and audite
 
 Right after the plan, spawn **`research-scout` subagents in one message** so they run in
 parallel, one per independent stream (several data sources, several actors, a market and a
-separate base-rate history); use **up to 8**. Scouts run on a
+separate base-rate history); use **up to 5** (`MAX_SCOUTS` in `scripts/search_budget.py`; a
+further spawn is refused). Scouts run on a
 cheaper model and in the background, so they add evidence without adding much wall-clock
 time. Skip them only for a question whose whole answer is one number on one page — and say
 so in the log (`"by": "main"` throughout).
@@ -192,7 +196,8 @@ the side I put below 30 %"), with the assumption from your `tests` field spelled
 queries go into the log as `disconfirmation`. Skip it only together with all other scouts.
 
 While they work, do your own research (3c). **Do not log before every scout has reported**,
-unless the deadline forces it. Integrate their digests yourself; never delegate the number.
+unless the deadline forces it: `log_forecast.py` refuses while a scout is still running,
+except in the last 8 minutes before the deadline. Integrate their digests yourself; never delegate the number.
 
 ### 3c. Your own research
 

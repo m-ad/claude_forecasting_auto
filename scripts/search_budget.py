@@ -1,44 +1,61 @@
 #!/usr/bin/env python3
-"""``PreToolUse`` hook: count web tool calls and cap ``WebSearch`` per session.
+"""Hook: cap ``WebSearch`` and research-scouts per session, and track running scouts.
 
-Registered in ``.claude/settings.ci.json`` for ``WebSearch|WebFetch``, so it runs
-before every such call of the forecaster session and of its research-scouts. One
-session once billed 234 searches (issue #19): five scouts searched in parallel and
-nothing stopped them. The cap turns that into a refusal the model can read and act on.
+Registered in ``.claude/settings.ci.json`` as a ``PreToolUse`` hook for
+``WebSearch|WebFetch|Agent|Task`` and as a ``SubagentStart`` / ``SubagentStop`` hook,
+so it runs for every web call and spawn of the forecaster session and of its
+research-scouts. One session once billed 234 searches (issue #19): five scouts searched
+in parallel and nothing stopped them. The caps turn that into refusals the model can
+read and act on.
 
 Behaviour, per call:
 
 - ``WebFetch`` is counted, never refused. Fetching is how a forecast gets its numbers
   from the source rather than a snippet; the cap is on finding pages, not reading them.
+- ``Agent`` (``Task`` is its old name) from the main agent spawns a subagent; beyond
+  ``MAX_SCOUTS`` spawns per session it is refused, so the per-scout allowances below
+  always fit inside the session cap.
 - ``WebSearch`` is counted against ``$MAX_WEB_SEARCHES`` (unset or empty:
-  ``DEFAULT_MAX_SEARCHES``) for the whole session, and -- when the hook input names the
-  calling subagent (``agent_id``) -- against ``$MAX_WEB_SEARCHES_PER_SCOUT`` (unset or
-  empty: ``DEFAULT_MAX_PER_SCOUT``) for that subagent, so one scout cannot spend the
-  budget the others and the main agent need. The CLI puts ``agent_id`` into every hook
-  input from a subagent since 2.1.69 (its changelog; the 2.1.317 binary checked
-  2026-11-03). On an older CLI only the session cap binds. ``no_agent_id`` in the
-  budget file counts the searches that came without one (the main agent's, and every
-  call on such a CLI); an empty ``by_agent`` in a session that spawned scouts means the
-  per-scout cap was not in force.
-- An agent's first search is allowed with a note stating both caps, so the model
+  ``DEFAULT_MAX_SEARCHES``) for the whole session. A call from a subagent -- the hook
+  input names it in ``agent_id``, which the CLI sends since 2.1.69 (its changelog; the
+  2.1.317 binary checked 2026-11-03) -- is also counted against
+  ``$MAX_WEB_SEARCHES_PER_SCOUT`` (unset or empty: ``DEFAULT_MAX_PER_SCOUT``) for that
+  scout, and the scouts together never take the last ``$MAX_WEB_SEARCHES_PER_SCOUT``
+  searches of the session that the main agent has not used yet: that share is reserved
+  for the main agent's resolution source and disconfirmation searches. The main agent
+  itself has no per-agent cap and may use whatever the session has left. On a CLI
+  without ``agent_id`` only the session cap binds; ``no_agent_id`` in the budget file
+  counts the searches that came without one, and an empty ``by_agent`` in a session that
+  spawned scouts means the per-scout cap was not in force.
+- An agent's first search is allowed with a note stating the caps, so the model
   learns the budget from the hook rather than from numbers copied into its
   instructions. From ``NUDGE_SHARE`` of a cap the call is allowed with a countdown
   (``additionalContext``); at the cap it is refused with a reason that tells the model
-  to stop searching and log. ``0`` disables a cap.
+  what to do instead. ``0`` disables a search cap.
+- ``SubagentStart`` / ``SubagentStop`` keep ``active_agents``, the subagents still
+  running. ``log_forecast.py`` refuses a one-shot forecast while any is, outside its
+  deadline waiver: the skill's "do not log before every scout has reported" is then a
+  rule the code keeps, not one the model has to remember after a refusal told it to log.
 
 These defaults are the only place the numbers live: the sweep passes the repository
 variables through unset, and ``docs/configuration.md`` names the constants (a test
 keeps its Default column in step with them).
 
-State lives in ``$SEARCH_BUDGET_FILE``, a JSON object updated under ``flock``
-because scouts call in parallel. ``log_forecast.py`` reads it to waive the research
-floor once the session cap is used (a cap below the floor must never trap a session),
-and ``record_usage.py`` copies its counts into ``ledger/usage.jsonl``.
+State lives in ``$SEARCH_BUDGET_FILE``, a JSON object. Scouts call in parallel, so
+every update holds ``flock`` on a sibling ``.lock`` file and replaces the data file
+atomically (write a temporary file, ``os.replace``): a session killed mid-write leaves
+the previous state, never an empty or half-written file. A file with wrongly typed
+fields is repaired field by field (``normalise``) rather than trusted or discarded.
+``log_forecast.py`` reads it to waive the research floor once the session cap is used
+(a cap below the floor must never trap a session) and to see running scouts, and
+``record_usage.py`` copies its counts into ``ledger/usage.jsonl``.
 
 The hook fails open: without ``$SEARCH_BUDGET_FILE``, or on any error, it allows the
 call and says why on stderr. It is a cost control, not a security boundary -- the
-session's ``uv run python`` can rewrite the file. Stdlib only: it runs as
-``python3 -I``, outside the project's virtualenv.
+session's ``uv run python`` can rewrite the file. It runs with the project's
+virtualenv interpreter (``.venv/bin/python -I``), so it gets the Python version the
+project declares, not whatever the runner's system ``python3`` is; it uses only the
+standard library.
 
 The counts are of **tool calls**. Billing counts server-side search requests, and one
 ``WebSearch`` call can issue several (``web_searches`` in the usage record), so the
@@ -57,11 +74,15 @@ from pathlib import Path
 from typing import Any
 
 DEFAULT_MAX_SEARCHES = 50
-# Sized so that five scouts (the usual spawn) leave the main agent a fifth of
-# DEFAULT_MAX_SEARCHES for the resolution source and its own disconfirmation search; a
-# scout's brief is one narrow stream.
 DEFAULT_MAX_PER_SCOUT = 8
+# MAX_SCOUTS scouts at DEFAULT_MAX_PER_SCOUT each, plus the main agent's reserved share
+# of one scout's allowance, fit inside DEFAULT_MAX_SEARCHES (tests/test_search_budget.py
+# checks it), so no scout is cut off by the session cap before its own.
+MAX_SCOUTS = 5
 NUDGE_SHARE = 0.8
+SPAWN_TOOLS = ("Agent", "Task")
+
+_COUNTS = ("searches", "fetches", "denied", "no_agent_id", "scouts_spawned")
 
 
 def _cap(name: str, default: int) -> int:
@@ -87,39 +108,114 @@ def budget_path() -> Path | None:
     return Path(raw) if raw else None
 
 
+def _lock_path(path: Path) -> Path:
+    return path.with_name(path.name + ".lock")
+
+
+def _empty_state() -> dict[str, Any]:
+    return {
+        **dict.fromkeys(_COUNTS, 0),
+        "by_agent": {},
+        "active_agents": {},
+        "cap_reached_at": None,
+    }
+
+
+def _count(value: Any) -> int:
+    """``value`` if it is a non-negative integer, else 0."""
+    ok = isinstance(value, int) and not isinstance(value, bool) and value >= 0
+    return value if ok else 0
+
+
+def normalise(raw: Any) -> dict[str, Any]:
+    """A well-typed state from whatever the file held; bad fields fall back to empty.
+
+    Field by field rather than all or nothing: one field a session's ``uv run python``
+    wrote as ``null`` must not crash every later hook call (the hook would fail open
+    for the rest of the session) nor wipe the counts that are still good.
+    """
+    state = _empty_state()
+    if not isinstance(raw, dict):
+        return state
+    for key in _COUNTS:
+        state[key] = _count(raw.get(key))
+    for key in ("max_searches", "max_per_scout"):
+        if key in raw:
+            state[key] = _count(raw[key])
+    if isinstance(raw.get("by_agent"), dict):
+        state["by_agent"] = {
+            str(k): {"searches": _count(v.get("searches")), "fetches": _count(v.get("fetches"))}
+            for k, v in raw["by_agent"].items()
+            if isinstance(v, dict)
+        }
+    if isinstance(raw.get("active_agents"), dict):
+        state["active_agents"] = {str(k): str(v) for k, v in raw["active_agents"].items()}
+    if isinstance(raw.get("cap_reached_at"), str):
+        state["cap_reached_at"] = raw["cap_reached_at"]
+    return state
+
+
 def read_state(path: Path | None = None) -> dict[str, Any] | None:
-    """The budget file's content, or None if there is none or it is unreadable."""
+    """The budget file's state, normalised; None only if there is no file.
+
+    An existing file that cannot be parsed comes back as an empty state with
+    ``unreadable: True``, so a reader can tell "the hook never ran" from "the hook ran
+    and its file is damaged".
+    """
     path = path or budget_path()
     if path is None:
         return None
     try:
-        state = json.loads(path.read_text(encoding="utf-8"))
-    except (OSError, ValueError):
+        text = path.read_text(encoding="utf-8")
+    except FileNotFoundError:
         return None
-    return state if isinstance(state, dict) else None
+    except OSError:
+        return {**_empty_state(), "unreadable": True}
+    try:
+        raw = json.loads(text)
+    except ValueError:
+        raw = None
+    if not isinstance(raw, dict):
+        return {**_empty_state(), "unreadable": True}
+    return normalise(raw)
 
 
 def session_cap_used(state: dict[str, Any] | None) -> bool:
     """Whether the session-wide search cap has been reached."""
     if not state:
         return False
-    cap = state.get("max_searches")
-    return isinstance(cap, int) and cap > 0 and int(state.get("searches") or 0) >= cap
+    state = normalise(state)
+    cap = state.get("max_searches", 0)
+    return cap > 0 and state["searches"] >= cap
 
 
-def _empty_state() -> dict[str, Any]:
-    return {
-        "searches": 0,
-        "fetches": 0,
-        "denied": 0,
-        "no_agent_id": 0,
-        "by_agent": {},
-        "cap_reached_at": None,
-    }
+def running_agents(state: dict[str, Any] | None) -> dict[str, str]:
+    """The subagents started and not yet stopped: ``{agent_id: agent_type}``."""
+    return normalise(state)["active_agents"] if state else {}
 
 
 def _nudge(used: int, cap: int) -> bool:
     return cap > 0 and used >= math.ceil(NUDGE_SHARE * cap)
+
+
+def _scout_ceiling(state: dict[str, Any], max_searches: int, max_per_scout: int) -> int:
+    """Session searches the scouts may reach: the cap less the main agent's unused share."""
+    reserve = max(0, max_per_scout - state["no_agent_id"]) if max_per_scout else 0
+    return max_searches - reserve
+
+
+def _budget_note(max_searches: int, max_per_scout: int) -> str:
+    session = f"{max_searches} WebSearch calls this session" if max_searches else "no session cap"
+    scout = f"{max_per_scout} per scout" if max_per_scout else "no per-scout cap"
+    reserve = (
+        f"; the scouts leave the main agent at least {max_per_scout} of them"
+        if max_searches and max_per_scout
+        else ""
+    )
+    return (
+        f"Search budget: {session}, {scout}, at most {MAX_SCOUTS} scouts{reserve}; "
+        "WebFetch is not capped."
+    )
 
 
 def decide(
@@ -130,18 +226,18 @@ def decide(
     max_per_scout: int,
     now: str,
 ) -> dict[str, Any] | None:
-    """Update ``state`` in place for one call; return the hook output, None to allow.
+    """Update ``state`` in place for one ``PreToolUse`` call; return the hook output.
 
     Parameters
     ----------
     state
-        The budget file's content (``_empty_state`` shape); mutated.
+        The budget file's content (``normalise`` shape); mutated.
     tool
-        ``WebSearch`` or ``WebFetch``; anything else passes uncounted.
+        ``WebSearch``, ``WebFetch`` or ``Agent``/``Task``; anything else passes uncounted.
     agent_id
         The calling subagent, or None for the main agent (or a CLI that does not say).
     max_searches, max_per_scout
-        The caps; 0 disables one.
+        The search caps; 0 disables one.
     now
         Timestamp recorded when the session cap is first reached.
 
@@ -149,15 +245,25 @@ def decide(
     -------
     dict or None
         ``hookSpecificOutput`` JSON for the CLI: a refusal, or an allowed call with a
-        nudge. None means allow silently.
+        note. None means allow silently.
     """
-    for key, value in _empty_state().items():
-        state.setdefault(key, value)
+    state.update({k: v for k, v in normalise(state).items() if k not in state})
     state["max_searches"], state["max_per_scout"] = max_searches, max_per_scout
     agent = None
     if agent_id:
         agent = state["by_agent"].setdefault(agent_id, {"searches": 0, "fetches": 0})
 
+    if tool in SPAWN_TOOLS:
+        if agent is not None:
+            return None
+        if state["scouts_spawned"] >= MAX_SCOUTS:
+            state["denied"] += 1
+            return _deny(
+                f"Scout limit reached ({state['scouts_spawned']}/{MAX_SCOUTS} subagents "
+                "spawned this session). Fold this brief into your own research instead."
+            )
+        state["scouts_spawned"] += 1
+        return None
     if tool == "WebFetch":
         state["fetches"] += 1
         if agent is not None:
@@ -166,18 +272,26 @@ def decide(
     if tool != "WebSearch":
         return None
 
-    if max_searches and state["searches"] >= max_searches:
+    if agent is None and max_searches and state["searches"] >= max_searches:
         state["denied"] += 1
         return _deny(
             f"Search budget used ({state['searches']}/{max_searches} WebSearch calls this "
             "session). Stop searching. WebFetch still works for a page you already found "
-            "whose exact figure the forecast rests on; otherwise integrate what you have, "
-            "write forecast.md and log the forecast now -- the research floor is waived. "
-            "Mark planned searches you did not run as skipped in the research log."
-            if agent is None
-            else f"Session search budget used ({state['searches']}/{max_searches}). Stop "
-            "searching and return your digest now with what you have."
+            "whose exact figure the forecast rests on. Mark planned searches you did not "
+            "run as skipped in the research log. Wait until every scout has reported "
+            "(log_forecast.py refuses while one is still running, except close to the "
+            "deadline), then integrate, write forecast.md and log -- the research floor "
+            "is waived."
         )
+    if agent is not None and max_searches:
+        ceiling = _scout_ceiling(state, max_searches, max_per_scout)
+        if state["searches"] >= ceiling:
+            state["denied"] += 1
+            return _deny(
+                f"The scouts' share of the session search budget is used "
+                f"({state['searches']}/{max_searches}; the rest is reserved for the main "
+                "agent). Stop searching and return your digest now with what you have."
+            )
     if agent is not None and max_per_scout and agent["searches"] >= max_per_scout:
         state["denied"] += 1
         return _deny(
@@ -197,15 +311,10 @@ def decide(
     notes = []
     first = agent["searches"] == 1 if agent is not None else state["no_agent_id"] == 1
     if first:
-        notes.append(
-            "Search budget: "
-            + (f"{max_searches} WebSearch calls this session" if max_searches else "no session cap")
-            + (
-                f", {max_per_scout} per scout" if max_per_scout else ", no per-scout cap"
-            )
-            + "; WebFetch is not capped."
-        )
-    if _nudge(state["searches"], max_searches):
+        notes.append(_budget_note(max_searches, max_per_scout))
+    # The session countdown goes to the main agent only: a scout's ceiling is lower (the
+    # main agent's reserve) and its next step is its own brief, not the session's streams.
+    if agent is None and _nudge(state["searches"], max_searches):
         notes.append(
             f"{state['searches']}/{max_searches} WebSearch calls of the session budget used, "
             f"{max_searches - state['searches']} left: spend them on the resolution source, "
@@ -225,6 +334,16 @@ def decide(
     }
 
 
+def track(state: dict[str, Any], event: str, agent_id: str, agent_type: str) -> None:
+    """Record a ``SubagentStart`` / ``SubagentStop`` in ``state["active_agents"]``."""
+    if not agent_id:
+        return
+    if event == "SubagentStart":
+        state["active_agents"][agent_id] = agent_type
+    elif event == "SubagentStop":
+        state["active_agents"].pop(agent_id, None)
+
+
 def _deny(reason: str) -> dict[str, Any]:
     return {
         "hookSpecificOutput": {
@@ -235,31 +354,45 @@ def _deny(reason: str) -> dict[str, Any]:
     }
 
 
+def _write_atomic(path: Path, state: dict[str, Any]) -> None:
+    tmp = path.with_name(f".{path.name}.{os.getpid()}.tmp")
+    try:
+        tmp.write_text(json.dumps(state, sort_keys=True), encoding="utf-8")
+        os.replace(tmp, path)
+    finally:
+        tmp.unlink(missing_ok=True)
+
+
 def run(hook_input: dict[str, Any], path: Path) -> dict[str, Any] | None:
     """Apply one hook call to the budget file at ``path`` under an exclusive lock."""
     max_searches, max_per_scout = caps()
-    agent_id = hook_input.get("agent_id") or None
+    agent_id = str(hook_input.get("agent_id") or "") or None
+    event = str(hook_input.get("hook_event_name") or "PreToolUse")
     now = dt.datetime.now(dt.UTC).isoformat(timespec="seconds")
     path.parent.mkdir(parents=True, exist_ok=True)
-    fd = os.open(path, os.O_RDWR | os.O_CREAT, 0o644)
-    with os.fdopen(fd, "r+", encoding="utf-8") as fh:
-        fcntl.flock(fh, fcntl.LOCK_EX)
-        text = fh.read()
+    # The lock lives on its own file: os.replace swaps the data file's inode, so a lock
+    # held on the data file itself would not exclude the next writer.
+    with open(_lock_path(path), "a", encoding="utf-8") as lock:
+        fcntl.flock(lock, fcntl.LOCK_EX)
         try:
-            state = json.loads(text) if text.strip() else _empty_state()
+            text = path.read_text(encoding="utf-8")
+        except FileNotFoundError:
+            text = ""
+        try:
+            raw = json.loads(text) if text.strip() else None
         except ValueError:
-            # A torn or hand-edited file: start over rather than block every call.
-            state = _empty_state()
-        if not isinstance(state, dict):
-            state = _empty_state()
-        out = decide(
-            state, str(hook_input.get("tool_name") or ""), agent_id,
-            max_searches, max_per_scout, now,
-        )
-        fh.seek(0)
-        fh.truncate()
-        fh.write(json.dumps(state, sort_keys=True))
-        fh.flush()
+            # Unparseable (hand-edited): start over rather than block every call.
+            raw = None
+        state = normalise(raw)
+        if event in ("SubagentStart", "SubagentStop"):
+            track(state, event, agent_id or "", str(hook_input.get("agent_type") or ""))
+            out = None
+        else:
+            out = decide(
+                state, str(hook_input.get("tool_name") or ""), agent_id,
+                max_searches, max_per_scout, now,
+            )
+        _write_atomic(path, state)
     return out
 
 

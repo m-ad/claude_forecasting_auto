@@ -30,7 +30,8 @@ research log (``raw/research-log-<date>.json``, see ``research_log_problems``)
 shows the search floor was met -- unless ``$FORECAST_DEADLINE`` is close, because
 a shallow forecast still beats none, or the session's search cap is used up
 (``scripts/search_budget.py``), because a session the cap stopped cannot search
-on. ``submit`` and ``comment`` record what the Metaculus API accepted;
+on. It also waits while a research-scout of the session is still running (same
+deadline waiver), so the one forecast never misses the scouts' evidence. ``submit`` and ``comment`` record what the Metaculus API accepted;
 ``scripts/submit_metaculus.py`` calls them in-process so the ledger and
 ``meta.yaml`` are written in one place.
 """
@@ -60,7 +61,7 @@ from _common import (
     set_forecast_header,
     today,
 )
-from search_budget import read_state, session_cap_used
+from search_budget import read_state, running_agents, session_cap_used
 
 
 def _append(record: dict[str, Any]) -> None:
@@ -299,6 +300,35 @@ def _minutes_to_deadline() -> float | None:
     return (deadline - dt.datetime.now(dt.UTC)).total_seconds() / 60
 
 
+def _check_scouts(slug: str) -> None:
+    """Exit while a subagent of this session is still running, unless the deadline is close.
+
+    The skill says to log only after every scout has reported, and a search-budget
+    refusal tells the main agent to stop searching, which invites logging early. The
+    hook's ``SubagentStart``/``SubagentStop`` record makes the rule enforceable; the
+    same deadline waiver as the research floor keeps a scout that never stops from
+    costing the forecast.
+    """
+    running = running_agents(read_state())
+    if not running:
+        return
+    left = _minutes_to_deadline()
+    names = ", ".join(sorted(set(running.values())) or ["subagent"])
+    if left is not None and left <= WAIVER_MINUTES:
+        print(
+            f"! {slug}: logging with {len(running)} subagent(s) still running ({names}), "
+            f"{left:.0f} min to the deadline",
+            file=sys.stderr,
+        )
+        return
+    sys.exit(
+        f"! {slug}: {len(running)} subagent(s) still running ({names}), forecast not "
+        "logged. Wait for every scout's digest, integrate it, then run add again. This "
+        "is not a tool failure: the one-retry rule does not apply. The wait is waived "
+        f"automatically within {WAIVER_MINUTES} minutes of $FORECAST_DEADLINE."
+    )
+
+
 def _check_research(slug: str) -> None:
     """Exit unless the research log meets the floor, or the deadline or cap waives it."""
     path = research_log_path(slug)
@@ -471,6 +501,7 @@ def cmd_add(args: argparse.Namespace) -> None:
             sys.exit(f"! {slug}: --distribution rejected:\n  " + "\n  ".join(problems))
     # Last, so a malformed forecast is reported first: research may still move it.
     if _is_one_shot(meta):
+        _check_scouts(slug)
         _check_research(slug)
 
     record = {

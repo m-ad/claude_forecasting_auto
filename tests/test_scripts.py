@@ -1233,6 +1233,39 @@ def test_the_research_floor_is_waived_once_the_search_budget_is_used(
             log_forecast.cmd_add(_add_args(median=0.2, lower=0.1, upper=0.3))
 
 
+def _running(tmp_path, monkeypatch, active: dict) -> None:
+    budget = tmp_path / "search-budget.json"
+    budget.write_text(json.dumps({"searches": 3, "active_agents": active}))
+    monkeypatch.setenv("SEARCH_BUDGET_FILE", str(budget))
+
+
+def test_a_one_shot_forecast_waits_while_a_scout_is_running(
+    one_shot_question, tmp_path, monkeypatch
+):
+    ledger, _meta = one_shot_question
+    _running(tmp_path, monkeypatch, {"a1": "research-scout"})
+    later = dt.datetime.now(dt.UTC) + dt.timedelta(minutes=20)
+    monkeypatch.setenv("FORECAST_DEADLINE", later.strftime("%Y-%m-%dT%H:%M:%SZ"))
+    with pytest.raises(SystemExit, match=r"1 subagent\(s\) still running \(research-scout\)"):
+        log_forecast.cmd_add(_add_args(median=0.2, lower=0.1, upper=0.3))
+    assert not ledger.exists(), "a refused forecast must not reach the ledger"
+    _running(tmp_path, monkeypatch, {})
+    log_forecast.cmd_add(_add_args(median=0.2, lower=0.1, upper=0.3))
+    assert len(_records(ledger)) == 1, "logged once every scout has stopped"
+
+
+def test_the_wait_for_scouts_is_waived_near_the_deadline(
+    one_shot_question, tmp_path, monkeypatch, capsys
+):
+    ledger, _meta = one_shot_question
+    _running(tmp_path, monkeypatch, {"a1": "research-scout"})
+    soon = dt.datetime.now(dt.UTC) + dt.timedelta(minutes=log_forecast.WAIVER_MINUTES - 2)
+    monkeypatch.setenv("FORECAST_DEADLINE", soon.strftime("%Y-%m-%dT%H:%M:%SZ"))
+    log_forecast.cmd_add(_add_args(median=0.2, lower=0.1, upper=0.3))
+    assert len(_records(ledger)) == 1
+    assert "still running" in capsys.readouterr().err
+
+
 def test_the_research_floor_holds_while_time_remains(one_shot_question, tmp_path, monkeypatch):
     _research_log(tmp_path / "s", {"searches": []}, date="2026-10-20")
     later = dt.datetime.now(dt.UTC) + dt.timedelta(minutes=20)
