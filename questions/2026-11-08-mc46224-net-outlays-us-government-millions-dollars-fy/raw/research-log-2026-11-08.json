@@ -1,0 +1,26 @@
+{"searches": [
+  {"category": "resolution_source", "query": "FRED FYONET federal net outlays fiscal year 2025 7,009,986", "by": "main", "status": "done", "finding": "FRED FYONET FY2025 = 7,009,974 (Oct 2025 first print), revised 7,011,105 (Apr 2026); first print follows the September MTS"},
+  {"category": "resolution_source", "query": "Monthly Treasury Statement September 2026 total outlays fiscal year 2026", "by": "main", "status": "done", "finding": "Sept 2026 MTS: FY2026 outlays 7,395,800 $M vs 7,009,986 FY2025 (+5.5%)"},
+  {"category": "consensus", "query": "CBO budget and economic outlook 2026 to 2036 outlays 2028", "by": "main", "status": "done", "finding": "CBO Feb 2026: outlays $7.45T 2026, $7.77T 2027, ~23.3% GDP through 2028"},
+  {"category": "consensus", "query": "CBO projected outlays 2028 $8.0 trillion OR $8.1 trillion OR $7.9 trillion", "by": "main", "status": "done", "finding": "no explicit 2028 dollar figure found"},
+  {"category": "news", "query": "CBO monthly budget review October 2026 fiscal 2027 outlays", "by": "main", "status": "done", "finding": "Oct 2026 MBR due Nov 9; Sept MBR: FY2026 outlays $7.4T, deficit ~$2.0T"},
+  {"category": "markets", "query": "Kalshi Polymarket federal spending outlays 2028", "by": "main", "status": "done", "finding": "no market on FY2028 outlay level; Kalshi 'spending cut before 2028' contract ~80% (secondary report, different question)"},
+  {"category": "schedule", "query": "CBO 2028 outlays timing shift October 1 2028 weekend payments", "by": "main", "status": "done", "finding": "Oct 1 2028 is a weekend: CBO shifts ~$118B mandatory outlays from FY2029 into FY2028"},
+  {"category": "disconfirmation", "query": "economists recession probability 2027 United States November 2026", "by": "main", "status": "done", "finding": "Kalshi ~41% / Polymarket ~35% 2027 recession (older snapshots); NY Fed yield-curve ~13% for Sept 2027", "tests": "assumption that FY2028 outlays track the CBO baseline (~$8.2T) within ~3%, i.e. no recession surge or large new spending"},
+  {"category": "news", "query": "net interest outlays fiscal 2026 actual 2027 projection trillion", "by": "main", "status": "done", "finding": "FY2026 net interest ~$1.05-1.14T, +8-11%; CBO 2027 outlays $7.8T"},
+  {"category": "consensus", "query": "CBO February 2026 baseline outlays 2028 trillion table 1-1 deficit 2028", "by": "main", "status": "done", "finding": "2028: revenue $6.1T (17.5% GDP), deficit 6.0% GDP, >$2T -> outlays ~ $8.15-8.2T implied"},
+  {"category": "upcoming_events", "query": "FY2027 appropriations defense spending increase reconciliation 2026 outlays CBO estimate", "by": "main", "status": "done", "finding": "President's FY2027 request $1.5T defense incl. $350B reconciliation (not enacted per sources); CSIS: defense 3.0%->3.7% GDP by 2028 if enacted"},
+  {"category": "consensus", "query": "CBO updated budget projections 2026 to 2036 outlays revised summer 2026", "by": "main", "status": "done", "finding": "no full summer re-baseline; Aug 2026 tariff update (+$0.9T deficits, revenue side); laws since Feb reduced discretionary projections"},
+  {"category": "resolution_source", "query": "CBO Budget and Economic Outlook 2026 to 2036 outlays 2027 2028 trillion", "by": "scout-1", "status": "done", "finding": "FY2026 $7.4T 23.3% GDP; 2027-28 near 2026 share"},
+  {"category": "resolution_source", "query": "fiscal year 2026 deficit total outlays Treasury monthly statement September 2026 CBO monthly budget review", "by": "scout-1", "status": "done", "finding": "FY2026 outlays $7.4T +6%, deficit ~$2.0T"},
+  {"category": "consensus", "query": "CBO baseline outlays fiscal 2027 2028 trillion Budget and Economic Outlook February 2026 table", "by": "scout-1", "status": "done", "finding": "no dollar figure for 2028 retrieved"},
+  {"category": "resolution_source", "query": "CBO budget and economic outlook 2026 to 2036 outlays fiscal year 2028 net interest", "by": "scout-2", "status": "done", "finding": "net interest $1.0T 2026 -> $2.1T 2036"},
+  {"category": "base_rate", "query": "CBO comparison of projected and actual outlays errors evaluation of CBO's budget projections", "by": "scout-2", "status": "done", "finding": "budget-year outlay MAE ~2.3%; CBO tends to overestimate; FY2024 -6%, FY2025 -2% underestimates"},
+  {"category": "disconfirmation", "query": "tariff refunds Supreme Court IEEPA CBO deficit impact outlays", "by": "scout-2", "status": "done", "finding": "IEEPA refunds ~$150-175B, mostly negative receipts in FY2026-27, not FY2028 outlays", "tests": "FY2028 outlays not distorted by one-off refunds"},
+  {"category": "base_rate", "query": "federal outlays annual growth history CBO projection error", "by": "main", "status": "skipped", "finding": "covered by scout-2"},
+  {"category": "other", "query": "OMB FY2027 budget outlays 2028 estimate", "by": "scout-1", "status": "skipped", "finding": ""}
+],
+ "adjustments": [
+  {"event": "FY2026 actual outlays came in at $7.396T vs CBO Feb 2026 projection $7.45T", "date": "2026-10-16", "effect": "-0.7% on the median (~-$55B)", "sources": [2, 3]},
+  {"event": "President's FY2027 $1.5T defense request (incl. $350B reconciliation) pending, not enacted", "date": "2026-04-01", "effect": "right skew: p90 to 8.56M, p95 to 8.70M", "sources": [6]}
+]}
