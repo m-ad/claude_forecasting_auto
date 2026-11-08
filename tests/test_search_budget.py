@@ -320,6 +320,7 @@ def test_running_subagents_are_tracked_from_start_to_stop(tmp_path):
                            "agent_type": "research-scout", "session_id": "s"})
         assert run.returncode == 0 and run.stdout == ""
     assert sb.running_agents(sb.read_state(path)) == {"a2": "research-scout"}
+    assert sb.read_state(path)["subagents_started"] == 2, "a stop does not undo a start"
 
 
 # ------------------------------------------------------------------- wiring

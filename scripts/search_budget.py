@@ -33,7 +33,10 @@ Behaviour, per call:
   (``additionalContext``); at the cap it is refused with a reason that tells the model
   what to do instead. ``0`` disables a search cap.
 - ``SubagentStart`` / ``SubagentStop`` keep ``active_agents``, the subagents still
-  running. ``log_forecast.py`` refuses a one-shot forecast while any is, outside its
+  running, and ``subagents_started`` counts the start events. A forecast logged with no
+  subagent running proves nothing if the start events never arrived; equal
+  ``subagents_started`` and ``scouts_spawned``, and no subagent left running at exit,
+  show that both events reach the hook. ``log_forecast.py`` refuses a one-shot forecast while any is, outside its
   deadline waiver: the skill's "do not log before every scout has reported" is then a
   rule the code keeps, not one the model has to remember after a refusal told it to log.
 
@@ -82,7 +85,9 @@ MAX_SCOUTS = 5
 NUDGE_SHARE = 0.8
 SPAWN_TOOLS = ("Agent", "Task")
 
-_COUNTS = ("searches", "fetches", "denied", "no_agent_id", "scouts_spawned")
+_COUNTS = (
+    "searches", "fetches", "denied", "no_agent_id", "scouts_spawned", "subagents_started"
+)
 
 
 def _cap(name: str, default: int) -> int:
@@ -335,10 +340,14 @@ def decide(
 
 
 def track(state: dict[str, Any], event: str, agent_id: str, agent_type: str) -> None:
-    """Record a ``SubagentStart`` / ``SubagentStop`` in ``state["active_agents"]``."""
+    """Record a ``SubagentStart`` / ``SubagentStop`` in ``state["active_agents"]``.
+
+    Every start event is counted in ``subagents_started``, a resumed subagent's again.
+    """
     if not agent_id:
         return
     if event == "SubagentStart":
+        state["subagents_started"] += 1
         state["active_agents"][agent_id] = agent_type
     elif event == "SubagentStop":
         state["active_agents"].pop(agent_id, None)

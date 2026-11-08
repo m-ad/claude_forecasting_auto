@@ -313,13 +313,16 @@ def test_usage_marks_subagents_unknown_when_the_cli_does_not_report_them():
 
 def test_usage_records_the_search_budget_counts_next_to_billed_searches():
     budget = {"searches": 21, "fetches": 9, "denied": 2, "max_searches": 50,
-              "max_per_scout": 8, "by_agent": {"a1": {"searches": 8, "fetches": 3}}}
+              "max_per_scout": 8, "by_agent": {"a1": {"searches": 8, "fetches": 3}},
+              "scouts_spawned": 2, "subagents_started": 2, "active_agents": {"a2": "scout"}}
     rec = record_usage.usage_record(RESULT, job="j", run_id="1", slug="s", model="opus",
                                     budget=budget)
     assert rec["search_tool_calls"] == 21 and rec["fetch_tool_calls"] == 9
     assert rec["search_calls_denied"] == 2 and rec["search_calls_by_agent"] == {"a1": 8}
     assert rec["search_cap"] == 50 and rec["search_cap_per_scout"] == 8
     assert rec["search_budget_file"] == "ok"
+    assert rec["subagents_started"] == 2 and rec["subagents_running_at_exit"] == 1
+    assert "2 / 2 / 1" in record_usage.summary_table(rec)
     assert rec["web_searches"] == 6, "billed searches stay a separate count"
     assert "21/50" in record_usage.summary_table(rec)
     # A killed session still spent its searches: the counts survive a missing result.
