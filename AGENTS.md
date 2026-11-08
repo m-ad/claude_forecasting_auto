@@ -55,7 +55,7 @@ The mode follows from `meta.yaml`, never from a flag you choose:
 | Who runs it | the `tournament-sweep` workflow, unattended | an interactive session, `/forecast` (no automation yet) |
 | Skill | `tournament-forecast` | `forecast-workflow` |
 | Time budget | ~25 minutes inside a 3-hour window | high effort, no clock |
-| Sources | ≥ 5 cited, from ≥ 15 searches (enforced; up to 40), up to 5 research-scouts | ≥ 15 |
+| Sources | ≥ 5 cited, from ≥ 15 searches (enforced; up to 40), up to 5 research-scouts; in lean mode, when the Claude allowance is tight, 6–10 searches and no scouts | ≥ 15 |
 | Forecasts per question | **exactly one**, never revisited | updated over time |
 | Tripwires / `next_review` | none (nothing to come back for) | required |
 | Community prediction | hidden — record "hidden — bot tournament" | not visible to the bot token — record "hidden", log no CP |
@@ -139,7 +139,9 @@ Search with varied phrasings; do not stop at the first ten results. For a **stan
 forecast the rule of thumb is **≥ 15 distinct sources**; for a **tournament** question,
 **at least 5**, from **at least 15 searches** — a floor `log_forecast.py` enforces through
 the question's research log — and up to 40 when useful, split between you and up to 5
-parallel `research-scout` subagents. In both cases spread them across:
+parallel `research-scout` subagents. (When the sweep runs a session in **lean mode**
+because the Claude allowance is tight, the floor is 6 and there are no scouts: the
+`tournament-forecast` skill's § Lean mode.) In both cases spread them across:
 
 - the resolution source itself and primary data (statistical offices, registries, filings)
 - peer-reviewed literature where the question has an academic base rate
@@ -196,8 +198,10 @@ median/IQR → new, **one driver per row**.
   the conclusion. Take contrarian and radical hypotheses seriously.
 - Call out misconceptions in the question framing, including the maintainer's.
 - Prefer hard data and peer-reviewed work over opinion pieces and blog posts.
-- **No charts.** The deliverable is text, read by a scoring script, by Metaculus as a
-  comment, and occasionally by the maintainer in a terminal. Put numbers in a markdown table.
+- **No charts in a forecast.** The deliverable is text, read by a scoring script, by
+  Metaculus as a comment, and occasionally by the maintainer in a terminal. Put numbers in a
+  markdown table. (The results page, `scripts/build_page.py`, is not a forecast deliverable:
+  its Bot usage section draws inline SVG charts.)
 - Python: `uv` is the package manager (`uv add`, `uv run`). Type hints in signatures,
   numpy-style docstrings, comments explain *why*.
 - In CI nobody answers questions: if a question is ambiguous, state the interpretation you

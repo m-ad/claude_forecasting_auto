@@ -23,7 +23,8 @@ per question** (a rule), and **failure handled by Python, never by the model** (
 ```
 every 30 min   tournament-sweep.yml
   gate         scripts/tournament_poll.py         (no model; 1 billed minute)
-               budget ok? token ok? open questions the bot has not forecast?
+               allowance (deep, lean or stop)? budget ok? token ok?
+               open questions the bot has not forecast?
   per question one matrix job, up to MAX_PARALLEL at once
     scaffold   scripts/new_question.py --tournament      question text cached to raw/
     forecast   claude -p  (tournament-forecast skill)   ~25 min cap, no Metaculus token

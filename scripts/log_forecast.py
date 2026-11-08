@@ -175,6 +175,20 @@ RESEARCH_CATEGORIES = {
     "other",
 }
 REQUIRED_CATEGORIES = ("resolution_source", "news", "markets", "base_rate", "disconfirmation")
+
+
+def min_searches() -> int:
+    """The research floor: ``$RESEARCH_MIN_SEARCHES`` if set, else ``MIN_SEARCHES``.
+
+    The sweep sets it for a lean session (issue #21: 6, one per required category plus
+    one), because a floor of 15 under a search cap of 10 would only ever be waived. A
+    malformed or negative value keeps the default: a typo must not lift the floor.
+    """
+    try:
+        value = int(os.environ.get("RESEARCH_MIN_SEARCHES", "").strip())
+    except ValueError:
+        return MIN_SEARCHES
+    return value if value >= 0 else MIN_SEARCHES
 SEARCH_STATUSES = {"planned", "done", "skipped"}
 # Inside this many minutes of $FORECAST_DEADLINE the floor is waived: the skill asks
 # for the forecast to be logged 5 minutes before the kill, and refusing then would
@@ -233,7 +247,7 @@ def research_log_problems(log: Any, *, floor: bool = True) -> list[str]:
 
     The log is ``{"searches": [{"category", "query", "by", "status", "finding",
     "tests"?}], "adjustments"?: [{"event", "date", "effect", "sources"?}]}``.
-    ``floor`` adds the depth requirement: at least ``MIN_SEARCHES`` entries with
+    ``floor`` adds the depth requirement: at least ``min_searches()`` entries with
     ``status: done``, covering every one of ``REQUIRED_CATEGORIES``; a done
     ``disconfirmation`` entry that names, in ``tests``, the assumption it tests; and
     an ``adjustments`` list (empty when the forecast makes no adjustment). Without
@@ -267,8 +281,9 @@ def research_log_problems(log: Any, *, floor: bool = True) -> list[str]:
         out.extend(_adjustment_problems(log["adjustments"]))
     if out or not floor:
         return out
-    if len(done) < MIN_SEARCHES:
-        out.append(f"{len(done)} searches done, the floor is {MIN_SEARCHES}")
+    floor_n = min_searches()
+    if len(done) < floor_n:
+        out.append(f"{len(done)} searches done, the floor is {floor_n}")
     covered = {e.get("category") for e in done}
     missing = [c for c in REQUIRED_CATEGORIES if c not in covered]
     if missing:

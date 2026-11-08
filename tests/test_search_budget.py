@@ -344,9 +344,14 @@ def test_ci_settings_register_the_hook_for_web_calls_spawns_and_subagents():
 def test_the_sweep_gives_the_session_its_caps_and_records_the_counts():
     wf = yaml.safe_load((REPO / ".github" / "workflows" / "tournament-sweep.yml").read_text())
     steps = wf["jobs"]["forecast"]["steps"]
-    env = next(s for s in steps if s.get("id") == "claude")["env"]
-    # Passed through raw, so the defaults live only in search_budget.py.
-    assert env["MAX_WEB_SEARCHES"] == "${{ vars.MAX_WEB_SEARCHES }}"
+    # The session's environment: the job's, where its settings live, plus the step's.
+    claude = next(s for s in steps if s.get("id") == "claude")
+    env = {**wf["jobs"]["forecast"]["env"], **claude["env"]}
+    # Passed through raw in deep mode, so the defaults live only in search_budget.py;
+    # lean mode's cap of 10 sits with its other knobs (tests/test_bot.py checks them).
+    assert env["MAX_WEB_SEARCHES"] == (
+        "${{ matrix.q.mode == 'lean' && '10' || vars.MAX_WEB_SEARCHES }}"
+    )
     assert env["MAX_WEB_SEARCHES_PER_SCOUT"] == "${{ vars.MAX_WEB_SEARCHES_PER_SCOUT }}"
     assert env["SEARCH_BUDGET_FILE"] == "${{ runner.temp }}/search-budget.json"
     usage = next(s for s in steps if s.get("name") == "Record token usage")

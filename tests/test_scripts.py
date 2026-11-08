@@ -1065,6 +1065,7 @@ def one_shot_question(tmp_path, monkeypatch):
     monkeypatch.setattr(log_forecast, "save_meta", lambda s, m: None)
     monkeypatch.delenv("FORECAST_DEADLINE", raising=False)
     monkeypatch.delenv("SEARCH_BUDGET_FILE", raising=False)
+    monkeypatch.delenv("RESEARCH_MIN_SEARCHES", raising=False)
     _research_log(tmp_path / "s", DEEP_RESEARCH)
     return ledger, meta
 
@@ -1112,6 +1113,47 @@ def test_research_floor_counts_only_done_searches_and_required_categories():
     assert log_forecast.research_log_problems(no_markets) == [
         "no search done yet for: markets"
     ]
+
+
+@pytest.mark.parametrize(
+    ("raw", "floor"),
+    [(None, 15), ("", 15), ("6", 6), (" 6 ", 6), ("0", 0), ("-3", 15), ("six", 15)],
+)
+def test_the_floor_follows_research_min_searches(monkeypatch, raw, floor):
+    # The sweep sets it to 6 for a lean session (issue #21); unset, the floor stays 15,
+    # and a malformed value must never lift it.
+    if raw is None:
+        monkeypatch.delenv("RESEARCH_MIN_SEARCHES", raising=False)
+    else:
+        monkeypatch.setenv("RESEARCH_MIN_SEARCHES", raw)
+    assert log_forecast.MIN_SEARCHES == 15
+    assert log_forecast.min_searches() == floor
+
+
+def test_a_lean_floor_is_one_search_per_required_category_plus_one(monkeypatch):
+    required = [_search(c) for c in log_forecast.REQUIRED_CATEGORIES]
+    lean = {**DEEP_RESEARCH, "searches": [*required, _search("news")]}
+    monkeypatch.setenv("RESEARCH_MIN_SEARCHES", "6")
+    assert log_forecast.research_log_problems(lean) == []
+    assert log_forecast.research_log_problems({**lean, "searches": required}) == [
+        "5 searches done, the floor is 6"
+    ]
+    monkeypatch.delenv("RESEARCH_MIN_SEARCHES")
+    assert log_forecast.research_log_problems(lean) == ["6 searches done, the floor is 15"]
+
+
+def test_a_lean_session_logs_after_six_searches(one_shot_question, tmp_path, monkeypatch):
+    ledger, _meta = one_shot_question
+    required = [_search(c) for c in log_forecast.REQUIRED_CATEGORIES]
+    _research_log(
+        tmp_path / "s", {"searches": [*required, _search("news")], "adjustments": []},
+        date="2026-10-20",
+    )
+    with pytest.raises(SystemExit, match="6 searches done, the floor is 15"):
+        log_forecast.cmd_add(_add_args(median=0.2, lower=0.1, upper=0.3))
+    monkeypatch.setenv("RESEARCH_MIN_SEARCHES", "6")
+    log_forecast.cmd_add(_add_args(median=0.2, lower=0.1, upper=0.3))
+    assert len(_records(ledger)) == 1
 
 
 def test_the_floor_needs_a_disconfirmation_that_names_the_assumption_it_tests():

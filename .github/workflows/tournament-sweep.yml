@@ -31,6 +31,10 @@ on:
         description: "Cap on questions for this run."
         required: false
         default: ""
+      mode:
+        description: "Research mode: auto, deep or lean. Blank = the FORECAST_MODE variable (default auto)."
+        required: false
+        default: ""
       dry_run:
         description: "Forecast but do not submit, and commit nothing (smoke test of the model step)."
         type: boolean
@@ -61,6 +65,8 @@ jobs:
       questions: ${{ steps.poll.outputs.questions }}
       question_count: ${{ steps.poll.outputs.question_count }}
       reason: ${{ steps.poll.outputs.reason }}
+      mode: ${{ steps.poll.outputs.mode }}
+      exhausted_until: ${{ steps.poll.outputs.exhausted_until }}
     steps:
       - uses: actions/checkout@v5
         with:
@@ -77,11 +83,25 @@ jobs:
           METACULUS_API_KEY: ${{ secrets.METACULUS_API_KEY }}
           WEEKLY_BUDGET_USD_EQUIV: ${{ vars.WEEKLY_BUDGET_USD_EQUIV }}
           MAX_QUESTIONS_PER_RUN: ${{ inputs.max_questions || vars.MAX_QUESTIONS_PER_RUN || '6' }}
+          # Read by scripts/allowance.py. Passed through unset: an empty value means the
+          # defaults there, kept there only.
+          FORECAST_MODE: ${{ vars.FORECAST_MODE }}
+          ALLOWANCE_5H_USD_EQUIV: ${{ vars.ALLOWANCE_5H_USD_EQUIV }}
+          ALLOWANCE_7D_USD_EQUIV: ${{ vars.ALLOWANCE_7D_USD_EQUIV }}
+          ALLOWANCE_STOP_5H: ${{ vars.ALLOWANCE_STOP_5H }}
+          ALLOWANCE_STOP_7D: ${{ vars.ALLOWANCE_STOP_7D }}
+          LEAN_AT_5H: ${{ vars.LEAN_AT_5H }}
+          LEAN_AT_7D: ${{ vars.LEAN_AT_7D }}
           # Passed through env, never interpolated into the script: dispatch input is free text.
           IN_TOURNAMENT: ${{ inputs.tournament }}
           IN_POST_IDS: ${{ inputs.post_ids }}
+          IN_MODE: ${{ inputs.mode }}
         run: |
           args=(--github-output)
+          if [ -n "$IN_MODE" ]; then
+            [[ "$IN_MODE" =~ ^(auto|deep|lean)$ ]] || { echo "::error::mode must be auto, deep or lean"; exit 1; }
+            args+=(--mode "$IN_MODE")
+          fi
           if [ -n "$IN_TOURNAMENT" ]; then
             [[ "$IN_TOURNAMENT" =~ ^[a-z0-9-]+$ ]] || { echo "::error::bad tournament slug"; exit 1; }
             args+=(--tournament "$IN_TOURNAMENT")
@@ -110,7 +130,28 @@ jobs:
     env:
       POST_ID: ${{ matrix.q.post_id }}
       TOURNAMENT: ${{ matrix.q.tournament }}
-      MODEL: ${{ vars.MODEL_FORECAST || 'opus' }}
+      # The gate's research mode for this sweep (scripts/allowance.py): deep, or lean
+      # when the Claude allowance is tight. Lean changes only the flags and env below.
+      MODE: ${{ matrix.q.mode || 'deep' }}
+      MODEL: ${{ (matrix.q.mode == 'lean' && vars.MODEL_LEAN) || vars.MODEL_FORECAST || 'opus' }}
+      # The session's settings, at job level so the usage record's config snapshot
+      # (record_usage.py --config) reads exactly what the session was given.
+      EFFORT: ${{ matrix.q.mode == 'lean' && 'medium' || vars.EFFORT_FORECAST || 'high' }}
+      MAX_USD: ${{ vars.MAX_USD_PER_QUESTION || '15' }}
+      MINUTES: ${{ vars.MAX_MINUTES_PER_QUESTION || '25' }}
+      # Read by the PreToolUse hook in settings.ci.json (scripts/search_budget.py),
+      # which refuses WebSearch past these caps, and by log_forecast.py, which
+      # waives the research floor once the session cap is used. Passed through
+      # unset in deep mode: an empty value means the defaults in search_budget.py,
+      # kept there only. Lean mode's numbers live here, next to its other knobs:
+      # a 10-search cap and a floor of 6 (one per required category, plus one).
+      MAX_WEB_SEARCHES: ${{ matrix.q.mode == 'lean' && '10' || vars.MAX_WEB_SEARCHES }}
+      RESEARCH_MIN_SEARCHES: ${{ matrix.q.mode == 'lean' && '6' || '' }}
+      MAX_WEB_SEARCHES_PER_SCOUT: ${{ vars.MAX_WEB_SEARCHES_PER_SCOUT }}
+      # Unpinned by default: model aliases (`opus`, `sonnet`) resolve inside the CLI,
+      # so a pinned CLI would stay on the models it knew. Pin via the variable if a
+      # release breaks the sweep; the version used is in the Step Summary.
+      CLAUDE_CODE_VERSION: ${{ vars.CLAUDE_CODE_VERSION || 'latest' }}
     steps:
       - uses: actions/checkout@v5
         with:
@@ -125,11 +166,6 @@ jobs:
           enable-cache: true
           cache-dependency-glob: "pyproject.toml"
       - name: Install dependencies and Claude Code
-        env:
-          # Unpinned by default: model aliases (`opus`, `sonnet`) resolve inside the CLI,
-          # so a pinned CLI would stay on the models it knew. Pin via the variable if a
-          # release breaks the sweep; the version used is in the Step Summary.
-          CLAUDE_CODE_VERSION: ${{ vars.CLAUDE_CODE_VERSION || 'latest' }}
         run: |
           uv sync
           npm install -g --no-fund --no-audit "@anthropic-ai/claude-code@${CLAUDE_CODE_VERSION}"
@@ -161,15 +197,6 @@ jobs:
           CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           DISABLE_AUTOUPDATER: "1"
           SLUG: ${{ steps.prep.outputs.slug }}
-          EFFORT: ${{ vars.EFFORT_FORECAST || 'high' }}
-          MAX_USD: ${{ vars.MAX_USD_PER_QUESTION || '15' }}
-          MINUTES: ${{ vars.MAX_MINUTES_PER_QUESTION || '25' }}
-          # Read by the PreToolUse hook in settings.ci.json (scripts/search_budget.py),
-          # which refuses WebSearch past these caps, and by log_forecast.py, which
-          # waives the research floor once the session cap is used. Passed through
-          # unset: an empty value means the defaults in search_budget.py, kept there only.
-          MAX_WEB_SEARCHES: ${{ vars.MAX_WEB_SEARCHES }}
-          MAX_WEB_SEARCHES_PER_SCOUT: ${{ vars.MAX_WEB_SEARCHES_PER_SCOUT }}
           SEARCH_BUDGET_FILE: ${{ runner.temp }}/search-budget.json
         run: |
           export FORECAST_DEADLINE="$(date -u -d "+${MINUTES} minutes" +%Y-%m-%dT%H:%M:%SZ)"
@@ -178,6 +205,13 @@ jobs:
           # rejects it for subscription auth); the step timeout still applies.
           budget=()
           [ "$MAX_USD" != "0" ] && budget=(--max-budget-usd "$MAX_USD")
+          # Lean: no research-scouts. Removing the spawn tool is a hard block that does
+          # not rely on the prompt (Task is its old name).
+          lean=()
+          if [ "$MODE" = "lean" ]; then
+            lean=(--disallowedTools Agent Task)
+            prompt="$prompt Research mode: lean — follow SKILL.md § Lean mode."
+          fi
           # The CLI warns that it ignores the allow list in .claude/settings.json because
           # the checkout is untrusted. Intended: that list is for interactive sessions and
           # is broader; this session must run on settings.ci.json alone. Never mark the
@@ -193,6 +227,7 @@ jobs:
             --verbose \
             --permission-mode dontAsk \
             --settings .claude/settings.ci.json \
+            "${lean[@]}" \
             "${budget[@]}" \
             > "$RUNNER_TEMP/claude.jsonl"
           code=$?
@@ -238,10 +273,16 @@ jobs:
         env:
           SLUG: ${{ steps.prep.outputs.slug }}
           EXIT_CODE: ${{ steps.claude.outputs.exit_code }}
+          # For the config snapshot (CONFIG_ENV in record_usage.py), next to the job's
+          # session settings and GitHub's own GITHUB_* variables. Non-secret only.
+          MAX_PARALLEL: ${{ vars.MAX_PARALLEL || '3' }}
+          MAX_QUESTIONS_PER_RUN: ${{ inputs.max_questions || vars.MAX_QUESTIONS_PER_RUN || '6' }}
+          WEEKLY_BUDGET_USD_EQUIV: ${{ vars.WEEKLY_BUDGET_USD_EQUIV }}
+          DRY_RUN: ${{ inputs.dry_run }}
         run: |
           uv run scripts/record_usage.py record --result "$RUNNER_TEMP/claude.jsonl" \
             --job tournament-sweep --run-id "$GITHUB_RUN_ID" --slug "$SLUG" --model "$MODEL" \
-            --search-budget "$RUNNER_TEMP/search-budget.json" \
+            --search-budget "$RUNNER_TEMP/search-budget.json" --config \
             ${EXIT_CODE:+--exit-code "$EXIT_CODE"} --summary >> "$GITHUB_STEP_SUMMARY"
 
       - name: Upload the dry-run folder
@@ -266,6 +307,37 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git remote set-url origin "https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
           ./scripts/ci_commit.sh "sweep: ${TOURNAMENT} ${SLUG}"
+
+  # One bot-health comment per exhaustion, keyed on its reset time, instead of one per
+  # sweep: while the allowance is out the gate starts nothing, so no forecast job fails
+  # to say so. (Round 2 left 26 identical failure comments on one issue.)
+  report-exhaustion:
+    needs: gate
+    if: needs.gate.outputs.exhausted_until != ''
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Comment once per exhaustion on the bot-health issue
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+          REASON: ${{ needs.gate.outputs.reason }}
+          UNTIL: ${{ needs.gate.outputs.exhausted_until }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          marker="<!-- allowance-exhausted ${UNTIL} -->"
+          body="$(date -u +%FT%TZ) Claude allowance exhausted (${REASON}): the sweep starts no session until ${UNTIL}. Gate run: ${RUN_URL}
+
+          ${marker}"
+          gh label create bot-health --color B60205 --description "The forecasting bot is failing" 2>/dev/null || true
+          num="$(gh issue list --label bot-health --state open --json number -q '.[0].number')"
+          if [ -z "$num" ]; then
+            gh issue create --label bot-health --title "bot: Claude allowance exhausted" --body "$body"
+          elif gh issue view "$num" --json body,comments -q '.body, .comments[].body' | grep -qF "$marker"; then
+            echo "Already reported on #$num: allowance exhausted until ${UNTIL}"
+          else
+            gh issue comment "$num" --body "$body"
+          fi
 
   report-failure:
     needs: [gate, forecast]

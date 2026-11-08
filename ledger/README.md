@@ -31,8 +31,32 @@ One-shot rule, enforced by the tests: a slug has at most one `submission`, and i
 different questions; `.gitattributes` merges the file with git's `union` driver).
 
 `usage.jsonl` — one line per Claude Code run in CI: job, slug, model, turns, duration,
-tokens, API-equivalent `cost_usd_equiv`, web searches, permission denials. Written by
-`scripts/record_usage.py`; the gate's weekly budget guard reads it.
+tokens (`tokens`: the main agent; `tokens_all`: every agent), API-equivalent
+`cost_usd_equiv`, web searches, permission denials. Written by `scripts/record_usage.py`;
+the gate's weekly budget guard and its allowance estimate (`scripts/allowance.py`) read
+it, and the results page charts it. Since 2026-11-08 (issue #20), each line also carries,
+where the CLI reported it:
+
+```jsonc
+{"conclusion": "usage_limit",          // or "error" (is_error), else the result's subtype
+ "model_resolved": "claude-opus-5-5", "claude_code_version": "2.1.319",
+ "config": {"model": "opus", "effort": "high", "mode": "deep", "max_web_searches": 50,
+            "min_searches": 15, "scout_model": "sonnet", "sha": "164a625", ...},
+ "allowance": {"events": 3, "status": "rejected", "rejected": true,
+               "rejected_window": "five_hour", "rejected_until": "2026-11-02T12:10:00Z",
+               "windows": {"five_hour": {"first": 90.0, "last": 97.0,
+                                         "resets_at": "2026-11-02T12:10:00Z"}},
+               "overage": {"enabled": false, "in_use": false}},
+ "delta_allowance": {"five_hour": 7.0},  // last - first reading, percent points
+ "rate_limit_events_raw": [{"status": "allowed_warning", "rateLimitType": "five_hour",
+                            "utilization": 0.9, "resetsAt": 1762085400}],
+ "terminal_reason": "api_error", "errors": ["rate_limit: Claude AI usage limit reached"]}
+```
+
+Utilization is in percent in `allowance` and verbatim (a 0–1 fraction) in the raw
+events; the CLI sends a reading only at its warning thresholds, so most windows carry a
+reset time and no reading. A line before 2026-11-08 has none of these fields; there a
+one-turn, zero-cost line with an empty `by_model` is a refusal logged as a success.
 
 Optional on a forecast record: `distribution`, the full forecast where median and IQR are
 not all of it — `{"probabilities": {...}}` (required for multiple choice, exact option

@@ -12,8 +12,10 @@ import os
 import subprocess
 import sys
 
+import allowance as al
 import build_page as bp
 import metaculus_api as mapi
+import page_usage as pu
 import pytest
 from calibration import mc_brier
 from conftest import REPO, SCRIPTS
@@ -319,3 +321,149 @@ def test_page_css_sort_arrows_are_css_escapes_not_control_characters():
     page = bp.render_html([], [], 0, [], "skipped: test", {}, NOW)
     assert "\\2195" in page and "\\25B2" in page and "\\25BC" in page
     assert not any(ord(c) < 32 and c not in "\n\t" for c in page)
+
+
+# ================================================================= bot usage
+T0 = dt.datetime(2026, 11, 2, 0, 0, tzinfo=dt.UTC)
+
+
+def _at(hours: float) -> str:
+    return (T0 + dt.timedelta(hours=hours)).isoformat()
+
+
+def _meta(i: int, opened_h: float, submitted: bool = True, tournament: str = "minibench",
+          title: str | None = None) -> tuple[str, dict]:
+    slug = f"2026-11-02-mc{1000 + i}-q"
+    return slug, {"title": title or f"Q{i}", "tournament": {
+        "slug": tournament, "opened": _at(opened_h), "closes": _at(opened_h + 3),
+        "submitted": _at(opened_h + 1) if submitted else None}}
+
+
+def _use(slug: str, end_h: float, cost: float = 1.5, *, refused: bool = False, model="opus",
+         **extra) -> dict:
+    if refused:  # as the old recorder logged a refusal
+        return {"ts": _at(end_h), "slug": slug, "model": model, "cost_usd_equiv": 0.0,
+                "num_turns": 1, "by_model": {}, "conclusion": "success", "duration_s": 0.5,
+                **extra}
+    return {"ts": _at(end_h), "slug": slug, "model": model, "cost_usd_equiv": cost,
+            "num_turns": 30, "web_searches": 12, "by_model": {model: cost},
+            "conclusion": "success", "duration_s": 180, **extra}
+
+
+def test_usage_section_with_no_usage_says_so_and_still_renders():
+    sec = pu.build([], [], al.Config(), shown=3)
+    assert sec.rounds == [] and sec.per_slug == {}
+    assert "No sessions on MiniBench questions recorded yet" in sec.html
+    assert "No MiniBench round recorded yet" in sec.html
+    assert "No allowance reading recorded yet" in sec.html
+    page = bp.render_html([], [], 0, [], "skipped: test", {}, NOW, sec)
+    assert "<h2>Bot usage</h2>" in page
+
+
+def test_usage_section_with_refused_sessions_only():
+    slug, meta = _meta(1, 1.0, submitted=False)
+    records = [_use(slug, 1.5, refused=True), _use(slug, 2.5, refused=True)]
+    sec = pu.build(records, [(slug, meta)], al.Config(), shown=3)
+    (row,) = sec.rounds
+    assert (row["questions"], row["submitted"], row["refused"], row["sessions"]) == (1, 0, 2, 2)
+    assert row["cost_usd"] == 0 and row["median_searches"] is None and row["models"] == []
+    assert 'class="c-refused"' in sec.html and "refused (usage limit)" in sec.html
+    assert 'class="c-band"' in sec.html, "the refusal period is shaded"
+    assert "usage_limit (inferred)" in sec.html, "an old-style refusal is labelled inferred"
+    assert sec.per_slug[slug]["models"] == [] and sec.per_slug[slug]["allowance"] == 0
+
+
+def test_two_rounds_split_at_a_72_hour_gap_and_the_last_n_are_drawn():
+    metas = [_meta(1, 0), _meta(2, 5), _meta(3, 5 + 71.9),  # one round: gaps < 72 h
+             _meta(4, 5 + 71.9 + 72, submitted=False)]       # a new round
+    records = [_use(metas[0][0], 1), _use(metas[1][0], 6, model="sonnet"),
+               _use(metas[3][0], 150, refused=True), _use("other-slug", 7, cost=9.0)]
+    sec = pu.build(records, metas, al.Config(), shown=1)
+    assert [(r["round"], r["questions"], r["submitted"]) for r in sec.rounds] == [
+        (1, 3, 3), (2, 1, 0)
+    ]
+    assert sec.rounds[0]["cost_usd"] == 3.0, "a session on another question is not counted"
+    assert sec.rounds[0]["models"] == ["Opus", "Sonnet"]
+    captions = [line for line in sec.html.splitlines() if 'style="margin:0 0 4px">Round' in line]
+    assert len(captions) == 1 and ">Round 2: " in captions[0], "only the last round is drawn"
+    assert "Round 2</text>" in sec.html, "the session chart marks where round 2 starts"
+    # 7-day share: $3 at the configured $100 per week
+    assert sec.rounds[0]["allowance_7d_pct"] == 3.0
+
+
+def test_only_the_round_tournament_counts():
+    metas = [_meta(1, 0), _meta(2, 1, tournament="bot-testing-area")]
+    qs = pu.tournament_questions(metas)
+    assert [q.slug for q in qs] == [metas[0][0]]
+
+
+def test_refusal_periods_join_refusals_until_a_served_session():
+    sessions = pu.parse_usage([
+        _use("a", 1, refused=True), _use("b", 2, refused=True),  # one period
+        _use("c", 2.5),                                          # served: it ends here
+        _use("d", 6, refused=True),                              # a new one
+    ])
+    (a1, b1), (a2, b2) = pu.refusal_periods(sessions)
+    assert a1 == T0 + dt.timedelta(hours=1, seconds=-0.5)
+    assert b1 == T0 + dt.timedelta(hours=2.5, seconds=-180), "cut at the served session's start"
+    assert b2 - a2 == dt.timedelta(minutes=30, seconds=0.5)
+
+
+def test_question_rows_carry_model_effort_mode_and_estimated_allowance():
+    slug, meta = _meta(1, 0)
+    records = [
+        _use(slug, 1, cost=1.6, config={"effort": "high", "mode": "deep"}),
+        _use(slug, 2, refused=True, model="sonnet", config={"effort": "medium", "mode": "lean"}),
+    ]
+    sec = pu.build(records, [(slug, meta)], al.Config(), shown=3)
+    use = sec.per_slug[slug]
+    assert use["models"] == ["Opus"], "a refused session ran no model"
+    assert (use["efforts"], use["modes"]) == (["high", "medium"], ["deep", "lean"])
+    assert use["allowance"] == pytest.approx(1.6 * 100 / 16)  # 10 % of a 5-hour window
+    row = _rows(cost_usd=1.6, runs=2)
+    row.models, row.efforts, row.modes, row.allowance_5h_pct = "Opus", "high", "deep", 10.0
+    page = bp.render_html([row], [row], 0, [], "skipped: test", {}, NOW, sec)
+    assert '<td class="n">10 %</td><td>Opus</td><td>high</td><td>deep</td>' in page
+    assert page.count("<th>Est. allowance</th>") == 3, "resolved, closed, per round"
+
+
+def test_titles_reach_tooltips_escaped():
+    slug, meta = _meta(1, 0, title='<img src=x onerror="alert(1)">')
+    sec = pu.build([_use(slug, 1)], [(slug, meta)], al.Config(), shown=3)
+    assert "<img" not in sec.html and "&lt;img src=x onerror=&quot;alert(1)&quot;&gt;" in sec.html
+    assert "textContent" in pu.TIP_JS and "innerHTML" not in pu.TIP_JS
+
+
+def test_the_tooltip_script_survives_following_the_sort_script():
+    # SORT_JS ends in a call; a bare "(function" after it is parsed as a call on its result.
+    assert pu.TIP_JS.lstrip().startswith(";(function")
+
+
+def test_allowance_chart_plots_readings_and_marks_resets():
+    slug, meta = _meta(1, 0)
+    reading = {"windows": {"five_hour": {"first": 90.0, "last": 92.0,
+                                         "resets_at": _at(4)}}}
+    sec = pu.build([_use(slug, 1, allowance=reading)], [(slug, meta)], al.Config(), shown=3)
+    assert '<circle class="c-5h ring"' in sec.html and "92 %" in sec.html
+    assert "5-hour window reset" in sec.html
+
+
+@pytest.mark.parametrize(("raw", "n"), [(None, 3), ("", 3), ("5", 5), ("0", 3), ("x", 3)])
+def test_rounds_shown_follows_page_usage_rounds(monkeypatch, raw, n):
+    if raw is None:
+        monkeypatch.delenv("PAGE_USAGE_ROUNDS", raising=False)
+    else:
+        monkeypatch.setenv("PAGE_USAGE_ROUNDS", raw)
+    assert pu.rounds_shown() == n
+
+
+def test_the_real_ledger_builds_a_usage_section_with_its_rounds():
+    from _common import all_questions, ledger_records
+    from record_usage import USAGE
+
+    sec = pu.build(ledger_records(USAGE), list(all_questions()), al.Config(), shown=3)
+    assert sec.rounds, "MiniBench rounds 1 and 2 are in the repository"
+    for r in sec.rounds:
+        assert 0 <= r["submitted"] <= r["questions"]
+        assert r["refused"] <= r["sessions"]
+    assert "<h2>Bot usage</h2>" in sec.html

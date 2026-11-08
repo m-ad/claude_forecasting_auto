@@ -43,7 +43,8 @@ research. Each question is forecast once and never revisited, so this is the onl
    resolution source, recent news, markets, the base rate and one search against your
    biggest assumption — `log_forecast.py` refuses the forecast below that floor. Go up to **40** when the
    question needs it (a hard-to-find resolution source, conflicting evidence, several
-   independent streams). Cite at least 5 sources, primary ones first.
+   independent streams). Cite at least 5 sources, primary ones first. *(Lean mode: 6–10,
+   see § Lean mode.)*
    **The session has a hard search budget**: `MAX_WEB_SEARCHES` `WebSearch` calls, yours and
    your scouts' together, and `MAX_WEB_SEARCHES_PER_SCOUT` per scout. A note on your first
    search states the numbers. The scouts together never take the last
@@ -62,6 +63,25 @@ research. Each question is forecast once and never revisited, so this is the onl
    (below), not for reaching anything else. Paths are relative to the repository root,
    where the session starts; run Python only as `uv run python` — bare `python3` is denied.
 7. **Log exactly once.** A second `add` is refused: one forecast per question is a tournament rule.
+
+## Lean mode
+
+When the prompt says **Research mode: lean**, the Claude allowance is running low and the
+gate (`scripts/allowance.py`) chose a cheap forecast over a missed one: a missed question
+scores 0, and in round 1 sessions without scouts at about 4 searches scored within noise of
+the deep ones. Here the allowance binds, not the evidence. Everything else in this skill
+applies, with these changes:
+
+- **No scouts, no tail scout.** The `Agent` tool is not available in this session; skip 3b.
+  Every research-log entry is `"by": "main"`.
+- **6–10 searches.** Plan 6–10 queries; run the resolution source and one market check
+  first, and cover the 5 required categories. `log_forecast.py` refuses below **6** done
+  (not 15), and the session's search cap is **10**; once the cap is used the floor is
+  waived, as always. Spend fetches on the resolution source, not on re-reading.
+- **Unchanged:** the `What resolves YES` digest with its arithmetic, the outside view, a
+  done `disconfirmation` entry that names its assumption in `tests`, the `adjustments`
+  list, the full distribution, the short `forecast.md` with at least 5 sources, and exactly
+  one ledger entry.
 
 ## Which tool for what
 
@@ -124,7 +144,7 @@ the typical volatility over the horizon.
 ### 3a. Write the research plan first
 
 Before the first search, write `questions/<slug>/raw/research-log-<YYYY-MM-DD>.json` (today,
-UTC) with **at least 15 planned queries**, at least one per required category:
+UTC) with **at least 15 planned queries** (lean mode: 6–10), at least one per required category:
 
 ```json
 {"searches": [
@@ -171,7 +191,7 @@ names its assumption in `tests`, and the log has an `adjustments` list** (waived
 automatically in the last 8 minutes before the deadline, so it can never cost you the
 forecast). Record honestly: the log is committed next to the forecast and audited.
 
-### 3b. Spawn research-scouts — the default, not the exception
+### 3b. Spawn research-scouts — the default, not the exception (not in lean mode)
 
 Right after the plan, spawn **`research-scout` subagents in one message** so they run in
 parallel, one per independent stream (several data sources, several actors, a market and a

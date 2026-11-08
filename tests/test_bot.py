@@ -356,6 +356,229 @@ def test_a_killed_run_records_zero_cost_instead_of_failing():
     assert rec["cost_usd_equiv"] == 0.0
 
 
+# Stream fixtures in the shape of the SDK's message types (sdk.d.ts of
+# @anthropic-ai/claude-agent-sdk 0.3.319, read 2026-11-08): utilization is a fraction
+# and resetsAt Unix seconds, as Claude Code 2.1.110 builds them from the API headers.
+RESET_5H = 1762084800  # 2025-11-02T12:00:00Z
+RESET_7D = 1762430400  # 2025-11-06T12:00:00Z
+INIT = {"type": "system", "subtype": "init", "model": "claude-opus-x",
+        "claude_code_version": "2.1.319", "agents": ["research-scout"]}
+
+
+def _rate(status, window, utilization=None, resets=None, **extra):
+    info = {"status": status, "rateLimitType": window, **extra}
+    if utilization is not None:
+        info["utilization"] = utilization
+    if resets is not None:
+        info["resetsAt"] = resets
+    return {"type": "rate_limit_event", "rate_limit_info": info, "uuid": "u", "session_id": "s"}
+
+
+def _stream(*events) -> str:
+    return "\n".join(json.dumps(e) for e in events)
+
+
+def _record(text: str, **kw) -> dict:
+    stream = record_usage.parse_stream(text)
+    return record_usage.usage_record(
+        stream["result"], job="j", run_id="1", slug="s", model="opus", stream=stream, **kw
+    )
+
+
+REFUSED_TEXT = "Claude AI usage limit reached|1762084800"
+
+
+def test_usage_follows_the_allowance_from_allowed_to_rejected():
+    rec = _record(_stream(
+        INIT,
+        _rate("allowed", "five_hour", resets=RESET_5H),
+        {"type": "assistant", "message": {"content": [{"type": "text", "text": "ok"}]}},
+        _rate("allowed_warning", "five_hour", 0.9, RESET_5H, surpassedThreshold=0.9),
+        _rate("allowed_warning", "seven_day", 0.5, RESET_7D),
+        _rate("allowed_warning", "five_hour", 0.97, RESET_5H),
+        _rate("rejected", "five_hour", resets=RESET_5H, isUsingOverage=False),
+        {"type": "assistant", "error": "rate_limit",
+         "message": {"content": [{"type": "text", "text": REFUSED_TEXT}]}},
+        {**RESULT, "num_turns": 5, "terminal_reason": "api_error"},
+    ))
+    assert rec["conclusion"] == "usage_limit", "a refusal outranks the result's subtype"
+    assert (rec["model_resolved"], rec["claude_code_version"]) == ("claude-opus-x", "2.1.319")
+    allowance = rec["allowance"]
+    assert (allowance["events"], allowance["status"], allowance["rejected"]) == (
+        5, "rejected", True
+    )
+    assert allowance["windows"] == {
+        "five_hour": {"first": 90.0, "last": 97.0, "resets_at": "2025-11-02T12:00:00Z"},
+        "seven_day": {"first": 50.0, "last": 50.0, "resets_at": "2025-11-06T12:00:00Z"},
+    }
+    assert (allowance["rejected_window"], allowance["rejected_until"]) == (
+        "five_hour", "2025-11-02T12:00:00Z"
+    )
+    assert allowance["overage"] == {"enabled": None, "in_use": False}
+    assert rec["delta_allowance"] == {"five_hour": 7.0, "seven_day": 0.0}
+    assert len(rec["rate_limit_events_raw"]) == 5
+    assert rec["rate_limit_events_raw"][1]["utilization"] == 0.9, "raw means verbatim"
+    assert rec["terminal_reason"] == "api_error"
+    assert rec["errors"] == [f"rate_limit: {REFUSED_TEXT}"]
+
+
+def test_rejected_while_on_extra_usage_is_not_a_refusal():
+    rec = _record(_stream(
+        _rate("rejected", "five_hour", resets=RESET_5H, isUsingOverage=True,
+              overageStatus="allowed"),
+        RESULT,
+    ))
+    assert rec["conclusion"] == "success"
+    assert rec["allowance"]["rejected"] is False
+    assert rec["allowance"]["overage"] == {"enabled": True, "in_use": True}
+
+
+def test_an_is_error_result_is_an_error_with_its_message():
+    rec = _record(_stream(INIT, {**RESULT, "subtype": "error_during_execution",
+                                 "is_error": True, "errors": ["API Error: 500 boom"]}))
+    assert rec["conclusion"] == "error"
+    assert rec["errors"] == ["API Error: 500 boom"]
+    success_but_error = _record(_stream({**RESULT, "is_error": True, "result": "Bad things"}))
+    assert success_but_error["conclusion"] == "error", "is_error outranks subtype: success"
+    assert success_but_error["errors"] == ["Bad things"]
+
+
+def test_a_refusal_that_is_one_result_line_is_an_error_the_gate_infers():
+    # What the old recorder logged as a success: one turn, no cost, no model usage.
+    one = {"type": "result", "subtype": "success", "is_error": True, "num_turns": 1,
+           "total_cost_usd": 0, "duration_ms": 400, "usage": {}, "modelUsage": {},
+           "result": REFUSED_TEXT}
+    rec = _record(_stream(one))
+    assert rec["conclusion"] == "error" and rec["by_model"] == {}
+    assert "allowance" not in rec and "model_resolved" not in rec
+    import allowance
+
+    refused, _until, inferred = allowance.refusal(rec)
+    assert (refused, inferred) == (False, False), "a new record says usage_limit itself"
+    old = {k: v for k, v in rec.items() if k != "tokens_all"} | {"conclusion": "success"}
+    assert allowance.refusal(old)[::2] == (True, True), "an old record is inferred"
+
+
+def test_a_stream_without_rate_limit_events_records_no_allowance():
+    rec = _record(_stream(INIT, RESULT))
+    assert rec["conclusion"] == "success"
+    assert "allowance" not in rec and "delta_allowance" not in rec
+    assert rec["model_resolved"] == "claude-opus-x"
+    assert "errors" not in rec and "terminal_reason" not in rec
+
+
+def test_a_killed_run_keeps_the_allowance_it_saw():
+    rec = _record(_stream(INIT, _rate("allowed_warning", "five_hour", 0.92, RESET_5H)),
+                  exit_code=143)
+    assert rec["parse_failed"] is True and rec["conclusion"] == "timeout"
+    assert rec["allowance"]["windows"]["five_hour"]["last"] == 92.0
+
+
+def test_tokens_all_sums_every_agent_while_tokens_stays_the_main_agent():
+    result = {**RESULT, "modelUsage": {
+        "claude-opus-x": {"costUSD": 1.0, "inputTokens": 10, "outputTokens": 5,
+                          "cacheReadInputTokens": 100, "cacheCreationInputTokens": 7},
+        "claude-sonnet-x": {"costUSD": 0.2, "inputTokens": 3, "outputTokens": 2,
+                            "cacheReadInputTokens": 50, "cacheCreationInputTokens": 1},
+    }}
+    rec = _record(_stream(result))
+    assert rec["tokens"]["input"] == 100, "usage: the main agent"
+    assert rec["tokens_all"] == {"input": 13, "output": 7, "cache_read": 150, "cache_write": 8}
+
+
+def test_errors_are_cut_and_carry_no_secret(monkeypatch):
+    monkeypatch.setenv("CLAUDE_CODE_OAUTH_TOKEN", "oauth-secret-123456")
+    text = ("401 for Bearer abc.def and sk-ant-oat01-XYZ_123 and oauth-secret-123456 "
+            + "x" * 300)
+    rec = _record(_stream({**RESULT, "is_error": True, "result": text}))
+    (err,) = rec["errors"]
+    assert len(err) <= 200
+    for leaked in ("abc.def", "sk-ant", "XYZ_123", "oauth-secret"):
+        assert leaked not in err
+
+
+@pytest.mark.parametrize(
+    ("raw", "pct"), [(0.9, 90.0), (1, 100.0), (90, 90.0), (0, 0.0), (None, None),
+                     (-1, None), (True, None), ("90", None), (float("nan"), None)],
+)
+def test_utilization_up_to_one_is_a_fraction(raw, pct):
+    assert record_usage.utilization_pct(raw) == pct
+
+
+@pytest.mark.parametrize(
+    "raw",
+    [RESET_5H, RESET_5H * 1000, "2025-11-02T12:00:00Z", "2025-11-02T12:00:00+00:00",
+     "2025-11-02T12:00:00"],
+    ids=["unix-seconds", "unix-ms", "iso-z", "iso-offset", "iso-naive"],
+)
+def test_reset_times_parse_in_every_shape(raw):
+    assert record_usage.parse_instant(raw) == dt.datetime(2025, 11, 2, 12, tzinfo=dt.UTC)
+
+
+@pytest.mark.parametrize("raw", [None, "", "soon", [], True, float("nan"), 1e300])
+def test_unparseable_reset_times_are_unknown(raw):
+    assert record_usage.parse_instant(raw) is None
+
+
+# --------------------------------------------------------- config snapshot
+SECRETS = {
+    "CLAUDE_CODE_OAUTH_TOKEN": "sk-ant-oat01-secret",
+    "METACULUS_API_KEY": "mc-secret-key",
+    "GITHUB_TOKEN": "ghs_secret",
+    "ANTHROPIC_API_KEY": "sk-ant-api03-secret",
+}
+SWEEP_ENV = {
+    "MODEL": "opus", "EFFORT": "high", "MAX_USD": "15", "MINUTES": "25",
+    "MAX_PARALLEL": "3", "MAX_QUESTIONS_PER_RUN": "6", "WEEKLY_BUDGET_USD_EQUIV": "",
+    "CLAUDE_CODE_VERSION": "latest", "MODE": "lean", "GITHUB_EVENT_NAME": "schedule",
+    "GITHUB_RUN_ATTEMPT": "2", "GITHUB_SHA": "164a625e7e9a2462c3170404e6fcb1fd66f48cff",
+    "DRY_RUN": "false", "MAX_WEB_SEARCHES": "10", "RESEARCH_MIN_SEARCHES": "6",
+}
+
+
+def test_the_config_snapshot_is_the_allowlist_and_nothing_else(monkeypatch):
+    for name, value in {**SECRETS, **SWEEP_ENV}.items():
+        monkeypatch.setenv(name, value)
+    config = record_usage.config_snapshot()
+    assert tuple(config) == record_usage.CONFIG_KEYS
+    assert config == {
+        "model": "opus", "effort": "high", "max_usd": 15.0, "minutes": 25,
+        "max_parallel": 3, "max_questions_per_run": 6, "weekly_budget_usd_equiv": None,
+        "claude_code_version_requested": "latest", "mode": "lean", "event": "schedule",
+        "run_attempt": 2, "sha": "164a625", "dry_run": False,
+        "scout_model": "sonnet", "min_searches": 6, "max_web_searches": 10,
+    }
+    text = json.dumps(config)
+    for bad in ("TOKEN", "KEY", "SECRET", "sk-ant", *SECRETS.values()):
+        assert bad.lower() not in text.lower(), f"config leaks {bad!r}"
+
+
+def test_the_config_snapshot_reports_the_defaults_when_unset(monkeypatch):
+    for name in (*record_usage.CONFIG_ENV.values(), "MAX_WEB_SEARCHES",
+                 "RESEARCH_MIN_SEARCHES"):
+        monkeypatch.delenv(name, raising=False)
+    config = record_usage.config_snapshot()
+    assert set(config) == set(record_usage.CONFIG_KEYS)
+    assert config["min_searches"] == log_forecast.MIN_SEARCHES
+    assert config["max_web_searches"] == search_budget.DEFAULT_MAX_SEARCHES
+    assert config["dry_run"] is False and config["model"] is None
+
+
+def test_the_sweep_sets_every_config_variable_for_the_record_step():
+    from conftest import REPO
+
+    wf = yaml.safe_load((REPO / ".github" / "workflows" / "tournament-sweep.yml").read_text())
+    job = wf["jobs"]["forecast"]
+    step = next(s for s in job["steps"] if s.get("name") == "Record token usage")
+    seen = {**job["env"], **step["env"]}
+    github_sets = {"GITHUB_EVENT_NAME", "GITHUB_RUN_ATTEMPT", "GITHUB_SHA"}
+    missing = set(record_usage.CONFIG_ENV.values()) - set(seen) - github_sets
+    assert not missing, f"the record step does not see {sorted(missing)}"
+    assert "--config" in step["run"]
+    for name in seen:
+        assert not any(bad in name for bad in ("TOKEN", "SECRET")) and name != "METACULUS_API_KEY"
+
+
 def test_weekly_spend_counts_only_the_trailing_week(tmp_path):
     path = tmp_path / "usage.jsonl"
     for days, cost in ((1, 2.0), (6, 3.0), (8, 100.0)):
@@ -714,3 +937,147 @@ def test_every_workflow_secret_and_variable_is_documented():
         used |= set(re.findall(r"\b(?:secrets|vars)\.([A-Z][A-Z0-9_]*)", wf.read_text("utf-8")))
     missing = sorted(name for name in used if f"`{name}`" not in doc)
     assert not missing, f"docs/configuration.md does not document {missing}"
+
+
+# ================================================================ lean mode
+def _gh_eval(expr: str, ctx: dict[str, str]) -> str | bool:
+    """Evaluate the slice of GitHub expression syntax the sweep's lean mapping uses.
+
+    Names, ``'strings'``, ``==`` (case-insensitive, as GitHub compares strings), ``&&``,
+    ``||`` and parentheses, with GitHub's semantics: ``a && b`` is ``b`` when ``a`` is
+    truthy, else ``a``; ``a || b`` is ``a`` when truthy, else ``b``; ``''`` is falsy.
+    An unknown name is ``''``, as an unset repository variable is.
+    """
+    import re
+
+    body = expr.strip()
+    assert body.startswith("${{") and body.endswith("}}"), expr
+    tokens = re.findall(r"'[^']*'|==|&&|\|\||\(|\)|[A-Za-z_][\w.\-]*", body[3:-2])
+    pos = 0
+
+    def take() -> str:
+        nonlocal pos
+        pos += 1
+        return tokens[pos - 1]
+
+    def peek() -> str | None:
+        return tokens[pos] if pos < len(tokens) else None
+
+    def atom() -> str | bool:
+        tok = take()
+        if tok == "(":
+            value = either()
+            assert take() == ")"
+            return value
+        return tok[1:-1] if tok.startswith("'") else ctx.get(tok, "")
+
+    def equal() -> str | bool:
+        value = atom()
+        while peek() == "==":
+            take()
+            value = str(value).lower() == str(atom()).lower()
+        return value
+
+    def both() -> str | bool:
+        value = equal()
+        while peek() == "&&":
+            take()
+            right = equal()
+            value = right if value else value
+        return value
+
+    def either() -> str | bool:
+        value = both()
+        while peek() == "||":
+            take()
+            right = both()
+            value = value if value else right
+        return value
+
+    out = either()
+    assert pos == len(tokens), f"unparsed: {tokens[pos:]}"
+    return out
+
+
+def _sweep() -> dict:
+    from conftest import REPO
+
+    return yaml.safe_load((REPO / ".github" / "workflows" / "tournament-sweep.yml").read_text())
+
+
+@pytest.mark.parametrize("mode", ["lean", "deep"])
+def test_lean_mode_maps_to_its_flags_and_env(mode, tmp_path):
+    """The gate's ``mode`` changes only flags and env (issue #21), each checked here."""
+    wf = _sweep()
+    job = wf["jobs"]["forecast"]
+    steps = job["steps"]
+    claude = next(s for s in steps if s.get("id") == "claude")
+    session_env = {**job["env"], **claude["env"]}  # what the session process sees
+    ctx = {"matrix.q.mode": mode, "vars.MODEL_FORECAST": "opus", "vars.MODEL_LEAN": "sonnet"}
+    env = {k: _gh_eval(v, ctx) for k, v in session_env.items()
+           if k in ("EFFORT", "MAX_WEB_SEARCHES", "RESEARCH_MIN_SEARCHES")}
+    lean = mode == "lean"
+    assert env == {
+        "EFFORT": "medium" if lean else "high",
+        "MAX_WEB_SEARCHES": "10" if lean else "",  # deep: the raw variable, unset here
+        "RESEARCH_MIN_SEARCHES": "6" if lean else "",
+    }
+    assert _gh_eval(job["env"]["MODE"], ctx) == mode
+    assert _gh_eval(job["env"]["MODEL"], ctx) == ("sonnet" if lean else "opus")
+    assert _gh_eval(job["env"]["MODEL"], {**ctx, "vars.MODEL_LEAN": ""}) == "opus"
+    assert _gh_eval(job["env"]["MODE"], {}) == "deep", "an entry without a mode runs deep"
+    assert _gh_eval(session_env["EFFORT"], {**ctx, "vars.EFFORT_FORECAST": "max"}) == (
+        "medium" if lean else "max"
+    )
+
+    # Run the step's own script against a fake `claude` that records its arguments.
+    bin_dir = tmp_path / "bin"
+    bin_dir.mkdir()
+    argv_file = tmp_path / "argv"
+    fake = bin_dir / "claude"
+    fake.write_text(f"#!/bin/sh\nfor a in \"$@\"; do printf '%s\\n' \"$a\"; done > {argv_file}\n")
+    fake.chmod(0o755)
+    import os
+
+    run_env = {
+        "PATH": f"{bin_dir}:{os.environ['PATH']}",
+        "MODE": mode, "SLUG": "2026-11-08-mc1-x", "MODEL": "opus", "EFFORT": env["EFFORT"],
+        "MAX_USD": "15", "MINUTES": "25",
+        "RUNNER_TEMP": str(tmp_path), "GITHUB_OUTPUT": str(tmp_path / "out"),
+    }
+    subprocess.run(["bash", "-e", "-c", claude["run"]], env=run_env, check=True)
+    argv = argv_file.read_text().splitlines()
+    assert argv[0] == "-p"
+    sentence = "Research mode: lean — follow SKILL.md § Lean mode."
+    assert argv[1].endswith(sentence) == lean
+    assert argv[argv.index("--effort") + 1] == env["EFFORT"]
+    if lean:
+        i = argv.index("--disallowedTools")
+        assert argv[i + 1 : i + 3] == ["Agent", "Task"], "no scout can be spawned"
+        assert argv[i + 3] == "--max-budget-usd", "the variadic flag ends at the next option"
+    else:
+        assert "--disallowedTools" not in argv
+    usage = next(s for s in steps if s.get("name") == "Record token usage")
+    assert "--config" in usage["run"], "the usage record carries the run configuration"
+
+
+def test_the_gate_reads_the_allowance_variables_raw_and_reports_each_exhaustion_once():
+    wf = _sweep()
+    poll = next(s for s in wf["jobs"]["gate"]["steps"] if s.get("id") == "poll")
+    for var in ("FORECAST_MODE", "ALLOWANCE_5H_USD_EQUIV", "ALLOWANCE_7D_USD_EQUIV",
+                "ALLOWANCE_STOP_5H", "ALLOWANCE_STOP_7D", "LEAN_AT_5H", "LEAN_AT_7D"):
+        # raw, so the defaults live only in scripts/allowance.py
+        assert poll["env"][var] == f"${{{{ vars.{var} }}}}", var
+    assert poll["env"]["IN_MODE"] == "${{ inputs.mode }}"
+    assert "^(auto|deep|lean)$" in poll["run"] and '--mode "$IN_MODE"' in poll["run"]
+    outputs = wf["jobs"]["gate"]["outputs"]
+    assert outputs["mode"] == "${{ steps.poll.outputs.mode }}"
+    assert outputs["exhausted_until"] == "${{ steps.poll.outputs.exhausted_until }}"
+    report = wf["jobs"]["report-exhaustion"]
+    assert report["needs"] == "gate"
+    assert report["if"] == "needs.gate.outputs.exhausted_until != ''"
+    script = report["steps"][0]["run"]
+    assert 'marker="<!-- allowance-exhausted ${UNTIL} -->"' in script
+    assert 'grep -qF "$marker"' in script, "a reset already reported is not reported again"
+    triggers = wf[True]  # YAML 1.1 reads the key `on` as the boolean true
+    assert triggers["workflow_dispatch"]["inputs"]["mode"]["default"] == ""

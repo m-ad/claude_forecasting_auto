@@ -2,7 +2,8 @@ name: publish-page
 
 # Builds the bot's results page and deploys it to GitHub Pages: every closed and
 # resolved question with its forecast, outcome, Brier score, official peer score and
-# API-equivalent cost, plus the bot's leaderboard position per tournament.
+# API-equivalent cost, the bot's leaderboard position per tournament, and its usage
+# (sessions, rounds, the Claude allowance).
 # Deterministic (scripts/build_page.py): no model, nothing committed.
 #
 # When: after every tournament-sync run -- the sync is what moves questions to
@@ -25,6 +26,8 @@ on:
       - "ledger/**"
       - "questions/**/meta.yaml"
       - "scripts/build_page.py"
+      - "scripts/page_usage.py"
+      - "scripts/allowance.py"
       - ".github/workflows/publish-page.yml"
   workflow_dispatch:
 
@@ -62,6 +65,11 @@ jobs:
           # Read-only use: whoami, posts and leaderboards. Without it the page is
           # built without leaderboards; an API error does not fail the build either.
           METACULUS_API_KEY: ${{ secrets.METACULUS_API_KEY }}
+          # The Bot usage section (scripts/page_usage.py): rounds drawn, and the
+          # allowance sizes its estimates fall back on. Unset: the defaults in the scripts.
+          PAGE_USAGE_ROUNDS: ${{ vars.PAGE_USAGE_ROUNDS }}
+          ALLOWANCE_5H_USD_EQUIV: ${{ vars.ALLOWANCE_5H_USD_EQUIV }}
+          ALLOWANCE_7D_USD_EQUIV: ${{ vars.ALLOWANCE_7D_USD_EQUIV }}
         run: |
           set -o pipefail
           uv run --no-default-groups scripts/build_page.py --out _site | tee -a "$GITHUB_STEP_SUMMARY"
