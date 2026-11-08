@@ -198,8 +198,10 @@ median/IQR → new, **one driver per row**.
   the conclusion. Take contrarian and radical hypotheses seriously.
 - Call out misconceptions in the question framing, including the maintainer's.
 - Prefer hard data and peer-reviewed work over opinion pieces and blog posts.
-- **No charts.** The deliverable is text, read by a scoring script, by Metaculus as a
-  comment, and occasionally by the maintainer in a terminal. Put numbers in a markdown table.
+- **No charts in a forecast.** The deliverable is text, read by a scoring script, by
+  Metaculus as a comment, and occasionally by the maintainer in a terminal. Put numbers in a
+  markdown table. (The results page, `scripts/build_page.py`, is not a forecast deliverable:
+  its Bot usage section draws inline SVG charts.)
 - Python: `uv` is the package manager (`uv add`, `uv run`). Type hints in signatures,
   numpy-style docstrings, comments explain *why*.
 - In CI nobody answers questions: if a question is ambiguous, state the interpretation you

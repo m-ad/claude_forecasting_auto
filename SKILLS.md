@@ -42,7 +42,8 @@ question.
 | `scripts/status.py` | List questions by urgency; `--index` regenerates `INDEX.md`. |
 | `scripts/calibration.py` | Brier / log score, calibration buckets. |
 | `scripts/postmortem.py` | Read-only post-mortem tools: `pit` (where outcomes fell in the submitted CDF), `replay` (rebuild resolved submissions under alternative interpolation/floor rules, Δ log score), `sample` (worst N + type-matched random controls), `report` (markdown; the daily sync appends it to its run summary). |
-| `scripts/build_page.py` | The results page (`index.html` + `results.json`): closed and resolved questions linked to Metaculus, forecast, outcome, Brier score (ranked probability score for numeric/discrete), official peer score, API-equivalent cost; the bot's leaderboard rank per tournament (live, read-only, fails soft). |
+| `scripts/build_page.py` | The results page (`index.html` + `results.json`): closed and resolved questions linked to Metaculus, forecast, outcome, Brier score (ranked probability score for numeric/discrete), official peer score, API-equivalent cost, estimated allowance, model, effort and mode; the bot's leaderboard rank per tournament (live, read-only, fails soft). |
+| `scripts/page_usage.py` | The results page's Bot usage section, inline SVG: every MiniBench session by index (cost, turns, searches; model; refusals), each round's question windows (submitted or missed, refusals shaded), the CLI's allowance readings, and a per-round table. |
 
 All Python scripts run under `uv run <path>`.
 

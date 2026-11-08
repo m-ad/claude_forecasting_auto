@@ -7,7 +7,8 @@ repository already records:
 - ``questions/*/meta.yaml``: status, title, Metaculus URL, and the official spot
   peer score the daily sync stores in ``tournament.official_score``;
 - ``ledger/forecasts.jsonl``: the forecast as submitted, and the outcome;
-- ``ledger/usage.jsonl``: the API-equivalent cost of every Claude run.
+- ``ledger/usage.jsonl``: the API-equivalent cost of every Claude run, and the Bot
+  usage section (``scripts/page_usage.py``): sessions, rounds, the allowance.
 
 The leaderboards are read live from Metaculus when a token is set, and fail soft:
 an API error or a changed response shape leaves a note on the page instead of
@@ -47,6 +48,7 @@ from typing import Any
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import metaculus_api as mapi
+import page_usage
 from _common import (
     LEDGER,
     QUESTIONS,
@@ -84,6 +86,12 @@ class Row:
     peer_score: float | None = None
     cost_usd: float = 0.0
     runs: int = 0
+    # From the usage records (scripts/page_usage.py): main models of the served sessions,
+    # the efforts and modes recorded, and the estimated share of a 5-hour window used.
+    models: str | None = None
+    efforts: str | None = None
+    modes: str | None = None
+    allowance_5h_pct: float | None = None
 
 
 # ------------------------------------------------------------------ scoring
@@ -230,9 +238,14 @@ def _forecast_text(
 
 
 def build_rows(
-    usage_path: Path = USAGE, ledger_path: Path = LEDGER
+    usage_path: Path = USAGE,
+    ledger_path: Path = LEDGER,
+    per_slug: dict[str, dict[str, Any]] | None = None,
 ) -> tuple[list[Row], list[Row], int]:
-    """Resolved rows (newest first), closed rows (newest first), dropped count."""
+    """Resolved rows (newest first), closed rows (newest first), dropped count.
+
+    ``per_slug`` is ``page_usage.slug_usage``'s output; computed here when not given.
+    """
     submissions: dict[str, dict] = {}
     resolutions: dict[str, dict] = {}
     forecasts: dict[str, dict] = {}
@@ -245,6 +258,12 @@ def build_rows(
         elif event == "forecast":
             forecasts[slug] = rec  # file order is time order per slug: the last wins
     costs = costs_by_slug(usage_path)
+    if per_slug is None:
+        records = ledger_records(usage_path)
+        per_slug = page_usage.slug_usage(
+            page_usage.parse_usage(records),
+            page_usage.rates(records, page_usage.al.Config.from_env()),
+        )
 
     resolved, closed, dropped = [], [], 0
     for slug, meta in all_questions():
@@ -277,6 +296,12 @@ def build_rows(
             cost_usd=round(cost, 4),
             runs=runs,
         )
+        use = per_slug.get(slug)
+        if use:
+            row.models = ", ".join(use["models"]) or None
+            row.efforts = ", ".join(use["efforts"]) or None
+            row.modes = ", ".join(use["modes"]) or None
+            row.allowance_5h_pct = round(use["allowance"], 1)
         if status == "resolved":
             outcome = (resolutions.get(slug) or {}).get("outcome")
             if outcome is None:
@@ -534,6 +559,23 @@ def _title(row: Row) -> str:
     return _e(row.title)
 
 
+def _usage_cells(row: Row) -> str:
+    """Est. allowance, model, effort and mode cells of a question row."""
+    pct = row.allowance_5h_pct
+    allowance = (
+        '<td class="n muted">—</td>' if pct is None else f'<td class="n">{pct:.0f} %</td>'
+    )
+    return allowance + "".join(
+        f"<td>{_e(v or '—')}</td>" for v in (row.models, row.efforts, row.modes)
+    )
+
+
+def _allowance_total(rows: list[Row]) -> str:
+    known = [r.allowance_5h_pct for r in rows if r.allowance_5h_pct is not None]
+    total = f'<td class="n">{sum(known):.0f} %</td>' if known else '<td class="n muted">—</td>'
+    return total + '<td colspan="3"></td>'
+
+
 def _mean(values: list[float]) -> float | None:
     return sum(values) / len(values) if values else None
 
@@ -546,8 +588,12 @@ def render_html(
     board_note: str | None,
     bot: dict,
     now: dt.datetime,
+    usage: page_usage.UsageSection | None = None,
 ) -> str:
-    """The whole page as one self-contained HTML document (one inline sort script, no assets)."""
+    """The whole page as one self-contained HTML document (inline scripts, no assets).
+
+    ``usage`` is the Bot usage section (``page_usage.build``), placed after the tables.
+    """
     listed = resolved + closed
     peers = [r.peer_score for r in resolved if r.peer_score is not None]
     kinds = {
@@ -583,7 +629,7 @@ def render_html(
         '<html lang="en"><head><meta charset="utf-8">',
         '<meta name="viewport" content="width=device-width,initial-scale=1">',
         f"<title>{_e(name)} results</title>",
-        f"<style>{CSS}</style></head><body><main>",
+        f"<style>{CSS}{page_usage.CSS}</style></head><body><main>",
         f"<h1>{who}: closed and resolved questions</h1>",
         (
             f'<p class="sub">An autonomous Metaculus bot (Claude Code in GitHub Actions). '
@@ -645,7 +691,8 @@ def render_html(
         (
             '<div class="wrap"><table class="sortable"><thead><tr><th>Question</th><th>Tournament</th>'
             "<th>Type</th><th>Forecast</th><th>Outcome</th><th>Resolved</th><th>Brier</th>"
-            "<th>Peer score</th><th>API cost</th></tr></thead><tbody>"
+            "<th>Peer score</th><th>API cost</th><th>Est. allowance</th><th>Model</th>"
+            "<th>Effort</th><th>Mode</th></tr></thead><tbody>"
         ),
     ]
     for r in resolved:
@@ -654,19 +701,21 @@ def render_html(
             f"<td>{_e(r.qtype)}</td><td>{_e(r.forecast)}</td><td>{_e(r.outcome or '—')}</td>"
             f'<td class="n">{_e(r.resolves or "—")}</td>'
             f"{_num(r.brier, '.3f')}{_num(r.peer_score, '+.1f', True)}"
-            f"{_num(r.cost_usd if r.runs else None, ',.2f')}</tr>"
+            f"{_num(r.cost_usd if r.runs else None, ',.2f')}{_usage_cells(r)}</tr>"
         )
     out += [
         (
             '</tbody><tfoot><tr><td colspan="7">Total</td>'
             f"{_num(sum(peers) if peers else None, '+.1f', True)}"
-            f"{_num(sum(r.cost_usd for r in resolved), ',.2f')}</tr></tfoot></table></div>"
+            f"{_num(sum(r.cost_usd for r in resolved), ',.2f')}"
+            f"{_allowance_total(resolved)}</tr></tfoot></table></div>"
         ),
         f"<h2>Closed, awaiting resolution ({len(closed)})</h2>",
         (
             '<div class="wrap"><table class="sortable"><thead><tr><th>Question</th><th>Tournament</th>'
             "<th>Type</th><th>Forecast</th><th>Closed</th><th>Resolves</th>"
-            "<th>API cost</th></tr></thead><tbody>"
+            "<th>API cost</th><th>Est. allowance</th><th>Model</th><th>Effort</th>"
+            "<th>Mode</th></tr></thead><tbody>"
         ),
     ]
     for r in closed:
@@ -674,13 +723,15 @@ def render_html(
             f'<tr><td class="q">{_title(r)}</td><td>{_e(r.tournament or "—")}</td>'
             f"<td>{_e(r.qtype)}</td><td>{_e(r.forecast)}</td>"
             f'<td class="n">{_e(r.closed or "—")}</td><td class="n">{_e(r.resolves or "—")}</td>'
-            f"{_num(r.cost_usd if r.runs else None, ',.2f')}</tr>"
+            f"{_num(r.cost_usd if r.runs else None, ',.2f')}{_usage_cells(r)}</tr>"
         )
     out += [
         (
             '</tbody><tfoot><tr><td colspan="6">Total</td>'
-            f"{_num(sum(r.cost_usd for r in closed), ',.2f')}</tr></tfoot></table></div>"
+            f"{_num(sum(r.cost_usd for r in closed), ',.2f')}"
+            f"{_allowance_total(closed)}</tr></tfoot></table></div>"
         ),
+        usage.html if usage else "",
         '<ul class="notes">',
         (
             "<li><b>Forecast</b>: binary, the probability submitted; numeric and discrete, "
@@ -703,6 +754,13 @@ def render_html(
             "it measures how much allowance a forecast used.</li>"
         ),
         (
+            "<li><b>Est. allowance</b>: the share of a 5-hour Claude subscription window "
+            "the question's sessions used, estimated as their API-equivalent cost times "
+            f"the {_e(usage.rate_note if usage else 'configured allowance per dollar')}. "
+            "<b>Model</b>, <b>Effort</b>, <b>Mode</b>: of the sessions, as recorded "
+            "since 2026-11-08 (model also before).</li>"
+        ),
+        (
             "<li><b>Rank</b>: Metaculus' rank among the ranked entries of the tournament's "
             "primary leaderboard; provisional until the leaderboard is finalized.</li>"
         ),
@@ -712,7 +770,10 @@ def render_html(
             f"<li>{dropped} dropped question(s) (missed window, annulled or ambiguous) "
             "are not listed.</li>"
         )
-    out += [f"</ul></main><script>{SORT_JS}</script></body></html>", ""]
+    out += [
+        f"</ul></main><script>{SORT_JS}{page_usage.TIP_JS}</script></body></html>",
+        "",
+    ]
     return "\n".join(out)
 
 
@@ -726,7 +787,8 @@ def main() -> None:
     )
     args = ap.parse_args()
 
-    resolved, closed, dropped = build_rows()
+    usage = page_usage.build(ledger_records(USAGE), list(all_questions()))
+    resolved, closed, dropped = build_rows(per_slug=usage.per_slug)
     if args.no_leaderboards:
         boards, note, bot = [], "not fetched for this build", {}
     else:
@@ -740,7 +802,7 @@ def main() -> None:
     now = dt.datetime.now(dt.UTC)
     args.out.mkdir(parents=True, exist_ok=True)
     (args.out / "index.html").write_text(
-        render_html(resolved, closed, dropped, boards, note, bot, now),
+        render_html(resolved, closed, dropped, boards, note, bot, now, usage),
         encoding="utf-8",
         newline="\n",
     )
@@ -752,6 +814,8 @@ def main() -> None:
         "resolved": [asdict(r) for r in resolved],
         "closed": [asdict(r) for r in closed],
         "dropped": dropped,
+        "usage_rounds": usage.rounds,
+        "allowance_rate": usage.rate_note,
     }
     (args.out / "results.json").write_text(
         json.dumps(data, indent=1, ensure_ascii=False) + "\n",
