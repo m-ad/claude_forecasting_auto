@@ -1,0 +1,46 @@
+{
+  "post_id": 46223,
+  "url": "https://www.metaculus.com/questions/46223/",
+  "post_title": "Which party's nominee will win the 2028 US presidential election?",
+  "tournaments": [
+    "bot-testing-area"
+  ],
+  "options": [
+    "Democratic Party",
+    "Republican Party",
+    "Other"
+  ],
+  "question": {
+    "id": 46450,
+    "title": "Which party's nominee will win the 2028 US presidential election?",
+    "type": "multiple_choice",
+    "status": "open",
+    "description": "American voters elect their president every four years. The 2028 presidential election will be open, with President Donald J. Trump term limited (in October 2025 [saying](https://www.cbsnews.com/news/trump-acknowledges-he-cant-run-for-a-third-term-its-too-bad/#) it's \"pretty clear\" he is not allowed to run for a third term and that the idea of him running for vice president would be \"too cute\").\n\nFollowing the chaos of the 2020 election, which led to fake electors being sent to Washington, D.C. and formal [objections](https://en.wikipedia.org/wiki/2021_United_States_Electoral_College_vote_count#Announcements_of_planned_Electoral_College_vote_count_objections) by certain Republican members of Congress to the counting of Electoral College votes, Congress in 2022 [passed](https://www.cbsnews.com/news/electoral-count-reform-act-congress-january-6/) the bipartisan Electoral Count Reform Act. It set a much higher threshold for formal objections, requiring one-fifth of members of each chamber of Congress to sign any objection (previously the requirement was just one in each chamber). Additionally, Congress now considers electors sent by state governments to be conclusive and that the federal courts rather than Congress are the final deciders of any questions about apportionment of electors.\n\nIn late summer 2028, the two parties are expected to hold their nominating conventions. Please see:\n\n* [Who will be the 2028 Democratic nominee for President of the United States?](https://www.metaculus.com/questions/37322/who-will-be-the-2028-democratic-nominee-for-president-of-the-united-states/)\n* [Who will be the 2028 Republican nominee for President of the United States?](https://www.metaculus.com/questions/37321/who-will-be-the-2028-republican-nominee-for-president-of-the-united-states/)",
+    "resolution_criteria": "This question will resolve as the party whose candidate wins the [2028 United States presidential election](https://en.wikipedia.org/wiki/2028_United_States_presidential_election).\n\nIf the winner of the 2028 US presidential election does not represent either party or if the election is not conducted in 2028, then this question will resolve as **Other**.",
+    "fine_print": "Under the US Constitution, the winner of the presidential election is the candidate who receives the most votes in the [Electoral College](https://en.wikipedia.org/wiki/Electoral_College_\\(United_States\\)), which means a simple majority (270) of the 538 electors. This question will resolve once a candidate has secured at least 270 Electoral College votes according to [credible sources](https://www.metaculus.com/faq/#definitions) including media projections. In case of any material uncertainty, however, such as occurred following the [2020 election](https://en.wikipedia.org/wiki/Attempts_to_overturn_the_2020_United_States_presidential_election), Metaculus may delay resolution until the date Congress certifies the votes.\n\nIf no candidate secures 270 votes (such as in a tie), the question will resolve when the US House of Representatives [elects](https://en.wikipedia.org/wiki/Contingent_election) the President.",
+    "unit": "",
+    "options": [
+      "Democratic Party",
+      "Republican Party",
+      "Other"
+    ],
+    "scaling": {
+      "range_min": null,
+      "range_max": null,
+      "nominal_min": null,
+      "nominal_max": null,
+      "zero_point": null,
+      "open_upper_bound": false,
+      "open_lower_bound": false,
+      "inbound_outcome_count": null,
+      "continuous_range": null
+    },
+    "open_lower_bound": false,
+    "open_upper_bound": false,
+    "inbound_outcome_count": null,
+    "open_time": "2026-10-17T06:00:00Z",
+    "scheduled_close_time": "2028-11-06T12:00:00Z",
+    "scheduled_resolve_time": "2028-11-08T04:00:00Z",
+    "resolution": null
+  }
+}
