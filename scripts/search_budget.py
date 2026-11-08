@@ -45,9 +45,9 @@ variables through unset, and ``docs/configuration.md`` names the constants (a te
 keeps its Default column in step with them).
 
 State lives in ``$SEARCH_BUDGET_FILE``, a JSON object. Scouts call in parallel, so
-every update holds ``flock`` on a sibling ``.lock`` file and replaces the data file
-atomically (write a temporary file, ``os.replace``): a session killed mid-write leaves
-the previous state, never an empty or half-written file. A file with wrongly typed
+every update takes an exclusive lock on a sibling ``.lock`` file and replaces the data
+file atomically (write a temporary file, ``os.replace``): a session killed mid-write
+leaves the previous state, never an empty or half-written file. A file with wrongly typed
 fields is repaired field by field (``normalise``) rather than trusted or discarded.
 ``log_forecast.py`` reads it to waive the research floor once the session cap is used
 (a cap below the floor must never trap a session) and to see running scouts, and
@@ -67,14 +67,22 @@ ratio of the two is what to tune the cap with.
 
 from __future__ import annotations
 
+import contextlib
 import datetime as dt
-import fcntl
 import json
 import math
 import os
 import sys
+import time
+from collections.abc import Iterator
 from pathlib import Path
 from typing import Any
+
+try:
+    import fcntl
+except ModuleNotFoundError:  # Windows has no fcntl; msvcrt.locking is the equivalent
+    fcntl = None
+    import msvcrt
 
 DEFAULT_MAX_SEARCHES = 50
 DEFAULT_MAX_PER_SCOUT = 8
@@ -83,6 +91,7 @@ DEFAULT_MAX_PER_SCOUT = 8
 # checks it), so no scout is cut off by the session cap before its own.
 MAX_SCOUTS = 5
 NUDGE_SHARE = 0.8
+LOCK_TIMEOUT = 10.0
 SPAWN_TOOLS = ("Agent", "Task")
 
 _COUNTS = (
@@ -115,6 +124,44 @@ def budget_path() -> Path | None:
 
 def _lock_path(path: Path) -> Path:
     return path.with_name(path.name + ".lock")
+
+
+@contextlib.contextmanager
+def _exclusive(path: Path) -> Iterator[None]:
+    """Hold an exclusive advisory lock on ``path`` for the duration of the block.
+
+    CI is Linux, where ``fcntl.flock`` is the whole story. A maintainer debugging the
+    hook on Windows has no ``fcntl`` at all, and a module-level import of it there
+    breaks every importer of this module -- ``log_forecast``, ``record_usage``,
+    ``allowance`` -- not just the locking. ``msvcrt.locking`` locks a byte range from
+    the current file position, so the range (byte 0) must match between lock and
+    unlock; it raises instead of waiting, hence the retry. Both are advisory locks
+    between the scouts' parallel hook processes, which is all this needs.
+    """
+    with open(path, "a+", encoding="utf-8") as lock:
+        if fcntl is not None:
+            fcntl.flock(lock, fcntl.LOCK_EX)
+            try:
+                yield
+            finally:
+                fcntl.flock(lock, fcntl.LOCK_UN)
+            return
+        lock.seek(0)
+        deadline = time.monotonic() + LOCK_TIMEOUT
+        while True:
+            try:
+                msvcrt.locking(lock.fileno(), msvcrt.LK_NBLCK, 1)
+                break
+            except OSError:
+                if time.monotonic() >= deadline:
+                    raise
+                time.sleep(0.05)
+        try:
+            yield
+        finally:
+            lock.seek(0)
+            with contextlib.suppress(OSError):
+                msvcrt.locking(lock.fileno(), msvcrt.LK_UNLCK, 1)
 
 
 def _empty_state() -> dict[str, Any]:
@@ -381,8 +428,7 @@ def run(hook_input: dict[str, Any], path: Path) -> dict[str, Any] | None:
     path.parent.mkdir(parents=True, exist_ok=True)
     # The lock lives on its own file: os.replace swaps the data file's inode, so a lock
     # held on the data file itself would not exclude the next writer.
-    with open(_lock_path(path), "a", encoding="utf-8") as lock:
-        fcntl.flock(lock, fcntl.LOCK_EX)
+    with _exclusive(_lock_path(path)):
         try:
             text = path.read_text(encoding="utf-8")
         except FileNotFoundError:
