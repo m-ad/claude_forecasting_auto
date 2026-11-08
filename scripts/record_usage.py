@@ -223,6 +223,10 @@ def budget_fields(budget: dict[str, Any] | None) -> dict[str, Any]:
             {k: (v or {}).get("searches", 0) for k, v in by_agent.items()} if ok else None
         ),
         "scouts_spawned": b.get("scouts_spawned") if ok else None,
+        # Equal to scouts_spawned, with none running at exit, shows the SubagentStart
+        # and SubagentStop hooks fire, so log_forecast.py's wait for scouts is real.
+        "subagents_started": b.get("subagents_started") if ok else None,
+        "subagents_running_at_exit": len(b.get("active_agents") or {}) if ok else None,
         "search_cap": b.get("max_searches") if ok else None,
         "search_cap_per_scout": b.get("max_per_scout") if ok else None,
     }
@@ -294,6 +298,13 @@ def summary_table(rec: dict[str, Any]) -> str:
             if rec.get("subagents") is None
             else f"{rec['subagents']} "
             + str(rec.get("subagent_types") or {}).replace("|", "/"),
+        ),
+        (
+            "subagents spawned / started / running at exit (hook)",
+            "-"
+            if rec.get("subagents_started") is None
+            else f"{rec.get('scouts_spawned')} / {rec['subagents_started']} / "
+            f"{rec.get('subagents_running_at_exit')}",
         ),
         ("permission denials", rec.get("permission_denials", "-")),
         ("denied", ", ".join(rec.get("denied") or []) or "-"),
