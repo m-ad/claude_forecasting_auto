@@ -30,9 +30,10 @@ One-shot rule, enforced by the tests: a slug has at most one `submission`, and i
 `forecast` for the same slug. Timestamps run forward per slug (parallel sweep jobs interleave
 different questions; `.gitattributes` merges the file with git's `union` driver).
 
-`usage.jsonl` — one line per Claude Code run in CI: job, slug, model, turns, duration,
-tokens, API-equivalent `cost_usd_equiv`, web searches, permission denials. Written by
-`scripts/record_usage.py`; the gate's weekly budget guard reads it.
+`usage.jsonl` — one line per Claude Code run in CI: job, slug, model, `config.mode`
+(`deep`/`lean`), turns, duration, tokens, API-equivalent `cost_usd_equiv`, web searches,
+permission denials. Written by `scripts/record_usage.py`; the gate's weekly budget guard
+and its allowance estimate (`scripts/allowance.py`) read it.
 
 Optional on a forecast record: `distribution`, the full forecast where median and IQR are
 not all of it — `{"probabilities": {...}}` (required for multiple choice, exact option

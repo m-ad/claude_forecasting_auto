@@ -714,3 +714,146 @@ def test_every_workflow_secret_and_variable_is_documented():
         used |= set(re.findall(r"\b(?:secrets|vars)\.([A-Z][A-Z0-9_]*)", wf.read_text("utf-8")))
     missing = sorted(name for name in used if f"`{name}`" not in doc)
     assert not missing, f"docs/configuration.md does not document {missing}"
+
+
+# ================================================================ lean mode
+def _gh_eval(expr: str, ctx: dict[str, str]) -> str | bool:
+    """Evaluate the slice of GitHub expression syntax the sweep's lean mapping uses.
+
+    Names, ``'strings'``, ``==`` (case-insensitive, as GitHub compares strings), ``&&``,
+    ``||`` and parentheses, with GitHub's semantics: ``a && b`` is ``b`` when ``a`` is
+    truthy, else ``a``; ``a || b`` is ``a`` when truthy, else ``b``; ``''`` is falsy.
+    An unknown name is ``''``, as an unset repository variable is.
+    """
+    import re
+
+    body = expr.strip()
+    assert body.startswith("${{") and body.endswith("}}"), expr
+    tokens = re.findall(r"'[^']*'|==|&&|\|\||\(|\)|[A-Za-z_][\w.\-]*", body[3:-2])
+    pos = 0
+
+    def take() -> str:
+        nonlocal pos
+        pos += 1
+        return tokens[pos - 1]
+
+    def peek() -> str | None:
+        return tokens[pos] if pos < len(tokens) else None
+
+    def atom() -> str | bool:
+        tok = take()
+        if tok == "(":
+            value = either()
+            assert take() == ")"
+            return value
+        return tok[1:-1] if tok.startswith("'") else ctx.get(tok, "")
+
+    def equal() -> str | bool:
+        value = atom()
+        while peek() == "==":
+            take()
+            value = str(value).lower() == str(atom()).lower()
+        return value
+
+    def both() -> str | bool:
+        value = equal()
+        while peek() == "&&":
+            take()
+            right = equal()
+            value = right if value else value
+        return value
+
+    def either() -> str | bool:
+        value = both()
+        while peek() == "||":
+            take()
+            right = both()
+            value = value if value else right
+        return value
+
+    out = either()
+    assert pos == len(tokens), f"unparsed: {tokens[pos:]}"
+    return out
+
+
+def _sweep() -> dict:
+    from conftest import REPO
+
+    return yaml.safe_load((REPO / ".github" / "workflows" / "tournament-sweep.yml").read_text())
+
+
+@pytest.mark.parametrize("mode", ["lean", "deep"])
+def test_lean_mode_maps_to_its_flags_and_env(mode, tmp_path):
+    """The gate's ``mode`` changes only flags and env (issue #21), each checked here."""
+    wf = _sweep()
+    job = wf["jobs"]["forecast"]
+    steps = job["steps"]
+    claude = next(s for s in steps if s.get("id") == "claude")
+    ctx = {"matrix.q.mode": mode, "vars.MODEL_FORECAST": "opus", "vars.MODEL_LEAN": "sonnet"}
+    env = {k: _gh_eval(v, ctx) for k, v in claude["env"].items()
+           if k in ("EFFORT", "MAX_WEB_SEARCHES", "RESEARCH_MIN_SEARCHES")}
+    lean = mode == "lean"
+    assert env == {
+        "EFFORT": "medium" if lean else "high",
+        "MAX_WEB_SEARCHES": "10" if lean else "",  # deep: the raw variable, unset here
+        "RESEARCH_MIN_SEARCHES": "6" if lean else "",
+    }
+    assert _gh_eval(job["env"]["MODE"], ctx) == mode
+    assert _gh_eval(job["env"]["MODEL"], ctx) == ("sonnet" if lean else "opus")
+    assert _gh_eval(job["env"]["MODEL"], {**ctx, "vars.MODEL_LEAN": ""}) == "opus"
+    assert _gh_eval(job["env"]["MODE"], {}) == "deep", "an entry without a mode runs deep"
+    assert _gh_eval(claude["env"]["EFFORT"], {**ctx, "vars.EFFORT_FORECAST": "max"}) == (
+        "medium" if lean else "max"
+    )
+
+    # Run the step's own script against a fake `claude` that records its arguments.
+    bin_dir = tmp_path / "bin"
+    bin_dir.mkdir()
+    argv_file = tmp_path / "argv"
+    fake = bin_dir / "claude"
+    fake.write_text(f"#!/bin/sh\nfor a in \"$@\"; do printf '%s\\n' \"$a\"; done > {argv_file}\n")
+    fake.chmod(0o755)
+    import os
+
+    run_env = {
+        "PATH": f"{bin_dir}:{os.environ['PATH']}",
+        "MODE": mode, "SLUG": "2026-11-08-mc1-x", "MODEL": "opus", "EFFORT": env["EFFORT"],
+        "MAX_USD": "15", "MINUTES": "25",
+        "RUNNER_TEMP": str(tmp_path), "GITHUB_OUTPUT": str(tmp_path / "out"),
+    }
+    subprocess.run(["bash", "-e", "-c", claude["run"]], env=run_env, check=True)
+    argv = argv_file.read_text().splitlines()
+    assert argv[0] == "-p"
+    sentence = "Research mode: lean — follow SKILL.md § Lean mode."
+    assert argv[1].endswith(sentence) == lean
+    assert argv[argv.index("--effort") + 1] == env["EFFORT"]
+    if lean:
+        i = argv.index("--disallowedTools")
+        assert argv[i + 1 : i + 3] == ["Agent", "Task"], "no scout can be spawned"
+        assert argv[i + 3] == "--max-budget-usd", "the variadic flag ends at the next option"
+    else:
+        assert "--disallowedTools" not in argv
+    usage = next(s for s in steps if s.get("name") == "Record token usage")
+    assert '--mode "$MODE"' in usage["run"]
+
+
+def test_the_gate_reads_the_allowance_variables_raw_and_reports_each_exhaustion_once():
+    wf = _sweep()
+    poll = next(s for s in wf["jobs"]["gate"]["steps"] if s.get("id") == "poll")
+    for var in ("FORECAST_MODE", "ALLOWANCE_5H_USD_EQUIV", "ALLOWANCE_7D_USD_EQUIV",
+                "ALLOWANCE_STOP_5H", "ALLOWANCE_STOP_7D", "LEAN_AT_5H", "LEAN_AT_7D"):
+        # raw, so the defaults live only in scripts/allowance.py
+        assert poll["env"][var] == f"${{{{ vars.{var} }}}}", var
+    assert poll["env"]["IN_MODE"] == "${{ inputs.mode }}"
+    assert "^(auto|deep|lean)$" in poll["run"] and '--mode "$IN_MODE"' in poll["run"]
+    outputs = wf["jobs"]["gate"]["outputs"]
+    assert outputs["mode"] == "${{ steps.poll.outputs.mode }}"
+    assert outputs["exhausted_until"] == "${{ steps.poll.outputs.exhausted_until }}"
+    report = wf["jobs"]["report-exhaustion"]
+    assert report["needs"] == "gate"
+    assert report["if"] == "needs.gate.outputs.exhausted_until != ''"
+    script = report["steps"][0]["run"]
+    assert 'marker="<!-- allowance-exhausted ${UNTIL} -->"' in script
+    assert 'grep -qF "$marker"' in script, "a reset already reported is not reported again"
+    triggers = wf[True]  # YAML 1.1 reads the key `on` as the boolean true
+    assert triggers["workflow_dispatch"]["inputs"]["mode"]["default"] == ""

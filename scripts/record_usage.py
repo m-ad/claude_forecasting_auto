@@ -19,8 +19,10 @@ Two honest limitations:
 
 - ``total_cost_usd`` is the **API-equivalent** price. On a subscription token it
   is not billed; it is the best available proxy for how much allowance a run used.
-- Remaining subscription allowance is not exposed to CI, so the guard is a
-  cumulative weekly budget the maintainer sets, not a reading of what is left.
+- Remaining subscription allowance is not reported to the gate directly:
+  ``scripts/allowance.py`` estimates it from these records (spend, and the CLI's
+  rate-limit readings once they are recorded), next to the weekly budget the
+  maintainer sets.
 
 Parsing is defensive by design: a missing or truncated file (a run killed by its
 timeout) records ``parse_failed: true`` and zero cost, and never fails the job.
@@ -140,12 +142,15 @@ def usage_record(
     model: str | None,
     exit_code: int | None = None,
     budget: dict[str, Any] | None = None,
+    mode: str | None = None,
 ) -> dict[str, Any]:
     """One ``ledger/usage.jsonl`` line from a parsed result (or its absence).
 
     ``budget`` is the search-budget hook's file (``scripts/search_budget.py``); its
     tool-call counts sit next to ``web_searches``, which counts billed search requests.
-    None (no file: the hook did not run) records them as None, not 0.
+    None (no file: the hook did not run) records them as None, not 0. ``mode`` is the
+    session's research mode (``deep``/``lean``), recorded under ``config`` so the gate
+    can price each mode and the page can compare them by peer score.
     """
     rec: dict[str, Any] = {
         "ts": dt.datetime.now(dt.UTC).isoformat(timespec="seconds"),
@@ -153,6 +158,7 @@ def usage_record(
         "run_id": run_id,
         "slug": slug,
         "model": model,
+        **({"config": {"mode": mode}} if mode else {}),
         **budget_fields(budget),
     }
     if result is None:
@@ -266,6 +272,7 @@ def summary_table(rec: dict[str, Any]) -> str:
     rows = [
         ("question", rec.get("slug") or "-"),
         ("model", rec.get("model") or "-"),
+        ("mode", (rec.get("config") or {}).get("mode") or "-"),
         ("conclusion", rec.get("conclusion")),
         ("cost (API-equivalent)", f"${rec.get('cost_usd_equiv', 0):.2f}"),
         ("turns", rec.get("num_turns", "-")),
@@ -341,6 +348,7 @@ def main() -> None:
     r.add_argument("--slug")
     r.add_argument("--model")
     r.add_argument("--exit-code", type=int, help="the claude step's exit code")
+    r.add_argument("--mode", choices=("deep", "lean"), help="the session's research mode")
     r.add_argument(
         "--search-budget",
         type=Path,
@@ -365,6 +373,7 @@ def main() -> None:
         model=args.model,
         exit_code=args.exit_code,
         budget=read_state(args.search_budget) if args.search_budget else None,
+        mode=args.mode,
     )
     append(rec)
     if args.summary:

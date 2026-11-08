@@ -4,18 +4,23 @@
 Runs every sweep cycle before any model is started, in pure Python, so a cycle
 that finds nothing costs one billed Actions minute and zero tokens. In order:
 
-1. **Budget.** Sums the trailing-7-day ``cost_usd_equiv`` in ``ledger/usage.jsonl``
+1. **Allowance.** ``scripts/allowance.py`` estimates the Claude subscription's 5-hour
+   and 7-day utilization from ``ledger/usage.jsonl`` and picks the sweep's mode
+   (``deep`` or ``lean``, overridable with ``FORECAST_MODE`` / ``--mode``) and a cap
+   on how many sessions the allowance has room for. Exhausted: no work until the reset.
+2. **Budget.** Sums the trailing-7-day ``cost_usd_equiv`` in ``ledger/usage.jsonl``
    against ``WEEKLY_BUDGET_USD_EQUIV``. Over budget: no work. Above 80 %: at most
    two questions per run, soonest-closing first.
-2. **Token.** One authenticated call. A refused token fails the job loudly here,
+3. **Token.** One authenticated call. A refused token fails the job loudly here,
    before a model ever starts.
-3. **Candidates.** Open posts in every active tournament (or the ones named on
+4. **Candidates.** Open posts in every active tournament (or the ones named on
    the command line), minus: questions this repo already submitted or closed out,
    questions closing too soon to forecast, and -- authoritatively -- questions on
    which Metaculus already holds the bot's forecast. That last check needs no
    repository state, which is what makes the gate safe after a lost commit.
-4. **Order.** ``(registry priority, soonest close)``, capped at
-   ``MAX_QUESTIONS_PER_RUN``.
+5. **Order.** ``(registry priority, soonest close)``, capped at the smallest of
+   ``MAX_QUESTIONS_PER_RUN``, the allowance cap and the budget cap. Each chosen
+   question carries the sweep's ``mode``, which the forecast job maps to its flags.
 
 Examples
 --------
@@ -23,6 +28,7 @@ Examples
     uv run scripts/tournament_poll.py --github-output   # for the sweep workflow
     uv run scripts/tournament_poll.py --tournament bot-testing-area --max 1
     uv run scripts/tournament_poll.py --post-ids 45517
+    uv run scripts/tournament_poll.py --mode lean
 """
 
 from __future__ import annotations
@@ -37,6 +43,7 @@ from pathlib import Path
 from typing import Any
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
+import allowance
 import metaculus_api as mapi
 from _common import all_questions
 from record_usage import weekly_spend
@@ -93,6 +100,19 @@ def budget_cap(cap: int, budget: float | None, spent: float) -> tuple[int, str |
     if spent >= SOFT_LANDING * budget:
         return min(cap, SOFT_LANDING_MAX), "budget_soft_landing"
     return cap, None
+
+
+def mode_override(arg: str | None, env: str | None) -> str:
+    """The sweep's mode override: ``--mode``, else ``FORECAST_MODE``, else ``auto``.
+
+    An unknown value falls back to ``auto`` with a warning instead of failing the gate:
+    a typo in a repository variable must not stop the bot.
+    """
+    value = (arg or env or "").strip() or "auto"
+    if value not in allowance.OVERRIDES:
+        print(f"! FORECAST_MODE={value!r} is not one of {allowance.OVERRIDES}; using auto")
+        return "auto"
+    return value
 
 
 def candidates(
@@ -191,18 +211,39 @@ def main() -> None:
     )
     ap.add_argument("--post-ids", nargs="*", type=int, default=[], help="only these posts")
     ap.add_argument("--max", type=int, help="override MAX_QUESTIONS_PER_RUN")
+    ap.add_argument(
+        "--mode", choices=allowance.OVERRIDES, help="override FORECAST_MODE (default auto)"
+    )
     args = ap.parse_args()
 
     now = dt.datetime.now(dt.UTC)
     cap = args.max or int(_env_float("MAX_QUESTIONS_PER_RUN") or DEFAULT_MAX)
+    override = mode_override(args.mode, os.environ.get("FORECAST_MODE"))
+    cfg = allowance.Config.from_env()
+    decision = allowance.decide(allowance.load_sessions(), now, cfg, cap, override)
     budget = _env_float("WEEKLY_BUDGET_USD_EQUIV")
     spent = weekly_spend(now)
-    cap, guard = budget_cap(cap, budget, spent)
-    out = {"has_work": "false", "questions": "[]", "question_count": "0"}
-    lines = ["### Sweep gate", "", f"7-day spend: ${spent:.2f}"
-             + (f" of ${budget:.2f}" if budget else " (no budget set)")]
+    cap, guard = budget_cap(decision.cap, budget, spent)
+    reason = guard or decision.reason
+    out = {
+        "has_work": "false",
+        "questions": "[]",
+        "question_count": "0",
+        "mode": decision.mode,
+        # The bot-health job keys its one comment per exhaustion on this.
+        "exhausted_until": decision.until.isoformat() if decision.until else "",
+    }
+    lines = [
+        "### Sweep gate",
+        "",
+        *allowance.describe(decision, cfg),
+        f"- Mode override: {override}",
+        f"- 7-day spend: ${spent:.2f}"
+        + (f" of ${budget:.2f}" if budget else " (no budget set)"),
+        "",
+    ]
     if cap == 0:
-        out["reason"] = guard or "cap_zero"
+        out["reason"] = reason or "cap_zero"
         lines.append(f"**No work: {out['reason']}.**")
         _summary(lines)
         if args.github_output:
@@ -228,13 +269,15 @@ def main() -> None:
         _summary([*lines, f"**Metaculus token refused**: {exc}"])
         sys.exit(f"! {exc}")
 
-    chosen = found[:cap]
+    # Soonest-closing first stays the order: when the allowance only has room for a
+    # few, they go to the questions that cannot wait for the next sweep.
+    chosen = [{**c, "mode": decision.mode} for c in found[:cap]]
     out.update(
         {
             "has_work": "true" if chosen else "false",
             "questions": json.dumps(chosen, separators=(",", ":"), ensure_ascii=True),
             "question_count": str(len(chosen)),
-            "reason": guard or ("ok" if chosen else "nothing_open"),
+            "reason": reason or ("ok" if chosen else "nothing_open"),
         }
     )
     polled = ", ".join(t["slug"] for t in tours) or "(no active tournaments)"
