@@ -10,7 +10,7 @@ description matches. This file is the human-readable map.
 | **forecast-update** | An individual question needs revisiting, or resolved and needs a post-mortem. Refuses one-shot questions. | `.claude/skills/forecast-update/SKILL.md` |
 
 Subagent: **research-scout** (`.claude/agents/research-scout.md`) — one narrow evidence
-stream, read-only, returns a dated digest and the queries it ran. Up to eight per tournament
+stream, read-only, returns a dated digest and the queries it ran. Up to five per tournament
 question.
 
 ## Slash commands

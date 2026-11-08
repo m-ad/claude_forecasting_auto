@@ -44,6 +44,7 @@ from typing import Any
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from _common import REPO, ledger_records
+from search_budget import read_state
 
 USAGE = REPO / "ledger" / "usage.jsonl"
 
@@ -138,14 +139,21 @@ def usage_record(
     slug: str | None,
     model: str | None,
     exit_code: int | None = None,
+    budget: dict[str, Any] | None = None,
 ) -> dict[str, Any]:
-    """One ``ledger/usage.jsonl`` line from a parsed result (or its absence)."""
+    """One ``ledger/usage.jsonl`` line from a parsed result (or its absence).
+
+    ``budget`` is the search-budget hook's file (``scripts/search_budget.py``); its
+    tool-call counts sit next to ``web_searches``, which counts billed search requests.
+    None (no file: the hook did not run) records them as None, not 0.
+    """
     rec: dict[str, Any] = {
         "ts": dt.datetime.now(dt.UTC).isoformat(timespec="seconds"),
         "job": job,
         "run_id": run_id,
         "slug": slug,
         "model": model,
+        **budget_fields(budget),
     }
     if result is None:
         return {
@@ -188,6 +196,35 @@ def usage_record(
         "permission_denials": len(result.get("permission_denials") or []),
         "denied": _denied(result),
         "by_model": by_model,
+    }
+
+
+def budget_fields(budget: dict[str, Any] | None) -> dict[str, Any]:
+    """The search-budget hook's counts for a usage record.
+
+    ``search_budget_file`` says which case it is: ``missing`` (None: the hook never
+    wrote, so it did not run), ``unreadable`` (the hook ran but its file is damaged:
+    counts unknown, recorded as None rather than a misleading 0) or ``ok``.
+    """
+    status = (
+        "missing" if budget is None else "unreadable" if budget.get("unreadable") else "ok"
+    )
+    ok = status == "ok"
+    b = budget or {}
+    by_agent = b.get("by_agent") if isinstance(b.get("by_agent"), dict) else {}
+    return {
+        "search_budget_file": status,
+        "search_tool_calls": b.get("searches") if ok else None,
+        "fetch_tool_calls": b.get("fetches") if ok else None,
+        "search_calls_denied": b.get("denied") if ok else None,
+        # Searches per subagent; empty with scouts spawned means the CLI sent no
+        # agent_id, so the per-scout cap was not in force.
+        "search_calls_by_agent": (
+            {k: (v or {}).get("searches", 0) for k, v in by_agent.items()} if ok else None
+        ),
+        "scouts_spawned": b.get("scouts_spawned") if ok else None,
+        "search_cap": b.get("max_searches") if ok else None,
+        "search_cap_per_scout": b.get("max_per_scout") if ok else None,
     }
 
 
@@ -238,6 +275,20 @@ def summary_table(rec: dict[str, Any]) -> str:
         ),
         ("web searches (all agents)", rec.get("web_searches", "-")),
         (
+            "WebSearch / WebFetch tool calls (denied)",
+            {
+                "missing": "- (no budget file: the search-budget hook did not run)",
+                "unreadable": "- (budget file unreadable: the hook ran, its counts are lost)",
+            }.get(rec.get("search_budget_file"), "-")
+            if rec.get("search_tool_calls") is None
+            else f"{rec['search_tool_calls']}/{rec.get('search_cap') or 'no cap'} / "
+            f"{rec.get('fetch_tool_calls')} ({rec.get('search_calls_denied')})",
+        ),
+        (
+            "WebSearch calls per scout",
+            str(rec.get("search_calls_by_agent") or "-").replace("|", "/"),
+        ),
+        (
             "subagents",
             "-"
             if rec.get("subagents") is None
@@ -279,6 +330,11 @@ def main() -> None:
     r.add_argument("--slug")
     r.add_argument("--model")
     r.add_argument("--exit-code", type=int, help="the claude step's exit code")
+    r.add_argument(
+        "--search-budget",
+        type=Path,
+        help="the search-budget hook's file ($SEARCH_BUDGET_FILE), for tool-call counts",
+    )
     r.add_argument("--summary", action="store_true", help="print a Markdown table")
     sub.add_parser("report", help="rolling 7/30-day spend")
     args = ap.parse_args()
@@ -297,6 +353,7 @@ def main() -> None:
         slug=args.slug,
         model=args.model,
         exit_code=args.exit_code,
+        budget=read_state(args.search_budget) if args.search_budget else None,
     )
     append(rec)
     if args.summary:

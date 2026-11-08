@@ -1064,6 +1064,7 @@ def one_shot_question(tmp_path, monkeypatch):
     monkeypatch.setattr(log_forecast, "load_meta", lambda s: meta)
     monkeypatch.setattr(log_forecast, "save_meta", lambda s, m: None)
     monkeypatch.delenv("FORECAST_DEADLINE", raising=False)
+    monkeypatch.delenv("SEARCH_BUDGET_FILE", raising=False)
     _research_log(tmp_path / "s", DEEP_RESEARCH)
     return ledger, meta
 
@@ -1213,6 +1214,58 @@ def test_the_research_floor_is_waived_near_the_deadline(
     assert "research floor waived" in capsys.readouterr().err
 
 
+@pytest.mark.parametrize(("searches", "waived"), [(50, True), (49, False)])
+def test_the_research_floor_is_waived_once_the_search_budget_is_used(
+    one_shot_question, tmp_path, monkeypatch, capsys, searches, waived
+):
+    # A cap below the floor must not trap a session the hook stopped from searching.
+    ledger, _meta = one_shot_question
+    _research_log(tmp_path / "s", {"searches": []}, date="2026-10-20")
+    budget = tmp_path / "search-budget.json"
+    budget.write_text(json.dumps({"searches": searches, "max_searches": 50}))
+    monkeypatch.setenv("SEARCH_BUDGET_FILE", str(budget))
+    if waived:
+        log_forecast.cmd_add(_add_args(median=0.2, lower=0.1, upper=0.3))
+        assert len(_records(ledger)) == 1
+        assert "search budget used (50/50)" in capsys.readouterr().err
+    else:
+        with pytest.raises(SystemExit, match="research floor not met"):
+            log_forecast.cmd_add(_add_args(median=0.2, lower=0.1, upper=0.3))
+
+
+def _running(tmp_path, monkeypatch, active: dict) -> None:
+    budget = tmp_path / "search-budget.json"
+    budget.write_text(json.dumps({"searches": 3, "active_agents": active}))
+    monkeypatch.setenv("SEARCH_BUDGET_FILE", str(budget))
+
+
+def test_a_one_shot_forecast_waits_while_a_scout_is_running(
+    one_shot_question, tmp_path, monkeypatch
+):
+    ledger, _meta = one_shot_question
+    _running(tmp_path, monkeypatch, {"a1": "research-scout"})
+    later = dt.datetime.now(dt.UTC) + dt.timedelta(minutes=20)
+    monkeypatch.setenv("FORECAST_DEADLINE", later.strftime("%Y-%m-%dT%H:%M:%SZ"))
+    with pytest.raises(SystemExit, match=r"1 subagent\(s\) still running \(research-scout\)"):
+        log_forecast.cmd_add(_add_args(median=0.2, lower=0.1, upper=0.3))
+    assert not ledger.exists(), "a refused forecast must not reach the ledger"
+    _running(tmp_path, monkeypatch, {})
+    log_forecast.cmd_add(_add_args(median=0.2, lower=0.1, upper=0.3))
+    assert len(_records(ledger)) == 1, "logged once every scout has stopped"
+
+
+def test_the_wait_for_scouts_is_waived_near_the_deadline(
+    one_shot_question, tmp_path, monkeypatch, capsys
+):
+    ledger, _meta = one_shot_question
+    _running(tmp_path, monkeypatch, {"a1": "research-scout"})
+    soon = dt.datetime.now(dt.UTC) + dt.timedelta(minutes=log_forecast.WAIVER_MINUTES - 2)
+    monkeypatch.setenv("FORECAST_DEADLINE", soon.strftime("%Y-%m-%dT%H:%M:%SZ"))
+    log_forecast.cmd_add(_add_args(median=0.2, lower=0.1, upper=0.3))
+    assert len(_records(ledger)) == 1
+    assert "still running" in capsys.readouterr().err
+
+
 def test_the_research_floor_holds_while_time_remains(one_shot_question, tmp_path, monkeypatch):
     _research_log(tmp_path / "s", {"searches": []}, date="2026-10-20")
     later = dt.datetime.now(dt.UTC) + dt.timedelta(minutes=20)
@@ -1358,3 +1411,13 @@ def test_pdf_fetch_refuses_a_web_page_and_points_to_webfetch(monkeypatch):
     )
     with pytest.raises(RuntimeError, match="WebFetch"):
         pdf_text.fetch("https://example.org/report")
+
+
+def test_the_documented_research_floor_is_the_constants():
+    # docs/configuration.md shows the values next to the constant names; keep them equal.
+    doc = (REPO / "docs" / "configuration.md").read_text("utf-8")
+    row = next(line for line in doc.splitlines() if line.startswith("| Research floor"))
+    assert f"`MIN_SEARCHES` = `{log_forecast.MIN_SEARCHES}`" in row
+    assert f"`WAIVER_MINUTES` = `{log_forecast.WAIVER_MINUTES}`" in row
+    categories = ", ".join(f"`{c}`" for c in log_forecast.REQUIRED_CATEGORIES)
+    assert f"`REQUIRED_CATEGORIES` = {categories} " in row
