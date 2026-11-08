@@ -134,6 +134,24 @@ jobs:
       # when the Claude allowance is tight. Lean changes only the flags and env below.
       MODE: ${{ matrix.q.mode || 'deep' }}
       MODEL: ${{ (matrix.q.mode == 'lean' && vars.MODEL_LEAN) || vars.MODEL_FORECAST || 'opus' }}
+      # The session's settings, at job level so the usage record's config snapshot
+      # (record_usage.py --config) reads exactly what the session was given.
+      EFFORT: ${{ matrix.q.mode == 'lean' && 'medium' || vars.EFFORT_FORECAST || 'high' }}
+      MAX_USD: ${{ vars.MAX_USD_PER_QUESTION || '15' }}
+      MINUTES: ${{ vars.MAX_MINUTES_PER_QUESTION || '25' }}
+      # Read by the PreToolUse hook in settings.ci.json (scripts/search_budget.py),
+      # which refuses WebSearch past these caps, and by log_forecast.py, which
+      # waives the research floor once the session cap is used. Passed through
+      # unset in deep mode: an empty value means the defaults in search_budget.py,
+      # kept there only. Lean mode's numbers live here, next to its other knobs:
+      # a 10-search cap and a floor of 6 (one per required category, plus one).
+      MAX_WEB_SEARCHES: ${{ matrix.q.mode == 'lean' && '10' || vars.MAX_WEB_SEARCHES }}
+      RESEARCH_MIN_SEARCHES: ${{ matrix.q.mode == 'lean' && '6' || '' }}
+      MAX_WEB_SEARCHES_PER_SCOUT: ${{ vars.MAX_WEB_SEARCHES_PER_SCOUT }}
+      # Unpinned by default: model aliases (`opus`, `sonnet`) resolve inside the CLI,
+      # so a pinned CLI would stay on the models it knew. Pin via the variable if a
+      # release breaks the sweep; the version used is in the Step Summary.
+      CLAUDE_CODE_VERSION: ${{ vars.CLAUDE_CODE_VERSION || 'latest' }}
     steps:
       - uses: actions/checkout@v5
         with:
@@ -148,11 +166,6 @@ jobs:
           enable-cache: true
           cache-dependency-glob: "pyproject.toml"
       - name: Install dependencies and Claude Code
-        env:
-          # Unpinned by default: model aliases (`opus`, `sonnet`) resolve inside the CLI,
-          # so a pinned CLI would stay on the models it knew. Pin via the variable if a
-          # release breaks the sweep; the version used is in the Step Summary.
-          CLAUDE_CODE_VERSION: ${{ vars.CLAUDE_CODE_VERSION || 'latest' }}
         run: |
           uv sync
           npm install -g --no-fund --no-audit "@anthropic-ai/claude-code@${CLAUDE_CODE_VERSION}"
@@ -184,18 +197,6 @@ jobs:
           CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           DISABLE_AUTOUPDATER: "1"
           SLUG: ${{ steps.prep.outputs.slug }}
-          EFFORT: ${{ matrix.q.mode == 'lean' && 'medium' || vars.EFFORT_FORECAST || 'high' }}
-          MAX_USD: ${{ vars.MAX_USD_PER_QUESTION || '15' }}
-          MINUTES: ${{ vars.MAX_MINUTES_PER_QUESTION || '25' }}
-          # Read by the PreToolUse hook in settings.ci.json (scripts/search_budget.py),
-          # which refuses WebSearch past these caps, and by log_forecast.py, which
-          # waives the research floor once the session cap is used. Passed through
-          # unset in deep mode: an empty value means the defaults in search_budget.py,
-          # kept there only. Lean mode's numbers live here, next to its other knobs:
-          # a 10-search cap and a floor of 6 (one per required category, plus one).
-          MAX_WEB_SEARCHES: ${{ matrix.q.mode == 'lean' && '10' || vars.MAX_WEB_SEARCHES }}
-          RESEARCH_MIN_SEARCHES: ${{ matrix.q.mode == 'lean' && '6' || '' }}
-          MAX_WEB_SEARCHES_PER_SCOUT: ${{ vars.MAX_WEB_SEARCHES_PER_SCOUT }}
           SEARCH_BUDGET_FILE: ${{ runner.temp }}/search-budget.json
         run: |
           export FORECAST_DEADLINE="$(date -u -d "+${MINUTES} minutes" +%Y-%m-%dT%H:%M:%SZ)"
@@ -272,10 +273,16 @@ jobs:
         env:
           SLUG: ${{ steps.prep.outputs.slug }}
           EXIT_CODE: ${{ steps.claude.outputs.exit_code }}
+          # For the config snapshot (CONFIG_ENV in record_usage.py), next to the job's
+          # session settings and GitHub's own GITHUB_* variables. Non-secret only.
+          MAX_PARALLEL: ${{ vars.MAX_PARALLEL || '3' }}
+          MAX_QUESTIONS_PER_RUN: ${{ inputs.max_questions || vars.MAX_QUESTIONS_PER_RUN || '6' }}
+          WEEKLY_BUDGET_USD_EQUIV: ${{ vars.WEEKLY_BUDGET_USD_EQUIV }}
+          DRY_RUN: ${{ inputs.dry_run }}
         run: |
           uv run scripts/record_usage.py record --result "$RUNNER_TEMP/claude.jsonl" \
             --job tournament-sweep --run-id "$GITHUB_RUN_ID" --slug "$SLUG" --model "$MODEL" \
-            --search-budget "$RUNNER_TEMP/search-budget.json" --mode "$MODE" \
+            --search-budget "$RUNNER_TEMP/search-budget.json" --config \
             ${EXIT_CODE:+--exit-code "$EXIT_CODE"} --summary >> "$GITHUB_STEP_SUMMARY"
 
       - name: Upload the dry-run folder

@@ -192,30 +192,8 @@ def test_mode_cost_counts_only_labelled_paid_sessions():
     assert al.mode_cost(many, "lean") == 20.5  # median of the last 20: 11..30
 
 
-# ----------------------------------------------------------- parsing and scale
-@pytest.mark.parametrize(
-    ("raw", "pct"), [(0.9, 90.0), (1, 100.0), (90, 90.0), (0, 0.0), (None, None),
-                     (-1, None), (True, None), ("90", None)],
-)
-def test_utilization_up_to_one_is_a_fraction(raw, pct):
-    assert al._pct(raw) == pct
-
-
-@pytest.mark.parametrize(
-    "raw",
-    [int(NOW.timestamp()), int(NOW.timestamp()) * 1000, "2026-11-02T12:00:00Z",
-     "2026-11-02T12:00:00+00:00", "2026-11-02T12:00:00"],
-    ids=["unix-seconds", "unix-ms", "iso-z", "iso-offset", "iso-naive"],
-)
-def test_reset_times_parse_in_every_shape(raw):
-    assert al._when(raw) == NOW
-
-
-@pytest.mark.parametrize("raw", [None, "", "soon", [], True])
-def test_unparseable_reset_times_are_unknown(raw):
-    assert al._when(raw) is None
-
-
+# ------------------------------------------------------------------ parsing
+# The scale and reset-time parsers are record_usage's; tests/test_bot.py covers them.
 def test_old_and_new_refusal_shapes_are_recognised():
     sessions = al.parse_sessions([
         refused(9),
@@ -367,3 +345,105 @@ def test_round_two_replayed_leans_before_each_refusal_and_never_bursts():
     for r in rows:
         if r["refused"]:
             assert r["cap"] <= 1, f"{al._iso(r['gate'])}: refusals met a cap of {r['cap']}"
+
+
+# ------------------------------------------------------------- calibration
+def _reading(minutes_ago, last, cost=1.0, reset=60, model="opus", window="five_hour"):
+    return snap(minutes_ago, cost, window=window, last=last, resets_at=_epoch(reset), model=model)
+
+
+def test_calibration_divides_each_rise_by_the_spend_between_readings():
+    # 90 -> 96 -> 99 % in one window, $2 and then $1 spent in between: 3 points per dollar
+    records = [
+        _reading(200, 0.90), rec(170, 1.0, model="opus"), _reading(150, 0.96),
+        _reading(100, 0.99),
+    ]
+    cal = al.calibrate(al.parse_sessions(records), "five_hour")
+    assert cal.by_model == {"opus": (3.0, 2)}
+    assert cal.pooled == (3.0, 2)
+    cfg = al.Config()
+    assert cal.rate("opus", cfg) == (6.25, "configured ($16)"), "two intervals are too few"
+    # 99 -> 99 % on $1: a rate of 0, still an interval; the median of 3, 3, 0 is 3
+    more = [*records, rec(90, 0.5, model="opus"), _reading(80, 99.0, cost=0.5)]
+    cal = al.calibrate(al.parse_sessions(more), "five_hour")
+    assert cal.by_model["opus"][1] == 3
+    assert cal.rate("opus", cfg) == (3.0, "measured (opus, 3 intervals)")
+    assert cal.rate("sonnet", cfg) == (3.0, "measured (all models, 3 intervals)")
+
+
+def test_calibration_skips_a_reset_between_readings_and_labels_mixed_models():
+    records = [
+        _reading(300, 0.90, reset=-100),  # the old window instance
+        _reading(200, 0.25, reset=60),    # a new one: no interval across the reset
+        rec(190, 1.0, model="sonnet"),
+        _reading(150, 0.75, reset=60, model="opus"),
+    ]
+    cal = al.calibrate(al.parse_sessions(records), "five_hour")
+    assert cal.by_model == {"mixed": (25.0, 1)}, "(75 - 25) / $2 across opus and sonnet"
+
+
+def test_model_family_reads_aliases_and_ids():
+    assert [al.model_family(m) for m in ("opus", "claude-sonnet-5-5", "Fable", None, "x")] == [
+        "opus", "sonnet", "fable", "other", "other"
+    ]
+
+
+# ---------------------------------------------- what the recorder writes, the gate reads
+def _recorded(*events, result=None):
+    import record_usage
+
+    text = "\n".join(json.dumps(e) for e in events)
+    stream = record_usage.parse_stream(text)
+    return record_usage.usage_record(
+        stream["result"] if result is None else result, job="tournament-sweep", run_id="1",
+        slug="s", model="opus", stream=stream,
+    )
+
+
+def _event(status, window, utilization=None, resets_in_min=None, **extra):
+    info = {"status": status, "rateLimitType": window, **extra}
+    if utilization is not None:
+        info["utilization"] = utilization
+    if resets_in_min is not None:
+        info["resetsAt"] = int(
+            (dt.datetime.now(dt.UTC) + dt.timedelta(minutes=resets_in_min)).timestamp()
+        )
+    return {"type": "rate_limit_event", "rate_limit_info": info}
+
+
+def test_a_recorded_refusal_stops_the_gate_until_its_reset():
+    rec = _recorded(
+        _event("rejected", "five_hour", resets_in_min=90),
+        {"type": "assistant", "error": "rate_limit", "message": {"content": []}},
+        {"type": "result", "subtype": "success", "is_error": True, "num_turns": 1,
+         "total_cost_usd": 0, "usage": {}, "modelUsage": {}},
+    )
+    assert rec["conclusion"] == "usage_limit"
+    now = dt.datetime.now(dt.UTC) + dt.timedelta(minutes=1)
+    d = al.decide(al.parse_sessions([rec]), now, al.Config(), 6)
+    assert d.cap == 0 and d.exhausted
+    assert 88 <= (d.until - now).total_seconds() / 60 <= 90
+
+
+def test_a_recorded_warning_reading_drives_the_mode():
+    rec = _recorded(
+        _event("allowed_warning", "five_hour", 0.9, resets_in_min=120),
+        {"type": "result", "subtype": "success", "is_error": False, "num_turns": 30,
+         "total_cost_usd": 1.5, "usage": {}, "modelUsage": {"claude-opus-x": {"costUSD": 1.5}}},
+    )
+    now = dt.datetime.now(dt.UTC) + dt.timedelta(minutes=1)
+    d = al.decide(al.parse_sessions([rec]), now, al.Config(), 6)
+    est = d.windows["five_hour"]
+    assert (est.source, est.used) == ("reading", 90.0), "the session's own cost is in the reading"
+    assert (d.mode, d.cap) == ("lean", 1), "floor((95 - 90) / (0.6 x 6.25)) = floor(1.33)"
+
+
+def test_a_recorded_reset_time_without_a_reading_anchors_the_window():
+    rec = _recorded(
+        _event("allowed", "five_hour", resets_in_min=60),
+        {"type": "result", "subtype": "success", "is_error": False, "num_turns": 30,
+         "total_cost_usd": 2.0, "usage": {}, "modelUsage": {"claude-opus-x": {"costUSD": 2.0}}},
+    )
+    now = dt.datetime.now(dt.UTC) + dt.timedelta(minutes=1)
+    est = al.decide(al.parse_sessions([rec]), now, al.Config(), 6).windows["five_hour"]
+    assert est.source == "reset known" and est.used == 12.5

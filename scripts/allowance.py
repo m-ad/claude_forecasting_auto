@@ -43,20 +43,15 @@ that mode's sessions (``PRIOR_COST`` until there are ``COST_MIN_SAMPLES``). A ne
 session that was refused with no known reset (every refusal before issue #20's capture)
 leaves one ``lean`` probe per sweep rather than a full batch of refusals.
 
-What a usage record may carry (issue #20; every field optional, older records have
-none): ``allowance.windows.<window>`` with ``last`` (else ``first``) and ``resets_at``;
-``allowance.status`` / ``allowance.rejected``; ``rate_limit_events_raw``, the CLI's
-verbatim ``rate_limit_info`` dicts (``status``, ``rateLimitType``, ``utilization``,
-``resetsAt``); ``conclusion: "usage_limit"``; and ``config.mode``. A record with
-``by_model == {}``, at most one turn and zero cost is a refusal the old recorder logged
-as a success.
-
-Scale: the CLI's ``utilization`` is a fraction and its ``resetsAt`` Unix seconds
-(Claude Code 2.1.110, the last release shipped as JavaScript, checked 2026-11-08: it
-prints ``Math.floor(utilization * 100)`` and builds ``new Date(resetsAt * 1000)``); the
-SDK's usage probe reports percent and ISO-8601 times. So a value up to 1 is read as a
-fraction and a larger one as percent. The CLI only reports a reading at its warning
-thresholds (5 h: 90 %; 7 d: 25, 50, 75 %), which keeps percent readings above 1.
+What a usage record carries for this (``scripts/record_usage.py``, issue #20; every
+field optional, records before 2026-11-08 have none): ``allowance.windows.<window>``
+with ``last`` (else ``first``) in percent and ``resets_at``; ``allowance.rejected`` and
+``rejected_until``; ``rate_limit_events_raw``, the CLI's verbatim ``rate_limit_info``
+dicts; ``conclusion: "usage_limit"``; and ``config.mode``. Older records logged a
+refusal as a one-turn, zero-cost success with an empty ``by_model``; ``refusal`` reads
+that shape as one. The CLI sends a ``utilization`` reading only at its warning
+thresholds (5 h: 90 %; 7 d: 25, 50, 75 %), so most records hold a reset time and no
+reading; case 2 above is what makes those useful.
 
 Examples
 --------
@@ -68,6 +63,7 @@ from __future__ import annotations
 
 import argparse
 import datetime as dt
+import itertools
 import math
 import os
 import statistics
@@ -78,7 +74,7 @@ from typing import Any
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from _common import ledger_records
-from record_usage import USAGE
+from record_usage import USAGE, parse_instant, refuses, utilization_pct
 
 FIVE_HOUR = "five_hour"
 SEVEN_DAY = "seven_day"
@@ -109,27 +105,9 @@ def _number(value: Any) -> float | None:
     return float(value)
 
 
-def _pct(value: Any) -> float | None:
-    """A utilization reading in percent: a value up to 1 is a fraction (see the module doc)."""
-    num = _number(value)
-    if num is None or num < 0:
-        return None
-    return num * 100 if num <= 1 else num
-
-
-def _when(value: Any) -> dt.datetime | None:
-    """A UTC instant from Unix seconds (or milliseconds) or an ISO-8601 string."""
-    num = _number(value)
-    if num is not None:
-        # Milliseconds are 1000x larger; no Unix-seconds reset lies beyond the year 5000.
-        return dt.datetime.fromtimestamp(num / 1000 if num > 1e11 else num, dt.UTC)
-    if not isinstance(value, str) or not value.strip():
-        return None
-    try:
-        out = dt.datetime.fromisoformat(value.strip())
-    except ValueError:
-        return None
-    return out if out.tzinfo else out.replace(tzinfo=dt.UTC)
+# One parser for the recorder and the gate, so what is written is what is read.
+_pct = utilization_pct
+_when = parse_instant
 
 
 def _iso(when: dt.datetime | None) -> str:
@@ -144,11 +122,21 @@ class Session:
     ts: dt.datetime
     cost: float
     mode: str | None = None
+    model: str = "other"  # the main model's family (``model_family``)
     refused: bool = False
     # A known reset of the window that refused the session (future or past).
     refused_until: dt.datetime | None = None
     # window -> (utilization in percent or None, resets_at or None)
     windows: dict[str, tuple[float | None, dt.datetime | None]] = field(default_factory=dict)
+
+
+MODEL_FAMILIES = ("opus", "sonnet", "fable", "haiku")
+
+
+def model_family(name: Any) -> str:
+    """``opus``, ``sonnet``, ``fable``, ``haiku`` or ``other``, from an alias or a model id."""
+    text = str(name or "").lower()
+    return next((f for f in MODEL_FAMILIES if f in text), "other")
 
 
 def _windows(rec: dict[str, Any]) -> dict[str, tuple[float | None, dt.datetime | None]]:
@@ -172,28 +160,39 @@ def _windows(rec: dict[str, Any]) -> dict[str, tuple[float | None, dt.datetime |
     return out
 
 
-def _refusal(rec: dict[str, Any]) -> tuple[bool, dt.datetime | None]:
-    """Whether the session was refused for the allowance, and the reset if the record says."""
+def refusal(rec: dict[str, Any]) -> tuple[bool, dt.datetime | None, bool]:
+    """Whether a usage record is a session refused for the allowance.
+
+    Returns
+    -------
+    (bool, datetime or None, bool)
+        Refused; the reset of the window that refused it, if the record says; and
+        whether the refusal is *inferred*. Records written since issue #20 (they carry
+        ``tokens_all``, or no result at all) say ``conclusion: "usage_limit"``
+        themselves. Older ones logged a refusal as a one-turn, zero-cost success with
+        an empty ``by_model``, so that shape is read as a refusal.
+    """
     allowance = rec.get("allowance") if isinstance(rec.get("allowance"), dict) else {}
     rejected = [
-        e for e in rec.get("rate_limit_events_raw") or []
-        if isinstance(e, dict) and e.get("status") == "rejected"
+        e for e in rec.get("rate_limit_events_raw") or [] if isinstance(e, dict) and refuses(e)
     ]
-    refused = (
-        bool(rejected)
-        or rec.get("conclusion") == "usage_limit"
-        or allowance.get("rejected") is True
-        or allowance.get("status") == "rejected"
-        # Before issue #20 a refused session was recorded as a one-turn, zero-cost success.
-        or (
-            rec.get("by_model") == {}
-            and _number(rec.get("num_turns")) is not None
-            and (_number(rec.get("num_turns")) or 0) <= 1
-            and not _number(rec.get("cost_usd_equiv"))
-        )
+    until = _when(allowance.get("rejected_until")) or (
+        _when(rejected[-1].get("resetsAt")) if rejected else None
     )
-    until = _when(rejected[-1].get("resetsAt")) if rejected else None
-    return refused, until or _when(allowance.get("resets_at"))
+    if (
+        rec.get("conclusion") == "usage_limit"
+        or allowance.get("rejected") is True
+        or bool(rejected)
+    ):
+        return True, until, False
+    inferred = (
+        "tokens_all" not in rec
+        and rec.get("by_model") == {}
+        and _number(rec.get("num_turns")) is not None
+        and (_number(rec.get("num_turns")) or 0) <= 1
+        and not _number(rec.get("cost_usd_equiv"))
+    )
+    return inferred, None, inferred
 
 
 def parse_sessions(records: list[dict[str, Any]]) -> list[Session]:
@@ -203,13 +202,14 @@ def parse_sessions(records: list[dict[str, Any]]) -> list[Session]:
         ts = _when(rec.get("ts"))
         if ts is None:
             continue
-        refused, until = _refusal(rec)
+        refused, until, _inferred = refusal(rec)
         config = rec.get("config") if isinstance(rec.get("config"), dict) else {}
         out.append(
             Session(
                 ts=ts,
                 cost=max(_number(rec.get("cost_usd_equiv")) or 0.0, 0.0),
                 mode=config.get("mode") if config.get("mode") in MODES else None,
+                model=model_family(rec.get("model_resolved") or rec.get("model")),
                 refused=refused,
                 refused_until=until,
                 windows=_windows(rec),
@@ -272,6 +272,65 @@ class Config:
     def per_usd(self, window: str) -> float:
         """Allowance points (percent of the window) one API-equivalent dollar uses."""
         return 100.0 / self.allowance_usd[window]
+
+
+# ---------------------------------------------------------------- calibration
+# Fewer intervals than this and the window's configured size stands: one interval is
+# confounded by parallel sessions and interactive use (issue #20, section 3).
+CALIBRATION_MIN = 3
+
+
+@dataclass(frozen=True)
+class Calibration:
+    """Allowance points per API-equivalent dollar, measured from the CLI's readings.
+
+    ``by_model`` holds the rolling median per main model (``mixed`` when the sessions
+    between two readings ran on different models), ``pooled`` the median over all,
+    each with the number of intervals behind it.
+    """
+
+    window: str
+    by_model: dict[str, tuple[float, int]] = field(default_factory=dict)
+    pooled: tuple[float, int] | None = None
+
+    def rate(self, model: str, cfg: Config) -> tuple[float, str]:
+        """Points per dollar for a session on ``model``, and where the number comes from."""
+        own = self.by_model.get(model)
+        if own and own[1] >= CALIBRATION_MIN:
+            return own[0], f"measured ({model}, {own[1]} intervals)"
+        if self.pooled and self.pooled[1] >= CALIBRATION_MIN:
+            return self.pooled[0], f"measured (all models, {self.pooled[1]} intervals)"
+        return cfg.per_usd(self.window), f"configured (${cfg.allowance_usd[self.window]:g})"
+
+
+def calibrate(sessions: list[Session], window: str) -> Calibration:
+    """Points per dollar from consecutive readings of one window instance.
+
+    Readings are ordered by time across sessions. Between two readings of the same
+    window instance (the same ``resets_at``), the rise in utilization divided by the
+    summed cost of the sessions that ended in between is one estimate. Utilization is
+    account-wide, so parallel sessions are in the cost and interactive use is not;
+    the median over the last ``COST_WINDOW`` estimates damps both.
+    """
+    snaps = [s for s in sessions if s.windows.get(window, (None, None))[0] is not None]
+    rates: dict[str, list[float]] = {}
+    for a, b in itertools.pairwise(snaps):
+        (ua, ra), (ub, rb) = a.windows[window], b.windows[window]
+        if ra is None or rb is None or abs((ra - rb).total_seconds()) > 60:
+            continue  # a reset in between, or no way to tell
+        between = [s for s in sessions if a.ts < s.ts <= b.ts and s.cost > 0]
+        cost = sum(s.cost for s in between)
+        if cost <= 0 or ub is None or ua is None or ub < ua:
+            continue
+        families = {s.model for s in between}
+        key = families.pop() if len(families) == 1 else "mixed"
+        rates.setdefault(key, []).append((ub - ua) / cost)
+    every = [r for values in rates.values() for r in values]
+    return Calibration(
+        window,
+        {k: (statistics.median(v[-COST_WINDOW:]), len(v)) for k, v in rates.items()},
+        (statistics.median(every[-COST_WINDOW:]), len(every)) if every else None,
+    )
 
 
 # ------------------------------------------------------------------- estimate
@@ -505,7 +564,13 @@ def main() -> None:
     max_cap = getattr(args, "max", 6)
     override = getattr(args, "mode", os.environ.get("FORECAST_MODE", "auto"))
     now = dt.datetime.now(dt.UTC)
-    print("\n".join(describe(decide(load_sessions(), now, cfg, max_cap, override), cfg)))
+    sessions = load_sessions()
+    print("\n".join(describe(decide(sessions, now, cfg, max_cap, override), cfg)))
+    # What to re-fit ALLOWANCE_<5H|7D>_USD_EQUIV to (100 / points per dollar).
+    for window in WINDOW_LENGTH:
+        cal = calibrate(sessions, window)
+        rate, source = cal.rate("mixed", cfg)
+        print(f"- {window} points per dollar: {rate:.2f}, {source}; window = ${100 / rate:.0f}")
 
 
 if __name__ == "__main__":
