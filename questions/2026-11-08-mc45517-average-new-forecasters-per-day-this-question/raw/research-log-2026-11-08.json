@@ -1,0 +1,20 @@
+{"searches": [
+  {"category": "resolution_source", "query": "Metaculus \"bot testing area\" tournament", "by": "main", "status": "done", "finding": "Bot testing area (id bot-testing-area / 32977) announced with FutureEval 2026: practice questions for bot makers, one per question type."},
+  {"category": "resolution_source", "query": "Metaculus \"average new forecasters per day\" question", "by": "main", "status": "done", "finding": "Nothing relevant; no public count of forecasters on Q45517."},
+  {"category": "base_rate", "query": "Metaculus AI benchmark bots number of bots participating 2026", "by": "main", "status": "done", "finding": "Spring 2026: 173 bots (111 external, ~65 Metaculus-run), 297 questions."},
+  {"category": "other", "query": "Metaculus forecasting-tools template bot testing questions", "by": "main", "status": "done", "finding": "Template bots widely used; Metaculus advises testing only on practice/test questions."},
+  {"category": "resolution_source", "query": "Metaculus bot testing area 32977 practice questions forecasters", "by": "main", "status": "done", "finding": "No forecaster count found for testing-area questions."},
+  {"category": "news", "query": "Fall 2026 FutureEval bot tournament number of bots registered", "by": "main", "status": "done", "finding": "Fall 2026 MiniBench from 2026-09-21, tournament questions from 2026-09-28; Fall 2025 had 134 bots."},
+  {"category": "base_rate", "query": "Metaculus MiniBench number of participating bots", "by": "main", "status": "done", "finding": "Spring 2026 survey: 48 tournament bot makers + 10 MiniBench-only; Q2 2025: 54 bot makers."},
+  {"category": "markets", "query": "Polymarket OR Manifold Metaculus bot tournament participants market", "by": "main", "status": "done", "finding": "None found on this quantity; only Manifold markets on bot placements."},
+  {"category": "base_rate", "query": "Fall 2025 Metaculus AI benchmark results 134 bots", "by": "main", "status": "done", "finding": "Fall 2025: 134 bots on leaderboard."},
+  {"category": "other", "query": "Metaculus bot testing area humans can forecast bot-only", "by": "main", "status": "done", "finding": "Testing area is for bot makers; warmup projects are bot-only."},
+  {"category": "news", "query": "Metaculus FutureEval November 2026 news bots", "by": "main", "status": "done", "finding": "No Nov 2026 news changing participation; FutureEval launched Feb 2026 with publicity."},
+  {"category": "base_rate", "query": "Metaculus bot accounts registered total number of bot makers growth", "by": "main", "status": "done", "finding": "No total registered bot account count found."},
+  {"category": "base_rate", "query": "Metaculus practice question \"forecasters\" bot warmup question count", "by": "main", "status": "done", "finding": "Warmup projects 30-36 questions, bot-only; no forecaster counts."},
+  {"category": "disconfirmation", "query": "Metaculus testing area questions few forecasters bots ignore long-dated questions", "by": "main", "status": "done", "finding": "No evidence either way that bots skip long-dated testing questions.", "tests": "that most new bot accounts over the 2-year window forecast on this testing-area question (drives median ~240 forecasters vs. a low-engagement ~80)"},
+  {"category": "base_rate", "query": "Summer 2026 FutureEval results number of bots", "by": "main", "status": "done", "finding": "No Summer 2026 count published; Spring 173 is latest."}
+],
+ "adjustments": [
+  {"event": "Testing area is the officially recommended place for new bot makers to test, across ~6 seasons in the open window", "date": "2026-05-01", "effect": "median from ~150 to ~240 forecasters (0.33/day)", "sources": [1, 3]}
+ ]}

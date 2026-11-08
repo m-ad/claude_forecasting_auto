@@ -1,6 +1,6 @@
 # Question index
 
-_Regenerated 2026-11-07 by `scripts/status.py --index`._
+_Regenerated 2026-11-08 by `scripts/status.py --index`._
 
 | Question | Type | Current | v | Community (CP) | Resolves | Next review | Status |
 |---|---|---|---|---|---|---|---|
@@ -128,3 +128,4 @@ _Regenerated 2026-11-07 by `scripts/status.py --index`._
 | [Will the operating rooms of Hospital Privado de Mendoza be open for new surgeries on November 13, 2026?](questions/2026-11-03-mc46425-operating-rooms-hospital-privado-de-mendoza-open/forecast.md) | binary | — | 0 | — | 2026-11-14 | — | dropped |
 | [Will James Comey have at least two federal criminal cases pending against him on November 13, 2026?](questions/2026-11-03-mc46426-james-comey-have-least-two-federal-criminal/forecast.md) | binary | — | 0 | — | 2026-11-13 | — | dropped |
 | [Will SRS or DOE have publicly stated a cause for the October 28, 2026 Savannah River National Laboratory fire by November 13, 2026?](questions/2026-11-03-mc46427-srs-doe-have-publicly-stated-cause-october/forecast.md) | binary | 12.0% [8.0%, 18.0%] | 1 | — | 2026-11-14 | — | closed |
+| [What will the average new forecasters per day be on this question before this question closes?](questions/2026-11-08-mc45517-average-new-forecasters-per-day-this-question/forecast.md) | discrete | 0.33 [0.23, 0.46] | 1 | — | 2028-09-06 | — | open |
