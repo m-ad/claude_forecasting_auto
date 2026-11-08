@@ -12,20 +12,25 @@ import numpy as np
 from scipy.interpolate import PchipInterpolator
 
 sys.path.insert(0, "scripts")
-import submit_metaculus as sm  # noqa: E402  (reuse the exact grid/tail/floor logic)
+import submit_metaculus as sm
 
 OUT = "interp_compare.png"
 
 
 def load(tag: str) -> tuple[str, dict, dict, float | None]:
     """Latest forecast percentiles, question scaling and outcome for a slug fragment."""
-    led = [json.loads(line) for line in open("ledger/forecasts.jsonl")]
+    with open("ledger/forecasts.jsonl", encoding="utf-8") as fh:
+        led = [json.loads(line) for line in fh]
     fc = next(r for r in reversed(led) if r["event"] == "forecast" and tag in r["slug"])
     slug = fc["slug"]
     outcome = next((r["outcome"] for r in led
                     if r["event"] == "resolution" and r["slug"] == slug), None)
-    raw = sorted(glob.glob(f"questions/{slug}/raw/metaculus-question-*.json"))[0]
-    return slug, fc["distribution"]["percentiles"], json.load(open(raw))["question"]["scaling"], outcome
+    # The snapshots are named with an ISO date, so the lexicographic minimum is the
+    # earliest: the question text as it stood when the forecast was made.
+    raw = min(glob.glob(f"questions/{slug}/raw/metaculus-question-*.json"))
+    with open(raw, encoding="utf-8") as fh:
+        scaling = json.load(fh)["question"]["scaling"]
+    return slug, fc["distribution"]["percentiles"], scaling, outcome
 
 
 def cdfs(pct: dict, scaling: dict) -> tuple[np.ndarray, np.ndarray, np.ndarray]:
