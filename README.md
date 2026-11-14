@@ -113,6 +113,7 @@ docs/
   configuration.md        every secret and variable: required or optional, defaults
   update-protocol.md      when and how to revisit (individual questions); resolution
   postmortem.md           how to learn from resolved questions; postmortem-<YYYY-MM>.md, the findings
+  conditional-questions.md  conditional posts: not supported yet, and what to implement
 questions/<slug>/         meta.yaml · forecast.md · research.md (individual questions) · raw/
 ledger/forecasts.jsonl    append-only: forecasts, submissions, comments, resolutions
 ledger/usage.jsonl        one line per Claude run: tokens, cost-equivalent, turns
