@@ -6,7 +6,7 @@
 | **Tournament** | minibench — one shot, window 2026-11-02T09:44:45Z -> 2026-11-02T12:44:45Z |
 | **Type** | binary |
 | **Opened / Closes / Resolves** | 2026-11-02 / 2026-11-02 / 2026-11-13 |
-| **Status** | closed |
+| **Status** | resolved |
 | **Current forecast** | Median 66.0%, IQR [55.0%, 76.0%] (v1, 2026-11-02) |
 | **Community** | hidden — bot tournament |
 | **Next review** | — |
@@ -64,3 +64,7 @@ Wholesale fell sharply on 11/2: RBOB about $2.99/gal (−5.2% on the day, 9-week
 **Date**: 2026-11-02
 **Forecast**: Median 66.0%, IQR [55.0%, 76.0%]
 **Thesis**: AAA regular is $4.1694 and needs another ~12 c drop in 11 days; the October trend alone is a coin flip, but wholesale gasoline fell to a 9-week low (~$2.99) on 11/2, leaving the pump price above its likely equilibrium. Most sensitive to whether the Iran-diplomacy-driven crude drop reverses after the Nov 3 midterms.
+
+## Resolution — 2026-11-14
+
+Resolved **yes** (synced from the Metaculus API). The bot's forecast was 66.0% [55.0%, 76.0%]. Official spot peer score: +45.83.

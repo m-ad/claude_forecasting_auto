@@ -12,7 +12,7 @@ dates:
   opened: '2026-11-02'
   closes: '2026-11-02'
   resolves: '2026-11-14'
-status: closed
+status: resolved
 tournament:
   slug: minibench
   mode: one_shot
@@ -27,7 +27,7 @@ tournament:
       Sullivan, Daniel J. Jr.: 0.005
       Any other candidate: 0.01
   comment_posted: true
-  official_score: null
+  official_score: 10.202797639607915
   missed_window: false
 current:
   version: 1
@@ -45,6 +45,6 @@ current:
 next_review: null
 tripwires: []
 resolution:
-  outcome: null
-  date: null
-  source: null
+  outcome: Peltola, Mary (Democrat)
+  date: '2026-11-14'
+  source: 'Metaculus API: question 46640 resolution'

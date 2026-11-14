@@ -6,7 +6,7 @@
 | **Tournament** | minibench — one shot, window 2026-11-02T06:51:57Z -> 2026-11-02T09:51:57Z |
 | **Type** | discrete |
 | **Opened / Closes / Resolves** | 2026-11-02 / 2026-11-02 / 2026-11-13 |
-| **Status** | closed |
+| **Status** | resolved |
 | **Current forecast** | Median 8, IQR [5, 12] (v1, 2026-11-02) |
 | **Community** | hidden — bot tournament |
 | **Next review** | — |
@@ -100,3 +100,7 @@ The forecast is most sensitive to whether the Qatar seven-day process starts the
 **Date**: 2026-11-02
 **Forecast**: Median 8 crossings, IQR [5 crossings, 12 crossings]
 **Thesis**: hormuz.now's own series is the outside view: 4–13 commercial crossings a day since 20 Oct, with a 7-day average of 9.1 on 1 Nov. The median stays near it because Iran has not accepted the Qatar seven-day plan. The tails are fat in both directions. A deal implemented in early November could, as after the June MoU, take crossings to 20–40 (≈10–14 %). Renewed US strikes after the 3 Nov midterms could cut them to 2–4. The forecast is most sensitive to whether the Qatar process starts the week of 2 Nov.
+
+## Resolution — 2026-11-14
+
+Resolved **6.0** (synced from the Metaculus API). The bot's forecast was 8 [5, 12]. Official spot peer score: +17.56.

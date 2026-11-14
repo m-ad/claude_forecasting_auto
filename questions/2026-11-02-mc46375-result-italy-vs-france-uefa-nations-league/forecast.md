@@ -6,7 +6,7 @@
 | **Tournament** | minibench — one shot, window 2026-11-02T02:49:53Z -> 2026-11-02T05:49:53Z |
 | **Type** | multiple_choice |
 | **Opened / Closes / Resolves** | 2026-11-02 / 2026-11-02 / 2026-11-12 |
-| **Status** | closed |
+| **Status** | resolved |
 | **Current forecast** | Median 41.0%, IQR [35.0%, 47.0%] (v1, 2026-11-02) |
 | **Community** | hidden — bot tournament |
 | **Next review** | — |
@@ -116,3 +116,7 @@ My uncertainty on the leading option (France) is about ±6 pp. No odds for this 
 **Date**: 2026-11-02
 **Forecast**: Median 41.0% (France win), IQR [35.0%, 47.0%]
 **Thesis**: The base rate for League A is about 43% home / 27% draw / 30% away. The Paris-leg market (about 66% France at home) implies France are roughly 100 Elo stronger, which nearly cancels Italy's home advantage at San Siro. France's better 2026 record (World Cup semi-final, 4-1 v Belgium) tilts it slightly to France: Italy 31%, Draw 28%, France 41%. The forecast is most sensitive to November squad news (Mbappé, possible France rotation) and to the first bookmaker lines.
+
+## Resolution — 2026-11-14
+
+Resolved **Italy win** (synced from the Metaculus API). The bot's forecast was 0.41 [0.35, 0.47]. Official spot peer score: +0.70.

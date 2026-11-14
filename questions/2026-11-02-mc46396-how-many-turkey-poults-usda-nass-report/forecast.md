@@ -6,7 +6,7 @@
 | **Tournament** | minibench — one shot, window 2026-11-02T10:13:36Z -> 2026-11-02T13:13:36Z |
 | **Type** | numeric |
 | **Opened / Closes / Resolves** | 2026-11-02 / 2026-11-02 / 2026-11-13 |
-| **Status** | closed |
+| **Status** | resolved |
 | **Current forecast** | Median 21700, IQR [21350, 22050] (v1, 2026-11-02) |
 | **Community** | hidden — bot tournament |
 | **Next review** | — |
@@ -61,3 +61,7 @@ A pattern showing first-published October figures systematically deviating from 
 **Date**: 2026-11-02
 **Forecast**: Median 21,700 thousand poults, IQR [21,350, 22,050]
 **Thesis**: Oct 2025 placements (21,284) grown by the +2% y/y pace of Sept placements and Oct-1 eggs in incubators, cross-checked with the Sept→Oct step, gives ~21,700. HPAI losses are tiny against monthly placements; the forecast is most sensitive to the noisy Sept→Oct seasonal step and NASS estimation error.
+
+## Resolution — 2026-11-14
+
+Resolved **20823.0** (synced from the Metaculus API). The bot's forecast was 21700 [21350, 22050]. Official spot peer score: -17.39.

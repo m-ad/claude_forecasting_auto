@@ -6,7 +6,7 @@
 | **Tournament** | minibench — one shot, window 2026-11-03T03:23:37Z -> 2026-11-03T06:23:37Z |
 | **Type** | discrete |
 | **Opened / Closes / Resolves** | 2026-11-03 / 2026-11-03 / 2026-11-13 |
-| **Status** | closed |
+| **Status** | resolved |
 | **Current forecast** | Median 3.8, IQR [3.55, 4] (v1, 2026-11-03) |
 | **Community** | hidden — bot tournament |
 | **Next review** | — |
@@ -71,3 +71,7 @@ A published Pekao/PKO/mBank note with a firm Q3 nowcast (a cluster at 3.8–4.0 
 **Date**: 2026-11-03
 **Forecast**: Median 3.8%, IQR [3.55%, 4.0%]
 **Thesis**: The revised Q2 level (4.1 % y/y) and an extra working day carry over to about 4.0 %, but weak September construction and retail data and bank nowcasts of 3–3.5 % pull the centre to 3.8 %. Most sensitive to the actual Q3 q/q, which the banks disagree on.
+
+## Resolution — 2026-11-14
+
+Resolved **3.5** (synced from the Metaculus API). The bot's forecast was 3.8 [3.55, 4]. Official spot peer score: -9.23.

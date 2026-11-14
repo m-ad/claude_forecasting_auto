@@ -6,7 +6,7 @@
 | **Tournament** | minibench — one shot, window 2026-11-02T16:23:47Z -> 2026-11-02T19:23:47Z |
 | **Type** | discrete |
 | **Opened / Closes / Resolves** | 2026-11-02 / 2026-11-02 / 2026-11-12 |
-| **Status** | closed |
+| **Status** | resolved |
 | **Current forecast** | Median 1.9, IQR [1.8, 2.05] (v1, 2026-11-02) |
 | **Community** | hidden — bot tournament |
 | **Next review** | — |
@@ -68,3 +68,7 @@ Evidence points slightly above the stale REM (1.7%, surveyed 28–30 Sep) and cl
 **Date**: 2026-11-02
 **Forecast**: Median 1.90%, IQR [1.80%, 2.05%]
 **Thesis**: Last print 1.9% and seven private trackers at 1.8–2.1% (mean 1.94%) outweigh the stale REM of 1.7%, with fuel and food pushing up and flat FX and falling clothing pulling down. Most sensitive to whether INDEC's food and regulated components follow the hot weekly trackers.
+
+## Resolution — 2026-11-14
+
+Resolved **2.2** (synced from the Metaculus API). The bot's forecast was 1.9 [1.8, 2.05]. Official spot peer score: +24.24.

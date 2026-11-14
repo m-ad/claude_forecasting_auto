@@ -6,7 +6,7 @@
 | **Tournament** | minibench — one shot, window 2026-11-02T09:33:54Z -> 2026-11-02T12:33:54Z |
 | **Type** | discrete |
 | **Opened / Closes / Resolves** | 2026-11-02 / 2026-11-02 / 2026-11-14 |
-| **Status** | closed |
+| **Status** | resolved |
 | **Current forecast** | Median 5, IQR [5, 6] (v1, 2026-11-02) |
 | **Community** | hidden — bot tournament |
 | **Next review** | — |
@@ -62,3 +62,7 @@ A ministry statement of 6+ confirmed (or of the two suspected deaths being confi
 **Date**: 2026-11-02
 **Forecast**: Median 5 patients, IQR [5, 6]
 **Thesis**: The ministry's confirmed count has been flat at 5 since Oct 27 with the surgical exposure stopped and 3 patients now negative, so the status quo of 5 is the base case. A right tail to 6–9 reflects the pending suspected deaths and possible additional cases.
+
+## Resolution — 2026-11-14
+
+Resolved **5.0** (synced from the Metaculus API). The bot's forecast was 5 [5, 6]. Official spot peer score: +44.35.

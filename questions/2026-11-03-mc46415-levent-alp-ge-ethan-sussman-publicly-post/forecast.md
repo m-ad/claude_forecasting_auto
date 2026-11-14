@@ -6,7 +6,7 @@
 | **Tournament** | minibench — one shot, window 2026-11-03T02:43:41Z -> 2026-11-03T05:43:41Z |
 | **Type** | binary |
 | **Opened / Closes / Resolves** | 2026-11-03 / 2026-11-03 / 2026-11-13 |
-| **Status** | closed |
+| **Status** | resolved |
 | **Current forecast** | Median 5.0%, IQR [3.0%, 9.0%] (v1, 2026-11-03) |
 | **Community** | hidden — bot tournament |
 | **Next review** | — |
@@ -64,3 +64,7 @@ Any statement from Alpöge or Sussman giving a date for a "readable" paper, or a
 **Date**: 2026-11-03
 **Forecast**: Median 5.0%, IQR [3.0%, 9.0%]
 **Thesis**: The authors' own README says they will not rush the unreadable 4D draft and will proceed "at a human pace", with no stated arXiv plan; recent work is on 3D, and repo files do not count. The main YES path is a hurried personal-site or arXiv posting under priority pressure.
+
+## Resolution — 2026-11-14
+
+Resolved **no** (synced from the Metaculus API). The bot's forecast was 5.0% [3.0%, 9.0%]. Official spot peer score: +19.44.

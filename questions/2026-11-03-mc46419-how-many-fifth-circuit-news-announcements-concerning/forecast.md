@@ -6,7 +6,7 @@
 | **Tournament** | minibench — one shot, window 2026-11-03T06:49:05Z -> 2026-11-03T09:49:05Z |
 | **Type** | discrete |
 | **Opened / Closes / Resolves** | 2026-11-03 / 2026-11-03 / 2026-11-13 |
-| **Status** | closed |
+| **Status** | resolved |
 | **Current forecast** | Median 1, IQR [0, 2] (v1, 2026-11-03) |
 | **Community** | hidden — bot tournament |
 | **Next review** | — |
@@ -63,3 +63,7 @@ A dated announcement of the committee's report filing or a Council meeting in th
 **Date**: 2026-11-03
 **Forecast**: Median 1 announcements, IQR [0, 2] announcements
 **Thesis**: The court's Brown postings are bursty (0 in Sept, 3 in Oct 19–30) and the Nov listing is empty on Nov 3; a committee report or scope-expansion order after Brown's Oct 30 no-show could add posts, but § 360 confidentiality and slow Council timing (Newman: 6–7 weeks) favour 0–2. Most sensitive to whether the court posts the committee's next order.
+
+## Resolution — 2026-11-14
+
+Resolved **1.0** (synced from the Metaculus API). The bot's forecast was 1 [0, 2]. Official spot peer score: -5.55.

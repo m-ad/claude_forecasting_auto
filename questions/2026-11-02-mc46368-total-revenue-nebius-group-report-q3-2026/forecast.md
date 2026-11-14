@@ -6,7 +6,7 @@
 | **Tournament** | minibench — one shot, window 2026-11-02T00:45:11Z -> 2026-11-02T03:45:11Z |
 | **Type** | numeric |
 | **Opened / Closes / Resolves** | 2026-11-02 / 2026-11-02 / 2026-11-12 |
-| **Status** | closed |
+| **Status** | resolved |
 | **Current forecast** | Median 920, IQR [885, 953] (v1, 2026-11-02) |
 | **Community** | hidden — bot tournament |
 | **Next review** | — |
@@ -90,3 +90,7 @@ I nudge the median to $920M, about +1% on the consensus centre and below Equible
 **Date**: 2026-11-02
 **Forecast**: Median 920 million $, IQR [885 million $, 953 million $]
 **Thesis**: Centred on the ~$905–935M sell-side consensus [2][4], which needs September ARR of about $4.5B, up from the $3.0B June run-rate. That step-up rests on Microsoft tranches delivered in July–August and late-Q2 capacity coming online [1][6]. I nudge it slightly up for two straight beats and keep about ±6% tails for Nebius's capacity-timing surprises [5]. The number is most sensitive to whether activations inside the quarter slipped.
+
+## Resolution — 2026-11-14
+
+Resolved **980.8** (synced from the Metaculus API). The bot's forecast was 920 [885, 953]. Official spot peer score: +10.41.

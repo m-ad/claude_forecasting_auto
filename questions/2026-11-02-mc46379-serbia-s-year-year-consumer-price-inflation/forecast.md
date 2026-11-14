@@ -6,7 +6,7 @@
 | **Tournament** | minibench — one shot, window 2026-11-02T04:52:04Z -> 2026-11-02T07:52:04Z |
 | **Type** | discrete |
 | **Opened / Closes / Resolves** | 2026-11-02 / 2026-11-02 / 2026-11-12 |
-| **Status** | closed |
+| **Status** | resolved |
 | **Current forecast** | Median 3.95, IQR [3.75, 4.2] (v1, 2026-11-02) |
 | **Community** | hidden — bot tournament |
 | **Next review** | — |
@@ -72,3 +72,7 @@ The reference class is one-month changes in Serbian annual CPI outside base-effe
 **Date**: 2026-11-02
 **Forecast**: Median 3.95%, IQR [3.75%, 4.2%]
 **Thesis**: This is a one-month step from September's 4.1%. October 2025 (+0.49% m/m, including a 6.6% electricity hike) drops out of the base. With no electricity hike in October 2026 (delayed past the election [11]) and a typical October m/m of about 0.3–0.4%, the rate edges down to about 3.9–4.0%, against upward food, core and PPI momentum (RZS via [1][2], [3], [7]). The forecast is most sensitive to October food and administered prices.
+
+## Resolution — 2026-11-14
+
+Resolved **4.4** (synced from the Metaculus API). The bot's forecast was 3.95 [3.75, 4.2]. Official spot peer score: -18.26.

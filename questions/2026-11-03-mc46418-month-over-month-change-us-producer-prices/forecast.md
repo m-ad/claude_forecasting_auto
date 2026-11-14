@@ -6,7 +6,7 @@
 | **Tournament** | minibench — one shot, window 2026-11-03T04:20:26Z -> 2026-11-03T07:20:26Z |
 | **Type** | discrete |
 | **Opened / Closes / Resolves** | 2026-11-03 / 2026-11-03 / 2026-11-13 |
-| **Status** | closed |
+| **Status** | resolved |
 | **Current forecast** | Median 0.4, IQR [0.3, 0.5] (v1, 2026-11-03) |
 | **Community** | hidden — bot tournament |
 | **Next review** | — |
@@ -73,3 +73,7 @@ Adjustments from the base distribution are small:
 **Date**: 2026-11-03
 **Forecast**: Median 0.4%, IQR [0.3%, 0.5%]
 **Thesis**: The series averaged ~0.4% per month over the last 13 months (0.47% over the last six) with a 5.0% annual rate, and inflationary pipeline indicators (ISM prices 77.9, record selling-price PMI) support persistence; a partial payback of September's +3.4% transport and warehousing jump is the main downside risk, and the forecast is most sensitive to that component.
+
+## Resolution — 2026-11-14
+
+Resolved **0.5** (synced from the Metaculus API). The bot's forecast was 0.4 [0.3, 0.5]. Official spot peer score: +10.29.

@@ -6,7 +6,7 @@
 | **Tournament** | minibench — one shot, window 2026-11-02T01:09:06Z -> 2026-11-02T04:09:06Z |
 | **Type** | discrete |
 | **Opened / Closes / Resolves** | 2026-11-02 / 2026-11-02 / 2026-11-13 |
-| **Status** | closed |
+| **Status** | resolved |
 | **Current forecast** | Median 16, IQR [10, 26] (v1, 2026-11-02) |
 | **Community** | hidden — bot tournament |
 | **Next review** | — |
@@ -78,3 +78,7 @@ Percentiles: p5 5, p10 7, p25 10, p50 16, p75 26, p90 39, p95 49. The right tail
 **Date**: 2026-11-02
 **Forecast**: Median 16 applicants, IQR [10, 26]
 **Thesis**: Past Kyrgyz presidential races drew 59–83 applications with strong last-days surges (2020: 5 eleven days out became 65). But 2026 has only 3 after five weeks, under a consolidated incumbent with no serious opposition, so I expect a muted surge to the mid-teens with a wide right tail. The forecast is most sensitive to whether a language certificate now gates filing itself.
+
+## Resolution — 2026-11-14
+
+Resolved **11.0** (synced from the Metaculus API). The bot's forecast was 16 [10, 26]. Official spot peer score: +30.91.

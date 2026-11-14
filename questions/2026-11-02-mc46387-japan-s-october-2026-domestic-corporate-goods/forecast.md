@@ -6,7 +6,7 @@
 | **Tournament** | minibench — one shot, window 2026-11-02T06:53:30Z -> 2026-11-02T09:53:30Z |
 | **Type** | discrete |
 | **Opened / Closes / Resolves** | 2026-11-02 / 2026-11-02 / 2026-11-12 |
-| **Status** | closed |
+| **Status** | resolved |
 | **Current forecast** | Median 6.5, IQR [6.2, 6.8] (v1, 2026-11-02) |
 | **Community** | hidden — bot tournament |
 | **Next review** | — |
@@ -75,3 +75,7 @@ The October 2026 m/m comes out at ≈ +0.2–0.3 %, giving a **median of 6.5 %**
 **Date**: 2026-11-02
 **Forecast**: Median 6.5%, IQR [6.2%, 6.8%]
 **Thesis**: The +0.5 % m/m in the October 2025 base month pulls a flat October 2026 down to ~6.3 % y/y. The end of the larger 2026 electricity/gas subsidy and higher October crude should lift October m/m to about +0.2–0.3 %, partly offset by falling rice prices. The forecast is most sensitive to how the BOJ records the subsidy end in October.
+
+## Resolution — 2026-11-14
+
+Resolved **7.1** (synced from the Metaculus API). The bot's forecast was 6.5 [6.2, 6.8]. Official spot peer score: -2.27.

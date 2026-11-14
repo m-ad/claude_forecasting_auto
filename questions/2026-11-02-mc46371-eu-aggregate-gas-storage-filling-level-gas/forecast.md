@@ -6,7 +6,7 @@
 | **Tournament** | minibench — one shot, window 2026-11-02T01:57:40Z -> 2026-11-02T04:57:40Z |
 | **Type** | numeric |
 | **Opened / Closes / Resolves** | 2026-11-02 / 2026-11-02 / 2026-11-13 |
-| **Status** | closed |
+| **Status** | resolved |
 | **Current forecast** | Median 72.6, IQR [71.9, 73.3] (v1, 2026-11-02) |
 | **Community** | hidden — bot tournament |
 | **Next review** | — |
@@ -78,3 +78,7 @@ The 12-day average withdrawal pace is the only real driver. A persistent cold, l
 **Date**: 2026-11-02
 **Forecast**: Median 72.6%, IQR [71.9%, 73.3%]
 **Thesis**: EU storage was 74.64% on 30 Oct and net withdrawals of ~0.13 pp/day were already under way (AGSI+). Past early-November drawdowns ran from 0 to −0.25 pp/day, and tight LNG supply points to the faster end, so I project ~−0.16 pp/day over 13 days. The result is most sensitive to whether a cold, windless spell arrives before 12 Nov; the forecast SSW mostly lands later.
+
+## Resolution — 2026-11-14
+
+Resolved **71.0** (synced from the Metaculus API). The bot's forecast was 72.6 [71.9, 73.3]. Official spot peer score: -12.15.

@@ -6,7 +6,7 @@
 | **Tournament** | minibench — one shot, window 2026-11-02T06:18:41Z -> 2026-11-02T09:18:41Z |
 | **Type** | discrete |
 | **Opened / Closes / Resolves** | 2026-11-02 / 2026-11-02 / 2026-11-13 |
-| **Status** | closed |
+| **Status** | resolved |
 | **Current forecast** | Median 2.6, IQR [1.55, 3.9] (v1, 2026-11-02) |
 | **Community** | hidden — bot tournament |
 | **Next review** | — |
@@ -77,3 +77,7 @@ The right tail stays fat because Singapore conceded 6, 7 and 5 to stronger sides
 **Date**: 2026-11-02
 **Forecast**: Median 2.6 goals, IQR [1.55, 3.9] goals
 **Thesis**: Paraguay (ranked 33rd, ~85 % win implied by Megapari's 1X2) are heavy favourites over a leaky Singapore (6-0 loss to Malaysia on 1 Oct, 7-0 to Korea in 2024), so I expect roughly 2.3 Paraguay goals plus 0.5 from Singapore. I shade that down because Alfaro's low-scoring, clean-sheet style (2026 matches averaged about 2.0 total goals) and likely rotation in a friendly four days before Japan pull the total toward 2-3. The total is most sensitive to Paraguay's November squad and the attacking intent of their starting XI.
+
+## Resolution — 2026-11-14
+
+Resolved **5.0** (synced from the Metaculus API). The bot's forecast was 2.6 [1.55, 3.9]. Official spot peer score: +6.69.

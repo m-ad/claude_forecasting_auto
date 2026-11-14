@@ -6,7 +6,7 @@
 | **Tournament** | minibench — one shot, window 2026-11-02T02:12:04Z -> 2026-11-02T05:12:04Z |
 | **Type** | numeric |
 | **Opened / Closes / Resolves** | 2026-11-02 / 2026-11-02 / 2026-11-12 |
-| **Status** | closed |
+| **Status** | resolved |
 | **Current forecast** | Median 80, IQR [75.5, 84.5] (v1, 2026-11-02) |
 | **Community** | hidden — bot tournament |
 | **Next review** | — |
@@ -69,3 +69,7 @@ There is no clean frequency-based reference class, so the anchor is the company'
 **Date**: 2026-11-02
 **Forecast**: Median 80.0 NT$B, IQR [75.5 NT$B, 84.5 NT$B]
 **Thesis**: Known Q3 revenue of NT$3,027bn at Hon Hai's 2.4–2.8% net margin gives 72–85bn. Subsidiary FII's record RMB 16.6bn Q3 profit (+26% QoQ) and a flat NT dollar over the quarter (so no repeat of Q2's FX loss) centre it near 80bn. The forecast is most sensitive to one-off non-operating items and the minority-interest share.
+
+## Resolution — 2026-11-14
+
+Resolved **77.52** (synced from the Metaculus API). The bot's forecast was 80 [75.5, 84.5]. Official spot peer score: +6.63.

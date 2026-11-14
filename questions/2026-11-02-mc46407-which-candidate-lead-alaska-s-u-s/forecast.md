@@ -6,7 +6,7 @@
 | **Tournament** | minibench — one shot, window 2026-11-02T16:15:56Z -> 2026-11-02T19:15:56Z |
 | **Type** | multiple_choice |
 | **Opened / Closes / Resolves** | 2026-11-02 / 2026-11-02 / 2026-11-14 |
-| **Status** | closed |
+| **Status** | resolved |
 | **Current forecast** | Median 66.0%, IQR [58.0%, 73.0%] (v1, 2026-11-02) |
 | **Community** | hidden — bot tournament |
 | **Next review** | — |
@@ -67,3 +67,7 @@ Election-night returns are the biggest swing: a Sullivan lead above ~4 points on
 **Date**: 2026-11-02
 **Forecast**: Median 66.0% (Peltola, Mary (Democrat)), IQR [58.0%, 73.0%]
 **Thesis**: Peltola leads the polls by ~2–3 points and late-counted Alaska ballots have consistently tilted 1–3 points toward Democrats, offset by Alaska's history of polls understating Republicans; markets (~70–74 %) are slightly higher than my 66 %. Most sensitive to the election-night margin.
+
+## Resolution — 2026-11-14
+
+Resolved **Peltola, Mary (Democrat)** (synced from the Metaculus API). The bot's forecast was 0.66 [0.58, 0.73]. Official spot peer score: +10.20.

@@ -6,7 +6,7 @@
 | **Tournament** | minibench — one shot, window 2026-11-03T02:02:51Z -> 2026-11-03T05:02:51Z |
 | **Type** | binary |
 | **Opened / Closes / Resolves** | 2026-11-03 / 2026-11-03 / 2026-11-13 |
-| **Status** | closed |
+| **Status** | resolved |
 | **Current forecast** | Median 33.0%, IQR [22.0%, 45.0%] (v1, 2026-11-03) |
 | **Community** | hidden — bot tournament |
 | **Next review** | — |
@@ -54,3 +54,7 @@ A statement from AST or press giving a start date for the driving tests in Novem
 **Date**: 2026-11-03
 **Forecast**: Median 33.0%, IQR [22.0%, 45.0%]
 **Thesis**: AST must finish an art. 8 requirements check and organise commissions in six cities before posting dates, and typical practice and a 15-day notice norm make a calendar by 12 Nov less likely than not; speed on scores and service pressure keep it plausible. Most sensitive to whether the requirements check is already done.
+
+## Resolution — 2026-11-14
+
+Resolved **no** (synced from the Metaculus API). The bot's forecast was 33.0% [22.0%, 45.0%]. Official spot peer score: +12.83.

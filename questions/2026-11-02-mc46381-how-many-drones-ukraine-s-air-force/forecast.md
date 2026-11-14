@@ -6,7 +6,7 @@
 | **Tournament** | minibench — one shot, window 2026-11-02T05:21:55Z -> 2026-11-02T08:21:55Z |
 | **Type** | numeric |
 | **Opened / Closes / Resolves** | 2026-11-02 / 2026-11-02 / 2026-11-13 |
-| **Status** | closed |
+| **Status** | resolved |
 | **Current forecast** | Median 148, IQR [108, 212] (v1, 2026-11-02) |
 | **Community** | hidden — bot tournament |
 | **Next review** | — |
@@ -71,3 +71,7 @@ I used a mixture model. **86 % is a normal night**, lognormal with a median of 1
 **Date**: 2026-11-02
 **Forecast**: Median 148 drones, IQR [108 drones, 212 drones]
 **Thesis**: From 15 October to 2 November 2026, normal nights ran 88–280 drones (median about 150), with waves of 580 (14–15 Oct) and 433 (31 Oct–1 Nov). Large strikes have come every 5–17 days, so 12–13 November is a draw from a right-skewed mixture with about a 14 % chance of a wave night. The forecast is most sensitive to whether that night is one of Russia's massed strikes.
+
+## Resolution — 2026-11-14
+
+Resolved **117.0** (synced from the Metaculus API). The bot's forecast was 148 [108, 212]. Official spot peer score: +11.71.

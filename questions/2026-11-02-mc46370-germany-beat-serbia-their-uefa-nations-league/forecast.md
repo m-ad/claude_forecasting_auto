@@ -6,7 +6,7 @@
 | **Tournament** | minibench — one shot, window 2026-11-02T01:18:46Z -> 2026-11-02T04:18:46Z |
 | **Type** | binary |
 | **Opened / Closes / Resolves** | 2026-11-02 / 2026-11-02 / 2026-11-13 |
-| **Status** | closed |
+| **Status** | resolved |
 | **Current forecast** | Median 70.0%, IQR [64.0%, 75.0%] (v1, 2026-11-02) |
 | **Community** | hidden — bot tournament |
 | **Next review** | — |
@@ -74,3 +74,7 @@ Net: I start from the 75.6% market price and take off about 5 pp for Germany's p
 **Date**: 2026-11-02
 **Forecast**: Median 70.0%, IQR [64.0%, 75.0%]
 **Thesis**: Bookmakers price Germany at about 76% with the margin removed (FanDuel −475) to win in a Belgrade match UEFA has ordered played behind closed doors, against a Serbia side with 0 points from four games. I shade that down to 70% for Germany's poor finishing under Klopp (one win and three goals in four games) and the risk of a draw. The forecast is most sensitive to the November squad news and to whether other bookmakers confirm the ~1.21 price.
+
+## Resolution — 2026-11-14
+
+Resolved **yes** (synced from the Metaculus API). The bot's forecast was 70.0% [64.0%, 75.0%]. Official spot peer score: +13.95.

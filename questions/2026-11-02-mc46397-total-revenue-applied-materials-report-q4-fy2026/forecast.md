@@ -6,7 +6,7 @@
 | **Tournament** | minibench — one shot, window 2026-11-02T12:21:04Z -> 2026-11-02T15:21:04Z |
 | **Type** | numeric |
 | **Opened / Closes / Resolves** | 2026-11-02 / 2026-11-02 / 2026-11-13 |
-| **Status** | closed |
+| **Status** | resolved |
 | **Current forecast** | Median 10420, IQR [10300, 10540] (v1, 2026-11-02) |
 | **Community** | hidden — bot tournament |
 | **Next review** | — |
@@ -67,3 +67,7 @@ An AMAT pre-announcement or a new US/China export action hitting shipments befor
 **Date**: 2026-11-02
 **Forecast**: Median 10,420 million $, IQR [10,300, 10,540]
 **Thesis**: AMAT has met or beaten the midpoint of its guidance in each of the last 7 quarters, by +1.5–3.4% in the last three, so I start from the $10,250M midpoint and add a ~$170M typical beat, with a fat lower tail for shipment timing/China risk. The forecast is most sensitive to whether the unusually large guided step-up is shipped in full.
+
+## Resolution — 2026-11-14
+
+Resolved **10409.0** (synced from the Metaculus API). The bot's forecast was 10420 [10300, 10540]. Official spot peer score: +23.64.

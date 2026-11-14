@@ -6,7 +6,7 @@
 | **Tournament** | minibench — one shot, window 2026-11-03T07:38:37Z -> 2026-11-03T10:38:37Z |
 | **Type** | binary |
 | **Opened / Closes / Resolves** | 2026-11-03 / 2026-11-03 / 2026-11-13 |
-| **Status** | closed |
+| **Status** | resolved |
 | **Current forecast** | Median 35.0%, IQR [22.0%, 48.0%] (v1, 2026-11-03) |
 | **Community** | hidden — bot tournament |
 | **Next review** | — |
@@ -77,3 +77,7 @@ Net: I start from about 60–65 % (DOJ intent plus ordinary grand jury base rate
 **Date**: 2026-11-03
 **Forecast**: Median 35.0%, IQR [22.0%, 48.0%]
 **Thesis**: DOJ says it is actively presenting to a D.C. grand jury with a Nov 5 Speedy Trial deadline, which would normally mean about a 60 % chance, but D.C. grand juries have repeatedly refused politically charged indictments (Hutchinson on Oct 27), the evidence is old and thin, and timing and scope risks remain. The forecast is most sensitive to whether the Nov 5 deadline is binding.
+
+## Resolution — 2026-11-14
+
+Resolved **no** (synced from the Metaculus API). The bot's forecast was 35.0% [22.0%, 48.0%]. Official spot peer score: +2.67.

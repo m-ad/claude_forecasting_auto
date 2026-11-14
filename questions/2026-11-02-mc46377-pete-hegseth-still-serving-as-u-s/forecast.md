@@ -6,7 +6,7 @@
 | **Tournament** | minibench — one shot, window 2026-11-02T03:52:22Z -> 2026-11-02T06:52:22Z |
 | **Type** | binary |
 | **Opened / Closes / Resolves** | 2026-11-02 / 2026-11-02 / 2026-11-12 |
-| **Status** | closed |
+| **Status** | resolved |
 | **Current forecast** | Median 92.0%, IQR [88.0%, 95.0%] (v1, 2026-11-02) |
 | **Community** | hidden — bot tournament |
 | **Next review** | — |
@@ -73,3 +73,7 @@ Reference class: a sitting cabinet secretary staying in office over a 10-day win
 **Date**: 2026-11-02
 **Forecast**: Median 92.0%, IQR [88.0%, 95.0%]
 **Thesis**: The status quo dominates a 10-day window, since impeachment and the Tennessee Senate-seat route cannot remove him before 12 Nov. Markets price about 24–31 % for an exit announced by Dec 1–Dec 31 (Polymarket, Kalshi, GJOpen), and only part of that falls in this window with immediate effect. The forecast is most sensitive to whether Trump makes a Sessions/Esper-style immediate firing in the days after the 3 Nov midterms.
+
+## Resolution — 2026-11-14
+
+Resolved **yes** (synced from the Metaculus API). The bot's forecast was 92.0% [88.0%, 95.0%]. Official spot peer score: +11.42.

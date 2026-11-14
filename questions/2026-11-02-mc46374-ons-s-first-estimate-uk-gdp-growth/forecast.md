@@ -6,7 +6,7 @@
 | **Tournament** | minibench — one shot, window 2026-11-02T02:41:20Z -> 2026-11-02T05:41:20Z |
 | **Type** | discrete |
 | **Opened / Closes / Resolves** | 2026-11-02 / 2026-11-02 / 2026-11-12 |
-| **Status** | closed |
+| **Status** | resolved |
 | **Current forecast** | Median 0.67, IQR [0.58, 0.76] (v1, 2026-11-02) |
 | **Community** | hidden — bot tournament |
 | **Next review** | — |
@@ -104,3 +104,7 @@ Revisions recently ran upward (June, Q2, the three-month rates), and that partly
 **Date**: 2026-11-02
 **Forecast**: Median 0.67%, IQR [0.58%, 0.76%]
 **Thesis**: July (+0.4%) and August (+0.1%) are already published, and the monthly path gives a Q3 carry-over of about 0.73% q/q if September is flat [1][7]. Soft September indicators (retail −0.4%, weaker ONS real-time data) pull the centre to about 0.67%, so 0.6 and 0.7 are near coin-flips [1][2]. The forecast is most sensitive to September's print and to revisions to July/August.
+
+## Resolution — 2026-11-14
+
+Resolved **0.7** (synced from the Metaculus API). The bot's forecast was 0.67 [0.58, 0.76]. Official spot peer score: +24.65.

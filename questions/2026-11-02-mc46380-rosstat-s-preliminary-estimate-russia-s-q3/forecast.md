@@ -6,7 +6,7 @@
 | **Tournament** | minibench — one shot, window 2026-11-02T05:00:55Z -> 2026-11-02T08:00:55Z |
 | **Type** | discrete |
 | **Opened / Closes / Resolves** | 2026-11-02 / 2026-11-02 / 2026-11-13 |
-| **Status** | closed |
+| **Status** | resolved |
 | **Current forecast** | Median 0.6, IQR [0.5, 0.8] (v1, 2026-11-02) |
 | **Community** | hidden — bot tournament |
 | **Next review** | — |
@@ -87,3 +87,7 @@ The modal gap is 0, the mean is about +0.03 pp and the standard deviation about 
 **Date**: 2026-11-02
 **Forecast**: Median 0.6%, IQR [0.5%, 0.8%]
 **Thesis**: MinEk's monthly-indicator estimate for Q3 2026 is +0.6% y/y (29 Oct). Rosstat's preliminary print has matched MinEk within ±0.1 pp in 5 of 7 recent quarters (misses: −0.3 in Q1 2025, +0.4 in Q2 2026), so the median stays at 0.6 with a slightly heavier upper tail. The forecast is most sensitive to whether the Q2-2026-style upside gap recurs.
+
+## Resolution — 2026-11-14
+
+Resolved **1.0** (synced from the Metaculus API). The bot's forecast was 0.6 [0.5, 0.8]. Official spot peer score: -26.05.

@@ -6,7 +6,7 @@
 | **Tournament** | minibench — one shot, window 2026-11-03T04:14:22Z -> 2026-11-03T07:14:22Z |
 | **Type** | numeric |
 | **Opened / Closes / Resolves** | 2026-11-03 / 2026-11-03 / 2026-11-13 |
-| **Status** | closed |
+| **Status** | resolved |
 | **Current forecast** | Median -2.7, IQR [-2.85, -2.55] (v1, 2026-11-03) |
 | **Community** | hidden — bot tournament |
 | **Next review** | — |
@@ -71,3 +71,7 @@ Outside crises the IEA moves annual growth by 0.1–0.3 mb/d per month (per the 
 **Date**: 2026-11-03
 **Forecast**: Median -2.7 mb/d, IQR [-2.85 mb/d, -2.55 mb/d]
 **Thesis**: The October OMR figure (-2.6) is the anchor because the last revision shrank to -0.1 mb/d, with a slight lean to a further cut since Hormuz re-escalated and Brent ran $109–117 in late October. The forecast is most sensitive to whether a US–Iran deal or new strikes land before the IEA's cut-off.
+
+## Resolution — 2026-11-14
+
+Resolved **-2.7** (synced from the Metaculus API). The bot's forecast was -2.7 [-2.85, -2.55]. Official spot peer score: +14.04.

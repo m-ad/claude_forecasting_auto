@@ -6,7 +6,7 @@
 | **Tournament** | minibench — one shot, window 2026-11-02T20:41:04Z -> 2026-11-02T23:41:04Z |
 | **Type** | binary |
 | **Opened / Closes / Resolves** | 2026-11-02 / 2026-11-02 / 2026-11-13 |
-| **Status** | closed |
+| **Status** | resolved |
 | **Current forecast** | Median 45.0%, IQR [40.0%, 50.0%] (v1, 2026-11-02) |
 | **Community** | hidden — bot tournament |
 | **Next review** | — |
@@ -68,3 +68,7 @@ Reference class: NHL home team in a regular-season game. Home teams win about 54
 **Date**: 2026-11-02
 **Forecast**: Median 45.0%, IQR [40.0%, 50.0%]
 **Thesis**: NHL home teams win ~54%; Florida and Detroit are close in quality (Florida's 2025-26 record was worse, early 2026-27 slightly better) and Florida's Barkov/Marchand absences offset home ice and Detroit's Larkin turmoil. Most sensitive to goalie health on both sides and the Florida returns.
+
+## Resolution — 2026-11-14
+
+Resolved **no** (synced from the Metaculus API). The bot's forecast was 45.0% [40.0%, 50.0%]. Official spot peer score: -10.19.

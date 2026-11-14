@@ -6,7 +6,7 @@
 | **Tournament** | minibench — one shot, window 2026-11-03T22:41:51Z -> 2026-11-04T01:41:51Z |
 | **Type** | binary |
 | **Opened / Closes / Resolves** | 2026-11-03 / 2026-11-04 / 2026-11-14 |
-| **Status** | closed |
+| **Status** | resolved |
 | **Current forecast** | Median 12.0%, IQR [8.0%, 18.0%] (v1, 2026-11-03) |
 | **Community** | hidden — bot tournament |
 | **Next review** | — |
@@ -72,3 +72,7 @@ Base rate: about 15 %.
 **Date**: 2026-11-03
 **Forecast**: Median 12.0%, IQR [8.0%, 18.0%]
 **Thesis**: DOE nuclear sites rarely state a fire's cause publicly within about two weeks; LANL's June 2026 glovebox fire had none after 24 days. Six days after this fire, SRS and DOE have said only that an investigation is underway, and the site's releases since then are unrelated. The main upside risk is a preliminary cause released under pressure from the press and over the retracted radiological-release notice.
+
+## Resolution — 2026-11-14
+
+Resolved **no** (synced from the Metaculus API). The bot's forecast was 12.0% [8.0%, 18.0%]. Official spot peer score: +10.46.

@@ -6,7 +6,7 @@
 | **Tournament** | minibench — one shot, window 2026-11-02T15:45:08Z -> 2026-11-02T18:45:08Z |
 | **Type** | discrete |
 | **Opened / Closes / Resolves** | 2026-11-02 / 2026-11-02 / 2026-11-12 |
-| **Status** | closed |
+| **Status** | resolved |
 | **Current forecast** | Median 0.4, IQR [-0.3, 1] (v1, 2026-11-02) |
 | **Community** | hidden — bot tournament |
 | **Next review** | — |
@@ -68,3 +68,7 @@ Westpac's or Worldline's October card data (typically published early/mid Novemb
 **Date**: 2026-11-02
 **Forecast**: Median 0.4%, IQR [-0.3%, 1.0%]
 **Thesis**: First-published SA total changes are small in normal years but 2026 has been volatile; two −0.5% months and a ~13% jump in October pump prices (inflating nominal fuel spending) argue for a modest rebound, tempered by falling consumer confidence. Most sensitive to whether the October seasonal adjustment and fuel-volume weakness offset the price effect.
+
+## Resolution — 2026-11-14
+
+Resolved **-1.2** (synced from the Metaculus API). The bot's forecast was 0.4 [-0.3, 1]. Official spot peer score: -9.36.

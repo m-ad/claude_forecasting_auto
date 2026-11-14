@@ -6,7 +6,7 @@
 | **Tournament** | minibench — one shot, window 2026-11-02T16:03:30Z -> 2026-11-02T19:03:30Z |
 | **Type** | numeric |
 | **Opened / Closes / Resolves** | 2026-11-02 / 2026-11-02 / 2026-11-12 |
-| **Status** | closed |
+| **Status** | resolved |
 | **Current forecast** | Median 700, IQR [-2300, 3700] (v1, 2026-11-02) |
 | **Community** | hidden — bot tournament |
 | **Next review** | — |
@@ -69,3 +69,7 @@ The API estimate (10 Nov) and the 4 Nov EIA print for the 30 Oct week: a large b
 **Date**: 2026-11-02
 **Forecast**: Median 700 thousand bbl, IQR [-2,300, 3,700]
 **Thesis**: Early-November weeks were builds in all of 2019–2025 (median +3.9M), but 2026 has four straight draws and heavy exports, so I blend them for a median near +0.7M with wide fat tails (52-week SD about 5.6M). Most sensitive to whether the seasonal refinery-turnaround build appears despite strong exports.
+
+## Resolution — 2026-11-14
+
+Resolved **4660.0** (synced from the Metaculus API). The bot's forecast was 700 [-2300, 3700]. Official spot peer score: +30.52.

@@ -6,7 +6,7 @@
 | **Tournament** | minibench — one shot, window 2026-11-02T05:46:21Z -> 2026-11-02T08:46:21Z |
 | **Type** | discrete |
 | **Opened / Closes / Resolves** | 2026-11-02 / 2026-11-02 / 2026-11-13 |
-| **Status** | closed |
+| **Status** | resolved |
 | **Current forecast** | Median 29.27, IQR [27.9, 29.94] (v1, 2026-11-02) |
 | **Community** | hidden — bot tournament |
 | **Next review** | — |
@@ -90,3 +90,7 @@ Continuous-CDF percentiles (the 30 bin spans 29.5–30.5): p5 22.6, p10 25.75, p
 **Date**: 2026-11-02
 **Forecast**: Median 29.3 first-place votes, IQR [27.9, 29.9]
 **Thesis**: The reference class is clear-favourite MVP winners since 2014, about half of whom were unanimous and none of whom got fewer than 28. Pete Crow-Armstrong fits it: 40-40, 45 HR, MLB-leading 10.6 fWAR, and all 38 first-place votes in MLB.com's final poll [2][3]. The forecast is most sensitive to how many writers reward Shohei Ohtani's two-way half-season (1.79 ERA over 85⅔ IP), which is the main route to a 28–29 count rather than a 30.
+
+## Resolution — 2026-11-14
+
+Resolved **30.0** (synced from the Metaculus API). The bot's forecast was 29.27 [27.9, 29.94]. Official spot peer score: +3.71.

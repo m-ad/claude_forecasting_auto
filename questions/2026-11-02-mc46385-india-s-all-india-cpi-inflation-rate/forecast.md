@@ -6,7 +6,7 @@
 | **Tournament** | minibench — one shot, window 2026-11-02T06:37:51Z -> 2026-11-02T09:37:51Z |
 | **Type** | numeric |
 | **Opened / Closes / Resolves** | 2026-11-02 / 2026-11-02 / 2026-11-12 |
-| **Status** | closed |
+| **Status** | resolved |
 | **Current forecast** | Median 6.02, IQR [5.77, 6.27] (v1, 2026-11-02) |
 | **Community** | hidden — bot tournament |
 | **Next review** | — |
@@ -81,3 +81,7 @@ The reference value is the flat-index figure of 5.54%. October m/m in India's CP
 **Date**: 2026-11-02
 **Forecast**: Median 6.02%, IQR [5.77%, 6.27%]
 **Thesis**: The October 2025 base in the new series is roughly flat on September 2025, so October 2026 is about 5.54% plus that month's m/m change. Sticky onion and food momentum and the festive season suggest about +0.45% m/m, consistent with India Ratings (~6.0%), ICRA (>6%) and RBI's Q3 6.0%. Falling silver and gold and easing tomato prices temper it. The forecast is most sensitive to late-October vegetable prices and to the exact October 2025 base index.
+
+## Resolution — 2026-11-14
+
+Resolved **6.09** (synced from the Metaculus API). The bot's forecast was 6.02 [5.77, 6.27]. Official spot peer score: +20.69.

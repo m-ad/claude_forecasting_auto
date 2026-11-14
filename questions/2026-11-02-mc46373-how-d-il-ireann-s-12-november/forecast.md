@@ -6,7 +6,7 @@
 | **Tournament** | minibench — one shot, window 2026-11-02T02:21:23Z -> 2026-11-02T05:21:23Z |
 | **Type** | multiple_choice |
 | **Opened / Closes / Resolves** | 2026-11-02 / 2026-11-02 / 2026-11-13 |
-| **Status** | closed |
+| **Status** | resolved |
 | **Current forecast** | Median 73.0%, IQR [63.0%, 82.0%] (v1, 2026-11-02) |
 | **Community** | hidden — bot tournament |
 | **Next review** | — |
@@ -81,3 +81,7 @@ These usually end "Question put and agreed to" on the night. Opposed PMBs end wi
 **Date**: 2026-11-02
 **Forecast**: Median 73.0% (Second Stage granted), IQR [63.0%, 82.0%]
 **Thesis**: This is a Government-party (Fine Gael) PMB that the Government did not oppose in the Seanad in 2023, with a Programme for Government spiking commitment and no Government bill. So the most likely ending is the question put and agreed without a division. The remaining risk is a claimed and postponed division (~11%) or the debate not concluding or the item not being taken (~13%). The forecast is most sensitive to whether the Government tables a timed amendment or any TD claims a division.
+
+## Resolution — 2026-11-14
+
+Resolved **Second Stage granted — the Dáil gives the Bill a Second Reading on 12 November 2026** (synced from the Metaculus API). The bot's forecast was 0.73 [0.63, 0.82]. Official spot peer score: +37.20.

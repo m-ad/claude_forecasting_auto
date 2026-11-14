@@ -6,7 +6,7 @@
 | **Tournament** | minibench — one shot, window 2026-11-02T15:31:04Z -> 2026-11-02T18:31:04Z |
 | **Type** | binary |
 | **Opened / Closes / Resolves** | 2026-11-02 / 2026-11-02 / 2026-11-13 |
-| **Status** | closed |
+| **Status** | resolved |
 | **Current forecast** | Median 17.0%, IQR [11.0%, 25.0%] (v1, 2026-11-02) |
 | **Community** | hidden — bot tournament |
 | **Next review** | — |
@@ -69,3 +69,7 @@ A credible leak or report of ballot-level preferences, such as a writer publishi
 **Date**: 2026-11-02
 **Forecast**: Median 17.0%, IQR [11.0%, 25.0%]
 **Thesis**: Only about 15% of AL MVPs since 2000 were unanimous, and runaway winners are unanimous roughly 40% of the time. Alvarez is a near-certain winner, but the last expert poll gave him only 29 of 38 first-place votes, and he is a DH who cooled late. The forecast is most sensitive to how much BBWAA voters consolidate versus the expert polls (Judge 2022 went from 72% in the poll to 93% in the vote).
+
+## Resolution — 2026-11-14
+
+Resolved **yes** (synced from the Metaculus API). The bot's forecast was 17.0% [11.0%, 25.0%]. Official spot peer score: +7.78.

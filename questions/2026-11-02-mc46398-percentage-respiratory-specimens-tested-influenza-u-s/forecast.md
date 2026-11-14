@@ -6,7 +6,7 @@
 | **Tournament** | minibench — one shot, window 2026-11-02T12:31:12Z -> 2026-11-02T15:31:12Z |
 | **Type** | discrete |
 | **Opened / Closes / Resolves** | 2026-11-02 / 2026-11-02 / 2026-11-13 |
-| **Status** | closed |
+| **Status** | resolved |
 | **Current forecast** | Median 11.5, IQR [10.4, 12.8] (v1, 2026-11-02) |
 | **Community** | hidden — bot tournament |
 | **Next review** | — |
@@ -66,3 +66,7 @@ The Week 43 figure (published Nov 6; I will not see it): a Week 43 value at or b
 **Date**: 2026-11-02
 **Forecast**: Median 11.5%, IQR [10.4%, 12.8%]
 **Thesis**: Week 42 was 7.6% with weekly ratios of about 1.25 and broad regional growth; two more weeks at that pace, tempered by early-season noise and signs of West Coast flattening, give about 11.5%. The forecast is most sensitive to whether weekly growth stays above about 1.15x or stalls.
+
+## Resolution — 2026-11-14
+
+Resolved **11.3** (synced from the Metaculus API). The bot's forecast was 11.5 [10.4, 12.8]. Official spot peer score: +20.29.

@@ -6,7 +6,7 @@
 | **Tournament** | minibench — one shot, window 2026-11-02T03:27:15Z -> 2026-11-02T06:27:15Z |
 | **Type** | binary |
 | **Opened / Closes / Resolves** | 2026-11-02 / 2026-11-02 / 2026-11-12 |
-| **Status** | closed |
+| **Status** | resolved |
 | **Current forecast** | Median 86.0%, IQR [80.0%, 91.0%] (v1, 2026-11-02) |
 | **Community** | hidden — bot tournament |
 | **Next review** | — |
@@ -76,3 +76,7 @@ Decomposition: P(vote held by 12 Nov) ≈ 0.96 × P(yes > no | held) ≈ 0.90 �
 **Date**: 2026-11-02
 **Forecast**: Median 86.0%, IQR [80.0%, 91.0%]
 **Thesis**: Decree-laws put to the Diputación Permanente after a dissolution are almost always convalidated, and all six groups that make up the 35-34 majority, including the pivotal PNV, already voted for this text on 2 Oct and PNV has confirmed its yes. The forecast is most sensitive to one ally defecting or abstaining, possibly over the Urda crash, and to the 12 Nov session, the only viable date, actually being held.
+
+## Resolution — 2026-11-14
+
+Resolved **yes** (synced from the Metaculus API). The bot's forecast was 86.0% [80.0%, 91.0%]. Official spot peer score: +23.87.

@@ -6,7 +6,7 @@
 | **Tournament** | minibench — one shot, window 2026-11-02T23:47:30Z -> 2026-11-03T02:47:30Z |
 | **Type** | discrete |
 | **Opened / Closes / Resolves** | 2026-11-02 / 2026-11-03 / 2026-11-13 |
-| **Status** | closed |
+| **Status** | resolved |
 | **Current forecast** | Median 4, IQR [2, 5] (v1, 2026-11-02) |
 | **Community** | hidden — bot tournament |
 | **Next review** | — |
@@ -64,3 +64,7 @@ Discrete distribution I hold (P of each count): 0: 7%, 1: 9%, 2: 12%, 3: 15%, 4:
 **Date**: 2026-11-02
 **Forecast**: Median 4 capitals, IQR [2, 5]
 **Thesis**: Weekly counts have swung between 0 and 5 (SE 38–42: 3, 5, 0, 5, 5) and the same weeks in 2025 gave 2–6, so I centre on 4 with a right tail. The target is two editions beyond the latest known (SE 42 = 5), and the count is most sensitive to whether covid or metapneumovirus growth in the Southeast capitals continues.
+
+## Resolution — 2026-11-14
+
+Resolved **4.0** (synced from the Metaculus API). The bot's forecast was 4 [2, 5]. Official spot peer score: +15.01.
