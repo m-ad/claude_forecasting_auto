@@ -23,6 +23,11 @@ In that session:
   records usage and commits after you exit. Never try to do any of the three yourself.
 - `$FORECAST_DEADLINE` is when the session is killed. Log the forecast before it.
 
+**Known gap: Metaculus conditional posts are not supported** ("if A, then B?": no `question`,
+two branch questions). The bot tournaments never use them. Implement them before entering a
+non-bot tournament or taking on a conditional question. Until then, refuse such a post rather
+than scaffold it. What to build: `docs/conditional-questions.md`.
+
 Configuration lives in repository secrets and variables, not code; every one, with its
 default and whether it is required, is in `docs/configuration.md`. When something breaks,
 `docs/runbook.md`.
