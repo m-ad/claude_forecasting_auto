@@ -1,0 +1,23 @@
+{"searches": [
+  {"category": "resolution_source", "query": "WebFetch gob.mx informe-diario-del-brote-de-sarampion-en-mexico-2026 index", "by": "main", "status": "done", "finding": "Latest edition indexed: 12 Nov 2026; editions on weekdays only (6 Nov, 9 Nov, 10 Nov, 11 Nov, 12 Nov)"},
+  {"category": "resolution_source", "query": "pdf_text Informe_diario_12_11_2026.pdf", "by": "main", "status": "done", "finding": "12 Nov: 20,701 confirmed (+149 vs 20,552 on 11 Nov: 2 new lab-confirmed QRoo + 147 dictaminated, 144 Jalisco, 3 BC); 695 en estudio (910 on 11 Nov); 25,202 discarded; EFE 46,598; SE45 32 EFE"},
+  {"category": "resolution_source", "query": "pdf_text INFORME_DIARIO_SARAMPION_20261110.pdf page 1", "by": "main", "status": "done", "finding": "only boilerplate on final-classification strategy extracted; no figure"},
+  {"category": "resolution_source", "query": "informe diario sarampión 13 de noviembre 2026 casos confirmados", "by": "main", "status": "done", "finding": "no 13 Nov edition found"},
+  {"category": "news", "query": "sarampión México casos confirmados acumulados noviembre 2026", "by": "main", "status": "done", "finding": "PAHO sitrep #15 (6 Nov): Mexico 13,761 2026 cases thru EW43; 29 new cases EW41-42"},
+  {"category": "news", "query": "sarampión Jalisco dictaminados confirmados noviembre 2026", "by": "main", "status": "done", "finding": "nothing dated Nov 2026; Jalisco reports weeks without active cases"},
+  {"category": "news", "query": "OPS México eliminación sarampión revisión noviembre 2026 resultado", "by": "main", "status": "done", "finding": "Commission met 10-13 Nov 2026; no outcome published found"},
+  {"category": "markets", "query": "Polymarket OR Kalshi OR Manifold Mexico measles cases 2026", "by": "main", "status": "done", "finding": "none found for Mexico; only US markets"},
+  {"category": "base_rate", "query": "Mexico measles cases under study backlog classification October 2026 jump", "by": "main", "status": "done", "finding": "PAHO: Mexico 13,595 (EW39) -> 13,761 (EW43), ~166 in 4 weeks"},
+  {"category": "base_rate", "query": "\"sarampión\" México 20,701 casos", "by": "main", "status": "done", "finding": "Excelsior: 20,229 (6 Oct cut), 20,350 (23 Oct cut) -> trajectory ~10-12/bulletin in Oct"},
+  {"category": "other", "query": "Secretaría de Salud sarampión casos en estudio clasificación final OPS comisión noviembre", "by": "main", "status": "done", "finding": "nothing new; review recommendations go to PAHO director"},
+  {"category": "news", "query": "México pierde estatus eliminación sarampión noviembre 2026", "by": "main", "status": "done", "finding": "no outcome announced in results"},
+  {"category": "base_rate", "query": "sarampión México septiembre 2026 casos dictaminados incremento informe diario", "by": "main", "status": "done", "finding": "older figures only (18,385 June; 19,074 27 Jul)"},
+  {"category": "news", "query": "brote sarampión México semana 45 2026 nuevos casos", "by": "main", "status": "done", "finding": "nothing for EW45 beyond bulletin"},
+  {"category": "schedule", "query": "día feriado 16 noviembre 2026 Revolución Mexicana lunes", "by": "main", "status": "done", "finding": "16 Nov 2026 is a federal holiday -> likely no bulletin; editions remaining 13,17,18,19,20,23,24,25,26 Nov = 9"},
+  {"category": "news", "query": "Mexico measles outbreak November 2026 confirmed cases news", "by": "main", "status": "done", "finding": "nothing dated Nov 2026"},
+  {"category": "other", "query": "sarampión Quintana Roo casos nuevos noviembre 2026", "by": "main", "status": "done", "finding": "nothing dated Nov 2026"},
+  {"category": "disconfirmation", "query": "sarampión México casos confirmados 20 mil octubre 2026 informe diario", "by": "main", "status": "done", "finding": "no evidence of earlier mega-batches beyond ~10-25/day; no evidence the backlog push will continue at 12 Nov pace, nor that it has stopped", "tests": "assumption that the 11-12 Nov batch pace (~145/day) will NOT persist, i.e. that the median stays near the October run-rate (~12/bulletin) plus a modest batch allowance"}
+],
+ "adjustments": [
+  {"event": "12 Nov bulletin dictaminates 147 backlog cases (144 Jalisco), en-estudio falls 910->695", "date": "2026-11-12", "effect": "+~60 on the median above Oct run-rate extrapolation; p95 to ~21,180", "sources": [1]}
+]}
