@@ -1,0 +1,48 @@
+{
+  "post_id": 46571,
+  "url": "https://www.metaculus.com/questions/46571/",
+  "post_title": "Which of Nvidia, AMD, Broadcom, or Micron will post the highest percentage change in closing share price from the November 13, 2026 close to the November 27, 2026 close?",
+  "tournaments": [
+    "minibench"
+  ],
+  "options": [
+    "Nvidia (NVDA)",
+    "AMD",
+    "Broadcom (AVGO)",
+    "Micron (MU)"
+  ],
+  "question": {
+    "id": 46831,
+    "title": "Which of Nvidia, AMD, Broadcom, or Micron will post the highest percentage change in closing share price from the November 13, 2026 close to the November 27, 2026 close?",
+    "type": "multiple_choice",
+    "status": "open",
+    "description": "Nvidia, AMD, Broadcom and Micron are four of the most heavily traded US-listed semiconductor names, and late 2026 has been an exceptionally violent stretch for all of them. On November 12, 2026 Nvidia announced that CEO Jensen Huang had resigned as president, CEO and board member effective immediately, with CFO Colette Kress named interim CEO and Harvey C. Jones appointed the board's first-ever chair (https://nvidianews.nvidia.com/news/nvidia-announces-ceo-transition). The stock, already down roughly 23% from $226.32 on October 12 to $173.73 on November 11, fell as much as 14% intraday on November 12 before closing 4.34% lower at $166.19, leaving the company hovering just under a $4 trillion market capitalization. Rivals initially rallied on reports that the board might remove Huang — AMD gained about 7% and Broadcom about 4% in after-hours trading on November 11 — but on November 13 the group sold off together: in Nov 13 trading AMD was down roughly 9% near $531, Broadcom down about 6.5% near $341, Micron down about 5% near $760 and Nvidia down about 4% near $159, with the Nasdaq Composite down 1.7%. Daily moves of 4-10% in these names are currently routine, so relative performance over a two-week window remains highly dispersed rather than dominated by sector beta.\n\nThe measurement window contains one major scheduled catalyst: Nvidia reports third-quarter fiscal 2027 results after the close on Tuesday, November 17, 2026 (https://investor.nvidia.com/news/press-release-details/2026/NVIDIA-Sets-Conference-Call-for-Third-Quarter-Financial-Results/default.aspx), its first report under interim CEO Kress. Analyst revisions, guidance and the market's verdict on Nvidia without Huang will drive how NVDA trades against AMD (AI accelerators), Broadcom (custom AI silicon) and Micron (memory, where pricing has been the swing factor) for the rest of the window. Any further news on Nvidia's leadership search also falls inside the window.\n\nUS markets are closed on Thursday, November 26, 2026 (Thanksgiving) and close early at 1:00 p.m. ET on Friday, November 27, 2026 (https://www.nyse.com/markets/hours-calendars). Forecasters opening this question on November 26 will already know how the race stands through the November 25 close; because single-session moves of several percent are common here, a lead of a few points can still be erased or created in the final shortened session. None of the four is expected to go ex-dividend between November 13 and November 27, 2026, so percentage change in closing price and total return are effectively the same over this window. Resolution data comes from the Yahoo Finance historical-prices pages for each ticker, which list daily open/high/low/close/volume and update shortly after each close.\n\n`{\"format\": \"llm_question\", \"info\": {\"sdk_version\": \"0.6.1\", \"rating\": {\"quality\": 3, \"ambiguity\": 4, \"resolvability\": 4, \"passes\": true}}}`",
+    "resolution_criteria": "This question resolves to the option corresponding to the stock with the highest percentage change in closing share price from the November 13, 2026 close to the November 27, 2026 close, using the \"Close\" figures in the historical-prices tables published on Yahoo Finance for [Nvidia (NVDA)](https://finance.yahoo.com/quote/NVDA/history/), [AMD](https://finance.yahoo.com/quote/AMD/history/), [Broadcom (AVGO)](https://finance.yahoo.com/quote/AVGO/history/) and [Micron (MU)](https://finance.yahoo.com/quote/MU/history/). For each stock the percentage change is (close on November 27, 2026 minus close on November 13, 2026) divided by (close on November 13, 2026), computed from the published closing prices without intermediate rounding. The highest value resolves the question, including when all four are negative (the smallest decline wins). If a Yahoo Finance page is unavailable or does not show one of the two required closing prices, [credible sources](https://www.metaculus.com/faq/#definitions) will be used to obtain that closing price.",
+    "fine_print": "November 27, 2026 is a shortened US session that closes at 1:00 p.m. ET; the official closing price of that session is used, and extended-hours or after-hours trades do not count. If US markets do not hold a session on November 27, 2026, the closing prices from the next session in which all four stocks trade will be used instead. If two or more of the four stocks have exactly equal percentage changes, the question resolves to the tied stock listed earliest in the option order (Nvidia, AMD, Broadcom, Micron).",
+    "unit": "",
+    "options": [
+      "Nvidia (NVDA)",
+      "AMD",
+      "Broadcom (AVGO)",
+      "Micron (MU)"
+    ],
+    "scaling": {
+      "range_min": null,
+      "range_max": null,
+      "nominal_min": null,
+      "nominal_max": null,
+      "zero_point": null,
+      "open_upper_bound": false,
+      "open_lower_bound": false,
+      "inbound_outcome_count": null,
+      "continuous_range": null
+    },
+    "open_lower_bound": false,
+    "open_upper_bound": false,
+    "inbound_outcome_count": null,
+    "open_time": "2026-11-16T04:31:30Z",
+    "scheduled_close_time": "2026-11-16T07:31:30Z",
+    "scheduled_resolve_time": "2026-11-27T19:00:00Z",
+    "resolution": null
+  }
+}

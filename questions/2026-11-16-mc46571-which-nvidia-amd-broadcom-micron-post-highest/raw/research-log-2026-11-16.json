@@ -1,0 +1,21 @@
+{"searches": [
+  {"category": "resolution_source", "query": "NVDA AMD AVGO MU closing price November 13 2026", "by": "main", "status": "done", "finding": "No Nov 13 closes found; Nov 6 closes MU $690, AMD $449.04, NVDA $186.64 (FourWeekMBA). Question text gives Nov 13 intraday: AMD ~$531, AVGO ~$341, MU ~$760, NVDA ~$159."},
+  {"category": "news", "query": "Nvidia stock Jensen Huang resignation Kress interim CEO", "by": "main", "status": "done", "finding": "SEC 8-K confirms Huang resigned 2026-11-11, Kress interim CEO and CFO, Harvey Jones chair."},
+  {"category": "news", "query": "chip stocks selloff November 13 2026 AMD Broadcom Micron", "by": "main", "status": "done", "finding": "Nothing dated Nov 13; repeated sector-wide selloffs in Oct-Nov 2026 with 5-15% daily moves."},
+  {"category": "markets", "query": "Nvidia earnings implied move options November 17 2026", "by": "main", "status": "done", "finding": "Prior quarters ~5.4-6.5% implied; Morningstar/MarketPulse summary cites ~10.6% implied for Nov 17."},
+  {"category": "markets", "query": "Polymarket Nvidia stock November 2026", "by": "main", "status": "done", "finding": "Only thin NVDA price markets; no relative-performance market. None found for this question."},
+  {"category": "base_rate", "query": "Micron implied volatility November 2026", "by": "main", "status": "done", "finding": "MU 30-day IV 60.5% on 2026-11-04 (OptionCharts); one-year range 45-108%."},
+  {"category": "base_rate", "query": "Nvidia stock reaction after earnings history average move", "by": "main", "status": "done", "finding": "Avg earnings-day move +/-6.4-7.6%, direction ~coin flip (8 up/8 down over 16)."},
+  {"category": "news", "query": "Micron DRAM prices November 2026 stock", "by": "main", "status": "done", "finding": "Nothing from Nov 2026; mid-2026 DRAM prices at records; MU up ~142% YTD at Nov 6."},
+  {"category": "news", "query": "AMD stock falls November 13 2026", "by": "main", "status": "done", "finding": "AMD -17.3% on Nov 5 2026 after midterms (Motley Fool); highest realised vol of the four."},
+  {"category": "news", "query": "Broadcom stock November 13 2026", "by": "main", "status": "done", "finding": "AVGO +8.8% Nov 9 to ~$319-332 Nov 10; earnings Dec 9-10, outside window."},
+  {"category": "consensus", "query": "Nvidia Q3 fiscal 2027 earnings preview analyst expectations Kress", "by": "main", "status": "done", "finding": "Guide $108B +/-2%, consensus ~$108.8B / EPS 2.47; Morningstar FV $310; implied move ~10.6%."},
+  {"category": "news", "query": "stock futures Sunday November 15 2026 Nvidia", "by": "main", "status": "done", "finding": "Nothing for Nov 15-16 futures."},
+  {"category": "news", "query": "Nvidia Huang resigned investigation China ties reason", "by": "main", "status": "done", "finding": "Board probe opened Nov 8 over reported Megaspeed/intelligence links; resignation followed Nov 11."},
+  {"category": "disconfirmation", "query": "Nvidia oversold rebound analysts buy after Huang exit", "by": "main", "status": "done", "finding": "Mizuho: NVDA 'silly cheap' <10x earnings; Goldman 'clearly oversold'; Baird downgrade, MS/BofA removed from top lists; 59/64 Buy, median PT $314. Mixed: supports some rebound potential, no clear drift.", "tests": "assumption that NVDA's leadership shock has no directional drift and the four are roughly exchangeable apart from volatility"},
+  {"category": "upcoming_events", "query": "Micron earnings date December 2026 Broadcom earnings date December 2026", "by": "main", "status": "done", "finding": "MU ~Dec 16, AVGO ~Dec 10: both outside window; only NVDA reports inside."}
+],
+ "adjustments": [
+  {"event": "Nvidia Q3 FY2027 earnings on Nov 17 inside the window (implied ~10% move)", "date": "2026-11-17", "effect": "NVDA from ~22% (vol-only) to ~25% in the model", "sources": [3, 4]},
+  {"event": "Analysts call NVDA oversold at <10x earnings after Huang exit", "date": "2026-11-12", "effect": "+1 pp NVDA, -1 pp AVGO", "sources": [5]}
+]}
