@@ -1,0 +1,25 @@
+{"searches": [
+  {"category": "resolution_source", "query": "pdf_text: Resumo_InfoGripe_2026_44-1.pdf", "by": "main", "status": "done", "finding": "SE44 (data to 07/11/2026): national 'sinal de crescimento' in SRAG by metapneumovirus and Covid-19; Covid low; MT already decelerating; growth in DF, MG, SP, RJ, PR, BA; SARS-CoV-2 11.5% of positives last 4 weeks"},
+  {"category": "news", "query": "InfoGripe boletim Covid-19 crescimento novembro 2026", "by": "main", "status": "done", "finding": "SE43 bulletin (5 Nov): Covid SRAG rising in 5 UFs; MoH: mild Covid cases rising in 18 states + DF"},
+  {"category": "resolution_source", "query": "Fiocruz InfoGripe SRAG Covid sinal de crescimento", "by": "main", "status": "done", "finding": "only older bulletins (2023-2025); nothing new"},
+  {"category": "news", "query": "nova variante Covid Brasil novembro 2026 casos aumento", "by": "main", "status": "done", "finding": "no named new variant for Nov 2026 found"},
+  {"category": "resolution_source", "query": "InfoGripe semana 44 2026 Covid-19 metapneumovírus", "by": "main", "status": "done", "finding": "SE43: Covid 8.5% of positives (vs 11.5% at SE44) - share rising"},
+  {"category": "news", "query": "Covid-19 casos graves aumento estados Fiocruz 12 novembro 2026", "by": "main", "status": "done", "finding": "Nov 5-8 coverage: 5 states rising; MoH low risk everywhere"},
+  {"category": "markets", "query": "Polymarket OR Kalshi OR Manifold Brazil covid November 2026", "by": "main", "status": "done", "finding": "none found"},
+  {"category": "base_rate", "query": "InfoGripe dezembro 2025 Covid-19 sinal de crescimento nacional", "by": "main", "status": "done", "finding": "late 2025: no national Covid growth; influenza A focus"},
+  {"category": "base_rate", "query": "InfoGripe novembro 2024 Covid-19 crescimento SRAG", "by": "main", "status": "done", "finding": "Nov 2024: growth in 9 UFs at SE45, then queda in most of Centro-Sul by mid/late Nov"},
+  {"category": "disconfirmation", "query": "InfoGripe interrupção do crescimento Covid-19 estabilização nacional", "by": "main", "status": "done", "finding": "SE40 2026 slight rise in MT; wording 'interrupção' used in past bulletins when waves plateau", "tests": "assumption that a national Covid growth signal present at SE43-44 persists two more editions to SE46"},
+  {"category": "news", "query": "variante SARS-CoV-2 predominante Brasil outubro 2026 sequenciamento", "by": "main", "status": "done", "finding": "nothing relevant for 2026"},
+  {"category": "resolution_source", "query": "Informe Síndromes Gripais SE 44 2026 Covid-19", "by": "main", "status": "done", "finding": "MoH SE41-43: slight rise in Covid SG; SE41 rising severe in MT, RJ, SP"},
+  {"category": "disconfirmation", "query": "InfoGripe 2023 novembro Covid crescimento casos graves nacional", "by": "main", "status": "done", "finding": "2023 wave: growth to SE44, SE46 bulletin reported pause in adults/deceleration - waves can flip within 2 editions", "tests": "persistence of national growth through SE46"},
+  {"category": "news", "query": "Covid São Paulo aumento casos novembro 2026 positividade", "by": "main", "status": "done", "finding": "SP rise from 2nd half of October; private hospitals report Oct >> Sep; Nove de Julho unexpected demand early Nov"},
+  {"category": "schedule", "query": "InfoGripe boletim 19 novembro 2026", "by": "main", "status": "done", "finding": "SE45 bulletin not yet out (due 19 Nov)"},
+  {"category": "base_rate", "query": "InfoGripe semana 46 2025 Covid-19 tendência nacional", "by": "main", "status": "done", "finding": "SE46 2025: Covid decreasing nationally; no wave then"},
+  {"category": "base_rate", "query": "InfoGripe Covid-19 sinal de crescimento agosto 2026 nacional semanas consecutivas", "by": "main", "status": "done", "finding": "Aug 2026: mostly queda/estabilização; no clear multi-week national signal"},
+  {"category": "news", "query": "fetch diariodepernambuco 10/11/2026 SRAG devem aumentar", "by": "main", "status": "done", "finding": "Covid low in all age groups; rising in MT, DF, SP, RJ, SC (SE43)"},
+  {"category": "news", "query": "fetch oliberal SP hospitais covid", "by": "main", "status": "done", "finding": "Santa Catarina-Paulista 98 positives Oct vs 57 Sep vs 18 Aug"}
+],
+ "adjustments": [
+  {"event": "SE44 bulletin: national Covid SRAG growth signal, spreading to more Centro-Sul states (DF, MG, SP, RJ, PR, BA), share 8.5% -> 11.5%", "date": "2026-11-12", "effect": "+30 pp vs. unconditional ~25% base rate of a national Covid growth signal in a random week", "sources": [1, 2]},
+  {"event": "Mato Grosso (the first state) already decelerating; past waves (2023) flipped to deceleration within ~2 editions; low absolute counts", "date": "2026-11-12", "effect": "-10 pp", "sources": [1, 5]}
+]}

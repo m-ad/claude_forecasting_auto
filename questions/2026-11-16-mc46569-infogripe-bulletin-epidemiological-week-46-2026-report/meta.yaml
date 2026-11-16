@@ -1,0 +1,47 @@
+slug: 2026-11-16-mc46569-infogripe-bulletin-epidemiological-week-46-2026-report
+title: Will the InfoGripe bulletin for epidemiological week 46 of 2026 report a national growth trend
+  in COVID-19 SRAG hospitalisations?
+source: metaculus
+url: https://www.metaculus.com/questions/46569/
+post_id: 46569
+question_id: 46829
+type: binary
+unit: null
+tags: []
+dates:
+  created: '2026-11-16'
+  opened: '2026-11-16'
+  closes: '2026-11-16'
+  resolves: '2026-11-26'
+status: open
+tournament:
+  slug: minibench
+  mode: one_shot
+  registered: '2026-11-16'
+  opened: '2026-11-16T03:36:30Z'
+  closes: '2026-11-16T06:36:30Z'
+  submitted: '2026-11-16T04:12:27+00:00'
+  submitted_forecast:
+    probability_yes: 0.58
+  comment_posted: true
+  official_score: null
+  missed_window: false
+current:
+  version: 1
+  date: '2026-11-16'
+  median: 0.58
+  iqr:
+  - 0.48
+  - 0.67
+  community:
+    cp: null
+    pro: null
+    gold: null
+    n_forecasters: null
+    as_of: '2026-11-16'
+next_review: null
+tripwires: []
+resolution:
+  outcome: null
+  date: null
+  source: null

@@ -1,0 +1,38 @@
+{
+  "post_id": 46569,
+  "url": "https://www.metaculus.com/questions/46569/",
+  "post_title": "Will the InfoGripe bulletin for epidemiological week 46 of 2026 report a national growth trend in COVID-19 SRAG hospitalisations?",
+  "tournaments": [
+    "minibench"
+  ],
+  "options": null,
+  "question": {
+    "id": 46829,
+    "title": "Will the InfoGripe bulletin for epidemiological week 46 of 2026 report a national growth trend in COVID-19 SRAG hospitalisations?",
+    "type": "binary",
+    "status": "open",
+    "description": "InfoGripe is a Fiocruz initiative (Scientific Computing Programme, PROCC, with FGV/EMAp) that each week analyses severe acute respiratory syndrome (SRAG) hospitalisations recorded in Brazil's SIVEP-Gripe notification system and publishes a \"Resumo do Boletim InfoGripe\" for the most recently closed epidemiological week. Editions are normally released on Thursdays via Agência Fiocruz de Notícias together with a linked PDF; the summary opens with a highlights list (\"Pontos de destaque nesta atualização\") of national and regional bullets, followed by a \"Situação nacional\" section with case totals and virus shares, and then state (UF) and capital-level trend and alert-level analyses. Virus-specific trends are conveyed in prose (\"sinal de crescimento\", \"estabilização ou oscilação\", \"queda\"). The bulletin stresses that its series are unaffected by changes in COVID-19 case definitions, because it uses fixed symptom criteria and symptom-onset dates with statistical nowcasting of reporting delay.\n\nStatus as of 13 November 2026. The latest edition, for SE 44 (1–7 November 2026; SIVEP-Gripe data through 7 November), was released on Thursday 12 November 2026. It reports that national SRAG cases show a falling signal in both the long-term (last 6 weeks) and short-term (last 3 weeks) trends, while national SRAG confirmed by metapneumovirus and by COVID-19 shows a growth signal. Absolute COVID-19 levels remain low: SARS-CoV-2 accounted for 11.5% of laboratory-positive SRAG cases and 26.9% of positive SRAG deaths in the last four epidemiological weeks (versus 4.0% and 13.9% year-to-date). In 2026 to date the bulletin counts 174,427 notified SRAG cases, 92,776 (53.2%) laboratory-positive, and 7,807 SRAG deaths; no state combined an alert/risk incidence level with long-term growth, and only Roraima and Mato Grosso were at alert level. The preceding edition (SE 43, data through 31 October, released 5 November 2026) likewise reported national growth in SRAG from metapneumovirus, rhinovirus and COVID-19. The Ministry of Health's parallel reporting (https://www.gov.br/saude/pt-br/assuntos/noticias/2026/novembro/covid-19-casos-e-obitos-seguem-em-queda-no-brasil) notes a localised increase in mild COVID-19 cases across 18 states while putting the 2026 COVID-19 burden at roughly 3,400 SRAG hospitalisations and 437 deaths — about 63% and 69% below 2025.\n\nFor a forecaster, the key uncertainty for the SE 46 edition (SIVEP-Gripe data through 21 November 2026) is whether the national COVID-19 SRAG growth signal persisted through mid-to-late November. Once established, InfoGripe growth signals usually persist for several consecutive weekly editions, but they can flip to \"estabilização\" when weekly counts plateau, and national COVID-19 SRAG counts are small (on the order of hundreds per week), so sampling noise and reporting delays matter. Useful inputs include the successive editions' virus shares, per-state trend maps and alert levels, SIVEP-Gripe notification data, and the Ministry of Health's weekly \"Informe Síndromes Gripais\".\n\n`{\"format\": \"llm_question\", \"info\": {\"sdk_version\": \"0.6.1\", \"rating\": {\"quality\": 3, \"ambiguity\": 3, \"resolvability\": 4, \"passes\": true}}}`",
+    "resolution_criteria": "InfoGripe's weekly \"Resumo do Boletim InfoGripe\" for epidemiological week 46 of 2026 (header \"Semana Epidemiológica (SE) 46 2026\"; week of 15–21 November 2026) is expected to be published by Agência Fiocruz de Notícias on Thursday 26 November 2026 and is linked from https://agencia.fiocruz.br/ ; the previous edition, in the same series and format, is https://agencia.fiocruz.br/sites/agencia.fiocruz.br/files/Resumo_InfoGripe_2026_44-1.pdf . This question resolves YES if the national-level summary text of that edition (its \"Pontos de destaque nesta atualização\" highlights list and/or its \"Situação nacional\" section) states that, in Brazil as a whole, SRAG hospitalisations confirmed for COVID-19 (SARS-CoV-2) show growth — wording such as \"sinal de crescimento\" or \"crescimento\" applied to COVID-19 SRAG / \"casos graves por Covid-19\" at the national level, for either the long-term (last 6 weeks) or the short-term (last 3 weeks) trend. It resolves NO if that text describes national COVID-19 SRAG only as stable or oscillating (\"estabilização\", \"oscilação\"), falling (\"queda\"), decelerating, or having stopped growing (\"desaceleração do crescimento\", \"interrupção do crescimento\", \"fim do crescimento\"), or makes no statement of national growth in COVID-19 SRAG.",
+    "fine_print": "Growth in either the long-term (6-week) or the short-term (3-week) trend is sufficient for YES; it is not required that both horizons show growth. Growth statements that concern only particular states, regions or capitals do not count, nor does a statement of growth confined to specific age groups with no statement of growth for the national aggregate as a whole. A statement of growth in COVID-19 SRAG deaths without any growth statement about COVID-19 SRAG cases/hospitalisations does not count as YES. If no Resumo do Boletim InfoGripe covering epidemiological week 46 of 2026 has been published by 23:59 UTC on 27 November 2026, the question is annulled.",
+    "unit": "",
+    "options": null,
+    "scaling": {
+      "range_min": null,
+      "range_max": null,
+      "nominal_min": null,
+      "nominal_max": null,
+      "zero_point": null,
+      "open_upper_bound": false,
+      "open_lower_bound": false,
+      "inbound_outcome_count": null,
+      "continuous_range": null
+    },
+    "open_lower_bound": false,
+    "open_upper_bound": false,
+    "inbound_outcome_count": null,
+    "open_time": "2026-11-16T03:36:30Z",
+    "scheduled_close_time": "2026-11-16T06:36:30Z",
+    "scheduled_resolve_time": "2026-11-26T18:00:00Z",
+    "resolution": null
+  }
+}
