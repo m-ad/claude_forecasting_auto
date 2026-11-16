@@ -279,7 +279,8 @@ Then fix the forecast:
 Fill the scaffolded short form. Keep the version heading `## v1 — Initial forecast — <today>`
 dated today (UTC). Sections: What resolves YES, Outside view, Inside view, Evidence, Other
 forecasters, What would change my mind, Sources (numbered, `URL (accessed YYYY-MM-DD)`, at least
-5). End with the fixed block, filled in:
+5; a page you could not fetch is `URL (accessed YYYY-MM-DD; fetch failed)` — `log_forecast.py`
+refuses a URL source without `accessed YYYY-MM-DD`). End with the fixed block, filled in:
 
 ```
 **Question**: [<title>](<url>)

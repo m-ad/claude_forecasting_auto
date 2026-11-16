@@ -344,6 +344,69 @@ def _check_scouts(slug: str) -> None:
     )
 
 
+# Mirrors tests/test_forecast_md.py, which runs only after the session has exited:
+# a format slip it catches then can no longer be fixed, and fails every later sweep
+# job's validation until a human repairs the file.
+VERSION_HEADING_RE = re.compile(r"^## v\d+\s+[-–—]", re.MULTILINE)
+SOURCES_RE = re.compile(r"^### Sources\s*$(.*?)(?=^## |\Z)", re.MULTILINE | re.DOTALL)
+ACCESS_DATE_RE = re.compile(r"accessed\s+\d{4}-\d{2}-\d{2}")
+
+
+def undated_sources(text: str) -> list[str]:
+    """URL sources of the newest version in ``forecast.md`` that carry no access date.
+
+    Parameters
+    ----------
+    text : str
+        The full ``forecast.md``.
+
+    Returns
+    -------
+    list[str]
+        The offending numbered entries, wrapped lines re-joined; empty if all are dated.
+    """
+    marks = list(VERSION_HEADING_RE.finditer(text))
+    if not marks:
+        return []
+    end = marks[1].start() if len(marks) > 1 else len(text)
+    m = SOURCES_RE.search(text[marks[0].end() : end])
+    if not m:
+        return []
+    entries: list[str] = []
+    for line in m.group(1).splitlines():
+        if re.match(r"^\d+\.\s", line):
+            entries.append(line)
+        elif entries and line.strip():
+            entries[-1] += " " + line.strip()
+    return [e for e in entries if "http" in e and not ACCESS_DATE_RE.search(e)]
+
+
+def _check_sources(slug: str) -> None:
+    """Exit unless every URL source of the newest version has ``accessed YYYY-MM-DD``."""
+    path = QUESTIONS / slug / "forecast.md"
+    if not path.is_file():
+        return
+    bad = undated_sources(path.read_text(encoding="utf-8"))
+    if not bad:
+        return
+    listed = "\n  ".join(e[:120] for e in bad)
+    left = _minutes_to_deadline()
+    if left is not None and left <= WAIVER_MINUTES:
+        print(
+            f"! {slug}: access-date check waived, {left:.0f} min to the deadline; "
+            f"source without an access date:\n  {listed}",
+            file=sys.stderr,
+        )
+        return
+    sys.exit(
+        f"! {slug}: source without an access date, forecast not logged:\n  {listed}\n"
+        "Every source with a URL needs `(accessed YYYY-MM-DD)` in forecast.md. For a "
+        "page you could not fetch, write `(accessed YYYY-MM-DD; fetch failed)`. Fix "
+        "the Sources list, then run add again. This is not a tool failure: the "
+        "one-retry rule does not apply."
+    )
+
+
 def _check_research(slug: str) -> None:
     """Exit unless the research log meets the floor, or the deadline or cap waives it."""
     path = research_log_path(slug)
@@ -514,6 +577,7 @@ def cmd_add(args: argparse.Namespace) -> None:
         )
         if problems:
             sys.exit(f"! {slug}: --distribution rejected:\n  " + "\n  ".join(problems))
+    _check_sources(slug)
     # Last, so a malformed forecast is reported first: research may still move it.
     if _is_one_shot(meta):
         _check_scouts(slug)

@@ -56,7 +56,7 @@ The reference class is large companies that first say "no sensitive data" and ar
 
 1. BleepingComputer, "Maersk confirms data breach as WhiteArmor ransomware demands $5 million", https://bleepingcomputer.com/news/security/maersk-confirms-data-breach-as-whitearmor-ransomware-demands-5-million (accessed 2026-11-16)
 2. The Register, "Shipping giant Maersk probes 'IT security incident,' data theft", https://www.theregister.com/a/5309096 (accessed 2026-11-16)
-3. Maersk advisory, https://www.maersk.com/news/articles/2026/11/11/it-security-incident (fetch failed 2026-11-16; wording via [1][2])
+3. Maersk advisory, https://www.maersk.com/news/articles/2026/11/11/it-security-incident (accessed 2026-11-16; fetch failed, wording via [1][2])
 4. Ingeniøren, https://ing.dk/artikel/maersk-ramt-af-datalaek-hackere-haevder-have-adgang-til-kundedata (accessed 2026-11-16)
 5. Cybernews, https://cybernews.com/security/maersk-confirms-cyberattack-ransomware/ (snippet, accessed 2026-11-16)
 6. SecurityWeek, Medibank admits customer data stolen, https://www.securityweek.com/australian-health-insurer-medibank-admits-customer-data-stolen-ransomware-attack/amp/ (snippet, accessed 2026-11-16)
