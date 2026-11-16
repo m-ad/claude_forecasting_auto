@@ -1,0 +1,23 @@
+{"searches": [
+ {"category": "resolution_source", "query": "San Francisco airport rain total November 13 14 2026", "by": "main", "status": "done", "finding": "CNRFC summary 2026-11-14 8PM: SFO 0.01 in that day, season 1.72 in since Oct 1; no final CLISFO total found"},
+ {"category": "resolution_source", "query": "NWS Bay Area forecast heavy rain November 25-27 2026", "by": "main", "status": "done", "finding": "NWS flags increased heavy precip/wind risk Nov 25-27 (via SF Chronicle); MTR AFD 2026-11-16 long term only to Nov 22"},
+ {"category": "news", "query": "Bay Area rain forecast Thanksgiving 2026", "by": "main", "status": "done", "finding": "SF Chronicle: series of storms through Thanksgiving week; NWS increased risk Nov 25-27"},
+ {"category": "news", "query": "San Francisco storm next week November 2026 atmospheric river", "by": "main", "status": "done", "finding": "Watchers 2026-11-16: strong storm Nov 17-19, 2-3 in Bay Area"},
+ {"category": "consensus", "query": "CPC 8-14 day outlook California precipitation November 2026", "by": "main", "status": "done", "finding": "CPC hazards 2026-11-15: moderate heavy-precip risk N. CA Nov 24-25, slight Nov 23-29, tapering mid week-2"},
+ {"category": "markets", "query": "Kalshi San Francisco rain November 2026", "by": "main", "status": "done", "finding": "Only daily 'where will it rain' markets a few days ahead (SF Nov 17 at 35c); none for Nov 26"},
+ {"category": "markets", "query": "Polymarket rain San Francisco Thanksgiving 2026", "by": "main", "status": "done", "finding": "No Nov 26 market found"},
+ {"category": "base_rate", "query": "San Francisco Thanksgiving rain history climatology", "by": "main", "status": "done", "finding": "SFBayWeather: ~1 in 4 Thanksgivings with measurable rain 1991-2020; slightly more in El Nino"},
+ {"category": "base_rate", "query": "El Nino November Thanksgiving rain San Francisco probability SFBayWeather", "by": "main", "status": "done", "finding": "No explicit probability; seasonal guidance very wet (extreme El Nino)"},
+ {"category": "disconfirmation", "query": "Thanksgiving 2026 California dry ridge forecast", "by": "main", "status": "done", "finding": "No dry-ridge forecast for CA; dry area is Intermountain West", "tests": "assumption that the wet regime raises Nov 26 SFO rain chance from ~23% climatology to ~50%"},
+ {"category": "disconfirmation", "query": "Thanksgiving 2026 forecast San Francisco sunny dry break between storms", "by": "main", "status": "done", "finding": "Only Almanac (no skill) says sunny; SFBayWeather notes Thanksgiving rain often clears by Friday", "tests": "same assumption: storm timing lands on Nov 26 rather than Nov 24-25"},
+ {"category": "news", "query": "Weather West Swain November 2026 Thanksgiving storm", "by": "main", "status": "done", "finding": "Nothing new; Almanac pieces only"},
+ {"category": "upcoming_events", "query": "\"Thanksgiving\" rain Bay Area forecast November 24 25 26 storm timing", "by": "main", "status": "done", "finding": "No day-by-day timing; Chronicle: parade of storms through Thanksgiving; Central Coast rain possible Thanksgiving Day"},
+ {"category": "consensus", "query": "CW3E AR outlook November 2026 late November California", "by": "main", "status": "done", "finding": "CW3E 11 Nov subseasonal compares week-3 (Nov 23-29) AR forecasts; content in images only"},
+ {"category": "consensus", "query": "WPC extended forecast discussion November 16 2026 West Coast atmospheric river day 7", "by": "main", "status": "done", "finding": "WPC Nov 15 covers to Nov 22; Climate Impact Co: AR pattern shifts into California in 11-15 day period"},
+ {"category": "base_rate", "query": "SFO daily precipitation late November probability measurable rain", "by": "main", "status": "skipped", "finding": "Weather Spark figure (~24% by end of Nov) taken from question text"},
+ {"category": "other", "query": "La Nina November 2026 California rain pattern", "by": "main", "status": "skipped", "finding": "superseded: it is a strong El Nino year"}
+],
+ "adjustments": [
+  {"event": "CPC hazards outlook and NWS flag heavy-precipitation risk for northern California around Nov 24-27 within an AR-active, strong El Nino pattern", "date": "2026-11-15", "effect": "+29 pp on P(measurable rain), 23% -> 52%; heavier wet-day amounts", "sources": [1, 2, 3, 4]},
+  {"event": "CPC notes exceedance probabilities decline toward mid week-2 (around Nov 26); peak risk Nov 24-25", "date": "2026-11-15", "effect": "caps the wet shift; keeps 0.00 bucket near 48% instead of ~35%", "sources": [1]}
+ ]}

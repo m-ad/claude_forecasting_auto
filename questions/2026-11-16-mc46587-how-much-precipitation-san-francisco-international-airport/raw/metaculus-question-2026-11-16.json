@@ -1,0 +1,50 @@
+{
+  "post_id": 46587,
+  "url": "https://www.metaculus.com/questions/46587/",
+  "post_title": "How much precipitation will San Francisco International Airport record on Thanksgiving Day (November 26, 2026)?",
+  "tournaments": [
+    "minibench"
+  ],
+  "options": [
+    "0.00 in (no measurable precipitation)",
+    "0.01–0.09 in",
+    "0.10–0.49 in",
+    "0.50–0.99 in",
+    "1.00 in or more"
+  ],
+  "question": {
+    "id": 46847,
+    "title": "How much precipitation will San Francisco International Airport record on Thanksgiving Day (November 26, 2026)?",
+    "type": "multiple_choice",
+    "status": "open",
+    "description": "Thanksgiving Day 2026 falls on Thursday, November 26 (the fourth Thursday of the month). The question asks how much precipitation the National Weather Service's official climate station at San Francisco International Airport (SFO/KSFO; GHCN station USW00023234, climate records back to 1927) records on that calendar day — a date that sits at the start of Northern California's wet season.\n\nClimatology: November is among the wetter months at SFO, with 1991–2020 normals of roughly 2.5–2.6 in for the month, and the daily chance of measurable rain rising from about 14% at the start of November to about 24% by month's end (Weather Spark, https://weatherspark.com/m/145212/11/Average-Weather-in-November-at-San-Francisco-International-Airport-California-United-States). Daily rainfall is strongly right-skewed: many wet days bring only a few hundredths of an inch, while atmospheric-river storms can bring an inch or more — the wettest calendar day on record in San Francisco was 5.54 in on November 5, 1994 (downtown station, https://www.sfbayweather.com/learn/san-francisco-weather-november).\n\nStatus quo as of November 13, 2026: the water year has so far been dry. The NWS Bay Area daily climate report for November 12, 2026 put San Francisco Airport month-to-date precipitation at 0.24 in and the year-to-date total at 11.19 in, well short of the roughly 20 in annual normal (https://forecast.weather.gov/product.php?site=MTR&product=CLI&issuedby=SFO). The first storm series of the season arrived on Friday, November 13, with NWS forecast rain totals of 0.5–1.25 in across the Bay Area and a high surf warning on the coast (https://www.cbsnews.com/sanfrancisco/news/dangerous-waves-bay-area-central-coast-santa-cruz-closing-beaches-wharf/).\n\nLooking ahead to Thanksgiving week: NOAA's Climate Prediction Center 6–10 day, 8–14 day and week-2 outlooks, covering roughly November 21 – December 4, favor above-normal precipitation for much of California (https://www.aol.com/articles/thanksgiving-cold-dry-wet-california-160926000.html). Fox Weather's Thanksgiving outlook, published November 10, cited \"higher confidence than usual in the long-range forecast models\" and depicted a wet pattern over the West around Thursday November 26 and Friday November 27 (https://www.foxweather.com/weather-news/thanksgiving-week-weather-outlook-rain-storms-snow). Not all guidance agrees on details: an October 23 analysis cautioned that Northern California's Thanksgiving weather \"remains uncertain\" (https://www.newsbreak.com/country-herald-329402758/4962463683317-northern-california-winter-2026-27-i-80-snow-by-thanksgiving).\n\nResolution data: the NWS San Francisco Bay Area office issues the CLISFO daily climate report for San Francisco Airport at about 1:30 a.m. PST each morning, summarizing the previous calendar day with a \"PRECIPITATION (IN)\" block whose \"YESTERDAY\" row gives the daily total. The report dated November 27, 2026 therefore contains the total for Thanksgiving Day, November 26, 2026. Short-range quantitative precipitation forecasts, model ensembles and NWS forecast discussions for the November 26 period are the main inputs a forecaster can research.\n\n`{\"format\": \"llm_question\", \"info\": {\"sdk_version\": \"0.6.1\", \"rating\": {\"quality\": 3, \"ambiguity\": 4, \"resolvability\": 4, \"passes\": true}}}`",
+    "resolution_criteria": "This question resolves using the daily precipitation total reported for November 26, 2026 (Pacific local time) at San Francisco International Airport (SFO/KSFO) in the National Weather Service's daily climate report for that station, product CLISFO from the NWS San Francisco Bay Area office: https://forecast.weather.gov/product.php?site=MTR&product=CLI&issuedby=SFO. Specifically, the resolution value is the \"PRECIPITATION (IN)\" block's \"YESTERDAY\" figure in the CLISFO report dated November 27, 2026, which summarizes November 26, 2026; the multiple-choice option whose range contains that value resolves YES (for example, a reported value of 0.32 in resolves to \"0.10–0.49 in\"). If the November 27, 2026 CLISFO product cannot be retrieved, or if its precipitation value is reported as missing (\"MM\"), the archived NWS product copy in the Iowa Environmental Mesonet text-product archive (https://mesonet.agron.iastate.edu/wx/afos/list.phtml) and/or the official daily precipitation value for station USW00023234 on 2026-11-26 in NOAA's daily climate records will be used, [credible sources](https://www.metaculus.com/faq/#definitions) being consulted if needed.",
+    "fine_print": "Where more than one CLISFO report dated November 27, 2026 is issued (for example an original issuance at about 1:30 a.m. PST and a later corrected/CCA reissue that same day), the last such version issued on November 27, 2026 is the one used; corrections or reissues dated after November 27, 2026 do not change the resolution. Precipitation means total liquid-equivalent precipitation in inches for the calendar day, including rainfall and the melted equivalent of any frozen or freezing precipitation; reported snow depth does not count. A report of \"T\" (trace) is below 0.01 in and resolves to the \"0.00 in (no measurable precipitation)\" option.",
+    "unit": "",
+    "options": [
+      "0.00 in (no measurable precipitation)",
+      "0.01–0.09 in",
+      "0.10–0.49 in",
+      "0.50–0.99 in",
+      "1.00 in or more"
+    ],
+    "scaling": {
+      "range_min": null,
+      "range_max": null,
+      "nominal_min": null,
+      "nominal_max": null,
+      "zero_point": null,
+      "open_upper_bound": false,
+      "open_lower_bound": false,
+      "inbound_outcome_count": null,
+      "continuous_range": null
+    },
+    "open_lower_bound": false,
+    "open_upper_bound": false,
+    "inbound_outcome_count": null,
+    "open_time": "2026-11-16T13:31:36Z",
+    "scheduled_close_time": "2026-11-16T16:31:36Z",
+    "scheduled_resolve_time": "2026-11-27T18:00:00Z",
+    "resolution": null
+  }
+}
