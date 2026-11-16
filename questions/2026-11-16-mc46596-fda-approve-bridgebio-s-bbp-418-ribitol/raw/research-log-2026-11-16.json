@@ -1,0 +1,23 @@
+{"searches": [
+  {"category": "resolution_source", "query": "BridgeBio BBP-418 FDA approval November 2026", "by": "main", "status": "done", "finding": "No decision reported; PDUFA 2026-11-27, priority review, no AdCom; Jefferies 90%+ approval confidence"},
+  {"category": "resolution_source", "query": "WebFetch investor.bridgebio.com/news/default.aspx", "by": "main", "status": "done", "finding": "Page did not render (Loading...); no decision visible"},
+  {"category": "news", "query": "BBP-418 ribitol LGMD2I news November 2026", "by": "main", "status": "done", "finding": "Nothing dated Nov 2026; FORTIFY positive Oct 2025"},
+  {"category": "news", "query": "BridgeBio third quarter 2026 results BBP-418 launch", "by": "main", "status": "done", "finding": "Q3 release 2026-10-29: PDUFA Nov 27 stands, 'weeks away', >600 patients identified, field team deployed"},
+  {"category": "markets", "query": "Polymarket Kalshi BridgeBio BBP-418 approval", "by": "main", "status": "done", "finding": "Kalshi market KXBBP418 exists; no Polymarket market; Kalshi page fetch 429"},
+  {"category": "markets", "query": "Kalshi BBP-418 approval odds percent", "by": "main", "status": "done", "finding": "AppliedXL lists Kalshi BBP-418 at 89%; Kalshi medicine page implies ~91%, volume only $642"},
+  {"category": "markets", "query": "BBP-418 PDUFA November 27 BiopharmaWatch approval odds", "by": "main", "status": "done", "finding": "BiopharmaWatch figure not found in results (question text says ~78%); Jefferies >90%"},
+  {"category": "base_rate", "query": "FDA first-cycle approval rate priority review orphan NDA PDUFA", "by": "main", "status": "done", "finding": "CDER novel first-cycle approvals 74% (2024), 85% (2025); priority NMEs >80% since FY2011"},
+  {"category": "base_rate", "query": "FDA PDUFA extension major amendment frequency rare disease 2026", "by": "main", "status": "done", "finding": "Multiple 2026 3-month extensions (Savara, Beren, Agios, Capricor) via major amendments; no systematic rate"},
+  {"category": "disconfirmation", "query": "BBP-418 FDA concerns complete response risk interim analysis", "by": "main", "status": "done", "finding": "No reported FDA concerns; FDA recommended traditional approval; safety similar to placebo", "tests": "assumption that FDA approves on time on the interim FORTIFY glycosylated alpha-dystroglycan biomarker data without CRL or 3-month extension"},
+  {"category": "disconfirmation", "query": "FDA CDER complete response letters 2026 rare disease biomarker surrogate endpoint", "by": "main", "status": "done", "finding": "2026 CRLs for bitopertin and RGX-121 over unvalidated surrogates; FDA leadership skeptical of surrogates — but BBP-418 also has significant functional (100MTT, FVC) results", "tests": "assumption that 2026 FDA is not unusually CRL-prone for surrogate-based rare disease filings"},
+  {"category": "news", "query": "FORTIFY interim results ribitol alpha-dystroglycan 100-meter timed test FVC", "by": "main", "status": "done", "finding": "gαDG 1.8x; 100MTT diff 0.27 m/s; FVC diff 5% predicted p=.007; CK -82%"},
+  {"category": "news", "query": "BridgeBio stock BBIO November 2026 LGMD decision", "by": "main", "status": "done", "finding": "No decision as of early Nov 2026"},
+  {"category": "upcoming_events", "query": "FDA decisions late November 2026 PDUFA calendar BridgeBio", "by": "main", "status": "done", "finding": "Only BBP-418 PDUFA Nov 27 for BridgeBio in window"},
+  {"category": "other", "query": "FDA approves first limb-girdle muscular dystrophy treatment", "by": "main", "status": "done", "finding": "No LGMD therapy approved yet; BridgeBio expects approval late 2026/early 2027"},
+  {"category": "consensus", "query": "analyst BridgeBio BBP-418 approval probability", "by": "main", "status": "skipped", "finding": "covered by Jefferies result"},
+  {"category": "schedule", "query": "BBP-418 PDUFA November 27 2026", "by": "main", "status": "skipped", "finding": "covered"}
+],
+ "adjustments": [
+  {"event": "FORTIFY interim met primary (gαDG) and functional secondary endpoints (100MTT, FVC) with clean safety; FDA steered to traditional approval, no AdCom", "date": "2026-05-27", "effect": "+5 pp", "sources": [1, 2, 4]},
+  {"event": "2026 FDA pattern of late 3-month major-amendment extensions and surrogate-endpoint CRLs in rare disease, plus occasional missed PDUFA dates", "date": "2026-11-10", "effect": "-5 pp", "sources": [5, 6]}
+]}

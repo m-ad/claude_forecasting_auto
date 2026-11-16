@@ -1,0 +1,38 @@
+{
+  "post_id": 46596,
+  "url": "https://www.metaculus.com/questions/46596/",
+  "post_title": "Will the FDA approve BridgeBio's BBP-418 (ribitol) for limb-girdle muscular dystrophy type 2I/R9 by November 27, 2026?",
+  "tournaments": [
+    "minibench"
+  ],
+  "options": null,
+  "question": {
+    "id": 46856,
+    "title": "Will the FDA approve BridgeBio's BBP-418 (ribitol) for limb-girdle muscular dystrophy type 2I/R9 by November 27, 2026?",
+    "type": "binary",
+    "status": "open",
+    "description": "BBP-418 (ribitol) is BridgeBio Pharma's oral investigational therapy for limb-girdle muscular dystrophy type 2I/R9 (LGMD2I/R9, also called FKRP-related LGMD), a recessive, progressive muscle-wasting disease caused by mutations in the FKRP gene that typically causes proximal weakness, loss of ambulation and cardiac/respiratory involvement. No therapy has ever been approved for any form of LGMD; BridgeBio estimates roughly 7,000 affected individuals in the United States and Europe.\n\nBridgeBio submitted the NDA on March 30, 2026. On May 27, 2026 the FDA accepted the NDA for filing with Priority Review and assigned a PDUFA target action date of November 27, 2026 (a Friday). BBP-418 holds Fast Track, Orphan Drug and Rare Pediatric Disease designations, and no advisory committee meeting is planned (announced May 27 and reiterated in the October 29, 2026 third-quarter release). The filing rests on the Phase 3 FORTIFY trial's 12-month interim analysis together with natural-history data rather than a completed Phase 3 (FORTIFY's primary completion is listed as July 2027), and BridgeBio has said the FDA recommended orienting the NDA toward traditional approval — an early-alignment signal but also a reminder that a first-cycle complete response letter remains a live risk.\n\nAs of November 13, 2026, no FDA decision has been announced and the November 27, 2026 date stands; BridgeBio says U.S. launch preparation is well advanced, with about 70% of U.S. patients treated at MDA Care Centers. Third-party trackers put approval odds at roughly 78% (BiopharmaWatch). Context for the base rate: 18 dated FDA decisions remained in Q4 2026 as of November 10, 2026, three of them had already been pushed back three months, and nine fell on a weekend — so both late-breaking extensions and Friday/weekend news are common around PDUFA dates.\n\nResolution data will appear on BridgeBio's newsroom (https://investor.bridgebio.com/news/default.aspx), which carries the company's regulatory press releases, and would be widely reported by financial and trade media.\n\n`{\"format\": \"llm_question\", \"info\": {\"sdk_version\": \"0.6.1\", \"rating\": {\"quality\": 3, \"ambiguity\": 4, \"resolvability\": 4, \"passes\": true}}}`",
+    "resolution_criteria": "This question resolves YES if the U.S. Food and Drug Administration (FDA) grants approval of BridgeBio Pharma's New Drug Application for BBP-418 (ribitol) for the treatment of limb-girdle muscular dystrophy type 2I/R9 (LGMD2I/R9) on or before November 27, 2026. Approval counts whether it is granted under the traditional or the accelerated approval pathway, and regardless of the exact wording or breadth of the approved indication. The primary resolution source is BridgeBio's press release feed at https://investor.bridgebio.com/news/default.aspx; the FDA action date, not the date of public announcement, determines whether approval occurred on or before November 27, 2026. If no FDA approval of the BBP-418 NDA for LGMD2I/R9 has been granted on or before November 27, 2026 — including if the FDA issues a complete response letter or extends the PDUFA target action date without deciding — this question resolves NO. If the BridgeBio feed is unavailable, [credible sources](https://www.metaculus.com/faq/#definitions) will be used.",
+    "fine_print": "If approval is granted on or before November 27, 2026 but only becomes publicly reported afterwards (for example over the weekend of November 28–29, 2026), the question still resolves YES. The question does not remain open for an FDA decision taken after November 27, 2026.",
+    "unit": "",
+    "options": null,
+    "scaling": {
+      "range_min": null,
+      "range_max": null,
+      "nominal_min": null,
+      "nominal_max": null,
+      "zero_point": null,
+      "open_upper_bound": false,
+      "open_lower_bound": false,
+      "inbound_outcome_count": null,
+      "continuous_range": null
+    },
+    "open_lower_bound": false,
+    "open_upper_bound": false,
+    "inbound_outcome_count": null,
+    "open_time": "2026-11-16T18:31:13Z",
+    "scheduled_close_time": "2026-11-16T21:31:13Z",
+    "scheduled_resolve_time": "2026-11-28T00:00:00Z",
+    "resolution": null
+  }
+}

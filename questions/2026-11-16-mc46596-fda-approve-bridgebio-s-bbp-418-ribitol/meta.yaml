@@ -1,0 +1,47 @@
+slug: 2026-11-16-mc46596-fda-approve-bridgebio-s-bbp-418-ribitol
+title: Will the FDA approve BridgeBio's BBP-418 (ribitol) for limb-girdle muscular dystrophy type 2I/R9
+  by November 27, 2026?
+source: metaculus
+url: https://www.metaculus.com/questions/46596/
+post_id: 46596
+question_id: 46856
+type: binary
+unit: null
+tags: []
+dates:
+  created: '2026-11-16'
+  opened: '2026-11-16'
+  closes: '2026-11-16'
+  resolves: '2026-11-28'
+status: open
+tournament:
+  slug: minibench
+  mode: one_shot
+  registered: '2026-11-16'
+  opened: '2026-11-16T18:31:13Z'
+  closes: '2026-11-16T21:31:13Z'
+  submitted: '2026-11-16T19:11:45+00:00'
+  submitted_forecast:
+    probability_yes: 0.85
+  comment_posted: true
+  official_score: null
+  missed_window: false
+current:
+  version: 1
+  date: '2026-11-16'
+  median: 0.85
+  iqr:
+  - 0.8
+  - 0.89
+  community:
+    cp: null
+    pro: null
+    gold: null
+    n_forecasters: null
+    as_of: '2026-11-16'
+next_review: null
+tripwires: []
+resolution:
+  outcome: null
+  date: null
+  source: null
