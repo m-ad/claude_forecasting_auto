@@ -1,0 +1,38 @@
+{
+  "post_id": 46568,
+  "url": "https://www.metaculus.com/questions/46568/",
+  "post_title": "Will the Detroit Lions beat the Chicago Bears in their Thanksgiving Day game on November 26, 2026?",
+  "tournaments": [
+    "minibench"
+  ],
+  "options": null,
+  "question": {
+    "id": 46828,
+    "title": "Will the Detroit Lions beat the Chicago Bears in their Thanksgiving Day game on November 26, 2026?",
+    "type": "binary",
+    "status": "open",
+    "description": "The Chicago Bears and Detroit Lions meet in the NFL's traditional Thanksgiving Day game at Ford Field in Detroit on Thursday, November 26, 2026, kicking off at 1:00 p.m. ET (18:00 UTC) on CBS. The Lions have hosted a Thanksgiving Day game every year since 1934 (apart from 1939-1944), and the fixture has long doubled as a pivot point in the NFC North race.\n\nAs of mid-November 2026, the Bears lead the NFC North at 7-2 with the Lions half a game back at 6-2, so the Thanksgiving result directly shapes the division standings. Detroit is a narrow home favorite: as of November 12, 2026 the consensus spread was Lions -2.5 with a total of 52.5, and moneylines ranging from Lions -130 to -171 against Bears +115 to +140, implying roughly a 60/40 split. Detroit's offense has averaged 27.8 points per game while allowing 24.0; Chicago has averaged 26.8 while allowing 20.0. Lions quarterback Jared Goff has thrown for 2,134 yards with 15 touchdowns and 2 interceptions. Chicago lists tight end Cole Kmet as out. The Bears have lost seven of the last ten meetings between the clubs.\n\nBoth clubs play again between mid-November and the holiday, so records, injuries and the line may shift before kickoff. Final scores appear on the ESPN NFL scoreboard (https://www.espn.com/nfl/scoreboard/_/week/12/seasontype/2/year/2026) and in official NFL game statistics.\n\n`{\"format\": \"llm_question\", \"info\": {\"sdk_version\": \"0.6.1\", \"rating\": {\"quality\": 3, \"ambiguity\": 4, \"resolvability\": 4, \"passes\": true}}}`",
+    "resolution_criteria": "This question resolves YES if the Detroit Lions are the winning team in the NFL regular-season game between the Chicago Bears and the Detroit Lions scheduled at Ford Field for Thursday, November 26, 2026. The result is taken from the ESPN scoreboard for Week 12 of the 2026 NFL season (https://www.espn.com/nfl/scoreboard/_/week/12/seasontype/2/year/2026), which shows each game's final score, or from official NFL game statistics if that page is unavailable. A win in overtime counts as a win; a game that ends in a tie resolves NO. If the game is not completed on November 26, 2026 — for example, if it is postponed or canceled — the question is annulled.",
+    "fine_print": "",
+    "unit": "",
+    "options": null,
+    "scaling": {
+      "range_min": null,
+      "range_max": null,
+      "nominal_min": null,
+      "nominal_max": null,
+      "zero_point": null,
+      "open_upper_bound": false,
+      "open_lower_bound": false,
+      "inbound_outcome_count": null,
+      "continuous_range": null
+    },
+    "open_lower_bound": false,
+    "open_upper_bound": false,
+    "inbound_outcome_count": null,
+    "open_time": "2026-11-16T02:36:33Z",
+    "scheduled_close_time": "2026-11-16T05:36:33Z",
+    "scheduled_resolve_time": "2026-11-26T23:00:00Z",
+    "resolution": null
+  }
+}

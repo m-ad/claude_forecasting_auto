@@ -1,0 +1,30 @@
+{"searches": [
+  {"category": "markets", "query": "Lions Bears Thanksgiving 2026 odds moneyline", "by": "main", "status": "done", "finding": "Fox Sports/FanDuel May 14 line: Lions -2.5, ML -126/+108, total 53.5"},
+  {"category": "news", "query": "Detroit Lions week 11 2026 result", "by": "main", "status": "done", "finding": "nothing relevant for 2026 (older seasons)"},
+  {"category": "news", "query": "Chicago Bears week 11 2026 result", "by": "main", "status": "done", "finding": "nothing relevant for 2026"},
+  {"category": "markets", "query": "Bears Lions Thanksgiving spread November 2026 Lions favored", "by": "main", "status": "done", "finding": "Action Network page has no line yet; only Fox -2.5"},
+  {"category": "markets", "query": "Kalshi Lions vs Bears Nov 26 2026", "by": "main", "status": "done", "finding": "Kalshi matchup page exists, no price indexed; TeamRankings Detroit -2.5, total 53.5"},
+  {"category": "disconfirmation", "query": "Lions injury report Goff November 2026", "by": "main", "status": "done", "finding": "no 2026 Goff injury found", "tests": "market ~57-60% Lions remains valid: no major Lions injury since the Nov 12 line"},
+  {"category": "base_rate", "query": "NFL home favorite 2.5 point spread win probability", "by": "main", "status": "done", "finding": "-2.5 favorites covered 47.6% of 531 games 1999-2025; standard conversion -2.5 ~ 57% SU"},
+  {"category": "resolution_source", "query": "Lions Bears Thanksgiving line Week 12 2026 NFC North standings Bears 7-2", "by": "main", "status": "done", "finding": "game confirmed Nov 26 1pm ET Ford Field CBS; ESPN scoreboard fetch returned empty"},
+  {"category": "news", "query": "Lions November 15 2026 game final score", "by": "main", "status": "done", "finding": "Lions beat Vikings 19-15 Nov 1, Dolphins 19-9 Nov 8; Patriots game Nov 15"},
+  {"category": "news", "query": "Bears Week 11 2026 Caleb Williams win loss November 15", "by": "main", "status": "done", "finding": "Bears beat Bucs 27-24 Nov 8 (Williams 4 INT), 7-2 entering bye; host Saints Nov 22"},
+  {"category": "news", "query": "Patriots Lions final score Drake Maye Goff", "by": "main", "status": "done", "finding": "nothing relevant (2022 game)"},
+  {"category": "news", "query": "Lions Patriots international game 2026 result Detroit", "by": "main", "status": "done", "finding": "Lions beat Patriots 35-10 in Munich Nov 15 2026, now 7-2, 5 straight wins; Hutchinson hurt"},
+  {"category": "disconfirmation", "query": "Aidan Hutchinson injury Munich update Dan Campbell", "by": "main", "status": "done", "finding": "only 2024 injury results", "tests": "market ~57-60% Lions remains valid: no major Lions injury since the Nov 12 line"},
+  {"category": "disconfirmation", "query": "Hutchinson right knee injury Lions Patriots November 2026 season", "by": "main", "status": "done", "finding": "Hutchinson right knee injury Nov 15, AP source: season-ending; MRI in Munich", "tests": "market ~57-60% Lions remains valid: no major Lions injury since the Nov 12 line"},
+  {"category": "markets", "query": "Bears Lions Thanksgiving odds spread", "by": "scout-1", "status": "done", "finding": "Fox Lions -2.5 -126/+108 total 53.5"},
+  {"category": "news", "query": "Lions Week 11 game result Nov 2026", "by": "scout-1", "status": "done", "finding": "nothing relevant"},
+  {"category": "news", "query": "Bears Week 11 result Caleb Williams injury", "by": "scout-1", "status": "done", "finding": "nothing relevant"},
+  {"category": "markets", "query": "Lions Bears Thanksgiving 2026 line Lions -2.5 Week 12", "by": "scout-1", "status": "done", "finding": "no movement found"},
+  {"category": "news", "query": "NFL Week 11 2026 scores recap Sunday November 15 2026 Lions Bears", "by": "scout-1", "status": "done", "finding": "nothing relevant"},
+  {"category": "markets", "query": "Bears Lions Thanksgiving 2026 odds spread", "by": "scout-2", "status": "done", "finding": "May 14 FanDuel -2.5; ~53-54% no-vig"},
+  {"category": "disconfirmation", "query": "Lions injuries defense Week 11 2026 Bears NFC North standings", "by": "scout-2", "status": "done", "finding": "no 2026 report found", "tests": "market ~57-60% Lions remains valid"},
+  {"category": "markets", "query": "Polymarket Kalshi Bears vs Lions Thanksgiving November 26", "by": "scout-2", "status": "done", "finding": "no listing indexed"},
+  {"category": "base_rate", "query": "Lions all-time Thanksgiving record Bears Lions 2026 first meeting result", "by": "scout-2", "status": "done", "finding": "Lions ~38-46-2 on Thanksgiving; first 2026 meeting; Lions swept Bears 2025"},
+  {"category": "news", "query": "Bears 2026 season record Week 10 results Lions record standings", "by": "scout-2", "status": "done", "finding": "Bears 7-2 after Nov 8 win over TB"}
+],
+ "adjustments": [
+  {"event": "Aidan Hutchinson right-knee injury (reported season-ending) vs Patriots", "date": "2026-11-15", "effect": "-2 pp", "sources": [3, 4]},
+  {"event": "Lions 35-10 win in Munich (5th straight, 494-151 yards)", "date": "2026-11-15", "effect": "+1 pp", "sources": [3]}
+]}
