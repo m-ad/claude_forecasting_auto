@@ -1,0 +1,24 @@
+{"searches": [
+  {"category": "resolution_source", "query": "WebFetch trumpstruth.org/stats", "by": "main", "status": "done", "finding": "39,000 posts; Oct 17-Nov 15 2026: 1,195 posts (39.8/day); peak 190 on Nov 3 2026"},
+  {"category": "resolution_source", "query": "WebFetch trumpstruth.org/search 2026-11-08..2026-11-15 single days", "by": "main", "status": "done", "finding": "Nov 8: 8, Nov 10: 9, Nov 11: 5, Nov 12: 12, Nov 13: 4, Nov 14: 17, Nov 15 (partial, to ~20:10 ET): 7"},
+  {"category": "base_rate", "query": "WebFetch trumpstruth.org/search 2025-11-27 (Thanksgiving 2025)", "by": "main", "status": "done", "finding": "5 results (11:27, 11:26, 11:25 PM, 1:50 PM, 10:46 AM)"},
+  {"category": "base_rate", "query": "WebFetch trumpstruth.org/search 2025-12-25, 2026-01-01, 2026-07-04", "by": "main", "status": "done", "finding": "Christmas 2025: 126; New Year 2026: 3; July 4 2026: 19"},
+  {"category": "base_rate", "query": "Trump Truth Social posts Thanksgiving 2025", "by": "main", "status": "done", "finding": "late-night immigration/Walz post and Walmart-dinner post; no count"},
+  {"category": "markets", "query": "Polymarket Trump Truth Social posts November 2026", "by": "main", "status": "done", "finding": "weekly Nov 10-17 market: 80-99 bracket led at 26% (PredScope, Nov 11) => ~13/day; no daily market"},
+  {"category": "markets", "query": "Kalshi Trump Truth Social posts count market November", "by": "main", "status": "done", "finding": "weekly KXTRUTHSOCIAL markets exist; no Nov 26 daily market found"},
+  {"category": "markets", "query": "xtracker polymarket Trump post counter weekly November 2026", "by": "main", "status": "done", "finding": "rules only; nothing November-specific"},
+  {"category": "news", "query": "Trump Truth Social posting spree November 2026", "by": "main", "status": "done", "finding": "no Nov 2026 spree coverage; earlier sprees of 100-160 posts"},
+  {"category": "news", "query": "Trump Truth Social posts November 14 2026", "by": "main", "status": "done", "finding": "Supreme Court attack post Nov 15; nothing on volume"},
+  {"category": "news", "query": "Trump Epstein Truth Social post November 2026 discharge petition vote", "by": "main", "status": "done", "finding": "only 2025 coverage returned; no 2026 Epstein-driven posting surge found"},
+  {"category": "base_rate", "query": "Trump Truth Social daily post count statistics 2026", "by": "main", "status": "done", "finding": "FT/NPR ~19/day mean Jan-May 2026; 2025: 6,168 posts (~18/day)"},
+  {"category": "base_rate", "query": "Trump Truth Social posts Christmas Day 2025 how many", "by": "main", "status": "done", "finding": "100-200 posts on Christmas 2025 (NBC, Daily Beast); archive says 126"},
+  {"category": "base_rate", "query": "TrumpAlert median posts per day Truth Social 2026", "by": "main", "status": "done", "finding": "no TrumpAlert figure found; means ~19/day"},
+  {"category": "disconfirmation", "query": "Trump Thanksgiving Mar-a-Lago quiet day social media posts", "by": "main", "status": "done", "finding": "holidays usually include political posts; no evidence of a big Thanksgiving spree; Christmas 2025 spree is the counterexample", "tests": "assumption that Thanksgiving output stays near the low post-midterm daily level (~5-15) rather than the 40/day 30-day mean"},
+  {"category": "disconfirmation", "query": "Trump Truth Social holiday posting pattern Easter Thanksgiving fewer posts", "by": "main", "status": "done", "finding": "Easter 2025 and Christmas 2025 sprees (dozens to 100+); no evidence holidays are quiet", "tests": "assumption that Thanksgiving output stays near the low post-midterm daily level"},
+  {"category": "disconfirmation", "query": "Trump late night Truth Social blitz holiday 2026 reposts dozens", "by": "main", "status": "done", "finding": "WSJ: 44 late-night spates of 12+ posts since Jan 2025 (~1 per 2 weeks); sprees of 50-150 posts", "tests": "assumption that a spree (50+) on any given day is ~10% likely"},
+  {"category": "upcoming_events", "query": "Trump Thanksgiving 2026 plans Mar-a-Lago", "by": "main", "status": "done", "finding": "no 2026 plans reported; usually Mar-a-Lago"}
+],
+ "adjustments": [
+  {"event": "Post-midterm slowdown: archive daily counts Nov 8-15 2026 are 4-17", "date": "2026-11-15", "effect": "median from ~20 (2026 median day) to ~10", "sources": [1, 2]},
+  {"event": "Thanksgiving 2025 archive count of 5 posts", "date": "2025-11-27", "effect": "-1 on the median, fatter lower tail", "sources": [3, 4]}
+]}
