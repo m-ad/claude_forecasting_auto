@@ -1,0 +1,47 @@
+slug: 2026-11-16-mc46584-eu-leaders-26-27-november-2026-special
+title: Will EU leaders at the 26–27 November 2026 Special European Council agree on additional EU financing
+  for Ukraine's 2027 needs beyond the €90 billion Ukraine Support Loan?
+source: metaculus
+url: https://www.metaculus.com/questions/46584/
+post_id: 46584
+question_id: 46844
+type: binary
+unit: null
+tags: []
+dates:
+  created: '2026-11-16'
+  opened: '2026-11-16'
+  closes: '2026-11-16'
+  resolves: '2026-11-28'
+status: open
+tournament:
+  slug: minibench
+  mode: one_shot
+  registered: '2026-11-16'
+  opened: '2026-11-16T10:51:17Z'
+  closes: '2026-11-16T13:51:17Z'
+  submitted: '2026-11-16T11:13:03+00:00'
+  submitted_forecast:
+    probability_yes: 0.3
+  comment_posted: true
+  official_score: null
+  missed_window: false
+current:
+  version: 1
+  date: '2026-11-16'
+  median: 0.3
+  iqr:
+  - 0.22
+  - 0.38
+  community:
+    cp: null
+    pro: null
+    gold: null
+    n_forecasters: null
+    as_of: '2026-11-16'
+next_review: null
+tripwires: []
+resolution:
+  outcome: null
+  date: null
+  source: null

@@ -1,0 +1,38 @@
+{
+  "post_id": 46584,
+  "url": "https://www.metaculus.com/questions/46584/",
+  "post_title": "Will EU leaders at the 26–27 November 2026 Special European Council agree on additional EU financing for Ukraine's 2027 needs beyond the €90 billion Ukraine Support Loan?",
+  "tournaments": [
+    "minibench"
+  ],
+  "options": null,
+  "question": {
+    "id": 46844,
+    "title": "Will EU leaders at the 26–27 November 2026 Special European Council agree on additional EU financing for Ukraine's 2027 needs beyond the €90 billion Ukraine Support Loan?",
+    "type": "binary",
+    "status": "open",
+    "description": "EU leaders meet in Brussels on 26–27 November 2026 for a Special European Council whose headline item is money for Ukraine in 2027, alongside the next multiannual budget (MFF). After talks with President Zelenskyy in Dublin on 12 November, Presidents Costa and von der Leyen stated: \"At our next European Council on 26–27 November, we will discuss Ukraine's urgent financing needs for 2027, based on the Commission's proposal\" (https://www.consilium.europa.eu/en/press/press-releases/2026/11/12/joint-statement-by-president-costa-and-president-von-der-leyen-following-their-meeting-with-president-zelenskyy-in-dublin/). Costa kept the item on the late-November agenda despite Chancellor Merz's request to move it earlier.\n\nTwo financing tracks are in play. First, the €90 billion Ukraine Support Loan agreed by leaders in December 2025 (Regulation (EU) 2026/467), a limited-recourse loan to be repaid from future Russian reparations and paid out in two €45 billion tranches for 2026 and 2027; the 2026 tranche was released under Council Decision (EU) 2026/919. On 30 October 2026 the Commission proposed a Council Implementing Decision (COM(2026) 606) approving the remaining €45 billion for 2027 — up to €31.7 billion for defence and up to €13.3 billion for budget support (https://ec.europa.eu/commission/presscorner/detail/en/ip_26_2301). That tranche is decided by finance ministers, not by leaders, and is expected to be approved in any case.\n\nSecond, and much more contested, is money on top of the €90 billion. Ukraine's residual 2027 financing gap is put at roughly €70 billion, and on 9 November Economy Commissioner Dombrovskis said the Commission was preparing options for around €45 billion in additional EU funding for 2027 with all 27 member states contributing, describing himself as \"cautiously optimistic\"; no formal proposal had been tabled (https://2eu.brussels/en/news/commission-prepares-options-for-around-45-billion-in-additional-eu-funding-for-ukraine-in-2027). Berlin wants every member state to carry a share and has linked its support to the MFF 2028–2034 negotiations, with Merz threatening consequences for states that do not back Ukraine (https://www.lemonde.fr/en/international/article/2026/11/11/merz-threatens-to-cut-eu-funds-for-member-states-that-don-t-support-ukraine_6778019_4.html). Slovakia's Robert Fico has said Slovakia \"will not participate in providing another loan to Ukraine\", Hungary opposes tying Ukraine financing to the next budget, and Bulgaria, Czechia, Hungary and Slovakia have sought exemptions (https://www.intellinews.com/slovakia-hungary-reject-new-ukraine-loan-as-hungary-resists-merz-s-budget-link-483852/). Failure to converge on 26–27 November would push the issue to the 17–18 December European Council. The Council publishes conclusions and a \"Main results\" page for each European Council meeting, which is the source used here.\n\n`{\"format\": \"llm_question\", \"info\": {\"sdk_version\": \"0.6.1\", \"rating\": {\"quality\": 4, \"ambiguity\": 3, \"resolvability\": 3, \"passes\": true}}}`",
+    "resolution_criteria": "This question resolves on the European Council conclusions of the 26–27 November 2026 Special European Council, as published on the Council's meeting page and \"Main results\" page for that meeting (https://www.consilium.europa.eu/en/meetings/european-council/2026/11/26-27/), including any separate Ukraine text issued alongside them at that meeting and endorsed by heads of state or government (whether by all 27 or by a subset of them). It resolves YES if those texts state that EU leaders \"agree\" or \"decide\" that the EU will provide new financing to Ukraine for 2027 beyond the €90 billion Ukraine Support Loan, evidenced by at least one of: a stated amount of new EU money, a named new instrument or mechanism (such as a new EU loan for 2027), or an explicit commitment that the EU will make additional financing available; an agreement in principle counts even if the legal act is left to the Council to finalise, and it counts even if one or more member states opt out or do not participate. It resolves NO if no such statement appears — for example if leaders only \"call for\", \"look forward to\", \"take note of\", \"welcome\" or \"invite further work\" on Ukraine's 2027 financing, if they say they \"will revert\" to it later, if the only wording is a general commitment to \"address\" Ukraine's 2027 financing needs without an amount, named instrument or explicit commitment to provide financing, or if leaders merely endorse the Commission's 30 October 2026 proposal to approve the remaining €45 billion of the existing loan for 2027. Expected disbursements under instruments already agreed — the Ukraine Facility and its 2027 allocations, the European Peace Facility, or the 2027 tranche of the €90 billion Ukraine Support Loan — are not additional financing and do not count. If the Council's page for the meeting is unavailable, [credible sources](https://www.metaculus.com/faq/#definitions) reporting the content of the conclusions will be used.",
+    "fine_print": "An agreement counts even if no amount is specified, provided the texts commit the EU to providing new financing for Ukraine in 2027 beyond the €90 billion Ukraine Support Loan. Bilateral assistance pledged by individual member states outside an EU-level commitment does not count. The €90 billion Ukraine Support Loan is the limited-recourse loan established by Regulation (EU) 2026/467, disbursed in two €45 billion tranches covering 2026 and 2027. If the meeting is postponed or cancelled so that no conclusions or main results are published for a 26–27 November 2026 meeting, the question resolves NO.",
+    "unit": "",
+    "options": null,
+    "scaling": {
+      "range_min": null,
+      "range_max": null,
+      "nominal_min": null,
+      "nominal_max": null,
+      "zero_point": null,
+      "open_upper_bound": false,
+      "open_lower_bound": false,
+      "inbound_outcome_count": null,
+      "continuous_range": null
+    },
+    "open_lower_bound": false,
+    "open_upper_bound": false,
+    "inbound_outcome_count": null,
+    "open_time": "2026-11-16T10:51:17Z",
+    "scheduled_close_time": "2026-11-16T13:51:17Z",
+    "scheduled_resolve_time": "2026-11-28T00:00:00Z",
+    "resolution": null
+  }
+}
