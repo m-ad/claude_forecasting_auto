@@ -1,0 +1,22 @@
+{"searches": [
+  {"category": "resolution_source", "query": "Barlovento audiencia debate electoral 2026", "by": "main", "status": "done", "finding": "No 2026 national debate report yet; Andalusian Canal Sur debate May 2026 0.522M (21.5%)"},
+  {"category": "news", "query": "debate a cuatro 26 noviembre 2026 Academia de Televisión", "by": "main", "status": "done", "finding": "26 Nov four-way proposed by RTVE/PP, not confirmed by Academia as of 10-13 Nov"},
+  {"category": "news", "query": "debate 26 de noviembre Sánchez Feijóo Abascal Colau cadenas emitirán", "by": "main", "status": "done", "finding": "No confirmed carrier; Atresmedia four-way moved to 23 Nov"},
+  {"category": "markets", "query": "Polymarket OR Kalshi OR Manifold Spain debate audience November 2026", "by": "main", "status": "done", "finding": "none found (only Manifold election-winner market)"},
+  {"category": "base_rate", "query": "audiencia debate a cuatro 2019 2023 millones espectadores Kantar", "by": "main", "status": "done", "finding": "2019 Apr 8.886M, Nov 2019 8.6M, 2023 cara a cara 5.9M, 2023 RTVE three-way 4.155M (34.6%)"},
+  {"category": "disconfirmation", "query": "debate a cuatro 26 noviembre cancelado PSOE no acepta", "by": "main", "status": "skipped", "finding": "", "tests": "assumption that a multi-candidate debate on 26 Nov airs on several channels incl. La 1 and Atresmedia, drawing ~4.5-5.5M"},
+  {"category": "news", "query": "debate Academia Televisión 26 noviembre Feijóo Sánchez Abascal Colau confirmado canales RTVE Atresmedia Mediaset", "by": "main", "status": "done", "finding": "Academia debates without fixed date as of 10 Nov; institutional signal for any broadcaster"},
+  {"category": "base_rate", "query": "audiencia debate 2023 cara a cara 5,9 millones caída televisión lineal 2026 consumo", "by": "main", "status": "done", "finding": "2023 cara a cara lowest of seven; daily linear reach 28.2M (2023) -> 26.7M (2025)"},
+  {"category": "news", "query": "\"debate a cuatro\" Academia fecha 26 noviembre María Casado confirma", "by": "main", "status": "done", "finding": "No Casado confirmation of 26 Nov"},
+  {"category": "disconfirmation", "query": "Sánchez no acudirá debate a cuatro Academia Feijóo Abascal noviembre 2026", "by": "main", "status": "done", "finding": "nothing for 2026; 2023 precedent of Feijóo skipping the RTVE four-way", "tests": "assumption that all four leaders attend a multi-channel 26 Nov debate (an empty-chair or single-channel debate would draw ~3-4M)"},
+  {"category": "resolution_source", "query": "audiencias 13 noviembre 2026 laSexta debate Ana Pastor Cuerpo Bravo audiencia", "by": "main", "status": "done", "finding": "FormulaTV 13 Nov: laSexta spokesperson debate 1.328M (11.9%)"},
+  {"category": "news", "query": "debate electoral 29N audiencia espectadores cuota noviembre 2026", "by": "main", "status": "done", "finding": "Xataka: Feijóo's team rules out an RTVE four-way; La Revuelta beats the last RTVE debate"},
+  {"category": "base_rate", "query": "Análisis audiencia debate 19 julio 2023 RTVE 4.155.000 Barlovento canales", "by": "main", "status": "done", "finding": "2023 three-way 4.155M avg, La 1 alone 3.46M; 7.8M unique"},
+  {"category": "disconfirmation", "query": "Feijóo no habrá debate a cuatro en RTVE 29N Academia debate a cuatro fecha", "by": "main", "status": "done", "finding": "PP: no four-way on RTVE; Feijóo will attend a four-way, 26 Nov floated", "tests": "assumption that the 26 Nov debate is a multi-channel Academia signal rather than a single-group broadcast"},
+  {"category": "base_rate", "query": "consumo televisión octubre 2026 Barlovento minutos por persona", "by": "main", "status": "done", "finding": "Oct 2026 linear TV 159 min/day, +1% y/y: decline has stalled"},
+  {"category": "base_rate", "query": "audiencia debate Academia Televisión 2019 cinco 12 canales La 1 Antena 3 Telecinco desglose", "by": "main", "status": "done", "finding": "4N 2019 Academia signal: La 1 3.40M, Antena 3 2.22M, total 8.62M (52.7%)"}
+],
+ "adjustments": [
+  {"event": "Linear-TV erosion and the record-low 2023 debates (5.9M cara a cara, 4.16M three-way)", "date": "2023-07-19", "effect": "median from ~8.6M (2019) to ~5.5M", "sources": [3, 4, 5]},
+  {"event": "November-season viewing above July plus a high-salience campaign (Urda crash, strike), with a three-debate calendar diluting interest", "date": "2026-11-13", "effect": "net -0.5M on the median to 5.0M, wider tails", "sources": [1, 2, 6, 7]}
+]}
