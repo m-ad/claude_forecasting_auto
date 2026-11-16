@@ -1,0 +1,25 @@
+{"searches": [
+  {"category": "consensus", "query": "projeção IPCA-15 novembro 2026", "by": "main", "status": "done", "finding": "No Nov-2026 consensus found; Nov-2025 IPCA-15 was 0.20% vs 0.18% Broadcast median"},
+  {"category": "resolution_source", "query": "IPCA outubro 2026 0,14% energia elétrica passagens aéreas", "by": "main", "status": "done", "finding": "Oct-2026 IPCA-15 0.32%: airfares -9.24% (-0.08 pp), electricity -0.89% (yellow->green flag)"},
+  {"category": "news", "query": "IPC-S FGV novembro 2026 quadrissemana", "by": "main", "status": "done", "finding": "IPC-S 1st quad Nov 2026 (pub 9 Nov) +0.38% after +0.32% in Oct"},
+  {"category": "news", "query": "IPC-Fipe novembro 2026 primeira quadrissemana", "by": "main", "status": "done", "finding": "IPC-Fipe 1st quad Nov 2026 +0.48% (Oct 0.44%), food +1.36%"},
+  {"category": "markets", "query": "Kalshi OR Polymarket Brazil inflation November 2026", "by": "main", "status": "done", "finding": "No market on the Nov IPCA-15 print; only annual 2026 and Selic markets"},
+  {"category": "resolution_source", "query": "IPCA outubro 0,14% IBGE novembro 2026 alimentação energia", "by": "main", "status": "done", "finding": "Did not surface Oct-2026 full IPCA release; only 2025 results"},
+  {"category": "consensus", "query": "inflação novembro 2026 projeção IPCA mensal banco", "by": "main", "status": "done", "finding": "Focus 2026 IPCA 5.22%; no monthly Nov projection found"},
+  {"category": "news", "query": "Petrobras gasolina diesel preço reajuste novembro 2026", "by": "main", "status": "done", "finding": "No gasoline/diesel change in Nov 2026; jet fuel (QAV) +7.2% from 1 Nov 2026"},
+  {"category": "consensus", "query": "boletim Focus 16 novembro 2026 IPCA", "by": "main", "status": "done", "finding": "Not found"},
+  {"category": "base_rate", "query": "IPCA-15 novembro 2024 resultado 0,62% 2023 0,33%", "by": "main", "status": "done", "finding": "Nov IPCA-15: 2023 0.33%, 2024 0.62%, 2025 0.20%"},
+  {"category": "resolution_source", "query": "IPCA outubro 2026 desacelera 0,14% surpreende", "by": "main", "status": "done", "finding": "Nothing new beyond the question text's 0.14%"},
+  {"category": "news", "query": "bandeira tarifária novembro 2026 Aneel verde conta de luz", "by": "main", "status": "done", "finding": "Aneel confirmed green flag for Nov 2026 on 30 Oct; yellow May-Sep, green Oct-Nov"},
+  {"category": "news", "query": "IPC-S segunda quadrissemana novembro 2026 FGV 16 novembro", "by": "main", "status": "done", "finding": "2nd quad not yet found"},
+  {"category": "news", "query": "preço alimentos novembro 2026 tomate carne alta inflação", "by": "main", "status": "done", "finding": "Tomatoes still rising in Nov 2026 (Fortaleza +31%), weather-driven supply shortfall"},
+  {"category": "disconfirmation", "query": "IPCA-15 novembro 2026 expectativa acima 0,40% risco alta", "by": "main", "status": "done", "finding": "Nothing for 2026; no evidence of a high consensus", "tests": "assumption that the full-Oct IPCA's 0.14% (electricity/airfare drag) pulls Nov IPCA-15 below the ~0.38-0.48% that IPC-S/IPC-Fipe imply"},
+  {"category": "disconfirmation", "query": "\"IPCA\" outubro 2026 \"0,14%\" energia elétrica \"-1,92%\"", "by": "main", "status": "done", "finding": "Not confirmed by search; relying on question background for full Oct IPCA", "tests": "downside tail: electricity drop pulls print near 0.1%"},
+  {"category": "other", "query": "WebFetch IPC-S 1st quad Nov 2026 detail", "by": "main", "status": "done", "finding": "Food 0.85->1.07%, Transport 0.19->0.08%, Housing -0.16->-0.05%; electricity -2.41->-1.82%; airfares +8.12->+6.25%; tomato +19.75%"}
+],
+ "adjustments": [
+  {"event": "IPC-S and IPC-Fipe early-November readings accelerate (0.38%, 0.48%) on food", "date": "2026-11-11", "effect": "+0.04 pp on the median vs. a 0.28 starting point", "sources": [3, 4]},
+  {"event": "Airfares turn from -9.2% in Oct IPCA-15 to rises (jet fuel +7.2% 1 Nov, IPC-S airfares +6%)", "date": "2026-11-01", "effect": "+0.03 pp on the median", "sources": [3, 5]},
+  {"event": "Full October IPCA 0.14%, below all estimates, ex-electricity ~0.2%", "date": "2026-11-12", "effect": "-0.03 pp on the median", "sources": [1]}
+ ],
+ "note": "No research-scouts spawned: session started with ~24 minutes to the kill deadline; all research by main."}
