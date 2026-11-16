@@ -1,0 +1,21 @@
+{"searches": [
+ {"category": "resolution_source", "query": "WebFetch finance.yahoo.com/quote/MGLU3.SA/history (last 15 sessions)", "by": "main", "status": "done", "finding": "Nov 13 close 7.81 (range 6.97-7.82, vol 66.7M); Nov 12 7.07; Nov 11 7.66; Nov 10 6.52; Nov 9 5.84; Oct 23 12.69 -> Oct 26 5.30"},
+ {"category": "resolution_source", "query": "MGLU3 fechamento 13 de novembro 2026 Magazine Luiza ações", "by": "main", "status": "done", "finding": "snippets inconsistent (7.33 intraday Nov 12, 7.72, 7.81); Yahoo fetch is authoritative"},
+ {"category": "news", "query": "Magazine Luiza ações despencam 26 de outubro 2026", "by": "main", "status": "done", "finding": "Oct 26: -58% to R$5.30 after Lula re-election, Ibovespa -14%, circuit breaker"},
+ {"category": "news", "query": "Magalu MGLU3 dispara novembro 2026 Goldman aumento de capital AGE", "by": "main", "status": "done", "finding": "nothing from Nov 2026; old 2024 capital raise"},
+ {"category": "news", "query": "Magazine Luiza MGLU3 13 novembro 2026 alta", "by": "main", "status": "done", "finding": "Week Nov 9-13 +39.2% to 7.81, top Ibovespa gainer; still needs +62% to pre-runoff price"},
+ {"category": "schedule", "query": "B3 feriado 20 de novembro 2026 Consciência Negra pregão", "by": "main", "status": "done", "finding": "B3 closed Fri Nov 20; 9 sessions Nov 16-27"},
+ {"category": "markets", "query": "Polymarket OR Kalshi Ibovespa November 2026", "by": "main", "status": "done", "finding": "none found"},
+ {"category": "markets", "query": "MGLU3 volatilidade implícita opções novembro 2026", "by": "main", "status": "done", "finding": "no current IV found; older IV ~62% (July 2026 series)"},
+ {"category": "news", "query": "Ibovespa recuperação novembro 2026 após eleição", "by": "main", "status": "done", "finding": "Ibovespa 172k on Nov 9, ~16% below pre-runoff; partial recovery"},
+ {"category": "upcoming_events", "query": "Magalu AGE 2 de dezembro 1,55 bilhão ações capital autorizado", "by": "main", "status": "done", "finding": "AGE Dec 2 (after window); remote ballots due Nov 28; JPM 67% dilution warning, sees full use unlikely"},
+ {"category": "upcoming_events", "query": "Magazine Luiza Black Friday 2026 expectativa vendas", "by": "main", "status": "done", "finding": "Neotrust: R$13.3bn e-commerce Nov 26-29, +20.7% y/y; BTG sees Magalu benefit"},
+ {"category": "disconfirmation", "query": "Magalu ações devolvem ganhos realização de lucros novembro 2026", "by": "main", "status": "done", "finding": "no reported give-back yet; BofA cut 2026 EPS, Safra flags cash", "tests": "assumption that the Nov 9-13 +39% rally is not systematically mean-reverting (median ~ last close)"},
+ {"category": "base_rate", "query": "MGLU3 short interest aluguel de ações novembro 2026", "by": "main", "status": "done", "finding": "short interest 16.0% (Oct 28, XP) -> squeeze fuel both ways"},
+ {"category": "other", "query": "Casas Bahia recuperação judicial novembro 2026 BHIA3", "by": "main", "status": "done", "finding": "RJ processing granted Oct 21, R$17.3bn debt; no Nov update"},
+ {"category": "other", "query": "Copom dezembro 2026 Selic juros futuros DI novembro", "by": "main", "status": "done", "finding": "Selic held 13.75% Nov 4; next Copom Dec 9 (after window)"},
+ {"category": "consensus", "query": "Magalu ação semana 16 novembro 2026 perspectivas analistas preço-alvo", "by": "main", "status": "done", "finding": "targets: BofA 11, GS 11.5, XP 11, Itaú 16 (2027), BBI 7; JPM underweight"}
+],
+ "adjustments": [
+  {"event": "Week Nov 9-13 +39% rally with pending dilution vote (overhang/profit-taking)", "date": "2026-11-13", "effect": "-1.5 % on the median (7.81 -> 7.70)", "sources": [1, 2, 4]}
+ ]}
