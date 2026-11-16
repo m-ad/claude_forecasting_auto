@@ -1,0 +1,21 @@
+{"searches": [
+  {"category": "resolution_source", "query": "WebFetch finance.yahoo.com/quote/SPCX/history", "by": "main", "status": "done", "finding": "Nov 16 intraday 138.28 at 2:09pm ET (-0.6%); Nov 13 close 139.11; Nov 5 low close 123.62"},
+  {"category": "resolution_source", "query": "SpaceX SPCX stock today November 16 2026", "by": "main", "status": "done", "finding": "undated quotes 147-148; Nov 5 ~125; 52w range 104.83-225.64"},
+  {"category": "news", "query": "Starship Flight 15 result catch", "by": "main", "status": "done", "finding": "only pre-flight coverage; outcome not found"},
+  {"category": "news", "query": "Starship Flight 15 launch November 2026 outcome", "by": "main", "status": "done", "finding": "nothing relevant (SN15 2021 results)"},
+  {"category": "news", "query": "SpaceX Starship catch tower November 14 2026", "by": "main", "status": "done", "finding": "Nov 13 target, awaiting FAA; no outcome reported"},
+  {"category": "news", "query": "SpaceX stock November 16 Starship", "by": "main", "status": "done", "finding": "past pattern: stock often falls even after successful flights"},
+  {"category": "news", "query": "SpaceX shares fall news this week", "by": "main", "status": "done", "finding": "Oct 30 close 134.72; Oct 22 unlock of 1.3bn shares; no mid-Nov news"},
+  {"category": "upcoming_events", "query": "SpaceX stock lock-up expiration December 8 shares", "by": "main", "status": "done", "finding": "Dec 8 tranche 342m-798m shares; float to ~40%; after resolution date"},
+  {"category": "markets", "query": "SPCX implied volatility options", "by": "main", "status": "done", "finding": "ATM IV ~55-62% in Oct (Market Chameleon/Tiger); one unverified 149% reading"},
+  {"category": "markets", "query": "Polymarket SpaceX stock price November", "by": "main", "status": "done", "finding": "Polymarket end-Nov market cap: $1.75-2.00T front-runner 33%, thin ($1.8K volume)"},
+  {"category": "markets", "query": "Kalshi SpaceX SPCX price", "by": "main", "status": "done", "finding": "no live Kalshi price market found; Manifold <$100 by Dec 31 82% (low volume, discounted)"},
+  {"category": "base_rate", "query": "IPO stock performance ahead of lock-up expiry study", "by": "main", "status": "done", "finding": "pre-expiry CAR ~-0.9% (Erasmus thesis); expiry-window declines a few %"},
+  {"category": "base_rate", "query": "SPCX historical volatility 30-day realized", "by": "main", "status": "done", "finding": "ORATS HV20 68-74 during earnings week; computed ~5%/day from last 10 Yahoo closes"},
+  {"category": "consensus", "query": "SpaceX stock rally catalyst upgrade analyst price target November 2026", "by": "main", "status": "done", "finding": "avg 12m targets $221-244; Citi $200, Stifel $190 in Nov"},
+  {"category": "other", "query": "SpaceX S&P 500 inclusion denied float stock", "by": "main", "status": "done", "finding": "fast-track denied June 2026; no S&P inclusion before mid-2027"},
+  {"category": "disconfirmation", "query": "SpaceX stock rebound short squeeze November 2026", "by": "main", "status": "done", "finding": "Nov 6 +6% AI rebound; past squeezes +26-35% in days (Aug) -> keep fat upper tail", "tests": "assumption that the Dec 8 lock-up overhang justifies a slight negative drift (median below spot)"}
+],
+ "adjustments": [
+  {"event": "Dec 8 lock-up expiry overhang (342-798m shares)", "date": "2026-12-08", "effect": "-1 % on the median", "sources": [3, 4]}
+]}
