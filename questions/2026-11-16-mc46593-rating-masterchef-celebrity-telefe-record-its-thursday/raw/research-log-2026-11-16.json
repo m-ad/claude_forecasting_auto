@@ -1,0 +1,22 @@
+{"searches": [
+  {"category": "news", "query": "rating MasterChef Celebrity Telefe noviembre 2026", "by": "main", "status": "done", "finding": "Nov 10 11.7-12.1, Nov 11 13.4, Nov 12 10.8 (NA live) / 12.6 (television.com.ar), Nov 15 ~12.1"},
+  {"category": "resolution_source", "query": "television.com.ar ratings 13 de noviembre MasterChef Celebrity", "by": "main", "status": "done", "finding": "no Nov 13 data; Nov 12 press 10.8 vs site 12.6 discrepancy"},
+  {"category": "disconfirmation", "query": "MasterChef Celebrity rating baja Telefe Wanda Nara noviembre", "by": "main", "status": "done", "finding": "press flags a 'caída' on Nov 12 (10.8 live figure), Sunday 15 at 12.2-12.4; no sustained slump", "tests": "the show stays near its 12-13 band through Nov 26 with no slump"},
+  {"category": "resolution_source", "query": "television.com.ar \"Ratings del jueves\" MasterChef Celebrity programas más vistos de cada canal", "by": "main", "status": "done", "finding": "television.com.ar Nov 12: MasterChef Celebrity 12.6, la definición 9.2"},
+  {"category": "base_rate", "query": "\"MasterChef Celebrity\" rating jueves 29 de octubre 2026", "by": "main", "status": "done", "finding": "Thu Oct 29: 12.5 (Perfil table), definición 9.1"},
+  {"category": "base_rate", "query": "MasterChef Celebrity cuánto midió jueves 22 de octubre rating Telefe", "by": "main", "status": "done", "finding": "Oct 22 pre-empted by Libertadores semifinal"},
+  {"category": "upcoming_events", "query": "Telefe programación 26 de noviembre MasterChef Celebrity fútbol cambios grilla", "by": "main", "status": "done", "finding": "no announced change for Nov 26; Mon-Thu slot 22:15 after Pasapalabra"},
+  {"category": "markets", "query": "MasterChef Celebrity Polymarket rating apuesta", "by": "main", "status": "done", "finding": "none found"},
+  {"category": "resolution_source", "query": "rating MasterChef Celebrity lunes 16 noviembre OR domingo 15 noviembre 2026 Kantar Ibope", "by": "main", "status": "done", "finding": "Nov 11 started 11.5 peaked 14.1; no Nov 16 data yet"},
+  {"category": "resolution_source", "query": "Ratings del jueves 5 de noviembre programas más vistos de cada canal MasterChef Celebrity", "by": "main", "status": "done", "finding": "Thu Nov 5: 13.1, definición 9.8"},
+  {"category": "base_rate", "query": "exitoina rating cuánto midió MasterChef Celebrity noviembre 2026", "by": "main", "status": "done", "finding": "Nov 1 12.1, Nov 2 11.7, Nov 5 13.1, Nov 12 12.6"},
+  {"category": "base_rate", "query": "MasterChef Celebrity 2025 rating fines de noviembre jueves Telefe cuánto midió", "by": "main", "status": "done", "finding": "nothing usable for late-Nov 2025 Thursdays"},
+  {"category": "upcoming_events", "query": "Telefe partido jueves 26 de noviembre 2026 transmisión", "by": "main", "status": "done", "finding": "no Telefe match found for Nov 26"},
+  {"category": "news", "query": "Damián Betular deja MasterChef Celebrity 2026", "by": "main", "status": "done", "finding": "Betular absence only from late Dec/Jan; irrelevant to Nov 26"},
+  {"category": "upcoming_events", "query": "final Copa Libertadores 2026 fecha Montevideo", "by": "main", "status": "done", "finding": "final Sat Nov 28 (Palmeiras-Estudiantes) - not on Thursday"},
+  {"category": "base_rate", "query": "rating MasterChef Celebrity jueves 15 de octubre 2026 Telefe", "by": "main", "status": "done", "finding": "Oct 15 pre-empted by Libertadores semifinal"},
+  {"category": "news", "query": "Telefe rating MasterChef Celebrity semana 16 noviembre caída Pasapalabra", "by": "main", "status": "done", "finding": "Sun Nov 15 12.1 per @TelevisionComAr; Pasapalabra lead-in steady 8-9"}
+],
+ "adjustments": [
+  {"event": "Late-November seasonal TV audience softening / mid-season attrition", "date": "2026-11-26", "effect": "-0.2 on median vs recent-Thursday mean (~12.7)", "sources": [2, 3, 5]}
+ ]}
