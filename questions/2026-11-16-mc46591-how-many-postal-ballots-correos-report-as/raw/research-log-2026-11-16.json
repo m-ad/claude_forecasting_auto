@@ -1,0 +1,22 @@
+{"searches": [
+  {"category": "resolution_source", "query": "Correos solicitudes voto por correo elecciones generales 29 noviembre 2026", "by": "main", "status": "done", "finding": "No 29N figures; CCOO (via Vozpopuli 10 Nov 2026) expects ~1 million applications"},
+  {"category": "resolution_source", "query": "voto por correo 29N solicitudes cifra Correos noviembre 2026", "by": "main", "status": "done", "finding": "No 2026 figure; 10N 2019: 918,455 applications admitted as of 31 Oct 2019"},
+  {"category": "base_rate", "query": "Correos votos admitidos noviembre 2019 elecciones generales total final", "by": "main", "status": "done", "finding": "Nov 2019 ~924k postal votes cast; Apr 2019 1,241,716 admitted"},
+  {"category": "news", "query": "\"voto por correo\" solicitudes \"29-N\" millón Correos ha admitido", "by": "main", "status": "done", "finding": "nothing new for 2026"},
+  {"category": "disconfirmation", "query": "Abascal voto por correo Vox no votar por correo solicitudes caen 2026", "by": "main", "status": "done", "finding": "Abascal (Oct 2026) and Ayuso urge against postal voting; no application data", "tests": "Vox/Ayuso boycott depresses postal voting below the April-2019 level"},
+  {"category": "markets", "query": "Polymarket Spain general election November 2026", "by": "main", "status": "done", "finding": "Feijoo ~84% PM (3 Nov); no market on postal-vote counts"},
+  {"category": "resolution_source", "query": "WebFetch correos.com press-release-category voto-por-correo", "by": "main", "status": "done", "finding": "Latest 16 Nov 2026 (deadline reminder), no figures; Andalucia May 2026: 163,510 votes admitted from 178,540 applications"},
+  {"category": "news", "query": "solicitudes de voto por correo elecciones generales 2026 superan aumentan respecto 2019", "by": "main", "status": "done", "finding": "No national 2026 figure; Andalucia 2026 applications +1.1% vs 2022"},
+  {"category": "news", "query": "voto por correo 29N Correos datos solicitudes provincia noviembre 2026", "by": "main", "status": "done", "finding": "nothing relevant"},
+  {"category": "base_rate", "query": "Correos votos admitidos elecciones europeas 2024 voto por correo cifra", "by": "main", "status": "done", "finding": "EU June 2024: >632k applications, >571k ballots by 6 Jun midnight"},
+  {"category": "base_rate", "query": "Correos 1.241.716 votos admitidos abril 2019 solicitudes 1.35 millones", "by": "main", "status": "done", "finding": "Apr 2019 ~1.347M applications, 1,241,716 admitted; Jun 2016 1,357,745 admitted"},
+  {"category": "news", "query": "PP pide votar por correo 29N campaña participación encuesta elecciones generales noviembre 2026", "by": "main", "status": "done", "finding": "PP HQ running a how-to-vote-by-mail campaign despite Ayuso's boycott (Articulo14, 7 Oct 2026)"},
+  {"category": "news", "query": "\"voto por correo\" \"elecciones generales\" 2026 \"solicitudes\" ritmo primeras semanas", "by": "main", "status": "done", "finding": "no 2026 pace data"},
+  {"category": "base_rate", "query": "Correos 900.000 ya han enviado su voto 10 noviembre 2019 votos admitidos final", "by": "main", "status": "done", "finding": "10N 2019 deposit deadline 8 Nov; ~924k cast"},
+  {"category": "disconfirmation", "query": "Correos solicitudes voto por correo 29N superan 2019 \"millón\" noviembre 2026 Interior", "by": "main", "status": "done", "finding": "As of 16 Nov 2026 Interior has published no postal-vote data; PP asks the JEC (Central Electoral Board) for Correos daily data", "tests": "the 2023 summer surge does not carry over, so the median sits near 1.1M rather than 1.5M+"},
+  {"category": "other", "query": "WebFetch vigoe Galicia 146,144 solicitudes", "by": "main", "status": "done", "finding": "Refers to July 2023, not 2026"}
+],
+ "adjustments": [
+  {"event": "Snap, high-salience November election with a likely change of government (vs 2019 election-fatigue rerun)", "date": "2026-10-05", "effect": "+15 % on the median vs Nov-2019 ~0.92M", "sources": [3, 6]},
+  {"event": "Vox/Ayuso calls not to vote by post", "date": "2026-10-07", "effect": "-5 % on the median", "sources": [4, 5]}
+ ]}
