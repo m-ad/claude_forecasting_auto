@@ -302,6 +302,9 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ github.token }}
           SLUG: ${{ steps.prep.outputs.slug }}
+          # Validate this job's question only: another folder's defect is not this
+          # job's failure (scripts/ci_commit.sh).
+          VALIDATE_SLUG: ${{ steps.prep.outputs.slug }}
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
