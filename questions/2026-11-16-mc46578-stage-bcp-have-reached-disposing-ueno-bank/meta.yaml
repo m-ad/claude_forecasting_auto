@@ -1,0 +1,50 @@
+slug: 2026-11-16-mc46578-stage-bcp-have-reached-disposing-ueno-bank
+title: What stage will the BCP have reached in disposing of Ueno Bank's assets and liabilities before
+  November 28, 2026?
+source: metaculus
+url: https://www.metaculus.com/questions/46578/
+post_id: 46578
+question_id: 46838
+type: multiple_choice
+unit: null
+tags: []
+dates:
+  created: '2026-11-16'
+  opened: '2026-11-16'
+  closes: '2026-11-16'
+  resolves: '2026-11-28'
+status: open
+tournament:
+  slug: minibench
+  mode: one_shot
+  registered: '2026-11-16'
+  opened: '2026-11-16T07:38:19Z'
+  closes: '2026-11-16T10:38:19Z'
+  submitted: '2026-11-16T08:13:40+00:00'
+  submitted_forecast:
+    probability_yes_per_category:
+      No tender launched and no recipient institution named: 0.42
+      A tender has been launched, but no recipient institution named: 0.3
+      At least one recipient institution has been named: 0.28
+  comment_posted: true
+  official_score: null
+  missed_window: false
+current:
+  version: 1
+  date: '2026-11-16'
+  median: 0.42
+  iqr:
+  - 0.32
+  - 0.52
+  community:
+    cp: null
+    pro: null
+    gold: null
+    n_forecasters: null
+    as_of: '2026-11-16'
+next_review: null
+tripwires: []
+resolution:
+  outcome: null
+  date: null
+  source: null

@@ -1,0 +1,46 @@
+{
+  "post_id": 46578,
+  "url": "https://www.metaculus.com/questions/46578/",
+  "post_title": "What stage will the BCP have reached in disposing of Ueno Bank's assets and liabilities before November 28, 2026?",
+  "tournaments": [
+    "minibench"
+  ],
+  "options": [
+    "No tender launched and no recipient institution named",
+    "A tender has been launched, but no recipient institution named",
+    "At least one recipient institution has been named"
+  ],
+  "question": {
+    "id": 46838,
+    "title": "What stage will the BCP have reached in disposing of Ueno Bank's assets and liabilities before November 28, 2026?",
+    "type": "multiple_choice",
+    "status": "open",
+    "description": "Ueno Bank S.A. was one of Paraguay's largest banks by client count, with roughly 2.8-3 million customers and about USD 2.8 billion in funds gathered ([Diario HOY](https://www.hoy.com.py/nacionales/2026/11/12/bcp-confirma-hallazgo-de-usd-600-millones-en-activos-sanos-de-ueno-bank-y-priorizara-fondos-previsionales)). On 2 November 2026 the BCP's board (Resolución N.° 1, Acta N.° 49) unanimously ordered the start of the resolution procedure for Ueno Bank under Ley N.° 2334/2003, after a supervisory review found asset-quality weaknesses and related-party operations that left the bank's solvency ratio below 50% of the regulatory minimum ([FIX SCR, 3 Nov](https://www.fixscr.com/reportes-web/view?id=60851)). The decision was announced on 3 November; passive operations were suspended, the Superintendencia de Valores suspended the public offering and trading of Ueno's securities, and FIX SCR cut the bank's rating from AA-py to Dpy.\n\nDeposit guarantee payouts: the Fondo de Garantía de Depósitos (FGD) covers deposits up to 75 monthly minimum wages (G. 228,300,000, roughly USD 37,000) per depositor, and an emergency arrangement required an accelerated advance of up to 40 minimum wages (G. 121,760,000) ([legal explainer](https://www.avanzialegal.com/blog/caso-ueno-bank-resolucion-bcp-ahorristas-fondos-mutuos)). Between 5 and 11 November the BCP paid that advance to 1,812,348 depositors - essentially all covered savers - with disbursements reported at roughly USD 640-700 million, depending on the counting basis ([InfoNegocios](https://infonegocios.com.py/nota-principal/jorge-schreiner-analizando-las-carteras-de-clientes-y-sin-incluir-activos-el-monto-supera-el-conjunto-de-la-deuda-de-ueno-con-el-sistema-previsional)). Payments ran through commercial banks acting as payment agents, and the BCP publicised lists of banks where former Ueno clients could collect funds and open accounts. Two groups were left out of this stage: holders of certificados de depósito de ahorro (CDA), who need additional verification (the BCP opened a CDA registration/validation platform at registrocda.bcp.gov.py on 12 November), and the mutual funds managed by Ueno's fund manager, whose operations were suspended and which are not covered by the FGD ([ABC Color compilation of BCP communiqués](https://www.abc.com.py/economia/2026/11/04/todos-los-comunicados-del-bcp-sobre-ueno-bank/)).\n\nWhat happens to the bank itself: the statutory route is to separate assets and liabilities in the so-called balance de exclusión (whose closing deadline is 15 days from the start of the process) and then dispose of the resulting portfolios. On 12 November BCP president Jorge Schreiner said the patrimonial verification had identified about USD 600 million of \"sound assets\", exceeding the bank's liabilities to the pension system (the IPS alone had roughly USD 516 million in Ueno), and that the plan is to hold a licitación (public tender) and transfer the asset and deposit portfolios in batches (lotes) to several domestic banks - explicitly to avoid creating a single \"megabanco\" - with priority for pension-fund money ([La Nación](https://www.lanacion.com.py/negocios/2026/11/12/bcp-anuncia-que-distribuira-por-lotes-en-bancos-locales-los-activos-y-pasivos-de-ueno-bank/), [Perspectivas](https://perspectivas.com.py/noticias/transferencia-por-lotes-y-prioridad-para-fondos-previsionales-asi-sera-la-liquidacion-de-ueno-bank), [Perfil](https://www.perfil.com/internacional/el-banco-central-de-paraguay-informo-que-encontro-activos-de-ueno-bank-y-detallo-a-quienes-se-le-devolvera-ese-dinero-aYk6R4M1Ioff)). Schreiner estimated the exclusion balance would take another 8-10 days (around 20-22 November), while other reporting put the tender and transfer of the portfolios about 15 days after 12 November (around 27 November) ([Diario HOY](https://www.hoy.com.py/nacionales/2026/11/12/bcp-confirma-hallazgo-de-usd-600-millones-en-activos-sanos-de-ueno-bank-y-priorizara-fondos-previsionales)). The FGD holds roughly USD 1.6 billion in total, several hundred million of which has been used. Fitch placed Paraguay's sovereign rating on negative watch on 11 November.\n\nWhy the timing is genuinely uncertain: the law contemplates transferring assets and liabilities to other institutions, but the pace depends on finishing the exclusion balance, drafting the tender terms, the offer period and the adjudication. Officials' own estimates have shifted (8-10 days versus about 15 days), and it is unclear whether the pension-fund portion will be placed directly with named banks or held for a formal tender. As of 13 November no tender had been called and no recipient institution had been publicly named. Related but separate processes are also under way: Ueno Casa de Bolsa (a separate brokerage) is moving client portfolios to other brokers, and the intervention team suspended late-interest and penalty charges on Ueno loans and credit cards until 30 November.\n\n`{\"format\": \"llm_question\", \"info\": {\"sdk_version\": \"0.6.1\", \"rating\": {\"quality\": 3, \"ambiguity\": 3, \"resolvability\": 4, \"passes\": true}}}`",
+    "resolution_criteria": "Resolution is based on public announcements made by the Banco Central del Paraguay (BCP) or its intervention team for Ueno Bank S.A. on or before 27 November 2026 (Paraguay time, UTC-3), as reported by [credible sources](https://www.metaculus.com/faq/#definitions). Announcements first made on 28 November 2026 or later do not count.\n\n- \"Tender launched\": the BCP has publicly issued a call for bids, published the terms (bases/pliego) of a licitación, or otherwise made public that a bidding process is open for financial institutions to bid for portfolios (lotes) of Ueno Bank S.A.'s assets and/or liabilities, including deposits. A restricted or invitation-only process counts once it has been publicly announced, even if invitations were sent to selected banks earlier.\n- \"Recipient institution named\": the BCP has publicly designated at least one specific named institution (a bank, finance company, newly created bridge bank, or public entity) that is to receive or assume a portion of Ueno Bank S.A.'s assets, liabilities, deposits or client portfolio as part of the resolution, whether through a BCP board resolution, an adjudication/award announcement, an official communiqué, or a statement by the BCP president or the intervention team at a public press conference reported by credible sources.\n\nSelect \"No tender launched and no recipient institution named\" if neither had occurred by that date; \"A tender has been launched, but no recipient institution named\" if a tender had been launched and no institution named; and \"At least one recipient institution has been named\" if at least one institution had been named, whether or not a tender was launched. A compilation of the BCP's official communiqués on the case is maintained by ABC Color at https://www.abc.com.py/economia/2026/11/04/todos-los-comunicados-del-bcp-sobre-ueno-bank/ and the BCP's own newsroom is at bcp.gov.py.",
+    "fine_print": "Banks named only as payment agents or channels for Fondo de Garantía de Depósitos payouts, or merely listed as places where former Ueno Bank clients may collect funds or open new accounts, are not recipient institutions. Announcements concerning Ueno Casa de Bolsa (a separate brokerage) or Ueno's fund-management company do not count, even if their client portfolios are transferred to other firms. Statements of intent or of ongoing negotiations, and completion of the balance de exclusión, do not on their own constitute a tender launch or the naming of a recipient institution.",
+    "unit": "",
+    "options": [
+      "No tender launched and no recipient institution named",
+      "A tender has been launched, but no recipient institution named",
+      "At least one recipient institution has been named"
+    ],
+    "scaling": {
+      "range_min": null,
+      "range_max": null,
+      "nominal_min": null,
+      "nominal_max": null,
+      "zero_point": null,
+      "open_upper_bound": false,
+      "open_lower_bound": false,
+      "inbound_outcome_count": null,
+      "continuous_range": null
+    },
+    "open_lower_bound": false,
+    "open_upper_bound": false,
+    "inbound_outcome_count": null,
+    "open_time": "2026-11-16T07:38:19Z",
+    "scheduled_close_time": "2026-11-16T10:38:19Z",
+    "scheduled_resolve_time": "2026-11-28T00:00:00Z",
+    "resolution": null
+  }
+}

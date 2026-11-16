@@ -1,0 +1,25 @@
+{"searches": [
+  {"category": "resolution_source", "query": "BCP Ueno Bank licitación lotes", "by": "main", "status": "done", "finding": "No tender notice found; only unrelated BCP procurement tenders (2026-11-16)"},
+  {"category": "resolution_source", "query": "BCP comunicado Ueno balance de exclusión", "by": "main", "status": "done", "finding": "Nothing relevant (results about Peru's BCRP/BCP)"},
+  {"category": "news", "query": "Ueno Bank activos bancos receptores", "by": "main", "status": "done", "finding": "Bank list (Atlas, Basa, Itaú, etc.) is payout/account-opening channels -> excluded by fine print; second phase depends on participating banks"},
+  {"category": "news", "query": "Schreiner Ueno licitación bancos", "by": "main", "status": "done", "finding": "Schreiner confirmed by Senate 9 Nov; no tender found"},
+  {"category": "news", "query": "Ueno Bank IPS fondos transferencia banco", "by": "main", "status": "done", "finding": "IPS funds figures vary (USD 334-516m); no transfer to a named bank"},
+  {"category": "news", "query": "Ueno Bank licitación cartera BCP noviembre 2026", "by": "main", "status": "done", "finding": "12 Nov: plan to tender lots; ~15 day estimate; balance de exclusión 8-10 days first; no date fixed"},
+  {"category": "news", "query": "Ueno Bank bancos interesados lotes activos pasivos BCP", "by": "main", "status": "done", "finding": "HOY 15 Nov: transfer route 'todavía sin fechas ni entidades confirmadas'"},
+  {"category": "news", "query": "Ueno Bank noticias 16 noviembre BCP", "by": "main", "status": "done", "finding": "EFE 15 Nov: Acosta says lots will be offered by licitación; nothing newer"},
+  {"category": "markets", "query": "Polymarket Kalshi Manifold Ueno Bank Paraguay", "by": "main", "status": "done", "finding": "No market found"},
+  {"category": "base_rate", "query": "Paraguay resolución bancaria Ley 2334 transferencia activos pasivos plazo", "by": "main", "status": "done", "finding": "Guarantee payment within 15 days, extendable 15; Cefisa transfer resolution 6 Jan 2023"},
+  {"category": "base_rate", "query": "Banco Integración Paraguay resolución BCP transferencia cartera banco", "by": "main", "status": "done", "finding": "Cefisa: resolution start 6 Dec 2022 -> transfer to Bancop, Río, Basa + 2 financieras 6 Jan 2023 (31 days), competitive process revealed only at award"},
+  {"category": "base_rate", "query": "ARA Sefisa BCP transferencia activos pasivos banco fecha resolución 2015", "by": "main", "status": "done", "finding": "ARA 2015: transfer negotiated by intervenors; no exact dates found"},
+  {"category": "base_rate", "query": "bank resolution purchase and assumption timeline Latin America days", "by": "main", "status": "skipped", "finding": ""},
+  {"category": "disconfirmation", "query": "Ueno Bank retraso licitación", "by": "main", "status": "done", "finding": "No reports of delay found, nor of a tender", "tests": "that the BCP's 8-15 day timeline slips past 27 Nov (my largest single option is 'nothing yet')"},
+  {"category": "disconfirmation", "query": "Ueno Bank pliego licitación bancos invitados oferta lotes plazo", "by": "main", "status": "done", "finding": "No pliego or invited-bank list found as of 16 Nov", "tests": "that the BCP's 8-15 day timeline slips past 27 Nov"},
+  {"category": "disconfirmation", "query": "Ley 7745/2026 Ueno plazo devolución segunda etapa transferencia", "by": "main", "status": "done", "finding": "Second phase has no set date; depends on which banks participate", "tests": "that a legal deadline forces naming before 27 Nov"},
+  {"category": "schedule", "query": "Ueno balance de exclusión fecha cierre segunda etapa", "by": "main", "status": "done", "finding": "No closing date published; card portfolio to be negotiated in second stage with another institution (unnamed)"},
+  {"category": "upcoming_events", "query": "Ueno tarjetas de crédito cartera transferida entidad financiera BCP", "by": "main", "status": "done", "finding": "Nothing relevant (Peru BCP results)"},
+  {"category": "consensus", "query": "Ueno Bank Itaú Continental Basa absorber cartera", "by": "main", "status": "skipped", "finding": ""}
+],
+ "adjustments": [
+  {"event": "BCP president on 12 Nov: balance de exclusión in ~8-10 days, then tender of lots; other reports ~15 days to transfer", "date": "2026-11-12", "effect": "+15 pp to tender/named vs a pure status-quo prior", "sources": [1, 2, 3]},
+  {"event": "HOY 15 Nov: transfer route still without dates or confirmed entities; no tender called", "date": "2026-11-15", "effect": "-5 pp to named", "sources": [4]}
+]}
