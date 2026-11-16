@@ -1,0 +1,38 @@
+{
+  "post_id": 46573,
+  "url": "https://www.metaculus.com/questions/46573/",
+  "post_title": "Will Argentina's Senate give media sanción to a bill suspending or eliminating the PASO primaries in its 26 November 2026 session?",
+  "tournaments": [
+    "minibench"
+  ],
+  "options": null,
+  "question": {
+    "id": 46833,
+    "title": "Will Argentina's Senate give media sanción to a bill suspending or eliminating the PASO primaries in its 26 November 2026 session?",
+    "type": "binary",
+    "status": "open",
+    "description": "Argentina's next general elections are due in October 2027. Its primaries — PASO (Primarias Abiertas, Simultáneas y Obligatorias), created by Law 26.571 in 2009 — are mandatory, state-run and open to all voters, and have been a target of Javier Milei's La Libertad Avanza (LLA) since it took office in December 2023. After the 2025 midterms the Executive sent a bill to the Senate in May 2026 to suspend (in some versions, eliminate) the PASO for the 2027 elections; it had been stalled in the upper chamber ever since.\n\nSenate arithmetic: the chamber has 72 members. LLA holds 21 seats of its own but needs 37 votes — an absolute majority of the chamber — to change the electoral regime, so at least 16 votes must come from other blocs, above all the 10-seat UCR and the 3-seat PRO, neither of which had committed as of mid-November 2026. Press reports name possible provincial and peronist supporters (Julieta Corroza, Guillermo Andrada, Flavia Royón, Edith Terenzi, Carlos Arce, Sandra Decut, Alejandra Vigo, plus radicals from Corrientes, Chaco and Mendoza) and note that a fallback would be to water the bill down into voluntary (\"optativas\") primaries. The Casa Rosada has told its senators the votes are there; LLA's own Senate leader says they are not.\n\nLegislative calendar: ordinary sessions end on 30 November 2026. The Senate planned sessions for Thursday 19 November (earmarked for the Patent Cooperation Treaty and the disability bill) and Thursday 26 November, described as the last ordinary session of the year. On 12 November, LLA senator Agustín Coto convened the Asuntos Constitucionales committee for Tuesday 17 November at 15:00, aiming to sign dictamen that same day and take the PASO bill to the floor on 26 November. As of 13 November no definitive convocatoria for that floor session had been issued, and the government has said it will call extraordinary sessions in December for the 2027 budget and the electoral reform if November fails.\n\nPolitical context: Patricia Bullrich, a senator for the City of Buenos Aires since December 2025, presides over the LLA bloc in the Senate and is in open conflict with Karina Milei and Lower House speaker Martín Menem. Menem is promoting Neuquén senator Nadia Márquez to replace Bullrich as bloc president, and there is concern inside LLA that a removal would fracture the bloc. Bullrich publicly aligned with the Casa Rosada on suspending the PASO on 12 November but continues to say the votes are not there, which makes the 26 November floor test the immediate focal point of the internal fight. If the Senate approves the bill, the Chamber of Deputies must still approve it (with 129 votes needed there) before any change takes effect.\n\nSources: [Perfil, 12 Nov 2026](https://www.perfil.com/politica/senado-el-gobierno-presiona-a-bullrich-para-suspender-las-paso-pero-dudan-de-que-esten-los-votos-necesarios-aU3cY9t0fwE8); [Infobae, 13 Nov 2026](https://www.infobae.com/politica/2026/11/13/la-subterranea-pelea-por-los-votos-de-la-reforma-politica-que-profundiza-la-interna-del-gobierno-con-bullrich/); [La Capital, 12 Nov 2026](https://www.lacapital.com.ar/politica/senado-lla-convoco-una-reunion-comision-debatir-el-futuro-las-paso-n10291859.html).\n\n`{\"format\": \"llm_question\", \"info\": {\"sdk_version\": \"0.6.1\", \"rating\": {\"quality\": 3, \"ambiguity\": 3, \"resolvability\": 4, \"passes\": true}}}`",
+    "resolution_criteria": "This question concerns the Argentine Senate session scheduled for Thursday 26 November 2026, planned as the last ordinary session of the 2026 period. It resolves YES if, in a session of the Argentine Senate held on 26 November 2026 (including any continuation of that session past midnight into 27 November 2026), the Senate grants media sanción — final approval by the chamber of origin, sending the bill to the Chamber of Deputies for revision — to a bill that suspends or eliminates the PASO (Primarias Abiertas, Simultáneas y Obligatorias) for all national offices up for election in 2027, whether as a standalone bill or as part of a wider electoral-reform package, and whether the change covers only the 2027 elections or is permanent. It resolves NO if no such approval is completed in that session — including if the Senate rejects the bill, does not bring it to the floor, or does not hold a session — or if the text approved merely makes the primaries optional for political parties or suspends them for only some of the 2027 national offices. Resolution is based on reporting by [credible sources](https://www.metaculus.com/faq/#definitions) on 26–27 November 2026; the Senate's official session records at https://www.senado.gob.ar/parlamentario/sesiones/busquedaTac can be used to confirm the outcome.",
+    "fine_print": "Approval must be completed in the Senate (both \"en general\" and \"en particular\"): a bill approved \"en general\" whose particular treatment is left unfinished by the end of 27 November 2026 does not count.",
+    "unit": "",
+    "options": null,
+    "scaling": {
+      "range_min": null,
+      "range_max": null,
+      "nominal_min": null,
+      "nominal_max": null,
+      "zero_point": null,
+      "open_upper_bound": false,
+      "open_lower_bound": false,
+      "inbound_outcome_count": null,
+      "continuous_range": null
+    },
+    "open_lower_bound": false,
+    "open_upper_bound": false,
+    "inbound_outcome_count": null,
+    "open_time": "2026-11-16T06:19:53Z",
+    "scheduled_close_time": "2026-11-16T09:19:53Z",
+    "scheduled_resolve_time": "2026-11-27T12:00:00Z",
+    "resolution": null
+  }
+}
