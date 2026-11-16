@@ -1,0 +1,47 @@
+slug: 2026-11-16-mc46581-as-26-november-2026-russia-listed-among
+title: As of 26 November 2026, will Russia be listed among the teams in the IIHF's official field for
+  the 2027 IIHF U18 Women's World Championship?
+source: metaculus
+url: https://www.metaculus.com/questions/46581/
+post_id: 46581
+question_id: 46841
+type: binary
+unit: null
+tags: []
+dates:
+  created: '2026-11-16'
+  opened: '2026-11-16'
+  closes: '2026-11-16'
+  resolves: '2026-11-26'
+status: open
+tournament:
+  slug: minibench
+  mode: one_shot
+  registered: '2026-11-16'
+  opened: '2026-11-16T09:36:56Z'
+  closes: '2026-11-16T12:36:56Z'
+  submitted: '2026-11-16T10:12:56+00:00'
+  submitted_forecast:
+    probability_yes: 0.13
+  comment_posted: true
+  official_score: null
+  missed_window: false
+current:
+  version: 1
+  date: '2026-11-16'
+  median: 0.13
+  iqr:
+  - 0.08
+  - 0.2
+  community:
+    cp: null
+    pro: null
+    gold: null
+    n_forecasters: null
+    as_of: '2026-11-16'
+next_review: null
+tripwires: []
+resolution:
+  outcome: null
+  date: null
+  source: null

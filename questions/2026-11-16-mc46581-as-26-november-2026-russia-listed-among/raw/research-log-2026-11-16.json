@@ -1,0 +1,32 @@
+{"searches": [
+  {"category": "resolution_source", "query": "WebFetch https://eu-west.iihf.com/en/events/2027/ww18 (iihf.com 403)", "by": "main", "status": "done", "finding": "Mirror returned 2026-edition content (DEN, FIN listed); no RUS/AIN; unreliable as 2027 snapshot"},
+  {"category": "resolution_source", "query": "WebFetch https://eu-west.iihf.com/en/events/2027/wm20/schedule", "by": "main", "status": "done", "finding": "2027 WJC public schedule still lists NOR, no RUS, despite IIHF informing Norway ~8 Nov that Russia replaces it"},
+  {"category": "news", "query": "IIHF Russia U18 women Ostrava November 2026", "by": "main", "status": "done", "finding": "Daily Faceoff 3 Nov: Czechia no visas; if Russia plays, Germany (lowest-ranked) removed"},
+  {"category": "news", "query": "IIHF Council decision Russia CAS implementation November 2026", "by": "main", "status": "done", "finding": "No Council decision on U18W; IIHF 'taking necessary steps'; CAS defended ruling 5 Nov"},
+  {"category": "markets", "query": "Polymarket OR Manifold Russia IIHF 2027 participation", "by": "main", "status": "done", "finding": "No market found"},
+  {"category": "base_rate", "query": "CAS ruling sport federation reinstate Russia comply precedent FIS biathlon 2025", "by": "main", "status": "done", "finding": "FIS/luge 2025: federations complied slowly via criteria/neutral-status processes, not immediately"},
+  {"category": "news", "query": "World Juniors 2027 IIHF schedule Russia Norway updated website", "by": "main", "status": "done", "finding": "IIHF sent revised WJC schedule with Russia to federations ~8 Nov; public page update unconfirmed"},
+  {"category": "disconfirmation", "query": "Germany removed U18 women's world championship Russia replace IIHF", "by": "main", "status": "done", "finding": "No report Germany removed; Euronews 9 Nov on Norway only", "tests": "the assumption that the IIHF will not publish a Russian slot on the Ostrava pages by 26 Nov given Czech visa refusal"},
+  {"category": "disconfirmation", "query": "IIHF U18 women's world championship 2027 revised schedule Russia Germany", "by": "main", "status": "done", "finding": "Nothing on a revised U18W schedule", "tests": "the assumption that the IIHF will not publish a Russian slot on the Ostrava pages by 26 Nov given Czech visa refusal"},
+  {"category": "news", "query": "MS hokejistek do 18 let Ostrava Rusko program IIHF Německo", "by": "main", "status": "done", "finding": "Nothing new"},
+  {"category": "news", "query": "IIHF Russia hockey news November 14 2026", "by": "main", "status": "done", "finding": "Nothing dated after ~7 Nov"},
+  {"category": "news", "query": "Hadamczik Rusko Ostrava juniorky IIHF listopad", "by": "main", "status": "done", "finding": "Czech federation discussing Ostrava with government; refuses to play Russia"},
+  {"category": "disconfirmation", "query": "\"U18\" women Russia Ostrava IIHF Council decision Germany relegated", "by": "main", "status": "done", "finding": "No confirmed decision removing Germany", "tests": "the assumption that the IIHF will not publish a Russian slot on the Ostrava pages by 26 Nov given Czech visa refusal"},
+  {"category": "news", "query": "Rusko MS žen do 18 let Ostrava IIHF", "by": "scout-1", "status": "done", "finding": "Macinka to meet Czech hockey leaders; Šťastný: legal tools to block Schengen entry"},
+  {"category": "news", "query": "IIHF Russia CAS ruling 2027 U18 women's world championship Ostrava visas", "by": "scout-1", "status": "done", "finding": "No evidence IIHF added Russia to Ostrava field"},
+  {"category": "news", "query": "World Juniors 2027 schedule Russia Norway IIHF", "by": "scout-1", "status": "done", "finding": "Russia replaced Norway at WJC (8 Nov); Switzerland to skip 27 Dec game vs Russia on revised schedule"},
+  {"category": "news", "query": "IIHF Rusko juniorky Ostrava víza Německo místo Ruska MS do 18 let ženy listopad", "by": "scout-1", "status": "done", "finding": "Nothing new"},
+  {"category": "news", "query": "IIHF Russia CAS ruling 2027 championships U18 Women's World Championship Ostrava", "by": "scout-2", "status": "done", "finding": "IIHF 'urgently assess'; no U18W action"},
+  {"category": "news", "query": "ФХР женский чемпионат мира U18 2027 Острава ИИХФ решение CAS", "by": "scout-2", "status": "done", "finding": "No FHR statement found on U18W"},
+  {"category": "upcoming_events", "query": "IIHF Council meeting November 2026 Russia Belarus", "by": "scout-2", "status": "done", "finding": "Senior women's WC eligibility review slated Nov 2026; no U18W review date"},
+  {"category": "disconfirmation", "query": "IIHF U18 women's world championship 2027 Russia CAS ruling Czechia", "by": "scout-3", "status": "done", "finding": "Swap with Germany is the YES mechanism; unconfirmed", "tests": "the assumption that the IIHF will not publish a Russian slot on the Ostrava pages by 26 Nov given Czech visa refusal"},
+  {"category": "disconfirmation", "query": "IIHF relocate U18 women 2027 Russia added", "by": "scout-3", "status": "done", "finding": "No relocation reports", "tests": "the assumption that the IIHF will not publish a Russian slot on the Ostrava pages by 26 Nov given Czech visa refusal"},
+  {"category": "news", "query": "IIHF Russia U18 women Ostrava visa Germany replaced November 2026", "by": "scout-3", "status": "done", "finding": "Nothing after 3 Nov"},
+  {"category": "base_rate", "query": "IIHF women U18 2027 Finland relegated Russia replace", "by": "scout-3", "status": "skipped", "finding": ""},
+  {"category": "news", "query": "Russian hockey federation IIHF women's U18 entry CAS", "by": "scout-2", "status": "skipped", "finding": ""}
+],
+ "adjustments": [
+  {"event": "IIHF implemented CAS at World Juniors by inserting Russia for Norway in a revised schedule sent to federations", "date": "2026-11-08", "effect": "+8 pp (shows IIHF will insert Russia despite host visa refusal)", "sources": [3, 4]},
+  {"event": "Public IIHF WJC schedule page still shows Norway, not Russia, as of 2026-11-16", "date": "2026-11-16", "effect": "-6 pp (internal decisions not reflected on public pages quickly)", "sources": [6]},
+  {"event": "Czech government visa refusal and Czech federation boycott", "date": "2026-11-02", "effect": "-5 pp", "sources": [2, 5]}
+]}

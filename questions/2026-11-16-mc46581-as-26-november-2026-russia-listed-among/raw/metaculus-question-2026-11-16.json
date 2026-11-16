@@ -1,0 +1,38 @@
+{
+  "post_id": 46581,
+  "url": "https://www.metaculus.com/questions/46581/",
+  "post_title": "As of 26 November 2026, will Russia be listed among the teams in the IIHF's official field for the 2027 IIHF U18 Women's World Championship?",
+  "tournaments": [
+    "minibench"
+  ],
+  "options": null,
+  "question": {
+    "id": 46841,
+    "title": "As of 26 November 2026, will Russia be listed among the teams in the IIHF's official field for the 2027 IIHF U18 Women's World Championship?",
+    "type": "binary",
+    "status": "open",
+    "description": "The [2027 IIHF U18 Women's World Championship](https://www.iihf.com/en/events/2027/ww18) is scheduled for 8–16 January 2027 at the RT TORAX Arena in Ostrava, Czechia, with eight teams in two groups, all eight advancing to the quarter-finals.\n\nRussia has been barred from IIHF championships since 2022 following the full-scale invasion of Ukraine. On 30 July 2026, after an \"event-by-event\" review, the IIHF Council confirmed that Russia would not be allowed to participate in the 2026-27 season's championships, explicitly including the U18 Women's World Championship 2027: https://www.iihf.com/en/news/75411/decision_on_russian_participation_for_the_2026-2027\n\nOn 30 October 2026 the Court of Arbitration for Sport upheld the Russian Ice Hockey Federation's appeal and ordered the IIHF to allow Russian teams to enter five 2027 championships, including the \"U18 Women's World Championship, Czech Republic, 8 – 16 January 2027\": https://www.tas-cas.org/generated/assets/lists/dceab111-07bc-435f-b5f9-de88eff9db72/CAS%20Media%20Release_12573%20et%20al_final.pdf\n\nThe IIHF said it disagreed with the ruling but would respect it and \"urgently assess the steps and time required to give effect to the ruling and address its operational consequences\" (https://www.iihf.com/en/news/76707/iihf_statement_on_cas_decision). Its Council met on 2–3 November 2026 (extended to 5 November) without reaching a decision. A further IIHF statement on 7 November said the federation continues to disagree with the CAS decision, is \"taking the necessary steps\" to implement it and is exploring all available avenues; the same statement kept Belarus out of the 2027 World Juniors and men's World Championship.\n\nHost-country resistance is intense. Czech Prime Minister Andrej Babiš said after a 2 November cabinet meeting that Czechia will not issue visas to Russian players for the Ostrava tournament; Interior Minister Lubomír Metnar says existing rules prevent short-stay visas for Russian players; Sports Minister Boris Šťastný says the state has legal tools to block participation even if players enter through another Schengen country (https://english.radio.cz/czechia-has-legal-tools-block-russian-players-ice-hockey-championship-minister-8902095). Foreign Minister Petr Macinka has said he cannot imagine Russian players competing in Czechia and has met Czech hockey officials. The Czech Ice Hockey Association, led by president Alois Hadamczik, has said its national teams will not line up against Russia, and the government has said it does not plan to lift the visa ban.\n\nImplementation precedent: for the 2027 World Junior Championship (Canada, 26 December 2026 – 5 January 2027) Norway was excluded and the IIHF adjusted the tournament programme to include Russia in Norway's place; the Czech federation confirmed on 8 November 2026 that it had received that adjusted World Juniors schedule containing Russia, although it is not confirmed that the public IIHF World Juniors pages have been updated to match. Canada has formally notified the IIHF that it will not issue visas to Russian players. The Russian federation has demanded that the IIHF either publicly confirm Russia's participation or move tournaments, has threatened sanctions and forfeit-related action, and has complained to the IIHF about federations refusing to play.\n\nStatus quo of the published field (checked 13 November 2026): the IIHF event page lists eight participating teams — Canada, Czechia, Germany, Hungary, Switzerland, Slovakia, Sweden, United States — and the official schedule (https://www.iihf.com/en/events/2027/ww18/schedule) contains 21 games, none involving Russia. Germany and Hungary were promoted for 2027 and Finland was relegated to Division I Group A, so Russia's re-entry would require a ninth team, the replacement of an existing team, or a re-arranged format. What to watch before the resolution date: further IIHF Council action, any revised Ostrava schedule or tournament programme circulated to federations, and whether the IIHF treats the Czech visa refusal as making Russian participation operationally impossible.\n\n`{\"format\": \"llm_question\", \"info\": {\"sdk_version\": \"0.6.1\", \"rating\": {\"quality\": 3, \"ambiguity\": 3, \"resolvability\": 4, \"passes\": true}}}`",
+    "resolution_criteria": "This question resolves based on the IIHF's own official tournament pages for the 2027 IIHF U18 Women's World Championship (Ostrava, Czechia, 8–16 January 2027) as they stand at 23:59 UTC on 26 November 2026. It resolves YES if a team representing Russia — listed as \"Russia\"/\"RUS\" or under a neutral designation such as \"ROC\" or \"AIN\" — appears either in the participating-teams list on the official event page (https://www.iihf.com/en/events/2027/ww18) or in at least one game on the official competition schedule (https://www.iihf.com/en/events/2027/ww18/schedule). It resolves NO if no such team appears on either page at that time. For reference, as of 13 November 2026 both pages list eight teams (Canada, Czechia, Germany, Hungary, Switzerland, Slovakia, Sweden, United States) and a 21-game schedule containing no Russian team; the question asks whether that changes by the resolution cutoff.",
+    "fine_print": "If the IIHF pages cannot be loaded at resolution time, or if resolution is checked after the cutoff, the resolver will use the Internet Archive (web.archive.org) captures of the event page and of the schedule page that are closest to, and not later than, 23:59 UTC on 26 November 2026; if no such capture exists for a page, [credible sources](https://www.metaculus.com/faq/#definitions) reporting the tournament field as of that time will be used. If the IIHF relocates the tournament or republishes the field for the same 2027 IIHF U18 Women's World Championship at a different URL, that official page governs. A slot left as a placeholder (e.g., \"TBD\") or an entry not identified as Russian does not count as Russia being listed. An IIHF news article, press statement or media report that Russia will or will not play does not by itself resolve the question; the outcome is determined solely by whether a Russian team appears in the field or schedule on those pages.",
+    "unit": "",
+    "options": null,
+    "scaling": {
+      "range_min": null,
+      "range_max": null,
+      "nominal_min": null,
+      "nominal_max": null,
+      "zero_point": null,
+      "open_upper_bound": false,
+      "open_lower_bound": false,
+      "inbound_outcome_count": null,
+      "continuous_range": null
+    },
+    "open_lower_bound": false,
+    "open_upper_bound": false,
+    "inbound_outcome_count": null,
+    "open_time": "2026-11-16T09:36:56Z",
+    "scheduled_close_time": "2026-11-16T12:36:56Z",
+    "scheduled_resolve_time": "2026-11-26T23:59:00Z",
+    "resolution": null
+  }
+}
