@@ -1,0 +1,63 @@
+slug: 2026-11-16-mc46598-france-s-provisional-year-year-cpi-inflation
+title: What will France's provisional year-on-year CPI inflation be for November 2026?
+source: metaculus
+url: https://www.metaculus.com/questions/46598/
+post_id: 46598
+question_id: 46858
+type: discrete
+unit: '%'
+tags: []
+dates:
+  created: '2026-11-16'
+  opened: '2026-11-16'
+  closes: '2026-11-16'
+  resolves: '2026-11-27'
+status: open
+tournament:
+  slug: minibench
+  mode: one_shot
+  registered: '2026-11-16'
+  opened: '2026-11-16T20:07:30Z'
+  closes: '2026-11-16T23:07:30Z'
+  submitted: '2026-11-16T20:13:32+00:00'
+  submitted_forecast:
+    continuous_cdf:
+    - 0.13949275362318858
+    - 0.27971182174492965
+    - 0.4869485852213986
+    - 0.694185348697867
+    - 0.8344044168196072
+    - 0.9108253607368096
+    - 0.9546864956947364
+    - 0.969825778212693
+    - 0.9760796749543398
+    - 0.9797878660491203
+    - 0.9827667002646797
+    - 0.9855365702357193
+    - 0.9882465709483316
+    - 0.99093941883122
+    - 0.9936273523461128
+    - 0.9963138778710016
+    - 0.999
+  comment_posted: true
+  official_score: null
+  missed_window: false
+current:
+  version: 1
+  date: '2026-11-16'
+  median: 3.15
+  iqr:
+  - 3.03
+  - 3.27
+  community:
+    cp: null
+    pro: null
+    gold: null
+    n_forecasters: null
+    as_of: '2026-11-16'
+next_review: null
+tripwires: []
+resolution:
+  outcome: null
+  date: null
+  source: null

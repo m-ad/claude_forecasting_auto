@@ -1,0 +1,56 @@
+{
+  "post_id": 46598,
+  "url": "https://www.metaculus.com/questions/46598/",
+  "post_title": "What will France's provisional year-on-year CPI inflation be for November 2026?",
+  "tournaments": [
+    "minibench"
+  ],
+  "options": null,
+  "question": {
+    "id": 46858,
+    "title": "What will France's provisional year-on-year CPI inflation be for November 2026?",
+    "type": "discrete",
+    "status": "open",
+    "description": "INSEE publishes a provisional (\"estimation provisoire\") estimate of French consumer prices at the end of each reference month, followed by definitive figures in the middle of the next month. The November 2026 provisional estimate is due on 27 November 2026 at 08:45 CET; the definitive November figures are scheduled for 11 December 2026.\n\nFrench inflation has risen sharply during 2026: the year-on-year change in the national CPI was +0.3% in January, +0.9% in February, +1.7% in March, +2.4% in August, +3.0% (provisional) and +3.1% (definitive) in September, and +3.4% in October 2026, reported as the highest rate since January 2024 (https://www.insee.fr/fr/statistiques/9107965). In October the index rose 0.4% month on month and the harmonised index (IPCH) was up 3.8% year on year.\n\nEnergy is the driver. Energy prices were +24.1% year on year in October, the fourth consecutive month of acceleration (+12.6% in July, +16.7% in August, +21.3% in September), pulled by natural gas and petroleum products. By contrast, food was +1.2% (fresh food +8.0%), services +2.7%, manufactured goods −0.2% and tobacco +3.3%. The regulated benchmark gas sales price rose 6.6% month on month on 1 November 2026 to €194.90/MWh (after +6.3% on 1 October), and is set to rise a further 5.8% on 1 December 2026 to €206.26/MWh — a change that falls outside the November reference period (https://www.service-public.gouv.fr/particuliers/actualites/A17956?lang=en). The energy shock is not France-specific: OECD headline inflation reached 4.5% year on year in September 2026.\n\nThe flash estimate is computed at the end of the month from a restricted set of price observations plus imputations for items not yet collected, and INSEE warns that the results are preliminary, so it can differ from the definitive figure (September 2026: 3.0% provisional, 3.1% definitive; October 2026: 3.4% in both the provisional release of 30 October and the definitive release of 13 November). Forming a view therefore requires weighing November's pass-through from gas and petroleum products, services and food dynamics, and the November 2025 base, rather than simply extrapolating the last print.\n\n`{\"format\": \"llm_question\", \"info\": {\"sdk_version\": \"0.6.1\", \"rating\": {\"quality\": 3, \"ambiguity\": 4, \"resolvability\": 4, \"passes\": true}}}`",
+    "resolution_criteria": "Resolves to the year-on-year change in the French national consumer price index (IPC, \"ensemble des ménages\", France entière) for November 2026, as stated in the headline of INSEE's provisional estimate release \"Consumer price index – provisional results – November 2026\" (Informations rapides), scheduled for publication on insee.fr on 27 November 2026 at 08:45 CET (the preceding October 2026 provisional release, which announces that publication date, is at https://www.insee.fr/en/statistiques/9107975). The value is the year-on-year percentage figure given in that release's title — e.g., a headline reading \"In November 2026, consumer prices should increase by 3.6% year on year\" resolves as 3.6. The figure as first published governs; INSEE's later revision in its definitive November release (scheduled for 11 December 2026) does not change the resolution. If the provisional release is unavailable, the same INSEE figure as reported by [credible sources](https://www.metaculus.com/faq/#definitions) will be used.",
+    "fine_print": "The resolved figure is the IPC (\"ensemble\") year-on-year change, not the harmonised index (IPCH) year-on-year change and not the month-on-month change, both of which are reported in the same release.",
+    "unit": "%",
+    "options": null,
+    "scaling": {
+      "range_min": 2.95,
+      "range_max": 4.55,
+      "nominal_min": 3,
+      "nominal_max": 4.5,
+      "zero_point": null,
+      "open_upper_bound": true,
+      "open_lower_bound": true,
+      "inbound_outcome_count": 16,
+      "continuous_range": [
+        2.95,
+        3.0500000000000003,
+        3.1500000000000004,
+        3.25,
+        3.35,
+        3.45,
+        3.55,
+        3.65,
+        3.75,
+        3.85,
+        3.95,
+        4.05,
+        4.15,
+        4.25,
+        4.35,
+        4.449999999999999,
+        4.55
+      ]
+    },
+    "open_lower_bound": true,
+    "open_upper_bound": true,
+    "inbound_outcome_count": 16,
+    "open_time": "2026-11-16T20:07:30Z",
+    "scheduled_close_time": "2026-11-16T23:07:30Z",
+    "scheduled_resolve_time": "2026-11-27T12:00:00Z",
+    "resolution": null
+  }
+}
