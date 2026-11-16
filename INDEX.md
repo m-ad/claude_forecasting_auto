@@ -1,6 +1,6 @@
 # Question index
 
-_Regenerated 2026-11-14 by `scripts/status.py --index`._
+_Regenerated 2026-11-16 by `scripts/status.py --index`._
 
 | Question | Type | Current | v | Community (CP) | Resolves | Next review | Status |
 |---|---|---|---|---|---|---|---|
@@ -131,3 +131,4 @@ _Regenerated 2026-11-14 by `scripts/status.py --index`._
 | [What will the average new forecasters per day be on this question before this question closes?](questions/2026-11-08-mc45517-average-new-forecasters-per-day-this-question/forecast.md) | discrete | 0.33 [0.23, 0.46] | 1 | — | 2028-09-06 | — | open |
 | [Which party's nominee will win the 2028 US presidential election?](questions/2026-11-08-mc46223-which-party-s-nominee-win-2028-us/forecast.md) | multiple_choice | 0.65 [0.57, 0.72] | 1 | — | 2028-11-08 | — | open |
 | [What will net outlays by the US government be in millions of dollars in FY 2028?](questions/2026-11-08-mc46224-net-outlays-us-government-millions-dollars-fy/forecast.md) | numeric | 8,180,000 [8,020,000, 8,350,000] | 1 | — | 2028-10-20 | — | open |
+| [Will Volodymyr Zelenskyy attend the Special European Council in Brussels in person on 26–27 November 2026?](questions/2026-11-16-mc46561-volodymyr-zelenskyy-attend-special-european-council-brussels/forecast.md) | binary | 48.0% [38.0%, 58.0%] | 1 | — | 2026-11-27 | — | open |

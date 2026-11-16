@@ -1,0 +1,25 @@
+{"searches": [
+  {"category": "resolution_source", "query": "Zelenskyy European Council 26 November 2026", "by": "main", "status": "done", "finding": "Costa/vdL joint statement 12 Nov 2026: 26-27 Nov EUCO to discuss Ukraine 2027 financing; no word on Zelenskyy participation"},
+  {"category": "news", "query": "Zelensky Brussels summit November 2026 Ukraine financing", "by": "main", "status": "done", "finding": "Oct 2026 EUCO: Zelenskyy in Brussels asked for EUR 70bn; Le Pen (13 Nov) willing to meet him in Brussels, no date"},
+  {"category": "news", "query": "Зеленський Брюссель Європейська рада листопад", "by": "main", "status": "done", "finding": "Only Oct 15 2026 arrival found; 4 Nov Brussels security talks at adviser level, Zelenskyy postponed trip"},
+  {"category": "markets", "query": "Polymarket Zelensky visit Brussels November 2026", "by": "main", "status": "done", "finding": "No market found; late-Oct Brussels visit cancelled (Euronews 26 Oct 2026)"},
+  {"category": "disconfirmation", "query": "Zelensky video link EU leaders 2026 summit addressed remotely", "by": "main", "status": "done", "finding": "Nothing specific for Nov; recent appearances mostly in person", "tests": "assumption that he attends in person as at Dec 2025, Jun 2026, Oct 2026 councils"},
+  {"category": "base_rate", "query": "Zelensky special European Council 1 February 2024 video address Ukraine Facility", "by": "main", "status": "done", "finding": "Not confirmed by search; from background, Feb 2024 special EUCO on Ukraine money he joined by video (unverified)"},
+  {"category": "news", "query": "Zelensky Special European Council Brussels 26-27 November", "by": "scout-1", "status": "done", "finding": "Pravda 21 Oct: meeting dedicated to MFF and Ukraine funding; no invitation reported"},
+  {"category": "news", "query": "Zelensky European Political Community Dublin", "by": "scout-1", "status": "done", "finding": "In Dublin 11-12 Nov, met Costa/vdL"},
+  {"category": "news", "query": "Zelensky Abu Dhabi talks November 2026", "by": "scout-1", "status": "done", "finding": "Trilateral talks 10-11 Nov constructive; more talks possible week of 16 Nov"},
+  {"category": "upcoming_events", "query": "Costa special European Council November Ukraine leaders invited Zelensky", "by": "scout-1", "status": "done", "finding": "No invitation letter found yet (usually days before)"},
+  {"category": "base_rate", "query": "Zelensky attends European Council summit Brussels in person 2025", "by": "scout-2", "status": "done", "finding": "In person: Mar 2025 special, Oct 2025, Dec 2025, Jun 2026, Oct 2026; video: Jun 2025, Apr 2026 informal; Mar 2026 likely video"},
+  {"category": "base_rate", "query": "Zelensky European Council by video link summit 2026", "by": "scout-2", "status": "done", "finding": "Mar 2026 addressed leaders (format likely video); Apr 2026 Cyprus informal by video"},
+  {"category": "base_rate", "query": "Zelensky December 2025 European Council Brussels in person OR video", "by": "scout-2", "status": "done", "finding": "Dec 2025: pre-summit reports said video, reversed; attended in person"},
+  {"category": "upcoming_events", "query": "Zelensky special European Council Brussels November 2026", "by": "scout-2", "status": "done", "finding": "Euronews 16 Oct mentions special summit 26 Nov; no Zelenskyy format"},
+  {"category": "disconfirmation", "query": "European Council November 2026 special summit MFF Zelensky video link", "by": "scout-3", "status": "done", "finding": "No report of video plan; MFF-centred agenda is leaders-only negotiation", "tests": "assumption that he attends in person as at Dec 2025, Jun 2026, Oct 2026 councils"},
+  {"category": "disconfirmation", "query": "Zelensky peace talks late November 2026 Washington visit", "by": "scout-3", "status": "done", "finding": "No scheduled Washington trip or talks found for late Nov", "tests": "assumption that no competing event pulls him away"},
+  {"category": "base_rate", "query": "Zelensky Brussels visit October 2026 European Council in person", "by": "scout-3", "status": "done", "finding": "Before Oct EUCO his office had not confirmed format; then attended in person"},
+  {"category": "other", "query": "Zelensky special European Council Brussels 26-27 November 2026", "by": "scout-3", "status": "done", "finding": "Council notice 4 Nov lists dates; agenda MFF + Ukraine 2027 funding"}
+],
+ "adjustments": [
+  {"event": "Ukraine 2027 financing (EUR 45bn) is the central agenda item, confirmed by Costa/vdL statement", "date": "2026-11-12", "effect": "+8 pp", "sources": [1, 2]},
+  {"event": "Special summit largely an MFF negotiation among the 27; precedent of Feb 2024 special Ukraine-money EUCO by video (unverified)", "date": "2026-10-21", "effect": "-8 pp", "sources": [3]},
+  {"event": "Intense US-Russia-Ukraine diplomacy and late-Oct Brussels trip cancelled at short notice", "date": "2026-10-26", "effect": "-5 pp", "sources": [4, 5]}
+]}

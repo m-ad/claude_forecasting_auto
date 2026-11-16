@@ -1,0 +1,38 @@
+{
+  "post_id": 46561,
+  "url": "https://www.metaculus.com/questions/46561/",
+  "post_title": "Will Volodymyr Zelenskyy attend the Special European Council in Brussels in person on 26–27 November 2026?",
+  "tournaments": [
+    "minibench"
+  ],
+  "options": null,
+  "question": {
+    "id": 46821,
+    "title": "Will Volodymyr Zelenskyy attend the Special European Council in Brussels in person on 26–27 November 2026?",
+    "type": "binary",
+    "status": "open",
+    "description": "The Special European Council of 26–27 November 2026 takes place in the Europa building in Brussels. It is the second of two special meetings of EU leaders on Ukraine's financing and the EU's next long-term budget (the multiannual financial framework), and it is preceded by an EU–Western Balkans summit on 25 November and a Euro Summit on 26 November. The central item is how to cover Ukraine's 2027 financing needs: Ukraine faces an estimated €70 billion budget shortfall in 2027, of which roughly €45 billion is expected to be covered by the EU (https://kyivindependent.com/eus-costa-keeps-ukraine-funding-talks-on-late-november-agenda-despite-merz-appeal). Separately, the €90 billion Ukraine Support Loan for 2026–2027 still has €45 billion to disburse in 2027, and on 30 October 2026 the European Commission proposed a Council implementing decision to release that remaining amount; the Commission has also been preparing options for around €45 billion in additional EU funding for 2027. At their 15–16 October 2026 meeting, EU leaders postponed the key budget and Ukraine decisions to November and December, and European Council President António Costa kept the Ukraine-financing discussion on the 26–27 November agenda despite German Chancellor Friedrich Merz's request to decide earlier. In a joint statement after meeting Zelenskyy at the European Political Community summit in Dublin on 12 November 2026, Costa and Commission President Ursula von der Leyen said that at the 26–27 November European Council \"we will discuss Ukraine's urgent financing needs for 2027, based on the Commission's proposal\".\n\nWhether Ukraine's president joins EU leaders in person varies, but recently he has usually done so: he took part in person at the European Councils of 18–19 December 2025, 18–19 June 2026 and 15–16 October 2026 (at the October meeting he joined on day 2 and held a joint doorstep at the Europa building with Costa and von der Leyen, https://www.euronews.com/2026/10/14/zelenskyy-turns-to-european-allies-as-washington-wavers). At other summits he has addressed leaders by video link. His travel is also vulnerable to disruption: a planned visit to Brussels in the week of 26 October 2026 for high-level talks with US, EU and NATO counterparts was reportedly cancelled at short notice. Diplomacy around Russia's war on Ukraine is intense in November 2026 — US–Ukraine–Russia talks were held in Abu Dhabi on 10–11 November, and US envoys Steve Witkoff and Jared Kushner were shuttling between Moscow and Dublin — which could pull his schedule in other directions. The Council's newsroom (https://newsroom.consilium.europa.eu/) publishes photos, arrival and doorstep videos and press conferences for each summit, and the meeting's \"main results\" and press material appear on the Council's meeting page, so physical presence is straightforward to verify after the fact.\n\n`{\"format\": \"llm_question\", \"info\": {\"sdk_version\": \"0.6.1\", \"rating\": {\"quality\": 3, \"ambiguity\": 4, \"resolvability\": 4, \"passes\": true}}}`",
+    "resolution_criteria": "This question resolves YES if Volodymyr Zelenskyy, President of Ukraine, was physically present in Brussels for the Special European Council of 26–27 November 2026 — i.e. he travelled to Brussels and took part in the summit in person on 26 or 27 November 2026 (Brussels time). Confirmation may come from official Council material (press releases, photo galleries or video published on the Council newsroom, https://newsroom.consilium.europa.eu/) or from [credible sources](https://www.metaculus.com/faq/#definitions). It resolves NO if he took part in the meeting only by video link (including a pre-recorded address), did not take part at all, or if, after the meeting has ended, neither official Council material nor credible reporting shows that he was physically present in Brussels for the summit.",
+    "fine_print": "\"In person\" requires physical presence at the summit in Brussels (including its doorsteps, family photo or bilateral meetings held at the summit venue); a visit to Brussels on 26–27 November 2026 for a purpose unconnected to the summit does not count. If the Special European Council is postponed beyond 27 November 2026 or converted to an all-virtual format, the question is annulled. If confirmation is not yet available when the meeting ends, resolution waits for credible reporting on the events of 26–27 November 2026.",
+    "unit": "",
+    "options": null,
+    "scaling": {
+      "range_min": null,
+      "range_max": null,
+      "nominal_min": null,
+      "nominal_max": null,
+      "zero_point": null,
+      "open_upper_bound": false,
+      "open_lower_bound": false,
+      "inbound_outcome_count": null,
+      "continuous_range": null
+    },
+    "open_lower_bound": false,
+    "open_upper_bound": false,
+    "inbound_outcome_count": null,
+    "open_time": "2026-11-16T00:04:51Z",
+    "scheduled_close_time": "2026-11-16T03:04:51Z",
+    "scheduled_resolve_time": "2026-11-27T20:00:00Z",
+    "resolution": null
+  }
+}
