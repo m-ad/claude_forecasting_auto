@@ -1,0 +1,28 @@
+{"searches": [
+  {"category": "resolution_source", "query": "WebFetch alibabacloud.com/help/en/model-studio/model-pricing (qwen4 rows)", "by": "main", "status": "done", "finding": "2026-11-16: qwen4-max listed under Qwen-Max, Singapore International $1.5/$4.5 per 1M, Global $1.413/$4.24; row directly above qwen3.8-max ($2/$6). Last Updated Nov 16, 2026"},
+  {"category": "resolution_source", "query": "WebFetch help.aliyun.com/en/model-studio/model-pricing (qwen4 rows)", "by": "main", "status": "done", "finding": "2026-11-16: qwen4-max listed CNY 10/30 per 1M (Beijing etc.), Singapore CNY 10.938/32.813"},
+  {"category": "resolution_source", "query": "WebFetch qwen4-max-preview doc page", "by": "main", "status": "done", "finding": "preview Token Plan only, no PAYG, ends Nov 25 24:00 UTC+8; page updated Nov 16"},
+  {"category": "news", "query": "Qwen4 release date official", "by": "main", "status": "done", "finding": "no GA date announced in secondary coverage up to ~Nov 13"},
+  {"category": "news", "query": "Qwen4-Max general availability after preview", "by": "main", "status": "done", "finding": "Qwen3.8-Max preview mid-July -> GA Aug 3 2026; no Qwen4 GA date"},
+  {"category": "news", "query": "Qwen4 \"November 25\" OR \"November 26\" release qwen4-max official", "by": "main", "status": "done", "finding": "no announced post-preview date in news"},
+  {"category": "news", "query": "qwen4-max released API November 16 2026", "by": "main", "status": "done", "finding": "news has not yet reported the Nov 16 qwen4-max listing"},
+  {"category": "news", "query": "Qwen4 Max official launch late November Alibaba earnings", "by": "main", "status": "done", "finding": "no launch event found; preview end only dated milestone"},
+  {"category": "base_rate", "query": "Qwen3.8-Max-Preview release date July 2026 preview period", "by": "main", "status": "done", "finding": "3.8-Max preview July 19 2026; GA ~Aug 2-3 (15 days)"},
+  {"category": "base_rate", "query": "Qwen3.6-Max-Preview released then qwen3.6-max official release date", "by": "main", "status": "done", "finding": "3.6-Max-Preview Apr 2026 never got same-version GA"},
+  {"category": "base_rate", "query": "qwen3.8-max official release August 3 pay-as-you-go pricing Model Studio", "by": "main", "status": "done", "finding": "qwen3.8-max $2/$6 PAYG at GA"},
+  {"category": "other", "query": "\"qwen4-max\" pricing per million tokens", "by": "main", "status": "done", "finding": "search index not yet showing qwen4-max prices (stale snippets)"},
+  {"category": "base_rate", "query": "qwen3-max-preview release qwen3-max official release Alibaba Cloud Model Studio", "by": "scout-2", "status": "done", "finding": "Qwen3-Max preview 2025-09-05 -> GA 2025-09-24 (19 d)"},
+  {"category": "base_rate", "query": "Qwen3.6-Max-Preview Alibaba release Model Studio", "by": "scout-2", "status": "done", "finding": "preview 2026-04-14, no GA"},
+  {"category": "base_rate", "query": "Qwen 3.7 OR 3.8 Max preview Alibaba Cloud Model Studio non-preview", "by": "scout-2", "status": "done", "finding": "3.7-Max preview 2026-05-20 -> GA 05-21; release log lists qwen4-max on 2026-11-16"},
+  {"category": "disconfirmation", "query": "qwen3.6-max official release non-preview after qwen3.6-max-preview pay-as-you-go", "by": "scout-2", "status": "done", "finding": "3.6 preview skipped", "tests": "assumption that a non-preview listing cannot appear before the preview ends Nov 25"},
+  {"category": "markets", "query": "Qwen4 release date Polymarket OR Kalshi OR Manifold", "by": "scout-3", "status": "done", "finding": "no Polymarket/Kalshi; Manifold release-date market resolved on preview (not informative)"},
+  {"category": "news", "query": "Alibaba Qwen4 preview Model Studio pricing", "by": "scout-3", "status": "done", "finding": "neurohive: preview Token Plan only"},
+  {"category": "news", "query": "Qwen4 official release November 2026", "by": "scout-3", "status": "done", "finding": "author expects GA late Nov/early Dec"},
+  {"category": "schedule", "query": "Alibaba September quarter 2026 results date; Qwen3.8-Max preview to official release pay-as-you-go", "by": "scout-3", "status": "done", "finding": "Alibaba results reportedly Nov 19"},
+  {"category": "news", "query": "Qwen4-Max-Preview Alibaba release", "by": "scout-1", "status": "done", "finding": "preview confirmed"},
+  {"category": "resolution_source", "query": "qwen4-max general availability pay-as-you-go Model Studio Qwen4 Plus Flash", "by": "scout-1", "status": "done", "finding": "pricing page lists qwen4-max; explicit-cache-qwen4 page uses qwen4-max, updated Nov 16"},
+  {"category": "disconfirmation", "query": "Qwen4 TestingCatalog Qwen4-Max Junyang Lin official release date", "by": "scout-1", "status": "done", "finding": "no official GA announcement found; listing not yet covered by news", "tests": "assumption that the Nov 16 pricing-page qwen4-max listing is real and will persist to Nov 27"}
+],
+ "adjustments": [
+  {"event": "qwen4-max (non-preview) listed with PAYG input/output prices on both Model Studio pricing pages", "date": "2026-11-16", "effect": "from ~35% outside view to ~95%", "sources": [1, 2, 3, 4]}
+]}

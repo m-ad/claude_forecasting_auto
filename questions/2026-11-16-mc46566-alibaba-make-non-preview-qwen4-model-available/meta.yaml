@@ -1,0 +1,47 @@
+slug: 2026-11-16-mc46566-alibaba-make-non-preview-qwen4-model-available
+title: Will Alibaba make a non-preview Qwen4 model available on a pay-as-you-go API basis before November
+  28, 2026?
+source: metaculus
+url: https://www.metaculus.com/questions/46566/
+post_id: 46566
+question_id: 46826
+type: binary
+unit: null
+tags: []
+dates:
+  created: '2026-11-16'
+  opened: '2026-11-16'
+  closes: '2026-11-16'
+  resolves: '2026-11-28'
+status: open
+tournament:
+  slug: minibench
+  mode: one_shot
+  registered: '2026-11-16'
+  opened: '2026-11-16T02:22:39Z'
+  closes: '2026-11-16T05:22:39Z'
+  submitted: '2026-11-16T03:12:48+00:00'
+  submitted_forecast:
+    probability_yes: 0.95
+  comment_posted: true
+  official_score: null
+  missed_window: false
+current:
+  version: 1
+  date: '2026-11-16'
+  median: 0.95
+  iqr:
+  - 0.92
+  - 0.97
+  community:
+    cp: null
+    pro: null
+    gold: null
+    n_forecasters: null
+    as_of: '2026-11-16'
+next_review: null
+tripwires: []
+resolution:
+  outcome: null
+  date: null
+  source: null

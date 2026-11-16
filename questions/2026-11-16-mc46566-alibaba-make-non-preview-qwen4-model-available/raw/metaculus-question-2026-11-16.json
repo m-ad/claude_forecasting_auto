@@ -1,0 +1,38 @@
+{
+  "post_id": 46566,
+  "url": "https://www.metaculus.com/questions/46566/",
+  "post_title": "Will Alibaba make a non-preview Qwen4 model available on a pay-as-you-go API basis before November 28, 2026?",
+  "tournaments": [
+    "minibench"
+  ],
+  "options": null,
+  "question": {
+    "id": 46826,
+    "title": "Will Alibaba make a non-preview Qwen4 model available on a pay-as-you-go API basis before November 28, 2026?",
+    "type": "binary",
+    "status": "open",
+    "description": "Qwen is Alibaba's large-model family (branded Tongyi Qianwen in China), and Qwen4 is its fourth generation. Alibaba said at its Apsara Conference in Hangzhou on September 22, 2026 that Qwen4 was in training, and at Apsara Amsterdam on October 29, 2026 Alibaba Cloud CTO Feifei Li was reported telling the audience \"Qwen4 next week.\" On November 6, 2026 the official @Alibaba_Qwen account posted the teaser \"The becoming begins.\"\n\nOn November 11, 2026 Alibaba posted \"Qwen4 is coming\" and opened Qwen4-Max-Preview, the first Qwen4 model. Per Alibaba Cloud Model Studio documentation (https://www.alibabacloud.com/help/en/model-studio/qwen4-max-preview), the model ID is qwen4-max-preview: a flagship multimodal model accepting text, image and video input, with a 1M-token context window, up to 393,216 output tokens, hybrid thinking controlled by reasoning_effort, function calling, web search, structured output, and OpenAI- and Anthropic-compatible APIs. Critically, it is preview-only and available through the Token Plan subscription only: the documentation states that pay-as-you-go access is not supported, that the preview runs from 10:00 on November 11, 2026 to 24:00 on November 25, 2026 (UTC+8, i.e. 16:00 UTC on November 25), that \"no changes will be made during this period,\" and that the model will be retired after the preview ends. The preview has also been live in the consumer Qwen app / Qwen Studio.\n\nAs of November 13, 2026 Alibaba has published no parameter count, no benchmark scores, no per-token price, and no weights for any Qwen4 model, and has announced no general-availability date. Both Model Studio pricing pages currently list per-token prices for qwen3.8-max (USD 2 / USD 6 per million input / output tokens internationally; CNY 12 / CNY 36 in China) and earlier models, but nothing in the qwen4 family. Leaks reported by TestingCatalog point to a four-model lineup: Qwen4-Max, Qwen4-Plus, Qwen4-Flash and Qwen4-27B. For cadence context, Qwen3.8-Max was officially released on August 3, 2026 and was the first Max-class Qwen whose weights were opened; Qwen3.8-Flash-Next, released alongside it, previewed the Qwen4 architecture (Gated DeltaNet + Gated Attention).\n\nBecause the documentation states that nothing changes during the preview and that the preview model is retired at its end, the earliest plausible non-preview Qwen4 release is at or after 16:00 UTC on November 25, 2026, leaving a short window in which this question can still resolve Yes. External release trackers have floated dates ranging from late November to around December 10, 2026, and Alibaba has confirmed nothing. The distinguishing marker of a real commercial release, as opposed to the preview, is the appearance of published pay-as-you-go per-token prices for a non-preview Qwen4 model ID — which is exactly what the two Model Studio pricing pages record, and which is what this question reads.\n\n`{\"format\": \"llm_question\", \"info\": {\"sdk_version\": \"0.6.1\", \"rating\": {\"quality\": 3, \"ambiguity\": 3, \"resolvability\": 4, \"passes\": true}}}`",
+    "resolution_criteria": "This question resolves Yes if, as of 23:59 UTC on November 27, 2026, Alibaba Cloud Model Studio's model inference pricing documentation lists at least one Qwen4 model with standard pay-as-you-go input and output prices, either on the international documentation (https://www.alibabacloud.com/help/en/model-studio/model-pricing) or on the China documentation (https://help.aliyun.com/en/model-studio/model-pricing). A \"Qwen4 model\" is a Qwen4-series model whose model ID does not contain the string \"preview\" (for example qwen4-max, qwen4-plus, qwen4-flash, or qwen-4-max); a model whose ID contains \"preview\" never counts, even if prices are published for it. Access restricted to the Token Plan subscription, to an invite-only or waitlist scheme, or to the consumer Qwen app does not count as pay-as-you-go API availability. The question resolves No if no such model is listed, unless [credible sources](https://www.metaculus.com/faq/#definitions) report that Alibaba made a non-preview Qwen4 model available on a standard pay-as-you-go API basis before November 28, 2026, in which case it resolves Yes.",
+    "fine_print": "Only Alibaba's own published model IDs count; listings on third-party aggregators or resellers (for example OpenRouter or AIHubMix) do not. A listing in any region or deployment scope counts (for example Singapore, US (Virginia), or China (Beijing)), and the currency in which prices are published (USD or CNY) is irrelevant. A new preview model, an extension of the Qwen4-Max-Preview period, or a dated snapshot of a preview model ID does not count, nor does publication of open weights without a corresponding pay-as-you-go model listing.",
+    "unit": "",
+    "options": null,
+    "scaling": {
+      "range_min": null,
+      "range_max": null,
+      "nominal_min": null,
+      "nominal_max": null,
+      "zero_point": null,
+      "open_upper_bound": false,
+      "open_lower_bound": false,
+      "inbound_outcome_count": null,
+      "continuous_range": null
+    },
+    "open_lower_bound": false,
+    "open_upper_bound": false,
+    "inbound_outcome_count": null,
+    "open_time": "2026-11-16T02:22:39Z",
+    "scheduled_close_time": "2026-11-16T05:22:39Z",
+    "scheduled_resolve_time": "2026-11-28T00:00:00Z",
+    "resolution": null
+  }
+}
