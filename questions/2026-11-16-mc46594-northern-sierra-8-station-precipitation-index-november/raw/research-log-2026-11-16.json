@@ -1,0 +1,27 @@
+{"searches": [
+  {"category": "resolution_source", "query": "WebFetch CDEC QueryDaily 8SI end=2026-11-16", "by": "main", "status": "done", "finding": "RAIN 0.72 on 11/13, 2.15 on 11/14 (+1.43), 2.22 on 11/15, 3.44 on 11/16 (+1.22), fetched 2026-11-16 ~17:10Z"},
+  {"category": "resolution_source", "query": "Northern Sierra 8-station index November 2026 storm rainfall totals", "by": "main", "status": "done", "finding": "CDEC chart 11/15: 2.2 in, 41% of average for date"},
+  {"category": "news", "query": "NWS Sacramento forecast storm this week November 17 2026 Sierra precipitation", "by": "main", "status": "done", "finding": "Strong Wed-Thu storm; 2-4 in mountains/foothills; active into Thanksgiving week"},
+  {"category": "news", "query": "Weather West Swain November 2026 storms California atmospheric river", "by": "main", "status": "done", "finding": "AR sequence Nov 13-16, another AR Wed-Fri; NorCal 3-5 in"},
+  {"category": "upcoming_events", "query": "California storm forecast Thanksgiving week 2026 rain Northern California", "by": "main", "status": "done", "finding": "CPC 8-14 favours above-normal precip Thanksgiving week; another possible storm Tue night-Thu Nov 24-26"},
+  {"category": "consensus", "query": "WPC 7-day QPF Northern California Sierra inches November 16 2026", "by": "main", "status": "done", "finding": "No current WPC map text; CW3E Nov 12 cites 1.5-2.5 in more for N Sierra"},
+  {"category": "consensus", "query": "WebFetch NWS STO AFD 2026-11-16 03:48 PST", "by": "main", "status": "done", "finding": "Today +1.0-1.5 in Sierra; Tue night-Fri morning 2-3.5 in liquid over mountains, slightly decreased north; active pattern returns weekend into Thanksgiving week"},
+  {"category": "base_rate", "query": "8-station index November average accumulation by November 26 historical", "by": "main", "status": "done", "finding": "Nov monthly avg ~5.3-6.3 in; no exact Nov 26 normal found"},
+  {"category": "markets", "query": "Kalshi OR Polymarket California rain November 2026", "by": "main", "status": "done", "finding": "None found: only daily city rain markets"},
+  {"category": "consensus", "query": "CW3E AR outlook November 2026 Northern Sierra", "by": "main", "status": "done", "finding": "Nov 12: 2-4 in N Sierra; AR around Thu 19 Nov 40-60%"},
+  {"category": "disconfirmation", "query": "storm weaker than expected Northern California forecast dry weekend November 21 2026", "by": "main", "status": "done", "finding": "No report of a weakened forecast; KCRA calls Wed storm more potent", "tests": "that the Nov 21-26 period adds ~2 in (active pattern continues) rather than near zero"},
+  {"category": "disconfirmation", "query": "CPC 6-10 day outlook California precipitation November 2026", "by": "main", "status": "done", "finding": "Nov 15 6-10 day discussion fragments ambiguous, possible below-normal signal mentioned; 8-14 favours above normal", "tests": "that the Nov 21-26 period adds ~2 in (active pattern continues) rather than near zero"},
+  {"category": "resolution_source", "query": "Blue Canyon Quincy rainfall totals November 15 16 2026 storm", "by": "main", "status": "done", "finding": "Nothing usable"},
+  {"category": "base_rate", "query": "Northern Sierra 8-station index November 2025 total 7.72 inches", "by": "main", "status": "done", "finding": "Nov 2025 7.7 in vs avg 5.3 (145%)"},
+  {"category": "news", "query": "yubanet weather November 16 2026 Winter Storm Watch Sierra Tuesday Friday", "by": "main", "status": "done", "finding": "Winter Storm Watch N Sierra Tue evening-early Fri, 1-2 ft above 5000 ft"},
+  {"category": "news", "query": "KCRA forecast November 16 2026 Wednesday storm rain totals Sierra", "by": "main", "status": "done", "finding": "Valley 1-2 in, foothills 2-3 in; highest totals so far"},
+  {"category": "news", "query": "Mount Shasta Redding rain forecast this week November 18 19 2026", "by": "main", "status": "done", "finding": "KRCR: inches of rain Redding/Chico Wed-Thu"},
+  {"category": "consensus", "query": "CNRFC precipitation forecast Feather American basins November 2026", "by": "main", "status": "done", "finding": "Basin QPF values not readable"},
+  {"category": "base_rate", "query": "8-station index wettest November record late November storm accumulation inches 2019 2021 2022", "by": "main", "status": "done", "finding": "Nothing usable"},
+  {"category": "upcoming_events", "query": "Sacramento weather outlook Thanksgiving week dry ridge forecast November 2026", "by": "main", "status": "done", "finding": "CPC 8-14 (Nov 14) favours above-normal precip CA Thanksgiving week"}
+],
+ "adjustments": [
+  {"event": "Nov 16 CDEC reading 3.44 in after two storms", "date": "2026-11-16", "effect": "starting point 3.44 instead of 0.72 in the question text", "sources": [1]},
+  {"event": "NWS STO forecast 2-3.5 in liquid over mountains Tue night-Fri", "date": "2026-11-16", "effect": "+2.5 in on the median (range 1.3-3.5)", "sources": [2, 3, 4]},
+  {"event": "CPC 8-14 day outlook favours above-normal precipitation Thanksgiving week", "date": "2026-11-14", "effect": "+2.0 in median for Nov 20-26, wide (0.3-5)", "sources": [5, 6]}
+]}
