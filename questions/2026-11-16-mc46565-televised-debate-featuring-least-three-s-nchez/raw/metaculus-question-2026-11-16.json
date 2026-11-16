@@ -1,0 +1,38 @@
+{
+  "post_id": 46565,
+  "url": "https://www.metaculus.com/questions/46565/",
+  "post_title": "Will a televised debate featuring at least three of Sánchez, Feijóo, Abascal and Colau air on 26 November 2026?",
+  "tournaments": [
+    "minibench"
+  ],
+  "options": null,
+  "question": {
+    "id": 46825,
+    "title": "Will a televised debate featuring at least three of Sánchez, Feijóo, Abascal and Colau air on 26 November 2026?",
+    "type": "binary",
+    "status": "open",
+    "description": "Spain holds an early general election on Sunday 29 November 2026, called after Pedro Sánchez dissolved the Cortes. The official campaign runs from 00:00 on Friday 13 November to 24:00 on Friday 27 November, with Saturday 28 November a reflection day, and the new Cortes is due to be constituted on 23 December; Thursday 26 November is therefore one of the final campaign days on which a prime-time election debate could air.\n\nDebate negotiations are, as of 13 November 2026, largely unresolved. The only confirmed televised debate was a laSexta spokespeople debate on Friday 13 November at 21:30, on the economy and housing, featuring party representatives (not the leaders) from PSOE, PP, Vox and Frente Amplio. On 13 November the Academia de Televisión confirmed that the Sánchez–Feijóo cara a cara will take place on Thursday 19 November (Plató A, Madrid; moderated by María Casado; five thematic blocks; Feijóo opens and Sánchez closes) — it had originally been planned for 16 November but slipped for logistical reasons.\n\nPSOE and PP agreed in the week of 9 November that the Academia de Televisión should organise both that cara a cara and a second, multi-candidate debate (four- or five-way, with an open institutional signal). The PP asked for the multi-candidate encounter to be held on Thursday 26 November, but the Academia's 13 November statement confirmed only the 19 November date and left the second debate's date and conditions open. Separately, RTVE has proposed three debates — a cara a cara (17 November, now superseded), a \"Debate a 8\" with the eight parliamentary spokespeople on 23 November, and a \"Debate a 4\" on Thursday 26 November bringing together the presidential candidates of the four main parties (PSOE, PP, Vox and Frente Amplio) — and filed this plan with the Junta Electoral Central; the PP has resisted RTVE's involvement. Atresmedia has proposed a four-way for Monday 23 November, for which Feijóo and Abascal accepted while the invitation to Sánchez was unresolved, and laSexta Xplica has announced \"Mesa Abierta\" spokespeople panels for Thursdays 19 and 26 November. The 26 November slot is thus contested between RTVE's proposed four-way, the PP-favoured Academia multi-candidate debate and laSexta's spokespeople panel, with nothing confirmed for that date.\n\nMulti-candidate debates in Spain often go ahead without one of the major-party leaders — in December 2015 the PP sent Soraya Sáenz de Santamaría in place of Mariano Rajoy to Atresmedia's four-way, and in April 2019 Pedro Sánchez declined Atresmedia's four-way — and formats and dates are typically settled only days before broadcast. Because this question requires only three of the four named leaders, a multi-candidate debate in which one of them is absent or represented by a stand-in would still resolve YES, while a spokespeople-level panel or a Sánchez–Feijóo-only format would resolve NO.\n\nUseful trackers: https://doblelectura.es/guia/debates-electorales-elecciones-generales-2026 and https://politicheck.es/29n-debates (both log each debate's date, channel, participants and status); RTVE's debate proposal: https://www.rtve.es/rtve/20261005/rtve-propone-grandes-debates-electorales-garantizar-pluralismo-elecciones-generales-2026/17254332.shtml; Academia de Televisión on the 19 November cara a cara: https://www.academiatv.es/la-academia-de-television-punto-de-encuentro-para-los-debates-electorales-2026; El Mundo (13 November) on the still-unset second debate: https://www.elmundo.es/elecciones/elecciones-generales/2026/11/13/6af726a8e4d4d8e5638b4587.html\n\n`{\"format\": \"llm_question\", \"info\": {\"sdk_version\": \"0.6.1\", \"rating\": {\"quality\": 3, \"ambiguity\": 3, \"resolvability\": 4, \"passes\": true}}}`",
+    "resolution_criteria": "This question resolves YES if at least one televised debate is broadcast starting on 26 November 2026 (Spanish local time, CET) in which at least three of the following four people take part in person as debaters: Pedro Sánchez (PSOE), Alberto Núñez Feijóo (PP), Santiago Abascal (Vox) and Ada Colau (Frente Amplio). Only these four named individuals count toward the three; a party spokesperson or substitute taking part in place of one of them neither counts toward the three nor disqualifies the programme. A \"televised debate\" means a programme carried by a Spanish television channel available nationwide, in which the participating candidates appear together in the same studio session and take part in a joint political discussion; appearance only in a separate segment or pre-recorded clip does not count, and the broadcast must begin between 00:00 and 23:59 CET on 26 November 2026. Resolution is based on the record of debates held on 26 November 2026 compiled in the Doble Lectura debates tracker (https://doblelectura.es/guia/debates-electorales-elecciones-generales-2026); if that tracker does not record the relevant programme, the broadcasters' own programming information or [credible sources](https://www.metaculus.com/faq/#definitions) will be used. If no such programme airs starting on that date, the question resolves NO.",
+    "fine_print": "Broadcasters' labelling is not decisive: a programme that meets the definition above counts whatever it is called, and a programme that does not meet it does not count even if billed as a debate.",
+    "unit": "",
+    "options": null,
+    "scaling": {
+      "range_min": null,
+      "range_max": null,
+      "nominal_min": null,
+      "nominal_max": null,
+      "zero_point": null,
+      "open_upper_bound": false,
+      "open_lower_bound": false,
+      "inbound_outcome_count": null,
+      "continuous_range": null
+    },
+    "open_lower_bound": false,
+    "open_upper_bound": false,
+    "inbound_outcome_count": null,
+    "open_time": "2026-11-16T02:16:39Z",
+    "scheduled_close_time": "2026-11-16T05:16:39Z",
+    "scheduled_resolve_time": "2026-11-26T23:59:00Z",
+    "resolution": null
+  }
+}

@@ -1,0 +1,22 @@
+{"searches": [
+  {"category": "resolution_source", "query": "fetch doblelectura.es/guia/debates-electorales-elecciones-generales-2026", "by": "main", "status": "done", "finding": "As of 15 Nov: 26 Nov four-way leader debate with Academia/RTVE listed as 'previsto', unconfirmed, no time; 23 Nov Atresmedia four-way uncertain"},
+  {"category": "resolution_source", "query": "politicheck 29n debates calendario", "by": "main", "status": "done", "finding": "no politicheck page found; Moncloa.com 9 Nov: PP accepted Academia; cara a cara + multi-candidate debate Thu 26"},
+  {"category": "news", "query": "debate a cuatro 26 noviembre Sánchez Feijóo Abascal Colau", "by": "main", "status": "done", "finding": "EFE 14 Nov (negotiating-team sources): four-way Sánchez/Feijóo/Abascal/Colau on Thu 26, Academia organises, same 5 blocks; Podemos pending JEC"},
+  {"category": "news", "query": "Academia de Televisión debate 26 de noviembre confirma candidatos", "by": "main", "status": "done", "finding": "Vozpopuli 15 Nov: Academia organises, RTVE broadcasts; OKDiario: Academia not yet officially confirmed"},
+  {"category": "news", "query": "Junta Electoral Central Podemos debate a cuatro Irene Montero", "by": "main", "status": "done", "finding": "JEC pending on Podemos; PSOE says if widened, Alvise should join too; JEC earlier found 4-way format meets pluralism"},
+  {"category": "news", "query": "Sánchez debate a cuatro Abascal Colau participará", "by": "main", "status": "done", "finding": "PSOE strategy favours a four-way; Sánchez wanted 26 Nov four-way (on TVE) since 22 Oct"},
+  {"category": "markets", "query": "Polymarket Spain general election 2026 debate", "by": "main", "status": "done", "finding": "no market on debates; only PM-winner markets (Feijóo ~85%)"},
+  {"category": "markets", "query": "Kalshi OR Manifold Spain debate Sánchez Feijóo November 2026", "by": "main", "status": "done", "finding": "none found on debates"},
+  {"category": "disconfirmation", "query": "Feijóo no acudirá debate a cuatro 26 noviembre", "by": "main", "status": "done", "finding": "Feijóo confirmed (4 Nov) he'd attend a four-way on 26; earlier rejected RTVE-organised 4-way; dispute was over broadcaster, now resolved via Academia", "tests": "that a multi-candidate debate with >=3 of the four leaders actually airs on 26 Nov rather than slipping/collapsing"},
+  {"category": "disconfirmation", "query": "debate 26 noviembre aplazado PP PSOE desacuerdo cadena", "by": "main", "status": "done", "finding": "no report of postponement; latest is agreement on Academia", "tests": "that the 26 Nov date holds"},
+  {"category": "disconfirmation", "query": "Atresmedia debate 23 noviembre suspendido Academia Televisión", "by": "main", "status": "done", "finding": "Atresmedia moved its own 4-way to 23 Nov to avoid clash with 26; Sánchez unconfirmed for it", "tests": "that a competing 23 Nov debate displaces the 26 Nov one"},
+  {"category": "news", "query": "Colau Frente Amplio debate 26 noviembre confirma", "by": "main", "status": "done", "finding": "Ara: Colau dropped a Cornellà closing act on 26 because of the TVE debate; FA willing to attend all debates"},
+  {"category": "news", "query": "elecciones 29N debates 15 noviembre últimas noticias Academia", "by": "main", "status": "done", "finding": "Academia offered institutional signal (as 2008-2019); PP accepted"},
+  {"category": "schedule", "query": "debate electoral 26N hora RTVE Academia Televisión 22:00", "by": "main", "status": "done", "finding": "no time for 26 yet; 19 and 23 Nov at 22:00 CET"},
+  {"category": "base_rate", "query": "debate a cuatro 2023 RTVE Feijóo atril vacío Sánchez Abascal Díaz", "by": "main", "status": "done", "finding": "2023: RTVE debate held as 3-way (Sánchez, Díaz, Abascal) despite Feijóo boycott"},
+  {"category": "base_rate", "query": "debate a cinco noviembre 2019 Sánchez Casado Rivera Iglesias Abascal audiencia", "by": "main", "status": "done", "finding": "Nov 2019: five-way leader debate held (Academia signal) even in a one-week campaign"}
+],
+ "adjustments": [
+  {"event": "EFE (14 Nov) reports PSOE-PP negotiators fixed the Academia multi-candidate debate for Thu 26 Nov with Sánchez, Feijóo, Abascal, Colau", "date": "2026-11-14", "effect": "+15 pp (from ~70% generic-date prior to ~85%)", "sources": [1, 2, 3, 4]},
+  {"event": "Academia had not officially confirmed date/time as of 15 Nov; cara a cara already slipped 16->19", "date": "2026-11-15", "effect": "-3 pp", "sources": [1, 5]}
+]}

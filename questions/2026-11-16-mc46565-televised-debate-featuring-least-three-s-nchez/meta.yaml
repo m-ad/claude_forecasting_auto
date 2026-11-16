@@ -1,0 +1,47 @@
+slug: 2026-11-16-mc46565-televised-debate-featuring-least-three-s-nchez
+title: Will a televised debate featuring at least three of Sánchez, Feijóo, Abascal and Colau air on 26
+  November 2026?
+source: metaculus
+url: https://www.metaculus.com/questions/46565/
+post_id: 46565
+question_id: 46825
+type: binary
+unit: null
+tags: []
+dates:
+  created: '2026-11-16'
+  opened: '2026-11-16'
+  closes: '2026-11-16'
+  resolves: '2026-11-26'
+status: open
+tournament:
+  slug: minibench
+  mode: one_shot
+  registered: '2026-11-16'
+  opened: '2026-11-16T02:16:39Z'
+  closes: '2026-11-16T05:16:39Z'
+  submitted: '2026-11-16T03:12:30+00:00'
+  submitted_forecast:
+    probability_yes: 0.85
+  comment_posted: true
+  official_score: null
+  missed_window: false
+current:
+  version: 1
+  date: '2026-11-16'
+  median: 0.85
+  iqr:
+  - 0.78
+  - 0.9
+  community:
+    cp: null
+    pro: null
+    gold: null
+    n_forecasters: null
+    as_of: '2026-11-16'
+next_review: null
+tripwires: []
+resolution:
+  outcome: null
+  date: null
+  source: null
