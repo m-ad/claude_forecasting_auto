@@ -1,0 +1,31 @@
+{"searches": [
+  {"category": "resolution_source", "query": "Russell Brand YouTube subscribers socialblade", "by": "main", "status": "done", "finding": "Social Blade snippets undated (6.66M older snapshot); vidIQ snippet -10K/30d undated"},
+  {"category": "resolution_source", "query": "fetch socialblade.com/youtube/handle/russellbrand", "by": "main", "status": "done", "finding": "HTTP 403, fetch failed"},
+  {"category": "resolution_source", "query": "fetch youtube.com/@russellbrand/about", "by": "main", "status": "done", "finding": "page shell only, no count rendered"},
+  {"category": "resolution_source", "query": "fetch vidiq.com/youtube-stats/channel/@russellbrand (daily table)", "by": "main", "status": "done", "finding": "6.62M Oct 18-Nov 1; 6.61M from Nov 2; 6.6M from Nov 11 through Nov 16; views spiked 0.9-4.5M/day Nov 6-13 vs ~0.1-0.3M before"},
+  {"category": "base_rate", "query": "fetch vidiq monthly history Nov 2025-Oct 2026", "by": "main", "status": "done", "finding": "6.74M Nov 2025 -> 6.62M Oct 2026: -10K most months (-20K Jan, Aug), ~-330/day baseline"},
+  {"category": "resolution_source", "query": "fetch hypeauditor channel page", "by": "main", "status": "done", "finding": "403, fetch failed"},
+  {"category": "news", "query": "Russell Brand YouTube channel November 2026", "by": "main", "status": "done", "finding": "only 2023 demonetisation coverage"},
+  {"category": "news", "query": "Russell Brand sentenced Southwark YouTube", "by": "main", "status": "done", "finding": "CPS/Deadline: sentenced 9 Nov 2026 to 10y6m; verdict 5 Nov"},
+  {"category": "news", "query": "Meta disables Russell Brand Instagram Facebook YouTube pressure", "by": "main", "status": "done", "finding": "Mediaweek: Meta disabled Instagram after conviction; MPs press X; no YouTube action reported"},
+  {"category": "news", "query": "Russell Brand new video upload November 2026", "by": "main", "status": "done", "finding": "no confirmed new YouTube upload in Nov 2026"},
+  {"category": "news", "query": "Russell Brand verdict 5 November 2026 YouTube views subscribers", "by": "main", "status": "done", "finding": "NYT/others: 'over 6.6 million subscribers'; no post-verdict tracking"},
+  {"category": "schedule", "query": "Russell Brand appeal conviction sentence", "by": "main", "status": "done", "finding": "TMZ 9 Nov: lawyers planning appeal, not filed; no event in window likely"},
+  {"category": "markets", "query": "Polymarket Kalshi Russell Brand", "by": "main", "status": "done", "finding": "none found"},
+  {"category": "base_rate", "query": "Russell Brand subscribers 6.6 million YouTube", "by": "main", "status": "done", "finding": "6.6M since 2023 per press; no 2026 series"},
+  {"category": "base_rate", "query": "Russell Brand Stay Free subscribers decline 2026", "by": "main", "status": "done", "finding": "nothing new beyond vidIQ"},
+  {"category": "base_rate", "query": "YouTube channel subscriber loss after creator criminal conviction case study", "by": "main", "status": "done", "finding": "Austin Jones channel terminated after conviction (content related to crime); YouTube policy: terminate if content closely related"},
+  {"category": "disconfirmation", "query": "Russell Brand YouTube subscribers surge support Musk conviction", "by": "main", "status": "done", "finding": "Musk/Megyn Kelly defended Brand; no report of subscriber surge", "tests": "the elevated ~1K/day net loss of early November continues so the display drops to 6.59M by 27 Nov"},
+  {"category": "disconfirmation", "query": "YouTube terminate Russell Brand channel after sentencing", "by": "main", "status": "done", "finding": "no termination reported; only 2023 demonetisation", "tests": "the channel stays live and counted (termination freezes last displayed value at 6.6M)"},
+  {"category": "news", "query": "YouTube statement Russell Brand account conviction New York Times", "by": "main", "status": "done", "finding": "nothing beyond 2023 statements"},
+  {"category": "other", "query": "Russell Brand youtube subscribers vidiq hypeauditor", "by": "main", "status": "skipped", "finding": "covered by vidIQ fetch"},
+  {"category": "news", "query": "Russell Brand Musk X support November 2026", "by": "main", "status": "skipped", "finding": "covered by disconfirmation search"},
+  {"category": "news", "query": "Russell Brand YouTube removed demonetised after sentencing", "by": "main", "status": "skipped", "finding": "covered by termination search"},
+  {"category": "base_rate", "query": "Russell Brand YouTube subscriber count history 2025 2026", "by": "main", "status": "skipped", "finding": "covered by vidIQ monthly history"},
+  {"category": "news", "query": "Russell Brand new video upload Rumble November 2026", "by": "main", "status": "skipped", "finding": "covered"},
+  {"category": "schedule", "query": "Russell Brand appeal sentence November 2026", "by": "main", "status": "skipped", "finding": "duplicate of appeal search"}
+],
+ "adjustments": [
+  {"event": "Verdict (5 Nov) and sentencing (9 Nov) news shock: two 10K notches lost in 9 days (Nov 2, Nov 11) vs ~1 per month baseline", "date": "2026-11-11", "effect": "shifts mass from 6.60M to 6.59M: P(<=6.59M) from ~20% (baseline rate) to ~45%", "sources": [1, 3, 4]},
+  {"event": "Termination risk after conviction (Austin Jones precedent; Meta disabled Instagram); termination resolves to last displayed value, likely 6.6M", "date": "2026-11-11", "effect": "+3 pp on 6.60M", "sources": [5, 6]}
+ ]}

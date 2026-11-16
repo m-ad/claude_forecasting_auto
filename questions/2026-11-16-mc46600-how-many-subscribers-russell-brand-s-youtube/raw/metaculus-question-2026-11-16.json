@@ -1,0 +1,53 @@
+{
+  "post_id": 46600,
+  "url": "https://www.metaculus.com/questions/46600/",
+  "post_title": "How many subscribers will Russell Brand's YouTube channel show on 27 November 2026?",
+  "tournaments": [
+    "minibench"
+  ],
+  "options": null,
+  "question": {
+    "id": 46860,
+    "title": "How many subscribers will Russell Brand's YouTube channel show on 27 November 2026?",
+    "type": "discrete",
+    "status": "open",
+    "description": "Russell Brand's YouTube channel (@russellbrand, joined 1 January 2007, ~6,138 videos, ~1.70 billion lifetime views) displayed \"6.6M subscribers\" on 13 November 2026, per the channel page (https://www.youtube.com/@russellbrand/about) and Social Blade (https://socialblade.com/youtube/handle/russellbrand). Because YouTube rounds subscriber counts down to three significant figures, \"6.6M\" means the underlying count lies between 6,600,000 and 6,609,999 — so the public figure moves in notches of 10,000.\n\nRecent trajectory: press reports on 9-11 November 2026 put the channel at 6.61 million subscribers, and by 12 November trackers recorded 6,600,000, i.e. the display lost one 10,000-subscriber notch in mid-November. Trackers disagree on direction: Social Blade reports about -20K subscribers over the last 30 days, ViewsBrain shows -10K over the last 7 days (6,600,000 on 12 November) and youtubers.me shows -2,641 over 7 days, while vidIQ lists \"20K in 28d\" on a possibly different method and HypeAuditor estimates -0.22% growth for November with an estimated 6,615,643 subscribers. At roughly -1,000 to -1,500 net subscribers per day, about 14,000 would be lost between 13 and 27 November — enough to move the display from \"6.6M\" to \"6.59M\" — but that estimate is uncertain and the direction could change.\n\nNews context: on 9 November 2026 Brand, 51, was sentenced at Southwark Crown Court to 10 years and six months in prison (9 years for rape plus concurrent terms for three counts of sexual assault against four women, offences committed 2004-2009); he is serving his sentence at HMP Wandsworth and is on the sex offenders' register for life. On Wednesday 11 November 2026 Meta disabled his Instagram and Facebook accounts. YouTube declined to comment to the New York Times on whether the conviction would affect the status of his YouTube account, which remains live; the company had already cut off advertising income in earlier years, and campaigners have asked other platforms to follow suit. On 12 November Elon Musk publicly backed Brand on X, where Brand has more than 10 million followers, and some of that attention could spill over to YouTube. Brand has posted no new YouTube upload since late October 2026 according to third-party trackers, so subscriber flow is currently driven by news attention rather than new releases. The Metropolitan Police say more people have come forward with allegations since the trial.\n\nFor forecasters: one notch (10,000 subscribers) is roughly one to two weeks of net flow at current rates, and the resolution value is a rounded floor, so the answer hinges on the net subscriber change between mid-November and 27 November 2026.\n\n`{\"format\": \"llm_question\", \"info\": {\"sdk_version\": \"0.6.1\", \"rating\": {\"quality\": 3, \"ambiguity\": 3, \"resolvability\": 4, \"passes\": true}}}`",
+    "resolution_criteria": "This question resolves to the subscriber count displayed on Russell Brand's YouTube channel page (https://www.youtube.com/@russellbrand) as of 12:00 UTC on 27 November 2026, in YouTube's default logged-out English display. YouTube rounds subscriber counts down to three significant figures, so the figure is read at face value and moves in steps of 10,000 at this channel's size: a display of \"6.59M\" resolves as 6,590,000, \"6.6M\" as 6,600,000, and \"6.61M\" as 6,610,000. If no live reading is taken at that moment, the reading is taken from the Wayback Machine capture of the channel page closest to 12:00 UTC on 27 November 2026 (listed at http://web.archive.org/web/2026*/https://www.youtube.com/@russellbrand), and failing that from Social Blade's daily-metrics entry for 27 November 2026 (https://socialblade.com/youtube/handle/russellbrand).",
+    "fine_print": "The reading is the one shown in the channel's \"About\" panel; if the header and the About panel briefly show different rounded figures, the About panel governs. If the channel has been terminated, deleted, or has its subscriber count hidden as of 12:00 UTC on 27 November 2026, this question resolves to the last subscriber count displayed for the channel before its removal, as recorded on Social Blade (https://socialblade.com/youtube/handle/russellbrand), read at face value in the same way; if no such record exists, the question is annulled.",
+    "unit": "subscribers",
+    "options": null,
+    "scaling": {
+      "range_min": 6545000,
+      "range_max": 6675000,
+      "nominal_min": 6550000,
+      "nominal_max": 6670000,
+      "zero_point": null,
+      "open_upper_bound": true,
+      "open_lower_bound": true,
+      "inbound_outcome_count": 13,
+      "continuous_range": [
+        6545000,
+        6555000,
+        6565000,
+        6575000,
+        6585000,
+        6595000,
+        6605000,
+        6615000,
+        6625000,
+        6635000,
+        6645000,
+        6655000,
+        6665000,
+        6675000
+      ]
+    },
+    "open_lower_bound": true,
+    "open_upper_bound": true,
+    "inbound_outcome_count": 13,
+    "open_time": "2026-11-16T21:47:03Z",
+    "scheduled_close_time": "2026-11-17T00:47:03Z",
+    "scheduled_resolve_time": "2026-11-27T12:00:00Z",
+    "resolution": null
+  }
+}

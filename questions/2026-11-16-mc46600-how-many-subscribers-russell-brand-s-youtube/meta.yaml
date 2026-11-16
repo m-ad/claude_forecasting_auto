@@ -1,0 +1,60 @@
+slug: 2026-11-16-mc46600-how-many-subscribers-russell-brand-s-youtube
+title: How many subscribers will Russell Brand's YouTube channel show on 27 November 2026?
+source: metaculus
+url: https://www.metaculus.com/questions/46600/
+post_id: 46600
+question_id: 46860
+type: discrete
+unit: subscribers
+tags: []
+dates:
+  created: '2026-11-16'
+  opened: '2026-11-16'
+  closes: '2026-11-17'
+  resolves: '2026-11-27'
+status: open
+tournament:
+  slug: minibench
+  mode: one_shot
+  registered: '2026-11-16'
+  opened: '2026-11-16T21:47:03Z'
+  closes: '2026-11-17T00:47:03Z'
+  submitted: '2026-11-16T22:12:40+00:00'
+  submitted_forecast:
+    continuous_cdf:
+    - 0.001
+    - 0.004838461636046178
+    - 0.00867699985378467
+    - 0.012575713820612792
+    - 0.06375884615372802
+    - 0.4491063799629286
+    - 0.9095347949956563
+    - 0.9758850345806452
+    - 0.9798075851567767
+    - 0.9836461537097899
+    - 0.9874846153844417
+    - 0.9913230769230766
+    - 0.9951615384615384
+    - 0.999
+  comment_posted: true
+  official_score: null
+  missed_window: false
+current:
+  version: 1
+  date: '2026-11-16'
+  median: 6596000.0
+  iqr:
+  - 6590500.0
+  - 6601000.0
+  community:
+    cp: null
+    pro: null
+    gold: null
+    n_forecasters: null
+    as_of: '2026-11-16'
+next_review: null
+tripwires: []
+resolution:
+  outcome: null
+  date: null
+  source: null
