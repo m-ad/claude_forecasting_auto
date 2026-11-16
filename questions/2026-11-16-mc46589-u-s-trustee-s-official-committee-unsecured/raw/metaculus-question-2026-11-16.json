@@ -1,0 +1,38 @@
+{
+  "post_id": 46589,
+  "url": "https://www.metaculus.com/questions/46589/",
+  "post_title": "Will the U.S. Trustee's official committee of unsecured creditors in The Children's Place Chapter 11 case have seven or more members as of November 27, 2026?",
+  "tournaments": [
+    "minibench"
+  ],
+  "options": null,
+  "question": {
+    "id": 46849,
+    "title": "Will the U.S. Trustee's official committee of unsecured creditors in The Children's Place Chapter 11 case have seven or more members as of November 27, 2026?",
+    "type": "binary",
+    "status": "open",
+    "description": "On November 8, 2026 (the \"Petition Date\"), The Children's Place, Inc. and twelve affiliated entities filed voluntary petitions for relief under chapter 11 of the U.S. Bankruptcy Code in the U.S. Bankruptcy Court for the District of New Jersey. The cases are jointly administered under the lead case In re The Children's Place, Inc., Case No. 26-22682 (SLM), before the Hon. Stacey L. Meisel; the debtor affiliates hold case numbers 26-22683 through 26-22695. The Debtors reported $742.3 million in assets and $881.3 million in liabilities as of August 1, 2026. The claims and noticing agent is Omni Agent Solutions, whose case website (https://cases.omniagentsolutions.com/documents?clientid=3814) hosts the court docket and case documents, and the claims bar date is January 6, 2027.\n\nThe Debtors are winding down and selling. Store closing sales began at all locations on November 6, 2026, two days before the Petition Date, and the Debtors are running a sale process for their business and their Children's Place and Gymboree brands. Bidding procedures and stalking-horse bid protections were approved on November 12, 2026 (Docket No. 97), with a December 9, 2026 bid deadline, a December 11 auction if needed, and a sale hearing on December 15, 2026 at 1:00 p.m. ET; objections to the final first-day orders are due December 8, 2026. Interim DIP financing and cash collateral use were approved on November 10, 2026, funded by the Debtors' existing prepetition secured lenders. A status conference is scheduled for November 23, 2026 at 9:30 a.m. ET.\n\nNo official committee of unsecured creditors has been appointed so far. The interim DIP order (Docket No. 66, filed November 10, 2026) states that the U.S. Trustee for the District of New Jersey \"has not yet appointed an official committee of unsecured creditors in these Cases pursuant to section 1102,\" and the first-day declarations (e.g., Docket Nos. 3, 5, 6 and 12) state that \"no official committees have been appointed or designated.\" No notice of appointment of a committee appears among docket entries through No. 110 (filed November 12, 2026).\n\nThe unsecured creditor body is dominated by trade vendors: the Debtors' consolidated list of the 30 largest unsecured creditors totals $93.9 million of trade debt, with the three largest claims held by Hansae Co Ltd ($15.4 million), J.D. United Trading Corporation Ltd. ($6.7 million) and TNG Investment and Trading Joint Stock Company ($6.2 million). Under 11 U.S.C. § 1102(a)(1) the U.S. Trustee appoints the committee and selects its members, generally drawing on the largest unsecured creditors willing to serve; committees in chapter 11 cases typically run from three to nine members, with five and seven the most common sizes, and the U.S. Trustee's notice of appointment lists them by name on the docket. Committee size matters here because the committee is the main organized voice for trade creditors in an expedited sale and liquidation, and because the interim DIP order sets the challenge period for the Debtors' prepetition liens and DIP stipulations at 60 days after committee formation, or 75 days after entry of the interim order if no committee is formed.\n\nNote that November 26, 2026 is Thanksgiving Day, when the federal courts are closed, so the docket state as of November 27, 2026 will in practice reflect filings made on or before November 25, 2026.\n\n`{\"format\": \"llm_question\", \"info\": {\"sdk_version\": \"0.6.1\", \"rating\": {\"quality\": 3, \"ambiguity\": 3, \"resolvability\": 4, \"passes\": true}}}`",
+    "resolution_criteria": "This question resolves by counting the members named in the most recent notice of appointment of an official committee of unsecured creditors filed by the United States Trustee with a filing date on or before November 27, 2026 on the docket of In re The Children's Place, Inc., et al., Case No. 26-22682 (SLM) (Bankr. D.N.J.). The docket to be used is the case docket published by the Debtors' claims and noticing agent, Omni Agent Solutions, at https://cases.omniagentsolutions.com/documents?clientid=3814. The question resolves YES if that notice names seven or more committee members, and NO if it names six or fewer. If no such notice has a filing date of November 27, 2026 or earlier, the question resolves NO. If that docket is unavailable or incomplete, the court's own docket (via PACER) or [credible sources](https://www.metaculus.com/faq/#definitions) will be used instead.",
+    "fine_print": "Professionals, counsel, financial advisors and other non-member parties named in the notice do not count as members; only entities designated as members of the committee count. Whether the November 27, 2026 cutoff is met is determined by the filing date shown on the docket entry, not by the date the entry was entered on the docket or first displayed online.",
+    "unit": "",
+    "options": null,
+    "scaling": {
+      "range_min": null,
+      "range_max": null,
+      "nominal_min": null,
+      "nominal_max": null,
+      "zero_point": null,
+      "open_upper_bound": false,
+      "open_lower_bound": false,
+      "inbound_outcome_count": null,
+      "continuous_range": null
+    },
+    "open_lower_bound": false,
+    "open_upper_bound": false,
+    "inbound_outcome_count": null,
+    "open_time": "2026-11-16T15:13:28Z",
+    "scheduled_close_time": "2026-11-16T18:13:28Z",
+    "scheduled_resolve_time": "2026-11-27T23:59:00Z",
+    "resolution": null
+  }
+}

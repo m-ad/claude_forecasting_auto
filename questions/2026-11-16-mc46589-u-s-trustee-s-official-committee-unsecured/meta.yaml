@@ -1,0 +1,47 @@
+slug: 2026-11-16-mc46589-u-s-trustee-s-official-committee-unsecured
+title: Will the U.S. Trustee's official committee of unsecured creditors in The Children's Place Chapter
+  11 case have seven or more members as of November 27, 2026?
+source: metaculus
+url: https://www.metaculus.com/questions/46589/
+post_id: 46589
+question_id: 46849
+type: binary
+unit: null
+tags: []
+dates:
+  created: '2026-11-16'
+  opened: '2026-11-16'
+  closes: '2026-11-16'
+  resolves: '2026-11-27'
+status: open
+tournament:
+  slug: minibench
+  mode: one_shot
+  registered: '2026-11-16'
+  opened: '2026-11-16T15:13:28Z'
+  closes: '2026-11-16T18:13:28Z'
+  submitted: '2026-11-16T16:12:08+00:00'
+  submitted_forecast:
+    probability_yes: 0.41
+  comment_posted: true
+  official_score: null
+  missed_window: false
+current:
+  version: 1
+  date: '2026-11-16'
+  median: 0.41
+  iqr:
+  - 0.31
+  - 0.5
+  community:
+    cp: null
+    pro: null
+    gold: null
+    n_forecasters: null
+    as_of: '2026-11-16'
+next_review: null
+tripwires: []
+resolution:
+  outcome: null
+  date: null
+  source: null
