@@ -1,0 +1,22 @@
+{"searches": [
+  {"category": "resolution_source", "query": "WebFetch https://www.ndbc.noaa.gov/data/realtime2/46026.txt (offsets 0, 100000, 300000)", "by": "main", "status": "done", "finding": "Daily max WVHT Nov 1-16 2026: 1.5,1.8,2.7,2.9,2.5,3.2,3.4,3.2,4.4,3.1,2.9,4.0,4.5,7.0,4.4,6.6; Oct 17-24: 1.5,2.2,2.2,1.9,2.0,1.5,2.4,2.6"},
+  {"category": "resolution_source", "query": "NDBC 46026 significant wave height November average climatology San Francisco buoy", "by": "main", "status": "done", "finding": "No monthly climatology numbers; NDBC climatic summary PDF exists but not readable"},
+  {"category": "news", "query": "San Francisco surf forecast swell late November 2026", "by": "main", "status": "done", "finding": "Only early-Nov 2026 items (SF Standard Nov 6: 12-16 ft breakers); nothing for Nov 26"},
+  {"category": "news", "query": "NWS San Francisco coastal waters forecast swell November 2026", "by": "main", "status": "done", "finding": "Nothing current beyond early-Nov beach hazard statements"},
+  {"category": "news", "query": "Thanksgiving week 2026 Bay Area storm forecast rain", "by": "main", "status": "done", "finding": "No 2026 Thanksgiving forecast found"},
+  {"category": "markets", "query": "Kalshi Polymarket wave height buoy market", "by": "main", "status": "done", "finding": "No wave-height market exists"},
+  {"category": "base_rate", "query": "NDBC 46026 climatology significant wave height November", "by": "scout-1", "status": "done", "finding": "NDBC historical/climatic files 403/404; no percentiles retrieved"},
+  {"category": "base_rate", "query": "WebFetch NDBC historical 46026h2023 / climatic 46026.pdf", "by": "scout-1", "status": "done", "finding": "fetch failed (403 / empty)"},
+  {"category": "upcoming_events", "query": "North Pacific swell forecast Thanksgiving 2026 Northern California surf", "by": "scout-2", "status": "done", "finding": "No Nov 24-27 swell forecast found"},
+  {"category": "upcoming_events", "query": "WebFetch NWS MTR Area Forecast Discussion 2026-11-16", "by": "scout-2", "status": "done", "finding": "AFD 10:24 PST Nov 16: swells 12-16 ft at 14-16 s; larger swells by Wed Nov 18; rain system from Sat Nov 21; below-normal temps extended"},
+  {"category": "consensus", "query": "CPC 8-14 day outlook late November 2026 West Coast storm", "by": "scout-2", "status": "done", "finding": "Current CPC map not retrieved"},
+  {"category": "news", "query": "Ocean Beach San Francisco surf forecast Thanksgiving week swell November 2026", "by": "scout-2", "status": "done", "finding": "Only old/undated archives"},
+  {"category": "consensus", "query": "La Nina winter 2026-27 North Pacific storm track California swell outlook", "by": "main", "status": "done", "finding": "ENSO state is El Nino (NOAA Oct 2026 winter outlook) - favours active Pacific storm track toward California"},
+  {"category": "consensus", "query": "CPC 8-14 day outlook November 24-30 2026 West Coast", "by": "main", "status": "done", "finding": "Not found; CPC Nov 2026 monthly outlook warm, El Nino linked"},
+  {"category": "disconfirmation", "query": "46026 buoy wave height lower than 46013 46012 Bodega offshore comparison", "by": "main", "status": "done", "finding": "No comparison found; but 46026's own 30-day record (Oct 17-Nov 16) shows daily maxima 1.5-7.0 m, so its readings are not systematically damped below the question's climatology", "tests": "that 46026 daily-max WVHT in late November is centred near 2.5-3 m (i.e. not systematically lower than offshore buoys like 46013/46012 that drive the question's climatology)"},
+  {"category": "disconfirmation", "query": "Mavericks big wave swell forecast late November 2026", "by": "main", "status": "done", "finding": "No late-Nov 2026 big-swell forecast found", "tests": "that no major swell event (>4.5 m) is already forecast for Nov 26"},
+  {"category": "schedule", "query": "NDBC 46026 buoy outage 2026", "by": "main", "status": "done", "finding": "Station transmitting; next service Apr 2027; some sensors failed but waves reporting"}
+],
+ "adjustments": [
+  {"event": "Very active early/mid-November 2026 swell pattern at 46026 (daily max >=4 m on 5 of last 8 days) plus El Nino winter and AFD calling for continued swells/rain into Nov 21-22", "date": "2026-11-16", "effect": "+0.2 m on the median, fatter upper tail (p90 to 4.4 m)", "sources": [1, 2, 4]}
+ ]}
