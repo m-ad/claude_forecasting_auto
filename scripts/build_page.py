@@ -490,6 +490,10 @@ body{margin:0;background:var(--bg);color:var(--fg);
 font:15px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
 main{max-width:1180px;margin:0 auto;padding:24px 16px 64px}
 h1{font-size:1.6rem;margin:0 0 4px}h2{font-size:1.15rem;margin:36px 0 10px}
+details>summary{cursor:pointer;list-style:none}details>summary::-webkit-details-marker{display:none}
+details>summary h2{display:inline-block}
+details>summary h2::before{content:"▾ ";color:var(--muted)}
+details:not([open])>summary h2::before{content:"▸ "}
 p.sub,.muted{color:var(--muted)}a{color:var(--accent)}
 .tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:10px;margin-top:18px}
 .tile{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:10px 12px}
@@ -641,7 +645,7 @@ def render_html(
             for v, k in tiles
         ),
         "</div>",
-        "<h2>Leaderboards</h2>",
+        "<details open><summary><h2>Leaderboards</h2></summary>",
     ]
 
     if boards:
@@ -687,7 +691,9 @@ def render_html(
         )
 
     out += [
-        f"<h2>Resolved ({len(resolved)})</h2>",
+        "</details>",
+        # Resolved is the long table; collapsed so the page opens on the short sections.
+        f"<details><summary><h2>Resolved ({len(resolved)})</h2></summary>",
         (
             '<div class="wrap"><table class="sortable"><thead><tr><th>Question</th><th>Tournament</th>'
             "<th>Type</th><th>Forecast</th><th>Outcome</th><th>Resolved</th><th>Brier</th>"
@@ -710,7 +716,11 @@ def render_html(
             f"{_num(sum(r.cost_usd for r in resolved), ',.2f')}"
             f"{_allowance_total(resolved)}</tr></tfoot></table></div>"
         ),
-        f"<h2>Closed, awaiting resolution ({len(closed)})</h2>",
+        "</details>",
+        (
+            "<details open><summary>"
+            f"<h2>Closed, awaiting resolution ({len(closed)})</h2></summary>"
+        ),
         (
             '<div class="wrap"><table class="sortable"><thead><tr><th>Question</th><th>Tournament</th>'
             "<th>Type</th><th>Forecast</th><th>Closed</th><th>Resolves</th>"
@@ -731,6 +741,7 @@ def render_html(
             f"{_num(sum(r.cost_usd for r in closed), ',.2f')}"
             f"{_allowance_total(closed)}</tr></tfoot></table></div>"
         ),
+        "</details>",
         usage.html if usage else "",
         '<ul class="notes">',
         (

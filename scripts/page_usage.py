@@ -589,7 +589,7 @@ def build(
     note = (f"allowance points per API-equivalent dollar: 5-hour window {five:.2f}, "
             f"{five_src}; 7-day window {seven:.2f}, {seven_src}")
     out = [
-        "<h2>Bot usage</h2>",
+        "<details open><summary><h2>Bot usage</h2></summary>",
         ('<p class="muted">Every Claude Code session on a MiniBench question, the windows '
          "of each round's questions, and the subscription allowance, from "
          "<code>ledger/usage.jsonl</code>. Hover a mark for its values; the tables below "
@@ -616,6 +616,7 @@ def build(
         f'<div class="viz">{allowance_chart(records)}</div>',
         "<h3>Per round</h3>",
         _round_table(rows) if rows else '<p class="muted">No round yet.</p>',
+        "</details>",
     ]
     per_slug = slug_usage(sessions, rate)
     return UsageSection("\n".join(out), rows, per_slug, note)
