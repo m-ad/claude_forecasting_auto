@@ -1,0 +1,63 @@
+slug: 2026-11-16-mc46590-president-lee-jae-myung-s-job-approval
+title: What will President Lee Jae-myung's job approval rating be in Gallup Korea's weekly poll released
+  on November 27, 2026?
+source: metaculus
+url: https://www.metaculus.com/questions/46590/
+post_id: 46590
+question_id: 46850
+type: discrete
+unit: '%'
+tags: []
+dates:
+  created: '2026-11-16'
+  opened: '2026-11-16'
+  closes: '2026-11-16'
+  resolves: '2026-11-27'
+status: open
+tournament:
+  slug: minibench
+  mode: one_shot
+  registered: '2026-11-16'
+  opened: '2026-11-16T15:32:20Z'
+  closes: '2026-11-16T18:32:20Z'
+  submitted: '2026-11-16T16:11:54+00:00'
+  submitted_forecast:
+    continuous_cdf:
+    - 0.001
+    - 0.005343068722439857
+    - 0.011757292212662845
+    - 0.024463128357137515
+    - 0.05628119619326365
+    - 0.11206403340537838
+    - 0.19934357526406926
+    - 0.34846186959149034
+    - 0.5645985189400323
+    - 0.7557166985096251
+    - 0.8655860461556208
+    - 0.928901100244099
+    - 0.9702027785357481
+    - 0.9866191306626318
+    - 0.9942548299954131
+    - 0.999
+  comment_posted: true
+  official_score: null
+  missed_window: false
+current:
+  version: 1
+  date: '2026-11-16'
+  median: 39.2
+  iqr:
+  - 38.0
+  - 40.4
+  community:
+    cp: null
+    pro: null
+    gold: null
+    n_forecasters: null
+    as_of: '2026-11-16'
+next_review: null
+tripwires: []
+resolution:
+  outcome: null
+  date: null
+  source: null

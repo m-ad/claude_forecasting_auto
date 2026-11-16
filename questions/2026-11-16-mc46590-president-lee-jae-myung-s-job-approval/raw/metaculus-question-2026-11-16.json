@@ -1,0 +1,55 @@
+{
+  "post_id": 46590,
+  "url": "https://www.metaculus.com/questions/46590/",
+  "post_title": "What will President Lee Jae-myung's job approval rating be in Gallup Korea's weekly poll released on November 27, 2026?",
+  "tournaments": [
+    "minibench"
+  ],
+  "options": null,
+  "question": {
+    "id": 46850,
+    "title": "What will President Lee Jae-myung's job approval rating be in Gallup Korea's weekly poll released on November 27, 2026?",
+    "type": "discrete",
+    "status": "open",
+    "description": "한국갤럽조사연구소 (Gallup Korea) publishes a weekly tracking poll, the 데일리 오피니언 (Daily Opinion), every Friday, with fieldwork Tuesday–Thursday on a random nationwide sample of roughly 1,000 adults (mobile virtual-number sampling, CATI interviews; margin of error about ±3.1 points at 95% confidence). Every weekly report contains the president's job approval (\"대통령 직무 수행 평가\": 긍정 / 부정 / 유보) plus party support, and the reports are archived with publication dates at https://www.gallup.co.kr/gallupdb/report.asp.\n\nStatus as of November 13, 2026: the most recent report (제682호, fieldwork November 10–12, n=1,002) put President Lee Jae-myung's job approval at 39% (down 2 points week-on-week) and disapproval at 50%, with 10% undecided. Party support in that poll: Democratic Party 39%, People Power Party 26%. Recent weekly approval readings: 39% (Oct 13–15), 40% (Oct 20–22), 39% (Oct 27–29), 41% (Nov 3–5), 39% (Nov 10–12). Gallup has described the rating as essentially flat around 40% for the past month, with week-to-week moves of 1–2 points.\n\nContext bearing on the number: disapproval is driven mainly by housing/real-estate policy and economic concerns; the ruling Democratic Party's push to pass housing-supply bills (도시정비법, 도시재정비촉진법, 용산공원특별법) has been blocked by the opposition People Power Party, and the plenary the Democrats sought on November 12 collapsed. On November 6 the Democrats used their majority to pass a special-counsel bill on alleged fabricated indictments after a filibuster. A second live controversy is the Supreme Court's handling of former Prime Minister Han Duck-soo's insurrection appeal (case 2026도7341): the full bench is scheduled to hear the case on November 19, one day before his detention expires on November 20, with no sentencing date set. The Democratic Party has accused Chief Justice Cho Hee-dae of delaying the trial, the Cho Kuk Innovation Party and some Democratic lawmakers have called for his impeachment, and the Democrats have been weighing a parliamentary investigation (국정조사) into him — Gallup's October 23 report (제679호) already included a question on \"대법원장 탄핵\". Han Duck-soo also faces a separate first-instance sentencing on November 30. Separately, markup of the roughly ₩820.9tn 2027 budget is scheduled to begin in the Budget Committee's adjustment subcommittee (예산안조정소위) on November 16 and run through November 27, with the committee's own vote planned for November 30 and a statutory December 2 plenary deadline.\n\nForecasting note: other Korean weekly trackers publish presidential approval figures for overlapping fieldwork periods before Gallup's Friday release, and Gallup reports its own subgroup breakdowns and long-run series; these are the main inputs for forecasting this value.\n\n`{\"format\": \"llm_question\", \"info\": {\"sdk_version\": \"0.6.1\", \"rating\": {\"quality\": 3, \"ambiguity\": 4, \"resolvability\": 4, \"passes\": true}}}`",
+    "resolution_criteria": "This question resolves to the share of respondents saying President 이재명 (Lee Jae-myung) is \"doing a good job\" (긍정 평가 / \"잘하고 있다\") in the 대통령 직무 수행 평가 section of the 한국갤럽 데일리 오피니언 (Gallup Korea Daily Opinion) weekly report published on Friday, November 27, 2026 (KST), i.e. the weekly report listed with that publication date at https://www.gallup.co.kr/gallupdb/report.asp. The resolved value is the nationwide figure reported for all respondents, on Gallup Korea's published integer-percentage scale — e.g., a reported 39% resolves as 39. If Gallup Korea publishes that week's report on November 26, 2026 (KST) instead, that report is used. If no weekly 데일리 오피니언 report is published on either November 26 or November 27, 2026 (KST), the question is annulled.",
+    "fine_print": "If Gallup Korea's website is unavailable, the figure reported for that same release by [credible sources](https://www.metaculus.com/faq/#definitions) is used.",
+    "unit": "%",
+    "options": null,
+    "scaling": {
+      "range_min": 31.5,
+      "range_max": 46.5,
+      "nominal_min": 32,
+      "nominal_max": 46,
+      "zero_point": null,
+      "open_upper_bound": true,
+      "open_lower_bound": true,
+      "inbound_outcome_count": 15,
+      "continuous_range": [
+        31.5,
+        32.5,
+        33.5,
+        34.5,
+        35.5,
+        36.5,
+        37.5,
+        38.5,
+        39.5,
+        40.5,
+        41.5,
+        42.5,
+        43.5,
+        44.5,
+        45.5,
+        46.5
+      ]
+    },
+    "open_lower_bound": true,
+    "open_upper_bound": true,
+    "inbound_outcome_count": 15,
+    "open_time": "2026-11-16T15:32:20Z",
+    "scheduled_close_time": "2026-11-16T18:32:20Z",
+    "scheduled_resolve_time": "2026-11-27T01:00:00Z",
+    "resolution": null
+  }
+}
