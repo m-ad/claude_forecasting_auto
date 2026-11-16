@@ -1,0 +1,43 @@
+{
+  "post_id": 46588,
+  "url": "https://www.metaculus.com/questions/46588/",
+  "post_title": "By 27 November 2026, how many of the two Bundibugyo-specific vaccine candidates (ChAdOx1 BDBV, mRNA-1469) will have been publicly reported as administered to Tumaini trial participants?",
+  "tournaments": [
+    "minibench"
+  ],
+  "options": null,
+  "question": {
+    "id": 46848,
+    "title": "By 27 November 2026, how many of the two Bundibugyo-specific vaccine candidates (ChAdOx1 BDBV, mRNA-1469) will have been publicly reported as administered to Tumaini trial participants?",
+    "type": "discrete",
+    "status": "open",
+    "description": "An outbreak of Ebola disease caused by Bundibugyo virus (BVD) was declared in the Democratic Republic of the Congo on 15 May 2026 and is the largest BVD outbreak on record, with transmission in eight provinces (Ituri, Nord-Kivu, Sud-Kivu, Tshopo, Haut-Uele, Bas-Uele, Sud-Ubangi and Nord-Ubangi) and imported cases in Uganda (where the outbreak has since ended), Kenya and Nigeria. Per the WHO Disease Outbreak News of 6 November 2026, DRC had 10,668 confirmed cases and 5,198 deaths (crude CFR 48.7%) as of 3 November; by 13 November ECDC recorded 11,197 confirmed cases and 5,471 deaths. WHO's Member State briefing of 11 November put the national Rt at 1.25 and projected roughly 1,880 new cases over the following two weeks, i.e. transmission is high and sustained.\n\nThere is no licensed vaccine against Bundibugyo virus. The Tumaini trial (NCT07842107) is a Phase 2/3 randomised, adaptive ring-vaccination platform trial in DRC contacts of confirmed cases, with estimated enrolment of 3,620, primary completion in April 2027 and study completion in June 2027. Its first participant was vaccinated with Ervebo (rVSV-ZEBOV, a Zaire ebolavirus vaccine used off-target) in Bunia, Ituri Province, in late October 2026; as of 11 November WHO reported more than 80 participants, 11 rings and one open site. Two other trials in DRC are unrelated to this question: PARTNERS (INRB/Oxford/WHO, therapeutics such as MBP134 and remdesivir) and EBO-PEP (post-exposure prophylaxis).\n\nOn 4 November 2026 WHO announced that its expert groups, including the Technical Advisory Group on candidate vaccine prioritisation, recommended adding two Bundibugyo-specific candidates to Tumaini: ChAdOx1 BDBV, developed by the University of Oxford with the Serum Institute of India, and Moderna's mRNA-1469. This would be the first time vaccines designed specifically against Bundibugyo virus are tested during an outbreak. Crucially, the recommendation is not an authorisation: WHO stated the candidates would enter the trial only \"following national approvals\", and Gavi reported on 10 November that both still required national approval, with trial results expected in early 2027. WHO has given no start date for dosing with either candidate, and as of mid-November 2026 neither candidate had been reported as given to a Tumaini participant.\n\nSupply is at different stages. According to the TAG-CVP meeting report, roughly 620,000 doses of ChAdOx1 BDBV bulk substance have been manufactured by the Serum Institute of India (with about 3,000 investigational doses noted in pipeline trackers), whereas only about 12,000 vials of mRNA-1469 had been manufactured and still needed filling, with one million doses expected only by the second quarter of 2027. DRC national regulatory clearance, protocol amendment, site readiness (a single site was open as of 11 November) and cold-chain logistics for an mRNA product are therefore the main gating factors for whether either candidate reaches a Tumaini participant — and is publicly reported as having done so — before the end of November 2026. A live tracker of the two candidates' development status is maintained at ebolaintel.com.\n\n`{\"format\": \"llm_question\", \"info\": {\"sdk_version\": \"0.6.1\", \"rating\": {\"quality\": 3, \"ambiguity\": 3, \"resolvability\": 4, \"passes\": true}}}`",
+    "resolution_criteria": "This question resolves to the number (0, 1 or 2) of the two Bundibugyo-specific vaccine candidates for which a source published on or before 27 November 2026, 23:59 UTC reports that at least one dose had been administered to a participant of the Tumaini ring-vaccination trial in the Democratic Republic of the Congo (ClinicalTrials.gov [NCT07842107](https://clinicaltrials.gov/study/NCT07842107)). The two candidates counted are ChAdOx1 BDBV (University of Oxford with the Serum Institute of India) and mRNA-1469 (Moderna); a candidate counts as soon as any such source reports a single dose given to any Tumaini participant, regardless of what is later reported about that participant's immune response or completion of the regimen, and the report need not state the exact dosing date. Ervebo (rVSV-ZEBOV, a Zaire ebolavirus vaccine) does not count, and neither do doses of the two candidates given in any other study, including the PARTNERS and EBO-PEP trials in the DRC. Resolution is based primarily on WHO statements (news releases and Disease Outbreak News), announcements by the trial sponsors and vaccine developers (INRB, Epicentre/MSF, University of Oxford, Serum Institute of India, Moderna, CEPI) and DRC Ministry of Health statements, and secondarily on the investigational-vaccine tracker at [https://ebolaintel.com/vaccines/investigational](https://ebolaintel.com/vaccines/investigational) or [credible sources](https://www.metaculus.com/faq/#definitions).",
+    "fine_print": "A candidate counts only where the source explicitly links the dose to the Tumaini trial (or to NCT07842107); reports of Bundibugyo-specific vaccination in the DRC that do not identify the trial are not sufficient. Only the two named candidates are counted — if a further Bundibugyo-specific candidate is added to Tumaini before the cutoff, it is not counted here. A candidate still counts if its arm is subsequently paused, suspended or closed after at least one dose has been given.",
+    "unit": "candidates",
+    "options": null,
+    "scaling": {
+      "range_min": -0.5,
+      "range_max": 2.5,
+      "nominal_min": 0,
+      "nominal_max": 2,
+      "zero_point": null,
+      "open_upper_bound": false,
+      "open_lower_bound": false,
+      "inbound_outcome_count": 3,
+      "continuous_range": [
+        -0.5,
+        0.5,
+        1.5,
+        2.5
+      ]
+    },
+    "open_lower_bound": false,
+    "open_upper_bound": false,
+    "inbound_outcome_count": 3,
+    "open_time": "2026-11-16T13:45:28Z",
+    "scheduled_close_time": "2026-11-16T16:45:28Z",
+    "scheduled_resolve_time": "2026-11-27T00:00:00Z",
+    "resolution": null
+  }
+}

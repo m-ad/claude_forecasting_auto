@@ -1,0 +1,31 @@
+{"searches": [
+  {"category": "resolution_source", "query": "fetch ebolaintel.com/vaccines/investigational", "by": "main", "status": "done", "finding": "Tracker (updated 12 Nov 2026): no Tumaini doses of either candidate; no approvals; no shipments; no start date"},
+  {"category": "resolution_source", "query": "Tumaini trial Bundibugyo vaccine ChAdOx1 BDBV first dose", "by": "main", "status": "done", "finding": "Only Oxford Phase 1 (24 Jul) first dose; Tumaini first dose 23 Oct was Ervebo"},
+  {"category": "news", "query": "mRNA-1469 Moderna Bundibugyo Congo November 2026", "by": "main", "status": "done", "finding": "Recommendation reported 4-6 Nov; still subject to regulatory approval"},
+  {"category": "news", "query": "Bundibugyo vaccine Tumaini DRC approval candidates November 2026", "by": "main", "status": "done", "finding": "WHO's Meg Doherty (4 Nov briefing): trials could start 'within three to four weeks' once DRC approves -> ~25 Nov-2 Dec"},
+  {"category": "markets", "query": "Manifold OR Polymarket Bundibugyo Ebola vaccine", "by": "main", "status": "done", "finding": "No vaccine-specific market; only Manifold death-toll markets"},
+  {"category": "news", "query": "Gavi Bundibugyo vaccine candidates national approval 10 November", "by": "main", "status": "done", "finding": "Gavi 10 Nov: both 'will enter the trial following national approvals'; none reported"},
+  {"category": "resolution_source", "query": "fetch healthpolicy-watch WHO greenlights two candidates", "by": "main", "status": "done", "finding": "Dated 5 Nov 2026; 'three to four weeks' after DRC approval; DRC approval not yet issued"},
+  {"category": "news", "query": "\"Tumaini\" Ebola vaccine trial Bunia rings November 2026", "by": "main", "status": "done", "finding": "Coverage through early Nov; Ervebo only; ~4 rings (MHE 5 Nov)"},
+  {"category": "disconfirmation", "query": "ACOREP DRC regulator approves Bundibugyo vaccine Oxford Moderna trial", "by": "main", "status": "done", "finding": "No ACOREP approval reported; CEPI: candidates to enter 'shortly'", "tests": "assumption that neither candidate is dosed in Tumaini and reported by 27 Nov (approval + amendment + shipping lag)"},
+  {"category": "news", "query": "Ebola Bundibugyo vaccine news Congo November 15 2026", "by": "main", "status": "done", "finding": "Africa CDC 15 Nov: outbreak not under control; MSF 10 Nov: BDBV-specific vaccines 'unlikely to be available in the near term'; no deployment reported"},
+  {"category": "base_rate", "query": "Serum Institute ChAdOx1 Bundibugyo doses fill finish shipment trial DRC", "by": "main", "status": "done", "finding": "~620k doses stockpiled at SII, ~3,000-4,000 investigational doses for Phase 1; no DRC shipment reported"},
+  {"category": "news", "query": "ChAdOx1 BDBV Bundibugyo vaccine DRC approval", "by": "scout-1", "status": "done", "finding": "Nothing after 10 Nov; inclusion subject to national regulatory approvals"},
+  {"category": "news", "query": "Tumaini trial Bundibugyo Ebola vaccine doses arrived Congo November 2026", "by": "scout-1", "status": "done", "finding": "No BDBV-specific shipment to DRC reported"},
+  {"category": "news", "query": "Moderna mRNA-1469 Bundibugyo WHO recommends DRC national approval", "by": "scout-1", "status": "done", "finding": "Pharmaphorum: approvals expected 'quite quickly'"},
+  {"category": "news", "query": "Serum Institute Oxford Bundibugyo vaccine shipped Congo ring vaccination start", "by": "scout-1", "status": "done", "finding": "Nothing relevant"},
+  {"category": "base_rate", "query": "Uganda Sudan virus 2025 ring vaccination trial TOKOMEZA first participant vaccinated days after outbreak declared", "by": "scout-2", "status": "done", "finding": "Declared 30 Jan 2025, first dose 3 Feb (4 days) with pre-positioned doses and protocol"},
+  {"category": "base_rate", "query": "Rwanda Marburg Sabin vaccine trial first doses October 2024 doses arrived Kigali", "by": "scout-2", "status": "done", "finding": "Doses arrived day 9, first dose ~day 10"},
+  {"category": "base_rate", "query": "Uganda Sudan ebolavirus 2022 vaccine candidate doses arrived January 2023 outbreak declared September 20 WHO", "by": "scout-2", "status": "done", "finding": "Doses arrived day 79; no participant ever dosed"},
+  {"category": "base_rate", "query": "Ebola ca Suffit Guinea ring vaccination trial first vaccinated March 23 2015 timeline", "by": "scout-2", "status": "done", "finding": "Pilot began 23 Mar 2015, months after design decision"},
+  {"category": "disconfirmation", "query": "Tumaini trial Bundibugyo vaccine ChAdOx1 BDBV mRNA-1469 DRC first participants vaccinated", "by": "scout-3", "status": "done", "finding": "No report of dosing", "tests": "assumption that neither candidate dosed within window"},
+  {"category": "disconfirmation", "query": "Bundibugyo ebola vaccine trial DRC NCT07842107 November 2026", "by": "scout-3", "status": "done", "finding": "Nothing new", "tests": "assumption that neither candidate dosed within window"},
+  {"category": "schedule", "query": "WHO Disease Outbreak News Bundibugyo virus disease DRC November 2026 vaccine", "by": "scout-3", "status": "done", "finding": "Latest DON found mentions Tumaini launch only"},
+  {"category": "disconfirmation", "query": "Bundibugyo vaccine candidates join Tumaini trial 'next week' OR 'coming days' DRC approval Moderna Oxford doses shipped", "by": "scout-3", "status": "done", "finding": "No imminent-start language found", "tests": "assumption that neither candidate dosed within window"},
+  {"category": "news", "query": "DRC ACOREP ethics approval Bundibugyo vaccine candidate", "by": "scout-1", "status": "skipped", "finding": ""},
+  {"category": "base_rate", "query": "Marburg Rwanda Sabin vaccine trial time to first dose 2024", "by": "scout-2", "status": "skipped", "finding": "covered by the Rwanda query above"}
+],
+ "adjustments": [
+  {"event": "WHO's Meg Doherty says trials of the two candidates could start within 3-4 weeks of the 4 Nov briefing, once DRC approves", "date": "2026-11-04", "effect": "+10 pp on P(>=1) vs a ~10% no-news prior for 11-day windows", "sources": [3]},
+  {"event": "No DRC approval, shipment or start date reported as of 10-12 Nov (Gavi, tracker, MSF 'not near term')", "date": "2026-11-12", "effect": "-5 pp on P(>=1)", "sources": [1, 4, 5]}
+]}
