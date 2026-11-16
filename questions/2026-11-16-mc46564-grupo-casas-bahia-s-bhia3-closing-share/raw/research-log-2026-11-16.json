@@ -1,0 +1,22 @@
+{"searches": [
+  {"category": "resolution_source", "query": "BHIA3 cotação Casas Bahia ações novembro 2026", "by": "main", "status": "done", "finding": "B3 penny-stock alert: below R$1 since 21 Jul, deadline 1 Mar 2027 to fix; no Nov quotes in snippets"},
+  {"category": "resolution_source", "query": "WebFetch finance.yahoo.com/quote/BHIA3.SA/history (fetch, not search)", "by": "main", "status": "skipped", "finding": "fetch, not a search: Yahoo close 13 Nov 2026 = 0.68; 0.67-0.72 band since 30 Oct; Oct 23 1.44 -> Oct 29 0.64"},
+  {"category": "news", "query": "Casas Bahia BHIA3 ações semana 13 novembro", "by": "main", "status": "done", "finding": "Q3 results postponed to 10 Dec; 10 Nov CVM response denies store-closure decision"},
+  {"category": "base_rate", "query": "Casas Bahia ações mínima R$ 0,34 recuperação judicial disparam", "by": "main", "status": "done", "finding": "Aug 2026: -30%+ on RJ filing (low 0.29 on 28 Aug), +40-65% on 31 Aug stay ruling: 20-60% day moves on court news"},
+  {"category": "markets", "query": "Polymarket OR Kalshi OR Manifold Casas Bahia", "by": "main", "status": "done", "finding": "none found; no listed BHIA3 options either"},
+  {"category": "disconfirmation", "query": "Casas Bahia grupamento de ações assembleia 2026 reenquadramento B3", "by": "main", "status": "done", "finding": "no 2026 grupamento proposal or AGE call found; last grupamento 25:1 in 2023/24; company to act by 1 Mar 2027", "tests": "no share-count-changing action (reverse split) takes effect before 27 Nov, so the quoted price stays continuous with R$0.68"},
+  {"category": "disconfirmation", "query": "BHIA3 ações despencam outubro 2026 deferimento recuperação judicial", "by": "main", "status": "done", "finding": "nothing dated Oct 2026 explaining the late-Oct crash; 21 Oct processing approval confirmed", "tests": "calm early-Nov regime (~2.5% daily sd) persists; I blend in a high-vol regime"},
+  {"category": "news", "query": "Casas Bahia Black Friday 2026 vendas", "by": "main", "status": "done", "finding": "no 2026 Black Friday data; 27 Nov is Black Friday itself"},
+  {"category": "news", "query": "Casas Bahia recuperação judicial novembro 2026", "by": "scout-1", "status": "done", "finding": "no grupamento, capital increase, conversion or suspension announced since 1 Nov; plan due ~20 Dec"},
+  {"category": "news", "query": "Casas Bahia BHIA3 credores plano grupamento ações", "by": "scout-1", "status": "done", "finding": "no plan filing / creditor assembly in Nov; Veja: Oct revenue -60% y/y"},
+  {"category": "news", "query": "Casas Bahia CVM ofício balanço terceiro trimestre adiado 10 de dezembro", "by": "scout-1", "status": "done", "finding": "CVM ofício 9 Nov; company reply 10-11 Nov; Q3 on 10 Dec"},
+  {"category": "resolution_source", "query": "BHIA3 Casas Bahia ação fecha cotação 13 de novembro 2026", "by": "scout-2", "status": "done", "finding": "Yahoo history fetched: 13 Nov 0.68; sd of daily returns ~2.5% last 9 sessions, 12-15% last 25"},
+  {"category": "news", "query": "Casas Bahia BHIA3 recuperação judicial novembro 2026", "by": "scout-3", "status": "done", "finding": "stay period to ~15 Feb 2027; processing could in theory be revoked (low-prob tail)"},
+  {"category": "disconfirmation", "query": "BHIA3 ações disparam OR despencam plano recuperação credores grupamento", "by": "scout-3", "status": "done", "finding": "no 2026 grupamento; +-20-40% days on court news", "tests": "random walk with ~5% daily vol and no jump catalyst before 27 Nov"},
+  {"category": "upcoming_events", "query": "BHIA3 cotação Casas Bahia ações hoje novembro assembleia credores plano prazo apresentação", "by": "scout-3", "status": "done", "finding": "no creditor assembly or plan filing date inside window"},
+  {"category": "base_rate", "query": "Americanas AMER3 ações recuperação judicial 2023 queda alta semanas após pedido grupamento", "by": "scout-3", "status": "done", "finding": "AMER3 drifted down heavily through RJ with sharp one-day jumps"}
+],
+ "adjustments": [
+  {"event": "Distressed RJ equity with late-Oct crash and heavy-tailed history (Aug +60% day, Oct -37% in one session)", "date": "2026-10-26", "effect": "tails widened: p5 0.50 / p95 0.90 vs ~0.58/0.80 from Nov-only vol", "sources": [1, 3, 4]},
+  {"event": "Negative news flow (Oct revenue -60% y/y report, Q3 postponed) and equity last in line before a dilutive plan", "date": "2026-11-06", "effect": "-0.005 on the median (0.68 -> 0.675)", "sources": [2, 5]}
+]}
