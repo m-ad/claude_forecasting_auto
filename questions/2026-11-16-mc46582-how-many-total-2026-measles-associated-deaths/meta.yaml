@@ -1,0 +1,57 @@
+slug: 2026-11-16-mc46582-how-many-total-2026-measles-associated-deaths
+title: How many total 2026 measles-associated deaths will CDC's measles data page report as of November
+  26, 2026?
+source: metaculus
+url: https://www.metaculus.com/questions/46582/
+post_id: 46582
+question_id: 46842
+type: discrete
+unit: deaths
+tags: []
+dates:
+  created: '2026-11-16'
+  opened: '2026-11-16'
+  closes: '2026-11-16'
+  resolves: '2026-11-27'
+status: open
+tournament:
+  slug: minibench
+  mode: one_shot
+  registered: '2026-11-16'
+  opened: '2026-11-16T09:38:14Z'
+  closes: '2026-11-16T12:38:14Z'
+  submitted: '2026-11-16T10:12:17+00:00'
+  submitted_forecast:
+    continuous_cdf:
+    - 0.001
+    - 0.009223303483110897
+    - 0.048592284406605075
+    - 0.19541414837726245
+    - 0.42682977914885867
+    - 0.6538816107339324
+    - 0.8079994605125929
+    - 0.8988505679304061
+    - 0.9460760450188685
+    - 0.9798554839235433
+  comment_posted: true
+  official_score: null
+  missed_window: false
+current:
+  version: 1
+  date: '2026-11-16'
+  median: 7.8
+  iqr:
+  - 6.8
+  - 9.0
+  community:
+    cp: null
+    pro: null
+    gold: null
+    n_forecasters: null
+    as_of: '2026-11-16'
+next_review: null
+tripwires: []
+resolution:
+  outcome: null
+  date: null
+  source: null

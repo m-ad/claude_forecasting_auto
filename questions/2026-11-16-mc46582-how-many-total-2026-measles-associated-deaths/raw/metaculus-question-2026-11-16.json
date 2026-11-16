@@ -1,0 +1,49 @@
+{
+  "post_id": 46582,
+  "url": "https://www.metaculus.com/questions/46582/",
+  "post_title": "How many total 2026 measles-associated deaths will CDC's measles data page report as of November 26, 2026?",
+  "tournaments": [
+    "minibench"
+  ],
+  "options": null,
+  "question": {
+    "id": 46842,
+    "title": "How many total 2026 measles-associated deaths will CDC's measles data page report as of November 26, 2026?",
+    "type": "discrete",
+    "status": "open",
+    "description": "The CDC's \"Measles Cases and Outbreaks\" page is the agency's official national dashboard for the 2026 US measles outbreak, the largest in decades: the page reported 5,412 confirmed cases as of November 12, 2026, against 2,289 confirmed cases for all of 2025. The page is refreshed roughly weekly and states that its data reflect confirmed measles cases reported to CDC as of 12:00PM on Thursday.\n\nIts \"U.S. Deaths\" table reports a running total of measles-associated deaths, with a footnote stating: \"This number is subject to change; CDC will update its reporting as additional information becomes available and relevant reviews are completed.\" The 2026 figure has moved repeatedly: 1 (page version of Sept 24, 2026), 3 (version of Oct 30, data as of Oct 29), 4 (version of Nov 6, data as of Nov 5), and 6 (data as of Nov 12). For comparison, the same table shows 3 total deaths for all of 2025.\n\nOn November 12, 2026, Reuters and The Guardian reported that the CDC's website listed six measles-related deaths in 2026 — double the 2025 toll. Other tallies are higher: AAP Red Book Online (Nov 9, 2026) noted that the Pennsylvania Department of Health reported 6 confirmed measles-associated deaths in the state in 2026 and the New York State Department of Health reported 1, while CIDRAP has reported at least eight US measles deaths this year. International reporting lags further: PAHO's measles situation report #15 listed 3 US deaths through epidemiological week 43 (ending October 31, 2026). This spread means CDC's figure may rise as pending death reviews are completed, and may also be revised downward if deaths are reclassified.\n\nTiming matters for the resolution window: Thanksgiving in the United States falls on November 26, 2026, so the weekly CDC refresh due that week may be delayed, and the page at the end of November 26, 2026 may still reflect the refresh published around November 19–20. Forecasters may find it useful to track state health department death tallies, CIDRAP and PAHO reporting, and news coverage of pending CDC death reviews. Resolution rests solely on the CDC page's own reported total, not on state or media counts.\n\n`{\"format\": \"llm_question\", \"info\": {\"sdk_version\": \"0.6.1\", \"rating\": {\"quality\": 3, \"ambiguity\": 4, \"resolvability\": 4, \"passes\": true}}}`",
+    "resolution_criteria": "This question resolves based on the number of measles-associated deaths reported for 2026 in the \"U.S. Deaths\" table of the CDC's \"Measles Cases and Outbreaks\" page — specifically the value in the \"Total Deaths\" row under the \"2026\" column — as that page appeared at 23:59 UTC on November 26, 2026 (https://www.cdc.gov/measles/data-research/index.html). The number displayed on the page at that time is the resolved value (for example, a displayed total of 8 resolves as 8). If the page layout has changed, the total number of 2026 measles-associated deaths stated anywhere on that page at that time applies. Figures published or revised after 23:59 UTC on November 26, 2026 do not count.",
+    "fine_print": "If the live page no longer shows the version that was in effect at 23:59 UTC on November 26, 2026, that version will be identified from its \"Updated on\" date or, failing that, from the Internet Archive capture of the page closest to that time. If the page or the figure is unavailable, CDC's reported total as described by [credible sources](https://www.metaculus.com/faq/#definitions) will be used.",
+    "unit": "deaths",
+    "options": null,
+    "scaling": {
+      "range_min": 3.5,
+      "range_max": 12.5,
+      "nominal_min": 4,
+      "nominal_max": 12,
+      "zero_point": null,
+      "open_upper_bound": true,
+      "open_lower_bound": true,
+      "inbound_outcome_count": 9,
+      "continuous_range": [
+        3.5,
+        4.5,
+        5.5,
+        6.5,
+        7.5,
+        8.5,
+        9.5,
+        10.5,
+        11.5,
+        12.5
+      ]
+    },
+    "open_lower_bound": true,
+    "open_upper_bound": true,
+    "inbound_outcome_count": 9,
+    "open_time": "2026-11-16T09:38:14Z",
+    "scheduled_close_time": "2026-11-16T12:38:14Z",
+    "scheduled_resolve_time": "2026-11-27T00:00:00Z",
+    "resolution": null
+  }
+}

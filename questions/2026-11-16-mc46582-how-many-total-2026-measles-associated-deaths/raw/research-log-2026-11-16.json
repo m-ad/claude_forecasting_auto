@@ -1,0 +1,22 @@
+{"searches": [
+  {"category": "resolution_source", "query": "WebFetch https://www.cdc.gov/measles/data-research/index.html", "by": "main", "status": "done", "finding": "2026 Total Deaths 6*, updated Nov 13 2026, data as of Nov 12; 5,412 cases"},
+  {"category": "resolution_source", "query": "CDC measles cases and outbreaks 2026 deaths", "by": "main", "status": "done", "finding": "CDC 4 deaths as of Nov 5, 6 as of Nov 12 (Reuters); CDC switched to NCHS mortality data"},
+  {"category": "news", "query": "Pennsylvania measles deaths 2026", "by": "main", "status": "done", "finding": "PA DOH 7th death Nov 13 (Montour); 6th Nov 4; 1,542 cases"},
+  {"category": "news", "query": "CIDRAP measles deaths US 2026", "by": "main", "status": "done", "finding": "States report 10 deaths (PA 7, WI 2, NY 1) vs CDC 6"},
+  {"category": "news", "query": "Wisconsin measles death 2026", "by": "main", "status": "done", "finding": "WI deaths Nov 5 (infant) and Nov 13 (Grant County child)"},
+  {"category": "base_rate", "query": "CDC measles deaths National Center for Health Statistics switch lag", "by": "main", "status": "done", "finding": "CDC adds deaths only after NCHS verifies measles as underlying cause; lag vs states 2-4 for months"},
+  {"category": "markets", "query": "Polymarket Kalshi measles deaths 2026", "by": "main", "status": "done", "finding": "Only case-count markets; no death market found"},
+  {"category": "news", "query": "measles death November 2026", "by": "main", "status": "done", "finding": "NY death Nov 2, WI Nov 5, PA+WI Nov 13; 10 total state-reported"},
+  {"category": "schedule", "query": "CDC measles update Thanksgiving week schedule Wednesday", "by": "main", "status": "done", "finding": "No announced holiday schedule; weekly, Thursday-noon data; next refresh ~Nov 19-20, Thanksgiving week uncertain"},
+  {"category": "other", "query": "CDC removed Pennsylvania measles deaths Kennedy questioned", "by": "main", "status": "done", "finding": "Aug 2026 two Lancaster deaths removed from CDC tally at Kennedy's request"},
+  {"category": "base_rate", "query": "CDC measles deaths 2025 total three timeline added", "by": "main", "status": "done", "finding": "2025: 3 deaths; 2026 CDC path 1 (late Sep) -> 2 (Sep 29) -> 3 (Oct 29) -> 4 (Nov 5) -> 6 (Nov 12)"},
+  {"category": "news", "query": "measles deaths under investigation pending review November 15 2026", "by": "main", "status": "done", "finding": "CDC provisional 6 vs states 10; no named pending reviews"},
+  {"category": "markets", "query": "Kalshi measles contract deaths CDC settlement", "by": "main", "status": "done", "finding": "None found for deaths"},
+  {"category": "other", "query": "South Carolina Utah Texas measles death 2026", "by": "main", "status": "done", "finding": "SC outbreak no deaths; Utah conflicting/no confirmed 2026 deaths in national tallies"},
+  {"category": "disconfirmation", "query": "measles death reclassified not caused by measles CDC 2026", "by": "main", "status": "done", "finding": "No reclassification found; disputed PA deaths remain the main gap; CDC adds slowly", "tests": "that CDC's count will rise above 6 by Nov 26 toward the state tallies (10 state-reported)"},
+  {"category": "disconfirmation", "query": "CDC measles page not updated delayed November 2026", "by": "main", "status": "done", "finding": "Aug 28 update was delayed once; no November delay found", "tests": "that CDC will publish at least one more update before Nov 26"},
+  {"category": "other", "query": "CDC measles deaths six which states included Pennsylvania Lancaster excluded November 13", "by": "main", "status": "done", "finding": "CDC does not name states for its deaths"}
+],
+ "adjustments": [
+  {"event": "Four state-reported deaths (incl. two announced Nov 13) not yet in CDC tally; CDC added +1 and +2 in last two weekly updates", "date": "2026-11-13", "effect": "median from 6 (last value) to ~7.8", "sources": [1, 2, 3, 4]}
+ ]}
