@@ -1,0 +1,38 @@
+{
+  "post_id": 46574,
+  "url": "https://www.metaculus.com/questions/46574/",
+  "post_title": "Will Lebanon's cabinet refer the Dahr al-Baidar explosives case to the Judicial Council before November 28, 2026?",
+  "tournaments": [
+    "minibench"
+  ],
+  "options": null,
+  "question": {
+    "id": 46834,
+    "title": "Will Lebanon's cabinet refer the Dahr al-Baidar explosives case to the Judicial Council before November 28, 2026?",
+    "type": "binary",
+    "status": "open",
+    "description": "**The case.** On October 5, 2026, Lebanon's Internal Security Forces stopped a vehicle at the Dahr al-Baidar checkpoint on the Beirut–Bekaa highway carrying nearly 800 kg (reported as 780 kg) of explosives and related material, including roughly 250 kg of TNT, 250 kg of C-4 and 281 kg of PETN, according to judicial officials. Two Hezbollah members travelling with the truck were arrested. The seizure became one of Lebanon's most politically charged files, treated by the opposition as a test of whether the state will hold Hezbollah accountable after the 2024 war and the subsequent disarmament framework.\n\n**Judicial track.** On October 30, the government commissioner to the military court, Judge Claude Ghanem, charged 13 people — mostly described as Hezbollah members, some under aliases — with possession of explosives, membership in an illegal armed organization and activity endangering state security. The file was then forwarded to First Investigative Judge Ghada Abu Alwan, and proceedings are under way before the military judiciary.\n\n**The referral fight.** Justice Minister Adel Nassar asked the cabinet in late October to refer the Dahr al-Baidar case — and explosives seized in the al-Qasr area — to the Judicial Council (al-Majlis al-'Adli), the country's highest criminal court for state-security cases. The cabinet discussed the request at its Thursday, October 22 session and postponed a decision. The four Lebanese Forces ministers walked out of that session and then boycotted the October 29 session, saying they will stay away from cabinet meetings until the case is referred. Hezbollah and its allies oppose the referral, which remains an open subject of confrontation. As of mid-November 2026 the case has still not been referred to the Judicial Council.\n\n**Status quo as of November 13, 2026.** On November 13, MTV reported that President Joseph Aoun and Prime Minister Nawaf Salam \"have reached a conclusion that they should soon place the issue of referring the Dahr al-Baidar case to the Judicial Council on the agenda of an upcoming cabinet session.\" The same day the cabinet held a 3:30 pm session at the Government Palace devoted to the electricity file, so no referral decision was taken then. The Ministry of Justice's referral request has now been pending before the cabinet for roughly three weeks, through repeated deferrals.\n\n**Cabinet timing.** Cabinet sessions are typically held on Thursday or Friday afternoons and are often announced only days in advance; the November 5 session was postponed by a week because of the energy minister's travel, and the November 13 session was called at short notice. Under the usual weekly cadence, roughly two cabinet sessions (around November 20 and November 27) can be expected before the November 28 deadline, though cancellations are common.\n\n**What this question hinges on.** Whether the Aoun–Salam push succeeds against Hezbollah's resistance and the Lebanese Forces boycott at any of the cabinet sessions held between now and November 27 — including the possibility that the file is put on an agenda in the coming days after being kept off it repeatedly since October 22.\n\n`{\"format\": \"llm_question\", \"info\": {\"sdk_version\": \"0.6.1\", \"rating\": {\"quality\": 3, \"ambiguity\": 3, \"resolvability\": 4, \"passes\": true}}}`",
+    "resolution_criteria": "This question resolves Yes if Lebanon's Council of Ministers (the cabinet) decides to refer the Dahr al-Baidar explosives case to Lebanon's Judicial Council at any time before November 28, 2026 (Beirut time), as reported by [Naharnet's Lebanon news section](https://www.naharnet.com/lebanon) or other [credible sources](https://www.metaculus.com/faq/#definitions). The Dahr al-Baidar case must itself be among the files referred; a decision that refers it together with other files (for example the explosives seized at al-Qasr) counts. A cabinet approval to refer counts even if it is taken in principle or the formal referral decree is issued only later, including where the decision is relayed in the post-session briefing by Lebanon's information minister. The question resolves No if no such cabinet decision is reported before November 28, 2026, including if the cabinet meets without deciding to refer the case or does not meet at all; only a decision by the cabinet counts, not a referral or transfer by any other authority such as the military judiciary or the Ministry of Justice acting alone.",
+    "fine_print": "\"Judicial Council\" means Lebanon's Judicial Council (al-Majlis al-'Adli), the country's highest criminal court, which hears cases involving state security. A cabinet decision to postpone, defer or withdraw the referral request is not a decision to refer and resolves this question No. A cabinet session held on November 27, 2026 counts even if reporting of its decisions is published after that date.",
+    "unit": "",
+    "options": null,
+    "scaling": {
+      "range_min": null,
+      "range_max": null,
+      "nominal_min": null,
+      "nominal_max": null,
+      "zero_point": null,
+      "open_upper_bound": false,
+      "open_lower_bound": false,
+      "inbound_outcome_count": null,
+      "continuous_range": null
+    },
+    "open_lower_bound": false,
+    "open_upper_bound": false,
+    "inbound_outcome_count": null,
+    "open_time": "2026-11-16T06:42:44Z",
+    "scheduled_close_time": "2026-11-16T09:42:44Z",
+    "scheduled_resolve_time": "2026-11-28T00:00:00Z",
+    "resolution": null
+  }
+}

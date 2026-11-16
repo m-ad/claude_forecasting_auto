@@ -1,0 +1,24 @@
+{"searches": [
+  {"category": "resolution_source", "query": "Dahr al-Baidar Judicial Council cabinet", "by": "main", "status": "done", "finding": "Naharnet 2026-11-13: Aoun, Salam to soon put case on cabinet agenda (MTV); no vote reported yet"},
+  {"category": "news", "query": "ضهر البيدر المجلس العدلي مجلس الوزراء", "by": "main", "status": "done", "finding": "IMLebanon 2026-11-13: proposal to put referral to a vote at next week's session; Berri reportedly lobbied Saudi envoy against referral"},
+  {"category": "news", "query": "جلسة مجلس الوزراء الخميس المقبل ضهر البيدر تصويت", "by": "main", "status": "done", "finding": "no confirmed date for vote; tayyar earlier said referral unlikely after contacts with Hezbollah/Ain al-Tineh"},
+  {"category": "resolution_source", "query": "Naharnet cabinet Dahr al-Baidar Hezbollah vote", "by": "main", "status": "done", "finding": "LF boycott until referral (Naharnet 11-03); Hezbollah 'won't escalate' over charges"},
+  {"category": "news", "query": "\"ضهر البيدر\" جدول أعمال مجلس الوزراء 15 تشرين الثاني", "by": "main", "status": "done", "finding": "no published agenda for next session found"},
+  {"category": "upcoming_events", "query": "Lebanon cabinet session Thursday November 19 2026 agenda", "by": "main", "status": "done", "finding": "no published agenda for Nov 19; Nov 5 session had been postponed a week"},
+  {"category": "markets", "query": "Polymarket Lebanon Hezbollah November 2026", "by": "main", "status": "done", "finding": "no market on the referral; only Israel-strike markets"},
+  {"category": "base_rate", "query": "Lebanon cabinet referral Judicial Council precedent Tayouneh Kahaleh blocked", "by": "main", "status": "done", "finding": "Salam: previous cases referred within 1-2 days; this one stalled 3+ weeks"},
+  {"category": "news", "query": "الثنائي الشيعي إحالة ضهر البيدر المجلس العدلي انسحاب الوزراء", "by": "main", "status": "done", "finding": "Shiite ministers reportedly would walk out if vote went to referral; Nov 13 Salam refused to raise it as session was electricity-only"},
+  {"category": "disconfirmation", "query": "Dahr al-Baydar explosives referral postponed until investigation concludes Salam", "by": "main", "status": "done", "finding": "ministerial source: referral postponed until investigations complete (Daily Beirut, late Oct) — supports NO; but superseded by Nov 13 MTV report", "tests": "assumption that the Aoun-Salam 'soon on agenda' signal will again end in deferral rather than a vote to refer"},
+  {"category": "news", "query": "Lebanese Forces ministers return cabinet Dahr al-Baidar November", "by": "main", "status": "done", "finding": "L'Orient Today 11-14: Saddi returned Nov 13, other 3 LF ministers still boycott"},
+  {"category": "news", "query": "Dahr al-Baidar explosives Judicial Council cabinet session agenda Nassar", "by": "scout-1", "status": "done", "finding": "Oct 22 postponement; Nassar 'no concessions'"},
+  {"category": "news", "query": "Hezbollah Amal ministers Dahr al-Baidar referral Judicial Council cabinet Salam Aoun", "by": "scout-1", "status": "done", "finding": "no stated Shiite-minister position found Nov 10-16"},
+  {"category": "news", "query": "مجلس الوزراء جلسة إحالة متفجرات ضهر البيدر المجلس العدلي عون سلام حزب الله أمل الوزراء الشيعة تشرين الثاني", "by": "scout-1", "status": "done", "finding": "nothing newer than early Nov"},
+  {"category": "upcoming_events", "query": "Salam dedicated cabinet session explosives case Judicial Council Hezbollah Amal ministers vote Lebanese Forces return", "by": "scout-2", "status": "done", "finding": "Salam reportedly promised a dedicated session within two weeks of Oct 22; not held"},
+  {"category": "base_rate", "query": "Tayouneh investigation referral Judicial Council cabinet 2021 Hezbollah Amal objected Bitar; Kahaleh Judicial Council referral cabinet", "by": "scout-2", "status": "done", "finding": "port blast referred quickly in 2020; Hezbollah/Amal paralysed cabinet in 2021 over it"},
+  {"category": "disconfirmation", "query": "Lebanon cabinet explosives Judicial Council Salam next week OR Thursday session November 2026", "by": "scout-2", "status": "done", "finding": "no scheduled vote found for Nov 19-27", "tests": "same: deferral continues"},
+  {"category": "other", "query": "Lebanon cabinet session Nassar Judicial Council explosives Lebanese Forces ministers Berri Salam November", "by": "scout-2", "status": "done", "finding": "Aug 2025 precedent: cabinet passed arms-monopoly decisions over Shiite walkout"}
+],
+ "adjustments": [
+  {"event": "MTV/Naharnet: Aoun and Salam agree to put referral on an upcoming cabinet agenda, vote proposed for next week", "date": "2026-11-13", "effect": "+15 pp", "sources": [1, 2]},
+  {"event": "Hezbollah/Amal opposition and Berri lobbying, with prior deferral brokered by the three presidents", "date": "2026-10-22", "effect": "-5 pp", "sources": [3, 4]}
+]}
