@@ -1463,3 +1463,49 @@ def test_the_documented_research_floor_is_the_constants():
     assert f"`WAIVER_MINUTES` = `{log_forecast.WAIVER_MINUTES}`" in row
     categories = ", ".join(f"`{c}`" for c in log_forecast.REQUIRED_CATEGORIES)
     assert f"`REQUIRED_CATEGORIES` = {categories} " in row
+
+
+# ---------------------------------------------------------- source access dates
+def _forecast_md(folder, source_line: str) -> None:
+    """A minimal forecast.md whose newest version cites ``source_line`` as source 3."""
+    folder.mkdir(parents=True, exist_ok=True)
+    sources = "\n".join(
+        f"{i}. S{i}, https://example.org/{i} (accessed 2026-11-16)" for i in (1, 2, 4, 5)
+    )
+    (folder / "forecast.md").write_text(
+        "# T\n\n## v1 — Initial forecast — 2026-11-16\n\n### Sources\n\n"
+        f"{source_line}\n{sources}\n",
+        encoding="utf-8",
+    )
+
+
+def test_a_url_source_without_an_access_date_is_refused(one_shot_question, tmp_path):
+    # Logged forecast 46586 wrote "(fetch failed 2026-11-16)": the suite then failed
+    # in that job and in every later sweep job until the file was repaired.
+    ledger, _meta = one_shot_question
+    _forecast_md(tmp_path / "s", "3. Maersk, https://example.org/3 (fetch failed 2026-11-16)")
+    with pytest.raises(SystemExit, match=r"source without an access date.*\n.*3\. Maersk"):
+        log_forecast.cmd_add(_add_args(median=0.2, lower=0.1, upper=0.3))
+    assert not ledger.exists(), "a refused forecast must not reach the ledger"
+
+
+def test_an_unreachable_source_with_an_access_date_is_accepted(one_shot_question, tmp_path):
+    ledger, _meta = one_shot_question
+    _forecast_md(
+        tmp_path / "s", "3. Maersk, https://example.org/3 (accessed 2026-11-16; fetch failed)"
+    )
+    log_forecast.cmd_add(_add_args(median=0.2, lower=0.1, upper=0.3))
+    assert len(_records(ledger)) == 1
+
+
+def test_the_access_date_check_is_waived_near_the_deadline(
+    one_shot_question, tmp_path, monkeypatch, capsys
+):
+    # A format slip must never cost the forecast itself: logged is what gets submitted.
+    ledger, _meta = one_shot_question
+    _forecast_md(tmp_path / "s", "3. Maersk, https://example.org/3 (fetch failed 2026-11-16)")
+    soon = dt.datetime.now(dt.UTC) + dt.timedelta(minutes=log_forecast.WAIVER_MINUTES - 2)
+    monkeypatch.setenv("FORECAST_DEADLINE", soon.strftime("%Y-%m-%dT%H:%M:%SZ"))
+    log_forecast.cmd_add(_add_args(median=0.2, lower=0.1, upper=0.3))
+    assert len(_records(ledger)) == 1
+    assert "source without an access date" in capsys.readouterr().err
