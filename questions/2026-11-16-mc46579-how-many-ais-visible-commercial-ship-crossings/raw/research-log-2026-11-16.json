@@ -1,0 +1,23 @@
+{"searches": [
+  {"category": "resolution_source", "query": "hormuz.now commercial crossings November 2026", "by": "main", "status": "done", "finding": "FAQ: 'Restricted' 16 Nov 04:01Z, 6 crossings previous day; 7-day avg 6.4 on 13 Nov"},
+  {"category": "resolution_source", "query": "WebFetch https://hormuz.now/api/daily.csv", "by": "main", "status": "done", "finding": "Daily totals 20 Oct-15 Nov range 4-13, mean 7.6, median 6; last 7 days 6,4,13,6,5,6,6; 16 Nov partial 3"},
+  {"category": "other", "query": "hormuz.now methodology counting line 80 m", "by": "main", "status": "done", "finding": "Musandam-Kuhestak line, UTC day, AIS-visible >=80 m / 5,000 dwt, once per direction; log starts 19 Oct 2026"},
+  {"category": "news", "query": "Iran Qatar interim deal Hormuz reopening November 15 2026", "by": "main", "status": "done", "finding": "15 Nov: no deal; Qatar $8bn interim plan pending, Trump says US doesn't need a deal; stalemate expected"},
+  {"category": "news", "query": "Strait of Hormuz ships waiting queue Gulf of Oman November 2026", "by": "main", "status": "done", "finding": "hormuz.now 16 Nov: 501 waiting Gulf of Oman side, 106 Gulf side; Windward 9 transits all dark 13 Nov"},
+  {"category": "news", "query": "Strait of Hormuz shipping news November 2026", "by": "scout-1", "status": "done", "finding": "Iran attacked >=34 vessels in Oct; 8 Nov tanker fire"},
+  {"category": "news", "query": "Hormuz reopening talks Iran US negotiations November 2026", "by": "scout-1", "status": "done", "finding": "2 Nov: Iran offers 2-day reopening conditional on US demands; no direct talks"},
+  {"category": "news", "query": "tanker attack Strait of Hormuz this week blockade transits", "by": "scout-1", "status": "done", "finding": "UKMTO week to 10 Nov 170 out/155 in (different measure); US-facilitated ~30/day 5-7 Nov"},
+  {"category": "upcoming_events", "query": "Iran Hormuz Qatar mediation draft deal Trump November 14", "by": "scout-1", "status": "done", "finding": "nothing scheduled before 26 Nov; Lloyd's List brief 19 Nov"},
+  {"category": "markets", "query": "Polymarket Strait of Hormuz reopen", "by": "scout-2", "status": "done", "finding": "no current prices found; last snapshots stale (July)"},
+  {"category": "markets", "query": "Kalshi Hormuz transits", "by": "scout-2", "status": "done", "finding": "Kalshi ~66% normal traffic not before Jan 2027 (undated); no Nov daily markets"},
+  {"category": "base_rate", "query": "PortWatch Hormuz daily transits November 2026", "by": "scout-2", "status": "done", "finding": "PortWatch ~3-8/day late Oct-8 Nov, about half of hormuz.now"},
+  {"category": "base_rate", "query": "Windward Lloyd's List Hormuz transits this week November", "by": "scout-2", "status": "done", "finding": "Lloyd's List ~17/day >10k dwt 19-25 Oct; Windward 10 on 12 Nov, 8 dark"},
+  {"category": "news", "query": "Strait of Hormuz shipping traffic November 2026", "by": "scout-3", "status": "done", "finding": "11 ships attacked week to 6 Nov; attack days still counted 5-10 on hormuz.now"},
+  {"category": "disconfirmation", "query": "Hormuz deal reopening shipping resumes convoy escort", "by": "scout-3", "status": "done", "finding": "No November reopening; after June MoU first-day transits only ~7, recovery took weeks", "tests": "assumption that traffic stays in the ~4-13/day regime through 26 Nov (no reopening surge or full closure)"},
+  {"category": "disconfirmation", "query": "UKMTO JMIC Hormuz advisory November 2026", "by": "scout-3", "status": "done", "finding": "JMIC severe threat 8 Nov; single-digit to low double-digit daily transits; AIS-dark behaviour could move counts", "tests": "assumption that traffic stays in the ~4-13/day regime through 26 Nov"}
+],
+ "adjustments": [
+  {"event": "Qatar interim deal pending, no implementation (reopening tail)", "date": "2026-11-15", "effect": "p95 from 13 to 14", "sources": [3, 4]},
+  {"event": "Mild downward drift of 7-day average (9.3 early Nov to 6.4-6.6 mid-Nov)", "date": "2026-11-15", "effect": "median 7 to 6", "sources": [1]}
+]
+}

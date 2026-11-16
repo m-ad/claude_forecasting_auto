@@ -1,0 +1,79 @@
+slug: 2026-11-16-mc46579-how-many-ais-visible-commercial-ship-crossings
+title: How many AIS-visible commercial ship crossings of the Strait of Hormuz will hormuz.now record for
+  26 November 2026?
+source: metaculus
+url: https://www.metaculus.com/questions/46579/
+post_id: 46579
+question_id: 46839
+type: discrete
+unit: crossings
+tags: []
+dates:
+  created: '2026-11-16'
+  opened: '2026-11-16'
+  closes: '2026-11-16'
+  resolves: '2026-11-27'
+status: open
+tournament:
+  slug: minibench
+  mode: one_shot
+  registered: '2026-11-16'
+  opened: '2026-11-16T08:29:24Z'
+  closes: '2026-11-16T11:29:24Z'
+  submitted: '2026-11-16T09:12:11+00:00'
+  submitted_forecast:
+    continuous_cdf:
+    - 0.0
+    - 0.005067203151438078
+    - 0.017176629694569286
+    - 0.05067844201902365
+    - 0.10766821264500255
+    - 0.23076753503287004
+    - 0.3826440452889914
+    - 0.5206901054682912
+    - 0.6317299484090276
+    - 0.719090305672189
+    - 0.7834168522309696
+    - 0.8359389560040404
+    - 0.8733690931677305
+    - 0.8969178937190645
+    - 0.9152732763785694
+    - 0.9343611321695233
+    - 0.9488045208191234
+    - 0.9590174238830058
+    - 0.9663945476543164
+    - 0.9718707917196836
+    - 0.9760728380130546
+    - 0.9794207639972425
+    - 0.9821961560164589
+    - 0.9845877670419185
+    - 0.9867221219739757
+    - 0.9886840329896601
+    - 0.9905303513913831
+    - 0.9922991857467943
+    - 0.9940160809927144
+    - 0.9956981604123695
+    - 0.9973569020857599
+    - 0.999
+  comment_posted: true
+  official_score: null
+  missed_window: false
+current:
+  version: 1
+  date: '2026-11-16'
+  median: 6.2
+  iqr:
+  - 4.6
+  - 8.6
+  community:
+    cp: null
+    pro: null
+    gold: null
+    n_forecasters: null
+    as_of: '2026-11-16'
+next_review: null
+tripwires: []
+resolution:
+  outcome: null
+  date: null
+  source: null
