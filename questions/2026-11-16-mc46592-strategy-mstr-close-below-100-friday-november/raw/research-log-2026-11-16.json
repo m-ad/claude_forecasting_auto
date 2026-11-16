@@ -1,0 +1,21 @@
+{"searches": [
+  {"category": "resolution_source", "query": "MSTR stock price today Strategy shares", "by": "main", "status": "done", "finding": "no dated quote; snippets stale"},
+  {"category": "resolution_source", "query": "WebFetch stockanalysis.com/stocks/mstr/history", "by": "main", "status": "done", "finding": "Nov 13 close 111.62; Nov 16 intraday 102.93 (11:11 ET, -7.8%)"},
+  {"category": "news", "query": "bitcoin price November 16 2026", "by": "main", "status": "done", "finding": "BTC ~73.9k Nov 11 (Fortune); ~68.6k Nov 13 per question"},
+  {"category": "news", "query": "Strategy MSTR shares fall November 16 2026 8-K bitcoin purchase", "by": "main", "status": "done", "finding": "nothing dated Nov 16; stockanalysis headlines: bought only 485 BTC, $228M STRC buybacks, USD reserve $4.75B"},
+  {"category": "markets", "query": "Polymarket MicroStrategy MSTR November 2026", "by": "main", "status": "done", "finding": "no MSTR price market for Nov 27"},
+  {"category": "news", "query": "MSCI exclusion Strategy MSTR index funds selling November 30 2026", "by": "main", "status": "done", "finding": "MSCI deletion effective close Nov 30; ~$3B passive holdings"},
+  {"category": "markets", "query": "MSTR implied volatility options November 2026", "by": "main", "status": "done", "finding": "ATM IV ~74-82% early Nov 2026 (Market Chameleon)"},
+  {"category": "consensus", "query": "MSTR stock rebound analyst buy rating November 2026", "by": "main", "status": "done", "finding": "Maxim Buy $215 Nov 3; analysts bullish but irrelevant at 9-day horizon"},
+  {"category": "news", "query": "bitcoin falls below $70,000 November 2026", "by": "main", "status": "done", "finding": "BTC ~73.4k Nov 10 after hot CPI; 3-month low Nov 11"},
+  {"category": "news", "query": "Strategy MSTR stock today November 16", "by": "main", "status": "done", "finding": "nothing new"},
+  {"category": "news", "query": "Strategy bitcoin holdings 8-K November 16 2026 Saylor", "by": "main", "status": "done", "finding": "Nov 9: 850,364 BTC avg $75,456"},
+  {"category": "disconfirmation", "query": "stocks after index deletion effective date price reversal study", "by": "main", "status": "done", "finding": "deletion pressure partly reverses but mostly after effective date; pressure persists until ED", "tests": "that MSCI-related selling keeps pressure on MSTR through Nov 27 rather than having been priced in / reversing"},
+  {"category": "markets", "query": "Kalshi MSTR price range November 27", "by": "main", "status": "done", "finding": "none found"},
+  {"category": "base_rate", "query": "MSTR mNAV premium below 1 November 2026", "by": "main", "status": "done", "finding": "mNAV ~0.99 or below; no premium support"},
+  {"category": "base_rate", "query": "Strategy MSTR 52-week low $81.81 date", "by": "main", "status": "done", "finding": "52w low 81.81 on Jun 26 2026"},
+  {"category": "news", "query": "Fortune price of bitcoin 11-16-2026", "by": "main", "status": "done", "finding": "no Nov 16 page found"}
+],
+ "adjustments": [
+  {"event": "Negative momentum / MSCI deletion selling ahead of Nov 30 effective date plus weak BTC", "date": "2026-11-11", "effect": "+5 pp over driftless lognormal (42% -> 47%)", "sources": [2, 3, 4]}
+ ]}

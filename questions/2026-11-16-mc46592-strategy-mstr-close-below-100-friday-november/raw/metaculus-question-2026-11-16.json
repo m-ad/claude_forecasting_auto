@@ -1,0 +1,38 @@
+{
+  "post_id": 46592,
+  "url": "https://www.metaculus.com/questions/46592/",
+  "post_title": "Will Strategy (MSTR) close below $100 on Friday, November 27, 2026?",
+  "tournaments": [
+    "minibench"
+  ],
+  "options": null,
+  "question": {
+    "id": 46852,
+    "title": "Will Strategy (MSTR) close below $100 on Friday, November 27, 2026?",
+    "type": "binary",
+    "status": "open",
+    "description": "Strategy Inc. (Nasdaq: MSTR), formerly MicroStrategy, is the largest corporate holder of bitcoin: as of November 8, 2026 it held 850,364 BTC acquired for about $64.16 billion, an average of roughly $75,455 per coin, financed largely by repeated sales of common and preferred stock (STRC, STRF, STRK) at prices above the per-share value of its bitcoin. Its Q3 2026 results were dominated by bitcoin fair-value gains, and the company publishes a weekly Monday 8-K disclosing purchases and at-the-market share sales (November 16 and November 23 fall inside the run-up to this question).\n\nThe stock has been falling sharply. Daily closes: Nov 3 $135.63, Nov 4 $142.54, Nov 5 $129.30, Nov 6 $128.93, Nov 9 $125.59, Nov 10 $121.07, Nov 11 $122.35, Nov 12 $114.41, and Nov 13 $109.82 — down about 24% from $145.16 on Oct 28, roughly 56% below its 52-week high near $250, and above its 52-week low of $81.81 (Yahoo Finance / stockanalysis.com). Market capitalization is about $46 billion on roughly 422 million basic shares; bitcoin was around $68,600 on Nov 13, 2026, i.e. below Strategy's average purchase cost, leaving the treasury at an unrealized loss on a cost basis.\n\nThe dominant catalyst is index removal. On November 11, 2026, MSCI announced that Strategy will be deleted from its global indexes, including the MSCI USA Index, effective after the close on November 30, 2026, under its new non-operating-company rule (Metaplanet and Upexi were also affected). Strategy had disclosed that funds tracking MSCI indexes hold about 13 million MSTR shares — around 3.1% of basic shares, or roughly 72% of an average day's volume — and JPMorgan has estimated that exclusion could force about $2.8 billion of selling. Because the effective date (Nov 30) falls after this question's resolution date, index-related selling may be partly front-run in the sessions before November 27, and the company's own Q3 filing warned that exclusion could hurt its share price, liquidity and ability to raise capital.\n\nTiming note: Thursday, November 26, 2026 is Thanksgiving (US markets closed), so Friday, November 27 is a shortened session that closes at 1:00 p.m. ET; volumes on such sessions are typically light. In the past year MSTR has traded in a $81.81–$249.96 range with high volatility (frequent single-day moves above 5%), so a move from roughly $110 to below $100 within roughly nine trading sessions is plausible but far from assured.\n\n`{\"format\": \"llm_question\", \"info\": {\"sdk_version\": \"0.6.1\", \"rating\": {\"quality\": 3, \"ambiguity\": 4, \"resolvability\": 4, \"passes\": true}}}`",
+    "resolution_criteria": "This question resolves using the Nasdaq closing price of Strategy Inc. (ticker MSTR) for the regular trading session of Friday, November 27, 2026, as shown in the \"Close\" column of the November 27, 2026 row on the [Yahoo Finance MSTR historical prices page](https://finance.yahoo.com/quote/MSTR/history/). It resolves YES if that closing price is strictly below $100.00 (for example, $99.87 resolves YES) and NO if it is $100.00 or above. If that page does not display a closing price for November 27, 2026, the official Nasdaq closing price for that date as reported by [credible sources](https://www.metaculus.com/faq/#definitions) will be used; if no closing price is published at all for that session because trading did not occur, the closing price of the next regular session for which one is published is used instead.",
+    "fine_print": "The value used is the one in Yahoo Finance's \"Close\" column, not its \"Adj Close\" column, with no further adjustment applied.",
+    "unit": "",
+    "options": null,
+    "scaling": {
+      "range_min": null,
+      "range_max": null,
+      "nominal_min": null,
+      "nominal_max": null,
+      "zero_point": null,
+      "open_upper_bound": false,
+      "open_lower_bound": false,
+      "inbound_outcome_count": null,
+      "continuous_range": null
+    },
+    "open_lower_bound": false,
+    "open_upper_bound": false,
+    "inbound_outcome_count": null,
+    "open_time": "2026-11-16T15:35:38Z",
+    "scheduled_close_time": "2026-11-16T18:35:38Z",
+    "scheduled_resolve_time": "2026-11-27T18:00:00Z",
+    "resolution": null
+  }
+}
