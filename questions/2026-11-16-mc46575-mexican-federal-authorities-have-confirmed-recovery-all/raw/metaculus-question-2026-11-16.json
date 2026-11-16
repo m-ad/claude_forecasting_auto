@@ -1,0 +1,38 @@
+{
+  "post_id": 46575,
+  "url": "https://www.metaculus.com/questions/46575/",
+  "post_title": "Will Mexican federal authorities have confirmed recovery of all nine radioactive packages stolen in the November 7, 2026 Tlaxcala truck crash by November 27, 2026?",
+  "tournaments": [
+    "minibench"
+  ],
+  "options": null,
+  "question": {
+    "id": 46835,
+    "title": "Will Mexican federal authorities have confirmed recovery of all nine radioactive packages stolen in the November 7, 2026 Tlaxcala truck crash by November 27, 2026?",
+    "type": "binary",
+    "status": "open",
+    "description": "On Saturday, November 7, 2026, a cargo vehicle operated by Mexico's Instituto Nacional de Investigaciones Nucleares (ININ) rolled over on the Huamantla–Tlaxcala highway in Tlaxcala while carrying medical radioisotopes from La Marquesa/Ocoyoacac (State of Mexico) to Xalapa, Veracruz. During the aftermath, local residents looted nine boxes from the vehicle: three Tc-99m generators (200, 650 and 1,000 mCi), four boxes of I-131 (about 400 mCi each), one box of Tl-201 (12 mCi) and one box of Sm-153 (100 mCi). The material was classified Category 4 (low risk) under the IAEA source categorization, and ININ reported no indication of a leak at the crash site. The Comisión Nacional de Seguridad Nuclear y Salvaguardias (CNSNS) and the Coordinación Nacional de Protección Civil (CNPC) issued a joint alertamiento to civil-protection units in Tlaxcala, Puebla, Hidalgo, Morelos, Veracruz, Estado de México and Mexico City, warning the public not to open or handle the containers.\n\nAs of November 13, 2026, no recovery has been confirmed. Veracruz governor Rocío Nahle said on November 9 that the material had not been located; on November 11–12 the Fiscalía General de la República (FGR) said it had identified a probable person responsible and described \"inconsistencies\" in the case, while Tlaxcala's CCOM coordinator spoke only of \"avances.\" The seven-state alert remains active and the search continues.\n\nTwo features of the case matter for forecasting. First, the radioactivity decays quickly: the Tc-99m generators rely on the parent Mo-99 (half-life ≈66 hours) that continuously produces Tc-99m (half-life ≈6 hours), the I-131 has a half-life of ~8 days, and the Sm-153 and Tl-201 have half-lives of ~46 and ~73 hours respectively. By November 27, roughly three weeks after the theft, the material will be largely or wholly decayed and the practical hazard greatly reduced, so authorities may deprioritize the search or describe the material as no longer risky without formally reporting the containers as recovered. Second, Mexican experience with stolen radioactive sources suggests recovery is common but not guaranteed: of 14 source-theft cases recorded by CNSNS in 2018, 12 ended with the material recovered; the December 2013 Hueypoxtla theft of a Co-60 teletherapy source ended with the source found about a week later (after several people were hospitalized for opening the shielding); and a 2021 Ir-192 radiography-source theft also ended in recovery. Criminal-justice research on 33 Mexican radioactive-source theft cases from 2011–2023 finds that many stolen sources are abandoned near the theft site or discarded by scrap collectors once they realize what they have, while a minority are never recovered or are found with the shielding opened and the material dispersed. The typical resolution pattern — a CNSNS/CNPC bulletin or federal press release announcing that the material has been located and secured — is what this question tracks.\n\n`{\"format\": \"llm_question\", \"info\": {\"sdk_version\": \"0.6.1\", \"rating\": {\"quality\": 3, \"ambiguity\": 3, \"resolvability\": 4, \"passes\": true}}}`",
+    "resolution_criteria": "This question resolves YES if, by the end of November 27, 2026 (Mexico City time, UTC−6), Mexican federal authorities have publicly confirmed that all nine packages of radioactive material looted from the crashed ININ (Instituto Nacional de Investigaciones Nucleares) transport vehicle on the Huamantla–Tlaxcala highway in Tlaxcala, Mexico, on November 7, 2026 have been located and secured, or that all of the radioactive material those nine packages contained has been located and secured. Confirmations made in separate statements count cumulatively, and an unqualified federal statement that the stolen radioactive material has been recovered counts as YES unless it indicates that one or more packages or items remain missing. Qualifying statements may come from any Mexican federal government body, including the Presidency, SENER, SSPC, SEGOB/CNPC, CNSNS, ININ, FGR and the Guardia Nacional, and must be reported by [credible sources](https://www.metaculus.com/faq/#definitions); official communiqués are published at https://www.gob.mx/cnsns and https://www.gob.mx/sspc, and running coverage of the case is compiled at https://www.infobae.com/mexico/2026/11/10/se-mantiene-alerta-en-siete-estados-por-robo-de-material-radiactivo-tras-volcadura-de-vehiculo-oficial-en-tlaxcala/. If no such confirmation has been published by that time — including if authorities confirm only some of the packages or only some of the material as recovered — the question resolves NO.",
+    "fine_print": "If authorities officially revise the number of packages that were stolen, the question resolves YES only once every package in the revised official count has been located and secured (or all of the radioactive material they contained has been). Finding containers that are empty or damaged counts only if authorities also state that the radioactive material itself has been located and secured. Statements that the material's radioactivity has decayed, or that it no longer poses a health risk, do not count as confirmation of recovery. Announcements by state or municipal officials (for example, the governors of Tlaxcala or Veracruz) do not by themselves satisfy the criterion unless a Mexican federal authority confirms them.",
+    "unit": "",
+    "options": null,
+    "scaling": {
+      "range_min": null,
+      "range_max": null,
+      "nominal_min": null,
+      "nominal_max": null,
+      "zero_point": null,
+      "open_upper_bound": false,
+      "open_lower_bound": false,
+      "inbound_outcome_count": null,
+      "continuous_range": null
+    },
+    "open_lower_bound": false,
+    "open_upper_bound": false,
+    "inbound_outcome_count": null,
+    "open_time": "2026-11-16T06:46:30Z",
+    "scheduled_close_time": "2026-11-16T09:46:30Z",
+    "scheduled_resolve_time": "2026-11-27T23:59:00Z",
+    "resolution": null
+  }
+}

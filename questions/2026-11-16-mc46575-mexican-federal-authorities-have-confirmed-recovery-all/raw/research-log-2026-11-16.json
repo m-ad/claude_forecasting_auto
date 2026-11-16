@@ -1,0 +1,28 @@
+{"searches": [
+  {"category": "resolution_source", "query": "CNSNS material radiactivo Tlaxcala recuperado", "by": "main", "status": "done", "finding": "No recovery; Infobae 2026-11-10 says search for nine boxes continues"},
+  {"category": "news", "query": "material radiactivo Tlaxcala ININ localizan", "by": "main", "status": "done", "finding": "Nahle (Nov 9): not recovered; no confirmed location of the nine boxes"},
+  {"category": "news", "query": "FGR material radiactivo Huamantla detenido", "by": "main", "status": "done", "finding": "Nov 11: FGR identified a probable responsible, inconsistencies in chronology; no arrest or recovery"},
+  {"category": "markets", "query": "Polymarket Kalshi Manifold radioactive Mexico Tlaxcala", "by": "main", "status": "done", "finding": "none found"},
+  {"category": "base_rate", "query": "robo fuente radiactiva México recuperada días CNSNS", "by": "main", "status": "done", "finding": "2013 Co-60 found in 2 days; 33 thefts in a decade, ~22 recovered (Agua Quemada); Ir-192 found after 8 days"},
+  {"category": "disconfirmation", "query": "material radiactivo Tlaxcala recuperan cajas paquetes encontrados", "by": "main", "status": "done", "finding": "No reports of any box recovered (latest Nov 9-10)", "tests": "assumption that no recovery has been announced since Nov 13 and that recovery of all nine is unlikely in the window"},
+  {"category": "base_rate", "query": "Mexico stolen radioactive source recovered history 2013 2021 2023", "by": "main", "status": "done", "finding": "2013 Co-60 recovered ~1 week; 2014 Tabasco Ir-192 found; 2021 Ir-192 found intact; all single-source cases"},
+  {"category": "news", "query": "material radiactivo Tlaxcala hallan cajas noviembre 14", "by": "main", "status": "done", "finding": "nothing after Nov 11"},
+  {"category": "news", "query": "radiactivo Huamantla avances búsqueda CCOM Tlaxcala", "by": "main", "status": "done", "finding": "Search cordon by federal/local forces; no box recovered as of Nov 11"},
+  {"category": "news", "query": "\"material radiactivo\" Tlaxcala FGR inconsistencias recuperación parcial", "by": "main", "status": "done", "finding": "Nov 13: FGR says cargo was medical material not a 'fuente radiactiva', alert to be reclassified; no recovery"},
+  {"category": "news", "query": "radiactivo Tlaxcala 15 noviembre 2026", "by": "scout-1", "status": "done", "finding": "nothing new dated Nov 9-16"},
+  {"category": "news", "query": "Tlaxcala radioactive material stolen recovered November 2026", "by": "scout-1", "status": "done", "finding": "no recovery reported"},
+  {"category": "news", "query": "yodo-131 tecnecio robados Tlaxcala hallazgo", "by": "scout-1", "status": "done", "finding": "no hallazgo reported"},
+  {"category": "resolution_source", "query": "Protección Civil alerta material radiactivo siete estados", "by": "scout-1", "status": "done", "finding": "CNPC alert in 7 states; no recovery"},
+  {"category": "news", "query": "ININ cajas material radiactivo Huamantla localizan recuperan CNSNS", "by": "scout-1", "status": "done", "finding": "0 recovered"},
+  {"category": "disconfirmation", "query": "material radiactivo Tlaxcala localizado asegurado", "by": "scout-2", "status": "done", "finding": "nothing", "tests": "assumption that no recovery has been announced since Nov 13"},
+  {"category": "disconfirmation", "query": "Sheinbaum mañanera material radiactivo Tlaxcala ININ cajas recuperadas", "by": "scout-2", "status": "done", "finding": "nothing"},
+  {"category": "disconfirmation", "query": "recuperan cajas material radiactivo Huamantla Tlaxcala ININ", "by": "scout-2", "status": "done", "finding": "nothing", "tests": "assumption that no recovery has been announced"},
+  {"category": "disconfirmation", "query": "Lorena Cuéllar material radiactivo Huamantla hallan cajas", "by": "scout-2", "status": "done", "finding": "nothing"},
+  {"category": "disconfirmation", "query": "ININ comunicado volcadura Huamantla material radiactivo FGR detenidos", "by": "scout-2", "status": "done", "finding": "no arrests, no ININ communique"},
+  {"category": "news", "query": "material radiactivo Tlaxcala robado nueve cajas noticias 14 noviembre 2026 búsqueda continúa", "by": "scout-2", "status": "done", "finding": "latest coverage Nov 10"}
+],
+ "adjustments": [
+  {"event": "No box recovered 9 days after theft; nine boxes looted by multiple residents", "date": "2026-11-16", "effect": "-15 pp vs single-source recovery base rate", "sources": [1, 2, 3]},
+  {"event": "FGR reclassifies cargo as medical material, alert to be reclassified/possibly withdrawn", "date": "2026-11-13", "effect": "-5 pp (de-prioritisation of search and of formal announcements)", "sources": [5]},
+  {"event": "FGR identified a probable responsible", "date": "2026-11-11", "effect": "+3 pp", "sources": [4]}
+]}

@@ -1,0 +1,47 @@
+slug: 2026-11-16-mc46575-mexican-federal-authorities-have-confirmed-recovery-all
+title: Will Mexican federal authorities have confirmed recovery of all nine radioactive packages stolen
+  in the November 7, 2026 Tlaxcala truck crash by November 27, 2026?
+source: metaculus
+url: https://www.metaculus.com/questions/46575/
+post_id: 46575
+question_id: 46835
+type: binary
+unit: null
+tags: []
+dates:
+  created: '2026-11-16'
+  opened: '2026-11-16'
+  closes: '2026-11-16'
+  resolves: '2026-11-27'
+status: open
+tournament:
+  slug: minibench
+  mode: one_shot
+  registered: '2026-11-16'
+  opened: '2026-11-16T06:46:30Z'
+  closes: '2026-11-16T09:46:30Z'
+  submitted: '2026-11-16T07:12:33+00:00'
+  submitted_forecast:
+    probability_yes: 0.08
+  comment_posted: true
+  official_score: null
+  missed_window: false
+current:
+  version: 1
+  date: '2026-11-16'
+  median: 0.08
+  iqr:
+  - 0.05
+  - 0.13
+  community:
+    cp: null
+    pro: null
+    gold: null
+    n_forecasters: null
+    as_of: '2026-11-16'
+next_review: null
+tripwires: []
+resolution:
+  outcome: null
+  date: null
+  source: null
