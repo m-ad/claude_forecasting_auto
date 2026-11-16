@@ -1,0 +1,38 @@
+{
+  "post_id": 46599,
+  "url": "https://www.metaculus.com/questions/46599/",
+  "post_title": "Will Plus Ultra operate a scheduled Madrid–Lima passenger flight on 26 November 2026?",
+  "tournaments": [
+    "minibench"
+  ],
+  "options": null,
+  "question": {
+    "id": 46859,
+    "title": "Will Plus Ultra operate a scheduled Madrid–Lima passenger flight on 26 November 2026?",
+    "type": "binary",
+    "status": "open",
+    "description": "Plus Ultra Líneas Aéreas (IATA: PU) is a small Spanish long-haul carrier based at Madrid–Barajas that operates six Airbus A330 widebodies (five A330-200, one A330-300) on roughly 24 flights per week (Flightradar24, November 2026). Its scheduled network runs from Madrid — plus a Sunday Tenerife Norte service — to Latin America: Caracas, Venezuela (up to five weekly from Madrid, plus Tenerife Norte–Caracas PU711 on Sundays); Lima, Peru (up to daily except Tuesdays, PU301 outbound / PU302 return, departing Madrid at 11:00 local and reaching Lima in about 11–12 hours); and Buenos Aires, Argentina (route launched in May 2026, cut from five to two weekly frequencies — Wednesdays and Saturdays — between 19 October and 13 December 2026). Its Madrid–Bogotá–Cartagena route was suspended in October 2026.\n\nThe airline is in acute financial distress. It received a €53m rescue from Spain's state holding SEPI in 2021 (a rescue now embroiled in litigation and political controversy), has reported losses of about €31m, faces jet-fuel costs up roughly 68% since March 2026, and has serious liquidity problems. On 12–13 November 2026 it notified unions of a collective dismissal procedure (ERE) covering its 679 Madrid employees and formally opened \"preconcurso de acreedores\" negotiations before Juzgado de lo Mercantil nº 8 de Madrid, giving it three months (extendable by three) to agree a restructuring with creditors. The plan involves cutting more than 61% of its regular commercial flight hours, shrinking the fleet, and the \"definitive suspension\" of several transatlantic routes, while the company says it aims to \"protect the continuity of its operations\". The UGT union says a full insolvency (concurso) remains possible, and the airline has also explored a sale or capital injection involving Iberojet (Grupo Barceló).\n\nOn 13 November 2026 Plus Ultra stopped selling tickets for its Lima and Buenos Aires routes. Spanish and Latin American trade press reported that it intends to stop operating both routes and concentrate on Venezuela (El Economista's 13 November headline was that it was suspending all flights except Venezuela), while noting that no definitive last-flight date had been set, that a sales suspension does not automatically cancel flights already programmed and sold, and that Spain–Venezuela services from Madrid and Tenerife remain on sale. As of 13 November, Flightradar24's schedule for PU301 (Madrid–Lima) still listed Lima departures up to 20 November 2026.\n\nThe Lima route's status in the last week of November is therefore genuinely open: it could still be operating to carry already-booked passengers, or it could be suspended before then. Madrid–Lima is the only non-Venezuelan route with departures scheduled on ordinary weekdays (Buenos Aires operates only on Wednesdays and Saturdays, and Tenerife–Caracas only on Sundays), with Lima departures scheduled every day except Tuesday; 26 November 2026 is a Thursday, a scheduled Lima day. Individual flights are tracked publicly on Flightradar24 and Airportia.\n\n`{\"format\": \"llm_question\", \"info\": {\"sdk_version\": \"0.6.1\", \"rating\": {\"quality\": 3, \"ambiguity\": 3, \"resolvability\": 4, \"passes\": true}}}`",
+    "resolution_criteria": "This question resolves YES if Plus Ultra's regularly scheduled Madrid–Barajas (MAD) to Lima (LIM) passenger service operated with a scheduled departure date of 26 November 2026 — i.e. Flightradar24's flight history for flight PU301 (https://www.flightradar24.com/data/flights/pu301) shows a recorded departure for that date (an actual departure time, or status \"Landed\"/\"Delayed\"), or an equivalent PU-numbered flight on that route is shown operating that day. A flight that took off from Madrid for Lima but subsequently diverted, returned or was turned back still counts as operated. It resolves NO if no Plus Ultra flight departed Madrid for Lima on 26 November 2026, including if such a flight was cancelled, removed from the schedule, or the route had already been suspended. If Flightradar24 does not list the flight in question, the same determination will be made using Airportia's Plus Ultra flight list (https://www.airportia.com/airlines/plus-ultra/) or [credible sources](https://www.metaculus.com/faq/#definitions).",
+    "fine_print": "\"26 November 2026\" means the Europe/Madrid calendar date of the scheduled departure from Madrid; a departure slipping past midnight still counts toward its scheduled date. Only Plus Ultra's regular scheduled Madrid–Lima passenger service counts — including when flown with a wet-leased aircraft and including flights whose seats were already sold before Plus Ultra stopped selling the route. Ad-hoc charter, cargo, positioning, maintenance and technical-stop flights do not count.",
+    "unit": "",
+    "options": null,
+    "scaling": {
+      "range_min": null,
+      "range_max": null,
+      "nominal_min": null,
+      "nominal_max": null,
+      "zero_point": null,
+      "open_upper_bound": false,
+      "open_lower_bound": false,
+      "inbound_outcome_count": null,
+      "continuous_range": null
+    },
+    "open_lower_bound": false,
+    "open_upper_bound": false,
+    "inbound_outcome_count": null,
+    "open_time": "2026-11-16T21:14:27Z",
+    "scheduled_close_time": "2026-11-17T00:14:27Z",
+    "scheduled_resolve_time": "2026-11-26T23:59:00Z",
+    "resolution": null
+  }
+}

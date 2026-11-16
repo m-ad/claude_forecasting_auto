@@ -1,0 +1,21 @@
+{"searches": [
+  {"category": "news", "query": "Plus Ultra Lima último vuelo noviembre 2026", "by": "main", "status": "done", "finding": "No last-flight date; FR24 aircraft EC-NUL history shows MAD-LIM-MAD rotations 4-7 Nov 2026"},
+  {"category": "news", "query": "Plus Ultra suspende vuelos Lima Buenos Aires pasajeros afectados", "by": "main", "status": "done", "finding": "Older context: Colombia suspended June 2026; BA cut to 2/wk Oct; 78% of cancelled tickets refunded"},
+  {"category": "resolution_source", "query": "FETCH flightradar24.com/data/flights/pu301", "by": "main", "status": "done", "finding": "HTTP 403, fetch failed"},
+  {"category": "news", "query": "Plus Ultra deja de volar a Lima fecha último vuelo Perú", "by": "main", "status": "done", "finding": "12-13 Nov: sales of Lima and BA stopped; no definitive last-flight date (El Comercio, Tourinews, El Economista, El Cronista, T News); must honour booked pax via flights, alternatives or refunds"},
+  {"category": "news", "query": "Plus Ultra preconcurso Venezuela solo rutas Lima Buenos Aires cancelación", "by": "main", "status": "done", "finding": "Nothing new beyond 13 Nov reports"},
+  {"category": "resolution_source", "query": "FETCH airportia.com/airlines/plus-ultra", "by": "main", "status": "done", "finding": "HTTP 403, fetch failed"},
+  {"category": "news", "query": "FETCH El Comercio preconcurso article", "by": "main", "status": "done", "finding": "Says routes and sales to BA and Lima 'han cancelado'; only Caracas and Tenerife kept; no date"},
+  {"category": "news", "query": "Plus Ultra Lima pasajeros reubicados vuelos cancelados noviembre", "by": "main", "status": "done", "finding": "Nothing Lima-specific for Nov 2026"},
+  {"category": "news", "query": "FETCH Sir Chandler 13 Nov article", "by": "main", "status": "done", "finding": "No definitive last-flight date; reader comment 16 Nov: PU501 18 Nov still scheduled (unverified)"},
+  {"category": "schedule", "query": "\"Plus Ultra\" Lima vuelos hasta diciembre OR \"30 de noviembre\" OR \"fin de noviembre\"", "by": "main", "status": "done", "finding": "Nothing relevant"},
+  {"category": "news", "query": "Plus Ultra ERE 61% horas de vuelo rutas suspensión definitiva calendario", "by": "main", "status": "done", "finding": "Nothing relevant to the ERE timeline"},
+  {"category": "news", "query": "Plus Ultra Lima Madrid noticias 15 noviembre 2026 vuelos operando", "by": "main", "status": "done", "finding": "Nothing dated after 13 Nov"},
+  {"category": "markets", "query": "Plus Ultra Lima Polymarket Kalshi Manifold (checked via searches above)", "by": "main", "status": "done", "finding": "none found"},
+  {"category": "disconfirmation", "query": "Plus Ultra Perú Indecopi pasajeros Lima vuelos cancelados preconcurso", "by": "main", "status": "done", "finding": "Only Feb 2024 Indecopi episode; no evidence of Nov 2026 Lima cancellations announced", "tests": "assumption that the Lima route is wound down before 26 Nov (10+ days after sales stop)"},
+  {"category": "base_rate", "query": "airline stops selling route how long until last flight wind down booked passengers insolvency", "by": "main", "status": "done", "finding": "Full collapses stop at once; route-exit wind-downs of a still-flying carrier usually run days to weeks; no clean base rate"}
+ ],
+ "adjustments": [
+  {"event": "Plus Ultra stops selling Lima and announces intention to exit the route, no last-flight date (12-13 Nov 2026)", "date": "2026-11-13", "effect": "from ~95% scheduled-day baseline to ~45%", "sources": [1, 2, 3, 4]},
+  {"event": "Preconcurso and liquidity crisis: risk of total stoppage or frequency consolidation before 26 Nov", "date": "2026-11-13", "effect": "-5 pp", "sources": [2, 5]}
+ ]}
