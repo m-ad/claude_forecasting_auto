@@ -1,0 +1,21 @@
+{"searches": [
+  {"category": "resolution_source", "query": "Ibovespa fechamento 13 novembro 2026", "by": "main", "status": "done", "finding": "13 Nov close 172,457.76 (+0.66% d/d, +2.35% w/w); the question text's 172,013.72 is wrong. Yahoo ^BVSP table fetched: 13 Nov close 172,458"},
+  {"category": "resolution_source", "query": "Ibovespa hoje fecha pontos novembro 2026", "by": "main", "status": "done", "finding": "Confirms 172,457.76 on 13 Nov; 11 Nov 172,060; no 16 Nov close yet"},
+  {"category": "news", "query": "Ibovespa semana pacote fiscal Senado destaques 17 novembro", "by": "main", "status": "done", "finding": "Senate base text 45-31 on 12 Nov; four amendments on 17 Nov; market sees package as insufficient; USD/BRL 5.6567, 2026 high"},
+  {"category": "news", "query": "Ibovespa futuro dólar real Lula mercado novembro 2026", "by": "main", "status": "done", "finding": "Dollar ~R$5.66 on 13 Nov; index future ~172.5k (undated)"},
+  {"category": "markets", "query": "Ibovespa options implied volatility BOVA11 novembro 2026", "by": "main", "status": "done", "finding": "BOVA11 IV ~25-27% after first round, 44-46% spanning runoff; no Nov post-runoff quote found"},
+  {"category": "markets", "query": "Polymarket Kalshi Ibovespa", "by": "main", "status": "done", "finding": "No Ibovespa market found"},
+  {"category": "base_rate", "query": "Ibovespa volatilidade histórica diária pós eleição", "by": "main", "status": "done", "finding": "26 Oct -13.88%, 9th-largest daily fall; no realized-vol figure; analysts cite possible technical rebounds"},
+  {"category": "base_rate", "query": "Ibovespa 2002 eleição Lula queda recuperação semanas", "by": "main", "status": "done", "finding": "2002: -4.4% first session then +1.26% first week; +27% in following semester; post-election hangovers often short"},
+  {"category": "disconfirmation", "query": "Ibovespa recuperação forte rali estrangeiros compram novembro 2026", "by": "main", "status": "done", "finding": "No rally evidence; foreigners withdrew R$8.4bn after election (5 Nov); XP cut Brazil to neutral", "tests": "random-walk centred at 172,458 with no drift (no strong mean reversion toward the pre-runoff 205k, no further crash)"},
+  {"category": "disconfirmation", "query": "Ibovespa nova queda risco fiscal Câmara pacote rejeitado", "by": "main", "status": "done", "finding": "Index slipping on fiscal doubts (12 Nov -0.43%); resistance in Congress incl. PT base; no rejection reported", "tests": "no-drift assumption: downside fiscal shock from Chamber vote"},
+  {"category": "consensus", "query": "Ibovespa projeção fim de 2026 bancos revisam após eleição", "by": "main", "status": "done", "finding": "JPM, MS, BTG expect a relevant correction period; Inter 193k year-end (pre-election); no fresh post-runoff target"},
+  {"category": "upcoming_events", "query": "agenda Câmara votação PLP 299/2026 pacote fiscal data", "by": "main", "status": "done", "finding": "Chamber vote expected ~18 Nov after Senate amendments on 17 Nov; no official date"},
+  {"category": "news", "query": "US stocks futures November 16 2026 emerging markets", "by": "main", "status": "done", "finding": "US futures flat on 16 Nov; Nvidia earnings and Fed minutes this week; Brent ~$95"},
+  {"category": "schedule", "query": "B3 feriado 20 novembro 2026 consciência negra pregão", "by": "main", "status": "done", "finding": "B3 closed Fri 20 Nov; 8 sessions from 16 to 26 Nov"},
+  {"category": "news", "query": "Ibovespa Petrobras Vale queda alta sexta-feira 13 novembro", "by": "main", "status": "done", "finding": "13 Nov: +0.66% to 172,457.76 (high 172,715, low 171,132); PETR4 +1.34% after Q3; VALE3 -0.70%"}
+],
+ "adjustments": [
+  {"event": "Post-runoff repricing leaves volatility elevated (26 Oct circuit breaker; IV 44-46% around runoff)", "date": "2026-10-26", "effect": "widen 8-session sigma from ~3.3% (normal-regime) to ~4.3%, fat tails", "sources": [3, 4]},
+  {"event": "Fiscal package votes (Senate amendments 17 Nov, Chamber ~18 Nov)", "date": "2026-11-17", "effect": "two-sided event risk, slight left skew in the tails", "sources": [2, 5]}
+]}
