@@ -1,0 +1,27 @@
+{"searches": [
+  {"category": "resolution_source", "query": "東京都区部 消費者物価指数 2026年10月 中旬速報 生鮮食品を除く総合", "by": "main", "status": "done", "finding": "Oct 2026 Tokyo core +2.6% y/y (Sep 2.7), SA m/m +0.3; rice -31.3%; energy +2.2%; water factor gone (released 2026-10-30)"},
+  {"category": "resolution_source", "query": "WebFetch stat.go.jp/data/cpi/sokuhou/tsuki/index-t.html", "by": "main", "status": "done", "finding": "page lists Oct 2026 release (2026-10-30); figures only in PDF"},
+  {"category": "base_rate", "query": "Tokyo core CPI November 2025 2.8% month on month", "by": "main", "status": "done", "finding": "Nov 2025 core 2.8% = Oct 2025 2.8%; Dec 2025 2.3%"},
+  {"category": "base_rate", "query": "東京都区部 2025年11月 消費者物価 前月比 生鮮食品を除く エネルギー", "by": "main", "status": "done", "finding": "Nov 2025: energy contribution widened on electricity/gas (DLRI); core-core 2.8 flat"},
+  {"category": "news", "query": "Japan core CPI October 2026 national inflation", "by": "main", "status": "done", "finding": "national Sep 2026 core 2.1%; Oct national due 20 Nov"},
+  {"category": "consensus", "query": "東京都区部CPI 11月 予測 2026 コア 見通し", "by": "main", "status": "done", "finding": "no November 2026 forecast found"},
+  {"category": "markets", "query": "Kalshi OR Polymarket Japan CPI November 2026", "by": "main", "status": "done", "finding": "no Tokyo/Japan monthly market; Polymarket 2026 annual core CPI 2.5-2.9 bucket ~41% (stale, mid-2026)"},
+  {"category": "news", "query": "電気・ガス料金支援 2026年 夏 9月使用分 3.5円 10月使用分", "by": "main", "status": "done", "finding": "2026 subsidy: Aug use 4.5 yen/kWh & 18 yen/m3, Sep use 3.5 & 14, Oct use 0 -> removal hits Nov CPI"},
+  {"category": "news", "query": "Tokyo core CPI October 2026 2.6% ex fresh food", "by": "scout-1", "status": "done", "finding": "confirms 2.6 vs 2.6 consensus; energy -1.9 -> +2.2"},
+  {"category": "consensus", "query": "Japan nationwide core CPI October 2026 forecast economists", "by": "scout-1", "status": "done", "finding": "Reuters poll snippet unclear; national Sep 2.1"},
+  {"category": "news", "query": "帝国データバンク 11月 値上げ 品目 2026", "by": "scout-1", "status": "done", "finding": "Nov 2026 food hikes 1,477 items vs 143 in Nov 2025; Oct 2026 3,153"},
+  {"category": "news", "query": "電気料金 2026年11月使用分 東京電力 都市ガス 東京ガス 政府補助", "by": "scout-1", "status": "done", "finding": "Tokyo Gas base charge raised 1 Oct 2026; subsidy ends with Oct reading"},
+  {"category": "news", "query": "Tokyo core CPI November 2025 year-on-year excluding fresh food Reuters", "by": "scout-2", "status": "done", "finding": "Nov 2025 core 2.8 vs 2.7 expected"},
+  {"category": "base_rate", "query": "東京都区部 消費者物価 2025年11月 中旬速報 生鮮食品を除く総合 前年同月比 ニッセイ基礎研究所", "by": "scout-2", "status": "done", "finding": "Oct 2025 step-up from water charge; Nov 2025 flat"},
+  {"category": "base_rate", "query": "Tokyo core CPI December 2025 yoy ex fresh food 2.3% gasoline tax", "by": "scout-2", "status": "done", "finding": "Dec 2025 2.3, Jan 2026 2.0, Feb 1.8; gasoline effect mostly Dec/Jan"},
+  {"category": "base_rate", "query": "東京都区部 CPI 2025年11月 生鮮食品除く 前月比 エネルギー 電気代 補助 12月 2.3% 第一生命経済研究所", "by": "scout-2", "status": "done", "finding": "m/m Oct->Nov 2025 not found"},
+  {"category": "news", "query": "Tokyo core CPI October 2026 energy subsidies forecast November", "by": "scout-3", "status": "done", "finding": "Oct energy +2.2: electricity +1.7, gas +4.9, gasoline -2.3"},
+  {"category": "disconfirmation", "query": "東京都区部 消費者物価 10月 2026 コア 2.6% 11月見通し", "by": "scout-3", "status": "done", "finding": "DLRI: subsidy expiry from Nov lifts electricity/gas y/y; no number", "tests": "assumption that energy subsidy removal lifts November core by ~+0.15pp (i.e. that Nov 2025 base did not have an equally large step-up)"},
+  {"category": "disconfirmation", "query": "ガソリン 暫定税率 廃止 電気ガス補助 2026年11月 物価 押し下げ 東京CPI", "by": "scout-3", "status": "done", "finding": "gasoline subsidy expansion from 13 Nov 2025 mostly hits Dec 2025; small Nov base effect", "tests": "assumption that energy subsidy removal lifts November core by ~+0.15pp"},
+  {"category": "consensus", "query": "Japan Tokyo CPI October 2026 ex fresh food 2.6% economists BOJ December", "by": "scout-3", "status": "done", "finding": "food ex fresh slightly weaker than expected; BoJ 1.25%"},
+  {"category": "upcoming_events", "query": "Tokyo CPI release November 27 2026", "by": "main", "status": "skipped", "finding": "schedule taken from question text / e-Stat calendar 2026-11-27 08:30"}
+],
+ "adjustments": [
+  {"event": "2026 summer electricity/gas subsidy (3.5 yen/kWh, 14 yen/m3 for Sep usage) larger than 2025's (2.0 yen/kWh, 8 yen/m3) and ends with Oct usage, entering Nov CPI; plus Tokyo Gas base-charge hike", "date": "2026-11-01", "effect": "+0.15 pp on the median", "sources": [3, 4]},
+  {"event": "Rice deflation deepening (-31% y/y in Oct) partly offset by much heavier Nov 2026 food price-hike calendar (1,477 vs 143 items)", "date": "2026-10-30", "effect": "+0.0 pp net, wider tails", "sources": [1, 5]}
+]}

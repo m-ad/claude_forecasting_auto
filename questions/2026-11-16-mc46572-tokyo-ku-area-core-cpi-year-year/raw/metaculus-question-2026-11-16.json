@@ -1,0 +1,55 @@
+{
+  "post_id": 46572,
+  "url": "https://www.metaculus.com/questions/46572/",
+  "post_title": "What will the Tokyo (Ku-area) core CPI year-on-year inflation rate be for November 2026?",
+  "tournaments": [
+    "minibench"
+  ],
+  "options": null,
+  "question": {
+    "id": 46832,
+    "title": "What will the Tokyo (Ku-area) core CPI year-on-year inflation rate be for November 2026?",
+    "type": "discrete",
+    "status": "open",
+    "description": "Japan's Statistics Bureau publishes a mid-month preliminary Consumer Price Index for the Ku-area of Tokyo (the 23 wards) roughly three weeks ahead of the national CPI for the same month, so it is the first hard inflation read of each monthly cycle and is closely watched by the Bank of Japan and by markets. The November 2026 edition — on the 2025=100 index base introduced with the January 2026 release — is scheduled for 08:30 JST on 27 November 2026 (23:30 UTC on 26 November 2026) according to the Bureau's Schedule of Release (https://www.stat.go.jp/english/data/cpi/1582.htm); the national November CPI follows on 18 December 2026.\n\nMost recent data (October 2026, released 30 October 2026): the all-items index was 103.5, up 2.8% year-on-year (September: +2.7%); the index excluding fresh food — the series this question uses — was 103.3, up 2.6% (September: +2.7%); the index excluding fresh food and energy was 103.6, up 2.6% (September: +2.9%). Seasonally adjusted month-on-month changes were +0.3% for the ex-fresh-food index and +0.2% for ex-fresh-food-and-energy, so underlying momentum stayed positive even as the annual rates eased.\n\nThe October easing came mainly from one-off and special factors rather than from weaker underlying inflation. According to Dai-ichi Life Research Institute's analysis of the release (https://www.dlri.co.jp/files/macro/672250.pdf), the water-charge special factor that had added about +0.25pp to the ex-fresh-food rate in September fell to zero in October, rice prices went from −19.8% to −31.3% year-on-year (contribution −0.15pp to −0.26pp), and energy flipped from −2.0% to +2.6% (electricity and city gas; contribution −0.08pp to +0.10pp) as the previous year's subsidy-driven price cuts dropped out of the comparison base. Food excluding fresh food slowed from 3.6% to 3.0%, services ran at +2.2%, and hotel charges accelerated from 4.6% to 6.7%. The core figure matched the market consensus of +2.6%, and Tokyo core inflation has now run above the Bank of Japan's 2% target for an extended period.\n\nFor November 2026 the direction is genuinely two-sided. Energy base effects continue to lift the annual rate — a new winter electricity subsidy (1 yen/kWh for December 2026 usage, 4.5 yen/kWh for January–February 2027) begins only with December usage and so does not touch the November index — and services and hotel prices are firm; against that, rice deflation is deepening month by month, processed-food inflation is slowing, and the water-charge factor will not repeat its one-off September-to-October drop. Recent monthly prints of this series have moved in steps of 0.1–0.3pp, so whether the November rate ticks up or down will hinge on small differences in monthly momentum and base effects.\n\n`{\"format\": \"llm_question\", \"info\": {\"sdk_version\": \"0.6.1\", \"rating\": {\"quality\": 3, \"ambiguity\": 4, \"resolvability\": 4, \"passes\": true}}}`",
+    "resolution_criteria": "This question resolves to the year-on-year percentage change in the \"total index excluding fresh food\" (生鮮食品を除く総合) for the Ku-area of Tokyo (東京都区部) for survey month November 2026, as published by the Statistics Bureau of Japan (Ministry of Internal Affairs and Communications) in its mid-month preliminary release (中旬速報値), scheduled for 08:30 JST on Friday 27 November 2026 (23:30 UTC on 26 November 2026). The resolving figure is the year-on-year change reported for 生鮮食品を除く総合 in Table 1 of that release, available at https://www.stat.go.jp/data/cpi/sokuhou/tsuki/index-t.html (press-release PDF: https://www.stat.go.jp/data/cpi/sokuhou/tsuki/pdf/kubu.pdf); a published figure of 2.6% would resolve as 2.6. If those pages are unreachable, the same official figure reported by [credible sources](https://www.metaculus.com/faq/#definitions) may be used, and if the release is merely delayed, resolution waits for publication. If the Statistics Bureau cancels the November 2026 mid-month preliminary Tokyo CPI release, the question is annulled.",
+    "fine_print": "The resolving series is the total index excluding fresh food only (生鮮食品を除く総合); the all-items index (総合) and the index excluding fresh food and energy (生鮮食品及びエネルギーを除く総合) are not used. The figure as first published in the November 2026 mid-month preliminary release governs; any later revision of the series does not change the resolution.",
+    "unit": "%",
+    "options": null,
+    "scaling": {
+      "range_min": 1.75,
+      "range_max": 3.25,
+      "nominal_min": 1.8,
+      "nominal_max": 3.2,
+      "zero_point": null,
+      "open_upper_bound": true,
+      "open_lower_bound": true,
+      "inbound_outcome_count": 15,
+      "continuous_range": [
+        1.75,
+        1.85,
+        1.95,
+        2.05,
+        2.15,
+        2.25,
+        2.35,
+        2.45,
+        2.55,
+        2.65,
+        2.75,
+        2.8499999999999996,
+        2.95,
+        3.05,
+        3.15,
+        3.25
+      ]
+    },
+    "open_lower_bound": true,
+    "open_upper_bound": true,
+    "inbound_outcome_count": 15,
+    "open_time": "2026-11-16T05:14:20Z",
+    "scheduled_close_time": "2026-11-16T08:14:20Z",
+    "scheduled_resolve_time": "2026-11-26T23:30:00Z",
+    "resolution": null
+  }
+}

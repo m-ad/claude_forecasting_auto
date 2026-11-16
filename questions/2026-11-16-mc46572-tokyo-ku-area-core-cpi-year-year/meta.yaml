@@ -1,0 +1,62 @@
+slug: 2026-11-16-mc46572-tokyo-ku-area-core-cpi-year-year
+title: What will the Tokyo (Ku-area) core CPI year-on-year inflation rate be for November 2026?
+source: metaculus
+url: https://www.metaculus.com/questions/46572/
+post_id: 46572
+question_id: 46832
+type: discrete
+unit: '%'
+tags: []
+dates:
+  created: '2026-11-16'
+  opened: '2026-11-16'
+  closes: '2026-11-16'
+  resolves: '2026-11-26'
+status: open
+tournament:
+  slug: minibench
+  mode: one_shot
+  registered: '2026-11-16'
+  opened: '2026-11-16T05:14:20Z'
+  closes: '2026-11-16T08:14:20Z'
+  submitted: '2026-11-16T06:12:44+00:00'
+  submitted_forecast:
+    continuous_cdf:
+    - 0.001
+    - 0.004427034750905315
+    - 0.008064720393159211
+    - 0.012275014525514657
+    - 0.01804181991133452
+    - 0.028039661553238716
+    - 0.04953865216560835
+    - 0.0934379499279203
+    - 0.15850206722769022
+    - 0.2679472601111613
+    - 0.46818549869118414
+    - 0.6661361881772433
+    - 0.8209651652724317
+    - 0.9180010645644103
+    - 0.9709041617009295
+    - 0.9923322516577535
+  comment_posted: true
+  official_score: null
+  missed_window: false
+current:
+  version: 1
+  date: '2026-11-16'
+  median: 2.77
+  iqr:
+  - 2.65
+  - 2.9
+  community:
+    cp: null
+    pro: null
+    gold: null
+    n_forecasters: null
+    as_of: '2026-11-16'
+next_review: null
+tripwires: []
+resolution:
+  outcome: null
+  date: null
+  source: null
