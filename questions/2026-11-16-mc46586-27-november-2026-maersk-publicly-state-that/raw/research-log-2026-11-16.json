@@ -1,0 +1,26 @@
+{"searches": [
+  {"category": "resolution_source", "query": "maersk.com it-security-incident advisory 2026-11-11 (WebFetch)", "by": "main", "status": "done", "finding": "Fetch failed (header overflow); advisory wording read via BleepingComputer/The Register 11 Nov: 'no sensitive data has been disclosed', isolated local system, no data types named"},
+  {"category": "resolution_source", "query": "Maersk IT security incident personal data", "by": "main", "status": "done", "finding": "Only the 11 Nov statement; no data types confirmed; will notify customers as info becomes available"},
+  {"category": "news", "query": "Maersk Whitearmor LF Logistics", "by": "main", "status": "done", "finding": "Nothing new; LF Logistics acquisition background only"},
+  {"category": "markets", "query": "Polymarket Maersk data breach", "by": "main", "status": "done", "finding": "No market found (only unrelated Polymarket breach stories)"},
+  {"category": "news", "query": "Maersk breach update employees data spokesperson November 2026", "by": "main", "status": "done", "finding": "No spokesperson statement on employee/driver data found"},
+  {"category": "base_rate", "query": "company initially said no sensitive data later confirmed personal data stolen ransomware", "by": "main", "status": "done", "finding": "Medibank, Yum, Lee, Advantest, Seiko reversed, typically weeks to months later"},
+  {"category": "disconfirmation", "query": "Maersk confirms driver data passwords leaked", "by": "main", "status": "done", "finding": "No Maersk confirmation; password claim is the attackers' only", "tests": "the assumption that Maersk keeps its 'no sensitive data' line, without acknowledging personal data, through 27 Nov"},
+  {"category": "news", "query": "Maersk \"legacy system\" breach Datatilsynet notified", "by": "main", "status": "done", "finding": "No Datatilsynet mention"},
+  {"category": "news", "query": "Maersk hackerangreb persondata", "by": "main", "status": "done", "finding": "Danish coverage (ing.dk 10 Nov) repeats claims; no Maersk personal-data acknowledgement"},
+  {"category": "news", "query": "Maersk data breach 2026-11-15 OR 2026-11-14 update investigation", "by": "main", "status": "done", "finding": "No update after 11-12 Nov; commentary only (Container News, Smart Maritime 12 Nov)"},
+  {"category": "news", "query": "Maersk cyberattack update November 2026", "by": "scout-1", "status": "done", "finding": "No post-11 Nov update"},
+  {"category": "news", "query": "Maersk hack spokesperson data", "by": "scout-1", "status": "done", "finding": "No named spokesperson; BleepingComputer questions unanswered"},
+  {"category": "news", "query": "Whitearmor ransomware leak site Maersk data published", "by": "scout-1", "status": "done", "finding": "Countdown to ~7 Dec; no data published as of 10-12 Nov"},
+  {"category": "news", "query": "Datatilsynet Maersk", "by": "scout-1", "status": "done", "finding": "Nothing"},
+  {"category": "news", "query": "LF Logistics data breach drivers Hong Kong PCPD", "by": "scout-1", "status": "done", "finding": "Nothing"},
+  {"category": "news", "query": "Maersk data breach legacy system unauthorised access November 2026", "by": "scout-2", "status": "done", "finding": "Same 11 Nov statement"},
+  {"category": "disconfirmation", "query": "Maersk acknowledges personal information exposed", "by": "scout-2", "status": "done", "finding": "No acknowledgement found", "tests": "the assumption that Maersk keeps its 'no sensitive data' line, without acknowledging personal data, through 27 Nov"},
+  {"category": "disconfirmation", "query": "Maersk notifies affected individuals data incident LF Logistics", "by": "scout-2", "status": "done", "finding": "Only unrelated 2023 Maine AG filing (KVH vendor, 109 people)", "tests": "the assumption that Maersk keeps its 'no sensitive data' line, without acknowledging personal data, through 27 Nov"},
+  {"category": "base_rate", "query": "ransomware victim initially said no sensitive data later confirmed personal data stolen notification weeks later", "by": "scout-2", "status": "done", "finding": "Confirmations typically 1-4 months (Casio ~2-3 mo, Columbus ~3 mo, Lee months)"},
+  {"category": "disconfirmation", "query": "WhiteArmor Maersk leak sample driver records personal data update", "by": "scout-2", "status": "done", "finding": "No samples published", "tests": "the assumption that Maersk keeps its 'no sensitive data' line, without acknowledging personal data, through 27 Nov"}
+],
+ "adjustments": [
+  {"event": "Maersk 11 Nov advisory frames data as non-sensitive and keeps investigation open; no update in 5 days", "date": "2026-11-11", "effect": "-5 pp", "sources": [1, 2, 3]},
+  {"event": "Whitearmor leak deadline ~7 Dec falls after the 27 Nov cutoff; no samples published", "date": "2026-11-10", "effect": "-3 pp", "sources": [4, 5]}
+]}

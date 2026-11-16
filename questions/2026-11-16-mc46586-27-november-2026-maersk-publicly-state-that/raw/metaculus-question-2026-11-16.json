@@ -1,0 +1,38 @@
+{
+  "post_id": 46586,
+  "url": "https://www.metaculus.com/questions/46586/",
+  "post_title": "By 27 November 2026, will Maersk publicly state that personal data was accessed or disclosed in the IT security incident it announced on 11 November 2026?",
+  "tournaments": [
+    "minibench"
+  ],
+  "options": null,
+  "question": {
+    "id": 46846,
+    "title": "By 27 November 2026, will Maersk publicly state that personal data was accessed or disclosed in the IT security incident it announced on 11 November 2026?",
+    "type": "binary",
+    "status": "open",
+    "description": "On 7 November 2026 the data-extortion group Whitearmor (also written WhiteArmor), which first appeared in October 2026, listed A.P. Moller–Maersk on its Tor leak site. The post claimed roughly 100 GB taken from a platform it calls \"OCF / LF Logistics\" (LF Logistics is the Hong Kong-based contract-logistics company Maersk acquired in 2022), including 29,297 driver records of which 16,093 are said to carry plaintext passwords, 16,123 staff accounts (33 with SUPER_ADMIN rights), 27,842 mobile-device logs with phone numbers, emails and IMEIs, plus signed delivery receipts, inventory, purchase orders and ASNs. It demanded USD 5,000,000 in bitcoin within 30 days (deadline around 7 December 2026) and the post contained no screenshots or downloadable files.\n\nMaersk responded on 11 November 2026 with an advisory confirming \"an IT security incident involving unauthorised access and data extraction from one of our local legacy systems from a previous acquisition\". The company said its findings \"so far strongly suggest no sensitive data has been disclosed\", that the investigation \"remains ongoing\", and that the affected system is not connected to customer or partner integrations such as APIs and EDI. Maersk has not identified the acquired business publicly, has not named Whitearmor, and has not confirmed the types or volume of data claimed by the group. No statement by Denmark's data protection authority (Datatilsynet) or Centre for Cyber Security had been reported as of 13 November 2026, and no stolen Maersk data had been published. Maersk's only previous major cyber incident, NotPetya in 2017, cost the group up to USD 300 million and is a reference point for how seriously a Maersk data exposure would be treated.\n\nThe key open question is whether Maersk's initial assessment holds or whether, as its investigation proceeds (and as reporters or the affected former LF Logistics staff probe the group's specific claims about plaintext passwords and driver records), the company moves to acknowledging that personal data was in fact exposed. Companies in this position are constrained by GDPR breach-notification duties and by reputational and liability considerations, both of which cut in different directions on the timing of any acknowledgement.\n\n`{\"format\": \"llm_question\", \"info\": {\"sdk_version\": \"0.6.1\", \"rating\": {\"quality\": 3, \"ambiguity\": 3, \"resolvability\": 4, \"passes\": true}}}`",
+    "resolution_criteria": "Resolves YES if, on or before 27 November 2026, A.P. Moller–Maersk (or a Maersk spokesperson quoted in the media) publicly states that personal data — records identifying or relating to individuals, such as names, contact details, login credentials or passwords, driver/employee records, or device identifiers such as IMEI numbers — was accessed, extracted, disclosed or leaked in the IT security incident the company announced on 11 November 2026. Such a statement may appear in Maersk's incident advisory (https://www.maersk.com/news/articles/2026/11/11/it-security-incident), elsewhere on maersk.com, or be reported by [credible sources](https://www.metaculus.com/faq/#definitions). A statement counts even if Maersk characterises the data as old, low-risk or not sensitive, provided it acknowledges that records identifying individuals were involved. Resolves NO if no such statement is public by 27 November 2026 — including if Maersk's position remains that its findings so far 'strongly suggest no sensitive data has been disclosed', that the investigation is ongoing, or that it has not yet determined what data was taken.",
+    "fine_print": "Statements that merely confirm 'unauthorised access and data extraction' or 'data theft' in general, without indicating that personal data of individuals was involved, do not count. A statement that the company is investigating whether any personal data was affected, on its own, does not count.",
+    "unit": "",
+    "options": null,
+    "scaling": {
+      "range_min": null,
+      "range_max": null,
+      "nominal_min": null,
+      "nominal_max": null,
+      "zero_point": null,
+      "open_upper_bound": false,
+      "open_lower_bound": false,
+      "inbound_outcome_count": null,
+      "continuous_range": null
+    },
+    "open_lower_bound": false,
+    "open_upper_bound": false,
+    "inbound_outcome_count": null,
+    "open_time": "2026-11-16T12:43:42Z",
+    "scheduled_close_time": "2026-11-16T15:43:42Z",
+    "scheduled_resolve_time": "2026-11-27T00:00:00Z",
+    "resolution": null
+  }
+}
