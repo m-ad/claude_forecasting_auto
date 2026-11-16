@@ -1,0 +1,21 @@
+{"searches": [
+  {"category": "resolution_source", "query": "Nasdaq Composite close November 13 2026", "by": "main", "status": "done", "finding": "No Nov 13 figure in results; Nov 3 close 25,365.67, Nov 5 -5.52% to 24,315, Nov 11 ~25,500. Nov 13 close 24,922.08 taken from question text (cites indexes.nasdaq.com)."},
+  {"category": "resolution_source", "query": "Nasdaq futures November 16 2026", "by": "main", "status": "done", "finding": "Nothing dated Nov 16; no weekend futures level available."},
+  {"category": "news", "query": "Nvidia earnings date November 2026", "by": "main", "status": "done", "finding": "NVDA fiscal Q3 report expected Nov 17-18 after close (unconfirmed; most sources Nov 18)."},
+  {"category": "news", "query": "Anthropic IPO pricing November 18 Nasdaq", "by": "main", "status": "done", "finding": "~825M shares at $70-78, up to $64.4B raise, pricing Nov 18, trading Nov 19 as ANT on Nasdaq."},
+  {"category": "markets", "query": "Kalshi Nasdaq close November 27 2026", "by": "main", "status": "done", "finding": "No Nov 27 Composite contract found; only year-end Nasdaq-100 markets."},
+  {"category": "markets", "query": "VIX VXN November 13 2026", "by": "main", "status": "done", "finding": "FRED VIX 28.18 on Nov 5, 25.64 Nov 6, 19.92 Nov 9 (question says 17.49 Nov 11); no VXN found."},
+  {"category": "news", "query": "stock market week ahead November 16 2026 Nasdaq Nvidia Anthropic", "by": "main", "status": "done", "finding": "Nothing relevant dated this week."},
+  {"category": "disconfirmation", "query": "Nasdaq selloff Fed rate hike December 2026 correction", "by": "main", "status": "done", "finding": "Nov 5 close 24,315 left index ~12% below Oct record, in correction; Dec hike odds 68% (Nov 5). Fed hiked to 3.75-4.00% in Sept. Supports fat left tail, not a drift shift.", "tests": "random-walk with ~5% nine-day sd centred near the Nov 13 close (no drift, no regime shift)"},
+  {"category": "base_rate", "query": "Nasdaq Composite two-week return volatility historical distribution", "by": "main", "status": "done", "finding": "V-Lab GJR-GARCH ~27% annualised vol (June 2026 snapshot); no direct two-week distribution."},
+  {"category": "upcoming_events", "query": "PCE GDP November 25 2026 expectations", "by": "main", "status": "done", "finding": "Q3 GDP 2nd est + Oct PCE on Nov 25 8:30 ET; advance Q3 GDP 3.4%; no consensus yet."},
+  {"category": "base_rate", "query": "Nasdaq record high October 6 2026 close", "by": "main", "status": "done", "finding": "Record close 27,477.31 on Oct 5, 2026; Nov 13 level is ~9.3% below."},
+  {"category": "news", "query": "Nasdaq falls November 13 2026 Nvidia stocks Friday", "by": "main", "status": "done", "finding": "Confirms Nov 5 selloff (NVDA -9.26%); nothing specific for Nov 13."},
+  {"category": "base_rate", "query": "Thanksgiving week stock market seasonality Nasdaq returns history", "by": "main", "status": "done", "finding": "Wednesday before Thanksgiving avg +0.54%, 80.6% win rate; mild positive holiday drift, small samples."},
+  {"category": "markets", "query": "Polymarket Nasdaq November 2026", "by": "main", "status": "done", "finding": "No Polymarket Nasdaq index market; NVDA monthly contracts only."},
+  {"category": "consensus", "query": "Wall Street strategists Nasdaq outlook November 2026 rebound or more downside", "by": "main", "status": "done", "finding": "Nov 4 Composite ~25,912; Morgan Stanley warned of further semis downside through mid-Nov; no consensus."}
+],
+ "adjustments": [
+  {"event": "Thanksgiving-week seasonality and equity drift", "date": "2026-11-27", "effect": "+0.1% on the median (24,922 -> ~24,950)", "sources": [5]},
+  {"event": "Elevated realised volatility (Nov 5 -5.5% day, VIX 17-28) plus Nvidia earnings and Anthropic IPO inside the window", "date": "2026-11-05", "effect": "nine-day sd widened to ~5% with fat tails (p5/p95 at -8.4%/+7.7%)", "sources": [2, 3, 4]}
+]}
