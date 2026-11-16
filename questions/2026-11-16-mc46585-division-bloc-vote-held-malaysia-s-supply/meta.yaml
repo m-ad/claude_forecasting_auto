@@ -1,0 +1,47 @@
+slug: 2026-11-16-mc46585-division-bloc-vote-held-malaysia-s-supply
+title: Will a division (bloc vote) be held on Malaysia's Supply Bill 2027 in the Dewan Rakyat on 26 November
+  2026?
+source: metaculus
+url: https://www.metaculus.com/questions/46585/
+post_id: 46585
+question_id: 46845
+type: binary
+unit: null
+tags: []
+dates:
+  created: '2026-11-16'
+  opened: '2026-11-16'
+  closes: '2026-11-16'
+  resolves: '2026-11-26'
+status: open
+tournament:
+  slug: minibench
+  mode: one_shot
+  registered: '2026-11-16'
+  opened: '2026-11-16T12:23:08Z'
+  closes: '2026-11-16T15:23:08Z'
+  submitted: '2026-11-16T13:12:08+00:00'
+  submitted_forecast:
+    probability_yes: 0.08
+  comment_posted: true
+  official_score: null
+  missed_window: false
+current:
+  version: 1
+  date: '2026-11-16'
+  median: 0.08
+  iqr:
+  - 0.05
+  - 0.13
+  community:
+    cp: null
+    pro: null
+    gold: null
+    n_forecasters: null
+    as_of: '2026-11-16'
+next_review: null
+tripwires: []
+resolution:
+  outcome: null
+  date: null
+  source: null

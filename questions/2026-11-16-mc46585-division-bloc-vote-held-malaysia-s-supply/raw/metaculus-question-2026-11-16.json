@@ -1,0 +1,38 @@
+{
+  "post_id": 46585,
+  "url": "https://www.metaculus.com/questions/46585/",
+  "post_title": "Will a division (bloc vote) be held on Malaysia's Supply Bill 2027 in the Dewan Rakyat on 26 November 2026?",
+  "tournaments": [
+    "minibench"
+  ],
+  "options": null,
+  "question": {
+    "id": 46845,
+    "title": "Will a division (bloc vote) be held on Malaysia's Supply Bill 2027 in the Dewan Rakyat on 26 November 2026?",
+    "type": "binary",
+    "status": "open",
+    "description": "Malaysia's Dewan Rakyat is in the closing stretch of the 2026 budget cycle: the Third Meeting of the Fifth Session of the 15th Parliament runs from 5 October to 8 December 2026. Prime Minister Anwar Ibrahim tabled Budget 2027 (RM459.8 billion) on 9 October 2026, and the Supply (Budget) Bill 2027 passed its policy stage (second reading) by voice vote on 29 October 2026 ([Bernama/Ministry of Finance](https://mof.gov.my/portal/en/news/press-citations/budget-2027-passes-policy-stage-concluding-fourth-week-of-dewan-rakyat-session)). That stage was secured hours after the government signed a confidence and supply agreement (CSA) with 13 opposition and independent MPs — six Bersatu MPs led by party president Muhyiddin Yassin, Muar independent MP Syed Saddiq Syed Abdul Rahman, and six former Bersatu MPs expelled in 2024 — in exchange for constituency allocations of roughly RM3–4 million a year, giving the government the support of 147 of 222 MPs ([The Star](https://www.thestar.com.my/news/nation/2026/11/05/opposition-seeks-details-of-csa-signed-by-13-mps); [The Straits Times](https://www.straitstimes.com/asia/se-asia/malaysias-anwar-survives-budget-test-after-securing-support-from-former-rival-bersatu)). Notably, no opposition MP rose to call for a division on that voice vote — unlike Budget 2026's policy stage on 4 November 2025, when Perikatan Nasional chief whip Takiyuddin Hassan forced a division and the bill passed with 120 ayes, 67 noes and 35 absent, as reported in the same Straits Times article. Committee-stage debate on the bill runs from 2 to 26 November 2026 (sitting days 16–19 and 23–26 November remain); as of 13 November 2026, 16 ministries had yet to conclude their committee-stage winding-up speeches, and the third reading is expected at the end of the 26 November sitting, a budget-closing sitting that can run late into the evening or past midnight ([Malay Mail](https://www.malaymail.com/news/malaysia/2026/11/13/no-gst-anwar-reaffirms-stance-as-dewan-rakyat-ends-sixth-week-with-deficit-cut-to-37pc/243083)). The bill then goes to the Dewan Negara (Senate), which begins its debate on 30 November 2026. Divisions are relatively uncommon in the Dewan Rakyat and require a call supported by at least 15 MPs; Perikatan Nasional refused to sign the CSA, and its leaders have disputed Muhyiddin's decision, so the final day of the budget's committee stage offers the opposition a natural opportunity to force MPs — including the CSA signatories — onto the record. Political context: UMNO–DAP friction over Najib Razak's conditional pardon, and the 14 November Melaka state election, have fuelled speculation about an early general election, though BN leaders say they remain committed to the Anwar-led federal government.\n\n`{\"format\": \"llm_question\", \"info\": {\"sdk_version\": \"0.6.1\", \"rating\": {\"quality\": 3, \"ambiguity\": 3, \"resolvability\": 4, \"passes\": true}}}`",
+    "resolution_criteria": "This question resolves YES if, between 00:00 UTC and 20:00 UTC on 26 November 2026 (08:00 MYT on 26 November to 04:00 MYT on 27 November 2026), the Dewan Rakyat (Malaysia's House of Representatives) holds at least one division (\"belah bahagi\" — a recorded vote in which the ayes and noes are counted) on the Supply Bill 2027 (Supply (Budget) Bill 2027 / Rang Undang-Undang Perbekalan 2027), whether on a committee-stage allocation or on the bill's third reading. It resolves NO if no such division is held within that period, including if the House rises without any division being called on the bill. Resolution is based on the official Dewan Rakyat Hansard (Penyata Rasmi) for that sitting; if that record is unavailable, [credible sources](https://www.metaculus.com/faq/#definitions) reporting the proceedings will be used.",
+    "fine_print": "A division counts only if it concerns the Supply Bill 2027 — including a proposed reduction of a ministry's or department's allocation at committee stage, or the third reading itself; divisions on unrelated business do not count. Where a division's timing could fall outside the window, only divisions recorded before 20:00 UTC on 26 November 2026 count.",
+    "unit": "",
+    "options": null,
+    "scaling": {
+      "range_min": null,
+      "range_max": null,
+      "nominal_min": null,
+      "nominal_max": null,
+      "zero_point": null,
+      "open_upper_bound": false,
+      "open_lower_bound": false,
+      "inbound_outcome_count": null,
+      "continuous_range": null
+    },
+    "open_lower_bound": false,
+    "open_upper_bound": false,
+    "inbound_outcome_count": null,
+    "open_time": "2026-11-16T12:23:08Z",
+    "scheduled_close_time": "2026-11-16T15:23:08Z",
+    "scheduled_resolve_time": "2026-11-26T20:00:00Z",
+    "resolution": null
+  }
+}

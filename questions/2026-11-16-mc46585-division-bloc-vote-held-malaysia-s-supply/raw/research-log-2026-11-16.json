@@ -1,0 +1,23 @@
+{"searches": [
+  {"category": "resolution_source", "query": "Belanjawan 2026 bacaan kali ketiga undi belah bahagi Dewan Rakyat", "by": "main", "status": "done", "finding": "Budget 2026: division only at policy stage 4 Nov 2025 (120-67-35); third reading 1 Dec 2025 by voice vote"},
+  {"category": "base_rate", "query": "Budget 2025 passed third reading Dewan Rakyat bloc vote", "by": "main", "status": "done", "finding": "Budget 2025 third reading 3 Dec 2024 by voice vote; policy stage also voice"},
+  {"category": "base_rate", "query": "Budget 2024 third reading Dewan Rakyat voice vote passed", "by": "main", "status": "done", "finding": "Budget 2024 third reading 27 Nov 2023 by voice vote; policy stage voice"},
+  {"category": "news", "query": "Budget 2027 committee stage Dewan Rakyat bloc vote November 2026", "by": "main", "status": "done", "finding": "Committee stage to 26 Nov; allocations approved by voice vote so far; no division reported"},
+  {"category": "markets", "query": "Polymarket Malaysia Anwar budget 2027 parliament", "by": "main", "status": "done", "finding": "no market found"},
+  {"category": "disconfirmation", "query": "Perikatan Nasional bloc vote committee stage ministry allocation Budget 2026", "by": "main", "status": "done", "finding": "Budget 2026 committee allocations passed by voice vote (Nov 10, Nov 21 reports); no committee division found", "tests": "that the opposition, having skipped a division at the 2027 policy stage, will also not call one on 26 Nov (my lean toward NO)"},
+  {"category": "base_rate", "query": "undi belah bahagi peringkat jawatankuasa Belanjawan kementerian diluluskan", "by": "main", "status": "done", "finding": "Budget 2021 (PN govt, thin majority): 9 of 27 ministries passed by division; shows divisions happen when opposition thinks it can win or embarrass"},
+  {"category": "disconfirmation", "query": "Takiyuddin Budget 2027 division bloc vote opposition", "by": "main", "status": "done", "finding": "nothing on 2027; Takiyuddin forced procedural bloc vote May 2023", "tests": "PN may want CSA signatories on the record"},
+  {"category": "base_rate", "query": "Belanjawan 2023 lulus bacaan kali ketiga undi suara Mac 2023", "by": "main", "status": "done", "finding": "Budget 2023 Dewan Rakyat passed by majority voice vote (Sinar Harian)"},
+  {"category": "base_rate", "query": "\"bloc vote\" committee stage allocation Dewan Rakyat passed 2024 OR 2025 ministry opposition", "by": "main", "status": "done", "finding": "no committee-stage ministry division found under Anwar govt 2023-2025"},
+  {"category": "resolution_source", "query": "fetch malaymail 2026-11-13 sixth week", "by": "main", "status": "done", "finding": "4 ministries approved 13 Nov; 16 ministries left; committee until 26 Nov; no bloc vote mentioned"},
+  {"category": "news", "query": "Dewan Rakyat Budget 2027 committee stage allocations approved voice vote 2026-11", "by": "main", "status": "done", "finding": "Bernama 13 Nov: allocations approved, majority via voice vote"},
+  {"category": "news", "query": "Hamzah Zainudin Budget 2027 Perikatan oppose vote CSA Muhyiddin", "by": "main", "status": "done", "finding": "Opposition leader Hamzah (now Parti Wawasan Negara) critical but non-committal; opposition fragmented"},
+  {"category": "markets", "query": "Manifold Malaysia budget 2027 bloc vote", "by": "main", "status": "done", "finding": "none found"},
+  {"category": "upcoming_events", "query": "Malaysia parliament dissolution November 2026 Anwar snap election budget", "by": "main", "status": "done", "finding": "calls for dissolution, Loke resigned 10 Nov; analysts expect budget to pass first; no dissolution"},
+  {"category": "base_rate", "query": "Budget 2026 Dewan Rakyat December 1 2025 third reading opposition no division", "by": "main", "status": "done", "finding": "Budget 2026 committee scheduled to 27 Nov but third reading slipped to 1 Dec 2025, voice vote"}
+],
+ "adjustments": [
+  {"event": "Opposition did not call a division at the Budget 2027 policy stage after the CSA, and is fragmented (Hamzah's new party, Bersatu split)", "date": "2026-10-29", "effect": "-3 pp", "sources": [2, 3]},
+  {"event": "Budget 2026 third reading slipped 4 days past its scheduled committee end; 16 ministries still pending on 13 Nov, so 26 Nov third reading may slip out of window", "date": "2025-12-01", "effect": "-2 pp", "sources": [1, 6]},
+  {"event": "Early-election speculation and UMNO-DAP friction give opposition a motive to put CSA MPs on record", "date": "2026-11-15", "effect": "+3 pp", "sources": [7]}
+]}
