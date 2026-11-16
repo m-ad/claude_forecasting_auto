@@ -1,0 +1,26 @@
+{"searches": [
+ {"category": "resolution_source", "query": "Eagles Cowboys Thanksgiving 2026 point spread", "by": "main", "status": "done", "finding": "Only May 2026 opening lines: DAL -1.5, total 49.5 (SI, FOX/FanDuel). The 'as of Nov 13' 1.5 in the question text is this stale opener."},
+ {"category": "resolution_source", "query": "Cowboys 49ers November 15 2026 score", "by": "main", "status": "done", "finding": "No final score indexed; pre-game DAL -1 vs SF."},
+ {"category": "news", "query": "Eagles Tanner McKee Jalen Hurts injury November 2026", "by": "main", "status": "done", "finding": "Hurts IR with blood clot (Oct 17), out for season; McKee started from Week 6."},
+ {"category": "markets", "query": "Eagles vs Cowboys Thanksgiving odds DraftKings", "by": "main", "status": "done", "finding": "Conflicting early (May) DK lines, DAL -1.5 or +1.5; nothing current."},
+ {"category": "disconfirmation", "query": "Eagles Cowboys Week 7 2026 38-21", "by": "main", "status": "done", "finding": "Confirmed DAL won 38-21 at PHI Oct 26 vs McKee-led Eagles; Williams 155 rush yds.", "tests": "the question background's claim that the current line is DAL -1.5 (near coin flip) — I assume it is a stale May opener and the real line is ~DAL -7"},
+ {"category": "markets", "query": "Cowboys Eagles Thanksgiving look-ahead line November 2026", "by": "main", "status": "done", "finding": "No current line found; DAL 35-22-1 on Thanksgiving, 0-2 vs PHI on Thanksgiving."},
+ {"category": "news", "query": "49ers Cowboys final score Sunday Night Football Prescott", "by": "main", "status": "done", "finding": "Only older games; Nov 15 2026 result not indexed."},
+ {"category": "news", "query": "Eagles seventh straight loss 2-7 McKee", "by": "main", "status": "done", "finding": "Eagles 2-7 after 19-11 home loss to NYG Nov 8; lost 27-10 at WAS Nov 1; longest skid since 2012."},
+ {"category": "base_rate", "query": "NFL margin of victory distribution by point spread probability win by 7 or more", "by": "main", "status": "done", "finding": "Margin ~ Normal(spread, SD 13.5-13.9); margin 7 = 9.0%, 3 = 15.1% of games 1999-2025 (DeucesCracked)."},
+ {"category": "markets", "query": "Polymarket Kalshi Cowboys Eagles November 26 2026", "by": "main", "status": "done", "finding": "Kalshi matchup page exists but no price retrievable (fetch 429); Week 7 Kalshi had DAL 68% at kickoff."},
+ {"category": "news", "query": "Cowboys 49ers week 11 2026 recap", "by": "main", "status": "done", "finding": "Nothing relevant (old games)."},
+ {"category": "news", "query": "Eagles Giants 19-11 Tanner McKee benched quarterback", "by": "main", "status": "done", "finding": "McKee benched; Joe Milton III started Nov 8 vs NYG (first start), mixed review; Eagles on bye Week 10."},
+ {"category": "base_rate", "query": "Cowboys Eagles week 7 2026 closing spread -4.5 Kalshi 68%", "by": "main", "status": "done", "finding": "Week 7 at PHI: DAL -4.5, Kalshi DAL 66-68%, DAL >4.5 at 49-51%."},
+ {"category": "consensus", "query": "NFL power rankings week 11 2026 Cowboys Eagles", "by": "main", "status": "done", "finding": "B/R Week 10 (Nov 9 2026): 'wheels are officially off in Philadelphia'; no Dallas detail."},
+ {"category": "news", "query": "Cowboys injury report November 2026 Prescott Lamb", "by": "main", "status": "done", "finding": "Only older-season injury items (2024 Prescott hamstring); no current Dallas injury news found."},
+ {"category": "news", "query": "Eagles Steelers week 12 preview 2026", "by": "main", "status": "skipped", "finding": "time"},
+ {"category": "resolution_source", "query": "fetch lines.com eagles-vs-cowboys 19618", "by": "main", "status": "skipped", "finding": "WebFetch 403"},
+ {"category": "markets", "query": "fetch kalshi.com/matchups/nfl/cowboys-vs-eagles", "by": "main", "status": "skipped", "finding": "WebFetch 429"}
+],
+ "adjustments": [
+  {"event": "Week 7 market (DAL -4.5 at PHI vs McKee) re-based to Dallas home field instead of stale May -1.5 opener", "date": "2026-10-26", "effect": "implied spread from -1.5 to about -7.5", "sources": [2, 3, 4]},
+  {"event": "Eagles further decline: 0-2 since, Milton/McKee QB carousel", "date": "2026-11-08", "effect": "spread held at ~-7 (offset by Dallas's poor defence and short week); no extra shift", "sources": [5, 6]},
+  {"event": "Uncertainty about the true current line (none retrieved) and model error", "date": "2026-11-16", "effect": "shrink 7+ from ~0.51 to 0.46, spread toward other options", "sources": [1]}
+ ]
+}

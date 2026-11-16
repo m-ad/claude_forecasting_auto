@@ -1,0 +1,46 @@
+{
+  "post_id": 46570,
+  "url": "https://www.metaculus.com/questions/46570/",
+  "post_title": "Eagles at Cowboys on Thanksgiving 2026: will Dallas win by 7+ points, win by 1-6 points, or fail to win?",
+  "tournaments": [
+    "minibench"
+  ],
+  "options": [
+    "Cowboys win by 7 or more points",
+    "Cowboys win by 1 to 6 points",
+    "Cowboys do not win (Eagles win or the game ends in a tie)"
+  ],
+  "question": {
+    "id": 46830,
+    "title": "Eagles at Cowboys on Thanksgiving 2026: will Dallas win by 7+ points, win by 1-6 points, or fail to win?",
+    "type": "multiple_choice",
+    "status": "open",
+    "description": "The Dallas Cowboys host the Philadelphia Eagles in a Week 12 NFC East game on Thanksgiving Day, Thursday, November 26, 2026, at AT&T Stadium in Arlington, Texas. Kickoff is 4:30 p.m. ET (3:30 p.m. CT) on FOX, the middle of three Thanksgiving games (Bears at Lions at 1:00 p.m. ET, Chiefs at Bills at 8:20 p.m. ET).\n\nStatus quo as of mid-November 2026:\n- Cowboys: 4-5, second in the NFC East, scoring 27.3 points per game (6th in the NFL) and allowing 26.2. Dak Prescott has 2,381 passing yards, 16 touchdowns and 5 interceptions; CeeDee Lamb has 904 receiving yards and 7 touchdowns; Javonte Williams has 629 rushing yards. Recent results: lost 33-30 to Arizona (Nov 1), won 27-23 at Indianapolis (Nov 8). They host the 49ers on Nov 15 and the Titans on Nov 22 before Thanksgiving.\n- Eagles: 2-7, last in the NFC East and on a seven-game losing streak. The offense ranks 30th in points (16.4 per game) and 32nd in yards (260.2 per game); the defense allows 24.6 points per game. Jalen Hurts is on injured reserve (reported blood clots in his lungs) and out for the season, with Tanner McKee starting at quarterback; Lane Johnson retired on Oct 6. Saquon Barkley has 296 rushing yards. Philadelphia plays at Pittsburgh on Nov 22 before the Thanksgiving trip.\n- Division: the New York Giants lead the NFC East (5-3-1), ahead of Dallas (4-5), Washington (3-5-1) and Philadelphia (2-7).\n- Head-to-head: the Cowboys won the first 2026 meeting 38-21 in Philadelphia on Oct 26 (Week 7), with Prescott throwing for 212 yards and 3 touchdowns.\n\nBoth teams play Week 11 games on Nov 22, so their records and the betting line will move before kickoff. As of Nov 13, FOX Sports listed Dallas as only a 1.5-point home favorite with a total of 49 for this game (https://www.foxsports.com/nfl/week-12-philadelphia-eagles-vs-dallas-cowboys-nov-26-2026-game-boxscore-11097). That implies a near coin-flip game in which Dallas failing to win is roughly a coin flip, while a Dallas win of 7+ points and a Dallas win of 1-6 points each carry substantial but clearly smaller probability — so all three options are genuinely live and the split is far from settled.\n\n`{\"format\": \"llm_question\", \"info\": {\"sdk_version\": \"0.6.1\", \"rating\": {\"quality\": 3, \"ambiguity\": 4, \"resolvability\": 4, \"passes\": true}}}`",
+    "resolution_criteria": "This question resolves on the final score of the Philadelphia Eagles at Dallas Cowboys Week 12 game scheduled for Thursday, November 26, 2026, at AT&T Stadium, as reported on the official NFL Game Center page (https://www.nfl.com/games/eagles-at-cowboys-2026-reg-12), where the margin is the Cowboys' final score minus the Eagles' final score, including any overtime. If that margin is 7 or more, the question resolves to \"Cowboys win by 7 or more points\". If the margin is between 1 and 6 inclusive, it resolves to \"Cowboys win by 1 to 6 points\". If the margin is 0 or negative, it resolves to \"Cowboys do not win (Eagles win or the game ends in a tie)\".",
+    "fine_print": "If the NFL Game Center page is unavailable or does not show a final score, resolution uses [credible sources](https://www.metaculus.com/faq/#definitions). If the game is not completed by November 28, 2026 (for example because it is postponed or cancelled), the question is annulled.",
+    "unit": "",
+    "options": [
+      "Cowboys win by 7 or more points",
+      "Cowboys win by 1 to 6 points",
+      "Cowboys do not win (Eagles win or the game ends in a tie)"
+    ],
+    "scaling": {
+      "range_min": null,
+      "range_max": null,
+      "nominal_min": null,
+      "nominal_max": null,
+      "zero_point": null,
+      "open_upper_bound": false,
+      "open_lower_bound": false,
+      "inbound_outcome_count": null,
+      "continuous_range": null
+    },
+    "open_lower_bound": false,
+    "open_upper_bound": false,
+    "inbound_outcome_count": null,
+    "open_time": "2026-11-16T03:49:32Z",
+    "scheduled_close_time": "2026-11-16T06:49:32Z",
+    "scheduled_resolve_time": "2026-11-27T03:00:00Z",
+    "resolution": null
+  }
+}

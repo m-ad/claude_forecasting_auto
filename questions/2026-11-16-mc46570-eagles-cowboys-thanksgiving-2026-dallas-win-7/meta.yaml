@@ -1,0 +1,50 @@
+slug: 2026-11-16-mc46570-eagles-cowboys-thanksgiving-2026-dallas-win-7
+title: 'Eagles at Cowboys on Thanksgiving 2026: will Dallas win by 7+ points, win by 1-6 points, or fail
+  to win?'
+source: metaculus
+url: https://www.metaculus.com/questions/46570/
+post_id: 46570
+question_id: 46830
+type: multiple_choice
+unit: null
+tags: []
+dates:
+  created: '2026-11-16'
+  opened: '2026-11-16'
+  closes: '2026-11-16'
+  resolves: '2026-11-27'
+status: open
+tournament:
+  slug: minibench
+  mode: one_shot
+  registered: '2026-11-16'
+  opened: '2026-11-16T03:49:32Z'
+  closes: '2026-11-16T06:49:32Z'
+  submitted: '2026-11-16T04:12:37+00:00'
+  submitted_forecast:
+    probability_yes_per_category:
+      Cowboys win by 7 or more points: 0.47
+      Cowboys win by 1 to 6 points: 0.24
+      Cowboys do not win (Eagles win or the game ends in a tie): 0.29
+  comment_posted: true
+  official_score: null
+  missed_window: false
+current:
+  version: 1
+  date: '2026-11-16'
+  median: 0.47
+  iqr:
+  - 0.4
+  - 0.54
+  community:
+    cp: null
+    pro: null
+    gold: null
+    n_forecasters: null
+    as_of: '2026-11-16'
+next_review: null
+tripwires: []
+resolution:
+  outcome: null
+  date: null
+  source: null
