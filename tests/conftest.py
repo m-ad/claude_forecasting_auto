@@ -11,6 +11,7 @@ from __future__ import annotations
 
 import datetime as dt
 import json
+import os
 import sys
 from pathlib import Path
 from typing import Any
@@ -274,3 +275,74 @@ def ids_for(pairs) -> list[str]:
 # ------------------------------------------------------------ pytest plumbing
 def pytest_configure(config: pytest.Config) -> None:
     config.addinivalue_line("markers", "git: needs a working git checkout")
+
+
+def item_slug(params: dict[str, Any]) -> str | None:
+    """The question a parametrised data-test case is about, or None.
+
+    Parameters
+    ----------
+    params : dict
+        ``item.callspec.params``: the data tests name theirs ``folder`` (a Path),
+        ``slug``, ``rec`` (a ledger record) or ``raw`` (a ledger line).
+
+    Returns
+    -------
+    str or None
+        The slug, or None when the case belongs to no single question.
+    """
+    if isinstance(params.get("folder"), Path):
+        return params["folder"].name
+    if isinstance(params.get("slug"), str):
+        return params["slug"]
+    rec = params.get("rec")
+    if rec is None and isinstance(params.get("raw"), str):
+        try:
+            rec = json.loads(params["raw"])
+        except json.JSONDecodeError:
+            return None
+    if isinstance(rec, dict) and isinstance(rec.get("slug"), str):
+        return rec["slug"]
+    return None
+
+
+def scope_items(items: list[Any], target: str, known: set[str]) -> tuple[list, list]:
+    """Split ``items`` into those to run for ``target`` and those to deselect.
+
+    Only a case tied to *another known* question is dropped. Unparametrised tests
+    span every question (INDEX.md, timestamp order, double submission) and a
+    concurrent job can break them, so they always run; so does a case whose slug is
+    no question folder, which keeps unit tests with made-up slugs untouched.
+
+    Raises
+    ------
+    pytest.UsageError
+        When ``target`` names no question folder: deselecting every per-question
+        case would let the run pass vacuously.
+    """
+    if target not in known:
+        raise pytest.UsageError(f"VALIDATE_SLUG={target!r}: no question folder by that name")
+    kept, dropped = [], []
+    for item in items:
+        callspec = getattr(item, "callspec", None)
+        slug = item_slug(callspec.params) if callspec else None
+        (dropped if slug in known and slug != target else kept).append(item)
+    return kept, dropped
+
+
+def pytest_collection_modifyitems(config: pytest.Config, items: list[pytest.Item]) -> None:
+    """With ``VALIDATE_SLUG`` set, run the per-question cases for that question only.
+
+    Set by the sweep's commit step (``scripts/ci_commit.sh``): one malformed folder
+    used to fail every later job's validation and mark their commits
+    ``[validation failed]`` until a human repaired it.
+    """
+    target = os.environ.get("VALIDATE_SLUG", "").strip()
+    if not target:
+        return
+    known = {d.name for d in question_dirs()}
+    known |= {r["slug"] for _, r in ledger_records() if isinstance(r.get("slug"), str)}
+    kept, dropped = scope_items(items, target, known)
+    if dropped:
+        config.hook.pytest_deselected(items=dropped)
+        items[:] = kept

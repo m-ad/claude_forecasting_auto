@@ -14,6 +14,12 @@
 # the time this runs, a forecast may already be live on Metaculus, and its record
 # is what stops a second submission. Losing the record to keep the suite green
 # would trade a visible test failure for an invisible rules violation.
+#
+# With VALIDATE_SLUG set (the sweep sets it to its question), the fast scope runs
+# the per-question cases for that question only (tests/conftest.py); the tests
+# that span every question still run in full. Otherwise one malformed folder
+# failed every later job and marked their commits [validation failed] too.
+# The full scope ignores it: the daily sync checks everything.
 set -uo pipefail
 
 msg="${1:?commit message required}"
@@ -35,7 +41,7 @@ reindex
 
 validation=ok
 if [ "$scope" = full ]; then
-  uv run pytest -q || validation=failed
+  VALIDATE_SLUG= uv run pytest -q || validation=failed
 else
   # The data tests over the bot's own files; the code did not change in this run.
   uv run pytest -q tests/test_meta.py tests/test_ledger.py tests/test_consistency.py \
