@@ -1,0 +1,59 @@
+slug: 2026-11-17-mc46615-black-friday-november-27-2026-deepest-percentage
+title: On Black Friday (November 27, 2026), what will be the deepest percentage-off discount advertised
+  on the childrensplace.com homepage?
+source: metaculus
+url: https://www.metaculus.com/questions/46615/
+post_id: 46615
+question_id: 46875
+type: discrete
+unit: '%'
+tags: []
+dates:
+  created: '2026-11-17'
+  opened: '2026-11-17'
+  closes: '2026-11-17'
+  resolves: '2026-11-27'
+status: open
+tournament:
+  slug: minibench
+  mode: one_shot
+  registered: '2026-11-17'
+  opened: '2026-11-17T17:07:38Z'
+  closes: '2026-11-17T20:07:38Z'
+  submitted: '2026-11-17T17:11:29+00:00'
+  submitted_forecast:
+    continuous_cdf:
+    - 0.001
+    - 0.0062934332543682905
+    - 0.014006107283562712
+    - 0.03181362926645622
+    - 0.0793636870747749
+    - 0.4363698557919696
+    - 0.6546361863526549
+    - 0.813836341555428
+    - 0.9112821815364964
+    - 0.9654208652076476
+    - 0.9880787643879536
+    - 0.9978031533188296
+  comment_posted: true
+  official_score: null
+  missed_window: false
+current:
+  version: 1
+  date: '2026-11-17'
+  median: 64.0
+  iqr:
+  - 60.0
+  - 70.0
+  community:
+    cp: null
+    pro: null
+    gold: null
+    n_forecasters: null
+    as_of: '2026-11-17'
+next_review: null
+tripwires: []
+resolution:
+  outcome: null
+  date: null
+  source: null

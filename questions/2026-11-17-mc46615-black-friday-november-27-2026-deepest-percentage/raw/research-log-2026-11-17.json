@@ -1,0 +1,15 @@
+{"searches": [
+  {"category": "resolution_source", "query": "WebFetch https://www.childrensplace.com/us/home (live homepage; Wayback fetch blocked for this tool)", "by": "main", "status": "done", "finding": "2026-11-17: 'BLACK FRIDAY! EXTRA 20% OFF EVERYTHING WITH CODE WOW20'; hero 'EVERYTHING MUST GO! TAKE 30-60% EVERYTHING'; 'The Dream Event 40-60% OFF'; 'ALL CLEARANCE 60% OFF' -> max 60 today"},
+  {"category": "news", "query": "Children's Place going out of business sale percent off November 2026", "by": "main", "status": "done", "finding": "Hip2Save/NBC Boston: Total Inventory Blowout up to 60% off; Chapter 11 Nov 8; bids due Dec 9"},
+  {"category": "markets", "query": "Children's Place Black Friday 2026 prediction market Polymarket Kalshi", "by": "main", "status": "done", "finding": "none found"},
+  {"category": "base_rate", "query": "going out of business sale discount progression weeks liquidators Joann Party City Big Lots 70% off timeline", "by": "main", "status": "done", "finding": "liquidators start modest, deepen over 8-12 week term; Party City 80% only in final two weeks; Big Lots 50-80% at end stage"},
+  {"category": "disconfirmation", "query": "Children's Place liquidation \"70% off\"", "by": "main", "status": "done", "finding": "no current 70% liquidation promo found; 70% appears only in older clearance promos", "tests": "assumption that the homepage max stays at 60 rather than jumping to 70+ by Nov 27"},
+  {"category": "news", "query": "Gymboree Children's Place store closing sale deeper discounts Black Friday", "by": "main", "status": "done", "finding": "past Gymboree GOB 2019 'up to 50%' early, deep cuts only in final days"},
+  {"category": "other", "query": "childrensplace.com homepage \"Everything Must Go\" 60% off", "by": "main", "status": "done", "finding": "no dated confirmation beyond question text; past sitewide 60% promos common"},
+  {"category": "disconfirmation", "query": "Children's Place store closing sale discounts now \"up to 70%\" OR \"70% off\" November 2026 Gymboree liquidation", "by": "main", "status": "done", "finding": "8-K sale term Nov 6 2026-Feb 28 2027 (StockTitan); prior normal-year Black Friday promo was 'up to 70% off + extra 20% BF20' (Consumer Queen)", "tests": "assumption that the homepage max stays at 60 rather than jumping to 70+ by Nov 27"},
+  {"category": "schedule", "query": "WebFetch GA Group JV release Nov 12 2026", "by": "main", "status": "done", "finding": "new markdowns 'expected as the sale progresses'; discounts 'subject to change'; no percentages"}
+],
+ "adjustments": [
+  {"event": "Liquidators' stated plan to deepen markdowns over a term ending Feb 28 2027, with Black Friday inside week 3", "date": "2026-11-12", "effect": "upper half of distribution: ~45% mass on 65+ (vs ~25% if status quo)", "sources": [2, 4]},
+  {"event": "Homepage already labelled 'BLACK FRIDAY' on Nov 17 with max 60, i.e. the Black Friday event may already be live at current depth", "date": "2026-11-17", "effect": "keeps ~42% on exactly 60", "sources": [1]}
+]}
