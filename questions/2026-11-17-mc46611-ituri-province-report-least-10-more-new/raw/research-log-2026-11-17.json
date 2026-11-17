@@ -1,0 +1,23 @@
+{"searches": [
+  {"category": "resolution_source", "query": "fetch ebola-tracker.org/en/reports (archive list)", "by": "main", "status": "done", "finding": "Latest SitRep 184 (14 Nov); national daily 8-14 Nov: 70,52,72,83,57,62,60; flat 7-day trend ~65/day"},
+  {"category": "resolution_source", "query": "pdf_text SITREP_MVE_184.pdf", "by": "main", "status": "done", "finding": "14 Nov Table 1: Ituri 28, Nord-Kivu 25 (diff +3)"},
+  {"category": "resolution_source", "query": "pdf_text SITREP_MVE_183.pdf", "by": "main", "status": "done", "finding": "13 Nov: Ituri 40, Nord-Kivu 7 (diff +33)"},
+  {"category": "news", "query": "Ebola Ituri Nord-Kivu nouveaux cas confirmés novembre 2026", "by": "main", "status": "done", "finding": "11 Nov Ituri 37 vs NK 41; WHO 21d to 3 Nov 710 vs 640"},
+  {"category": "disconfirmation", "query": "Ebola Nord-Kivu Beni cases rising November 2026", "by": "main", "status": "done", "finding": "NK daily rose 32 (5 Nov) to 41 (11 Nov); government says NK now notifies most new cases", "tests": "that Ituri's typical daily lead (~+10 to +20) persists through 26 Nov rather than Nord-Kivu catching up"},
+  {"category": "news", "query": "Ebola DRC daily new confirmed cases Ituri North Kivu November 14 2026", "by": "main", "status": "done", "finding": "12 Nov: 57 national; Ituri cum 7790 (inferred ~25 new), NK 2828 (~26)"},
+  {"category": "markets", "query": "Polymarket Ebola Congo cases 2026", "by": "main", "status": "done", "finding": "no province-split market; only pandemic market ~1.3%"},
+  {"category": "news", "query": "Ebola RDC SitRep 185 15 novembre 2026 nouveaux cas Ituri", "by": "main", "status": "done", "finding": "Radio Okapi 16 Nov: Ituri cases declining in several zones"},
+  {"category": "news", "query": "Ebola Butembo Katwa Mutwanga nouveaux cas novembre 2026", "by": "main", "status": "done", "finding": "Katwa declining per hospital director 10 Nov; Beni 22 of 32 NK cases 5 Nov"},
+  {"category": "news", "query": "Ebola Ituri cas confirmés 15 novembre 2026", "by": "main", "status": "done", "finding": "no 15 Nov figure"},
+  {"category": "news", "query": "Ebola Nord-Kivu 16 novembre 2026", "by": "main", "status": "done", "finding": "attacks on health facilities in Beni/Mabalako 5-6 Nov; schools cluster"},
+  {"category": "base_rate", "query": "WHO Ebola Bundibugyo DRC situation report November 2026 provinces trend", "by": "main", "status": "done", "finding": "national growth steady ~400-500/week"},
+  {"category": "markets", "query": "Manifold Ebola DRC Ituri North Kivu", "by": "main", "status": "done", "finding": "none found"},
+  {"category": "disconfirmation", "query": "Ebola Beni nouveaux cas hausse novembre 2026", "by": "main", "status": "done", "finding": "Africa CDC: resurgence last 21 days in Beni, Butembo, Oicha (NK) and Fataki, Kilo, Drodro, Mahagi (Ituri)", "tests": "that Ituri keeps its lead"},
+  {"category": "consensus", "query": "ECDC Ebola Bundibugyo update 2026-11-16", "by": "main", "status": "done", "finding": "11,376 as of 14 Nov data; not under control (Africa CDC 15 Nov)"},
+  {"category": "news", "query": "Ebola Bunia Rwampara Nizi cas novembre 2026 baisse", "by": "main", "status": "done", "finding": "WHO 15-16 Nov: Bunia new cases halved; Nizi, Rwampara, Mongbwalu, Nyankunde, Butembo brought under control"},
+  {"category": "news", "query": "Ebola Congo outbreak update November 16 2026 Herriman", "by": "main", "status": "done", "finding": "Africa CDC: >80% new cases not on contact lists"},
+  {"category": "other", "query": "fetch radiookapi 2026-11-16 Ituri baisse", "by": "main", "status": "done", "finding": "Mambasa 14 positives vs ~20 prior 3 weeks"}
+],
+ "adjustments": [
+  {"event": "WHO/provincial reports of declining Ituri transmission (Bunia halved) while NK hotspots (Beni, Oicha) resurge", "date": "2026-11-16", "effect": "-10 pp", "sources": [4, 5, 6]}
+]}

@@ -1,0 +1,47 @@
+slug: 2026-11-17-mc46611-ituri-province-report-least-10-more-new
+title: Will Ituri province report at least 10 more new confirmed Ebola cases than Nord-Kivu province for
+  26 November 2026?
+source: metaculus
+url: https://www.metaculus.com/questions/46611/
+post_id: 46611
+question_id: 46871
+type: binary
+unit: null
+tags: []
+dates:
+  created: '2026-11-17'
+  opened: '2026-11-17'
+  closes: '2026-11-17'
+  resolves: '2026-11-27'
+status: open
+tournament:
+  slug: minibench
+  mode: one_shot
+  registered: '2026-11-17'
+  opened: '2026-11-17T09:56:53Z'
+  closes: '2026-11-17T12:56:53Z'
+  submitted: '2026-11-17T10:12:07+00:00'
+  submitted_forecast:
+    probability_yes: 0.4
+  comment_posted: true
+  official_score: null
+  missed_window: false
+current:
+  version: 1
+  date: '2026-11-17'
+  median: 0.4
+  iqr:
+  - 0.32
+  - 0.48
+  community:
+    cp: null
+    pro: null
+    gold: null
+    n_forecasters: null
+    as_of: '2026-11-17'
+next_review: null
+tripwires: []
+resolution:
+  outcome: null
+  date: null
+  source: null
