@@ -1,0 +1,22 @@
+{"searches": [
+ {"category": "resolution_source", "query": "NVDA stock price November 16 2026 close", "by": "main", "status": "done", "finding": "Closes Nov 6 186.64, Nov 9 178.67, Nov 10 168.89; no Nov 16 in snippets"},
+ {"category": "resolution_source", "query": "Nvidia shares Monday November 16 2026", "by": "main", "status": "done", "finding": "No Nov 16 price; stockanalysis.com history fetch gives Nov 16 close 156.14, Nov 13 162.85"},
+ {"category": "news", "query": "Nvidia CEO search Kress interim news", "by": "main", "status": "done", "finding": "Coverage of Kress as interim option; board investigation of Huang's foreign-intelligence ties (Nov 2026)"},
+ {"category": "news", "query": "Nvidia earnings preview Q3 fiscal 2027 expectations", "by": "main", "status": "done", "finding": "Guide $108B +/-2%; consensus ~$108.8B rev, EPS $2.47; options imply ~+/-10.6% vs 10y avg 7.8% (MarketPulse)"},
+ {"category": "markets", "query": "Nvidia options implied move earnings November 2026", "by": "main", "status": "done", "finding": "Implied earnings move estimates range 4.5%-12%; EarningsWatcher 7.9% as of Nov 3 (before the crash)"},
+ {"category": "news", "query": "Nvidia stock falls Friday November 13 2026 Huang resigns", "by": "main", "status": "done", "finding": "WSJ Nov 11 oust report, stock -8% AH; Polymarket ~31% Huang out by year end (pre-resignation)"},
+ {"category": "markets", "query": "Polymarket Kalshi Nvidia close price November 2026", "by": "main", "status": "done", "finding": "Polymarket end-of-November NVDA ladder exists but thin ($102 volume at Nov 2); no usable current price"},
+ {"category": "disconfirmation", "query": "Nvidia stock rebound oversold buy the dip November 2026", "by": "main", "status": "done", "finding": "NVDA oversold first time since Apr 2025 (StoneX Nov 9); bargain arguments; no evidence of rebound underway", "tests": "median near last close (~$156) with no drift: tests whether an oversold snap-back makes the centre too low"},
+ {"category": "consensus", "query": "Nvidia analyst price target cut November 2026", "by": "main", "status": "done", "finding": "Baird $500->$200 neutral; Mizuho $315->$250; Reuters 59/64 buy, median PT $314"},
+ {"category": "news", "query": "Nvidia stock November 16 2026 earnings eve", "by": "main", "status": "done", "finding": "Stock ~30% below Oct 6 record; ~23x forward earnings; Q2 FY27 rev $96.2B"},
+ {"category": "base_rate", "query": "NVDA implied volatility November 2026", "by": "main", "status": "done", "finding": "30d ATM IV 37.6% on Oct 19 (pre-crash); past-year range 31-55%; current surely far higher"},
+ {"category": "upcoming_events", "query": "Jensen Huang Congress testimony date", "by": "main", "status": "done", "finding": "House chairs requested closed-door briefing Nov 18, 2026"},
+ {"category": "base_rate", "query": "Nvidia average stock move after earnings history", "by": "main", "status": "done", "finding": "Avg earnings-day move ~5-8% (median ~5%); up 55% after 1 day, 60% after 1 week"},
+ {"category": "other", "query": "Nasdaq semiconductor index SOX November 16 2026", "by": "main", "status": "done", "finding": "SOX -12.25% Nov 5 (largest since Mar 2020); chip selloff tied to midterms / data-center skepticism"},
+ {"category": "news", "query": "Nvidia premarket stock Huang resignation week", "by": "main", "status": "skipped", "finding": ""},
+ {"category": "other", "query": "stockanalysis.com NVDA history (WebFetch)", "by": "main", "status": "done", "finding": "Nov 16 156.14; Nov 13 162.85; Nov 12 166.19; Nov 5 181.60; Nov 3 206.69"}
+],
+ "adjustments": [
+  {"event": "Leadership crisis plus earnings in the window inflate volatility above normal", "date": "2026-11-12", "effect": "log-sd widened from ~9% (normal 7-session NVDA incl. earnings) to ~14%", "sources": [2, 3, 4]}
+ ]
+}
