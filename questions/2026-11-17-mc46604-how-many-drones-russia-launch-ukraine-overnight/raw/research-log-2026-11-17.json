@@ -1,0 +1,22 @@
+{"searches": [
+  {"category": "resolution_source", "query": "Russia launches drones at Ukraine overnight November 2026", "by": "main", "status": "done", "finding": "117 drones night 12-13 Nov 2026; 289 on 2-3 Nov (Euronews)"},
+  {"category": "resolution_source", "query": "Ukrinform air force drones shot down overnight November 16 2026", "by": "main", "status": "done", "finding": "158 launched, 131 downed, night 15-16 Nov 2026 (18:00-08:00), Ukrinform; fetched and confirmed"},
+  {"category": "resolution_source", "query": "Ukrainska Pravda drones overnight November 15 2026", "by": "main", "status": "done", "finding": "nothing on Russian launch count; UP reports Ukrainian attack on Moscow 15-16 Nov"},
+  {"category": "news", "query": "massive attack Ukraine energy drones missiles November 2026", "by": "main", "status": "done", "finding": "Nov 2-3: 289 drones+76 missiles; Nov 3-4: 310; Nov 6-7: 172 drones + 36 ballistic missiles"},
+  {"category": "news", "query": "Ukraine Russia peace talks energy truce November 2026", "by": "main", "status": "done", "finding": "Abu Dhabi talks 10-11 Nov no ceasefire/energy truce; EU on 16 Nov accuses Russia of stalling"},
+  {"category": "markets", "query": "Polymarket Russia drones Ukraine November 2026", "by": "main", "status": "done", "finding": "no drone-count market; ceasefire by 30 Nov 2026 ~7.5% (Oct 15 snapshot); Koretskyi: up to 6,500 jet Shaheds in Nov"},
+  {"category": "base_rate", "query": "Russia drones launched October 2026 monthly total Ukraine air force", "by": "main", "status": "done", "finding": "Oct 2026: ~8,740 drones total per Air Force (4,000 jet + 4,740 other); daily AF data 6,158 (~199/day)"},
+  {"category": "base_rate", "query": "average nightly Shahed launches 2026 Ukraine", "by": "main", "status": "done", "finding": "ISIS: 2026 monthly averages 190-263/day; Sept night avg ~170-190"},
+  {"category": "disconfirmation", "query": "Russia combined strike 500 drones Ukraine November 2026", "by": "main", "status": "done", "finding": "no 500+ Russian barrage in Nov 2026 so far; max nightly 317 (8-9 Nov)", "tests": "that the specific night is a typical night (~150-200), not a massed 400+ strike"},
+  {"category": "other", "query": "Russia drones overnight November 14 2026 Ukraine air force", "by": "main", "status": "done", "finding": "nothing for 14 Nov specifically; 12-13 Nov 117"},
+  {"category": "other", "query": "Russia drones overnight November 17 2026", "by": "main", "status": "done", "finding": "no report yet for 16-17 Nov"},
+  {"category": "base_rate", "query": "Russia drones Ukraine November 2025 overnight count", "by": "main", "status": "done", "finding": "Nov 2025 nights: 433, 121, 476, 136, 115, 98, 596; 13-14 Nov 2026: 96"},
+  {"category": "news", "query": "ceasefire Ukraine energy strikes moratorium November 2026", "by": "main", "status": "done", "finding": "no moratorium in force mid-Nov 2026"},
+  {"category": "consensus", "query": "ISW Russian strike campaign November 2026 drones", "by": "main", "status": "done", "finding": "nothing relevant for Nov 2026"},
+  {"category": "other", "query": "Russia drones overnight November 11 12 2026 air force", "by": "main", "status": "done", "finding": "317 (8-9 Nov) Ukrinform; 96 (13-14 Nov) Interfax; 158 (15-16 Nov)"},
+  {"category": "other", "query": "Ukraine desk note November 2026 Russian drone launches nightly", "by": "main", "status": "done", "finding": "132 drones night 14-15 Nov; 158 night 15-16 Nov (Kyiv Independent)"},
+  {"category": "disconfirmation", "query": "Russia mass strike preparing warning Zelensky November 16 2026", "by": "main", "status": "done", "finding": "Zelensky 16 Nov warns of imminent massive strike 16-17 Nov; earlier warnings preceded strikes next day", "tests": "that the target night is unlikely to be a mass-strike night"}
+],
+ "adjustments": [
+  {"event": "Renewed winter energy campaign with mass strikes every ~5-7 days (Nov 2-4, 8-9, likely 16-17)", "date": "2026-11-16", "effect": "p90 to 310, p95 to 400 (fatter upper tail than calm-night distribution)", "sources": [2, 4, 7]}
+ ]}
