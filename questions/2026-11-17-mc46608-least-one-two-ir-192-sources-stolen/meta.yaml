@@ -1,0 +1,47 @@
+slug: 2026-11-17-mc46608-least-one-two-ir-192-sources-stolen
+title: Will at least one of the two Ir-192 sources stolen from the Rivers State radiography facility be
+  publicly confirmed recovered by 28 November 2026?
+source: metaculus
+url: https://www.metaculus.com/questions/46608/
+post_id: 46608
+question_id: 46868
+type: binary
+unit: null
+tags: []
+dates:
+  created: '2026-11-17'
+  opened: '2026-11-17'
+  closes: '2026-11-17'
+  resolves: '2026-11-28'
+status: open
+tournament:
+  slug: minibench
+  mode: one_shot
+  registered: '2026-11-17'
+  opened: '2026-11-17T06:59:47Z'
+  closes: '2026-11-17T09:59:47Z'
+  submitted: '2026-11-17T07:11:53+00:00'
+  submitted_forecast:
+    probability_yes: 0.16
+  comment_posted: true
+  official_score: null
+  missed_window: false
+current:
+  version: 1
+  date: '2026-11-17'
+  median: 0.16
+  iqr:
+  - 0.1
+  - 0.24
+  community:
+    cp: null
+    pro: null
+    gold: null
+    n_forecasters: null
+    as_of: '2026-11-17'
+next_review: null
+tripwires: []
+resolution:
+  outcome: null
+  date: null
+  source: null

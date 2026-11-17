@@ -1,0 +1,32 @@
+{"searches": [
+  {"category": "resolution_source", "query": "NNRA news page nnra.gov.ng (WebFetch)", "by": "main", "status": "done", "finding": "16 items listed 2026-11-17; #2 is the NNSC meeting on the breach; #1 is a Gombe NSCDC item; nothing on recovery"},
+  {"category": "resolution_source", "query": "NNRA NNSC press release fetch (WebFetch)", "by": "main", "status": "done", "finding": "6 projectors (2 with Ir-192) + 1 transit container stolen from storage pit; committee agreed modalities for recovery; no recovery, suspects or operator"},
+  {"category": "resolution_source", "query": "Rivers State radioactive source projectors stolen NNRA", "by": "main", "status": "done", "finding": "nothing on the 2026 theft; old Niger Delta X-ray device loss story"},
+  {"category": "news", "query": "NNRA security breach industrial radiography facility source projectors recovered", "by": "main", "status": "done", "finding": "only US NRC reports; nothing Nigerian"},
+  {"category": "news", "query": "Nigeria stolen radioactive iridium Rivers police November 2026", "by": "main", "status": "done", "finding": "nothing relevant; EFCC Kaduna radioactive minerals arrests Mar 2026"},
+  {"category": "news", "query": "Daily Post NNRA six source projectors stolen Rivers", "by": "main", "status": "done", "finding": "nothing relevant"},
+  {"category": "news", "query": "National Nuclear Security Committee NNRA meeting security breach radiography November 2026", "by": "main", "status": "done", "finding": "nothing relevant"},
+  {"category": "news", "query": "\"radioactive\" Port Harcourt stolen recovered 2026", "by": "main", "status": "done", "finding": "no recovery report"},
+  {"category": "news", "query": "NNRA Ir-192 iridium source theft Rivers transit container", "by": "main", "status": "done", "finding": "nothing relevant"},
+  {"category": "markets", "query": "Polymarket Manifold Nigeria radioactive source stolen recovered", "by": "main", "status": "done", "finding": "no market found"},
+  {"category": "base_rate", "query": "stolen radiography camera Ir-192 recovered days later", "by": "main", "status": "done", "finding": "Tulsa, Mexico 2015/2022, Indonesia 2024: recovered in 1-6 days; Veracruz 2021 ~1 month; Kernersville 2025 unresolved"},
+  {"category": "base_rate", "query": "IAEA ITDB theft radioactive sources fraction recovered statistics", "by": "main", "status": "done", "finding": "ITDB: ~1/3 of stolen sources over 10 yrs unrecovered; 'more often than not' transport thefts not recovered (Mar 2026)"},
+  {"category": "base_rate", "query": "Nigeria missing radioactive source recovered NNRA announces recovery", "by": "main", "status": "done", "finding": "no NNRA recovery announcement precedent found; 2003 source still missing per 2008 cable"},
+  {"category": "disconfirmation", "query": "OtownGist radioactive devices recovered intact", "by": "main", "status": "done", "finding": "no OtownGist page found; no corroboration of recovery claim", "tests": "assumption that no recovery has yet been publicly confirmed (status quo No)"},
+  {"category": "news", "query": "Nigeria NNRA stolen Ir-192 radiography source missing", "by": "scout-2", "status": "done", "finding": "nothing new"},
+  {"category": "base_rate", "query": "stolen radioactive source industrial radiography recovered days after theft", "by": "scout-2", "status": "done", "finding": "Mexico ~2 days, Tabasco ~6 days, Arizona same day, Iraq ~3 months"},
+  {"category": "base_rate", "query": "IAEA ITDB fact sheet incidents theft loss unauthorized activities percentage recovered", "by": "scout-2", "status": "done", "finding": "2008 IAEA: ~75% of theft/loss materials since 2004 not recovered (dated)"},
+  {"category": "news", "query": "Nigeria Nuclear Regulatory Authority two Ir-192 sources stolen November 2026", "by": "scout-2", "status": "done", "finding": "nothing beyond 11 Nov release"},
+  {"category": "disconfirmation", "query": "NNRA recovers stolen radioactive source Nigeria recovered Rivers State radiography projectors", "by": "scout-2", "status": "done", "finding": "no recovery report", "tests": "no recovery yet confirmed"},
+  {"category": "resolution_source", "query": "NNRA stolen radiography source projectors Iridium-192 Rivers State", "by": "scout-1", "status": "done", "finding": "only NNRA NNSC article"},
+  {"category": "news", "query": "Nigeria radioactive Iridium-192 stolen recovered police Port Harcourt", "by": "scout-1", "status": "done", "finding": "nothing"},
+  {"category": "disconfirmation", "query": "OtownGist radiography devices recovered fully intact NNRA", "by": "scout-1", "status": "done", "finding": "unverifiable", "tests": "OtownGist recovery claim"},
+  {"category": "news", "query": "Rivers State stolen radioactive projectors recovered intact police Nigeria nuclear", "by": "scout-1", "status": "done", "finding": "nothing"},
+  {"category": "news", "query": "NNRA National Nuclear Security Committee security breach industrial radiography facility stolen", "by": "scout-1", "status": "done", "finding": "NNRA article only"},
+  {"category": "news", "query": "Nigeria nuclear regulator stolen radioactive sources Rivers State November 2026", "by": "scout-1", "status": "done", "finding": "nothing"}
+],
+ "adjustments": [
+  {"event": "No recovery reported ~1 week after the 11 Nov disclosure (and likely 2+ weeks after the theft); NNRA page shows a newer, unrelated item", "date": "2026-11-17", "effect": "-10 pp vs generic stolen-radiography-camera recovery rate", "sources": [1, 2]},
+  {"event": "Pit theft of six projectors + container looks organised/scrap-oriented, not opportunistic vehicle theft", "date": "2026-11-09", "effect": "-5 pp", "sources": [2]},
+  {"event": "Unverified OtownGist claim of recovery 'fully intact'", "date": "2026-11-11", "effect": "+3 pp", "sources": [3]}
+]}
