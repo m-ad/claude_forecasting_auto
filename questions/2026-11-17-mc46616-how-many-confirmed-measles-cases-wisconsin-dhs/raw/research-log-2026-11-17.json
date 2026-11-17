@@ -1,0 +1,13 @@
+{"searches": [
+  {"category": "resolution_source", "query": "WebFetch https://www.dhs.wisconsin.gov/outbreaks/index.htm", "by": "main", "status": "done", "finding": "Headline: As of November 13, DHS has confirmed 651 cases; 14 hospitalizations, 2 deaths; Grant 222, Lafayette 122, Iowa 97, Columbia 47, Chippewa 45, Jackson 45 (fetched 2026-11-17)"},
+  {"category": "resolution_source", "query": "Wisconsin measles cases DHS November 2026", "by": "main", "status": "done", "finding": "Press: 649 cases in 20 counties as of Nov 13; second pediatric death announced Nov 13; 431 on Nov 3"},
+  {"category": "disconfirmation", "query": "Wisconsin measles outbreak cases slowing OR new cases November 16 2026", "by": "main", "status": "done", "finding": "No reports of slowing; nothing newer than Nov 13", "tests": "that daily additions stay near 15-25/day through Nov 24-27 rather than slowing sharply"},
+  {"category": "markets", "query": "Polymarket OR Kalshi measles cases 2026 Wisconsin", "by": "main", "status": "done", "finding": "No Wisconsin-specific market; only national CDC-count markets"},
+  {"category": "news", "query": "Columbia County Jackson County Wisconsin measles cases", "by": "main", "status": "done", "finding": "Jackson County first cases Oct 27 (travel-linked); Columbia new cluster not covered in news yet"},
+  {"category": "news", "query": "Wisconsin measles cases rise \"Columbia County\" outbreak November 2026", "by": "main", "status": "done", "finding": "Columbia had 33 confirmed by Sep 22, so its 47 is not a new batch; Nov 10->13 rise of 100 is mostly genuine growth (Grant 153->222, Jackson 2->45)"},
+  {"category": "schedule", "query": "WebFetch https://www.dhs.wisconsin.gov/immunization/measles.htm", "by": "main", "status": "done", "finding": "Dashboard updated twice a week; no totals in captured content"},
+  {"category": "base_rate", "query": "measles outbreak epidemic curve peak duration Texas 2025 weekly cases decline", "by": "main", "status": "done", "finding": "West Texas 2025: ~4 months of growth then plateau at ~750 over ~6-8 weeks; slowdowns came from depleted susceptibles"}
+],
+ "adjustments": [
+  {"event": "Nov 10->Nov 13 jump of 100 cases (Grant +69, Jackson +~40)", "date": "2026-11-13", "effect": "median from ~820 (16/day trend) to ~905 (~20-25/day)", "sources": [1, 2]}
+]}
