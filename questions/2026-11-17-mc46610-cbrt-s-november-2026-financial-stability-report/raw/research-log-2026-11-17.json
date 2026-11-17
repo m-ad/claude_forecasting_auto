@@ -1,0 +1,28 @@
+{"searches": [
+  {"category": "resolution_source", "query": "TCMB Finansal İstikrar Raporu Kasım 2026", "by": "main", "status": "done", "finding": "No Nov 2026 FSR yet; latest is May 2026 (No. 42); Nov 2025 edition was released 28 Nov 2025"},
+  {"category": "news", "query": "SPK fon tasfiye Merkez Bankası finansal istikrar", "by": "main", "status": "done", "finding": "SPK 17 Sep 2026 liquidation of ~131 funds; CBRT liquidity steps; fund law passed; CBRT published analysis"},
+  {"category": "markets", "query": "Polymarket Kalshi Manifold CBRT financial stability report", "by": "main", "status": "done", "finding": "none found"},
+  {"category": "base_rate", "query": "Enflasyon Raporu 2026-IV kutu fon tasfiyesi Karahan", "by": "main", "status": "done", "finding": "Inflation Report 2026-IV (12 Nov 2026) has Kutu 2.2 'Yatırım Fonlarında Son Dönem Gelişmeler' (generic title, no 'tasfiye'); verified in PDF ToC"},
+  {"category": "news", "query": "Finansal İstikrar Komitesi fon krizi açıklama Eylül 2026", "by": "main", "status": "done", "finding": "FSC met 17 Sep 2026: 'temporary and manageable', no structural risk; TRY 110.8bn outflows 15-16 Sep"},
+  {"category": "base_rate", "query": "Finansal İstikrar Raporu Mayıs 2023 kutu deprem etkileri bankacılık", "by": "main", "status": "done", "finding": "No evidence May 2023 FSR had an earthquake-titled box; earthquake mentioned in foreword"},
+  {"category": "schedule", "query": "CBRT Financial Stability Report fund liquidation expected coverage November", "by": "main", "status": "done", "finding": "nothing on expected coverage; MNI May 2025: FSR said March 2025 turmoil impact limited"},
+  {"category": "base_rate", "query": "TCMB Finansal İstikrar Raporu Mayıs 2025 kutu mart ayı piyasa oynaklığı", "by": "main", "status": "done", "finding": "May 2025 FSR discussed March 2025 turmoil in text; no event-named box found"},
+  {"category": "disconfirmation", "query": "\"Yatırım Fonlarında Son Dönem Gelişmeler\" Finansal İstikrar Raporu", "by": "main", "status": "done", "finding": "No FSR hit; May 2026 FSR covered NBFI growth; no evidence of liquidation-titled box", "tests": "the assumption that a fund box in the FSR will carry a generic title (as in Nov 2025 FSR and Nov 2026 Inflation Report) rather than naming the liquidations"},
+  {"category": "news", "query": "Karahan fund liquidation financial stability November 2026", "by": "scout-1", "status": "done", "finding": "Karahan 6 Oct: fund market sound, impact contained; 'at start of liquidation process'"},
+  {"category": "news", "query": "CBRT fund liquidations blog real sector November 2026", "by": "scout-1", "status": "done", "finding": "4 Nov blog: ~3,000 firms, TRY 116bn exposure, limited impact; blog title explicitly says 'Fund Liquidations'"},
+  {"category": "news", "query": "Turkey 131 funds liquidation latest November 2026", "by": "scout-1", "status": "done", "finding": "66 funds paid out (TRY 40.8bn) by 22 Oct; Hedef moved to ordinary liquidation 15 Oct"},
+  {"category": "resolution_source", "query": "CBRT Financial Stability Report November 2025 boxes contents", "by": "scout-2", "status": "done", "finding": "Nov 2025 FSR boxes generic themes incl. III.1.I 'Recent developments in investment funds'"},
+  {"category": "base_rate", "query": "Central Bank of Turkey Financial Stability Report box list \"Box\" May 2025", "by": "scout-2", "status": "done", "finding": "PDFs unreadable; no event-named box confirmed"},
+  {"category": "base_rate", "query": "TCMB Finansal İstikrar Raporu Kutu başlıkları Kasım 2025 \"Kutu\"", "by": "scout-2", "status": "done", "finding": "six Nov 2025 box titles, none named after a specific event"},
+  {"category": "disconfirmation", "query": "CBRT Financial Stability Report investment funds liquidation SPK September 2026", "by": "scout-3", "status": "done", "finding": "no FSR preview found", "tests": "the assumption that the CBRT will avoid naming the liquidations in a box title"},
+  {"category": "disconfirmation", "query": "Merkez Bankası fon tasfiyeleri finansal istikrar raporu kutu", "by": "scout-3", "status": "done", "finding": "CBRT blog 'Fon Tasfiyeleri ve Reel Sektör' uses the word; FSR plan unknown", "tests": "same assumption"},
+  {"category": "consensus", "query": "Turkey investment funds liquidation SPK systemic risk Fitch S&P banks", "by": "scout-3", "status": "done", "finding": "Fitch: bank effects manageable, securities firms most affected; Şimşek: systemic risk avoided"},
+  {"category": "upcoming_events", "query": "TCMB Enflasyon Raporu 2026-IV kutu fon tasfiye", "by": "scout-3", "status": "done", "finding": "Kutu 2.2 generic title confirmed"},
+  {"category": "other", "query": "CBRT FSR May 2026 non-bank financial sector chapter investment funds", "by": "main", "status": "skipped", "finding": ""},
+  {"category": "schedule", "query": "TCMB calendar 27 November 2026 Financial Stability Report", "by": "main", "status": "skipped", "finding": ""}
+],
+ "adjustments": [
+  {"event": "Sep 2026 SPK liquidation of 131 funds, largest fund crisis; FSC meeting and CBRT measures", "date": "2026-09-17", "effect": "+50 pp on P(any box on investment funds) vs a generic edition", "sources": [2, 3]},
+  {"event": "CBRT Inflation Report 2026-IV titled its fund box generically ('Recent Developments in Investment Funds')", "date": "2026-11-12", "effect": "-15 pp (title-wording style likely repeated in FSR)", "sources": [1]},
+  {"event": "CBRT blog titled 'Fund Liquidations and the Real Sector' shows the institution will use the word", "date": "2026-11-04", "effect": "+5 pp", "sources": [4]}
+]}
