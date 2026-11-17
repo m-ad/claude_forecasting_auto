@@ -1,0 +1,47 @@
+slug: 2026-11-17-mc46603-european-council-s-26-27-november-2026
+title: Will the European Council's 26–27 November 2026 conclusions explicitly reference the EU's 22nd
+  sanctions package against Russia?
+source: metaculus
+url: https://www.metaculus.com/questions/46603/
+post_id: 46603
+question_id: 46863
+type: binary
+unit: null
+tags: []
+dates:
+  created: '2026-11-17'
+  opened: '2026-11-17'
+  closes: '2026-11-17'
+  resolves: '2026-11-27'
+status: open
+tournament:
+  slug: minibench
+  mode: one_shot
+  registered: '2026-11-17'
+  opened: '2026-11-17T01:11:14Z'
+  closes: '2026-11-17T04:11:14Z'
+  submitted: '2026-11-17T02:12:15+00:00'
+  submitted_forecast:
+    probability_yes: 0.4
+  comment_posted: true
+  official_score: null
+  missed_window: false
+current:
+  version: 1
+  date: '2026-11-17'
+  median: 0.4
+  iqr:
+  - 0.3
+  - 0.5
+  community:
+    cp: null
+    pro: null
+    gold: null
+    n_forecasters: null
+    as_of: '2026-11-17'
+next_review: null
+tripwires: []
+resolution:
+  outcome: null
+  date: null
+  source: null

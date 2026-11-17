@@ -1,0 +1,38 @@
+{
+  "post_id": 46603,
+  "url": "https://www.metaculus.com/questions/46603/",
+  "post_title": "Will the European Council's 26–27 November 2026 conclusions explicitly reference the EU's 22nd sanctions package against Russia?",
+  "tournaments": [
+    "minibench"
+  ],
+  "options": null,
+  "question": {
+    "id": 46863,
+    "title": "Will the European Council's 26–27 November 2026 conclusions explicitly reference the EU's 22nd sanctions package against Russia?",
+    "type": "binary",
+    "status": "open",
+    "description": "The EU has adopted 21 packages of sanctions against Russia since February 2022. The 21st package was adopted by the Council on 23 July 2026, hitting Russian energy, financial services and crypto, and the European Council's conclusions of 15–16 October 2026 \"welcome the recent adoption of the 21st sanctions package\". Earlier, the conclusions of the 18–19 June 2026 European Council had \"call[ed] for the swift adoption of the 21st sanctions package\". The European Council therefore routinely names specific sanctions packages by ordinal in its conclusions, both when welcoming an adopted package and when calling for a forthcoming one.\n\nOn 12 November 2026 in Dublin, Commission President Ursula von der Leyen said the Commission would present its proposal on covering Ukraine's 2027 financing needs and its 22nd sanctions package against Russia before the next European Council; a joint statement by Presidents Costa and von der Leyen that day said \"The Commission will in parallel present its 22nd package of sanctions against Russia.\" No date, financing figure or sanctions content was given. Reuters reported the Commission is still debating the final details, with the package expected to include new restrictions on banks, cryptocurrency platforms and measures to close circumvention loopholes via third countries; other reporting points to measures on Russian oil refining, shadow-fleet vessels and a suspension of changes to the oil price cap. A separate expansion of sanctions listings was planned for 16 November 2026, which the Commission said was not the 22nd package.\n\nThe next European Council is a special meeting in Brussels on 26–27 November 2026, convened on the multiannual financial framework for 2028–2034 and on Ukraine's urgent 2027 financing needs (a gap of roughly €70 billion, on top of the €90 billion Ukraine Support Loan already agreed for 2026–2027). German Chancellor Friedrich Merz has threatened to tie agreement on Ukraine's 2027 funding to the MFF negotiations, so the meeting is expected to be contentious and may not produce a full agreed set of conclusions; in past summits, texts on Ukraine have sometimes been issued as being \"firmly supported\" by all leaders except one rather than adopted by all 27.\n\nEuropean Council conclusions are normally released during or at the close of a meeting — in recent practice sometimes on the evening of the first day and sometimes on the second day — and are posted on the meeting page and the \"European Council conclusions\" page of the Council's website.\n\n`{\"format\": \"llm_question\", \"info\": {\"sdk_version\": \"0.6.1\", \"rating\": {\"quality\": 3, \"ambiguity\": 3, \"resolvability\": 4, \"passes\": true}}}`",
+    "resolution_criteria": "This question resolves on the texts issued for the special European Council of 26–27 November 2026 and published by the Council on its meeting page (https://www.consilium.europa.eu/en/meetings/european-council/2026/11/26-27/ ; conclusions are also collected at https://www.consilium.europa.eu/en/european-council/conclusions/).\n\nFor resolution, \"the conclusions\" means every document published for that meeting as its conclusions or as a statement of heads of state or government — including the MFF conclusions, any separate Ukraine text or section, any annex, and any text published as being \"firmly supported by [number] heads of state or government\". Draft documents, statements by individual leaders and the Commission's own sanctions proposal are not part of it.\n\nIt resolves YES if any such text contains an explicit reference to a 22nd package of sanctions against Russia — that is, the ordinal \"22nd\" or \"twenty-second\" applied to a package of sanctions/restrictive measures targeting Russia, in any word order (for example \"22nd package of sanctions\", \"22nd sanctions package\", \"twenty-second package of restrictive measures against Russia\").\n\nIt resolves NO if none of those texts contains such a reference, or if no conclusions or statement of heads of state or government is published for the meeting.",
+    "fine_print": "A reference to sanctions against Russia that does not name the 22nd/twenty-second package (for example \"welcomes the recent adoption of new sanctions\"), or that names a different ordinal or a different country, resolves NO.\n\nIf the conclusions are published first in an initial form and later in a final form for the same meeting, the final published text governs.\n\nIf the Council's web pages cannot be loaded, the published conclusions PDF or the text as reported by [credible sources](https://www.metaculus.com/faq/#definitions) will be used.",
+    "unit": "",
+    "options": null,
+    "scaling": {
+      "range_min": null,
+      "range_max": null,
+      "nominal_min": null,
+      "nominal_max": null,
+      "zero_point": null,
+      "open_upper_bound": false,
+      "open_lower_bound": false,
+      "inbound_outcome_count": null,
+      "continuous_range": null
+    },
+    "open_lower_bound": false,
+    "open_upper_bound": false,
+    "inbound_outcome_count": null,
+    "open_time": "2026-11-17T01:11:14Z",
+    "scheduled_close_time": "2026-11-17T04:11:14Z",
+    "scheduled_resolve_time": "2026-11-27T22:00:00Z",
+    "resolution": null
+  }
+}

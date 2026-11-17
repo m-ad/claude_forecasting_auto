@@ -1,0 +1,21 @@
+{"searches": [
+  {"category": "resolution_source", "query": "European Council 26-27 November 2026 draft conclusions", "by": "main", "status": "done", "finding": "No draft for the Nov meeting found; EUCO 16/26 (4 Nov 2026) says EUCO will revert to Ukraine at next meeting"},
+  {"category": "news", "query": "22nd sanctions package Russia Commission proposal", "by": "main", "status": "done", "finding": "12 Nov: vdL says 22nd package presented before next EUCO; Reuters: details still debated (banks, crypto, circumvention)"},
+  {"category": "news", "query": "special European Council November 2026 Ukraine financing draft conclusions sanctions", "by": "main", "status": "done", "finding": "16 Nov: separate listings of 113 individuals/entities, not the 22nd package; no Nov draft conclusions found"},
+  {"category": "resolution_source", "query": "EUCO 16/26 fetch", "by": "main", "status": "done", "finding": "PDF unreadable via WebFetch"},
+  {"category": "upcoming_events", "query": "Costa invitation letter special European Council 26 November MFF Ukraine", "by": "main", "status": "done", "finding": "Two agenda items: MFF 2028-34 and Ukraine 2027 financing (Costa reply to Merz, 10-11 Nov)"},
+  {"category": "base_rate", "query": "special European Council 1 February 2024 conclusions sanctions package Ukraine", "by": "main", "status": "done", "finding": "Feb 2024 special MFF/Ukraine summit: no ordinal sanctions package named"},
+  {"category": "markets", "query": "Polymarket OR Kalshi EU sanctions package Russia 2026", "by": "main", "status": "done", "finding": "No market on EUCO wording; Polymarket 'more EU sanctions' markets only"},
+  {"category": "news", "query": "Kallas 22nd sanctions package presented coming days November 2026", "by": "main", "status": "done", "finding": "16 Nov Kallas: 22nd package presented 'in coming days'; Jozwiak: negotiations start this week, aim adoption by Christmas"},
+  {"category": "base_rate", "query": "special European Council 6 March 2025 Ukraine text 16th package sanctions", "by": "main", "status": "done", "finding": "Mar 2025 special: 26-member Ukraine text said 'new sanctions', no ordinal"},
+  {"category": "disconfirmation", "query": "EU summit November 26 Ukraine conclusions Hungary veto sanctions 2026", "by": "main", "status": "done", "finding": "EUCO 2/26 text by 25 called for swift adoption of 20th package; Hungary (Magyar) lifted accession veto Oct 2026 - texts still issued", "tests": "assumption that a special MFF/Ukraine-financing summit will NOT carry a sanctions paragraph naming the ordinal"},
+  {"category": "consensus", "query": "Jozwiak Wider Europe November summit draft conclusions Ukraine 2027 financing", "by": "main", "status": "done", "finding": "No Nov draft leaked in results; Oct draft language on financing only"},
+  {"category": "upcoming_events", "query": "EU leaders special summit MFF negotiating box November 2026 Ukraine", "by": "main", "status": "done", "finding": "Costa updated negotiating box in Nov; MFF agreement aimed for Dec 2026 EUCO"},
+  {"category": "base_rate", "query": "European Council conclusions calls for the swift adoption of the sanctions package December 2025", "by": "main", "status": "done", "finding": "Dec 2025: package not yet presented -> 'a new sanctions package', no ordinal"},
+  {"category": "schedule", "query": "Commission to present 22nd sanctions package date November 2026 ambassadors", "by": "main", "status": "done", "finding": "vdL: package presented by Nov 26; EP sources: ready end of November"},
+  {"category": "disconfirmation", "query": "20th package European Council conclusions firmly supported by 25 swift adoption", "by": "main", "status": "done", "finding": "EUCO 2/26 named '20th package' while pending: ordinal used when proposal is on the table", "tests": "assumption that a pending, just-proposed package is not named by ordinal"}
+],
+ "adjustments": [
+  {"event": "Commission/Costa joint statement and Kallas say 22nd package presented before the 26-27 Nov summit", "date": "2026-11-16", "effect": "+12 pp", "sources": [2, 3]},
+  {"event": "Special-summit format focused on MFF and Ukraine financing; prior special summits (Feb 2024, Mar 2025) named no ordinal", "date": "2026-11-11", "effect": "-10 pp", "sources": [4, 5, 6]}
+]}
