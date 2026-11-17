@@ -1,0 +1,25 @@
+{"searches": [
+  {"category": "resolution_source", "query": "api.alternative.me/fng/?limit=60 (WebFetch)", "by": "main", "status": "done", "finding": "Nov 17: 12; Nov 16: 10; Nov 15: 10; Nov 14: 13; Nov 13: 20; Nov 12: 28; Nov 5: 50; Oct 22: 68 (fetched 2026-11-17)"},
+  {"category": "resolution_source", "query": "crypto fear and greed index extreme fear November 2026", "by": "main", "status": "done", "finding": "Nov 7 reading 25, lowest since Aug 5 (edgeX/Coinotag)"},
+  {"category": "news", "query": "bitcoin price today November 17 2026", "by": "main", "status": "done", "finding": "BTC $73.9k Nov 11, $73.2k Nov 12 (Fortune); no Nov 16-17 price found"},
+  {"category": "news", "query": "bitcoin falls November 15 2026", "by": "main", "status": "done", "finding": "BTC $71.3k Nov 12, lowest since August; ETF outflows 5 straight sessions; MSCI to drop Strategy after Nov 30"},
+  {"category": "news", "query": "bitcoin price November 16 2026 $68,000", "by": "main", "status": "done", "finding": "nothing newer than Nov 12; 'consolidates near recent lows' headline (investinglive, undated)"},
+  {"category": "news", "query": "bitcoin weekend November 14-16 2026 price slump extreme fear 10", "by": "main", "status": "done", "finding": "nothing relevant for 2026; Nov 2025 analogue: index 10 on Nov 17 2025"},
+  {"category": "news", "query": "bitcoin price November 16 2026", "by": "scout-1", "status": "done", "finding": "BTC ~$74.8k Nov 9, ~$71k Nov 12"},
+  {"category": "news", "query": "bitcoin ETF outflows November 2026", "by": "scout-1", "status": "done", "finding": "$1.28B outflow week to Nov 7; $1.44B over five days to Nov 11; YTD negative"},
+  {"category": "news", "query": "crypto market news November 17 2026", "by": "scout-1", "status": "done", "finding": "Nvidia earnings Nov 17-ish, FOMC minutes Nov 18; Phemex Nov 15 daily"},
+  {"category": "markets", "query": "Polymarket bitcoin price end of November 2026", "by": "scout-2", "status": "done", "finding": "Nov 6 snapshot: 43% touch $70k, 26% touch $67.5k, 81% touch $77.5k in November"},
+  {"category": "markets", "query": "Kalshi bitcoin price November 2026 odds", "by": "scout-2", "status": "done", "finding": "daily contracts exist; no Nov 27 price found"},
+  {"category": "disconfirmation", "query": "crypto fear and greed index extreme fear bitcoin November 2026", "by": "scout-2", "status": "done", "finding": "index moves in sharp bursts; Feb 2026 printed 5; rebound >35 needs a clear rally", "tests": "that the index stays in deep fear (median ~15) rather than mean-reverting to 30+ within 10 days"},
+  {"category": "disconfirmation", "query": "bitcoin relief rally extreme fear November 2026", "by": "main", "status": "done", "finding": "Nov 2025 analogue exited extreme fear after 18 days at 28; Feb 2026 relief rallies brief", "tests": "that the index stays in deep fear (median ~15) rather than mean-reverting to 30+ within 10 days"},
+  {"category": "base_rate", "query": "fear and greed index historical extreme fear rebound how long", "by": "main", "status": "done", "finding": "extreme-fear stretches last weeks (2018, 2022, Nov 2025 18 days, Mar 2026 12+ days)"},
+  {"category": "base_rate", "query": "crypto fear greed index 10 lowest since 2026", "by": "main", "status": "done", "finding": "2026 lows: 5 (Feb), 8 (Apr 2), 11 (Mar 31)"},
+  {"category": "upcoming_events", "query": "Nvidia earnings November 2026 crypto reaction", "by": "main", "status": "done", "finding": "only 2025 coverage; Nov 2025 beat lifted BTC briefly"},
+  {"category": "upcoming_events", "query": "Fed rate hike odds December 2026 CME FedWatch", "by": "main", "status": "done", "finding": "Dec 8-9 25bp hike fully priced after Oct CPI (per CNBC via secondary)"},
+  {"category": "consensus", "query": "bitcoin analyst outlook end of November 2026", "by": "scout-3", "status": "skipped", "finding": ""},
+  {"category": "other", "query": "CoinMarketCap fear and greed index November 2026", "by": "main", "status": "skipped", "finding": ""}
+],
+ "adjustments": [
+  {"event": "Index at 10-13 for four days after BTC sell-off to ~$69-71k; deep-fear readings persist for weeks historically", "date": "2026-11-17", "effect": "median 15 rather than long-run mean ~45; slight upward mean reversion from 12", "sources": [1, 4, 5]},
+  {"event": "Hawkish Fed (Dec hike priced) and continuing ETF outflows", "date": "2026-11-12", "effect": "keeps p75 at 21 rather than ~25", "sources": [2, 3]}
+]}
