@@ -1,0 +1,15 @@
+{"searches": [
+  {"category": "resolution_source", "query": "Bawang Assan GPS candidate", "by": "main", "status": "done", "finding": "No 2026 GPS naming yet; 2021 GPS candidate was SUPP's Robert Lau; 2024 Sim vs Wong spat"},
+  {"category": "news", "query": "Bawang Assan SUPP PDP Wong Soon Koh November 2026", "by": "main", "status": "done", "finding": "PBB branch backs SUPP (2024); analysts (2024) predicted SUPP prevails; PDP launching 5-yr Bawang Assan plan (Jul 2026)"},
+  {"category": "disconfirmation", "query": "Abang Johari Bawang Assan SUPP Kevin Lau", "by": "main", "status": "done", "finding": "Kevin Lau SUPP branch chief since Nov 2024; Premier approved allocations he announced; no decision", "tests": "assumption that the Premier's personal links (Joshua Ting is his political secretary) tilt the seat to PDP rather than SUPP's legacy claim"},
+  {"category": "resolution_source", "query": "Bawang Assan candidate GPS line-up Sarawak election nomination", "by": "main", "status": "done", "finding": "Jul 4 2026 Sim proposes Kevin Lau; no final decision found"},
+  {"category": "schedule", "query": "GPS candidate list announcement appointment letters Sarawak state election November 2026", "by": "main", "status": "done", "finding": "Abang Johari (c. Nov 15): GPS to announce all 82 candidates on Nov 25, before the Nov 27 16:00 UTC cutoff"},
+  {"category": "markets", "query": "Sarawak election 2026 Polymarket OR Manifold Bawang Assan", "by": "main", "status": "done", "finding": "No market found; Vibes: Abang Johari hints some incumbents retained"},
+  {"category": "base_rate", "query": "Bawang Assan Joshua Ting PDP Wong Soon Koh retire", "by": "main", "status": "done", "finding": "Joshua Ting = PDP Bawang Assan Youth chief, ready since 2021; Wong (b. ~1942) hinted retirement before"},
+  {"category": "news", "query": "\"Bawang Assan\" Premier decide Sim Kui Hian PDP Tiong King Sing", "by": "main", "status": "done", "finding": "FMT Oct 31/Nov 3: Joshua Ting is Abang Johari's political secretary, believed PDP pick; Wong and Tiong met Premier; Sim: Premier 'will solve it'"},
+  {"category": "base_rate", "query": "GPS seat dispute incumbent component party defector 2021 seat allocation", "by": "main", "status": "skipped", "finding": ""}
+],
+ "adjustments": [
+  {"event": "Joshua Ting (PDP) is the Premier's political secretary and Wong/Tiong met the Premier on the seat", "date": "2026-11-03", "effect": "+8 pp PDP vs 50/50 SUPP-PDP split", "sources": [3, 4]},
+  {"event": "GPS fixed full 82-candidate announcement for Nov 25, before cutoff", "date": "2026-11-15", "effect": "No-candidate option down to ~5%", "sources": [5]}
+]}

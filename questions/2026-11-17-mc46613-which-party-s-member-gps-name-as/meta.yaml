@@ -1,0 +1,51 @@
+slug: 2026-11-17-mc46613-which-party-s-member-gps-name-as
+title: Which party's member will GPS name as its candidate for Sarawak's Bawang Assan seat before nomination
+  day on 28 November 2026?
+source: metaculus
+url: https://www.metaculus.com/questions/46613/
+post_id: 46613
+question_id: 46873
+type: multiple_choice
+unit: null
+tags: []
+dates:
+  created: '2026-11-17'
+  opened: '2026-11-17'
+  closes: '2026-11-17'
+  resolves: '2026-11-27'
+status: open
+tournament:
+  slug: minibench
+  mode: one_shot
+  registered: '2026-11-17'
+  opened: '2026-11-17T16:51:44Z'
+  closes: '2026-11-17T19:51:44Z'
+  submitted: '2026-11-17T17:11:43+00:00'
+  submitted_forecast:
+    probability_yes_per_category:
+      SUPP: 0.4
+      PDP: 0.5
+      PBB or PRS (or a candidate who is not a member of SUPP or PDP): 0.04
+      No GPS candidate for Bawang Assan publicly named before the cutoff: 0.06
+  comment_posted: true
+  official_score: null
+  missed_window: false
+current:
+  version: 1
+  date: '2026-11-17'
+  median: 0.5
+  iqr:
+  - 0.42
+  - 0.58
+  community:
+    cp: null
+    pro: null
+    gold: null
+    n_forecasters: null
+    as_of: '2026-11-17'
+next_review: null
+tripwires: []
+resolution:
+  outcome: null
+  date: null
+  source: null

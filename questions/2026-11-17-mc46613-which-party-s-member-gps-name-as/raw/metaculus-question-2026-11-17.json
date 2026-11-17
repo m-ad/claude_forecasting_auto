@@ -1,0 +1,48 @@
+{
+  "post_id": 46613,
+  "url": "https://www.metaculus.com/questions/46613/",
+  "post_title": "Which party's member will GPS name as its candidate for Sarawak's Bawang Assan seat before nomination day on 28 November 2026?",
+  "tournaments": [
+    "minibench"
+  ],
+  "options": [
+    "SUPP",
+    "PDP",
+    "PBB or PRS (or a candidate who is not a member of SUPP or PDP)",
+    "No GPS candidate for Bawang Assan publicly named before the cutoff"
+  ],
+  "question": {
+    "id": 46873,
+    "title": "Which party's member will GPS name as its candidate for Sarawak's Bawang Assan seat before nomination day on 28 November 2026?",
+    "type": "multiple_choice",
+    "status": "open",
+    "description": "Sarawak votes in its 13th state election for all 82 seats of the Sarawak State Legislative Assembly on 12 December 2026, with nomination day on 28 November 2026 and early voting on 8 December (https://sarawaktok.bernama.com/news.php?c=03&id=2630937). The state assembly was dissolved on 26 October 2026. The ruling coalition, Gabungan Parti Sarawak (GPS) — made up of PBB, SUPP, PRS and PDP and chaired by Sarawak Premier Abang Johari Tun Openg — has confirmed it will contest all 82 seats (https://ukas.sarawak.gov.my/web/subpage/news_view/51962), with PBB allocated 47 of them (https://www.thestar.com.my/news/nation/2026/11/08/sarawak-polls-039no-rush039-to-finalise-pbb-candidates-says-abang-jo).\n\nBawang Assan is a state constituency in the Sibu area. Dato Sri Wong Soon Koh represented it from its creation in 1991, first for SUPP, then as a direct Barisan Nasional candidate in 2016, and in 2021 on a Parti Sarawak Bersatu (PSB) ticket, when he won 5,952 votes with a 913-vote majority over SUPP's Robert Lau Hui Yew (5,039) — i.e. the seat was held against GPS in 2021. After PSB was dissolved, Wong and Engkilili assemblyman Johnical Rayong joined PDP, a GPS component. PDP therefore claims Bawang Assan on incumbency grounds, while SUPP claims it as a \"traditional/legacy\" seat and has named its Bawang Assan branch chairman and SUPP Youth Central chairman, Councillor Kevin Lau, as its pick; SUPP has also been pushing to \"recapture\" the seat. Local reporting has speculated that PDP may field its Youth chief, Joshua Ting, fuelled by a widely publicised meeting with Wong. On 31 October, caretaker Deputy Premier Dr Sim Kui Hian said the decision rests with GPS chairman Abang Johari.\n\nAs of 13 November 2026 no GPS candidate for Bawang Assan has been officially named, and commentaries describe the seat as a test of GPS solidarity. On 11 November SUPP submitted its candidate list to the Premier, leaving Batu Lintang and Bawang Assan for him to decide (https://dayakdaily.com/supp-submits-candidate-list-premier-to-decide-on-batu-lintang-bawang-assan). On 5 November Abang Johari said GPS's candidate list was not finalised and that there was \"no rush\" (https://www.bernama.com/en/politics/news.php?id=2630521); on 6 November PBB information chief Abdul Karim Rahman Hamzah said the GPS line-up is expected to be announced during the presentation of appointment letters, ahead of nomination day (https://sarawaktok.bernama.com/news.php?c=03&id=2630937). In 2021 GPS released its full candidate list two days before nomination day (https://dayakdaily.com/gps-candidate-list-for-12th-sarawak-election-to-be-released-2-days-before-nomination-day), which for a 28 November 2026 nomination day implies a release in the final days of November — so the Bawang Assan decision is expected to become public shortly before, or on the eve of, nomination. DayakDaily, The Borneo Post, Bernama, The Star and TVS are all covering the GPS line-up closely and would report the Bawang Assan pick immediately.\n\n`{\"format\": \"llm_question\", \"info\": {\"sdk_version\": \"0.6.1\", \"rating\": {\"quality\": 3, \"ambiguity\": 3, \"resolvability\": 4, \"passes\": true}}}`",
+    "resolution_criteria": "This question resolves according to which party's member is publicly named by Gabungan Parti Sarawak (GPS) as its candidate for the Bawang Assan state seat before 16:00 UTC on 27 November 2026 (00:00 Malaysia time on 28 November 2026, the start of nomination day), as reported by [credible sources](https://www.metaculus.com/faq/#definitions). Select \"SUPP\" or \"PDP\" according to the party membership of the person GPS names for Bawang Assan; unilateral statements by a component party that it will field a particular person in Bawang Assan do not count unless they reflect GPS's decision, such as an announcement by GPS chairman Abang Johari Tun Openg or the naming of candidates at the presentation of appointment letters. Timing is set by when GPS's choice was made public, not by when it was first reported, so an announcement made before the cutoff counts even if credible reporting appears afterwards. If no GPS candidate for Bawang Assan had been publicly named by the cutoff, select \"No GPS candidate for Bawang Assan publicly named before the cutoff\".",
+    "fine_print": "A person's party membership as described in credible reporting at the time of the announcement decides the option, irrespective of earlier party affiliations. If GPS officially names one Bawang Assan candidate and then replaces that person before the cutoff, the most recent official naming before the cutoff decides.",
+    "unit": "",
+    "options": [
+      "SUPP",
+      "PDP",
+      "PBB or PRS (or a candidate who is not a member of SUPP or PDP)",
+      "No GPS candidate for Bawang Assan publicly named before the cutoff"
+    ],
+    "scaling": {
+      "range_min": null,
+      "range_max": null,
+      "nominal_min": null,
+      "nominal_max": null,
+      "zero_point": null,
+      "open_upper_bound": false,
+      "open_lower_bound": false,
+      "inbound_outcome_count": null,
+      "continuous_range": null
+    },
+    "open_lower_bound": false,
+    "open_upper_bound": false,
+    "inbound_outcome_count": null,
+    "open_time": "2026-11-17T16:51:44Z",
+    "scheduled_close_time": "2026-11-17T19:51:44Z",
+    "scheduled_resolve_time": "2026-11-27T20:00:00Z",
+    "resolution": null
+  }
+}
