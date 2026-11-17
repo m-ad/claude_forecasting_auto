@@ -1,6 +1,6 @@
 # Question index
 
-_Regenerated 2026-11-16 by `scripts/status.py --index`._
+_Regenerated 2026-11-17 by `scripts/status.py --index`._
 
 | Question | Type | Current | v | Community (CP) | Resolves | Next review | Status |
 |---|---|---|---|---|---|---|---|
@@ -171,3 +171,4 @@ _Regenerated 2026-11-16 by `scripts/status.py --index`._
 | [What will France's provisional year-on-year CPI inflation be for November 2026?](questions/2026-11-16-mc46598-france-s-provisional-year-year-cpi-inflation/forecast.md) | discrete | 3.15 [3.03, 3.27] | 1 | — | 2026-11-27 | — | open |
 | [Will Plus Ultra operate a scheduled Madrid–Lima passenger flight on 26 November 2026?](questions/2026-11-16-mc46599-plus-ultra-operate-scheduled-madrid-lima-passenger/forecast.md) | binary | 38.0% [25.0%, 52.0%] | 1 | — | 2026-11-26 | — | open |
 | [How many subscribers will Russell Brand's YouTube channel show on 27 November 2026?](questions/2026-11-16-mc46600-how-many-subscribers-russell-brand-s-youtube/forecast.md) | discrete | 6,596,000 [6,590,500, 6,601,000] | 1 | — | 2026-11-27 | — | open |
+| [Will front-month ICE Brent crude futures (January 2027 contract) settle above $100.00 per barrel on 27 November 2026?](questions/2026-11-17-mc46601-front-month-ice-brent-crude-futures-january/forecast.md) | binary | 18.0% [13.0%, 24.0%] | 1 | — | 2026-11-28 | — | open |

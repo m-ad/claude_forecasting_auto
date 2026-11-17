@@ -1,0 +1,29 @@
+{"searches": [
+  {"category": "resolution_source", "query": "Brent crude futures settle November 16 2026", "by": "main", "status": "done", "finding": "Brent Jan settled $92.57 on 9 Nov 2026 (Reuters via NST); Report.az $80.54 item unverified/likely wrong year"},
+  {"category": "resolution_source", "query": "barchart CBF27 Brent January 2027 price (WebFetch)", "by": "main", "status": "done", "finding": "Barchart page returned empty content"},
+  {"category": "resolution_source", "query": "tradingeconomics Brent page (WebFetch)", "by": "main", "status": "done", "finding": "Brent ~$92.03 on 17 Nov 2026 Asian session, -0.44%; 16 Nov fell ~2% to below $94 then ~$92"},
+  {"category": "news", "query": "oil prices Iran Gulf tankers news November 2026", "by": "main", "status": "done", "finding": "Nov 5 Brent +$3.67 to $98.29 on tanker attacks; Nov 10-11 two-month lows on de-escalation hopes, mines in Hormuz"},
+  {"category": "news", "query": "Brent settles November 13 2026 oil weekly", "by": "main", "status": "done", "finding": "Week to ~Nov 6 Brent fell ~13-16%, sharpest since 2020; no 13 Nov settle found"},
+  {"category": "news", "query": "oil prices Monday November 16 2026 Brent", "by": "main", "status": "done", "finding": "Trump signals restraint on Iran; Brent down; no confirmed 16 Nov settle"},
+  {"category": "news", "query": "oil steadies Iran talks Hormuz November 16", "by": "main", "status": "done", "finding": "Market weighing on/off US-Iran talks vs Hormuz attacks; flat-to-lower"},
+  {"category": "markets", "query": "Polymarket Kalshi Brent oil $100 November 2026", "by": "main", "status": "done", "finding": "No live Brent late-Nov market found; WTI snapshots stale"},
+  {"category": "disconfirmation", "query": "oil rally Brent back above $100 Iran escalation Bahrain strike November 2026", "by": "main", "status": "done", "finding": "Brent re-crossed $100 on escalation in Mar, May, Jul, Sep 2026 - spikes recur; none confirmed in Nov yet", "tests": "assumption that de-escalation/supply-surplus momentum keeps front month below $100 for the next 9 trading days"},
+  {"category": "news", "query": "Brent crude settles November 16 2026", "by": "scout-1", "status": "done", "finding": "TE: Brent ~$92 on 16 Nov after ~2% drop; Iran struck US base in Bahrain, tankers hit mines"},
+  {"category": "news", "query": "oil prices Brent Asian trade Tuesday Iran", "by": "scout-1", "status": "done", "finding": "17 Nov ~$91.94-92.03"},
+  {"category": "news", "query": "oil prices Friday November 13 Brent settle weekly", "by": "scout-1", "status": "done", "finding": "No 13 Nov settle; 10 Nov $91.49, 11 Nov $92.53"},
+  {"category": "news", "query": "oil prices Brent Iran blockade Hormuz news November 16", "by": "scout-1", "status": "done", "finding": "IEA ~2 mb/d surplus this quarter; Goldman warns glut; Saudi OSP cuts"},
+  {"category": "news", "query": "Brent crude oil price November 2026", "by": "scout-2", "status": "done", "finding": "Brent $103.60 on 3 Nov, $93.38 on 9 Nov, $95.72 on 11 Nov"},
+  {"category": "markets", "query": "Polymarket Kalshi crude oil price end of November 2026 Brent WTI", "by": "scout-2", "status": "done", "finding": "Only stale/inconsistent WTI snapshots; nothing usable"},
+  {"category": "upcoming_events", "query": "OPEC+ meeting November 2026 output decision oil forecast $100", "by": "scout-2", "status": "done", "finding": "OPEC+ held Dec targets; ministerial 29 Nov after settlement"},
+  {"category": "base_rate", "query": "oil prices Brent settles Iran Hormuz talks analysts forecast", "by": "scout-2", "status": "done", "finding": "5%+ daily moves common since Aug; Brent $79 early Aug to $104 by 11 Sep; BMI 2026 avg $90"},
+  {"category": "consensus", "query": "analysts Brent forecast end November 2026", "by": "scout-2", "status": "skipped", "finding": ""},
+  {"category": "base_rate", "query": "IEA oil market report November 2026 inventories", "by": "scout-2", "status": "skipped", "finding": ""},
+  {"category": "markets", "query": "Brent options implied volatility November 2026", "by": "main", "status": "skipped", "finding": ""},
+  {"category": "base_rate", "query": "Brent crude volatility weekly moves 2026", "by": "main", "status": "skipped", "finding": ""},
+  {"category": "disconfirmation", "query": "oil surges Iran peace talks collapse Hormuz November 2026", "by": "main", "status": "skipped", "finding": "", "tests": "same as above"}
+],
+ "adjustments": [
+  {"event": "Brent fell from ~$95.8 (12 Nov, per question) to ~$92.0 (17 Nov) on de-escalation and IEA surplus outlook", "date": "2026-11-16", "effect": "base distance to $100 widens from ~4.5% to ~8.7%; lognormal p falls from ~35% to ~23%", "sources": [2, 3]},
+  {"event": "Downward momentum and supply-surplus narrative (IEA, Goldman) vs recurring escalation spikes", "date": "2026-11-16", "effect": "-5 pp", "sources": [3, 4]}
+]
+}

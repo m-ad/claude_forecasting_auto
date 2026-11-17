@@ -1,0 +1,47 @@
+slug: 2026-11-17-mc46601-front-month-ice-brent-crude-futures-january
+title: Will front-month ICE Brent crude futures (January 2027 contract) settle above $100.00 per barrel
+  on 27 November 2026?
+source: metaculus
+url: https://www.metaculus.com/questions/46601/
+post_id: 46601
+question_id: 46861
+type: binary
+unit: null
+tags: []
+dates:
+  created: '2026-11-17'
+  opened: '2026-11-17'
+  closes: '2026-11-17'
+  resolves: '2026-11-28'
+status: open
+tournament:
+  slug: minibench
+  mode: one_shot
+  registered: '2026-11-17'
+  opened: '2026-11-17T00:14:21Z'
+  closes: '2026-11-17T03:14:21Z'
+  submitted: '2026-11-17T01:06:39+00:00'
+  submitted_forecast:
+    probability_yes: 0.18
+  comment_posted: true
+  official_score: null
+  missed_window: false
+current:
+  version: 1
+  date: '2026-11-17'
+  median: 0.18
+  iqr:
+  - 0.13
+  - 0.24
+  community:
+    cp: null
+    pro: null
+    gold: null
+    n_forecasters: null
+    as_of: '2026-11-17'
+next_review: null
+tripwires: []
+resolution:
+  outcome: null
+  date: null
+  source: null

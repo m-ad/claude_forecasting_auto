@@ -1,0 +1,38 @@
+{
+  "post_id": 46601,
+  "url": "https://www.metaculus.com/questions/46601/",
+  "post_title": "Will front-month ICE Brent crude futures (January 2027 contract) settle above $100.00 per barrel on 27 November 2026?",
+  "tournaments": [
+    "minibench"
+  ],
+  "options": null,
+  "question": {
+    "id": 46861,
+    "title": "Will front-month ICE Brent crude futures (January 2027 contract) settle above $100.00 per barrel on 27 November 2026?",
+    "type": "binary",
+    "status": "open",
+    "description": "The ICE Brent Crude futures contract is the world's main benchmark for seaborne crude oil pricing. The January 2027 contract (ICE logical code BRN) is the front month throughout November 2026 — the December 2026 contract ceased trading at the end of October — and its last trading day is 30 November 2026 (https://www.ice.com/products/219/Brent-Crude-Futures/expiry), so the front month does not roll before the 27 November settlement date used here. ICE determines the daily settlement price as the volume-weighted average of trades during the two-minute window from 19:28:00 London time (https://www.ice.com/products/219/Brent-Crude-Futures/contract-specification).\n\nStatus quo as of 13 November 2026: the January 2027 contract traded around $95.50–96.50/bbl during the 13 November session, having settled at $95.82 on 12 November and at $91.49 on 10 November — a ten-week low — after a roughly $98.32 close a week earlier. The $100.00 threshold therefore sits about 4–5% above the current front-month price. The ICE curve is steeply backwardated, with February 2027 around $93.3/bbl and December 2027 around $80.3/bbl.\n\nPrices have been extraordinarily volatile. Brent spot averaged $124/bbl in October 2026, the highest since July 2022, as global inventories fell and attacks on tankers in the Persian Gulf and on Persian Gulf energy infrastructure constrained exports (Middle East production shut-ins were about 2.5 million b/d in October, per the EIA). Gulf exports have run well below normal, and a large US crude stock build plus swings in expectations about the Iran war, a US blockade of Iran, and peace talks have produced repeated multi-percent daily moves in both directions. In its 10 November 2026 Short-Term Energy Outlook the EIA said it expects the Brent spot price to remain near $100/bbl for the remainder of 2026, forecasting a 2026 average of $97.44/bbl and a 2027 average of $85.78/bbl (https://www.eia.gov/outlooks/steo/report/global_oil.php). On the supply-policy side, OPEC+ members with quotas left December required output unchanged at 31.01 million b/d at the start of November, with the full ministerial meeting to decide 2027 quotas scheduled for 29 November 2026 — after this question's settlement date.\n\nThe practical question for forecasters is whether the front month can gain roughly 4–5% over the two weeks to 27 November, in a market where daily moves of that size have recently occurred on single headlines about Gulf supply and the Iran conflict, or whether continued de-escalation headlines and weak demand expectations keep it below $100.\n\n`{\"format\": \"llm_question\", \"info\": {\"sdk_version\": \"0.6.1\", \"rating\": {\"quality\": 3, \"ambiguity\": 4, \"resolvability\": 4, \"passes\": true}}}`",
+    "resolution_criteria": "This question resolves YES if the ICE Futures Europe official daily settlement price for the Brent Crude January 2027 futures contract (ICE logical code BRN, January 2027 delivery; Barchart symbol CBF27) for the trading session of Friday, 27 November 2026 is greater than $100.00 per barrel, and NO otherwise; a settlement of exactly $100.00 per barrel resolves NO. ICE's official settlement price for this contract and session is displayed as the end-of-day value on the 27 November 2026 row of Barchart's price history page: https://www.barchart.com/futures/quotes/CBF27/historical-prices. If that page is unavailable or shows no value for the 27 November 2026 session, the ICE settlement price for this contract and session as reported by [credible sources](https://www.metaculus.com/faq/#definitions) will be used. Where the Barchart figure and ICE's official settlement differ, ICE's official settlement governs.",
+    "fine_print": "If ICE Futures Europe publishes a corrected settlement price for the 27 November 2026 session of this contract, the corrected figure governs.",
+    "unit": "",
+    "options": null,
+    "scaling": {
+      "range_min": null,
+      "range_max": null,
+      "nominal_min": null,
+      "nominal_max": null,
+      "zero_point": null,
+      "open_upper_bound": false,
+      "open_lower_bound": false,
+      "inbound_outcome_count": null,
+      "continuous_range": null
+    },
+    "open_lower_bound": false,
+    "open_upper_bound": false,
+    "inbound_outcome_count": null,
+    "open_time": "2026-11-17T00:14:21Z",
+    "scheduled_close_time": "2026-11-17T03:14:21Z",
+    "scheduled_resolve_time": "2026-11-28T00:00:00Z",
+    "resolution": null
+  }
+}
