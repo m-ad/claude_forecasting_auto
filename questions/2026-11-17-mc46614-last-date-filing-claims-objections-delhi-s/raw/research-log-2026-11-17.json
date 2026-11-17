@@ -1,0 +1,16 @@
+{"searches": [
+  {"category": "resolution_source", "query": "Delhi SIR claims objections last date extended", "by": "main", "status": "done", "finding": "Latest official change: Oct 29 notification, claims to Nov 25, disposal Dec 15, final roll Dec 22 (ThePrint/PTI Oct 29); earlier Sep 26 extension to Oct 30"},
+  {"category": "news", "query": "Delhi SIR extension November 2026", "by": "main", "status": "done", "finding": "No report of a further extension past Nov 25 as of search; Oct 29 extension came a day after SC asked ECI to consider extending"},
+  {"category": "upcoming_events", "query": "Supreme Court Delhi SIR Form 6 hearing November 2026", "by": "main", "status": "done", "finding": "SC listed Form 6 dispute for Nov 19; CJI said voters need not worry; no outcome yet"},
+  {"category": "news", "query": "Delhi SIR claims objections deadline two weeks extension CEO Delhi Annexure-A", "by": "main", "status": "done", "finding": "No source found confirming a 2-week extension; prior extensions were ~30 and ~26 days"},
+  {"category": "news", "query": "\"SIR\" Delhi deadline November 25 extended December", "by": "main", "status": "done", "finding": "No later extension found; Dec 15 disposal and Dec 22 final roll confirmed"},
+  {"category": "news", "query": "Delhi SIR enumeration forms distribution left out voters BLO November 16", "by": "main", "status": "done", "finding": "ThePrint/PTI Nov 12: fresh enumeration forms for ~47.5 lakh excluded voters to start distribution the following week; no end date given"},
+  {"category": "markets", "query": "Polymarket OR Manifold Delhi SIR electoral roll deadline", "by": "main", "status": "done", "finding": "No market found"},
+  {"category": "disconfirmation", "query": "Delhi SIR deadline \"will not be extended\" OR \"no extension\" claims objections November", "by": "main", "status": "done", "finding": "No statement that the Nov 25 date is final; nothing newer than late Oct", "tests": "assumption that a further extension of the claims date past Nov 25 will be notified by Nov 27"},
+  {"category": "base_rate", "query": "Delhi SIR claims deadline extension CEO Delhi review timeline Annexure-A forms", "by": "main", "status": "done", "finding": "Sep 26 extension followed CEO Delhi request (1 month); pattern: every Delhi SIR deadline so far extended (enumeration x2+, claims x2)"},
+  {"category": "other", "query": "telanganatoday Delhi schedule (fetch)", "by": "main", "status": "skipped", "finding": "Fetched page was a July 15 article, stale schedule"}
+],
+ "adjustments": [
+  {"event": "ECI Nov 6 instruction for fresh Annexure-A enumeration of ~47.5 lakh left-out electors, distribution only starting week of Nov 16", "date": "2026-11-06", "effect": "P(extension by Nov 27) from ~70% to ~83%", "sources": [3, 4]},
+  {"event": "TOI/Tribune reports that ~2-week extension under consideration", "date": "2026-11-13", "effect": "shifts mass toward Dec 5-15 bin vs Dec 16+", "sources": [5]}
+]}

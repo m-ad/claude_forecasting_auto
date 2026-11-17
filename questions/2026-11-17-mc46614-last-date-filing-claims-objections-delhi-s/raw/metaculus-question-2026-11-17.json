@@ -1,0 +1,48 @@
+{
+  "post_id": 46614,
+  "url": "https://www.metaculus.com/questions/46614/",
+  "post_title": "What will be the last date for filing claims and objections in Delhi's SIR, as of November 27, 2026?",
+  "tournaments": [
+    "minibench"
+  ],
+  "options": [
+    "November 25, 2026 or earlier (no further extension)",
+    "November 26 – December 4, 2026",
+    "December 5 – December 15, 2026",
+    "December 16, 2026 or later"
+  ],
+  "question": {
+    "id": 46874,
+    "title": "What will be the last date for filing claims and objections in Delhi's SIR, as of November 27, 2026?",
+    "type": "multiple_choice",
+    "status": "open",
+    "description": "Delhi is conducting a Special Intensive Revision (SIR) of its electoral rolls with October 1, 2026 as the qualifying date. Booth-level officers visited households from June 30 to August 17, 2026, and the draft roll published on August 31, 2026 contained about 97.5 lakh electors, after roughly 47.56 lakh people who had been on the rolls (about 1.45 crore as of June 30) were not carried forward; notices were issued to about 33.14 lakh electors. The claims-and-objections period originally ran from August 31 to September 30, 2026. It has since been extended twice: ECI press note ECI/PN/120/2026 of September 26, 2026 pushed the last date to October 30, and ECI notification No. 23/2026-ERS (Vol. II) dated October 29, 2026 (published in the Delhi Gazette on October 31) pushed it to November 25, 2026, set disposal of claims and objections for December 15, 2026, and set publication of the final roll for December 22, 2026. Both earlier extensions were notified only 1-4 days before the deadline then in force.\n\nThe matter is in litigation: the Supreme Court heard the Delhi SIR dispute over the ECI's Form 6 requirement on October 28 and November 4, 2026, has listed it for November 19, and observed that the ECI could be asked to extend the date further if required. On November 6, 2026 the ECI instructed the Chief Electoral Officers of Delhi and six states to give electors left out of the draft roll one more opportunity to submit Annexure-A enumeration forms, with fresh door-to-door verification; about 15,000 booth-level officers in Delhi would each have to reach roughly 300 voters, and distribution of the fresh forms had not begun as of November 12-13, with officials saying it was expected from the week of November 16. Filing volumes are rising: 304,352 Form 6 applications were received between August 31 and November 11, 2026 (the three-lakh mark was crossed on November 9), alongside about 82,000 Form 7 objections and 372,000 Form 8 corrections.\n\nReporting by The Times of India (November 12) and The Tribune (November 13) says a further extension is likely and that an extension of around two weeks is under consideration but not yet approved, with the CEO Delhi's office to review the timeline either in the week of November 16 or closer to November 25. Status quo as of November 13, 2026: the last date for filing claims and objections in Delhi's SIR is November 25, 2026, with disposal of claims and objections due by December 15 and the final electoral roll due on December 22.\n\n`{\"format\": \"llm_question\", \"info\": {\"sdk_version\": \"0.6.1\", \"rating\": {\"quality\": 3, \"ambiguity\": 3, \"resolvability\": 4, \"passes\": true}}}`",
+    "resolution_criteria": "This question resolves to the option containing the last date for filing claims and objections in the Special Intensive Revision (SIR) of Delhi's electoral rolls, as specified in the most recent official schedule in force at 23:59 IST (18:29 UTC) on November 27, 2026. Only official documents dated on or before November 27, 2026 count: Election Commission of India (ECI) notifications, letters and press notes, Chief Electoral Officer (CEO) Delhi notifications and press notes, and Delhi Gazette publications of such notifications; a revision dated November 26 or 27, 2026 counts even if it is uploaded later. The baseline is ECI notification No. 23/2026-ERS (Vol. II) dated October 29, 2026, published in the Delhi Gazette as entry SG-DL-E-31102026-277561 (https://gazettetracker.com/g/SG-DL-E-31102026-277561), which sets this last date as November 25, 2026; if no later revision of that date is issued on or before November 27, 2026, the question resolves to \"November 25, 2026 or earlier (no further extension)\". If a revision sets different last dates for different categories of claims or objections, the last date applicable to Form 6 claims filed by individual electors governs. A revised last date of, for example, December 9, 2026 would resolve to \"December 5 – December 15, 2026\". If the official documents cannot be retrieved, resolution uses [credible sources](https://www.metaculus.com/faq/#definitions).",
+    "fine_print": "\"Last date for filing claims and objections\" means the final day on which an elector may file a claim (Form 6, Form 6A) or an objection (Form 7) under the SIR claims-and-objections period, as stated in the governing schedule. A change limited to the house-to-house verification, to the distribution or submission of Annexure-A enumeration forms, or to the deadline for disposal of claims and objections does not change this date; only a change to the final date for filing claims and objections does. If more than one revision is dated on or before November 27, 2026, the latest-dated one governs. If the governing document extends the period but states no closing date, the question resolves to \"December 16, 2026 or later\".",
+    "unit": "",
+    "options": [
+      "November 25, 2026 or earlier (no further extension)",
+      "November 26 – December 4, 2026",
+      "December 5 – December 15, 2026",
+      "December 16, 2026 or later"
+    ],
+    "scaling": {
+      "range_min": null,
+      "range_max": null,
+      "nominal_min": null,
+      "nominal_max": null,
+      "zero_point": null,
+      "open_upper_bound": false,
+      "open_lower_bound": false,
+      "inbound_outcome_count": null,
+      "continuous_range": null
+    },
+    "open_lower_bound": false,
+    "open_upper_bound": false,
+    "inbound_outcome_count": null,
+    "open_time": "2026-11-17T17:06:55Z",
+    "scheduled_close_time": "2026-11-17T20:06:55Z",
+    "scheduled_resolve_time": "2026-11-27T18:30:00Z",
+    "resolution": null
+  }
+}

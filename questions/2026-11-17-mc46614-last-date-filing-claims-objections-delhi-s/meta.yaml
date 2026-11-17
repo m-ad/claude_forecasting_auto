@@ -1,0 +1,51 @@
+slug: 2026-11-17-mc46614-last-date-filing-claims-objections-delhi-s
+title: What will be the last date for filing claims and objections in Delhi's SIR, as of November 27,
+  2026?
+source: metaculus
+url: https://www.metaculus.com/questions/46614/
+post_id: 46614
+question_id: 46874
+type: multiple_choice
+unit: null
+tags: []
+dates:
+  created: '2026-11-17'
+  opened: '2026-11-17'
+  closes: '2026-11-17'
+  resolves: '2026-11-27'
+status: open
+tournament:
+  slug: minibench
+  mode: one_shot
+  registered: '2026-11-17'
+  opened: '2026-11-17T17:06:55Z'
+  closes: '2026-11-17T20:06:55Z'
+  submitted: '2026-11-17T17:11:40+00:00'
+  submitted_forecast:
+    probability_yes_per_category:
+      November 25, 2026 or earlier (no further extension): 0.18
+      November 26 – December 4, 2026: 0.12
+      December 5 – December 15, 2026: 0.42
+      December 16, 2026 or later: 0.28
+  comment_posted: true
+  official_score: null
+  missed_window: false
+current:
+  version: 1
+  date: '2026-11-17'
+  median: 0.42
+  iqr:
+  - 0.33
+  - 0.5
+  community:
+    cp: null
+    pro: null
+    gold: null
+    n_forecasters: null
+    as_of: '2026-11-17'
+next_review: null
+tripwires: []
+resolution:
+  outcome: null
+  date: null
+  source: null
