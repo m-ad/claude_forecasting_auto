@@ -1,0 +1,22 @@
+{"searches": [
+  {"category": "resolution_source", "query": "CDC measles cases and outbreaks 2026 confirmed cases November 13", "by": "main", "status": "done", "finding": "5,412 as of Nov 12 (update Nov 13), +230; CDC page fetched directly confirms"},
+  {"category": "news", "query": "US measles cases November 2026", "by": "main", "status": "done", "finding": "5,412; 47 jurisdictions; 591 hospitalizations; elimination status lost"},
+  {"category": "news", "query": "CIDRAP measles November 2026", "by": "main", "status": "done", "finding": "13 consecutive triple-digit weeks; JHU 5,400 as of Nov 6 vs CDC 5,182"},
+  {"category": "news", "query": "Pennsylvania measles outbreak cases November 2026", "by": "main", "status": "done", "finding": "PA 1,505 (Nov 9) -> 1,561 (Nov 16): ~50/wk, slowing"},
+  {"category": "news", "query": "South Carolina measles cases November 2026", "by": "main", "status": "done", "finding": "SC 670 per CDC Nov 5; Upstate outbreak over; scattered cases"},
+  {"category": "news", "query": "Johns Hopkins measles tracker 2026 cases", "by": "main", "status": "done", "finding": "JHU ~5,400 Nov 6, 4,603 Oct 16; leads CDC by ~1 week"},
+  {"category": "markets", "query": "Kalshi OR Polymarket measles cases 2026", "by": "main", "status": "done", "finding": "Kalshi full-year market, stale cache 6,000+ ~72%; Polymarket thresholds; no Nov 27 market"},
+  {"category": "schedule", "query": "CDC measles weekly update Thanksgiving 2025 published date", "by": "main", "status": "done", "finding": "nothing on holiday schedule; cutoff noon Thursday"},
+  {"category": "news", "query": "Wisconsin Minnesota measles outbreak November 2026", "by": "main", "status": "done", "finding": "WI 649 Nov 13 (2 deaths); MN 139 Nov 5"},
+  {"category": "schedule", "query": "\"measles\" CDC update \"November 26, 2025\" OR \"November 28, 2025\" cases", "by": "main", "status": "done", "finding": "no 2025 Thanksgiving-week update info found"},
+  {"category": "base_rate", "query": "Wisconsin measles cases outbreak November 16 2026", "by": "main", "status": "done", "finding": "WI 431 (Nov 3) -> 551 (Nov 10) -> 649 (Nov 13): ~100+/wk accelerating"},
+  {"category": "news", "query": "measles outbreak slowing November 2026", "by": "main", "status": "done", "finding": "PA slowing per Inquirer; PAHO weeks 41-42 down 38%; national still rising"},
+  {"category": "disconfirmation", "query": "measles cases surge record week November 2026 new outbreak", "by": "main", "status": "done", "finding": "WI +174 in a week, IN 171, MN 160 rising; no sign of a collapse in increments; no record week", "tests": "weekly increments stay ~230-300 rather than slowing below 150 or surging above 400"},
+  {"category": "base_rate", "query": "Contagion Live Nov 13 fetch (weekly increment history)", "by": "main", "status": "done", "finding": "+230 (4.4%) this week, +330 (6.8%) prior; 43 outbreaks, none new"},
+  {"category": "news", "query": "Indiana measles outbreak cases November 2026", "by": "main", "status": "done", "finding": "IN 188 Nov 16 (138 Nov 10); KY >200"},
+  {"category": "schedule", "query": "CDC measles page update holiday week schedule 2025 Thanksgiving Wednesday", "by": "main", "status": "done", "finding": "no holiday-pause notice found; publication-timing risk remains"}
+],
+ "adjustments": [
+  {"event": "Thanksgiving week: CDC may publish early, late, or skip the Nov 27 update", "date": "2026-11-26", "effect": "30% weight on 3-increment scenario; +~50 on median, p95 to ~6,380", "sources": [1]},
+  {"event": "Midwest outbreaks (WI, IN, KY) accelerating while PA slows", "date": "2026-11-16", "effect": "weekly increment median 255 rather than declining trend", "sources": [4, 6, 7]}
+]}
