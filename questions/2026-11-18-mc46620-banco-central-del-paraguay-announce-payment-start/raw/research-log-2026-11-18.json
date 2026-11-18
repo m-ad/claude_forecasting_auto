@@ -1,0 +1,21 @@
+{"searches": [
+  {"category": "resolution_source", "query": "ueno CDA pago fecha BCP FGD", "by": "main", "status": "done", "finding": "Anticipo began 5 Nov; BCP FGD payments page; no CDA date in snippets"},
+  {"category": "news", "query": "ueno bank certificados de depósito de ahorro pago fondo de garantía noviembre 2026", "by": "main", "status": "done", "finding": "BCP communiqué: CDA holders to be deposited 'en los próximos días' (no day)"},
+  {"category": "resolution_source", "query": "BCP ueno CDA validación plataforma cuándo cobran", "by": "main", "status": "done", "finding": "nothing relevant (Peruvian BCP results)"},
+  {"category": "news", "query": "ueno bank segunda etapa pago 75 salarios mínimos fecha", "by": "main", "status": "done", "finding": "BCP 12 Nov: will extend to 75 wages next week, no exact day"},
+  {"category": "markets", "query": "Polymarket OR Manifold ueno bank Paraguay", "by": "main", "status": "done", "finding": "no market on ueno CDA payments; none found"},
+  {"category": "resolution_source", "query": "ueno CDA pago ahorristas \"CDA\" BCP comunicado", "by": "main", "status": "done", "finding": "La Nación 13 Nov 07:19: 'El BCP anuncia la liberación de fondos de los CDA desde este viernes' (13 Nov); ABC 16 Nov: 5,800 CDA cases unblocked by Friday"},
+  {"category": "news", "query": "ueno bank CDA titulares pago desde el lunes", "by": "main", "status": "done", "finding": "nothing CDA-specific"},
+  {"category": "news", "query": "ueno bank news November 17 2026 deposit guarantee payments", "by": "main", "status": "done", "finding": "no 17 Nov news; FGD cost estimates only"},
+  {"category": "base_rate", "query": "Fondo de Garantía de Depósitos Paraguay pago CDA plazo días hábiles ley 2334 liquidación bancos anteriores", "by": "main", "status": "done", "finding": "Law 2334: guarantee due within 15 calendar days of resolution, extendable 15 (17 Nov, up to 2 Dec)"},
+  {"category": "resolution_source", "query": "BCP comunicado liberación fondos CDA ueno viernes 13 noviembre", "by": "main", "status": "done", "finding": "nothing new (Peruvian results)"},
+  {"category": "upcoming_events", "query": "ueno CDA \"75 salarios\" complemento pago fecha BCP", "by": "main", "status": "done", "finding": "nothing relevant"},
+  {"category": "disconfirmation", "query": "ueno bank CDA aún no cobran reclamo noviembre 2026", "by": "main", "status": "done", "finding": "Revista Mercado: CDAs to be served later; no evidence contradicting 13 Nov announcement", "tests": "that the 13 Nov La Nación 'desde este viernes' BCP statement counts as a BCP statement of a specific calendar day for FGD payments to CDA holders"},
+  {"category": "disconfirmation", "query": "fetch La Nación 8 Nov: BCP aclara que los CDA no están incluidos en las dos primeras etapas", "by": "main", "status": "done", "finding": "8 Nov BCP: CDA not in first two payment groups, next stages to be communicated", "tests": "same assumption: that a later statement gave a day"},
+  {"category": "consensus", "query": "fetch ABC 16 Nov protest article", "by": "main", "status": "done", "finding": "FGD director Maciel: 5,800 CDA-linked cases unblocked by Friday; remaining available Monday 16 Nov"},
+  {"category": "resolution_source", "query": "fetch La Nación 13 Nov CDA article", "by": "main", "status": "done", "finding": "BCP: CDA payments 'arrancarán este viernes'; 'Los fondos se irán liberando por cortes a lo largo del día'"}
+],
+ "adjustments": [
+  {"event": "BCP announced CDA fund release starting Friday 13 Nov (La Nación 13 Nov), CDA cases unblocked per FGD director", "date": "2026-11-13", "effect": "+70 pp", "sources": [1, 2]},
+  {"event": "Question background (written after) says no CDA date announced as of 13 Nov; resolver may discount the 13 Nov statement as anticipo/unblocking", "date": "2026-11-18", "effect": "-10 pp", "sources": [3]}
+ ]}
