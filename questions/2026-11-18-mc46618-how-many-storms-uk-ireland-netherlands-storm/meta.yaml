@@ -1,0 +1,53 @@
+slug: 2026-11-18-mc46618-how-many-storms-uk-ireland-netherlands-storm
+title: How many storms will the UK–Ireland–Netherlands storm-naming group have named by the end of 28
+  November 2026?
+source: metaculus
+url: https://www.metaculus.com/questions/46618/
+post_id: 46618
+question_id: 46878
+type: discrete
+unit: storms
+tags: []
+dates:
+  created: '2026-11-18'
+  opened: '2026-11-18'
+  closes: '2026-11-18'
+  resolves: '2026-11-28'
+status: open
+tournament:
+  slug: minibench
+  mode: one_shot
+  registered: '2026-11-18'
+  opened: '2026-11-18T11:19:14Z'
+  closes: '2026-11-18T14:19:14Z'
+  submitted: '2026-11-18T12:12:36+00:00'
+  submitted_forecast:
+    continuous_cdf:
+    - 0.0
+    - 0.6593074194051511
+    - 0.8966916269404945
+    - 0.9731616320922098
+    - 0.988616707264597
+    - 0.999
+  comment_posted: true
+  official_score: null
+  missed_window: false
+current:
+  version: 1
+  date: '2026-11-18'
+  median: 2.19
+  iqr:
+  - 1.85
+  - 2.64
+  community:
+    cp: null
+    pro: null
+    gold: null
+    n_forecasters: null
+    as_of: '2026-11-18'
+next_review: null
+tripwires: []
+resolution:
+  outcome: null
+  date: null
+  source: null

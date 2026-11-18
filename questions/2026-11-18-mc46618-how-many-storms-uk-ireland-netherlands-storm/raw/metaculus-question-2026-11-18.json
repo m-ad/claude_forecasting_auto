@@ -1,0 +1,45 @@
+{
+  "post_id": 46618,
+  "url": "https://www.metaculus.com/questions/46618/",
+  "post_title": "How many storms will the UK–Ireland–Netherlands storm-naming group have named by the end of 28 November 2026?",
+  "tournaments": [
+    "minibench"
+  ],
+  "options": null,
+  "question": {
+    "id": 46878,
+    "title": "How many storms will the UK–Ireland–Netherlands storm-naming group have named by the end of 28 November 2026?",
+    "type": "discrete",
+    "status": "open",
+    "description": "Since 2015/16 the Met Office, Met Éireann (Ireland) and KNMI (Netherlands) have jointly named winter storms affecting their countries, drawing on a shared alphabetical list of 21 names per season (letters Q, U, X, Y and Z are excluded). A low-pressure system is named when it is expected to have enough impact — typically enough to warrant amber or red wind warnings, or equivalent severe-weather warnings — in the UK, Ireland or the Netherlands. The 2026/27 season runs from 1 September 2026 to 31 August 2027, and its list, released on 1 September 2026, runs: Austen, Boelo, Chloe, Dano, Evelyn, Finn, Gwendolyn, Heather, Ivy, Jade, Kilian, Laoise, Miriam, Nicola, Olaf, Phelim, Ruban, Shaun, Theo, Vesna, Wende.\n\nTwo names have been used so far this season. Storm Austen was named on 20 October 2026 (impact on the UK 23 October 2026), bringing cancelled flights, school closures and power cuts to southern England and Wales. Storm Boelo was named by KNMI on 22 October 2026, with wind warnings for 24–25 October, two fatalities and widespread power cuts. Third-party trackers last checked against the Met Office storm centre on 3, 5 and 7 November 2026 all reported no further naming, with Chloe as the next name, and the Met Office table as of 13 November 2026 likewise lists only Austen and Boelo.\n\nNaming frequency varies a lot by year: the Met Office and Met Éireann report 14 named storms in the 2023/24 season but only 4 in 2025/26. Late November is historically an active part of the season — Storm Debi was named 13 November 2023, Storm Bert 22 November 2024 and Storm Conall 27 November 2024 — so a third naming before the end of November is plausible but far from certain. The Met Office long-range outlook updated on 11 November 2026, covering Thursday 26 November to Thursday 10 December, describes \"changeable or unsettled conditions ... initially, with Atlantic weather systems bringing spells of rain and strong winds at times\".\n\nThe Met Office UK Storm Centre page is the practical source of truth: its table records each named storm with its \"Date named\" and \"Date of impact on UK and/or Ireland and/or Netherlands\", and the naming date is the field this question uses.\n\n`{\"format\": \"llm_question\", \"info\": {\"sdk_version\": \"0.6.1\", \"rating\": {\"quality\": 3, \"ambiguity\": 4, \"resolvability\": 4, \"passes\": true}}}`",
+    "resolution_criteria": "Resolves to the number of distinct names from the 2026/27 west-group list (Austen, Boelo, Chloe, Dano, Evelyn, Finn, Gwendolyn, Heather, Ivy, Jade, Kilian, Laoise, Miriam, Nicola, Olaf, Phelim, Ruban, Shaun, Theo, Vesna, Wende) that have been assigned to a storm with a \"Date named\" on or before 28 November 2026, as shown in the named-storm table at the Met Office UK Storm Centre: https://weather.metoffice.gov.uk/warnings-and-advice/uk-storm-centre. For example, a resolution of 3 means a third name had been announced by that date; a resolution of 2 means no third storm had been named. As of 13 November 2026 the table lists two storms — Austen (named 20 October 2026) and Boelo (named 22 October 2026) — so 2 is the current count. Dates on the Met Office table are UK local calendar dates (GMT in November, equivalent to UTC); if the table is unavailable or not yet updated, the storm-names page of Met Éireann (https://www.met.ie/forecasts/storm-names) or [credible sources](https://www.metaculus.com/faq/#definitions) may be used instead. Each name counts once, and a name is credited on the date it was announced, not the date the storm affected land.",
+    "fine_print": "Only names from the 2026/27 west-group list count; a storm named by another European naming group (for example the French/Spanish/Portuguese or northern groups) does not count even if it affects the UK, Ireland or the Netherlands.",
+    "unit": "storms",
+    "options": null,
+    "scaling": {
+      "range_min": 1.5,
+      "range_max": 6.5,
+      "nominal_min": 2,
+      "nominal_max": 6,
+      "zero_point": null,
+      "open_upper_bound": true,
+      "open_lower_bound": false,
+      "inbound_outcome_count": 5,
+      "continuous_range": [
+        1.5,
+        2.5,
+        3.5,
+        4.5,
+        5.5,
+        6.5
+      ]
+    },
+    "open_lower_bound": false,
+    "open_upper_bound": true,
+    "inbound_outcome_count": 5,
+    "open_time": "2026-11-18T11:19:14Z",
+    "scheduled_close_time": "2026-11-18T14:19:14Z",
+    "scheduled_resolve_time": "2026-11-28T23:59:00Z",
+    "resolution": null
+  }
+}

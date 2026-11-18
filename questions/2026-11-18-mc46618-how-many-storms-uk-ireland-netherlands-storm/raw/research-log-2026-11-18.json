@@ -1,0 +1,29 @@
+{"searches": [
+  {"category": "resolution_source", "query": "WebFetch weather.metoffice.gov.uk/warnings-and-advice/uk-storm-centre/index", "by": "main", "status": "done", "finding": "2026-11-18: table lists Austen (named 20 Oct) and Boelo (named 22 Oct) only; Chloe blank"},
+  {"category": "resolution_source", "query": "WebFetch weather.metoffice.gov.uk/warnings-and-advice/uk-storm-centre + met.ie/forecasts/storm-names", "by": "scout-1", "status": "done", "finding": "same: 2 named, Chloe next; met.ie page static"},
+  {"category": "news", "query": "Storm Chloe named Met Office November 2026", "by": "main", "status": "done", "finding": "no naming found; Chloe is next name"},
+  {"category": "news", "query": "Met Office amber wind warning November 2026", "by": "main", "status": "done", "finding": "no Nov 2026 amber wind warning found; only Austen (Oct)"},
+  {"category": "disconfirmation", "query": "Met Éireann orange wind warning November 2026", "by": "main", "status": "done", "finding": "no Nov 2026 orange warning found; latest orange was Boelo 23 Oct", "tests": "assumption that no third storm has been named or is imminently being named between 13 and 18 November 2026"},
+  {"category": "markets", "query": "Manifold OR Polymarket named storm UK 2026 Chloe", "by": "main", "status": "done", "finding": "no market on Nov 2026 UK storm naming"},
+  {"category": "upcoming_events", "query": "UK weather forecast weekend strong winds deep low 21 22 November 2026", "by": "main", "status": "done", "finding": "Met Office weekend blog 13 Nov; no warnings"},
+  {"category": "upcoming_events", "query": "Met Office 10-day trend wetter windier change November 2026", "by": "main", "status": "done", "finding": "LBC: second half Nov increasing chance unsettled, strong winds at times"},
+  {"category": "upcoming_events", "query": "\"10-day trend\" Met Office blog 2026 cold and frosty before a wetter and windier change", "by": "main", "status": "done", "finding": "12 Nov blog: large Atlantic low from 16 Nov, winds 'could become strong enough to cause impacts' - that low passed 17 Nov unnamed"},
+  {"category": "upcoming_events", "query": "Met Office week ahead forecast 16 November 2026 wintry start colder brighter", "by": "main", "status": "done", "finding": "16 Nov week-ahead: strong winds Tue 17, colder/brighter late week, light winds Fri night; no warnings or named storms"},
+  {"category": "news", "query": "KNMI code oranje storm november 2026", "by": "main", "status": "done", "finding": "no code orange in Nov 2026 found; KNMI names only with code orange/red"},
+  {"category": "upcoming_events", "query": "Met Office long range forecast next week 23 November 2026 Atlantic low wind rain", "by": "main", "status": "done", "finding": "only generic unsettled outlook; no specific storm signal"},
+  {"category": "upcoming_events", "query": "Met Éireann forecast next week windy unsettled late November 2026", "by": "main", "status": "done", "finding": "nothing dated Nov 2026"},
+  {"category": "news", "query": "Met Office weather 17 November 2026 yellow warning wind snow Tuesday", "by": "main", "status": "done", "finding": "17 Nov yellow snow warning N England/S Scotland; no wind warning"},
+  {"category": "disconfirmation", "query": "UK weather next week storm potential Chloe OR named storm late November 2026 forecast models", "by": "main", "status": "done", "finding": "no specific named-storm signal; generic unsettled outlook to end Nov", "tests": "assumption that 22-28 Nov has no specific deep-low signal"},
+  {"category": "news", "query": "Storm Chloe named Met Office", "by": "scout-1", "status": "done", "finding": "yourweather 26 Oct: 26-27 Oct low not named"},
+  {"category": "news", "query": "UK weather forecast wind warning storm late November 2026", "by": "scout-1", "status": "done", "finding": "nothing for 18-28 Nov"},
+  {"category": "base_rate", "query": "Met Office named storms list by season 2015 to 2025 storm names dates November", "by": "scout-2", "status": "done", "finding": "18-28 Nov namings: Angus 2016, Arwen 2021, Bert+Conall 2024; ~3-4/11 seasons"},
+  {"category": "base_rate", "query": "Storm Clodagh named Met Office November 2015; Storm Angus named November 2016 date named", "by": "scout-2", "status": "done", "finding": "Clodagh ~28/29 Nov 2015 borderline; Angus 19 Nov 2016"},
+  {"category": "disconfirmation", "query": "Storm Chloe Met Office named storm", "by": "scout-3", "status": "done", "finding": "no evidence of imminent Chloe", "tests": "no named storm in window"},
+  {"category": "news", "query": "Met Office weather warning wind Atlantic low pressure this week November 2026", "by": "scout-3", "status": "done", "finding": "nothing specific"},
+  {"category": "other", "query": "2026-27 storm names Met Office Met Eireann KNMI Storm Bram Claudia Chloe", "by": "scout-3", "status": "done", "finding": "list confirmed; Chloe next"},
+  {"category": "markets", "query": "Polymarket OR Kalshi OR Manifold UK storm named November 2026", "by": "scout-3", "status": "done", "finding": "none found"}
+],
+ "adjustments": [
+  {"event": "Met Office 16 Nov week-ahead: settling, light winds and frost late week of 16-22 Nov after the unnamed 17 Nov low", "date": "2026-11-16", "effect": "-5 pp on P(>=3): effective window shrinks to ~23-28 Nov", "sources": [3, 4]},
+  {"event": "Met Office long-range outlook (11 Nov) for 26 Nov-10 Dec: Atlantic systems with strong winds at times", "date": "2026-11-11", "effect": "+3 pp on P(>=3)", "sources": [5]}
+]}
