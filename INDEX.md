@@ -1,6 +1,6 @@
 # Question index
 
-_Regenerated 2026-11-17 by `scripts/status.py --index`._
+_Regenerated 2026-11-18 by `scripts/status.py --index`._
 
 | Question | Type | Current | v | Community (CP) | Resolves | Next review | Status |
 |---|---|---|---|---|---|---|---|
@@ -187,3 +187,4 @@ _Regenerated 2026-11-17 by `scripts/status.py --index`._
 | [What will be the last date for filing claims and objections in Delhi's SIR, as of November 27, 2026?](questions/2026-11-17-mc46614-last-date-filing-claims-objections-delhi-s/forecast.md) | multiple_choice | 0.42 [0.33, 0.5] | 1 | — | 2026-11-27 | — | open |
 | [On Black Friday (November 27, 2026), what will be the deepest percentage-off discount advertised on the childrensplace.com homepage?](questions/2026-11-17-mc46615-black-friday-november-27-2026-deepest-percentage/forecast.md) | discrete | 64 [60, 70] | 1 | — | 2026-11-27 | — | open |
 | [How many confirmed measles cases will Wisconsin DHS report for 2026 as of November 27, 2026?](questions/2026-11-17-mc46616-how-many-confirmed-measles-cases-wisconsin-dhs/forecast.md) | numeric | 905 [840, 985] | 1 | — | 2026-11-27 | — | open |
+| [What 2026 cumulative dengue case count will Colombia's INS report in the latest weekly epidemiological bulletin published on or before 27 November 2026?](questions/2026-11-18-mc46617-2026-cumulative-dengue-case-count-colombia-s/forecast.md) | numeric | 109600 [108300, 110900] | 1 | — | 2026-11-28 | — | open |

@@ -1,0 +1,22 @@
+{"searches": [
+  {"category": "resolution_source", "query": "dengue Colombia semana epidemiológica 44 2026 casos acumulados INS", "by": "main", "status": "done", "finding": "EW44 (1-7 Nov 2026) cumulative 102,164, 1,023 severe (Diario del Sur 17 Nov citing INS BES)"},
+  {"category": "resolution_source", "query": "dengue Colombia 102.164 casos semana 44 notificados en la semana", "by": "main", "status": "done", "finding": "confirms 102,164; weekly notification count not found"},
+  {"category": "resolution_source", "query": "INS dengue semana 44 2026 casos notificados en la semana semanas anteriores", "by": "main", "status": "done", "finding": "same 102,164; EW40-43 notifications +40.6% vs EW36-39"},
+  {"category": "schedule", "query": "INS boletín epidemiológico semana 45 2026 publicado", "by": "main", "status": "done", "finding": "EW45 issue not yet out as of 18 Nov"},
+  {"category": "news", "query": "dengue Colombia noviembre 2026 brote aumento casos semana", "by": "main", "status": "done", "finding": "outbreak status maintained; MinSalud 98,096 on 10 Nov; no slowdown reported"},
+  {"category": "markets", "query": "Manifold OR Polymarket dengue cases Colombia 2026", "by": "main", "status": "done", "finding": "no markets found"},
+  {"category": "base_rate", "query": "boletín epidemiológico semanal 2025 semana 46 dengue casos acumulados Colombia", "by": "main", "status": "done", "finding": "2025 EW45 cumulative 112,955; EW48 117,710 -> ~1,600/issue in Nov 2025"},
+  {"category": "base_rate", "query": "dengue Colombia 2025 semana 44 casos acumulados 2025 INS noviembre", "by": "main", "status": "done", "finding": "2025 EW48 issue: 2,099 notifications (1,610 that week + 489 late)"},
+  {"category": "disconfirmation", "query": "dengue Colombia casos descenso estabilización noviembre 2026 Minsalud", "by": "main", "status": "done", "finding": "no evidence of decline; El Niño risk cited", "tests": "that per-issue increments stay ~3,500-4,300 through EW46 (no slowdown toward 2025's ~1,600/issue)"},
+  {"category": "resolution_source", "query": "dengue Colombia semana epidemiológica 44 2026 casos acumulados INS boletín", "by": "scout-1", "status": "done", "finding": "INS PDFs unfetchable; EW43 97,894 confirmed"},
+  {"category": "news", "query": "dengue Colombia casos 2026 'semana epidemiológica 44' OR 'semana 44' Instituto Nacional de Salud noviembre", "by": "scout-1", "status": "done", "finding": "nothing beyond EW43"},
+  {"category": "resolution_source", "query": "INS Colombia dengue boletín epidemiológico semana 45 2026 casos acumulados", "by": "scout-2", "status": "done", "finding": "no EW45 figure"},
+  {"category": "base_rate", "query": "dengue Colombia 2025 semana epidemiológica 46 casos acumulados INS", "by": "scout-2", "status": "done", "finding": "117,789 at 2 Dec 2025 cutoff"},
+  {"category": "base_rate", "query": "Colombia dengue casos 2025 INS semana 43 OR semana 44 OR semana 46 total acumulado noviembre 2025", "by": "scout-2", "status": "done", "finding": "106,541 Jan-Oct 2025 (dating unclear)"},
+  {"category": "disconfirmation", "query": "dengue Colombia noviembre 2026 casos INS semana 44 45 tendencia descenso", "by": "scout-2", "status": "done", "finding": "no slowdown evidence; EW32 70,452", "tests": "weekly additions stay near 3,000-3,800 through November"}
+],
+ "adjustments": [
+  {"event": "EW44 bulletin reports 102,164 (+4,270 vs EW43)", "date": "2026-11-17", "effect": "starting point moves from 97,894 to 102,164; per-issue pace ~3,900", "sources": [1]},
+  {"event": "2025 Nov per-issue increments ~1,600 (seasonal slowdown possible)", "date": "2025-12-05", "effect": "-400 on median, wider lower tail", "sources": [4, 5]},
+  {"event": "~15% risk EW46 issue posted after 27 Nov so EW45 resolves", "date": "2026-11-18", "effect": "-600 on median, lower tail to ~105k", "sources": [3]}
+]}
