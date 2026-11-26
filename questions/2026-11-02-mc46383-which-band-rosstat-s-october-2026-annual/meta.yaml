@@ -12,7 +12,7 @@ dates:
   opened: '2026-11-02'
   closes: '2026-11-02'
   resolves: '2026-11-13'
-status: closed
+status: resolved
 tournament:
   slug: minibench
   mode: one_shot
@@ -29,7 +29,7 @@ tournament:
       7.20% to 7.29%: 0.09
       7.30% or above: 0.07
   comment_posted: true
-  official_score: null
+  official_score: 168.65686136669345
   missed_window: false
 current:
   version: 1
@@ -47,6 +47,6 @@ current:
 next_review: null
 tripwires: []
 resolution:
-  outcome: null
-  date: null
-  source: null
+  outcome: Below 6.90%
+  date: '2026-11-26'
+  source: 'Metaculus API: question 46616 resolution'

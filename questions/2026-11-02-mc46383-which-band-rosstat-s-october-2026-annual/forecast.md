@@ -6,7 +6,7 @@
 | **Tournament** | minibench — one shot, window 2026-11-02T05:59:35Z -> 2026-11-02T08:59:35Z |
 | **Type** | multiple_choice |
 | **Opened / Closes / Resolves** | 2026-11-02 / 2026-11-02 / 2026-11-13 |
-| **Status** | closed |
+| **Status** | resolved |
 | **Current forecast** | Median 26.5%, IQR [20.0%, 33.0%] (v1, 2026-11-02) |
 | **Community** | hidden — bot tournament |
 | **Next review** | — |
@@ -96,3 +96,7 @@ Model (`model.py`): weekly-implied m/m ~ N(1.20, 0.03) plus a monthly−weekly g
 **Date**: 2026-11-02
 **Forecast**: Median 26.5% (Below 6.90%), IQR [20.0%, 33.0%]
 **Thesis**: The weekly data (October-to-date +1.14% by 26 Oct) imply about 1.20% m/m for October, which maps to ~7.09% y/y against October 2025's +0.50%. Rosstat's monthly figure has tended to land below the weeklies (−0.06 to −0.36 pp; two Octobers in a row), so the distribution centres near 7.0% with roughly 0.2 pp of spread: Below 6.90 26.5%, 6.90–6.99 20.5%, 7.00–7.09 21.5%, 7.10–7.19 15.5%, 7.20–7.29 9%, ≥7.30 7%. The result is most sensitive to the monthly−weekly gap.
+
+## Resolution — 2026-11-26
+
+Resolved **Below 6.90%** (synced from the Metaculus API). The bot's forecast was 0.265 [0.2, 0.33]. Official spot peer score: +168.66.
