@@ -6,7 +6,7 @@
 | **Tournament** | minibench — one shot, window 2026-11-17T13:50:34Z -> 2026-11-17T16:50:34Z |
 | **Type** | binary |
 | **Opened / Closes / Resolves** | 2026-11-17 / 2026-11-17 / 2026-11-27 |
-| **Status** | closed |
+| **Status** | resolved |
 | **Current forecast** | Median 62.0%, IQR [50.0%, 72.0%] (v1, 2026-11-17) |
 | **Community** | hidden — bot tournament |
 | **Next review** | — |
@@ -69,3 +69,7 @@ Net: about 62%.
 **Date**: 2026-11-17
 **Forecast**: Median 62.0%, IQR [50.0%, 72.0%]
 **Thesis**: Peltola leads 49.98% to 45.93% and is all but certain to win the 18 Nov ranked-choice tabulation, and Senate incumbents who clearly lose almost always concede within about three weeks. But Sullivan's campaign says it will not concede before certification (target 25 Nov, two days before the deadline), and Trump/DOJ pressure gives him reasons to wait. The forecast turns mainly on whether certification happens on time and on what Sullivan says after the tabulation.
+
+## Resolution — 2026-11-26
+
+Resolved **yes** (synced from the Metaculus API). The bot's forecast was 62.0% [50.0%, 72.0%]. Official spot peer score: +32.69.

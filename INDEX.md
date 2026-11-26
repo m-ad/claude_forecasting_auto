@@ -1,6 +1,6 @@
 # Question index
 
-_Regenerated 2026-11-19 by `scripts/status.py --index`._
+_Regenerated 2026-11-26 by `scripts/status.py --index`._
 
 | Question | Type | Current | v | Community (CP) | Resolves | Next review | Status |
 |---|---|---|---|---|---|---|---|
@@ -182,7 +182,7 @@ _Regenerated 2026-11-19 by `scripts/status.py --index`._
 | [How many confirmed U.S. measles cases for 2026 will CDC report in its November 27, 2026 update?](questions/2026-11-17-mc46609-how-many-confirmed-u-s-measles-cases/forecast.md) | numeric | 5940 [5830, 6090] | 1 | — | 2026-11-27 | — | closed |
 | [Will the CBRT's November 2026 Financial Stability Report devote a dedicated box to the 2026 fund liquidations?](questions/2026-11-17-mc46610-cbrt-s-november-2026-financial-stability-report/forecast.md) | binary | 24.0% [15.0%, 33.0%] | 1 | — | 2026-11-27 | — | closed |
 | [Will Ituri province report at least 10 more new confirmed Ebola cases than Nord-Kivu province for 26 November 2026?](questions/2026-11-17-mc46611-ituri-province-report-least-10-more-new/forecast.md) | binary | 40.0% [32.0%, 48.0%] | 1 | — | 2026-11-27 | — | closed |
-| [Will Dan S. Sullivan publicly concede Alaska's 2026 U.S. Senate race by November 27, 2026?](questions/2026-11-17-mc46612-dan-s-sullivan-publicly-concede-alaska-s/forecast.md) | binary | 62.0% [50.0%, 72.0%] | 1 | — | 2026-11-27 | — | closed |
+| [Will Dan S. Sullivan publicly concede Alaska's 2026 U.S. Senate race by November 27, 2026?](questions/2026-11-17-mc46612-dan-s-sullivan-publicly-concede-alaska-s/forecast.md) | binary | 62.0% [50.0%, 72.0%] | 1 | — | 2026-11-27 | — | resolved |
 | [Which party's member will GPS name as its candidate for Sarawak's Bawang Assan seat before nomination day on 28 November 2026?](questions/2026-11-17-mc46613-which-party-s-member-gps-name-as/forecast.md) | multiple_choice | 0.5 [0.42, 0.58] | 1 | — | 2026-11-27 | — | closed |
 | [What will be the last date for filing claims and objections in Delhi's SIR, as of November 27, 2026?](questions/2026-11-17-mc46614-last-date-filing-claims-objections-delhi-s/forecast.md) | multiple_choice | 0.42 [0.33, 0.5] | 1 | — | 2026-11-27 | — | closed |
 | [On Black Friday (November 27, 2026), what will be the deepest percentage-off discount advertised on the childrensplace.com homepage?](questions/2026-11-17-mc46615-black-friday-november-27-2026-deepest-percentage/forecast.md) | discrete | 64 [60, 70] | 1 | — | 2026-11-27 | — | closed |
