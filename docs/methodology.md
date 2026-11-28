@@ -74,6 +74,28 @@ informed prior held by people with skin in the game, not as noise to be correcte
   deserves a narrow band; a question hinging on one unpredictable decision deserves a wide one.
 - Numeric/date questions: give median plus 25th/75th percentiles in native units. Check the
   band against history — if the last ten years never fell inside your IQR, widen it.
+- **Width from the predictor's historical miss, not from the spread between sources.** When
+  the forecast rests on a predictor (a poll average, a nowcast, a consensus estimate, last
+  period's value), take the width from how far that predictor has missed the outcome:
+  - Record at least three past comparable cases (predictor value, outcome, signed miss) in
+    `research.md` (in tournament mode: in `### Outside view`). Where the producer publishes
+    its error (MAE, mean absolute error; RMSE, root mean square error), use that instead:
+    IQR half-width ≈ 0.7–0.85 × MAE (0.69 for a fat-tailed Laplace error, 0.85 for a normal
+    one), p5 and p95 each ≈ 1.6–1.8 × RMSE from the median (1.64 for a normal; take the upper
+    end when the error estimate rests on few cases).
+  - Set the IQR so about half of the past misses would fall inside it, and p5–p95 so all of
+    them would.
+  - Never take the width from the spread between current sources: they share their bias.
+    Across 4,221 US state-level polls of 608 races, the real error was about 3.5 pp RMSE,
+    roughly twice the reported margin of error, and about 2 pp of it was a bias common to
+    every poll of the same race (Shirani-Mehr, Rothschild, Goel & Gelman, *JASA* 113(522),
+    2018).
+  - If the past misses all went the same way, shift the median that way, or say why this time
+    differs. Three same-signed misses happen by chance one time in four, so with few cases
+    shift by part of the mean miss, not all of it.
+  - If the question scores only the size of a margin (|A − B|), model the signed margin
+    first and derive the absolute value from it.
+  - If fewer than three past cases can be found, say so and widen.
 
 ## 6. Sensitivity analysis
 

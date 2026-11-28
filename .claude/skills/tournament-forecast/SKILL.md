@@ -167,7 +167,7 @@ UTC) with **at least 15 planned queries** (lean mode: 6–10), at least one per 
 | `resolution_source` | the current value / latest release of exactly what resolves the question | yes |
 | `news` | developments of the last days (dates matter) | yes |
 | `markets` | Polymarket, Kalshi, Manifold, options-implied moves — "none found" is a finding | yes |
-| `base_rate` | historical data for the reference class of Step 2 | yes |
+| `base_rate` | historical data for the reference class of Step 2; for a numeric question resting on a predictor, its past misses against the outcome (Step 4) | yes |
 | `disconfirmation` | the deliberate search against your **biggest assumption**, named in `tests` (see below) | yes |
 | `schedule` | when the source publishes next; what happens if it does not | |
 | `consensus` | analyst / official forecasts, other forecasters' write-ups | |
@@ -273,6 +273,16 @@ Then fix the forecast:
   must equal the `--lower/--median/--upper` you log, exactly. Respect closed bounds (no mass
   outside a closed bound); put tail mass beyond an *open* bound if the value can land there.
   Make tails honestly wide: a numeric miss outside a too-tight interval is the costliest error.
+  **Take the width from the predictor's past misses.** When the forecast rests on a predictor
+  (a poll average, a nowcast, a consensus estimate, last period's value), list at least three
+  past comparable cases in `### Outside view` (predictor, outcome, signed miss) and set the IQR
+  so about half of those misses fall inside it and p5–p95 so all of them do; where the
+  producer publishes its error, use IQR half-width ≈ 0.7–0.85 × MAE and p5/p95 ≈ 1.6–1.8 ×
+  RMSE from the median. Never take the width from the spread between current sources: they
+  share their bias. If the past misses all went the same way, shift the median part of the
+  way or say why this time differs. Fewer than three cases found: say so and widen.
+  Details: `docs/methodology.md` §5. *(US state polls missed by about twice their reported margin of
+  error, Shirani-Mehr et al. 2018.)*
 
 ## Step 5 — Write forecast.md
 
