@@ -6,7 +6,7 @@
 | **Tournament** | minibench — one shot, window 2026-11-17T16:51:44Z -> 2026-11-17T19:51:44Z |
 | **Type** | multiple_choice |
 | **Opened / Closes / Resolves** | 2026-11-17 / 2026-11-17 / 2026-11-27 |
-| **Status** | closed |
+| **Status** | resolved |
 | **Current forecast** | Median 50.0%, IQR [42.0%, 58.0%] (v1, 2026-11-17) |
 | **Community** | hidden — bot tournament |
 | **Next review** | — |
@@ -68,3 +68,7 @@ The Batu Lintang outcome is the key signal. If See Chee How is admitted to SUPP 
 **Date**: 2026-11-17
 **Forecast**: Median 50.0% (PDP), IQR [42.0%, 58.0%]
 **Thesis**: PDP and SUPP are close to a coin flip, with PDP slightly ahead. PDP holds the seat through Wong Soon Koh, and its likely successor Joshua Ting is the Premier's political secretary; SUPP's five-term legacy claim and Kevin Lau's candidacy keep it close [1-4]. GPS plans to announce all 82 candidates on 25 Nov, before the cutoff [5], so "none named" is unlikely. The Premier's single decision drives the result, and how Batu Lintang is settled may hint at it.
+
+## Resolution — 2026-11-28
+
+Resolved **SUPP** (synced from the Metaculus API). The bot's forecast was 0.5 [0.42, 0.58]. Official spot peer score: +13.32.

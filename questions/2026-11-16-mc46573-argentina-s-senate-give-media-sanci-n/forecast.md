@@ -6,7 +6,7 @@
 | **Tournament** | minibench — one shot, window 2026-11-16T06:19:53Z -> 2026-11-16T09:19:53Z |
 | **Type** | binary |
 | **Opened / Closes / Resolves** | 2026-11-16 / 2026-11-16 / 2026-11-27 |
-| **Status** | closed |
+| **Status** | resolved |
 | **Current forecast** | Median 10.0%, IQR [6.0%, 16.0%] (v1, 2026-11-16) |
 | **Community** | hidden — bot tournament |
 | **Next review** | — |
@@ -71,3 +71,7 @@ No clean reference class fits. The nearest one is contested bills under Milei th
 **Date**: 2026-11-16
 **Forecast**: Median 10.0%, IQR [6.0%, 16.0%]
 **Thesis**: The bill has been stalled since May. The government is still 5–6 votes short of the 37 it needs (31–32 counted by La Nación and Infobae on 15 Nov), the dictamen on 17 Nov is uncertain, and December extraordinary sessions are an openly named fallback. A text that suspends the PASO only for the presidential race would resolve NO even if it passes. The forecast is most sensitive to whether a dictamen covering all categories is signed on 17 Nov.
+
+## Resolution — 2026-11-28
+
+Resolved **yes** (synced from the Metaculus API). The bot's forecast was 10.0% [6.0%, 16.0%]. Official spot peer score: -85.68.

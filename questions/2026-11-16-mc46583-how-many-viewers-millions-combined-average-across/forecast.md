@@ -6,7 +6,7 @@
 | **Tournament** | minibench — one shot, window 2026-11-16T10:30:23Z -> 2026-11-16T13:30:23Z |
 | **Type** | numeric |
 | **Opened / Closes / Resolves** | 2026-11-16 / 2026-11-16 / 2026-11-27 |
-| **Status** | closed |
+| **Status** | resolved |
 | **Current forecast** | Median 5, IQR [4.1, 5.9] (v1, 2026-11-16) |
 | **Community** | hidden — bot tournament |
 | **Next review** | — |
@@ -74,3 +74,7 @@ Net: the median is 5.0M, with a wide, right-skewed distribution.
 **Date**: 2026-11-16
 **Forecast**: Median 5.0 million viewers, IQR [4.1, 5.9]
 **Thesis**: The 2023 debates (5.9M cara a cara, 4.16M three-way) are the anchor: linear TV is now flat and November viewing is higher, but a third leaders' event in a week dilutes interest. The figure depends most on whether the 26 Nov debate is a multi-channel Academia signal with all four leaders (≈6M+) or a single-network or empty-chair event (≈3.5M).
+
+## Resolution — 2026-11-28
+
+Resolved **above_upper_bound** (synced from the Metaculus API). The bot's forecast was 5 [4.1, 5.9]. Official spot peer score: -129.90.

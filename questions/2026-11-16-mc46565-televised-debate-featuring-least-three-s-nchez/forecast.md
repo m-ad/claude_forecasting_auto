@@ -6,7 +6,7 @@
 | **Tournament** | minibench — one shot, window 2026-11-16T02:16:39Z -> 2026-11-16T05:16:39Z |
 | **Type** | binary |
 | **Opened / Closes / Resolves** | 2026-11-16 / 2026-11-16 / 2026-11-26 |
-| **Status** | closed |
+| **Status** | resolved |
 | **Current forecast** | Median 85.0%, IQR [78.0%, 90.0%] (v1, 2026-11-16) |
 | **Community** | hidden — bot tournament |
 | **Next review** | — |
@@ -72,3 +72,7 @@ Reference class: Spanish general elections since 2015 (2015, 2016, April 2019, N
 **Date**: 2026-11-16
 **Forecast**: Median 85.0%, IQR [78.0%, 90.0%]
 **Thesis**: Every Spanish general election since 2015 has had a multi-candidate debate with at least three leaders. PSOE and PP negotiators fixed the Academia's four-way for Thursday 26 November (EFE, 14 Nov; Vozpópuli, 15 Nov), and the three-of-four threshold covers one leader dropping out. The main risk is that the date, not yet officially confirmed, slips or the format collapses late.
+
+## Resolution — 2026-11-28
+
+Resolved **yes** (synced from the Metaculus API). The bot's forecast was 85.0% [78.0%, 90.0%]. Official spot peer score: +21.11.
