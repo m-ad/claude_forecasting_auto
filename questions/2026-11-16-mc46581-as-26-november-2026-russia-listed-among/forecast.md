@@ -6,7 +6,7 @@
 | **Tournament** | minibench — one shot, window 2026-11-16T09:36:56Z -> 2026-11-16T12:36:56Z |
 | **Type** | binary |
 | **Opened / Closes / Resolves** | 2026-11-16 / 2026-11-16 / 2026-11-26 |
-| **Status** | closed |
+| **Status** | resolved |
 | **Current forecast** | Median 13.0%, IQR [8.0%, 20.0%] (v1, 2026-11-16) |
 | **Community** | hidden — bot tournament |
 | **Next review** | — |
@@ -71,3 +71,7 @@ No clean reference class exists. The closest analogue is the IIHF itself. When i
 **Date**: 2026-11-16
 **Forecast**: Median 13.0%, IQR [8.0%, 20.0%]
 **Thesis**: The status quo (8 teams, no Russia, as of 13 Nov) usually holds over a 10-day window. The IIHF has inserted Russia for Norway at the World Juniors despite Canada's visa refusal, but only in a schedule sent to federations; the public WJC page still shows Norway. Nothing indicates a decision yet for Ostrava, where the Czech government refuses visas. The forecast is most sensitive to whether the IIHF publishes a Germany→Russia swap on the public Ostrava pages before 26 Nov.
+
+## Resolution — 2026-11-28
+
+Resolved **no** (synced from the Metaculus API). The bot's forecast was 13.0% [8.0%, 20.0%]. Official spot peer score: +2.43.

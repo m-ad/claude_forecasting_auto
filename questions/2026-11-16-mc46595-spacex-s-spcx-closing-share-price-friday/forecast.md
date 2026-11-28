@@ -6,7 +6,7 @@
 | **Tournament** | minibench — one shot, window 2026-11-16T17:42:04Z -> 2026-11-16T20:42:04Z |
 | **Type** | numeric |
 | **Opened / Closes / Resolves** | 2026-11-16 / 2026-11-16 / 2026-11-27 |
-| **Status** | closed |
+| **Status** | resolved |
 | **Current forecast** | Median 137, IQR [128, 146.5] (v1, 2026-11-16) |
 | **Community** | hidden — bot tournament |
 | **Next review** | — |
@@ -90,3 +90,7 @@ The reference class is a random walk from spot with this stock's own volatility.
 **Date**: 2026-11-16
 **Forecast**: Median 137.0 $, IQR [128.0 $, 146.5 $]
 **Thesis**: This is a random walk from the Nov 16 intraday price of $138.3 (Yahoo) over 8 sessions, at about 4% daily volatility, which matches realized volatility and the ~55–60% implied volatility. The median is shaded down about 1% for the Dec 8 lock-up overhang, and both tails are fat because single-day moves of 6–10% recur in this stock.
+
+## Resolution — 2026-11-28
+
+Resolved **133.59** (synced from the Metaculus API). The bot's forecast was 137 [128, 146.5]. Official spot peer score: +11.56.

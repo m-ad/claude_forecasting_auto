@@ -6,7 +6,7 @@
 | **Tournament** | minibench — one shot, window 2026-11-17T06:45:16Z -> 2026-11-17T09:45:16Z |
 | **Type** | numeric |
 | **Opened / Closes / Resolves** | 2026-11-17 / 2026-11-17 / 2026-11-27 |
-| **Status** | closed |
+| **Status** | resolved |
 | **Current forecast** | Median 94, IQR [83, 106] (v1, 2026-11-17) |
 | **Community** | hidden — bot tournament |
 | **Next review** | — |
@@ -73,3 +73,7 @@ Net: median $94, IQR $83–106, with fat tails. Below the offer price is possibl
 **Date**: 2026-11-17
 **Forecast**: Median $94, IQR [$83, $106]
 **Thesis**: Large, oversubscribed tech IPOs typically close day 1 at +20–30% and then fade in week one (SpaceX, Arm). Applied to a ~$78–82 offer, that matches the pre-IPO perp at ~$96 (biased high by ~7% for SpaceX) and Polymarket's modal $1.25–1.5T IPO-day cap. The forecast is most sensitive to the 18 Nov offer price and the AI-stock reaction to Nvidia's 17 Nov earnings.
+
+## Resolution — 2026-11-28
+
+Resolved **91.9** (synced from the Metaculus API). The bot's forecast was 94 [83, 106]. Official spot peer score: +16.37.

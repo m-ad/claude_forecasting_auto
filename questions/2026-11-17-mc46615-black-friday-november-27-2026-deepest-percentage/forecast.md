@@ -6,7 +6,7 @@
 | **Tournament** | minibench — one shot, window 2026-11-17T17:07:38Z -> 2026-11-17T20:07:38Z |
 | **Type** | discrete |
 | **Opened / Closes / Resolves** | 2026-11-17 / 2026-11-17 / 2026-11-27 |
-| **Status** | closed |
+| **Status** | resolved |
 | **Current forecast** | Median 64, IQR [60, 70] (v1, 2026-11-17) |
 | **Community** | hidden — bot tournament |
 | **Next review** | — |
@@ -78,3 +78,7 @@ Resulting distribution:
 **Date**: 2026-11-17
 **Forecast**: Median 64 %, IQR [60 %, 70 %]
 **Thesis**: The homepage's maximum is 60 today ("30–60% everything", "all clearance 60% off"), and it is already labelled Black Friday. A going-out-of-business sale deepens over its term, but Black Friday falls in week 3 of a 16-week sale. The mode is therefore 60, with about 45% chance of 65 or more (mainly "up to 70%"). The forecast is most sensitive to whether the liquidators step up the markdown for Black Friday.
+
+## Resolution — 2026-11-28
+
+Resolved **70.0** (synced from the Metaculus API). The bot's forecast was 64 [60, 70]. Official spot peer score: -5.21.

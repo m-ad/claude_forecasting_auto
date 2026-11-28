@@ -6,7 +6,7 @@
 | **Tournament** | minibench — one shot, window 2026-11-16T15:32:20Z -> 2026-11-16T18:32:20Z |
 | **Type** | discrete |
 | **Opened / Closes / Resolves** | 2026-11-16 / 2026-11-16 / 2026-11-27 |
-| **Status** | closed |
+| **Status** | resolved |
 | **Current forecast** | Median 39.2, IQR [38, 40.4] (v1, 2026-11-16) |
 | **Community** | hidden — bot tournament |
 | **Next review** | — |
@@ -71,3 +71,7 @@ Result: median 39.2, a slightly fat lower tail, IQR 38.0–40.4 (in practice, ma
 **Date**: 2026-11-16
 **Forecast**: Median 39.2%, IQR [38.0%, 40.4%]
 **Thesis**: Gallup has had Lee flat at 39–41% for five weeks (last reading 39%, 13 Nov), so a two-week-ahead reading centres near 39 with an SD of about 2 pts. Han Duck-soo's likely release and the fight with the Chief Justice add a little downside tail. The forecast is most sensitive to whether a new shock breaks the flat regime before fieldwork on 24–26 Nov.
+
+## Resolution — 2026-11-28
+
+Resolved **41.0** (synced from the Metaculus API). The bot's forecast was 39.2 [38, 40.4]. Official spot peer score: +1.04.

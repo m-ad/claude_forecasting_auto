@@ -6,7 +6,7 @@
 | **Tournament** | minibench — one shot, window 2026-11-16T15:13:28Z -> 2026-11-16T18:13:28Z |
 | **Type** | binary |
 | **Opened / Closes / Resolves** | 2026-11-16 / 2026-11-16 / 2026-11-27 |
-| **Status** | closed |
+| **Status** | resolved |
 | **Current forecast** | Median 41.0%, IQR [31.0%, 50.0%] (v1, 2026-11-16) |
 | **Community** | hidden — bot tournament |
 | **Next review** | — |
@@ -72,3 +72,7 @@ The question resolves YES only if the U.S. Trustee files a notice of appointment
 **Date**: 2026-11-16
 **Forecast**: Median 41.0%, IQR [31.0%, 50.0%]
 **Thesis**: A committee is very likely appointed by day 17 (about 85%; large retail cases usually get one 11–16 days after filing). Whether it reaches 7 members is roughly a coin flip: large retail committees are typically 7–10, but this is a liquidation dominated by foreign vendors, and the major landlords have a conflict through bidder Catalyst. The forecast is most sensitive to the size the U.S. Trustee chooses.
+
+## Resolution — 2026-11-28
+
+Resolved **yes** (synced from the Metaculus API). The bot's forecast was 41.0% [31.0%, 50.0%]. Official spot peer score: +8.05.

@@ -6,7 +6,7 @@
 | **Tournament** | minibench — one shot, window 2026-11-16T01:16:26Z -> 2026-11-16T04:16:26Z |
 | **Type** | discrete |
 | **Opened / Closes / Resolves** | 2026-11-16 / 2026-11-16 / 2026-11-27 |
-| **Status** | closed |
+| **Status** | resolved |
 | **Current forecast** | Median 0.675, IQR [0.625, 0.73] (v1, 2026-11-16) |
 | **Community** | hidden — bot tournament |
 | **Next review** | — |
@@ -76,3 +76,7 @@ A reverse split by 27 Nov is very unlikely. None has been proposed. The B3 deadl
 **Date**: 2026-11-16
 **Forecast**: Median R$0.675, IQR [R$0.625, R$0.73]
 **Thesis**: A fat-tailed random walk over 9 sessions from the R$0.68 Yahoo close of 13 Nov. The calm November trading (about 2.5% daily) is blended with October's crash regime, with a slight downward drift for an equity in judicial recovery. No catalyst is scheduled before 27 Nov (Q3 results on 10 Dec, plan due around 20 Dec), and no reverse split is pending. The forecast is most sensitive to an unscheduled court or creditor shock.
+
+## Resolution — 2026-11-28
+
+Resolved **0.72** (synced from the Metaculus API). The bot's forecast was 0.675 [0.625, 0.73]. Official spot peer score: +25.91.

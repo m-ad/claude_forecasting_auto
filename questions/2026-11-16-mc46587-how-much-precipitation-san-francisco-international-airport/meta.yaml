@@ -13,7 +13,7 @@ dates:
   opened: '2026-11-16'
   closes: '2026-11-16'
   resolves: '2026-11-27'
-status: closed
+status: resolved
 tournament:
   slug: minibench
   mode: one_shot
@@ -29,7 +29,7 @@ tournament:
       0.50–0.99 in: 0.09
       1.00 in or more: 0.06
   comment_posted: true
-  official_score: null
+  official_score: 0.16920502096265416
   missed_window: false
 current:
   version: 1
@@ -47,6 +47,6 @@ current:
 next_review: null
 tripwires: []
 resolution:
-  outcome: null
-  date: null
-  source: null
+  outcome: 0.00 in (no measurable precipitation)
+  date: '2026-11-28'
+  source: 'Metaculus API: question 46847 resolution'

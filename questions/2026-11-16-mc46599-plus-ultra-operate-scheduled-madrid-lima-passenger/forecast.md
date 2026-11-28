@@ -6,7 +6,7 @@
 | **Tournament** | minibench — one shot, window 2026-11-16T21:14:27Z -> 2026-11-17T00:14:27Z |
 | **Type** | binary |
 | **Opened / Closes / Resolves** | 2026-11-16 / 2026-11-17 / 2026-11-26 |
-| **Status** | closed |
+| **Status** | resolved |
 | **Current forecast** | Median 38.0%, IQR [25.0%, 52.0%] (v1, 2026-11-16) |
 | **Community** | hidden — bot tournament |
 | **Next review** | — |
@@ -75,3 +75,7 @@ Net: 38%, with a wide IQR because I could not check the resolution source (FR24 
 **Date**: 2026-11-16
 **Forecast**: Median 38.0%, IQR [25.0%, 52.0%]
 **Thesis**: Plus Ultra stopped selling Lima on 13 Nov and intends to exit the route amid preconcurso, but had set no last-flight date and must still carry booked passengers; whether the wind-down reaches past Thursday 26 Nov (13 days after sales stopped) is close to a coin flip, tilted to NO by the airline's acute liquidity crisis and likely frequency consolidation.
+
+## Resolution — 2026-11-28
+
+Resolved **no** (synced from the Metaculus API). The bot's forecast was 38.0% [25.0%, 52.0%]. Official spot peer score: +1.10.

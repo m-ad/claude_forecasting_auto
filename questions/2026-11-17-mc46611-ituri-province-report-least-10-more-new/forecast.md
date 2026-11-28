@@ -6,7 +6,7 @@
 | **Tournament** | minibench — one shot, window 2026-11-17T09:56:53Z -> 2026-11-17T12:56:53Z |
 | **Type** | binary |
 | **Opened / Closes / Resolves** | 2026-11-17 / 2026-11-17 / 2026-11-27 |
-| **Status** | closed |
+| **Status** | resolved |
 | **Current forecast** | Median 40.0%, IQR [32.0%, 48.0%] (v1, 2026-11-17) |
 | **Community** | hidden — bot tournament |
 | **Next review** | — |
@@ -65,3 +65,7 @@ The gaps in SitReps 185–195. If Ituri keeps posting +15 or more while Nord-Kiv
 **Date**: 2026-11-17
 **Forecast**: Median 40.0%, IQR [32.0%, 48.0%]
 **Thesis**: Ituri out-reported Nord-Kivu by 10 or more on 6 of the last 11 daily INSP SitReps (gap mean about +9, SD about 14), so the threshold sits near the middle. WHO reports Bunia's new cases have halved and Africa CDC reports resurgence in Beni, Butembo and Oicha, which narrows the expected gap by 26 Nov. The forecast is most sensitive to whether Nord-Kivu keeps pace with Ituri, as it did on 11 and 14 Nov.
+
+## Resolution — 2026-11-28
+
+Resolved **no** (synced from the Metaculus API). The bot's forecast was 40.0% [32.0%, 48.0%]. Official spot peer score: +6.99.

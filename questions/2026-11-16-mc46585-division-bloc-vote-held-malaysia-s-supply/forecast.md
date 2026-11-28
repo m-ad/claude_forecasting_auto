@@ -6,7 +6,7 @@
 | **Tournament** | minibench — one shot, window 2026-11-16T12:23:08Z -> 2026-11-16T15:23:08Z |
 | **Type** | binary |
 | **Opened / Closes / Resolves** | 2026-11-16 / 2026-11-16 / 2026-11-26 |
-| **Status** | closed |
+| **Status** | resolved |
 | **Current forecast** | Median 8.0%, IQR [5.0%, 13.0%] (v1, 2026-11-16) |
 | **Community** | hidden — bot tournament |
 | **Next review** | — |
@@ -70,3 +70,7 @@ The biggest risk to this forecast is a PN statement before 26 Nov that it will f
 **Date**: 2026-11-16
 **Forecast**: Median 8.0%, IQR [5.0%, 13.0%]
 **Thesis**: All four Anwar-era budget third readings (2023–2026) and, as far as found, all committee-stage allocations passed by voice vote. This year the opposition did not even force a division at the policy stage after the CSA gave the government 147 of 222 MPs. The main upside is a PN decision to put the CSA signatories on the record on the final day. A third reading slipping past 26 Nov caps it further.
+
+## Resolution — 2026-11-28
+
+Resolved **no** (synced from the Metaculus API). The bot's forecast was 8.0% [5.0%, 13.0%]. Official spot peer score: +21.32.

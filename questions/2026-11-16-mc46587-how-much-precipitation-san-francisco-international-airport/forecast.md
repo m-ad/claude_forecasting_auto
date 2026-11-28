@@ -6,7 +6,7 @@
 | **Tournament** | minibench — one shot, window 2026-11-16T13:31:36Z -> 2026-11-16T16:31:36Z |
 | **Type** | multiple_choice |
 | **Opened / Closes / Resolves** | 2026-11-16 / 2026-11-16 / 2026-11-27 |
-| **Status** | closed |
+| **Status** | resolved |
 | **Current forecast** | Median 48.0%, IQR [38.0%, 58.0%] (v1, 2026-11-16) |
 | **Community** | hidden — bot tournament |
 | **Next review** | — |
@@ -70,3 +70,7 @@ The main sensitivity is timing: if the ensemble AR timing were to settle on Nov 
 **Date**: 2026-11-16
 **Forecast**: Median 48.0% (0.00 in (no measurable precipitation)), IQR [38.0%, 58.0%]
 **Thesis**: Climatology gives ~23% chance of measurable rain at SFO on a late-November day, but CPC (Nov 15) flags heavy-precipitation risk for northern California Nov 24–25 and NWS an increased risk Nov 25–27 in a strong-El Niño, AR-active pattern; I lift measurable rain to ~52%. The forecast is most sensitive to whether the storm's timing lands on Nov 26 or a day earlier.
+
+## Resolution — 2026-11-28
+
+Resolved **0.00 in (no measurable precipitation)** (synced from the Metaculus API). The bot's forecast was 0.48 [0.38, 0.58]. Official spot peer score: +0.17.

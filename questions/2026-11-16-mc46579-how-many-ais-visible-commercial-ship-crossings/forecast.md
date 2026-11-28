@@ -6,7 +6,7 @@
 | **Tournament** | minibench — one shot, window 2026-11-16T08:29:24Z -> 2026-11-16T11:29:24Z |
 | **Type** | discrete |
 | **Opened / Closes / Resolves** | 2026-11-16 / 2026-11-16 / 2026-11-27 |
-| **Status** | closed |
+| **Status** | resolved |
 | **Current forecast** | Median 6.2, IQR [4.6, 8.6] (v1, 2026-11-16) |
 | **Community** | hidden — bot tournament |
 | **Next review** | — |
@@ -67,3 +67,7 @@ The regime is stable. Attacks continue (more than 34 vessels in October, more ta
 **Date**: 2026-11-16
 **Forecast**: Median 6.2 crossings, IQR [4.6, 8.6]
 **Thesis**: hormuz.now's own daily series has held at 4–13 crossings a day (median 6) for four weeks, with the 7-day average drifting down to ~6.5 under continuing attacks and the US blockade (hormuz.now CSV; Gulf News; Straits brief). A Qatari interim deal is pending but unimplemented, so it widens only the upper tail. The forecast is most sensitive to whether a reopening is implemented before 26 Nov.
+
+## Resolution — 2026-11-28
+
+Resolved **2.0** (synced from the Metaculus API). The bot's forecast was 6.2 [4.6, 8.6]. Official spot peer score: -14.88.

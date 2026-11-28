@@ -6,7 +6,7 @@
 | **Tournament** | minibench — one shot, window 2026-11-16T00:04:51Z -> 2026-11-16T03:04:51Z |
 | **Type** | binary |
 | **Opened / Closes / Resolves** | 2026-11-16 / 2026-11-16 / 2026-11-27 |
-| **Status** | closed |
+| **Status** | resolved |
 | **Current forecast** | Median 48.0%, IQR [38.0%, 58.0%] (v1, 2026-11-16) |
 | **Community** | hidden — bot tournament |
 | **Next review** | — |
@@ -71,3 +71,7 @@ The main signal would be a Costa invitation letter or an EU official briefing on
 **Date**: 2026-11-16
 **Forecast**: Median 48.0%, IQR [38.0%, 58.0%]
 **Thesis**: He attended about 5 of 8 recent Ukraine-related EU summits in person, and Ukraine's 2027 financing is the central item here [1][2]. Against that, a special summit dominated by the MFF budget, the Feb 2024 video precedent, intense peace diplomacy and a cancelled late-October Brussels trip pull it to a coin flip [3][5]. The most sensitive fact is whether Costa's invitation specifies in-person participation.
+
+## Resolution — 2026-11-28
+
+Resolved **no** (synced from the Metaculus API). The bot's forecast was 48.0% [38.0%, 58.0%]. Official spot peer score: +48.52.

@@ -6,7 +6,7 @@
 | **Tournament** | minibench — one shot, window 2026-11-17T05:12:21Z -> 2026-11-17T08:12:21Z |
 | **Type** | discrete |
 | **Opened / Closes / Resolves** | 2026-11-17 / 2026-11-17 / 2026-11-27 |
-| **Status** | closed |
+| **Status** | resolved |
 | **Current forecast** | Median 15, IQR [11, 21] (v1, 2026-11-17) |
 | **Community** | hidden — bot tournament |
 | **Next review** | — |
@@ -84,3 +84,7 @@ The forecast is most sensitive to the BTC price path from here to 27 Nov:
 **Date**: 2026-11-17
 **Forecast**: Median 15, IQR [11, 21]
 **Thesis**: Alternative.me's index reads 12 today (10–13 for four days) after bitcoin's slide to about $70k, and deep-fear stretches historically last weeks. So the base case is a modest drift up into the mid-teens, with fat tails: single digits if bitcoin breaks $65k, 25–35 if it rallies back above $76k.
+
+## Resolution — 2026-11-28
+
+Resolved **12.0** (synced from the Metaculus API). The bot's forecast was 15 [11, 21]. Official spot peer score: +26.46.

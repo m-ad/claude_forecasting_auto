@@ -6,7 +6,7 @@
 | **Tournament** | minibench — one shot, window 2026-11-16T03:49:32Z -> 2026-11-16T06:49:32Z |
 | **Type** | multiple_choice |
 | **Opened / Closes / Resolves** | 2026-11-16 / 2026-11-16 / 2026-11-27 |
-| **Status** | closed |
+| **Status** | resolved |
 | **Current forecast** | Median 47.0%, IQR [40.0%, 54.0%] (v1, 2026-11-16) |
 | **Community** | hidden — bot tournament |
 | **Next review** | — |
@@ -66,3 +66,7 @@ The current spread. If it is really near −1.5 to −3, then "no win" should be
 **Date**: 2026-11-16
 **Forecast**: Median 47.0% (Cowboys win by 7 or more points), IQR [40.0%, 54.0%]
 **Thesis**: The question's "Dallas −1.5" is the stale May opener, set before Hurts was lost. Dallas was −4.5 at Philadelphia in Week 7 and won 38-21, so the home rematch implies about −7 against a 2-7 Eagles side on a seven-game skid with a backup-of-a-backup quarterback. Applying the NFL margin distribution at −7 gives 47 % / 24 % / 29 %, shaded for not having seen the current line, which is the number this forecast is most sensitive to.
+
+## Resolution — 2026-11-28
+
+Resolved **Cowboys do not win (Eagles win or the game ends in a tie)** (synced from the Metaculus API). The bot's forecast was 0.47 [0.4, 0.54]. Official spot peer score: -27.09.

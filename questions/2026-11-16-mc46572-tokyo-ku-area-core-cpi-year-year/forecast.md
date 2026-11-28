@@ -6,7 +6,7 @@
 | **Tournament** | minibench — one shot, window 2026-11-16T05:14:20Z -> 2026-11-16T08:14:20Z |
 | **Type** | discrete |
 | **Opened / Closes / Resolves** | 2026-11-16 / 2026-11-16 / 2026-11-26 |
-| **Status** | closed |
+| **Status** | resolved |
 | **Current forecast** | Median 2.77, IQR [2.65, 2.9] (v1, 2026-11-16) |
 | **Community** | hidden — bot tournament |
 | **Next review** | — |
@@ -76,3 +76,7 @@ Recent month-to-month changes in this series run 0.0–0.3 pp (Sep→Oct −0.1;
 **Date**: 2026-11-16
 **Forecast**: Median 2.77%, IQR [2.65%, 2.90%]
 **Thesis**: The forecast starts from October's 2.6% and a flat November 2025 base. The 2026 summer electricity/gas subsidy was larger than 2025's (3.5 vs 2.0 yen/kWh) and drops out in the November index, adding about +0.15 pp; rice deflation and slowing processed food roughly offset the heavier November price-hike calendar. The forecast is most sensitive to the size of that energy base effect.
+
+## Resolution — 2026-11-28
+
+Resolved **2.9** (synced from the Metaculus API). The bot's forecast was 2.77 [2.65, 2.9]. Official spot peer score: +40.71.

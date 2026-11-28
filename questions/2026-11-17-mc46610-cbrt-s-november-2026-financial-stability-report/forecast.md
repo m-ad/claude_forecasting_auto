@@ -6,7 +6,7 @@
 | **Tournament** | minibench — one shot, window 2026-11-17T09:21:42Z -> 2026-11-17T12:21:42Z |
 | **Type** | binary |
 | **Opened / Closes / Resolves** | 2026-11-17 / 2026-11-17 / 2026-11-27 |
-| **Status** | closed |
+| **Status** | resolved |
 | **Current forecast** | Median 24.0%, IQR [15.0%, 33.0%] (v1, 2026-11-17) |
 | **Community** | hidden — bot tournament |
 | **Next review** | — |
@@ -67,3 +67,7 @@ CBRT FSR box titles are thematic, not event-named. The November 2025 FSR had six
 **Date**: 2026-11-17
 **Forecast**: Median 24.0%, IQR [15.0%, 33.0%]
 **Thesis**: A fund box in FSR 2026-II is likely (~80%), given the September SPK liquidation of 131 funds. But CBRT box titles are thematic: the 12 Nov Inflation Report covered the same episode as "Recent Developments in Investment Funds", which would resolve NO here. The forecast turns on whether the FSR box title names the liquidation, as the CBRT's 4 Nov blog title did.
+
+## Resolution — 2026-11-28
+
+Resolved **no** (synced from the Metaculus API). The bot's forecast was 24.0% [15.0%, 33.0%]. Official spot peer score: +48.19.

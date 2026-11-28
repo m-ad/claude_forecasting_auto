@@ -6,7 +6,7 @@
 | **Tournament** | minibench — one shot, window 2026-11-16T18:42:35Z -> 2026-11-16T21:42:35Z |
 | **Type** | discrete |
 | **Opened / Closes / Resolves** | 2026-11-16 / 2026-11-16 / 2026-11-27 |
-| **Status** | closed |
+| **Status** | resolved |
 | **Current forecast** | Median 2.8, IQR [2.3, 3.5] (v1, 2026-11-16) |
 | **Community** | hidden — bot tournament |
 | **Next review** | — |
@@ -75,3 +75,7 @@ The seasonal ramp from October to late November pushes the median up. Prior: med
 **Date**: 2026-11-16
 **Forecast**: Median 2.8 m, IQR [2.3 m, 3.5 m]
 **Thesis**: At a 10-day lead this is climatology: a late-November daily maximum WVHT at 46026 is typically 2 to 3.5 m. I nudged it up and fattened the right tail for the very active November swell regime (7.0 m on 14 November and 6.6 m on 16 November in the buoy's own file), an El Niño winter, and more NWS-forecast swell through 22 November. The biggest swing factor is whether a North Pacific storm lines up a west-northwest groundswell for Thanksgiving Day.
+
+## Resolution — 2026-11-28
+
+Resolved **5.7** (synced from the Metaculus API). The bot's forecast was 2.8 [2.3, 3.5]. Official spot peer score: -16.38.

@@ -6,7 +6,7 @@
 | **Tournament** | minibench — one shot, window 2026-11-16T16:38:29Z -> 2026-11-16T19:38:29Z |
 | **Type** | numeric |
 | **Opened / Closes / Resolves** | 2026-11-16 / 2026-11-16 / 2026-11-27 |
-| **Status** | closed |
+| **Status** | resolved |
 | **Current forecast** | Median 8.4, IQR [7.2, 9.8] (v1, 2026-11-16) |
 | **Community** | hidden — bot tournament |
 | **Next review** | — |
@@ -68,3 +68,7 @@ The biggest assumption is that Nov 20–26 stays active and adds about 2 in. A d
 **Date**: 2026-11-16
 **Forecast**: Median 8.4 in, IQR [7.2 in, 9.8 in]
 **Thesis**: CDEC already shows 3.44 in as of 11/16, after two storms. NWS expects 2–3.5 in liquid over the mountains Tuesday–Friday, and CPC favours a wet Thanksgiving week, so the index should gain about 5 in by Nov 26. The outcome depends most on whether Nov 20–26 stays active.
+
+## Resolution — 2026-11-28
+
+Resolved **7.29** (synced from the Metaculus API). The bot's forecast was 8.4 [7.2, 9.8]. Official spot peer score: +18.84.

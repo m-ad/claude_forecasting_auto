@@ -6,7 +6,7 @@
 | **Tournament** | minibench — one shot, window 2026-11-16T18:31:13Z -> 2026-11-16T21:31:13Z |
 | **Type** | binary |
 | **Opened / Closes / Resolves** | 2026-11-16 / 2026-11-16 / 2026-11-28 |
-| **Status** | closed |
+| **Status** | resolved |
 | **Current forecast** | Median 85.0%, IQR [80.0%, 89.0%] (v1, 2026-11-16) |
 | **Community** | hidden — bot tournament |
 | **Next review** | — |
@@ -69,3 +69,7 @@ An announced 3-month extension or a CRL before Nov 27 (→ near 0). An early app
 **Date**: 2026-11-16
 **Forecast**: Median 85.0%, IQR [80.0%, 89.0%]
 **Thesis**: Priority-review orphan NDAs are approved first-cycle ~80–85% of the time; BBP-418's significant functional Phase 3 interim results, FDA's push toward traditional approval and no AdCom lift it, while 2026's surrogate-endpoint CRLs and frequent late 3-month extensions (any slip past Nov 27 resolves NO) hold it below the ~90% Kalshi/Jefferies view. Most sensitive to whether the FDA acts exactly on time.
+
+## Resolution — 2026-11-28
+
+Resolved **yes** (synced from the Metaculus API). The bot's forecast was 85.0% [80.0%, 89.0%]. Official spot peer score: +9.97.

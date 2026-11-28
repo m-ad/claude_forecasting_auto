@@ -6,7 +6,7 @@
 | **Tournament** | minibench — one shot, window 2026-11-16T07:02:53Z -> 2026-11-16T10:02:53Z |
 | **Type** | numeric |
 | **Opened / Closes / Resolves** | 2026-11-16 / 2026-11-16 / 2026-11-27 |
-| **Status** | closed |
+| **Status** | resolved |
 | **Current forecast** | Median 24950, IQR [24200, 25700] (v1, 2026-11-16) |
 | **Community** | hidden — bot tournament |
 | **Next review** | — |
@@ -68,3 +68,7 @@ I treat the index as a random walk from the last close, 24,922, with roughly zer
 **Date**: 2026-11-16
 **Forecast**: Median 24950, IQR [24200, 25700]
 **Thesis**: The forecast is a random walk from the Nov 13 close of 24,922, nine sessions out, with a standard deviation of about 5% and fat tails. Volatility is high after the 5.5% drop on Nov 5, and Nvidia's earnings, Anthropic's IPO and the PCE release all fall inside the window. The width of the distribution matters more than its centre.
+
+## Resolution — 2026-11-28
+
+Resolved **24130.0** (synced from the Metaculus API). The bot's forecast was 24950 [24200, 25700]. Official spot peer score: +6.86.

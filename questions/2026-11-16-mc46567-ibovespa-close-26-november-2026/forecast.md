@@ -6,7 +6,7 @@
 | **Tournament** | minibench — one shot, window 2026-11-16T02:29:17Z -> 2026-11-16T05:29:17Z |
 | **Type** | numeric |
 | **Opened / Closes / Resolves** | 2026-11-16 / 2026-11-16 / 2026-11-26 |
-| **Status** | closed |
+| **Status** | resolved |
 | **Current forecast** | Median 172600, IQR [168000, 177100] (v1, 2026-11-16) |
 | **Community** | hidden — bot tournament |
 | **Next review** | — |
@@ -73,3 +73,7 @@ Quartiles ≈ ±2.7% and 5–95% ≈ −7.5%/+7.3%, which is wider than a normal
 **Date**: 2026-11-16
 **Forecast**: Median 172,600, IQR [168,000, 177,100]
 **Thesis**: An 8-session random walk from the 13 Nov close of 172,458 (Yahoo), widened for post-runoff volatility (σ ≈ 4.3%, fat tails). The fiscal-package votes in the Senate (17 Nov) and Chamber (~18 Nov) are the main event risk, with a mild left skew. The forecast is most sensitive to how the Chamber treats PLP 299.
+
+## Resolution — 2026-11-28
+
+Resolved **176800.0** (synced from the Metaculus API). The bot's forecast was 172600 [168000, 177100]. Official spot peer score: +3.49.

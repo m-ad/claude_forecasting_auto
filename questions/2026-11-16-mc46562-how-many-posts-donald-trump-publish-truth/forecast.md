@@ -6,7 +6,7 @@
 | **Tournament** | minibench — one shot, window 2026-11-16T01:01:10Z -> 2026-11-16T04:01:10Z |
 | **Type** | discrete |
 | **Opened / Closes / Resolves** | 2026-11-16 / 2026-11-16 / 2026-11-27 |
-| **Status** | closed |
+| **Status** | resolved |
 | **Current forecast** | Median 9, IQR [5, 16] (v1, 2026-11-16) |
 | **Community** | hidden — bot tournament |
 | **Next review** | — |
@@ -69,3 +69,7 @@ Reference class: single-day counts in the archive. The 2026 mean is about 19–2
 **Date**: 2026-11-16
 **Forecast**: Median 9 posts, IQR [5 posts, 16 posts]
 **Thesis**: Typical post-midterm days on the resolution archive run 4–17 posts (Nov 8–14, 2026), and Thanksgiving 2025 had only 5. The 40-a-day headline is a mean driven by rare sprees. The forecast is most sensitive to whether a news trigger sets off a holiday spree like Christmas 2025 (126 posts), which the right tail covers.
+
+## Resolution — 2026-11-28
+
+Resolved **14.0** (synced from the Metaculus API). The bot's forecast was 9 [5, 16]. Official spot peer score: +18.78.

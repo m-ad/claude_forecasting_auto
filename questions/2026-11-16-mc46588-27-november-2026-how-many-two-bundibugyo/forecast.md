@@ -6,7 +6,7 @@
 | **Tournament** | minibench — one shot, window 2026-11-16T13:45:28Z -> 2026-11-16T16:45:28Z |
 | **Type** | discrete |
 | **Opened / Closes / Resolves** | 2026-11-16 / 2026-11-16 / 2026-11-27 |
-| **Status** | closed |
+| **Status** | resolved |
 | **Current forecast** | Median 0.141, IQR [-0.179, 0.462] (v1, 2026-11-16) |
 | **Community** | hidden — bot tournament |
 | **Next review** | — |
@@ -72,3 +72,7 @@ There is no clean reference class. Experimental outbreak vaccines with doses and
 **Date**: 2026-11-16
 **Forecast**: Median 0.14 candidates, IQR [-0.18, 0.46] candidates (P(0)=78%, P(1)=17%, P(2)=5%)
 **Thesis**: As of 12–16 Nov no DRC approval, shipment or start date had been reported for either candidate (ebolaintel, Gavi, MSF). WHO's own 4 Nov guidance of a start "within three to four weeks" of DRC approval mostly falls after 27 Nov. ChAdOx1 BDBV, with its stockpiled doses, is the most plausible single entry. The forecast is most sensitive to a DRC approval or dose-arrival announcement in the coming days.
+
+## Resolution — 2026-11-28
+
+Resolved **0.0** (synced from the Metaculus API). The bot's forecast was 0.141 [-0.179, 0.462]. Official spot peer score: +4.79.

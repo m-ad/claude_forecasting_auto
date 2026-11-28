@@ -6,7 +6,7 @@
 | **Tournament** | minibench — one shot, window 2026-11-18T01:25:35Z -> 2026-11-18T04:25:35Z |
 | **Type** | numeric |
 | **Opened / Closes / Resolves** | 2026-11-18 / 2026-11-18 / 2026-11-28 |
-| **Status** | closed |
+| **Status** | resolved |
 | **Current forecast** | Median 109600, IQR [108300, 110900] (v1, 2026-11-18) |
 | **Community** | hidden — bot tournament |
 | **Next review** | — |
@@ -61,3 +61,7 @@ The EW45 increment. If it is ≥4,500, the EW46 total exceeds ~111k. If it falls
 **Date**: 2026-11-18
 **Forecast**: Median 109600 cases, IQR [108300 cases, 110900 cases]
 **Thesis**: The EW44 bulletin already reports 102,164 cases (+4,270 in one issue), and two more issues at roughly 3,000–4,500 each point to about 109–111k in the EW46 issue. The lower tail allows for a seasonal slowdown like November 2025's (~1,600 per issue) or for the EW45 issue resolving if EW46 is posted late. The forecast is most sensitive to the EW45 increment.
+
+## Resolution — 2026-11-28
+
+Resolved **106380.0** (synced from the Metaculus API). The bot's forecast was 109600 [108300, 110900]. Official spot peer score: -20.49.

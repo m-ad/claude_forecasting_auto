@@ -6,7 +6,7 @@
 | **Tournament** | minibench — one shot, window 2026-11-16T01:02:45Z -> 2026-11-16T04:02:45Z |
 | **Type** | numeric |
 | **Opened / Closes / Resolves** | 2026-11-16 / 2026-11-16 / 2026-11-27 |
-| **Status** | closed |
+| **Status** | resolved |
 | **Current forecast** | Median 7.7, IQR [6.85, 8.65] (v1, 2026-11-16) |
 | **Community** | hidden — bot tournament |
 | **Next review** | — |
@@ -64,3 +64,7 @@ The forecast is most sensitive to the volatility assumption. If the stock stays 
 **Date**: 2026-11-16
 **Forecast**: Median R$7.70, IQR [R$6.85, R$8.65]
 **Thesis**: The forecast is a 9-session random walk from the 13 Nov close of R$7.81 (Yahoo), with about 6% daily volatility and fat tails. The median is shaded slightly down for the 2 Dec dilution vote and give-back after a +39% week. It is most sensitive to whether the extreme post-election volatility persists.
+
+## Resolution — 2026-11-28
+
+Resolved **10.59** (synced from the Metaculus API). The bot's forecast was 7.7 [6.85, 8.65]. Official spot peer score: +27.57.

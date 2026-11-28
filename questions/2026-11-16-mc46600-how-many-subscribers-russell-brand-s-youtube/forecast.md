@@ -6,7 +6,7 @@
 | **Tournament** | minibench — one shot, window 2026-11-16T21:47:03Z -> 2026-11-17T00:47:03Z |
 | **Type** | discrete |
 | **Opened / Closes / Resolves** | 2026-11-16 / 2026-11-17 / 2026-11-27 |
-| **Status** | closed |
+| **Status** | resolved |
 | **Current forecast** | Median 6,596,000, IQR [6,590,500, 6,601,000] (v1, 2026-11-16) |
 | **Community** | hidden — bot tournament |
 | **Next review** | — |
@@ -62,3 +62,7 @@ The forecast is most sensitive to the net daily loss rate after 11 Nov. A tracke
 **Date**: 2026-11-16
 **Forecast**: Median 6,596,000 subscribers, IQR [6,590,500, 6,601,000]
 **Thesis**: vidIQ's daily data show the display falling to 6.6M on 11 Nov, after two notches in nine days around the 5 Nov verdict and the 9 Nov sentencing. The long-run baseline is about −10K a month. Over the 16 days to 27 Nov, the count ends near 6.60M if the post-sentencing loss rate settles below ~600/day and drops to 6.59M if it stays above that, so I put roughly 50% on 6.60M and 40% on 6.59M.
+
+## Resolution — 2026-11-28
+
+Resolved **6600000.0** (synced from the Metaculus API). The bot's forecast was 6,596,000 [6,590,500, 6,601,000]. Official spot peer score: +30.83.

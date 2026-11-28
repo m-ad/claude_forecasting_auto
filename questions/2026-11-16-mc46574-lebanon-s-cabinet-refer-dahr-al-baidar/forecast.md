@@ -6,7 +6,7 @@
 | **Tournament** | minibench — one shot, window 2026-11-16T06:42:44Z -> 2026-11-16T09:42:44Z |
 | **Type** | binary |
 | **Opened / Closes / Resolves** | 2026-11-16 / 2026-11-16 / 2026-11-28 |
-| **Status** | closed |
+| **Status** | resolved |
 | **Current forecast** | Median 30.0%, IQR [20.0%, 40.0%] (v1, 2026-11-16) |
 | **Community** | hidden — bot tournament |
 | **Next review** | — |
@@ -66,3 +66,7 @@ The net is about **30 %**, with the IQR 20–40 %. The forecast is most sensitiv
 **Date**: 2026-11-16
 **Forecast**: Median 30.0%, IQR [20.0%, 40.0%]
 **Thesis**: The cabinet has deferred this referral for over three weeks under pressure from Hezbollah, Amal and Berri. That makes the base rate for a decision in the two remaining sessions low (~15–20 %). The 13 November Aoun–Salam commitment to put it on the agenda soon raises the odds, but being on the agenda is not approval. The forecast depends most on whether the item is actually on the ~19–20 November agenda.
+
+## Resolution — 2026-11-28
+
+Resolved **no** (synced from the Metaculus API). The bot's forecast was 30.0% [20.0%, 40.0%]. Official spot peer score: -3.94.

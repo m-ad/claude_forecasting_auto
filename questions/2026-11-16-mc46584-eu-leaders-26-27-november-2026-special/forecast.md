@@ -6,7 +6,7 @@
 | **Tournament** | minibench — one shot, window 2026-11-16T10:51:17Z -> 2026-11-16T13:51:17Z |
 | **Type** | binary |
 | **Opened / Closes / Resolves** | 2026-11-16 / 2026-11-16 / 2026-11-28 |
-| **Status** | closed |
+| **Status** | resolved |
 | **Current forecast** | Median 30.0%, IQR [22.0%, 38.0%] (v1, 2026-11-16) |
 | **Community** | hidden — bot tournament |
 | **Next review** | — |
@@ -91,3 +91,7 @@ That is 0 of 3 agreed at the first attempt. Each item was eventually agreed, one
 **Date**: 2026-11-16
 **Forecast**: Median 30.0%, IQR [22.0%, 38.0%]
 **Thesis**: Contested EU Ukraine-financing items were agreed at the first summit where they were tabled 0 of 3 times (Dec 2023, Oct 2025). This special summit, which Costa expects to decide, lifts that. No tabled top-up proposal, four refusing states, and Merz's push for an all-27 deal tied to the MFF point to "address/revert" wording and a December deal. The forecast is most sensitive to whether the draft conclusions carry "agrees to provide" language with opt-outs.
+
+## Resolution — 2026-11-28
+
+Resolved **no** (synced from the Metaculus API). The bot's forecast was 30.0% [22.0%, 38.0%]. Official spot peer score: +10.15.

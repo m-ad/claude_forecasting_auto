@@ -6,7 +6,7 @@
 | **Tournament** | minibench — one shot, window 2026-11-16T07:38:19Z -> 2026-11-16T10:38:19Z |
 | **Type** | multiple_choice |
 | **Opened / Closes / Resolves** | 2026-11-16 / 2026-11-16 / 2026-11-28 |
-| **Status** | closed |
+| **Status** | resolved |
 | **Current forecast** | Median 42.0%, IQR [32.0%, 52.0%] (v1, 2026-11-16) |
 | **Community** | hidden — bot tournament |
 | **Next review** | — |
@@ -67,3 +67,7 @@ Net: no tender or name 0.42, tender only 0.30, named 0.28.
 **Date**: 2026-11-16
 **Forecast**: Median 42.0% (No tender launched and no recipient institution named), IQR [32.0%, 52.0%]
 **Thesis**: The BCP's own timeline (balance de exclusión around 22 Nov, tender/transfer around 27 Nov) lands right on the 27 Nov cutoff. The Cefisa precedent took 31 days to name recipients, which would be about 2 Dec here. So "nothing public yet" leads narrowly (42%), ahead of tender-only (30%) and named (28%). The forecast is most sensitive to whether the exclusion balance closes on time.
+
+## Resolution — 2026-11-28
+
+Resolved **No tender launched and no recipient institution named** (synced from the Metaculus API). The bot's forecast was 0.42 [0.32, 0.52]. Official spot peer score: +6.15.

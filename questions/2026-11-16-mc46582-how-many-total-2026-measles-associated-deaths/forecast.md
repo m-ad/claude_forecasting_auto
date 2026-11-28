@@ -6,7 +6,7 @@
 | **Tournament** | minibench — one shot, window 2026-11-16T09:38:14Z -> 2026-11-16T12:38:14Z |
 | **Type** | discrete |
 | **Opened / Closes / Resolves** | 2026-11-16 / 2026-11-16 / 2026-11-27 |
-| **Status** | closed |
+| **Status** | resolved |
 | **Current forecast** | Median 7.8, IQR [6.8, 9] (v1, 2026-11-16) |
 | **Community** | hidden — bot tournament |
 | **Next review** | — |
@@ -66,3 +66,7 @@ How fast NCHS verifies the two 13 Nov deaths: if the 19 Nov refresh still shows 
 **Date**: 2026-11-16
 **Forecast**: Median 7.8 deaths, IQR [6.8, 9.0] deaths
 **Thesis**: CDC's NCHS-verified count (6 as of 12 Nov) lags the states' 10 and rose +1 and +2 in its last two weekly updates. With one or two refreshes left before 26 Nov (Thanksgiving may cost one), it most likely reaches 7–8. The outcome is most sensitive to how fast NCHS verifies the two deaths announced on 13 Nov.
+
+## Resolution — 2026-11-28
+
+Resolved **9.0** (synced from the Metaculus API). The bot's forecast was 7.8 [6.8, 9]. Official spot peer score: +16.91.

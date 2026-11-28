@@ -6,7 +6,7 @@
 | **Tournament** | minibench — one shot, window 2026-11-16T04:31:30Z -> 2026-11-16T07:31:30Z |
 | **Type** | multiple_choice |
 | **Opened / Closes / Resolves** | 2026-11-16 / 2026-11-16 / 2026-11-27 |
-| **Status** | closed |
+| **Status** | resolved |
 | **Current forecast** | Median 28.0%, IQR [22.0%, 34.0%] (v1, 2026-11-16) |
 | **Community** | hidden — bot tournament |
 | **Next review** | — |
@@ -68,3 +68,7 @@ The Nov 17 NVDA print decides most of this. A beat with strong Q4 guidance and a
 **Date**: 2026-11-16
 **Forecast**: Median 28.0% (AMD), IQR [22.0%, 34.0%]
 **Thesis**: Two-week relative returns among four highly correlated chip stocks are close to a coin toss, so the probabilities follow volatility. AMD and Micron are the most volatile, and Nvidia's Nov 17 earnings (about ±10% implied) lift it from below 25% to about 26%. The forecast is most sensitive to the Nvidia print.
+
+## Resolution — 2026-11-28
+
+Resolved **Nvidia (NVDA)** (synced from the Metaculus API). The bot's forecast was 0.28 [0.22, 0.34]. Official spot peer score: -14.19.

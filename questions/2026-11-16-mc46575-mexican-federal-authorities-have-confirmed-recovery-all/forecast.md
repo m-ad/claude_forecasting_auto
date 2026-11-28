@@ -6,7 +6,7 @@
 | **Tournament** | minibench — one shot, window 2026-11-16T06:46:30Z -> 2026-11-16T09:46:30Z |
 | **Type** | binary |
 | **Opened / Closes / Resolves** | 2026-11-16 / 2026-11-16 / 2026-11-27 |
-| **Status** | closed |
+| **Status** | resolved |
 | **Current forecast** | Median 8.0%, IQR [5.0%, 13.0%] (v1, 2026-11-16) |
 | **Community** | hidden — bot tournament |
 | **Next review** | — |
@@ -67,3 +67,7 @@ An arrest of the identified suspect, followed by a CNSNS/FGR statement that "el 
 **Date**: 2026-11-16
 **Forecast**: Median 8.0%, IQR [5.0%, 13.0%]
 **Thesis**: Single stolen sources in Mexico are usually recovered within about a week, but here nine boxes were looted by several people and none had been found nine days later. The FGR has since reclassified the cargo as medical material, and the alert is heading for a wind-down, not a formal "all nine secured" statement. The main path to YES is the FGR's identified suspect leading to a bulk recovery announced federally.
+
+## Resolution — 2026-11-28
+
+Resolved **no** (synced from the Metaculus API). The bot's forecast was 8.0% [5.0%, 13.0%]. Official spot peer score: +23.26.

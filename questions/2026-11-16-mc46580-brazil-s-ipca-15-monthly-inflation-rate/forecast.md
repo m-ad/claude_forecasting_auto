@@ -6,7 +6,7 @@
 | **Tournament** | minibench — one shot, window 2026-11-16T08:48:36Z -> 2026-11-16T11:48:36Z |
 | **Type** | discrete |
 | **Opened / Closes / Resolves** | 2026-11-16 / 2026-11-16 / 2026-11-26 |
-| **Status** | closed |
+| **Status** | resolved |
 | **Current forecast** | Median 0.31, IQR [0.24, 0.39] (v1, 2026-11-16) |
 | **Community** | hidden — bot tournament |
 | **Next review** | — |
@@ -73,3 +73,7 @@ Combining these gives a median of 0.31%. The fat tails reflect a ±0.1 pp miss b
 **Date**: 2026-11-16
 **Forecast**: Median 0.31%, IQR [0.24%, 0.39%]
 **Thesis**: Anchored on the October IPCA-15 (+0.32%). Food is accelerating and airfares are turning up (IPC-S +0.38%, IPC-Fipe +0.48% in early November), offset by the soft full October IPCA (0.14%) and a continuing electricity drag under the green flag. The forecast is most sensitive to food and airfares in late October and early November.
+
+## Resolution — 2026-11-28
+
+Resolved **0.22** (synced from the Metaculus API). The bot's forecast was 0.31 [0.24, 0.39]. Official spot peer score: +4.87.

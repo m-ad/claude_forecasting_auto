@@ -6,7 +6,7 @@
 | **Tournament** | minibench — one shot, window 2026-11-17T07:43:45Z -> 2026-11-17T10:43:45Z |
 | **Type** | numeric |
 | **Opened / Closes / Resolves** | 2026-11-17 / 2026-11-17 / 2026-11-27 |
-| **Status** | closed |
+| **Status** | resolved |
 | **Current forecast** | Median 5940, IQR [5830, 6090] (v1, 2026-11-17) |
 | **Community** | hidden — bot tournament |
 | **Next review** | — |
@@ -81,3 +81,7 @@ Output: p5 5,725 / p25 5,835 / p50 5,943 / p75 6,091 / p95 6,355. I widened the 
 **Date**: 2026-11-17
 **Forecast**: Median 5,940 cases, IQR [5,830, 6,090]
 **Thesis**: Recent weekly CDC increments have been 230 to 330, adding to the 5,412 reported on 13 Nov. Pennsylvania is slowing, but Wisconsin, Indiana and Kentucky are rising, so two increments (one of them in Thanksgiving week) give about 5,900. The forecast is most sensitive to whether a 27 Nov update exists: if CDC skips or publishes early, the 4 Dec update (about 6,150) governs.
+
+## Resolution — 2026-11-28
+
+Resolved **6039.0** (synced from the Metaculus API). The bot's forecast was 5940 [5830, 6090]. Official spot peer score: +13.09.

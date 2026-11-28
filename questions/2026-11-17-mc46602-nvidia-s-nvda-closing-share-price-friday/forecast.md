@@ -6,7 +6,7 @@
 | **Tournament** | minibench — one shot, window 2026-11-17T00:45:59Z -> 2026-11-17T03:45:59Z |
 | **Type** | numeric |
 | **Opened / Closes / Resolves** | 2026-11-17 / 2026-11-17 / 2026-11-27 |
-| **Status** | closed |
+| **Status** | resolved |
 | **Current forecast** | Median 157, IQR [144, 171] (v1, 2026-11-17) |
 | **Community** | hidden — bot tournament |
 | **Next review** | — |
@@ -66,3 +66,7 @@ The earnings print and guidance on 17 Nov. A Q4 guide well above $120B, or a bea
 **Date**: 2026-11-17
 **Forecast**: Median $157, IQR [$144, $171]
 **Thesis**: The forecast is a random walk from the 16 Nov close of $156.14, over 7 sessions that include the 17 Nov earnings reaction (options imply ±10.6%) during a CEO-succession crisis. That gives a log standard deviation of about 14% and fat tails, with only a slight lean toward an oversold rebound. The earnings guide is the single biggest swing factor.
+
+## Resolution — 2026-11-28
+
+Resolved **150.5** (synced from the Metaculus API). The bot's forecast was 157 [144, 171]. Official spot peer score: +10.98.

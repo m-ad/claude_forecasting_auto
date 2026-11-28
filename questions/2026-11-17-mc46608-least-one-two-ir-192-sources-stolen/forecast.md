@@ -6,7 +6,7 @@
 | **Tournament** | minibench — one shot, window 2026-11-17T06:59:47Z -> 2026-11-17T09:59:47Z |
 | **Type** | binary |
 | **Opened / Closes / Resolves** | 2026-11-17 / 2026-11-17 / 2026-11-28 |
-| **Status** | closed |
+| **Status** | resolved |
 | **Current forecast** | Median 16.0%, IQR [10.0%, 24.0%] (v1, 2026-11-17) |
 | **Community** | hidden — bot tournament |
 | **Next review** | — |
@@ -75,3 +75,7 @@ The main thing is a credible Nigerian outlet quoting police or the NNRA on recov
 **Date**: 2026-11-17
 **Forecast**: Median 16.0%, IQR [10.0%, 24.0%]
 **Thesis**: Stolen radiography sources are usually recovered within days or not for weeks or months. About a week after the NNRA's 11 Nov disclosure, its news page and Nigerian media show no recovery [1][2]. The pit theft of six projectors looks organised, and a recovery must still be publicised by an authority before 28 Nov. The forecast is most sensitive to whether the unverified OtownGist "recovered intact" claim reflects a real official statement.
+
+## Resolution — 2026-11-28
+
+Resolved **no** (synced from the Metaculus API). The bot's forecast was 16.0% [10.0%, 24.0%]. Official spot peer score: +9.23.

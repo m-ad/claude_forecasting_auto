@@ -13,7 +13,7 @@ dates:
   opened: '2026-11-16'
   closes: '2026-11-16'
   resolves: '2026-11-28'
-status: closed
+status: resolved
 tournament:
   slug: minibench
   mode: one_shot
@@ -27,7 +27,7 @@ tournament:
       A tender has been launched, but no recipient institution named: 0.3
       At least one recipient institution has been named: 0.28
   comment_posted: true
-  official_score: null
+  official_score: 6.150588344361386
   missed_window: false
 current:
   version: 1
@@ -45,6 +45,6 @@ current:
 next_review: null
 tripwires: []
 resolution:
-  outcome: null
-  date: null
-  source: null
+  outcome: No tender launched and no recipient institution named
+  date: '2026-11-28'
+  source: 'Metaculus API: question 46838 resolution'

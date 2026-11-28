@@ -6,7 +6,7 @@
 | **Tournament** | minibench — one shot, window 2026-11-17T02:42:01Z -> 2026-11-17T05:42:01Z |
 | **Type** | numeric |
 | **Opened / Closes / Resolves** | 2026-11-17 / 2026-11-17 / 2026-11-27 |
-| **Status** | closed |
+| **Status** | resolved |
 | **Current forecast** | Median 7160, IQR [6970, 7320] (v1, 2026-11-17) |
 | **Community** | hidden — bot tournament |
 | **Next review** | — |
@@ -65,3 +65,7 @@ Last value 7,243. Over the past four weeks the series ranged 6,659–7,354 and m
 **Date**: 2026-11-17
 **Forecast**: Median 7,160 ₩, IQR [6,970 ₩, 7,320 ₩]
 **Thesis**: Starting from the Nov 16 Dabom value of 7,243 won, I shade the median down slightly: farm-gate prices are falling (~5,000) on a record layer flock, the retail margin is under political pressure, and last November's analogue fell despite AI. The upper tail stays fat because a further large layer-farm HPAI outbreak before Nov 27 could add a 300–500 won step.
+
+## Resolution — 2026-11-28
+
+Resolved **6870.0** (synced from the Metaculus API). The bot's forecast was 7160 [6970, 7320]. Official spot peer score: +15.86.

@@ -6,7 +6,7 @@
 | **Tournament** | minibench — one shot, window 2026-11-17T00:14:21Z -> 2026-11-17T03:14:21Z |
 | **Type** | binary |
 | **Opened / Closes / Resolves** | 2026-11-17 / 2026-11-17 / 2026-11-28 |
-| **Status** | closed |
+| **Status** | resolved |
 | **Current forecast** | Median 18.0%, IQR [13.0%, 24.0%] (v1, 2026-11-17) |
 | **Community** | hidden — bot tournament |
 | **Next review** | — |
@@ -65,3 +65,7 @@ The main risk is an escalation shock: talks collapse, a major strike on Gulf exp
 **Date**: 2026-11-17
 **Forecast**: Median 18.0%, IQR [13.0%, 24.0%]
 **Thesis**: Brent January has slid to ~$92 (17 Nov, Trading Economics), so $100 needs a +8.7% move in 9 sessions. War-regime volatility gives that about a 20% chance; de-escalation momentum and an IEA-projected surplus shade it lower. The forecast is most sensitive to an escalation shock in the Gulf, which has pushed Brent back over $100 four times this year.
+
+## Resolution — 2026-11-28
+
+Resolved **no** (synced from the Metaculus API). The bot's forecast was 18.0% [13.0%, 24.0%]. Official spot peer score: +6.54.

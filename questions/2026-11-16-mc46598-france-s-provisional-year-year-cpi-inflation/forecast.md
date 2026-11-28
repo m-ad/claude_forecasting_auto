@@ -6,7 +6,7 @@
 | **Tournament** | minibench — one shot, window 2026-11-16T20:07:30Z -> 2026-11-16T23:07:30Z |
 | **Type** | discrete |
 | **Opened / Closes / Resolves** | 2026-11-16 / 2026-11-16 / 2026-11-27 |
-| **Status** | closed |
+| **Status** | resolved |
 | **Current forecast** | Median 3.15, IQR [3.03, 3.27] (v1, 2026-11-16) |
 | **Community** | hidden — bot tournament |
 | **Next review** | — |
@@ -77,3 +77,7 @@ Diesel averaged 2.342 €/L in October [5] and about 2.18–2.21 €/L in 6–11
 **Date**: 2026-11-16
 **Forecast**: Median 3.15%, IQR [3.03%, 3.27%]
 **Thesis**: The last print is 3.4% (October). In November 2025, the base month, petroleum products rose 2.7% m/m. In November 2026, pump prices are down about 5–6% (diesel strategic-stock release, Brent ~$92), only partly offset by the +6.6% gas reference price, so the y/y rate should ease to about 3.1–3.2%. The forecast is most sensitive to late-November pump prices and to the effective weight of petroleum products.
+
+## Resolution — 2026-11-28
+
+Resolved **below_lower_bound** (synced from the Metaculus API). The bot's forecast was 3.15 [3.03, 3.27]. Official spot peer score: +62.24.

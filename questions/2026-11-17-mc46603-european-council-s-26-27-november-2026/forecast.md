@@ -6,7 +6,7 @@
 | **Tournament** | minibench — one shot, window 2026-11-17T01:11:14Z -> 2026-11-17T04:11:14Z |
 | **Type** | binary |
 | **Opened / Closes / Resolves** | 2026-11-17 / 2026-11-17 / 2026-11-27 |
-| **Status** | closed |
+| **Status** | resolved |
 | **Current forecast** | Median 40.0%, IQR [30.0%, 50.0%] (v1, 2026-11-17) |
 | **Community** | hidden — bot tournament |
 | **Next review** | — |
@@ -67,3 +67,7 @@ A leaked draft of the November conclusions with (or without) a sanctions paragra
 **Date**: 2026-11-17
 **Forecast**: Median 40.0%, IQR [30.0%, 50.0%]
 **Thesis**: Regular European Councils name the pending sanctions package by number. Special summits on the MFF and Ukraine financing (Feb 2024, Mar 2025) did not. The Commission says it will table the 22nd package by 26 Nov, which keeps YES live. The forecast is most sensitive to whether the Ukraine text includes a sanctions paragraph at all, or leaves sanctions to December.
+
+## Resolution — 2026-11-28
+
+Resolved **no** (synced from the Metaculus API). The bot's forecast was 40.0% [30.0%, 50.0%]. Official spot peer score: +42.12.

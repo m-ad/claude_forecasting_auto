@@ -6,7 +6,7 @@
 | **Tournament** | minibench — one shot, window 2026-11-16T07:22:17Z -> 2026-11-16T10:22:17Z |
 | **Type** | numeric |
 | **Opened / Closes / Resolves** | 2026-11-16 / 2026-11-16 / 2026-11-27 |
-| **Status** | closed |
+| **Status** | resolved |
 | **Current forecast** | Median 20860, IQR [20795, 20950] (v1, 2026-11-16) |
 | **Community** | hidden — bot tournament |
 | **Next review** | — |
@@ -67,3 +67,7 @@ How fast the 695 cases under study get adjudicated. If more Jalisco-style batche
 **Date**: 2026-11-16
 **Forecast**: Median 20,860 cases, IQR [20,795, 20,950]
 **Thesis**: The 12 Nov bulletin stands at 20,701 with 9 editions left before 26 Nov. The October run-rate (~8–12 per edition) gives ~20,800, and the backlog push (147 cases classified on 12 Nov, 695 still under study) adds a right-skewed batch allowance. The forecast is most sensitive to whether Jalisco-style batch confirmations continue after the PAHO meeting.
+
+## Resolution — 2026-11-28
+
+Resolved **20775.0** (synced from the Metaculus API). The bot's forecast was 20860 [20795, 20950]. Official spot peer score: +19.05.

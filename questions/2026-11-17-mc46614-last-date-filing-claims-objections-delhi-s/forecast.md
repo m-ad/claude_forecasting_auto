@@ -6,7 +6,7 @@
 | **Tournament** | minibench — one shot, window 2026-11-17T17:06:55Z -> 2026-11-17T20:06:55Z |
 | **Type** | multiple_choice |
 | **Opened / Closes / Resolves** | 2026-11-17 / 2026-11-17 / 2026-11-27 |
-| **Status** | closed |
+| **Status** | resolved |
 | **Current forecast** | Median 42.0%, IQR [33.0%, 50.0%] (v1, 2026-11-17) |
 | **Community** | hidden — bot tournament |
 | **Next review** | — |
@@ -64,3 +64,7 @@ An ECI statement that Nov 25 is final, or an extension restricted to the Annexur
 **Date**: 2026-11-17
 **Forecast**: Median 42.0% (December 5 – December 15, 2026), IQR [33.0%, 50.0%]
 **Thesis**: Every Delhi SIR deadline has been extended, typically 1–4 days before expiry, and the ECI's fresh Annexure-A enumeration of ~47.5 lakh excluded voters only began the week of Nov 16, so a further extension of the Nov 25 claims date is likely (~82%). Reports of a ~two-week extension point to Dec 5–15, but past one-month extensions keep Dec 16+ heavily weighted.
+
+## Resolution — 2026-11-28
+
+Resolved **November 25, 2026 or earlier (no further extension)** (synced from the Metaculus API). The bot's forecast was 0.42 [0.33, 0.5]. Official spot peer score: -31.79.

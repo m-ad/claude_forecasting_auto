@@ -6,7 +6,7 @@
 | **Tournament** | minibench — one shot, window 2026-11-16T02:36:33Z -> 2026-11-16T05:36:33Z |
 | **Type** | binary |
 | **Opened / Closes / Resolves** | 2026-11-16 / 2026-11-16 / 2026-11-26 |
-| **Status** | closed |
+| **Status** | resolved |
 | **Current forecast** | Median 56.0%, IQR [52.0%, 60.0%] (v1, 2026-11-16) |
 | **Community** | hidden — bot tournament |
 | **Next review** | — |
@@ -70,3 +70,7 @@ Net: about 56 %. The IQR reflects the possible line move once the Hutchinson new
 **Date**: 2026-11-16
 **Forecast**: Median 56.0%, IQR [52.0%, 60.0%]
 **Thesis**: Detroit is a 2.5-point home favourite, which sportsbooks price at about 57–60 % before the 15 Nov games. Since then the Lions won 35-10 in Munich to reach 7-2, but lost edge rusher Aidan Hutchinson to a reported season-ending knee injury, which takes about 1–2 pp off. The forecast is most sensitive to quarterback health after the 22 Nov games and to how far the line moves on the Hutchinson news.
+
+## Resolution — 2026-11-28
+
+Resolved **no** (synced from the Metaculus API). The bot's forecast was 56.0% [52.0%, 60.0%]. Official spot peer score: +2.27.

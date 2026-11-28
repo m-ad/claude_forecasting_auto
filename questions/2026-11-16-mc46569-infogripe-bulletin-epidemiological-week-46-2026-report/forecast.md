@@ -6,7 +6,7 @@
 | **Tournament** | minibench — one shot, window 2026-11-16T03:36:30Z -> 2026-11-16T06:36:30Z |
 | **Type** | binary |
 | **Opened / Closes / Resolves** | 2026-11-16 / 2026-11-16 / 2026-11-26 |
-| **Status** | closed |
+| **Status** | resolved |
 | **Current forecast** | Median 58.0%, IQR [48.0%, 67.0%] (v1, 2026-11-16) |
 | **Community** | hidden — bot tournament |
 | **Next review** | — |
@@ -61,3 +61,7 @@ The SE 45 edition (19 Nov) is not available before close. If it had said "desace
 **Date**: 2026-11-16
 **Forecast**: Median 58.0%, IQR [48.0%, 67.0%]
 **Thesis**: The SE 43 and SE 44 InfoGripe bulletins both report national COVID-19 SRAG growth, and the wave is still spreading across Centro-Sul states, with the Covid share of positives up from 8.5% to 11.5%. Growth signals tend to persist, and either the 6-week or the 3-week horizon is enough for YES. Against that, Mato Grosso is already decelerating, counts are small, and past waves (2023) turned to "desaceleração" about two editions later. The forecast is most sensitive to whether the wave peaks before 21 November.
+
+## Resolution — 2026-11-28
+
+Resolved **yes** (synced from the Metaculus API). The bot's forecast was 58.0% [48.0%, 67.0%]. Official spot peer score: -17.79.

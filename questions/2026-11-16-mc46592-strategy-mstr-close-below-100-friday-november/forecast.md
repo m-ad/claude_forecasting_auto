@@ -6,7 +6,7 @@
 | **Tournament** | minibench — one shot, window 2026-11-16T15:35:38Z -> 2026-11-16T18:35:38Z |
 | **Type** | binary |
 | **Opened / Closes / Resolves** | 2026-11-16 / 2026-11-16 / 2026-11-27 |
-| **Status** | closed |
+| **Status** | resolved |
 | **Current forecast** | Median 47.0%, IQR [39.0%, 55.0%] (v1, 2026-11-16) |
 | **Community** | hidden — bot tournament |
 | **Next review** | — |
@@ -64,3 +64,7 @@ Today's close: below ~$100 would push this to ~55–60%; a rebound above $106 to
 **Date**: 2026-11-16
 **Forecast**: Median 47.0%, IQR [39.0%, 55.0%]
 **Thesis**: MSTR traded at $102.93 intraday on Nov 16, only ~3% above the $100 strike with ~8.5 sessions left and ~5% daily volatility, so a driftless model gives ~42%. Bitcoin below Strategy's cost basis, no mNAV premium and MSCI deletion selling concentrated before the Nov 30 effective date tilt it up to ~47%. The forecast is most sensitive to bitcoin's path and to today's close.
+
+## Resolution — 2026-11-28
+
+Resolved **yes** (synced from the Metaculus API). The bot's forecast was 47.0% [39.0%, 55.0%]. Official spot peer score: -1.42.

@@ -13,7 +13,7 @@ dates:
   opened: '2026-11-16'
   closes: '2026-11-16'
   resolves: '2026-11-27'
-status: closed
+status: resolved
 tournament:
   slug: minibench
   mode: one_shot
@@ -27,7 +27,7 @@ tournament:
       Cowboys win by 1 to 6 points: 0.24
       Cowboys do not win (Eagles win or the game ends in a tie): 0.29
   comment_posted: true
-  official_score: null
+  official_score: -27.08763428557212
   missed_window: false
 current:
   version: 1
@@ -45,6 +45,6 @@ current:
 next_review: null
 tripwires: []
 resolution:
-  outcome: null
-  date: null
-  source: null
+  outcome: Cowboys do not win (Eagles win or the game ends in a tie)
+  date: '2026-11-28'
+  source: 'Metaculus API: question 46830 resolution'

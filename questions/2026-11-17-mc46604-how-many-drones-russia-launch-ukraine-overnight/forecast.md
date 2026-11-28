@@ -6,7 +6,7 @@
 | **Tournament** | minibench — one shot, window 2026-11-17T01:43:34Z -> 2026-11-17T04:43:34Z |
 | **Type** | numeric |
 | **Opened / Closes / Resolves** | 2026-11-17 / 2026-11-17 / 2026-11-27 |
-| **Status** | closed |
+| **Status** | resolved |
 | **Current forecast** | Median 158, IQR [118, 215] (v1, 2026-11-17) |
 | **Community** | hidden — bot tournament |
 | **Next review** | — |
@@ -69,3 +69,7 @@ There are two regimes. On "routine" nights (about 80 %), totals of roughly 90–
 **Date**: 2026-11-17
 **Forecast**: Median 158 drones, IQR [118 drones, 215 drones]
 **Thesis**: November 2026 Ukrainian Air Force overnight totals (n=12, median ~163, range 96–317) set the base. Routine nights run 90–220 and mass energy strikes every 5–7 days reach 280–600, so the upper tail is long (p90 310). The biggest unknown is whether 26–27 Nov falls on a mass-strike night.
+
+## Resolution — 2026-11-28
+
+Resolved **155.0** (synced from the Metaculus API). The bot's forecast was 158 [118, 215]. Official spot peer score: +10.90.

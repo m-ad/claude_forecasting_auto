@@ -13,7 +13,7 @@ dates:
   opened: '2026-11-17'
   closes: '2026-11-17'
   resolves: '2026-11-27'
-status: closed
+status: resolved
 tournament:
   slug: minibench
   mode: one_shot
@@ -28,7 +28,7 @@ tournament:
       December 5 – December 15, 2026: 0.42
       December 16, 2026 or later: 0.28
   comment_posted: true
-  official_score: null
+  official_score: -31.78678211409184
   missed_window: false
 current:
   version: 1
@@ -46,6 +46,6 @@ current:
 next_review: null
 tripwires: []
 resolution:
-  outcome: null
-  date: null
-  source: null
+  outcome: November 25, 2026 or earlier (no further extension)
+  date: '2026-11-28'
+  source: 'Metaculus API: question 46874 resolution'

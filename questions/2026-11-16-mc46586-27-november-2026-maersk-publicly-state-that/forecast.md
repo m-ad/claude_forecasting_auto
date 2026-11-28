@@ -6,7 +6,7 @@
 | **Tournament** | minibench — one shot, window 2026-11-16T12:43:42Z -> 2026-11-16T15:43:42Z |
 | **Type** | binary |
 | **Opened / Closes / Resolves** | 2026-11-16 / 2026-11-16 / 2026-11-27 |
-| **Status** | closed |
+| **Status** | resolved |
 | **Current forecast** | Median 10.0%, IQR [6.0%, 15.0%] (v1, 2026-11-16) |
 | **Community** | hidden — bot tournament |
 | **Next review** | — |
@@ -67,3 +67,7 @@ The reference class is large companies that first say "no sensitive data" and ar
 **Date**: 2026-11-16
 **Forecast**: Median 10.0%, IQR [6.0%, 15.0%]
 **Thesis**: Companies that first say "no sensitive data" usually admit personal-data exposure only 1–4 months later, after forensics or a leak forces it. Here Maersk has said nothing since 11 Nov, and Whitearmor's leak deadline (~7 Dec) falls after the 27 Nov cutoff. The main upside risk is an early sample leak, or Maersk describing the data as "non-sensitive personal data".
+
+## Resolution — 2026-11-28
+
+Resolved **no** (synced from the Metaculus API). The bot's forecast was 10.0% [6.0%, 15.0%]. Official spot peer score: +23.74.

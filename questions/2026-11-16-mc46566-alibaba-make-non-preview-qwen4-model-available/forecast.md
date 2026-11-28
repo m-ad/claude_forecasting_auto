@@ -6,7 +6,7 @@
 | **Tournament** | minibench — one shot, window 2026-11-16T02:22:39Z -> 2026-11-16T05:22:39Z |
 | **Type** | binary |
 | **Opened / Closes / Resolves** | 2026-11-16 / 2026-11-16 / 2026-11-28 |
-| **Status** | closed |
+| **Status** | resolved |
 | **Current forecast** | Median 95.0%, IQR [92.0%, 97.0%] (v1, 2026-11-16) |
 | **Community** | hidden — bot tournament |
 | **Next review** | — |
@@ -87,3 +87,7 @@ Forecast: 95%.
 **Date**: 2026-11-16
 **Forecast**: Median 95.0%, IQR [92.0%, 97.0%]
 **Thesis**: Both Model Studio pricing pages already list a non-preview `qwen4-max` with pay-as-you-go prices as of 16 Nov 2026: $1.5/$4.5 per 1M tokens internationally, CNY 10/30 on the China page. That already meets the resolution criteria. The residual risk is Alibaba pulling the row before 27 Nov or the resolver misreading it.
+
+## Resolution — 2026-11-28
+
+Resolved **yes** (synced from the Metaculus API). The bot's forecast was 95.0% [92.0%, 97.0%]. Official spot peer score: +64.14.

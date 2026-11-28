@@ -6,7 +6,7 @@
 | **Tournament** | minibench — one shot, window 2026-11-17T18:32:14Z -> 2026-11-17T21:32:14Z |
 | **Type** | numeric |
 | **Opened / Closes / Resolves** | 2026-11-17 / 2026-11-17 / 2026-11-27 |
-| **Status** | closed |
+| **Status** | resolved |
 | **Current forecast** | Median 905, IQR [840, 985] (v1, 2026-11-17) |
 | **Community** | hidden — bot tournament |
 | **Next review** | — |
@@ -62,3 +62,7 @@ The Nov 10→13 rise of 100 came from real growth, mainly Grant (153→222) and 
 **Date**: 2026-11-17
 **Forecast**: Median 905 cases, IQR [840 cases, 985 cases]
 **Thesis**: DHS shows 651 cases as of Nov 13, and the daily increase rose from ~15 to ~33 over Nov 3–13. Extrapolating 18–25/day for 11–14 days to the Nov 24 or Nov 27 update gives ~870–960. The result depends most on whether reactive vaccination and Thanksgiving slow ascertainment, and on whether the Nov 27 update is posted before resolution.
+
+## Resolution — 2026-11-28
+
+Resolved **920.0** (synced from the Metaculus API). The bot's forecast was 905 [840, 985]. Official spot peer score: +23.12.
