@@ -249,7 +249,7 @@ outcome 7,190 (cumulative, report for 19–25 Oct; PIT 0.363, density 0.24× uni
 | 10 | Price-question recipe: today's close if after the close; σ from ATM IV/DVOL; quantiles from implied-vol-normalised h-day returns; dense percentiles | CoreWeave, Bitcoin, BCRA, Argentina (~10/47 questions) | medium | open |
 | 11 | Series-fetch helper (xls/csv/json → `raw/`), `base_rate` computed from the resolution series' history | wheat, BCRA, Hormuz | low–medium (CI allowlist) | open |
 | 12 | Source-health rule (break after a pipeline change ⇒ probable artefact) and partial-period scaling | Hormuz only | low | open |
-| 13 | Width from a nowcast's published error (IQR half-width ≈ 0.7–0.85 × MAE, p5–p95 ≈ 1.6–1.8 × RMSE) | GDP control | low | open |
+| 13 | Width from a nowcast's published error (IQR half-width ≈ 0.7–0.85 × MAE, p5–p95 ≈ 1.6–1.8 × RMSE) | GDP control | low | **done** (generalised to any predictor's historical miss, #33: skill Step 4, methodology §5) |
 | 14 | PIT + replay script in the daily sync (`scripts/postmortem.py`) | this document | low | **done** |
 | 15 | Width warnings in `log_forecast.py` ((p95−p5)/IQR) — would have flagged none of the failures | — | low value | open |
 
